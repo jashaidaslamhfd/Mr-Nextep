@@ -25,6 +25,9 @@ jobs:
           FB_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID || secrets.FB_PAGE_ID }}
           FB_API_VERSION: ${{ vars.FB_API_VERSION }}
           FB_TUNEUP_DRY: ${{ github.event.inputs.dry_run }}
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
         run: python scripts/fb_page_tuneup.py
       - name: Persist tune-up report
         run: |

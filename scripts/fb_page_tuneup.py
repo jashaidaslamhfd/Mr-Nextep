@@ -231,30 +231,100 @@ def _norm(text: str) -> str:
 
 
 def _first_clean_line(desc: str) -> str:
-    for line in desc.splitlines():
+    for line in (desc or "").splitlines():
         line = re.sub(r"\s+", " ", line).strip()
         if line and not line.startswith("#"):
             return line.rstrip(". ")
     return ""
 
 
-def desired_title(reel: dict, history: list) -> str:
-    """Short branded title: pipeline title if matched, else trimmed hook."""
-    desc = reel.get("description") or ""
-    hook_n = _norm(_first_clean_line(desc))
+def _yt_access_token():
+    """OAuth access token from the repo's YouTube secrets (None if absent)."""
+    cid, csec, ref = (os.environ.get(k) for k in
+                      ("GOOGLE_CLIENT_ID", "GOOGLE_CLIENT_SECRET", "REFRESH_TOKEN"))
+    if not (cid and csec and ref):
+        return None
+    data = urllib.parse.urlencode({
+        "client_id": cid, "client_secret": csec,
+        "refresh_token": ref, "grant_type": "refresh_token"}).encode()
+    try:
+        req = urllib.request.Request("https://oauth2.googleapis.com/token", data=data)
+        with urllib.request.urlopen(req, timeout=30) as r:
+            return json.load(r)["access_token"]
+    except Exception as e:  # noqa: BLE001
+        note("youtube text map", "blocked", str(e)[:150])
+        return None
+
+
+def yt_text_map():
+    """Map youtube_id -> normalised (title+description) for every cover we
+    have in assets/thumbnails_us, so old Reels (absent from the 14-entry
+    video_history) can still be matched to their designed covers/titles."""
+    ids = [f[:-4] for f in os.listdir(THUMB_DIR) if f.endswith(".jpg")] \
+        if os.path.isdir(THUMB_DIR) else []
+    if not ids:
+        return {}
+    token = _yt_access_token()
+    if not token:
+        note("youtube text map", "skip", "no YouTube creds — history-only matching")
+        return {}
+    out = {}
+    for i in range(0, len(ids), 50):
+        chunk = ",".join(ids[i:i + 50])
+        url = ("https://www.googleapis.com/youtube/v3/videos"
+               f"?part=snippet&id={chunk}")
+        req = urllib.request.Request(url)
+        req.add_header("Authorization", f"Bearer {token}")
+        try:
+            with urllib.request.urlopen(req, timeout=40) as r:
+                data = json.load(r)
+        except Exception as e:  # noqa: BLE001
+            note("youtube text map", "blocked", str(e)[:150])
+            return out
+        for item in data.get("items", []):
+            sn = item.get("snippet", {})
+            out[item["id"]] = {"title": sn.get("title", ""),
+                               "norm": _norm(sn.get("title", "") + " " +
+                                             sn.get("description", ""))}
+    note("youtube text map", "ok", f"{len(out)} videos mapped from YouTube")
+    return out
+
+
+def _clean_yt_title(title: str) -> str:
+    t = re.sub(r"#\w+", "", title or "")
+    t = t.split("|")[0]
+    return re.sub(r"\s+", " ", t).strip(" .-")[:95]
+
+
+def match_entry(reel, history, yttexts):
+    """Return (ytid, title) for a reel via history voiceovers, else YT text."""
+    hook_n = _norm(_first_clean_line(reel.get("description") or ""))
+    if not hook_n:
+        return None, None
     for entry in history:
         voice_n = _norm(entry.get("voiceover", ""))
-        if hook_n and voice_n and (hook_n in voice_n or voice_n[:40] and voice_n[:40] in hook_n):
+        if voice_n and (hook_n in voice_n or voice_n[:40] in hook_n):
             title = re.sub(r"\s+", " ", str(entry.get("title", ""))).strip()
-            if title:
-                return title[:95]
-    hook = _first_clean_line(desc)
+            return entry.get("youtube_video_id"), (title[:95] or None)
+    for ytid, info in yttexts.items():
+        if hook_n in info["norm"]:
+            return ytid, _clean_yt_title(info["title"])
+    return None, None
+
+
+def desired_title(reel: dict, history: list, yttexts=None) -> str:
+    """Short branded title: pipeline/YT title if matched, else trimmed hook."""
+    _, title = match_entry(reel, history, yttexts or {})
+    if title:
+        return title
+    hook = _first_clean_line(reel.get("description") or "")
     if len(hook) > 60:
         hook = hook[:61].rsplit(" ", 1)[0].rstrip(" ,.;:!?")
     return hook.rstrip(" .")[:95]
 
 
-def fix_titles(history: list):
+def fix_titles(history: list, yttexts=None):
+    yttexts = yttexts or {}
     reels = gget(f"{PAGE}/video_reels", limit=50,
                  fields="id,created_time,title,description")
     data = reels.get("data")
@@ -262,7 +332,7 @@ def fix_titles(history: list):
         note("reel titles", "error", reels.get("body", reels))
         return
     for reel in data:
-        want = desired_title(reel, history)
+        want = desired_title(reel, history, yttexts)
         have = re.sub(r"\s+", " ", (reel.get("title") or "")).strip()
         if not want or have == want:
             continue
@@ -275,7 +345,8 @@ def fix_titles(history: list):
              else f"reel {reel['id']}: {res.get('body', res)}")
 
 
-def fix_thumbnails(history: list):
+def fix_thumbnails(history: list, yttexts=None):
+    yttexts = yttexts or {}
     if not os.path.isdir(THUMB_DIR):
         note("reel thumbnails", "skip", "assets/thumbnails_us not present")
         return
@@ -286,22 +357,15 @@ def fix_thumbnails(history: list):
         note("reel thumbnails", "error", reels.get("body", reels))
         return
     matched = 0
+    unmatched = 0
     for reel in data:
-        ytid = None
-        hook_n = _norm(_first_clean_line(reel.get("description") or ""))
-        for entry in history:
-            voice_n = _norm(entry.get("voiceover", ""))
-            if hook_n and voice_n and (hook_n in voice_n or voice_n[:40] in hook_n):
-                ytid = entry.get("youtube_video_id")
-                break
-        if not ytid:
-            continue
-        cover = os.path.join(THUMB_DIR, f"{ytid}.jpg")
-        if not os.path.isfile(cover):
+        ytid, _ = match_entry(reel, history, yttexts)
+        cover = os.path.join(THUMB_DIR, f"{ytid}.jpg") if ytid else None
+        if not (ytid and cover and os.path.isfile(cover)):
+            unmatched += 1
             continue
         if DRY:
-            note("reel thumbnails", "dry",
-                 f"reel {reel['id']} <- cover {ytid}.jpg")
+            note("reel thumbnails", "dry", f"reel {reel['id']} <- cover {ytid}.jpg")
             continue
         res = gpost_multipart(reel["id"], cover, is_preferred="true")
         if "error" in res:
@@ -315,6 +379,8 @@ def fix_thumbnails(history: list):
             matched += 1
             note("reel thumbnails", "ok",
                  f"reel {reel['id']} custom cover set from {ytid}.jpg")
+    if matched == 0 and unmatched and not DRY:
+        note("reel thumbnails", "skip", f"no reel matched a cover ({unmatched} scanned)")
 
 
 # ---------------------------------------------------------------- page
@@ -386,9 +452,10 @@ def main() -> int:
         except Exception:  # noqa: BLE001
             history = []
 
+    yttexts = yt_text_map()
     fix_legacy_captions()
-    fix_titles(history)
-    fix_thumbnails(history)
+    fix_titles(history, yttexts)
+    fix_thumbnails(history, yttexts)
     tune_page_fields()
     welcome_post()
 
