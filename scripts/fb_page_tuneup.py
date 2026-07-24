@@ -10,10 +10,15 @@ the page set-up, all idempotently:
      "Subscribe for more", keyword-stuffed "Learn the science behind a, b,
      c" sentences).  Each such Reel caption is rebuilt hook + answer +
      follow CTA + 2-3 clean hashtags and PATCHed back onto the video.
-  2. page long description — set `description` if empty.
-  3. CTA button — "Learn More" pointing at the YouTube channel (best
-     effort; needs pages_manage_engagement which the token may lack).
-  4. pinned welcome post — one permanent intro post with the YouTube link,
+  2. reel titles — short branded title from the pipeline history (fallback:
+     trimmed hook line) applied to every Reel whose title is missing/junk.
+  3. reel thumbnails — the designed cover for the matching YouTube upload
+     (assets/thumbnails_us/<youtube_id>.jpg) uploaded as the Reel's
+     preferred custom thumbnail (best effort; skipped if unsupported).
+  4. page long description — set `description` if empty.
+  5. CTA button — "Learn More" pointing at the YouTube channel (best
+     effort; needs pages_manage_metadata/pages_manage_engagement).
+  6. pinned welcome post — one permanent intro post with the YouTube link,
      created and pinned only if no welcome post exists yet.
 
 Every action is isolated (try/except) so one missing permission never kills
@@ -35,7 +40,10 @@ TOKEN = os.environ.get("FB_ACCESS_TOKEN", "")
 PAGE = os.environ.get("FB_PAGE_ID", "")
 DRY = os.environ.get("FB_TUNEUP_DRY") == "1"
 YT_LINK = "https://youtube.com/@mrnextep"
-PACE = float(os.environ.get("FB_TUNEUP_PACE", "0.4"))  # s between API calls
+PACE = float(os.environ.get("FB_TUNEUP_PACE", "0.5"))  # s between API calls
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+THUMB_DIR = os.path.join(ROOT, "assets", "thumbnails_us")
+HISTORY_PATH = os.path.join(ROOT, "data", "video_history.json")
 
 if not TOKEN or not PAGE:
     print("FB_ACCESS_TOKEN / FB_PAGE_ID missing — aborting.")
@@ -177,6 +185,138 @@ def fix_legacy_captions():
                  f"reel {reel['id']} caption rewritten")
 
 
+def gpost_multipart(path, file_path, **params):
+    """Upload a binary file as multipart form data (for video thumbnails)."""
+    params["access_token"] = TOKEN
+    url = f"https://graph.facebook.com/{API}/{path}"
+    boundary = "----fbtuneup" + os.urandom(8).hex()
+    body = bytearray()
+
+    def add_field(name, value):
+        body.extend(f"--{boundary}\r\n".encode())
+        body.extend(f'Content-Disposition: form-data; name="{name}"\r\n\r\n'.encode())
+        body.extend(f"{value}\r\n".encode())
+
+    for k, v in params.items():
+        add_field(k, v)
+    with open(file_path, "rb") as fh:
+        payload = fh.read()
+    body.extend(f"--{boundary}\r\n".encode())
+    body.extend((f'Content-Disposition: form-data; name="source"; '
+                 f'filename="{os.path.basename(file_path)}"\r\n').encode())
+    body.extend(b"Content-Type: image/jpeg\r\n\r\n")
+    body.extend(payload)
+    body.extend(f"\r\n--{boundary}--\r\n".encode())
+    for attempt in range(3):
+        req = urllib.request.Request(url, data=bytes(body), method="POST")
+        req.add_header("Content-Type", f"multipart/form-data; boundary={boundary}")
+        try:
+            with urllib.request.urlopen(req, timeout=60) as r:
+                time.sleep(PACE)
+                return json.load(r)
+        except urllib.error.HTTPError as e:
+            rbody = e.read()[:400].decode("utf-8", "replace")
+            if "#4" in rbody and attempt < 2:
+                time.sleep(75)
+                continue
+            return {"error": e.code, "body": rbody}
+        except Exception as e:  # noqa: BLE001
+            return {"error": "network", "body": str(e)[:200]}
+    return {"error": "ratelimit", "body": "app request limit after retries"}
+
+
+# ------------------------------------------------------------ titles/thumbs
+def _norm(text: str) -> str:
+    return re.sub(r"\W+", "", (text or "").lower())
+
+
+def _first_clean_line(desc: str) -> str:
+    for line in desc.splitlines():
+        line = re.sub(r"\s+", " ", line).strip()
+        if line and not line.startswith("#"):
+            return line.rstrip(". ")
+    return ""
+
+
+def desired_title(reel: dict, history: list) -> str:
+    """Short branded title: pipeline title if matched, else trimmed hook."""
+    desc = reel.get("description") or ""
+    hook_n = _norm(_first_clean_line(desc))
+    for entry in history:
+        voice_n = _norm(entry.get("voiceover", ""))
+        if hook_n and voice_n and (hook_n in voice_n or voice_n[:40] and voice_n[:40] in hook_n):
+            title = re.sub(r"\s+", " ", str(entry.get("title", ""))).strip()
+            if title:
+                return title[:95]
+    hook = _first_clean_line(desc)
+    if len(hook) > 60:
+        hook = hook[:61].rsplit(" ", 1)[0].rstrip(" ,.;:!?")
+    return hook.rstrip(" .")[:95]
+
+
+def fix_titles(history: list):
+    reels = gget(f"{PAGE}/video_reels", limit=50,
+                 fields="id,created_time,title,description")
+    data = reels.get("data")
+    if data is None:
+        note("reel titles", "error", reels.get("body", reels))
+        return
+    for reel in data:
+        want = desired_title(reel, history)
+        have = re.sub(r"\s+", " ", (reel.get("title") or "")).strip()
+        if not want or have == want:
+            continue
+        if DRY:
+            note("reel titles", "dry", f"reel {reel['id']}: {have[:40]!r} -> {want!r}")
+            continue
+        res = gpost(reel["id"], title=want)
+        note("reel titles", "ok" if "error" not in res else "blocked",
+             f"reel {reel['id']}: {want!r}" if "error" not in res
+             else f"reel {reel['id']}: {res.get('body', res)}")
+
+
+def fix_thumbnails(history: list):
+    if not os.path.isdir(THUMB_DIR):
+        note("reel thumbnails", "skip", "assets/thumbnails_us not present")
+        return
+    reels = gget(f"{PAGE}/video_reels", limit=50,
+                 fields="id,created_time,description")
+    data = reels.get("data")
+    if data is None:
+        note("reel thumbnails", "error", reels.get("body", reels))
+        return
+    matched = 0
+    for reel in data:
+        ytid = None
+        hook_n = _norm(_first_clean_line(reel.get("description") or ""))
+        for entry in history:
+            voice_n = _norm(entry.get("voiceover", ""))
+            if hook_n and voice_n and (hook_n in voice_n or voice_n[:40] in hook_n):
+                ytid = entry.get("youtube_video_id")
+                break
+        if not ytid:
+            continue
+        cover = os.path.join(THUMB_DIR, f"{ytid}.jpg")
+        if not os.path.isfile(cover):
+            continue
+        if DRY:
+            note("reel thumbnails", "dry",
+                 f"reel {reel['id']} <- cover {ytid}.jpg")
+            continue
+        res = gpost_multipart(reel["id"], cover, is_preferred="true")
+        if "error" in res:
+            note("reel thumbnails", "blocked",
+                 f"reel {reel['id']}: {res.get('body', res)}")
+            if matched == 0:
+                note("reel thumbnails", "skip",
+                     "custom reel covers unsupported with this token — rest skipped")
+                return
+        else:
+            matched += 1
+            note("reel thumbnails", "ok",
+                 f"reel {reel['id']} custom cover set from {ytid}.jpg")
+
+
 # ---------------------------------------------------------------- page
 PAGE_DESCRIPTION = (
     "Mr. Nextep explains the weird things your body and brain do — in "
@@ -238,7 +378,17 @@ def welcome_post():
 
 
 def main() -> int:
+    history = []
+    if os.path.isfile(HISTORY_PATH):
+        try:
+            with open(HISTORY_PATH, encoding="utf-8") as fh:
+                history = json.load(fh)
+        except Exception:  # noqa: BLE001
+            history = []
+
     fix_legacy_captions()
+    fix_titles(history)
+    fix_thumbnails(history)
     tune_page_fields()
     welcome_post()
 
