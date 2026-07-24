@@ -16,8 +16,8 @@ jobs:
           python-version: "3.11"
       - name: Run FB diagnostic (read-only)
         env:
-          FB_ACCESS_TOKEN: ${{ secrets.FB_ACCESS_TOKEN }}
-          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          FB_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN || secrets.FB_ACCESS_TOKEN }}
+          FB_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID || secrets.FB_PAGE_ID }}
           FB_API_VERSION: ${{ vars.FB_API_VERSION }}
         run: python scripts/fb_page_diag.py
       - name: Persist diagnostic result
