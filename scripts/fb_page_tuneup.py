@@ -414,6 +414,14 @@ def fix_thumbnails(history: list, yttexts=None):
     if not os.path.isdir(THUMB_DIR):
         note("reel thumbnails", "skip", "assets/thumbnails_us not present")
         return
+    done_path = os.path.join(ROOT, "data", "fb_thumbs_done.json")
+    done = set()
+    if os.path.isfile(done_path):
+        try:
+            with open(done_path, encoding="utf-8") as fh:
+                done = set(json.load(fh))
+        except Exception:  # noqa: BLE001
+            done = set()
     reels = gget(f"{PAGE}/video_reels", limit=50,
                  fields="id,created_time,description")
     data = reels.get("data")
@@ -429,6 +437,8 @@ def fix_thumbnails(history: list, yttexts=None):
     matched = 0
     unmatched = 0
     for reel in data:
+        if reel["id"] in done:
+            continue  # cover already applied in a previous run
         ytid, _ = match_entry(reel, history, yttexts)
         via = "text"
         score = 0.0
@@ -453,6 +463,7 @@ def fix_thumbnails(history: list, yttexts=None):
                 return
         else:
             matched += 1
+            done.add(reel["id"])
             note("reel thumbnails", "ok",
                  f"reel {reel['id']} custom cover set from {ytid}.jpg via {via}")
             # upgrade the title to the branded YouTube one when the match
@@ -469,6 +480,10 @@ def fix_thumbnails(history: list, yttexts=None):
                              else f"reel {reel['id']}: {tres.get('body', tres)}")
     if matched == 0 and unmatched and not DRY:
         note("reel thumbnails", "skip", f"no reel matched a cover ({unmatched} scanned)")
+    if done and not DRY:
+        os.makedirs(os.path.dirname(done_path), exist_ok=True)
+        with open(done_path, "w", encoding="utf-8") as fh:
+            json.dump(sorted(done), fh, indent=1)
 
 
 # ---------------------------------------------------------------- page
