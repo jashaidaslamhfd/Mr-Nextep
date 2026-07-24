@@ -283,9 +283,13 @@ def yt_text_map():
             return out
         for item in data.get("items", []):
             sn = item.get("snippet", {})
-            out[item["id"]] = {"title": sn.get("title", ""),
-                               "norm": _norm(sn.get("title", "") + " " +
-                                             sn.get("description", ""))}
+            text = sn.get("title", "") + " " + sn.get("description", "")
+            out[item["id"]] = {
+                "title": sn.get("title", ""),
+                "norm": _norm(text),
+                "words": {w for w in re.findall(r"[a-z0-9']+", text.lower())
+                          if len(w) > 2},
+            }
     note("youtube text map", "ok", f"{len(out)} videos mapped from YouTube")
     return out
 
@@ -297,8 +301,14 @@ def _clean_yt_title(title: str) -> str:
 
 
 def match_entry(reel, history, yttexts):
-    """Return (ytid, title) for a reel via history voiceovers, else YT text."""
-    hook_n = _norm(_first_clean_line(reel.get("description") or ""))
+    """Return (ytid, title) for a reel via history voiceovers, else YT text.
+
+    YouTube descriptions were rewritten by the metadata-repair pass, so a
+    strict substring match often fails on old Reels.  Fall back to a
+    word-overlap score (>= 75%) over the Reel's first two meaningful lines.
+    """
+    desc = reel.get("description") or ""
+    hook_n = _norm(_first_clean_line(desc))
     if not hook_n:
         return None, None
     for entry in history:
@@ -306,9 +316,24 @@ def match_entry(reel, history, yttexts):
         if voice_n and (hook_n in voice_n or voice_n[:40] in hook_n):
             title = re.sub(r"\s+", " ", str(entry.get("title", ""))).strip()
             return entry.get("youtube_video_id"), (title[:95] or None)
+    lines = [re.sub(r"\s+", " ", l).strip() for l in desc.splitlines()
+             if l.strip() and not l.startswith("#")]
+    probe = " ".join(lines[:2])
+    pwords = {w for w in re.findall(r"[a-z0-9']+", probe.lower()) if len(w) > 2}
     for ytid, info in yttexts.items():
         if hook_n in info["norm"]:
             return ytid, _clean_yt_title(info["title"])
+    if len(pwords) >= 4:
+        best_score, best = 0.0, None
+        for ytid, info in yttexts.items():
+            words = info.get("words") or set()
+            if not words:
+                continue
+            score = len(pwords & words) / len(pwords)
+            if score > best_score:
+                best_score, best = score, ytid
+        if best and best_score >= 0.75:
+            return best, _clean_yt_title(yttexts[best]["title"])
     return None, None
 
 
