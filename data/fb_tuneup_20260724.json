@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-07-24T19:48:11.910682",
+  "generated_at_utc": "2026-07-24T19:50:45.048942",
   "api": "",
   "dry_run": false,
   "actions": [
@@ -266,17 +266,17 @@
     {
       "action": "page long description",
       "status": "blocked",
-      "detail": "{\"error\":{\"message\":\"(#283) Requires pages_manage_metadata permission to manage the object\",\"type\":\"OAuthException\",\"code\":283,\"fbtrace_id\":\"AbNl_ENKePL5Ql3shdKmsM5\"}}"
+      "detail": "{\"error\":{\"message\":\"(#283) Requires pages_manage_metadata permission to manage the object\",\"type\":\"OAuthException\",\"code\":283,\"fbtrace_id\":\"AldKrzH-OSEAKaohjYFtxXa\"}}"
     },
     {
       "action": "CTA button -> YouTube",
       "status": "blocked",
-      "detail": "{\"error\":{\"message\":\"(#283) Requires pages_manage_metadata permission to manage the object\",\"type\":\"OAuthException\",\"code\":283,\"fbtrace_id\":\"AMW-FvoglDl6FzkEpXA2Z6h\"}}"
+      "detail": "{\"error\":{\"message\":\"(#283) Requires pages_manage_metadata permission to manage the object\",\"type\":\"OAuthException\",\"code\":283,\"fbtrace_id\":\"AjnujXpRqAxPye75_u4FfsS\"}}"
     },
     {
       "action": "pinned welcome post",
       "status": "posted (pin blocked)",
-      "detail": "post 1122980080905302_122122772769351165 {\"error\":{\"message\":\"(#100) You do not have sufficient permissions to perform this action\",\"type\":\"OAuthException\",\"code\":100,\"fbtrace_id\":\"AlK0a61fne"
+      "detail": "post 1122980080905302_122122773531351165 {\"error\":{\"message\":\"(#100) You do not have sufficient permissions to perform this action\",\"type\":\"OAuthException\",\"code\":100,\"fbtrace_id\":\"AfxQ0s9y5K"
     }
   ]
 }
