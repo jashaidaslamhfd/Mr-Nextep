@@ -25,6 +25,7 @@ import json
 import os
 import re
 import sys
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -34,6 +35,7 @@ TOKEN = os.environ.get("FB_ACCESS_TOKEN", "")
 PAGE = os.environ.get("FB_PAGE_ID", "")
 DRY = os.environ.get("FB_TUNEUP_DRY") == "1"
 YT_LINK = "https://youtube.com/@mrnextep"
+PACE = float(os.environ.get("FB_TUNEUP_PACE", "0.4"))  # s between API calls
 
 if not TOKEN or not PAGE:
     print("FB_ACCESS_TOKEN / FB_PAGE_ID missing — aborting.")
@@ -53,7 +55,7 @@ def note(action, status, detail=""):
     print(f"[{status}] {action}: {str(detail)[:220]}")
 
 
-def gget(path, **params):
+def _gget_raw(path, **params):
     params["access_token"] = TOKEN
     url = f"https://graph.facebook.com/{API}/{path}?{urllib.parse.urlencode(params)}"
     try:
@@ -69,14 +71,26 @@ def gpost(path, **params):
     params["access_token"] = TOKEN
     url = f"https://graph.facebook.com/{API}/{path}"
     data = urllib.parse.urlencode(params).encode("utf-8")
-    req = urllib.request.Request(url, data=data, method="POST")
-    try:
-        with urllib.request.urlopen(req, timeout=40) as r:
-            return json.load(r)
-    except urllib.error.HTTPError as e:
-        return {"error": e.code, "body": e.read()[:400].decode("utf-8", "replace")}
-    except Exception as e:  # noqa: BLE001
-        return {"error": "network", "body": str(e)[:200]}
+    for attempt in range(3):  # retry transient app-rate-limit (#4)
+        req = urllib.request.Request(url, data=data, method="POST")
+        try:
+            with urllib.request.urlopen(req, timeout=40) as r:
+                time.sleep(PACE)
+                return json.load(r)
+        except urllib.error.HTTPError as e:
+            body = e.read()[:400].decode("utf-8", "replace")
+            if "#4" in body and attempt < 2:
+                time.sleep(75)
+                continue
+            return {"error": e.code, "body": body}
+        except Exception as e:  # noqa: BLE001
+            return {"error": "network", "body": str(e)[:200]}
+    return {"error": "ratelimit", "body": "app request limit after retries"}
+
+
+def gget(path, **params):
+    time.sleep(PACE)
+    return _gget_raw(path, **params)
 
 
 # ---------------------------------------------------------------- captions
@@ -197,25 +211,25 @@ def tune_page_fields():
 
 def welcome_post():
     feed = gget(f"{PAGE}/feed", limit=25, fields="id,message")
-    exists = any("welcome to mr. nextep" in (p.get("message") or "").lower()
-                 for p in feed.get("data", []))
-    if exists:
-        note("pinned welcome post", "skip", "welcome post already exists")
-        return
-    msg = ("Welcome to Mr. Nextep 🧠\n\n"
-           "Your body does weird things — goosebumps from music, a falling "
-           "feeling when you are half asleep, ringing ears at night — and we "
-           "explain why, in under a minute.\n\n"
-           "New body & brain science every day. Start anywhere, follow along.\n\n"
-           f"More on YouTube: {YT_LINK}")
+    post_id = next((p["id"] for p in feed.get("data", [])
+                    if "welcome to mr. nextep" in (p.get("message") or "").lower()),
+                   None)
     if DRY:
-        note("pinned welcome post", "dry", "would create + pin welcome post")
+        note("pinned welcome post", "dry",
+             f"would {'pin existing' if post_id else 'create + pin'} welcome post")
         return
-    res = gpost(f"{PAGE}/feed", message=msg)
-    if "error" in res:
-        note("pinned welcome post", "blocked", res.get("body", res))
-        return
-    post_id = res.get("id", "")
+    if not post_id:
+        msg = ("Welcome to Mr. Nextep 🧠\n\n"
+               "Your body does weird things — goosebumps from music, a falling "
+               "feeling when you are half asleep, ringing ears at night — and we "
+               "explain why, in under a minute.\n\n"
+               "New body & brain science every day. Start anywhere, follow along.\n\n"
+               f"More on YouTube: {YT_LINK}")
+        res = gpost(f"{PAGE}/feed", message=msg)
+        if "error" in res:
+            note("pinned welcome post", "blocked", res.get("body", res))
+            return
+        post_id = res.get("id", "")
     pin = gpost(post_id, is_pinned="true")
     note("pinned welcome post",
          "ok" if "error" not in pin else "posted (pin blocked)",
