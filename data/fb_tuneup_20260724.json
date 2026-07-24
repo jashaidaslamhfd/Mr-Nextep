@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-07-24T19:50:45.048942",
+  "generated_at_utc": "2026-07-24T19:54:30.699837",
   "api": "",
   "dry_run": false,
   "actions": [
@@ -261,22 +261,212 @@
     {
       "action": "reel thumbnails",
       "status": "ok",
-      "detail": "reel 1241453812383979 custom cover set from u1eCpGU38PI.jpg"
+      "detail": "reel 4500592876865584 custom cover set from NOhr7wFWwXs.jpg via date-order(0.29)"
+    },
+    {
+      "action": "reel titles",
+      "status": "ok",
+      "detail": "reel 4500592876865584: 'The Bone That Breaks Most in Fights'"
+    },
+    {
+      "action": "reel thumbnails",
+      "status": "ok",
+      "detail": "reel 1360222282706092 custom cover set from kFcfVOFsVJQ.jpg via date-order(0.31)"
+    },
+    {
+      "action": "reel titles",
+      "status": "ok",
+      "detail": "reel 1360222282706092: \"Your Blood's Dark Secret Weapon\""
+    },
+    {
+      "action": "reel thumbnails",
+      "status": "ok",
+      "detail": "reel 1025851906512601 custom cover set from LVBRgSJhGjU.jpg via date-order(0.25)"
+    },
+    {
+      "action": "reel titles",
+      "status": "ok",
+      "detail": "reel 1025851906512601: \"Heart's Hidden Brain: The Silent Whisper\""
+    },
+    {
+      "action": "reel thumbnails",
+      "status": "ok",
+      "detail": "reel 1359126416180164 custom cover set from edqMEBHvR1E.jpg via date-order(0.28)"
+    },
+    {
+      "action": "reel titles",
+      "status": "ok",
+      "detail": "reel 1359126416180164: '🫀 Lungs That Drown You From Inside'"
+    },
+    {
+      "action": "reel thumbnails",
+      "status": "ok",
+      "detail": "reel 872411838861430 custom cover set from Ecs8MwCbR58.jpg via date-order(0.38)"
+    },
+    {
+      "action": "reel titles",
+      "status": "ok",
+      "detail": "reel 872411838861430: \"Goosebumps: The Dark Reflex You Can't Escape\""
+    },
+    {
+      "action": "reel thumbnails",
+      "status": "ok",
+      "detail": "reel 1438140801456427 custom cover set from SILtzSfuLWs.jpg via date-order(0.27)"
+    },
+    {
+      "action": "reel titles",
+      "status": "ok",
+      "detail": "reel 1438140801456427: '🫀 🫀 Your Blood’s Midnight War'"
+    },
+    {
+      "action": "reel thumbnails",
+      "status": "ok",
+      "detail": "reel 1005919162351949 custom cover set from qLPyO96m0OI.jpg via date-order(0.27)"
+    },
+    {
+      "action": "reel titles",
+      "status": "ok",
+      "detail": "reel 1005919162351949: \"The Heart's Secret Brain\""
+    },
+    {
+      "action": "reel thumbnails",
+      "status": "ok",
+      "detail": "reel 1031719582637032 custom cover set from PldSMIaQwzM.jpg via date-order(0.44)"
+    },
+    {
+      "action": "reel titles",
+      "status": "ok",
+      "detail": "reel 1031719582637032: '🫀 🫀 The Nightly Brain Battle'"
+    },
+    {
+      "action": "reel thumbnails",
+      "status": "ok",
+      "detail": "reel 1386742276679436 custom cover set from enQtkaIgByI.jpg via date-order(0.48)"
+    },
+    {
+      "action": "reel titles",
+      "status": "blocked",
+      "detail": "reel 1386742276679436: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"AsBrK2_WSBEs_b83ePfyIJa\"}}"
+    },
+    {
+      "action": "reel thumbnails",
+      "status": "blocked",
+      "detail": "reel 997257099608361: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"AN1WvRB97-JtEziioS-Lp3D\"}}"
+    },
+    {
+      "action": "reel thumbnails",
+      "status": "blocked",
+      "detail": "reel 909039548133339: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"ADpztUqZoWrQrvAIoyAHVTP\"}}"
+    },
+    {
+      "action": "reel thumbnails",
+      "status": "ok",
+      "detail": "reel 1439144194424988 custom cover set from 4H4otPb3sOw.jpg via date-order(0.27)"
+    },
+    {
+      "action": "reel titles",
+      "status": "ok",
+      "detail": "reel 1439144194424988: 'Why Your Body Does This: The Dark Heartbeat 😳'"
+    },
+    {
+      "action": "reel thumbnails",
+      "status": "blocked",
+      "detail": "reel 1027753856883818: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"AyFSJOravZ1_cPUmtS3Xdow\"}}"
+    },
+    {
+      "action": "reel thumbnails",
+      "status": "ok",
+      "detail": "reel 1736243341061619 custom cover set from S2l4wBWaSJA.jpg via date-order(0.40)"
+    },
+    {
+      "action": "reel titles",
+      "status": "ok",
+      "detail": "reel 1736243341061619: 'Why Your Body Does This: Fear Smells 😳'"
+    },
+    {
+      "action": "reel thumbnails",
+      "status": "ok",
+      "detail": "reel 1060877382948529 custom cover set from kq5xEAGb2Rc.jpg via date-order(0.30)"
+    },
+    {
+      "action": "reel titles",
+      "status": "ok",
+      "detail": "reel 1060877382948529: 'Why Your Body Does This: Heartbeat Secrets 😳'"
+    },
+    {
+      "action": "reel thumbnails",
+      "status": "blocked",
+      "detail": "reel 1063311032815104: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"A7OBAY3gABFfjTVYUuonHda\"}}"
+    },
+    {
+      "action": "reel thumbnails",
+      "status": "blocked",
+      "detail": "reel 1812219993275345: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"ALD85vrJJRYtF2YaVAkkov9\"}}"
+    },
+    {
+      "action": "reel thumbnails",
+      "status": "blocked",
+      "detail": "reel 1562083748879712: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"Al2s4m93dW9Cm76RBWl1FPr\"}}"
+    },
+    {
+      "action": "reel thumbnails",
+      "status": "blocked",
+      "detail": "reel 1002453985926205: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"AA0kVjgPvUToipV7q27jioS\"}}"
+    },
+    {
+      "action": "reel thumbnails",
+      "status": "blocked",
+      "detail": "reel 1377013091021070: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"Aomi9GnWR1w3b124xDu0Etd\"}}"
+    },
+    {
+      "action": "reel thumbnails",
+      "status": "blocked",
+      "detail": "reel 1002834325717088: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"AQjfrtBN0jcMiFM8D_gcxrQ\"}}"
+    },
+    {
+      "action": "reel thumbnails",
+      "status": "blocked",
+      "detail": "reel 2048239735776074: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"Afu1UMWx2Ya9IqqoA4xctFG\"}}"
+    },
+    {
+      "action": "reel thumbnails",
+      "status": "blocked",
+      "detail": "reel 967362659655619: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"A0fRmlWJXZljFL3ThJZeHh9\"}}"
+    },
+    {
+      "action": "reel thumbnails",
+      "status": "blocked",
+      "detail": "reel 2127682905297477: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"AzdRgGknba8pVzFqlrDfoOE\"}}"
+    },
+    {
+      "action": "reel thumbnails",
+      "status": "blocked",
+      "detail": "reel 1590736172650812: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"AOwXYuvI_LGlUiqjJA4DTA4\"}}"
+    },
+    {
+      "action": "reel thumbnails",
+      "status": "blocked",
+      "detail": "reel 1241453812383979: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"AxpYUHcWm8VyXkpbXl3S6y2\"}}"
+    },
+    {
+      "action": "reel thumbnails",
+      "status": "blocked",
+      "detail": "reel 1787303285967704: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"AANV1X2IU7G1rJSISMgoTzG\"}}"
     },
     {
       "action": "page long description",
       "status": "blocked",
-      "detail": "{\"error\":{\"message\":\"(#283) Requires pages_manage_metadata permission to manage the object\",\"type\":\"OAuthException\",\"code\":283,\"fbtrace_id\":\"AldKrzH-OSEAKaohjYFtxXa\"}}"
+      "detail": "{\"error\":{\"message\":\"(#283) Requires pages_manage_metadata permission to manage the object\",\"type\":\"OAuthException\",\"code\":283,\"fbtrace_id\":\"AFaNUhTlguBl0e9Y_Aq6dSd\"}}"
     },
     {
       "action": "CTA button -> YouTube",
       "status": "blocked",
-      "detail": "{\"error\":{\"message\":\"(#283) Requires pages_manage_metadata permission to manage the object\",\"type\":\"OAuthException\",\"code\":283,\"fbtrace_id\":\"AjnujXpRqAxPye75_u4FfsS\"}}"
+      "detail": "{\"error\":{\"message\":\"(#283) Requires pages_manage_metadata permission to manage the object\",\"type\":\"OAuthException\",\"code\":283,\"fbtrace_id\":\"AyzYJ_vBaj7zEYOFNblSO8-\"}}"
     },
     {
       "action": "pinned welcome post",
       "status": "posted (pin blocked)",
-      "detail": "post 1122980080905302_122122773531351165 {\"error\":{\"message\":\"(#100) You do not have sufficient permissions to perform this action\",\"type\":\"OAuthException\",\"code\":100,\"fbtrace_id\":\"AfxQ0s9y5K"
+      "detail": "post 1122980080905302_122122781241351165 {\"error\":{\"message\":\"(#100) You do not have sufficient permissions to perform this action\",\"type\":\"OAuthException\",\"code\":100,\"fbtrace_id\":\"APfqFPST2m"
     }
   ]
 }
