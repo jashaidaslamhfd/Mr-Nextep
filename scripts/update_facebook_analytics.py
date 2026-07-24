@@ -57,6 +57,7 @@ def fetch(video_id: str) -> dict:
         return {"error": "FB_ACCESS_TOKEN is not configured"}
     values: dict[str, Any] = {}
     errors = []
+    unavailable = None
     for metric in METRICS:
         url = f"https://graph.facebook.com/{API_VERSION}/{video_id}/insights"
         try:
@@ -67,7 +68,15 @@ def fetch(video_id: str) -> dict:
             )
             data = response.json()
             if response.status_code >= 400 or "error" in data:
-                errors.append(f"{metric}: {data.get('error', {}).get('message', response.status_code)}")
+                msg = str(data.get("error", {}).get("message", response.status_code))
+                # A missing read_insights grant (or a deprecated Reels
+                # insights endpoint) fails EVERY metric identically — stop
+                # hammering after the first one instead of writing 5 warnings.
+                if "read_insights permission missing" in msg or "nonexisting field" in msg:
+                    unavailable = ("insights_unavailable: grant `read_insights` and "
+                                   "`pages_read_engagement` to the page token")
+                    break
+                errors.append(f"{metric}: {msg}")
                 continue
             rows = data.get("data", [])
             if rows and rows[0].get("values"):
@@ -75,6 +84,8 @@ def fetch(video_id: str) -> dict:
         except (requests.RequestException, ValueError) as exc:
             errors.append(f"{metric}: {exc}")
     result = {"video_id": video_id, "fetched_at": datetime.now(timezone.utc).isoformat(), **values}
+    if unavailable:
+        result["status"] = unavailable
     if errors:
         result["warnings"] = errors
     return result
