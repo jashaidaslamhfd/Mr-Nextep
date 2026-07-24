@@ -1,252 +1,107 @@
 {
-  "generated_at_utc": "2026-07-24T12:43:10.253027",
+  "generated_at_utc": "2026-07-24T12:47:38.529678",
   "api": "",
   "dry_run": false,
   "actions": [
     {
       "action": "legacy caption cleanup",
-      "status": "ok",
-      "detail": "reel 3190999624430135 caption rewritten"
-    },
-    {
-      "action": "legacy caption cleanup",
-      "status": "ok",
-      "detail": "reel 1026759496727537 caption rewritten"
-    },
-    {
-      "action": "legacy caption cleanup",
-      "status": "ok",
-      "detail": "reel 1583930496668000 caption rewritten"
-    },
-    {
-      "action": "legacy caption cleanup",
-      "status": "ok",
-      "detail": "reel 1680757336371264 caption rewritten"
-    },
-    {
-      "action": "legacy caption cleanup",
-      "status": "ok",
-      "detail": "reel 1670686777493488 caption rewritten"
-    },
-    {
-      "action": "legacy caption cleanup",
-      "status": "ok",
-      "detail": "reel 1381698583844468 caption rewritten"
-    },
-    {
-      "action": "legacy caption cleanup",
-      "status": "ok",
-      "detail": "reel 1952677572018954 caption rewritten"
-    },
-    {
-      "action": "legacy caption cleanup",
-      "status": "ok",
-      "detail": "reel 1595057902237036 caption rewritten"
-    },
-    {
-      "action": "legacy caption cleanup",
-      "status": "ok",
-      "detail": "reel 1590736172650812 caption rewritten"
-    },
-    {
-      "action": "legacy caption cleanup",
-      "status": "ok",
-      "detail": "reel 2127682905297477 caption rewritten"
-    },
-    {
-      "action": "legacy caption cleanup",
-      "status": "ok",
-      "detail": "reel 967362659655619 caption rewritten"
-    },
-    {
-      "action": "legacy caption cleanup",
-      "status": "ok",
-      "detail": "reel 2048239735776074 caption rewritten"
-    },
-    {
-      "action": "legacy caption cleanup",
-      "status": "ok",
-      "detail": "reel 2257463925002102 caption rewritten"
-    },
-    {
-      "action": "legacy caption cleanup",
-      "status": "ok",
-      "detail": "reel 1749215639596086 caption rewritten"
-    },
-    {
-      "action": "legacy caption cleanup",
-      "status": "ok",
-      "detail": "reel 1558634109273788 caption rewritten"
-    },
-    {
-      "action": "legacy caption cleanup",
-      "status": "ok",
-      "detail": "reel 1002834325717088 caption rewritten"
-    },
-    {
-      "action": "legacy caption cleanup",
-      "status": "ok",
-      "detail": "reel 1377013091021070 caption rewritten"
-    },
-    {
-      "action": "legacy caption cleanup",
-      "status": "ok",
-      "detail": "reel 1002453985926205 caption rewritten"
-    },
-    {
-      "action": "legacy caption cleanup",
-      "status": "ok",
-      "detail": "reel 1562083748879712 caption rewritten"
-    },
-    {
-      "action": "legacy caption cleanup",
-      "status": "ok",
-      "detail": "reel 1812219993275345 caption rewritten"
-    },
-    {
-      "action": "legacy caption cleanup",
-      "status": "ok",
-      "detail": "reel 1063311032815104 caption rewritten"
-    },
-    {
-      "action": "legacy caption cleanup",
-      "status": "ok",
-      "detail": "reel 1060877382948529 caption rewritten"
-    },
-    {
-      "action": "legacy caption cleanup",
-      "status": "ok",
-      "detail": "reel 4618601568425581 caption rewritten"
-    },
-    {
-      "action": "legacy caption cleanup",
-      "status": "ok",
-      "detail": "reel 1736243341061619 caption rewritten"
-    },
-    {
-      "action": "legacy caption cleanup",
-      "status": "ok",
-      "detail": "reel 1027753856883818 caption rewritten"
-    },
-    {
-      "action": "legacy caption cleanup",
-      "status": "ok",
-      "detail": "reel 1201521836375955 caption rewritten"
-    },
-    {
-      "action": "legacy caption cleanup",
-      "status": "ok",
-      "detail": "reel 1439144194424988 caption rewritten"
-    },
-    {
-      "action": "legacy caption cleanup",
-      "status": "ok",
-      "detail": "reel 2805630619816879 caption rewritten"
-    },
-    {
-      "action": "legacy caption cleanup",
-      "status": "ok",
-      "detail": "reel 909039548133339 caption rewritten"
+      "status": "blocked",
+      "detail": "reel 1039447355617327: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"AWqGcB-9RWruEj1FxEH0BWQ\"}}"
     },
     {
       "action": "legacy caption cleanup",
       "status": "blocked",
-      "detail": "reel 1039447355617327: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"A2S-KStagLItLLMUxe-8VBj\"}}"
+      "detail": "reel 997257099608361: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"Afn60nIH3Y9w3PvEv5-JWWx\"}}"
     },
     {
       "action": "legacy caption cleanup",
       "status": "blocked",
-      "detail": "reel 997257099608361: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"Almf5Hb__JR4_oJFZD-Al73\"}}"
+      "detail": "reel 1386742276679436: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"Aq0Wp2fWltgG_VXJv7iekUX\"}}"
     },
     {
       "action": "legacy caption cleanup",
       "status": "blocked",
-      "detail": "reel 1386742276679436: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"AsdyHMhaD7EuO_k92QvYH5G\"}}"
+      "detail": "reel 1031719582637032: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"A8mMaoRsNu6rvmCflWEMJ61\"}}"
     },
     {
       "action": "legacy caption cleanup",
       "status": "blocked",
-      "detail": "reel 1031719582637032: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"A0HTpJLkSbOWP5sW4retBgq\"}}"
+      "detail": "reel 1005919162351949: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"ADrAUhaa1Qkm8KyPi2RnYEs\"}}"
     },
     {
       "action": "legacy caption cleanup",
       "status": "blocked",
-      "detail": "reel 1005919162351949: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"A4IFhRFZ_IfA6s6phTWQVVw\"}}"
+      "detail": "reel 1438140801456427: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"A_XS5iK6MMS3-h_AvzTm7KE\"}}"
     },
     {
       "action": "legacy caption cleanup",
       "status": "blocked",
-      "detail": "reel 1438140801456427: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"A4palSGpcp5XAJGVwGk5x_C\"}}"
+      "detail": "reel 872411838861430: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"AEjPSBuOqxYVX_Pwg6zFZcN\"}}"
     },
     {
       "action": "legacy caption cleanup",
       "status": "blocked",
-      "detail": "reel 872411838861430: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"AgEqXI4tBdZLcCp2dBJGjKG\"}}"
+      "detail": "reel 3049328235257789: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"AgOvrfLGqPeD0mQtQMxLx3Q\"}}"
     },
     {
       "action": "legacy caption cleanup",
       "status": "blocked",
-      "detail": "reel 3049328235257789: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"A8gY2Nc4pBxFoEL5Zp5pc3a\"}}"
+      "detail": "reel 1359126416180164: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"AYI6TYYWWQQk6qtq78-Yoz7\"}}"
     },
     {
       "action": "legacy caption cleanup",
       "status": "blocked",
-      "detail": "reel 1359126416180164: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"A9MO-8STVRjJESIpzBhz0my\"}}"
+      "detail": "reel 1025851906512601: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"A_EIk1aGnFYLSRngSPQgUuS\"}}"
     },
     {
       "action": "legacy caption cleanup",
       "status": "blocked",
-      "detail": "reel 1025851906512601: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"A4INpWXWfHZkigpjFlOF1FV\"}}"
+      "detail": "reel 1360222282706092: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"A_d1y8KvvdIqfmWXNozA2fa\"}}"
     },
     {
       "action": "legacy caption cleanup",
       "status": "blocked",
-      "detail": "reel 1360222282706092: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"ARxRAL9GujnVMzMCL7ZTDIT\"}}"
+      "detail": "reel 4500592876865584: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"ABB4NUTYBlKQxGjKeCvCNvO\"}}"
     },
     {
       "action": "legacy caption cleanup",
       "status": "blocked",
-      "detail": "reel 4500592876865584: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"AEdLRp3l5IiwyYaVoJ4gSZ_\"}}"
+      "detail": "reel 1053815270423351: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"A_rPxNwAbz78OpR-T6rd6_B\"}}"
     },
     {
       "action": "legacy caption cleanup",
       "status": "blocked",
-      "detail": "reel 1053815270423351: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"AAgoSK45cGu8VSpPx3izrat\"}}"
+      "detail": "reel 2309700976438443: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"Ab4Oj6GKYyPtjZA7D2Re0SI\"}}"
     },
     {
       "action": "legacy caption cleanup",
       "status": "blocked",
-      "detail": "reel 2309700976438443: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"AICACv-ljyjM1jBopmHyWZg\"}}"
+      "detail": "reel 1781033269735266: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"AOE9RlGr4RuM3fw_CbRIvwg\"}}"
     },
     {
       "action": "legacy caption cleanup",
       "status": "blocked",
-      "detail": "reel 1781033269735266: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"AgDU_yUEdA5NZf-EL63FdWW\"}}"
+      "detail": "reel 1418137220128208: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"AnHMhyxqpHDqjnJECueJsVW\"}}"
     },
     {
       "action": "legacy caption cleanup",
       "status": "blocked",
-      "detail": "reel 1418137220128208: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"AgUjDWfsCG1l_Cxa1GMtJ6b\"}}"
-    },
-    {
-      "action": "legacy caption cleanup",
-      "status": "blocked",
-      "detail": "reel 788442081024484: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"AwFskf92MctXbehZoxO4_fs\"}}"
+      "detail": "reel 788442081024484: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"AY77icgd4kSM9HqDPwAr6PS\"}}"
     },
     {
       "action": "page long description",
       "status": "blocked",
-      "detail": "{\"error\":{\"message\":\"(#283) Requires pages_manage_metadata permission to manage the object\",\"type\":\"OAuthException\",\"code\":283,\"fbtrace_id\":\"APYCWIz3AQ2hKdjf2sSHjPB\"}}"
+      "detail": "{\"error\":{\"message\":\"(#283) Requires pages_manage_metadata permission to manage the object\",\"type\":\"OAuthException\",\"code\":283,\"fbtrace_id\":\"AXHsysIFLfrlL17ox1cRfkn\"}}"
     },
     {
       "action": "CTA button -> YouTube",
       "status": "blocked",
-      "detail": "{\"error\":{\"message\":\"(#283) Requires pages_manage_metadata permission to manage the object\",\"type\":\"OAuthException\",\"code\":283,\"fbtrace_id\":\"AZMalbZ3TiCrvq1Q6NKDubH\"}}"
+      "detail": "{\"error\":{\"message\":\"(#283) Requires pages_manage_metadata permission to manage the object\",\"type\":\"OAuthException\",\"code\":283,\"fbtrace_id\":\"AfR3_NXemnqyvA-I2NFOHuq\"}}"
     },
     {
       "action": "pinned welcome post",
       "status": "posted (pin blocked)",
-      "detail": "post 1122980080905302_122122705533351165 {\"error\":{\"message\":\"(#100) You do not have sufficient permissions to perform this action\",\"type\":\"OAuthException\",\"code\":100,\"fbtrace_id\":\"AecP3_0K4u"
+      "detail": "post 1122980080905302_122122713921351165 {\"error\":{\"message\":\"(#100) You do not have sufficient permissions to perform this action\",\"type\":\"OAuthException\",\"code\":100,\"fbtrace_id\":\"Aj3WBwIk6x"
     }
   ]
 }
