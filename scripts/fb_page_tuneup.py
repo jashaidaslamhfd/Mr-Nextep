@@ -286,6 +286,7 @@ def yt_text_map():
             text = sn.get("title", "") + " " + sn.get("description", "")
             out[item["id"]] = {
                 "title": sn.get("title", ""),
+                "published_at": sn.get("publishedAt", ""),
                 "norm": _norm(text),
                 "words": {w for w in re.findall(r"[a-z0-9']+", text.lower())
                           if len(w) > 2},
@@ -370,6 +371,44 @@ def fix_titles(history: list, yttexts=None):
              else f"reel {reel['id']}: {res.get('body', res)}")
 
 
+def _iso_ts(value: str) -> float:
+    try:
+        return dt.datetime.fromisoformat(value.replace("Z", "+00:00")).timestamp()
+    except Exception:  # noqa: BLE001
+        return 0.0
+
+
+def _ordered_match(reel, vids, ptr):
+    """Date-order fallback matching: Reels were uploaded by the same pipeline
+    a few hours after their YouTube twin, so both lists are in the same
+    order.  Walk forward from the last assigned video and accept the first
+    video that is (a) not later than the reel (+6h slack), (b) not ancient,
+    (c) weakly confirmed by shared topic words.  Returns (ytid, new_ptr,
+    score) or (None, ptr, 0)."""
+    r_time = _iso_ts(reel.get("created_time", ""))
+    if not r_time:
+        return None, ptr, 0.0
+    lines = [re.sub(r"\s+", " ", l).strip()
+             for l in (reel.get("description") or "").splitlines()
+             if l.strip() and not l.startswith("#")]
+    probe = {w for w in re.findall(r"[a-z0-9']+", " ".join(lines[:2]).lower())
+             if len(w) > 2}
+    j = ptr
+    while j < len(vids):
+        vt, vid, info = vids[j]
+        if vt > r_time + 6 * 3600:
+            break  # videos sorted ascending — nothing further can fit
+        j += 1
+        if r_time - vt > 40 * 86400:
+            ptr = max(ptr, j)  # too old for any upcoming reel — consume
+            continue
+        overlap = len(probe & info.get("words", set()))
+        score = overlap / max(4, len(probe))
+        if overlap >= 3 and score >= 0.25:
+            return vid, j, score
+    return None, ptr, 0.0
+
+
 def fix_thumbnails(history: list, yttexts=None):
     yttexts = yttexts or {}
     if not os.path.isdir(THUMB_DIR):
@@ -381,16 +420,28 @@ def fix_thumbnails(history: list, yttexts=None):
     if data is None:
         note("reel thumbnails", "error", reels.get("body", reels))
         return
+    data.sort(key=lambda r: r.get("created_time", ""))
+    vids = sorted(
+        ((_iso_ts(i.get("published_at", "")), ytid, i)
+         for ytid, i in yttexts.items() if i.get("published_at")),
+        key=lambda x: x[0])
+    ptr = 0
     matched = 0
     unmatched = 0
     for reel in data:
         ytid, _ = match_entry(reel, history, yttexts)
+        via = "text"
+        score = 0.0
+        if not ytid:
+            ytid, ptr, score = _ordered_match(reel, vids, ptr)
+            via = f"date-order({score:.2f})"
         cover = os.path.join(THUMB_DIR, f"{ytid}.jpg") if ytid else None
         if not (ytid and cover and os.path.isfile(cover)):
             unmatched += 1
             continue
         if DRY:
-            note("reel thumbnails", "dry", f"reel {reel['id']} <- cover {ytid}.jpg")
+            note("reel thumbnails", "dry",
+                 f"reel {reel['id']} <- cover {ytid}.jpg via {via}")
             continue
         res = gpost_multipart(reel["id"], cover, is_preferred="true")
         if "error" in res:
@@ -403,7 +454,19 @@ def fix_thumbnails(history: list, yttexts=None):
         else:
             matched += 1
             note("reel thumbnails", "ok",
-                 f"reel {reel['id']} custom cover set from {ytid}.jpg")
+                 f"reel {reel['id']} custom cover set from {ytid}.jpg via {via}")
+            # upgrade the title to the branded YouTube one when the match
+            # came from date-order (hook-fallback titles are vague)
+            if via.startswith("date-order"):
+                want = _clean_yt_title(yttexts.get(ytid, {}).get("title", ""))
+                if want:
+                    cur = gget(reel["id"], fields="title")
+                    have = re.sub(r"\s+", " ", (cur.get("title") or "")).strip()
+                    if have != want:
+                        tres = gpost(reel["id"], title=want)
+                        note("reel titles", "ok" if "error" not in tres else "blocked",
+                             f"reel {reel['id']}: {want!r}" if "error" not in tres
+                             else f"reel {reel['id']}: {tres.get('body', tres)}")
     if matched == 0 and unmatched and not DRY:
         note("reel thumbnails", "skip", f"no reel matched a cover ({unmatched} scanned)")
 
