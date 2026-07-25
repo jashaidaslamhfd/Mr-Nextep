@@ -108,6 +108,69 @@ def _normalise_topic(value: str) -> str:
     return re.sub(r"\s+", " ", re.sub(r"[^\w\s]", " ", value.lower())).strip()
 
 
+# Data-proven flop pattern (FR channel, Jul 2026): a reworded clone of a
+# recent topic died at 4 views while the original earned 800+. Exact-string
+# dedupe cannot see reworded repeats, so block near-duplicates semantically.
+_EN_STOPWORDS = {
+    "the", "a", "an", "your", "you", "yours", "why", "when", "what", "how",
+    "is", "are", "to", "of", "in", "on", "and", "or", "if", "it", "its",
+    "this", "that", "these", "those", "do", "does", "did", "can", "could",
+    "will", "would", "with", "without", "for", "from", "at", "by", "as",
+    "so", "be", "been", "being", "not", "no", "ever", "every", "daily",
+    "really", "just", "don", "didn", "doesn", "isn", "aren", "won", "cant",
+    "cannot", "our", "we", "their", "they", "them", "his", "her", "he",
+    "she", "me", "my", "mine", "after", "before", "while", "during",
+    "reason", "reasons", "get", "gets", "getting", "give", "gives",
+    "science", "scientist", "scientists", "fact", "facts", "behind",
+    "truth", "hidden", "secret", "secrets", "makes", "make", "making",
+}
+
+_WORD_FAMILIES = (
+    ("slep", "sleep"), ("drows", "sleep"), ("insomn", "sleep"),
+    ("brain", "brain"), ("cerebr", "brain"), ("neur", "brain"),
+    ("heart", "heart"), ("cardia", "heart"), ("pulse", "heart"),
+    ("stress", "stress"), ("anxie", "stress"), ("worr", "stress"),
+    ("freez", "freeze"), ("paraly", "freeze"),
+    ("yawn", "yawn"), ("goose", "goosebump"), ("chill", "goosebump"),
+    ("wrinkl", "wrinkle"), ("crack", "crack"), ("pop", "crack"),
+    ("voice", "voice"), ("vocal", "voice"), ("sound", "voice"),
+    ("wake", "morning"),
+    ("grow", "grow"), ("shrink", "shrink"),
+    ("hunger", "hunger"), ("hungry", "hunger"), ("appet", "hunger"),
+    ("morn", "morning"), ("night", "night"),
+)
+
+
+def _topic_words(value: str) -> set:
+    norm = _normalise_topic(value)
+    words = set()
+    for w in norm.split():
+        if len(w) <= 2 or w in _EN_STOPWORDS:
+            continue
+        stem = w
+        for prefix, canon in _WORD_FAMILIES:
+            if w.startswith(prefix):
+                stem = canon
+                break
+        words.add(stem)
+    return words
+
+
+def _near_duplicate_of_recent(topic: str, excluded: Iterable[str]) -> bool:
+    words = _topic_words(topic)
+    if len(words) < 2:
+        return False
+    for recent in (excluded or []):
+        rwords = _topic_words(recent)
+        if not rwords:
+            continue
+        overlap = len(words & rwords)
+        score = overlap / min(len(words), len(rwords))
+        if score >= 0.6 or (rwords and rwords.issubset(words)) or (words and words.issubset(rwords)):
+            return True
+    return False
+
+
 def _clean_topic(value: object) -> str:
     """Return a short, printable title or an empty string."""
     if not isinstance(value, str):
@@ -352,6 +415,8 @@ def get_trending_topic(
     # trend feeds. This gives YouTube 500 tightly consistent audience signals.
     if strategy == "body_glitch_series":
         series_topics = _deduplicate(get_body_glitch_topics(), exclude)
+        series_topics = [t for t in series_topics
+                         if not _near_duplicate_of_recent(t.get("topic", ""), exclude or [])]
         if series_topics:
             chosen = random.choice(series_topics)
         else:
@@ -366,6 +431,10 @@ def get_trending_topic(
     records.extend(get_reddit_trending_topics())
     real_topics = _deduplicate(records, exclude)
     proven_topics = _deduplicate(get_proven_topics(), exclude)
+    real_topics = [t for t in real_topics
+                   if not _near_duplicate_of_recent(t.get("topic", ""), exclude or [])]
+    proven_topics = [t for t in proven_topics
+                     if not _near_duplicate_of_recent(t.get("topic", ""), exclude or [])]
 
     if require_daily_trend:
         if not real_topics:
