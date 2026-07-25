@@ -2,7 +2,7 @@
   "window": {
     "start": "2026-06-27",
     "end": "2026-07-25",
-    "generated_at_utc": "2026-07-25T14:43:54.938569"
+    "generated_at_utc": "2026-07-25T15:12:15.323866"
   },
   "daily_28d": {
     "error": 403,
@@ -90,12 +90,12 @@
   },
   "recent_uploads": {
     "kind": "youtube#playlistItemListResponse",
-    "etag": "-H_wFJ8WbxOFo4UyTzbJ7TKe30g",
+    "etag": "ejD4jfgYoveeAlExwnYmyODoojU",
     "nextPageToken": "EAAaBlBUOkNBOA",
     "items": [
       {
         "kind": "youtube#playlistItem",
-        "etag": "A8J95QJ5_QQAKF6neK4rc3g7VtA",
+        "etag": "CHFuX2pVwmVdMSwgddMtK-rWqu0",
         "id": "VVVPVkVLdjB1YUN0eldtOU9MUFpUOVBBLnF5OUdoUUo4R3lj",
         "snippet": {
           "publishedAt": "2026-07-25T10:22:57Z",
@@ -104,27 +104,27 @@
           "description": "Have you ever eaten a cold treat and.\n\nFind out why your brain freezes you after eating cold ice cream or other treats.\n\nLearn the science behind brain facts, brain science, neuroscience, brain. Follow for clear science and brain facts explained simply.\n\n#Shorts #brain facts #brain science #neuroscience",
           "thumbnails": {
             "default": {
-              "url": "https://i9.ytimg.com/vi/qy9GhQJ8Gyc/default.jpg?sqp=CMCVk9MG&rs=AOn4CLA5k93nbxxT3O5EeTgdTjdh97eeSA",
+              "url": "https://i9.ytimg.com/vi/qy9GhQJ8Gyc/default.jpg?sqp=CMijk9MG&rs=AOn4CLCFeyzHLpt9GXGOIfoiS3gcNo9otA",
               "width": 120,
               "height": 90
             },
             "medium": {
-              "url": "https://i9.ytimg.com/vi/qy9GhQJ8Gyc/mqdefault.jpg?sqp=CMCVk9MG&rs=AOn4CLA7svXydgCSDEIa9jeXXUEkGenePQ",
+              "url": "https://i9.ytimg.com/vi/qy9GhQJ8Gyc/mqdefault.jpg?sqp=CMijk9MG&rs=AOn4CLB_VBv6M026AZ27WwpqPIWJgmkMLw",
               "width": 320,
               "height": 180
             },
             "high": {
-              "url": "https://i9.ytimg.com/vi/qy9GhQJ8Gyc/hqdefault.jpg?sqp=CMCVk9MG&rs=AOn4CLBFKUq2jume2qpeqZMFdjtizAFFAg",
+              "url": "https://i9.ytimg.com/vi/qy9GhQJ8Gyc/hqdefault.jpg?sqp=CMijk9MG&rs=AOn4CLDp7QOm45uJErhU9MMCpM_poul8Xg",
               "width": 480,
               "height": 360
             },
             "standard": {
-              "url": "https://i9.ytimg.com/vi/qy9GhQJ8Gyc/sddefault.jpg?sqp=CMCVk9MG&rs=AOn4CLBdNmLyMjVk4oKEzZC9UDs0PLWs3Q",
+              "url": "https://i9.ytimg.com/vi/qy9GhQJ8Gyc/sddefault.jpg?sqp=CMijk9MG&rs=AOn4CLAiQAeGgniqsAW4e_uPpKuD58iZsw",
               "width": 640,
               "height": 480
             },
             "maxres": {
-              "url": "https://i9.ytimg.com/vi/qy9GhQJ8Gyc/maxresdefault.jpg?sqp=CMCVk9MG&rs=AOn4CLAT0Cb9jvuDKxT77dbpEM92k4Kz-g",
+              "url": "https://i9.ytimg.com/vi/qy9GhQJ8Gyc/maxresdefault.jpg?sqp=CMijk9MG&rs=AOn4CLDFzNZEJYEvj9W-d8mCfFPa-5OZFg",
               "width": 1280,
               "height": 720
             }
@@ -866,11 +866,11 @@
   },
   "videos_detail": {
     "kind": "youtube#videoListResponse",
-    "etag": "o471cWEoc6z6reTKO8ku3b6SNwU",
+    "etag": "Hdmd7M3rGY3-OCqoZJvhF1cRHtY",
     "items": [
       {
         "kind": "youtube#video",
-        "etag": "eeE1cd5oRU-O9uw9-Vzl5_GZKlg",
+        "etag": "8OYFCwg7k5kVDtqkroXP2gVb32M",
         "id": "qy9GhQJ8Gyc",
         "snippet": {
           "publishedAt": "2026-07-25T10:22:57Z",
@@ -879,27 +879,27 @@
           "description": "Have you ever eaten a cold treat and.\n\nFind out why your brain freezes you after eating cold ice cream or other treats.\n\nLearn the science behind brain facts, brain science, neuroscience, brain. Follow for clear science and brain facts explained simply.\n\n#Shorts #brain facts #brain science #neuroscience",
           "thumbnails": {
             "default": {
-              "url": "https://i9.ytimg.com/vi/qy9GhQJ8Gyc/default.jpg?sqp=CMCVk9MG&rs=AOn4CLA5k93nbxxT3O5EeTgdTjdh97eeSA",
+              "url": "https://i9.ytimg.com/vi/qy9GhQJ8Gyc/default.jpg?sqp=CMijk9MG&rs=AOn4CLCFeyzHLpt9GXGOIfoiS3gcNo9otA",
               "width": 120,
               "height": 90
             },
             "medium": {
-              "url": "https://i9.ytimg.com/vi/qy9GhQJ8Gyc/mqdefault.jpg?sqp=CMCVk9MG&rs=AOn4CLA7svXydgCSDEIa9jeXXUEkGenePQ",
+              "url": "https://i9.ytimg.com/vi/qy9GhQJ8Gyc/mqdefault.jpg?sqp=CMijk9MG&rs=AOn4CLB_VBv6M026AZ27WwpqPIWJgmkMLw",
               "width": 320,
               "height": 180
             },
             "high": {
-              "url": "https://i9.ytimg.com/vi/qy9GhQJ8Gyc/hqdefault.jpg?sqp=CMCVk9MG&rs=AOn4CLBFKUq2jume2qpeqZMFdjtizAFFAg",
+              "url": "https://i9.ytimg.com/vi/qy9GhQJ8Gyc/hqdefault.jpg?sqp=CMijk9MG&rs=AOn4CLDp7QOm45uJErhU9MMCpM_poul8Xg",
               "width": 480,
               "height": 360
             },
             "standard": {
-              "url": "https://i9.ytimg.com/vi/qy9GhQJ8Gyc/sddefault.jpg?sqp=CMCVk9MG&rs=AOn4CLBdNmLyMjVk4oKEzZC9UDs0PLWs3Q",
+              "url": "https://i9.ytimg.com/vi/qy9GhQJ8Gyc/sddefault.jpg?sqp=CMijk9MG&rs=AOn4CLAiQAeGgniqsAW4e_uPpKuD58iZsw",
               "width": 640,
               "height": 480
             },
             "maxres": {
-              "url": "https://i9.ytimg.com/vi/qy9GhQJ8Gyc/maxresdefault.jpg?sqp=CMCVk9MG&rs=AOn4CLAT0Cb9jvuDKxT77dbpEM92k4Kz-g",
+              "url": "https://i9.ytimg.com/vi/qy9GhQJ8Gyc/maxresdefault.jpg?sqp=CMijk9MG&rs=AOn4CLDFzNZEJYEvj9W-d8mCfFPa-5OZFg",
               "width": 1280,
               "height": 720
             }
@@ -956,7 +956,7 @@
       },
       {
         "kind": "youtube#video",
-        "etag": "2EtBD_U5Db6HL0p7BBjdNSJEW8c",
+        "etag": "FOqIra5WwXh0_5HRaY1g5L_uk3M",
         "id": "nM-1t8agPN8",
         "snippet": {
           "publishedAt": "2026-07-25T10:00:32Z",
@@ -1033,7 +1033,7 @@
           "hasCustomThumbnail": true
         },
         "statistics": {
-          "viewCount": "10",
+          "viewCount": "44",
           "likeCount": "0",
           "dislikeCount": "0",
           "favoriteCount": "0",
@@ -1042,7 +1042,7 @@
       },
       {
         "kind": "youtube#video",
-        "etag": "sLbKACvAMWTPAfZlcEhwtVWIrto",
+        "etag": "biEGGClUksLhnlvqfBghfBkowwo",
         "id": "hTDfqIbjQXk",
         "snippet": {
           "publishedAt": "2026-07-25T00:00:13Z",
@@ -1119,7 +1119,7 @@
           "hasCustomThumbnail": true
         },
         "statistics": {
-          "viewCount": "791",
+          "viewCount": "793",
           "likeCount": "6",
           "dislikeCount": "0",
           "favoriteCount": "0",
@@ -1128,7 +1128,7 @@
       },
       {
         "kind": "youtube#video",
-        "etag": "bvsCTIvRcab5tv8Eai6KKRHfjF8",
+        "etag": "EG6z1Q4NCduSXcXUqHCKilOfwsE",
         "id": "1Z9bg95d3pY",
         "snippet": {
           "publishedAt": "2026-07-24T16:30:04Z",
@@ -1205,7 +1205,7 @@
           "hasCustomThumbnail": true
         },
         "statistics": {
-          "viewCount": "829",
+          "viewCount": "833",
           "likeCount": "10",
           "dislikeCount": "0",
           "favoriteCount": "0",
