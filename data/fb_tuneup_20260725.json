@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-07-25T14:47:14.358291",
+  "generated_at_utc": "2026-07-25T19:10:56.866947",
   "api": "",
   "dry_run": false,
   "actions": [
@@ -260,58 +260,23 @@
     },
     {
       "action": "reel thumbnails",
-      "status": "ok",
-      "detail": "reel 1749215639596086 custom cover set from JUgUYsiGYpg.jpg via date-order(0.26)"
-    },
-    {
-      "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 1749215639596086: 'Why You Forget Names Right Aft Explained in 60 Seconds 🧠'"
-    },
-    {
-      "action": "reel thumbnails",
-      "status": "ok",
-      "detail": "reel 2257463925002102 custom cover set from edqMEBHvR1E.jpg via date-order(0.30)"
-    },
-    {
-      "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 2257463925002102: '🫀 Lungs That Drown You From Inside'"
-    },
-    {
-      "action": "reel thumbnails",
-      "status": "ok",
-      "detail": "reel 1595057902237036 custom cover set from enQtkaIgByI.jpg via date-order(0.27)"
-    },
-    {
-      "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 1595057902237036: '🫀 🫀 The Bone That Breaks Most in Fights'"
-    },
-    {
-      "action": "reel thumbnails",
-      "status": "ok",
-      "detail": "reel 3477770522430241 custom cover set from _C20nA1aPf4.jpg via date-order(0.29)"
-    },
-    {
-      "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 3477770522430241: 'Why Your Body Does This: The Deadly Secret Inside 😳'"
+      "status": "skip",
+      "detail": "no reel matched a cover (16 scanned)"
     },
     {
       "action": "page long description",
-      "status": "blocked",
-      "detail": "{\"error\":{\"message\":\"(#283) Requires pages_manage_metadata permission to manage the object\",\"type\":\"OAuthException\",\"code\":283,\"fbtrace_id\":\"Aob7V9DDzra7HoH8rNZzEQA\"}}"
+      "status": "ok",
+      "detail": "True"
     },
     {
       "action": "CTA button -> YouTube",
       "status": "blocked",
-      "detail": "{\"error\":{\"message\":\"(#283) Requires pages_manage_metadata permission to manage the object\",\"type\":\"OAuthException\",\"code\":283,\"fbtrace_id\":\"A6MSRAKCl_QQlzI1vvSda9W\"}}"
+      "detail": "{\"error\":{\"message\":\"(#100) Parameters do not match any fields that can be updated\",\"type\":\"OAuthException\",\"code\":100,\"fbtrace_id\":\"ABGwFwxW1gXUA1bqdVN5Dic\"}}"
     },
     {
       "action": "pinned welcome post",
       "status": "posted (pin blocked)",
-      "detail": "post 1122980080905302_122122949577351165 {\"error\":{\"message\":\"(#100) You do not have sufficient permissions to perform this action\",\"type\":\"OAuthException\",\"code\":100,\"fbtrace_id\":\"AScOVJIr8o"
+      "detail": "post 1122980080905302_122122949577351165 {\"error\":{\"message\":\"(#100) You do not have sufficient permissions to perform this action\",\"type\":\"OAuthException\",\"code\":100,\"fbtrace_id\":\"Ag4qPWWfcc"
     }
   ]
 }
