@@ -109,7 +109,7 @@ def main() -> int:
         except Exception:  # noqa: BLE001
             pass
     reels, perr = gget_all(f"{PAGE}/video_reels",
-                           fields="id,created_time,description,permalink_url")
+                           fields="id,created_time,title,description,permalink_url")
     if perr:
         out["reels_pagination_note"] = perr
     reel_faults = {}
@@ -120,9 +120,13 @@ def main() -> int:
         rf = []
         if len(desc.strip()) < 40:
             rf.append("reel_caption_empty")
+        title = (reel.get("title") or "").strip()
         first_line = desc.strip().splitlines()[0] if desc.strip() else ""
-        if "nextep" not in first_line.lower():
-            rf.append("reel_title_unbranded")
+        # Reels carry a separate `title` field; captions intentionally start
+        # with the hook. Fault only when BOTH the title field is empty and
+        # the caption opener is unbranded.
+        if not title and "nextep" not in first_line.lower():
+            rf.append("reel_title_missing")
         if "#" not in desc:
             rf.append("reel_no_hashtag")
         if rid not in thumbs_done:
