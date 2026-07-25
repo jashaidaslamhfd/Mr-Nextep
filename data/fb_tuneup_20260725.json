@@ -1,12 +1,12 @@
 {
-  "generated_at_utc": "2026-07-25T19:10:56.866947",
+  "generated_at_utc": "2026-07-25T20:42:33.016124",
   "api": "",
   "dry_run": false,
   "actions": [
     {
       "action": "youtube text map",
       "status": "ok",
-      "detail": "76 videos mapped from YouTube"
+      "detail": "70 videos mapped from YouTube"
     },
     {
       "action": "reel titles",
@@ -265,18 +265,18 @@
     },
     {
       "action": "page long description",
-      "status": "ok",
-      "detail": "True"
+      "status": "skip",
+      "detail": "already set"
     },
     {
       "action": "CTA button -> YouTube",
       "status": "blocked",
-      "detail": "{\"error\":{\"message\":\"(#100) Parameters do not match any fields that can be updated\",\"type\":\"OAuthException\",\"code\":100,\"fbtrace_id\":\"ABGwFwxW1gXUA1bqdVN5Dic\"}}"
+      "detail": "{\"error\":{\"message\":\"(#100) Parameters do not match any fields that can be updated\",\"type\":\"OAuthException\",\"code\":100,\"fbtrace_id\":\"AJ4SGMEjFhh4QpGaIHdQwB9\"}}"
     },
     {
       "action": "pinned welcome post",
       "status": "posted (pin blocked)",
-      "detail": "post 1122980080905302_122122949577351165 {\"error\":{\"message\":\"(#100) You do not have sufficient permissions to perform this action\",\"type\":\"OAuthException\",\"code\":100,\"fbtrace_id\":\"Ag4qPWWfcc"
+      "detail": "post 1122980080905302_122122949577351165 {\"error\":{\"message\":\"(#100) You do not have sufficient permissions to perform this action\",\"type\":\"OAuthException\",\"code\":100,\"fbtrace_id\":\"AUiCZWeLPU"
     }
   ]
 }
