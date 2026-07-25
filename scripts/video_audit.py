@@ -163,8 +163,9 @@ def _audit_video(video: dict) -> list:
         if sum(1 for t in tags if _classify(t) in ("fr", "mixed")) > 0:
             faults.append("tags_french")
 
-    # ---- language ----
-    if sn.get("defaultLanguage") != "en":
+    # ---- language ----  (en / en-US / en-GB all count as English)
+    lang = (sn.get("defaultLanguage") or "")
+    if not lang.startswith("en"):
         faults.append("language_not_en")
 
     # ---- thumbnail hint ----

@@ -1,0 +1,32 @@
+name: Video Repair US (one-shot dup cleanup)
+
+on:
+  workflow_dispatch:
+    inputs:
+      apply:
+        description: "Write changes to YouTube (default = dry run)"
+        required: false
+        default: "0"
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run US dup cleanup
+        env:
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
+        run: |
+          if [ "${{ github.event.inputs.apply }}" = "1" ]; then
+            python scripts/video_repair_us.py --apply
+          else
+            python scripts/video_repair_us.py
+          fi
