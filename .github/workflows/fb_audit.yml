@@ -1,0 +1,35 @@
+name: FB Page Audit (read-only)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Audit the whole Facebook page (read-only)
+        env:
+          FB_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN || secrets.FB_ACCESS_TOKEN }}
+          FB_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID || secrets.FB_PAGE_ID }}
+        run: python scripts/fb_page_audit.py
+
+      - name: Persist audit result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/fb_audit_*.json
+          if git diff --cached --quiet; then
+            echo "no changes"
+          else
+            git commit -m "chore: fb page audit snapshot [skip ci]"
+            git push
+          fi
