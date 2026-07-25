@@ -514,6 +514,9 @@ def _upload_facebook_reels(video_path, script_data, tags, thumb_path=None):
                 "upload_phase": "finish",
                 "video_id": video_id,
                 "description": description,
+                # Reels carry a separate `title` field; without it FB shows an
+                # empty title slot (audit 2026-07-25: 58/80 reels title-less).
+                "title": (script_data.get("title") or "")[:65],
                 "access_token": fb_token,
             }
             if stagger_minutes >= 10:
