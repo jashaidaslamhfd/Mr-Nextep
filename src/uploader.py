@@ -44,19 +44,22 @@ if YT_PRIVACY_STATUS not in {"private", "unlisted", "public"}:
 # thinking. Implemented for real now:
 #   YT_SCHEDULE_PUBLISH=true  →  upload as private with a publishAt timestamp
 #   YouTube then flips it to public automatically at the next US peak slot
-#   (06:00 / 12:30 / 20:00 America/New_York — kept in sync with
+#   (12:30 / 16:30 / 20:00 America/New_York — kept in sync with
 #   scheduler.USAPeakTimeScheduler.PEAK_TIMES and the workflow cron table).
 # ---------------------------------------------------------------------------
 YT_SCHEDULE_PUBLISH = os.environ.get("YT_SCHEDULE_PUBLISH", "false").lower() == "true"
 _PUBLISH_TZ = pytz.timezone("America/New_York")
-_PUBLISH_SLOTS = [(6, 0), (12, 30), (20, 0)]  # (hour, minute) New York time
+_PUBLISH_SLOTS = [(12, 30), (16, 30), (20, 0)]  # (hour, minute) New York time
+# DATA-DRIVEN (2026-07-25 diag): every 06:00-slot upload died (139/133/10/0
+# views) — the audience is asleep at 6am NY. Winners all came from the
+# 12:30 and 20:00 slots, so the third slot moved to 4:30pm (school/work end).
 _PUBLISH_MIN_LEAD_MINUTES = 30  # video must sit privately at least this long
 
 
 def _compute_publish_at(now: datetime = None) -> str:
     """Next US peak slot in UTC RFC-3339 ('…Z'), always at least
     _PUBLISH_MIN_LEAD_MINUTES in the future. Scans today's and tomorrow's
-    slots so a late-evening run rolls cleanly into tomorrow 06:00."""
+    slots so a late-evening run rolls cleanly into tomorrow 12:30."""
     now_ny = (now or datetime.now(_PUBLISH_TZ)).astimezone(_PUBLISH_TZ)
     candidates = []
     for day_offset in (0, 1):

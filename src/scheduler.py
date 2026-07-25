@@ -14,8 +14,8 @@ class USAPeakTimeScheduler:
     
     # USA peak times for short-form video engagement (EST)
     PEAK_TIMES = [
-        {'hour': 6, 'minute': 0, 'zone': 'EST', 'name': 'Early Morning'},   # 6:00 AM EST
         {'hour': 12, 'minute': 30, 'zone': 'EST', 'name': 'Lunch Time'},     # 12:30 PM EST
+        {'hour': 16, 'minute': 30, 'zone': 'EST', 'name': 'After School/Work'},  # 4:30 PM EST (replaces dead 6:00 AM slot)
         {'hour': 20, 'minute': 0, 'zone': 'EST', 'name': 'Evening'},         # 8:00 PM EST
     ]
     

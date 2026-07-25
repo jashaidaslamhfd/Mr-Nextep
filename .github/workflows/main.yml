@@ -9,12 +9,12 @@ on:
         type: string
   schedule:
     # 3 videos/day for a US audience, auto-published at New York peaks
-    # (06:00 / 12:30 / 20:00 America/New_York) via status.publishAt — the code
+    # (12:30 / 16:30 / 20:00 America/New_York) via status.publishAt — the code
     # snaps each upload to the exact next NY slot, so the cron only needs to
     # start generation a bit before the slot. ONE cron per slot, year-round
     # (the winter/summer twin-cron system + delay-tolerant gate were removed
     # per owner request — publishAt already makes them unnecessary).
-    - cron: "30 8 * * *"    # generation ~04:30 NY -> publish 06:00
+    - cron: "30 18 * * *"   # generation ~14:30 NY -> publish 16:30 (data: 06:00 slot = 0-139 views)
     - cron: "0 15 * * *"    # generation ~11:00 NY -> publish 12:30
     - cron: "30 22 * * *"   # generation ~18:30 NY -> publish 20:00
 
