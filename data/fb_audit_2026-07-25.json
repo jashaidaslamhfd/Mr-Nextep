@@ -1,5 +1,5 @@
 {
- "generated_at_utc": "2026-07-25T20:46:58.392333",
+ "generated_at_utc": "2026-07-25T20:49:09.001575",
  "api": "v23.0",
  "page": {
   "id": "1122980080905302",
@@ -15,7 +15,7 @@
    "cover_id": "122112479415351165",
    "offset_x": 50,
    "offset_y": 50,
-   "source": "https://scontent-iad6-1.xx.fbcdn.net/v/t39.30808-6/726002744_122112479421351165_2828795938232673996_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=dc4938&_nc_eui2=AeECdUgtSVsxq0v0Gav9-79HLxe6DlBWoeAvF7oOUFah4GOMAe-UVMPRArRj68PlyAufDGfcpkw7hRYPLJNp_CVY&_nc_ohc=KvaxFClasKsQ7kNvwERLFey&_nc_oc=AdqOjB1IdUp9c1-DaAFWqryDFo2rPNmkx61T2DercXpcyQfGPISlRI1A-oOgswuDk2o&_nc_zt=23&_nc_ht=scontent-iad6-1.xx&edm=AJdBtusEAAAA&_nc_gid=AxLn8-TfLLCMJJEkrB_Ndg&_nc_tpa=Q5bMBQEwBKCSZ08cPIbV7qnpGI1nR_D0Lrw64QiHDL-fwMbCfCsAvjvYTaQ938-9agDVoBchl1jzZwEBtQ&oh=00_AQCswdXv_JFxGYxKW6lmREJFxuLmr2L-VwXWWK5voB6HNA&oe=6A6AF8DA",
+   "source": "https://scontent-sea1-1.xx.fbcdn.net/v/t39.30808-6/726002744_122112479421351165_2828795938232673996_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=dc4938&_nc_eui2=AeECdUgtSVsxq0v0Gav9-79HLxe6DlBWoeAvF7oOUFah4GOMAe-UVMPRArRj68PlyAufDGfcpkw7hRYPLJNp_CVY&_nc_ohc=KvaxFClasKsQ7kNvwHclwwk&_nc_oc=AdqQxHqiYp-7ojjIYuSAXtXw94Yfs1R9zjdHpnqo9-Cwzpqe81jwDIeBsN2UlIbBad8&_nc_zt=23&_nc_ht=scontent-sea1-1.xx&edm=AJdBtusEAAAA&_nc_gid=l9C45HQAi6Yz23qLUZIKdw&_nc_tpa=Q5bMBQEqAS1lZ5Z3NlfQgG-oqnfDjq45ksDJnJJy4sV4XX2GfwNhgL5lQBXM0_i4nGlAdy6TPg5SLXawhQ&oh=00_AQDY2x8YeZnMrBpK2YP623y6rWAkupw6lqSAqD0wl9VRYA&oe=6A6AF8DA",
    "id": "122112479415351165"
   }
  },
@@ -32,7 +32,7 @@
    "first_line": "You're about to watch a scary movie",
    "desc_len": 179,
    "faults": [
-    "reel_title_unbranded"
+    "reel_title_missing"
    ]
   },
   "1523575096183415": {
@@ -40,7 +40,7 @@
    "first_line": "Have you ever noticed your mouth dry up",
    "desc_len": 187,
    "faults": [
-    "reel_title_unbranded"
+    "reel_title_missing"
    ]
   },
   "1787303285967704": {
@@ -48,7 +48,7 @@
    "first_line": "You brush your back teeth every morning",
    "desc_len": 177,
    "faults": [
-    "reel_title_unbranded"
+    "reel_title_missing"
    ]
   },
   "1241453812383979": {
@@ -56,7 +56,7 @@
    "first_line": "You love the sweet taste of cold ice",
    "desc_len": 230,
    "faults": [
-    "reel_title_unbranded"
+    "reel_title_missing"
    ]
   },
   "1044083038116002": {
@@ -64,7 +64,7 @@
    "first_line": "You yawn, and suddenly, your friend yawns too",
    "desc_len": 194,
    "faults": [
-    "reel_title_unbranded",
+    "reel_title_missing",
     "reel_cover_missing"
    ]
   },
@@ -73,7 +73,7 @@
    "first_line": "Have you ever felt like hours flew by",
    "desc_len": 225,
    "faults": [
-    "reel_title_unbranded",
+    "reel_title_missing",
     "reel_cover_missing"
    ]
   },
@@ -82,7 +82,7 @@
    "first_line": "Ever felt a lump in your throat when",
    "desc_len": 226,
    "faults": [
-    "reel_title_unbranded",
+    "reel_title_missing",
     "reel_cover_missing"
    ]
   },
@@ -91,7 +91,7 @@
    "first_line": "Ever felt like you're paralyzed with fear, unable.",
    "desc_len": 220,
    "faults": [
-    "reel_title_unbranded",
+    "reel_title_missing",
     "reel_cover_missing"
    ]
   },
@@ -100,7 +100,7 @@
    "first_line": "Have you ever woken up sounding deeper and.",
    "desc_len": 184,
    "faults": [
-    "reel_title_unbranded",
+    "reel_title_missing",
     "reel_cover_missing"
    ]
   },
@@ -109,7 +109,7 @@
    "first_line": "Why does my heartbeat sound so loud at.",
    "desc_len": 213,
    "faults": [
-    "reel_title_unbranded",
+    "reel_title_missing",
     "reel_cover_missing"
    ]
   },
@@ -118,7 +118,7 @@
    "first_line": "Ever felt like your body just freezes when.",
    "desc_len": 221,
    "faults": [
-    "reel_title_unbranded",
+    "reel_title_missing",
     "reel_cover_missing"
    ]
   },
@@ -127,7 +127,7 @@
    "first_line": "You've noticed it before, but why do your.",
    "desc_len": 197,
    "faults": [
-    "reel_title_unbranded",
+    "reel_title_missing",
     "reel_cover_missing"
    ]
   },
@@ -136,7 +136,7 @@
    "first_line": "Have you ever wondered why knees crack when. 🦴",
    "desc_len": 205,
    "faults": [
-    "reel_title_unbranded",
+    "reel_title_missing",
     "reel_cover_missing"
    ]
   },
@@ -145,7 +145,7 @@
    "first_line": "Did you know gut bacteria produce neurotransmitters?",
    "desc_len": 226,
    "faults": [
-    "reel_title_unbranded",
+    "reel_title_missing",
     "reel_cover_missing"
    ]
   },
@@ -154,7 +154,7 @@
    "first_line": "Your brain creates 50,000 thoughts daily, but most are false.",
    "desc_len": 299,
    "faults": [
-    "reel_title_unbranded"
+    "reel_title_missing"
    ]
   },
   "1590736172650812": {
@@ -162,7 +162,7 @@
    "first_line": "Your body's internal clock is controlled by a tiny gland.",
    "desc_len": 300,
    "faults": [
-    "reel_title_unbranded"
+    "reel_title_missing"
    ]
   },
   "2127682905297477": {
@@ -170,7 +170,7 @@
    "first_line": "When you hear music that isn't there, it's not...",
    "desc_len": 240,
    "faults": [
-    "reel_title_unbranded"
+    "reel_title_missing"
    ]
   },
   "967362659655619": {
@@ -178,7 +178,7 @@
    "first_line": "You think you see a lot of greens, but.",
    "desc_len": 274,
    "faults": [
-    "reel_title_unbranded"
+    "reel_title_missing"
    ]
   },
   "2048239735776074": {
@@ -186,7 +186,7 @@
    "first_line": "Your body has a secret clock",
    "desc_len": 173,
    "faults": [
-    "reel_title_unbranded"
+    "reel_title_missing"
    ]
   },
   "2257463925002102": {
@@ -194,7 +194,7 @@
    "first_line": "Nobody told you this is happening inside you right now.",
    "desc_len": 284,
    "faults": [
-    "reel_title_unbranded"
+    "reel_title_missing"
    ]
   },
   "1749215639596086": {
@@ -202,7 +202,7 @@
    "first_line": "Nobody told you this is happening inside you right now.",
    "desc_len": 348,
    "faults": [
-    "reel_title_unbranded"
+    "reel_title_missing"
    ]
   },
   "1558634109273788": {
@@ -210,7 +210,7 @@
    "first_line": "Stress is killing you",
    "desc_len": 277,
    "faults": [
-    "reel_title_unbranded",
+    "reel_title_missing",
     "reel_cover_missing"
    ]
   },
@@ -219,7 +219,7 @@
    "first_line": "This is the creepiest thing your own body does.",
    "desc_len": 252,
    "faults": [
-    "reel_title_unbranded"
+    "reel_title_missing"
    ]
   },
   "1377013091021070": {
@@ -227,7 +227,7 @@
    "first_line": "This sounds fake, but Your Lungs Can Drown You From Inside is 100% rea",
    "desc_len": 276,
    "faults": [
-    "reel_title_unbranded"
+    "reel_title_missing"
    ]
   },
   "1002453985926205": {
@@ -235,7 +235,7 @@
    "first_line": "Your heart is racing, but why?",
    "desc_len": 311,
    "faults": [
-    "reel_title_unbranded"
+    "reel_title_missing"
    ]
   },
   "1562083748879712": {
@@ -243,7 +243,7 @@
    "first_line": "Your pulse betrays you",
    "desc_len": 286,
    "faults": [
-    "reel_title_unbranded"
+    "reel_title_missing"
    ]
   },
   "1812219993275345": {
@@ -251,7 +251,7 @@
    "first_line": "Nobody told you this is happening inside you right now.",
    "desc_len": 274,
    "faults": [
-    "reel_title_unbranded"
+    "reel_title_missing"
    ]
   },
   "1063311032815104": {
@@ -259,7 +259,7 @@
    "first_line": "This is the creepiest thing your own body does.",
    "desc_len": 255,
    "faults": [
-    "reel_title_unbranded"
+    "reel_title_missing"
    ]
   },
   "1060877382948529": {
@@ -267,7 +267,7 @@
    "first_line": "Scientists only figured this out about This Is What Deja Vu Actually I",
    "desc_len": 323,
    "faults": [
-    "reel_title_unbranded"
+    "reel_title_missing"
    ]
   },
   "4618601568425581": {
@@ -275,7 +275,7 @@
    "first_line": "Scientists only figured this out about Your Bones Are Being Replaced R",
    "desc_len": 331,
    "faults": [
-    "reel_title_unbranded",
+    "reel_title_missing",
     "reel_cover_missing"
    ]
   },
@@ -284,7 +284,7 @@
    "first_line": "This is the creepiest thing your own body does.",
    "desc_len": 255,
    "faults": [
-    "reel_title_unbranded"
+    "reel_title_missing"
    ]
   },
   "1027753856883818": {
@@ -292,7 +292,7 @@
    "first_line": "Most people go their entire life never knowing this about The Secret B",
    "desc_len": 319,
    "faults": [
-    "reel_title_unbranded"
+    "reel_title_missing"
    ]
   },
   "1201521836375955": {
@@ -300,7 +300,7 @@
    "first_line": "This sounds fake, but Why Fear Has a Physical Smell is 100% real.",
    "desc_len": 323,
    "faults": [
-    "reel_title_unbranded",
+    "reel_title_missing",
     "reel_cover_missing"
    ]
   },
@@ -309,7 +309,7 @@
    "first_line": "Nobody told you this is happening inside you right now.",
    "desc_len": 304,
    "faults": [
-    "reel_title_unbranded"
+    "reel_title_missing"
    ]
   },
   "2805630619816879": {
@@ -317,7 +317,7 @@
    "first_line": "Your body is lying to you about the sound of your heartbeat. Here's th",
    "desc_len": 352,
    "faults": [
-    "reel_title_unbranded",
+    "reel_title_missing",
     "reel_cover_missing"
    ]
   },
@@ -326,7 +326,7 @@
    "first_line": "Doctors don't want you to know this about your veins...",
    "desc_len": 288,
    "faults": [
-    "reel_title_unbranded"
+    "reel_title_missing"
    ]
   },
   "1039447355617327": {
@@ -334,7 +334,7 @@
    "first_line": "Your body is lying to you about your lungs. Here's the truth.",
    "desc_len": 330,
    "faults": [
-    "reel_title_unbranded"
+    "reel_title_missing"
    ]
   },
   "997257099608361": {
@@ -342,7 +342,7 @@
    "first_line": "This happens to your body every night... and you have no idea.",
    "desc_len": 459,
    "faults": [
-    "reel_title_unbranded"
+    "reel_title_missing"
    ]
   },
   "1386742276679436": {
@@ -350,7 +350,7 @@
    "first_line": "Doctors don't want you to know this about the human body...",
    "desc_len": 316,
    "faults": [
-    "reel_title_unbranded"
+    "reel_title_missing"
    ]
   },
   "1031719582637032": {
@@ -358,7 +358,7 @@
    "first_line": "This happens to your body every night... and you have no idea.",
    "desc_len": 243,
    "faults": [
-    "reel_title_unbranded"
+    "reel_title_missing"
    ]
   },
   "1005919162351949": {
@@ -366,7 +366,7 @@
    "first_line": "Your body is lying to you about your heart's own brain. Here’s the tru",
    "desc_len": 314,
    "faults": [
-    "reel_title_unbranded"
+    "reel_title_missing"
    ]
   },
   "1438140801456427": {
@@ -374,7 +374,7 @@
    "first_line": "This happens to your body every night... and you have no idea.",
    "desc_len": 401,
    "faults": [
-    "reel_title_unbranded"
+    "reel_title_missing"
    ]
   },
   "872411838861430": {
@@ -382,7 +382,7 @@
    "first_line": "This happens to your body every night... and you have no idea.",
    "desc_len": 385,
    "faults": [
-    "reel_title_unbranded"
+    "reel_title_missing"
    ]
   },
   "3049328235257789": {
@@ -390,7 +390,7 @@
    "first_line": "Your body is lying to you about Your Lungs Can Drown You From Inside. ",
    "desc_len": 317,
    "faults": [
-    "reel_title_unbranded"
+    "reel_title_missing"
    ]
   },
   "1359126416180164": {
@@ -398,7 +398,7 @@
    "first_line": "Doctors don't want you to know this about your lungs drowning inside, ",
    "desc_len": 305,
    "faults": [
-    "reel_title_unbranded"
+    "reel_title_missing"
    ]
   },
   "1025851906512601": {
@@ -406,7 +406,7 @@
    "first_line": "Your body is lying to you about your heart having its own brain. Here'",
    "desc_len": 321,
    "faults": [
-    "reel_title_unbranded"
+    "reel_title_missing"
    ]
   },
   "1360222282706092": {
@@ -414,7 +414,7 @@
    "first_line": "Doctors don't want you to know this about your blood having a secret w",
    "desc_len": 288,
    "faults": [
-    "reel_title_unbranded"
+    "reel_title_missing"
    ]
   },
   "4500592876865584": {
@@ -422,7 +422,7 @@
    "first_line": "Doctors don't want you to know this about the bone that breaks most in",
    "desc_len": 285,
    "faults": [
-    "reel_title_unbranded"
+    "reel_title_missing"
    ]
   },
   "1053815270423351": {
@@ -430,7 +430,7 @@
    "first_line": "Doctors don't want you to know this about your blood's secret weapon. ",
    "desc_len": 412,
    "faults": [
-    "reel_title_unbranded",
+    "reel_title_missing",
     "reel_cover_missing"
    ]
   },
@@ -439,7 +439,7 @@
    "first_line": "Doctors don't want you to know this about Your Heart Has Its Own Brain",
    "desc_len": 289,
    "faults": [
-    "reel_title_unbranded",
+    "reel_title_missing",
     "reel_cover_missing"
    ]
   },
@@ -448,7 +448,7 @@
    "first_line": "Most parents don't know this about how music helps baby brain developm",
    "desc_len": 289,
    "faults": [
-    "reel_title_unbranded",
+    "reel_title_missing",
     "reel_cover_missing"
    ]
   },
@@ -457,7 +457,7 @@
    "first_line": "Most parents don’t know this about Attachment Theory: it’s the brain’s",
    "desc_len": 304,
    "faults": [
-    "reel_title_unbranded",
+    "reel_title_missing",
     "reel_cover_missing"
    ]
   },
@@ -466,7 +466,7 @@
    "first_line": "Most parents don't know this about language development... You’re conf",
    "desc_len": 401,
    "faults": [
-    "reel_title_unbranded",
+    "reel_title_missing",
     "reel_cover_missing"
    ]
   },
@@ -475,7 +475,7 @@
    "first_line": "Most parents don't know this about Emotional Intelligence in Toddlers,",
    "desc_len": 386,
    "faults": [
-    "reel_title_unbranded",
+    "reel_title_missing",
     "reel_cover_missing"
    ]
   },
@@ -484,7 +484,7 @@
    "first_line": "Most parents don’t know this about bilingual brain development... We a",
    "desc_len": 397,
    "faults": [
-    "reel_title_unbranded",
+    "reel_title_missing",
     "reel_cover_missing"
    ]
   },
@@ -493,7 +493,7 @@
    "first_line": "Most parents don't know this about Brain Growth Nutrition for Babies, ",
    "desc_len": 382,
    "faults": [
-    "reel_title_unbranded",
+    "reel_title_missing",
     "reel_cover_missing"
    ]
   },
@@ -502,7 +502,7 @@
    "first_line": "Attachment Theory in 60 Seconds",
    "desc_len": 206,
    "faults": [
-    "reel_title_unbranded",
+    "reel_title_missing",
     "reel_cover_missing"
    ]
   },
@@ -511,7 +511,7 @@
    "first_line": "Why Babies Need to Crawl Before Walking",
    "desc_len": 207,
    "faults": [
-    "reel_title_unbranded",
+    "reel_title_missing",
     "reel_cover_missing"
    ]
   },
@@ -520,7 +520,6 @@
    "first_line": "The science behind your baby's first smile is BRAIN GROWTH...",
    "desc_len": 259,
    "faults": [
-    "reel_title_unbranded",
     "reel_cover_missing"
    ]
   },
@@ -529,7 +528,6 @@
    "first_line": "Your child's brain is doing THIS every single night without fail...",
    "desc_len": 259,
    "faults": [
-    "reel_title_unbranded",
     "reel_cover_missing"
    ]
   },
@@ -538,7 +536,6 @@
    "first_line": "Your body is ALREADY reacting to nighttime allergens...",
    "desc_len": 259,
    "faults": [
-    "reel_title_unbranded",
     "reel_cover_missing"
    ]
   },
@@ -547,7 +544,6 @@
    "first_line": "Your body is ALREADY reacting to weather changes...",
    "desc_len": 259,
    "faults": [
-    "reel_title_unbranded",
     "reel_cover_missing"
    ]
   },
@@ -556,7 +552,6 @@
    "first_line": "Your body is ALREADY responding emotionally right now...",
    "desc_len": 259,
    "faults": [
-    "reel_title_unbranded",
     "reel_cover_missing"
    ]
   },
@@ -565,7 +560,6 @@
    "first_line": "Your body is ALREADY speeding through time every day...",
    "desc_len": 259,
    "faults": [
-    "reel_title_unbranded",
     "reel_cover_missing"
    ]
   },
@@ -574,7 +568,6 @@
    "first_line": "Your body is ALREADY skipping beats every day...",
    "desc_len": 299,
    "faults": [
-    "reel_title_unbranded",
     "reel_cover_missing"
    ]
   },
@@ -583,7 +576,6 @@
    "first_line": "Your body is ALREADY reacting to gravity right now...",
    "desc_len": 281,
    "faults": [
-    "reel_title_unbranded",
     "reel_cover_missing"
    ]
   },
@@ -592,7 +584,6 @@
    "first_line": "Your brain is already sending signals right now...",
    "desc_len": 299,
    "faults": [
-    "reel_title_unbranded",
     "reel_cover_missing"
    ]
   },
@@ -601,7 +592,6 @@
    "first_line": "Your brain is ALREADY declining right now slowly...",
    "desc_len": 299,
    "faults": [
-    "reel_title_unbranded",
     "reel_cover_missing"
    ]
   },
@@ -610,7 +600,6 @@
    "first_line": "Your brain is already forgetting right now...",
    "desc_len": 292,
    "faults": [
-    "reel_title_unbranded",
     "reel_cover_missing"
    ]
   },
@@ -619,7 +608,6 @@
    "first_line": "Your brain is already shrinking right now...",
    "desc_len": 281,
    "faults": [
-    "reel_title_unbranded",
     "reel_cover_missing"
    ]
   },
@@ -628,7 +616,6 @@
    "first_line": "Your brain is ALREADY capable of more right now...",
    "desc_len": 291,
    "faults": [
-    "reel_title_unbranded",
     "reel_cover_missing"
    ]
   },
@@ -637,7 +624,6 @@
    "first_line": "Your brain is already forgetting right now...",
    "desc_len": 299,
    "faults": [
-    "reel_title_unbranded",
     "reel_cover_missing"
    ]
   },
@@ -646,7 +632,6 @@
    "first_line": "Your brain is already forgetting names right now...",
    "desc_len": 292,
    "faults": [
-    "reel_title_unbranded",
     "reel_cover_missing"
    ]
   },
@@ -655,7 +640,6 @@
    "first_line": "You have already forgotten what you just read...",
    "desc_len": 293,
    "faults": [
-    "reel_title_unbranded",
     "reel_cover_missing"
    ]
   },
@@ -664,7 +648,6 @@
    "first_line": "The gentle truth about What your heart does when you're under stress, ",
    "desc_len": 287,
    "faults": [
-    "reel_title_unbranded",
     "reel_cover_missing"
    ]
   },
@@ -673,7 +656,6 @@
    "first_line": "The gentle truth about Why procrastination gets worse with age, explai",
    "desc_len": 294,
    "faults": [
-    "reel_title_unbranded",
     "reel_cover_missing"
    ]
   },
@@ -682,7 +664,6 @@
    "first_line": "The gentle truth about Psychology of fear response, explained. Science",
    "desc_len": 287,
    "faults": [
-    "reel_title_unbranded",
     "reel_cover_missing"
    ]
   },
@@ -691,7 +672,6 @@
    "first_line": "The gentle truth about Why does deja vu happen, explained. Science beh",
    "desc_len": 233,
    "faults": [
-    "reel_title_unbranded",
     "reel_cover_missing"
    ]
   },
@@ -700,7 +680,6 @@
    "first_line": "The gentle truth about Muscle memory explained visually, explained. Sc",
    "desc_len": 294,
    "faults": [
-    "reel_title_unbranded",
     "reel_cover_missing"
    ]
   },
@@ -709,7 +688,6 @@
    "first_line": "The gentle truth about Why do we dream, explained. Science behind why ",
    "desc_len": 238,
    "faults": [
-    "reel_title_unbranded",
     "reel_cover_missing"
    ]
   }
@@ -718,7 +696,7 @@
  "post_duplicates": [],
  "read_insights": false,
  "fault_counts": {
-  "reel_title_unbranded": 80,
+  "reel_title_missing": 58,
   "reel_cover_missing": 46
  }
 }
