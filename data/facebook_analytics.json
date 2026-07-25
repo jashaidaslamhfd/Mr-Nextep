@@ -1,35 +1,17 @@
 {
   "8642df72ef46b2dccc3c3e0e896c10ac8b9d2defd934a939952d85a5294a6a98": {
     "video_id": "27722335547405806",
-    "fetched_at": "2026-07-24T11:15:59.025069+00:00",
-    "warnings": [
-      "total_video_views: (#100) Tried accessing nonexisting field (insights)",
-      "total_video_avg_time_watched: (#100) Tried accessing nonexisting field (insights)",
-      "total_video_view_total_time: (#100) Tried accessing nonexisting field (insights)",
-      "post_impressions: (#100) Tried accessing nonexisting field (insights)",
-      "post_reactions_by_type_total: (#100) Tried accessing nonexisting field (insights)"
-    ]
+    "fetched_at": "2026-07-25T10:47:55.326952+00:00",
+    "status": "insights_unavailable: grant `read_insights` and `pages_read_engagement` to the page token"
   },
   "1f2dae481737371341141a76f5f2ce8497ff890e5fc3868a0de59c2c17b02536": {
     "video_id": "1754294192265457",
-    "fetched_at": "2026-07-24T11:15:59.946286+00:00",
-    "warnings": [
-      "total_video_views: (#100) Tried accessing nonexisting field (insights)",
-      "total_video_avg_time_watched: (#100) Tried accessing nonexisting field (insights)",
-      "total_video_view_total_time: (#100) Tried accessing nonexisting field (insights)",
-      "post_impressions: (#100) Tried accessing nonexisting field (insights)",
-      "post_reactions_by_type_total: (#100) Tried accessing nonexisting field (insights)"
-    ]
+    "fetched_at": "2026-07-25T10:47:55.543119+00:00",
+    "status": "insights_unavailable: grant `read_insights` and `pages_read_engagement` to the page token"
   },
   "fa2a1f444ac7309d9e2eabe862569d0c3506add9bf1c02a98dc5bc2c533ed28b": {
     "video_id": "1044083038116002",
-    "fetched_at": "2026-07-24T11:16:00.967619+00:00",
-    "warnings": [
-      "total_video_views: (#100) Tried accessing nonexisting field (insights)",
-      "total_video_avg_time_watched: (#100) Tried accessing nonexisting field (insights)",
-      "total_video_view_total_time: (#100) Tried accessing nonexisting field (insights)",
-      "post_impressions: (#100) Tried accessing nonexisting field (insights)",
-      "post_reactions_by_type_total: (#100) Tried accessing nonexisting field (insights)"
-    ]
+    "fetched_at": "2026-07-25T10:47:55.777621+00:00",
+    "status": "insights_unavailable: grant `read_insights` and `pages_read_engagement` to the page token"
   }
 }
