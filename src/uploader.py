@@ -396,7 +396,31 @@ def _upload_youtube(video_path, thumb_path, script_data, tags):
     return youtube_success, yt_video_id
 
 
-def _upload_facebook_reels(video_path, script_data, tags):
+def _set_fb_reel_cover(video_id, thumb_path, fb_token):
+    """Attach the designed YouTube thumbnail as the Reel's custom cover at
+    publish time (best-effort, never fatal). Root fix for the '47 reels have
+    no cover' audit finding — previously covers were only applied by the
+    after-the-fact tune-up matcher, which misses pipeline-posted reels."""
+    if not thumb_path or not os.path.exists(thumb_path):
+        logger.info("No thumbnail asset available for FB cover — auto frame stays.")
+        return
+    try:
+        with open(thumb_path, "rb") as fh:
+            resp = requests.post(
+                f"https://graph.facebook.com/{FB_API_VERSION}/{video_id}/thumbnails",
+                data={"access_token": fb_token},
+                files={"file": (os.path.basename(thumb_path), fh, "image/jpeg")},
+                timeout=60,
+            )
+        ok = resp.status_code == 200 and "error" not in (
+            resp.json() if resp.content else {})
+        logger.info("Facebook Reel cover %s.", "attached" if ok else
+                    f"rejected ({resp.text[:120]})")
+    except Exception as exc:
+        logger.warning("FB cover attach failed (non-fatal): %s", exc)
+
+
+def _upload_facebook_reels(video_path, script_data, tags, thumb_path=None):
     """
     FIX: previously this posted to /{page-id}/videos as a plain video post.
     Facebook's 2026 recommendation algorithm gives materially better organic
@@ -405,6 +429,7 @@ def _upload_facebook_reels(video_path, script_data, tags):
       1. upload_phase=start   -> get video_id + upload_url
       2. POST binary to upload_url (rupload host)
       3. upload_phase=finish  -> attach description/hashtags and publish
+      4. attach the custom cover (audit 2026-07-25: 47/81 reels coverless)
     Returns success: bool.
     """
     # Facebook Reels has no equivalent private-review workflow in this code.
@@ -538,6 +563,7 @@ def _upload_facebook_reels(video_path, script_data, tags):
                     "completed_at": time.time(),
                 }
                 _save_upload_state(upload_state)
+                _set_fb_reel_cover(str(video_id), thumb_path, fb_token)
                 return True
             else:
                 raise RuntimeError(f"Reels finish phase failed: {finish_data}")
@@ -585,7 +611,7 @@ def upload_all(video_path, thumb_path, script_data):
         }
 
     youtube_success, yt_video_id = _upload_youtube(video_path, thumb_path, script_data, tags)
-    facebook_success = _upload_facebook_reels(video_path, script_data, tags)
+    facebook_success = _upload_facebook_reels(video_path, script_data, tags, thumb_path)
 
     logger.info(f"YouTube Upload: {'SUCCESS' if youtube_success else 'FAILED/SKIPPED'}")
     if yt_video_id:
