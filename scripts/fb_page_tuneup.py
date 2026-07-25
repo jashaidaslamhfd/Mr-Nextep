@@ -518,11 +518,29 @@ def tune_page_fields():
              res.get("body", res.get("success", "set")))
 
 
+WELCOME_MARKER = os.path.join("data", "fb_welcome_done.json")
+
+
 def welcome_post():
-    feed = gget(f"{PAGE}/feed", limit=25, fields="id,message")
-    post_id = next((p["id"] for p in feed.get("data", [])
-                    if "welcome to mr. nextep" in (p.get("message") or "").lower()),
-                   None)
+    post_id = None
+    # 1) Durable marker: once a welcome post exists, remember its ID forever.
+    # Root cause of the "welcome post x8" incident: the check below only
+    # scanned the newest 25 feed items; 3 reels/day pushed the previous
+    # welcome out of the window in ~5 days and the tune-up reposted it.
+    if os.path.exists(WELCOME_MARKER):
+        try:
+            saved = json.load(open(WELCOME_MARKER))
+            pid = saved.get("post_id")
+            if pid and "error" not in gget(pid, fields="id"):
+                post_id = pid
+        except Exception:
+            pass
+    # 2) Fallback: deep feed scan (100 items — was only 25).
+    if not post_id:
+        feed = gget(f"{PAGE}/feed", limit=100, fields="id,message")
+        post_id = next((p["id"] for p in feed.get("data", [])
+                        if "welcome to mr. nextep" in (p.get("message") or "").lower()),
+                       None)
     if DRY:
         note("pinned welcome post", "dry",
              f"would {'pin existing' if post_id else 'create + pin'} welcome post")
@@ -544,6 +562,16 @@ def welcome_post():
          "ok" if "error" not in pin else "posted (pin blocked)",
          f"post {post_id} " + ("pinned" if "error" not in pin
                                else str(pin.get("body", ""))[:150]))
+    # Remember it — survives beyond any feed window (needs the persist step
+    # to commit data/fb_welcome_done.json).
+    if post_id:
+        try:
+            os.makedirs("data", exist_ok=True)
+            json.dump({"post_id": post_id,
+                       "updated_at": dt.datetime.utcnow().isoformat()},
+                      open(WELCOME_MARKER, "w"))
+        except Exception:
+            pass
 
 
 def main() -> int:
