@@ -20,4 +20,12 @@ jobs:
           FB_API_VERSION: ${{ vars.FB_API_VERSION }}
           FB_TOK_A: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
           FB_TOK_B: ${{ secrets.FB_ACCESS_TOKEN }}
+          FB_TOK_C: ${{ secrets.FB_TOKEN }}
+          FB_TOK_D: ${{ secrets.META_ACCESS_TOKEN }}
+          FB_TOK_E: ${{ secrets.FACEBOOK_PAGE_TOKEN }}
+          FB_TOK_F: ${{ secrets.PAGE_ACCESS_TOKEN }}
+          FB_TOK_G: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
+          FB_TOK_H: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
+          FB_TOK_I: ${{ secrets.META_TOKEN }}
+          FB_TOK_J: ${{ secrets.FACEBOOK_TOKEN }}
         run: python scripts/fb_token_probe.py
