@@ -382,7 +382,7 @@ def _upload_youtube(video_path, thumb_path, script_data, tags):
     }
 
     if YT_SCHEDULE_PUBLISH:
-        publish_at = _compute_publish_at(yt)  # slot lock + live channel queue check
+        publish_at = _compute_publish_at(yt=yt)  # slot lock + live channel queue check
         # YouTube requires privacyStatus='private' whenever publishAt is set;
         # the platform itself flips the video to public at publishAt.
         body['status']['privacyStatus'] = 'private'

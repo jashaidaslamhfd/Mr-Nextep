@@ -79,15 +79,22 @@ MIN_SCENES = 8
 MAX_SCENES = 8
 # 96 words at the cloned-voice pace reliably reaches ~40 seconds while
 # leaving normal language room; forcing 104+ made the LLM pad or fail scenes.
-MIN_WORDS = 90
+MIN_WORDS = 80  # was 90: llama kept landing ~76-85; 80 still means a dense ~35s VO
 MAX_WORDS = 120
 MAX_RETRIES = 3
 SCRIPT_POLICY_VERSION = "BODY_GLITCH_V3_RELAXED_VALIDATION"
 TEMPERATURE = 0.65
 MAX_TOKENS = 1400
 
+# Groq model strategy: prefer the strongest general model; if Groq ever
+# retires/renames it, auto-downgrade to the known-good 8B instant model for
+# the rest of the run instead of burning all retries on dead calls.
+GROQ_MODEL_PRIMARY = os.environ.get("GROQ_MODEL", "llama-3.3-70b-versatile")
+GROQ_MODEL_FALLBACK = "llama-3.1-8b-instant"
+_model_downgraded = False
+
 # A fast, clear opening that comfortably fits in the first 2–3 seconds.
-HOOK_MIN_WORDS = 6
+HOOK_MIN_WORDS = 4  # was 6: punchy 4-5-word hooks beat forced filler; the 4s cap stays (MAX 8)
 HOOK_MAX_WORDS = 8
 MIN_SCENE_WORDS = 12
 MAX_SCENE_WORDS = 16
@@ -399,7 +406,7 @@ def _normalize_scenes(script_data: Dict) -> Dict:
     return script_data
 
 
-def _validate_script(script_data: Dict) -> Tuple[bool, List[str]]:
+def _validate_script(script_data: Dict, lenient: bool = False) -> Tuple[bool, List[str]]:
     """
     Validates script for quality and completeness.
     
@@ -486,6 +493,21 @@ def _validate_script(script_data: Dict) -> Tuple[bool, List[str]]:
                 "least one concept word with the hook so the Short loops "
                 "cleanly and feels complete (replay = ranking signal)."
             )
+
+    if lenient and issues:
+        # Final-attempt safety valve: drop only the two SUBJECTIVE story-arc
+        # gates (a missing scene-2 "?" or a loop-back line that does not reuse
+        # a hook concept word). Those shorts are still good, publishable
+        # shorts; an empty day on a daily channel is strictly worse for the
+        # algorithm. Structural gates (fields, scene count, word counts,
+        # hook == first caption) stay hard on every attempt.
+        kept = []
+        for msg in issues:
+            if "LOOP-BACK" in msg or "open one honest question" in msg:
+                logger.warning("Lenient accept (final attempt): %s", msg)
+                continue
+            kept.append(msg)
+        issues = kept
 
     return len(issues) == 0, issues
 
@@ -669,6 +691,7 @@ def generate_script(
     best_script = None
     best_score = 0
     
+    global _model_downgraded  # set in the BadRequestError handler below
     for attempt in range(1, max_retries + 1):
         try:
             logger.info(f"🔄 Generating script (Attempt {attempt}/{max_retries})")
@@ -676,7 +699,7 @@ def generate_script(
             # Call Groq API
             completion = client.chat.completions.create(
                 messages=messages,
-                model="llama-3.1-8b-instant",
+                model=(GROQ_MODEL_FALLBACK if _model_downgraded else GROQ_MODEL_PRIMARY),
                 response_format={"type": "json_object"},
                 temperature=TEMPERATURE,
                 max_tokens=MAX_TOKENS
@@ -697,7 +720,7 @@ def generate_script(
             script_data['attempt'] = attempt
             
             # Validate
-            is_valid, issues = _validate_script(script_data)
+            is_valid, issues = _validate_script(script_data, lenient=(attempt == max_retries))
             
             if is_valid:
                 # Analyze retention
@@ -746,6 +769,11 @@ def generate_script(
         except BadRequestError as e:
             logger.error(f"❌ Groq API error: {e}")
             last_error = e
+            # Model retired/renamed on Groq? Downgrade once and keep going
+            # instead of failing every remaining attempt the same way.
+            if not _model_downgraded and ("model" in str(e).lower() or "decommission" in str(e).lower()):
+                _model_downgraded = True
+                logger.warning(f"Groq primary model rejected - switching to {GROQ_MODEL_FALLBACK} for the rest of this run")
             if attempt < max_retries:
                 wait_time = 2 ** attempt
                 logger.info(f"⏳ Waiting {wait_time}s before retry...")
