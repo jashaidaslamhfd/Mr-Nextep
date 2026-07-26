@@ -225,5 +225,22 @@
     "predicted_ctr": 6.8,
     "hook_score": 85,
     "predicted_retention": 0.732
+  },
+  {
+    "content_fingerprint": "9963ef33654989b167393b3bec2616c2106879bab003bb09d3b537edd01de591",
+    "title": "Song Earworm \ud83e\udde0",
+    "topic": "having a 5-second song loop stuck in your brain",
+    "trend_source": "body_glitch_series",
+    "trend_url": null,
+    "voiceover": "You're stuck on it but why does it keep playing in your head and driving you crazy? You try to shake it off but it's still there, repeating over and over our brains create music loops by repeating memories and storing them in our long-term memory and this process helps us learn new songs and recall them easily it's a normal brain function that helps us learn, but can be annoying at times try to replace the loop with a new tune or task that requires your full attention and you'll find the stuck s",
+    "posted_at": "2026-07-26T23:16:25.116797+00:00",
+    "publish_at": "2026-07-27T01:30:00Z",
+    "facebook_success": true,
+    "instagram_success": true,
+    "youtube_video_id": "ed031j4Pgy8",
+    "seo_score": 73,
+    "predicted_ctr": 6.8,
+    "hook_score": 85,
+    "predicted_retention": 0.682
   }
 ]
