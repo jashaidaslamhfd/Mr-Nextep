@@ -13,10 +13,13 @@ class USAPeakTimeScheduler:
     """
     
     # USA peak times for short-form video engagement (EST)
+    # DATA-DRIVEN 2026-07-26 (87-video time-vs-views analysis): 12:30 avg 231
+    # · 20:00 avg 261 · 16:30 RETIRED (fresh median only 53) · 21:30
+    # wind-down experiment (21:00 pair avg 218; a 23:54 upload hit 652).
     PEAK_TIMES = [
         {'hour': 12, 'minute': 30, 'zone': 'EST', 'name': 'Lunch Time'},     # 12:30 PM EST
-        {'hour': 16, 'minute': 30, 'zone': 'EST', 'name': 'After School/Work'},  # 4:30 PM EST (replaces dead 6:00 AM slot)
-        {'hour': 20, 'minute': 0, 'zone': 'EST', 'name': 'Evening'},         # 8:00 PM EST
+        {'hour': 20, 'minute': 0, 'zone': 'EST', 'name': 'Evening Prime'},   # 8:00 PM EST
+        {'hour': 21, 'minute': 30, 'zone': 'EST', 'name': 'Wind-down'},      # 9:30 PM EST
     ]
     
     # Timezone mapping
@@ -80,8 +83,9 @@ class USAPeakTimeScheduler:
         """
         reasons = {
             'Early Morning': 'Commute/coffee scrolling before work',
-            'Lunch Time': 'Lunch break browsing',
-            'Evening': 'Wind-down scrolling before bed',
+            'Lunch Time': 'Lunch break browsing — best measured slot (avg 231)',
+            'Evening Prime': 'Prime-time scroll — proven winner (avg 261)',
+            'Wind-down': 'Pre-bed wind-down scroll (21:00 pair averaged 218)',
         }
         return reasons.get(peak_name, 'Peak engagement time')
     
@@ -163,24 +167,24 @@ class USAPeakTimeScheduler:
         recommendations = [
             {
                 'slot': 1,
-                'time': '6:00 AM EST',
-                'audience': 'Morning commute/coffee scrolling',
-                'expected_engagement': 'High (time-sensitive content)',
-                'reason': 'Catching people during their morning scroll before work'
-            },
-            {
-                'slot': 2,
                 'time': '12:30 PM EST',
                 'audience': 'Lunch break browsers',
-                'expected_engagement': 'Very High (widest audience online)',
+                'expected_engagement': 'Best measured slot — avg 231 views (87-video study)',
                 'reason': 'Work break viewing, likely to share/comment'
             },
             {
-                'slot': 3,
+                'slot': 2,
                 'time': '8:00 PM EST',
-                'audience': 'Evening wind-down scrolling',
-                'expected_engagement': 'High (relaxed, receptive to longer content)',
-                'reason': 'Prime-time scrolling before bed'
+                'audience': 'Evening prime-time scrolling',
+                'expected_engagement': 'Proven winner — avg 261 views',
+                'reason': 'Prime-time scrolling, widest relaxed audience'
+            },
+            {
+                'slot': 3,
+                'time': '9:30 PM EST',
+                'audience': 'Pre-bed wind-down scrolling',
+                'expected_engagement': 'Experiment — 21:00 pair averaged 218; a 23:54 upload hit 652',
+                'reason': 'Second evening window, ≥90 min after prime slot'
             }
         ]
         

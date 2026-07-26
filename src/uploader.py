@@ -44,15 +44,19 @@ if YT_PRIVACY_STATUS not in {"private", "unlisted", "public"}:
 # thinking. Implemented for real now:
 #   YT_SCHEDULE_PUBLISH=true  →  upload as private with a publishAt timestamp
 #   YouTube then flips it to public automatically at the next US peak slot
-#   (12:30 / 16:30 / 20:00 America/New_York — kept in sync with
+#   (12:30 / 20:00 / 21:30 America/New_York — kept in sync with
 #   scheduler.USAPeakTimeScheduler.PEAK_TIMES and the workflow cron table).
 # ---------------------------------------------------------------------------
 YT_SCHEDULE_PUBLISH = os.environ.get("YT_SCHEDULE_PUBLISH", "false").lower() == "true"
 _PUBLISH_TZ = pytz.timezone("America/New_York")
-_PUBLISH_SLOTS = [(12, 30), (16, 30), (20, 0)]  # (hour, minute) New York time
-# DATA-DRIVEN (2026-07-25 diag): every 06:00-slot upload died (139/133/10/0
-# views) — the audience is asleep at 6am NY. Winners all came from the
-# 12:30 and 20:00 slots, so the third slot moved to 4:30pm (school/work end).
+_PUBLISH_SLOTS = [(12, 30), (20, 0), (21, 30)]  # (hour, minute) New York time
+# DATA-DRIVEN (2026-07-26, 87-video time-vs-views analysis):
+#   12:30 lunch  → avg 231 views (fresh ≤21d avg 252) — channel's best slot
+#   20:00 prime  → avg 261 views (n=11) — proven evening winner
+#   16:30        → RETIRED: fresh median only 53, work-end crowd never came
+#   21:30        → new wind-down experiment. Signals: 21:00 pair avg 218 and
+#   a 23:54 upload hit 652. Sits ≥90 min after the 20:00 slot so the two
+#   evening uploads never eat each other's first-hour boost.
 _PUBLISH_MIN_LEAD_MINUTES = 30  # video must sit privately at least this long
 
 
@@ -581,6 +585,163 @@ def _upload_facebook_reels(video_path, script_data, tags, thumb_path=None):
     return False
 
 
+# ---------------------------------------------------------------------------
+# INSTAGRAM REELS (Graph API, resumable upload)
+# The Page's linked IG Business account (@mrnextep) gets the same Short as a
+# native Reel, in the 4-phase flow verified working 2026-07-26:
+#   1. POST /{ig-user-id}/media (media_type=REELS, upload_type=resumable)
+#      -> container id + rupload uri   (permission smoke-test passed live)
+#   2. POST the mp4 binary to the rupload uri
+#   3. poll /{container-id}?fields=status_code until FINISHED
+#   4. POST /{ig-user-id}/media_publish?creation_id=<container>
+# ---------------------------------------------------------------------------
+
+def _build_instagram_caption(script_data, tags):
+    """IG caption = the same engagement-bait-free caption Facebook gets
+    (both run on Meta's ranking), plus a written-out YouTube pointer —
+    links aren't clickable in IG captions, so the handle goes in as text.
+    2200 chars is Instagram's caption ceiling."""
+    caption = _build_facebook_description(script_data, tags)
+    pointer = "More body science on YouTube @MrNextep"
+    room = max(0, 2200 - len(pointer) - 2)
+    return caption[:room].rstrip() + "\n\n" + pointer
+
+
+def _already_uploaded_to_instagram(script_data) -> bool:
+    """Prevent a duplicate Instagram Reel for an already recorded script."""
+    fingerprint = _content_fingerprint(script_data)
+    state = _load_upload_state().get(fingerprint, {}).get("instagram", {})
+    if state.get("status") == "completed" and state.get("media_id"):
+        return True
+    return any(
+        item.get("content_fingerprint") == fingerprint and item.get("instagram_success")
+        for item in _load_upload_history()
+    )
+
+
+def _upload_instagram_reel(video_path, script_data, tags):
+    """Cross-post the Short to the linked Instagram account. Best-effort by
+    design: any permission/network failure logs a warning and returns False —
+    the YouTube upload above it is never affected by IG trouble."""
+    if os.environ.get("IG_UPLOAD_ENABLED", "false").lower() != "true":
+        logger.info("Instagram upload disabled (set IG_UPLOAD_ENABLED=true to publish a Reel).")
+        return False
+
+    ig_user = os.environ.get("INSTAGRAM_USER_ID", "").strip()
+    ig_token = (os.environ.get("IG_ACCESS_TOKEN") or os.environ.get("FB_ACCESS_TOKEN") or "").strip()
+    if not ig_user or not ig_token:
+        logger.warning("INSTAGRAM_USER_ID or access token missing - Instagram upload skipped")
+        return False
+
+    if _already_uploaded_to_instagram(script_data):
+        logger.info("Instagram: '%s' already uploaded — skipping duplicate.", script_data.get("title"))
+        return True
+
+    fingerprint = _content_fingerprint(script_data)
+    upload_state = _load_upload_state()
+    ig_state = upload_state.get(fingerprint, {}).get("instagram", {})
+    if ig_state.get("status") == "started":
+        raise RuntimeError(
+            "Earlier Instagram Reel has unknown completion state. Review @mrnextep before retrying."
+        )
+    upload_state.setdefault(fingerprint, {})["instagram"] = {
+        "status": "started",
+        "started_at": time.time(),
+    }
+    _save_upload_state(upload_state)
+
+    caption = _build_instagram_caption(script_data, tags)
+
+    for attempt in range(1, 3):  # max 2 attempts — IG must never stall the run
+        try:
+            # ---- Phase 1: resumable container ----
+            container_resp = requests.post(
+                f"https://graph.facebook.com/{FB_API_VERSION}/{ig_user}/media",
+                data={
+                    "media_type": "REELS",
+                    "upload_type": "resumable",
+                    "caption": caption,
+                    "share_to_feed": "true",
+                    "access_token": ig_token,
+                },
+                timeout=30,
+            )
+            container = container_resp.json()
+            if "error" in container or "id" not in container:
+                logger.warning("IG container create failed: %s", str(container)[:200])
+                upload_state[fingerprint]["instagram"] = {
+                    "status": "failed", "error": str(container)[:200], "failed_at": time.time(),
+                }
+                _save_upload_state(upload_state)
+                return False
+            container_id = container["id"]
+            upload_url = container.get("uri") or (
+                f"https://rupload.facebook.com/ig-api-upload/{FB_API_VERSION}/{container_id}"
+            )
+
+            # ---- Phase 2: binary upload ----
+            file_size = os.path.getsize(video_path)
+            with open(video_path, "rb") as fh:
+                up_resp = requests.post(
+                    upload_url,
+                    headers={
+                        "Authorization": f"OAuth {ig_token}",
+                        "offset": "0",
+                        "file_size": str(file_size),
+                        "Content-Type": "application/octet-stream",
+                    },
+                    data=fh,
+                    timeout=300,
+                )
+            if up_resp.status_code not in (200, 201):
+                raise RuntimeError(f"IG binary upload failed: {up_resp.status_code} {up_resp.text[:150]}")
+
+            # ---- Phase 3: wait for processing ----
+            for _ in range(40):  # up to ~6.5 minutes
+                time.sleep(10)
+                status_resp = requests.get(
+                    f"https://graph.facebook.com/{FB_API_VERSION}/{container_id}",
+                    params={"fields": "status_code,status", "access_token": ig_token},
+                    timeout=30,
+                )
+                code = (status_resp.json() or {}).get("status_code", "")
+                if code == "FINISHED":
+                    break
+                if code in ("ERROR", "EXPIRED"):
+                    raise RuntimeError(f"IG container processing failed: {status_resp.text[:200]}")
+            else:
+                raise RuntimeError("IG container processing timed out")
+
+            # ---- Phase 4: publish ----
+            pub_resp = requests.post(
+                f"https://graph.facebook.com/{FB_API_VERSION}/{ig_user}/media_publish",
+                data={"creation_id": container_id, "access_token": ig_token},
+                timeout=60,
+            )
+            pub = pub_resp.json()
+            if "error" in pub or "id" not in pub:
+                raise RuntimeError(f"IG media_publish failed: {str(pub)[:200]}")
+
+            upload_state[fingerprint]["instagram"] = {
+                "status": "completed",
+                "media_id": str(pub["id"]),
+                "completed_at": time.time(),
+            }
+            _save_upload_state(upload_state)
+            logger.info("Instagram Reel published successfully: media_id=%s", pub["id"])
+            return True
+
+        except Exception as exc:
+            logger.warning("Instagram upload attempt %d/2 failed: %s", attempt, exc)
+            if attempt < 2:
+                time.sleep(15)
+
+    upload_state[fingerprint]["instagram"] = {"status": "failed", "failed_at": time.time()}
+    _save_upload_state(upload_state)
+    logger.error("Instagram Reels upload failed (non-fatal)")
+    return False
+
+
 def upload_all(video_path, thumb_path, script_data):
     """Upload video to YouTube and Facebook Reels with comprehensive error handling."""
 
@@ -610,25 +771,29 @@ def upload_all(video_path, thumb_path, script_data):
             "youtube_success": True,
             "youtube_video_id": None,
             "facebook_success": True,
+            "instagram_success": True,
             "dry_run": True,
         }
 
     youtube_success, yt_video_id = _upload_youtube(video_path, thumb_path, script_data, tags)
     facebook_success = _upload_facebook_reels(video_path, script_data, tags, thumb_path)
+    instagram_success = _upload_instagram_reel(video_path, script_data, tags)
 
     logger.info(f"YouTube Upload: {'SUCCESS' if youtube_success else 'FAILED/SKIPPED'}")
     if yt_video_id:
         logger.info(f"  URL: https://youtu.be/{yt_video_id}")
     logger.info(f"Facebook Upload: {'SUCCESS' if facebook_success else 'FAILED/SKIPPED'}")
+    logger.info(f"Instagram Upload: {'SUCCESS' if instagram_success else 'FAILED/SKIPPED'}")
 
-    # YouTube is the primary channel. A Facebook-only success must never mark
-    # the run complete, otherwise the scheduler records a successful upload
-    # while the required YouTube Short is missing.
+    # YouTube is the primary channel. A Facebook/Instagram-only success must
+    # never mark the run complete, otherwise the scheduler records a
+    # successful upload while the required YouTube Short is missing.
     if not youtube_success:
-        raise RuntimeError("YouTube upload failed; Facebook success cannot replace the primary upload")
+        raise RuntimeError("YouTube upload failed; Facebook/Instagram success cannot replace the primary upload")
 
     return {
         "youtube_success": youtube_success,
         "youtube_video_id": yt_video_id,
         "facebook_success": facebook_success,
+        "instagram_success": instagram_success,
     }

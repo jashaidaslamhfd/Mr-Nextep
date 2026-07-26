@@ -9,14 +9,15 @@ on:
         type: string
   schedule:
     # 3 videos/day for a US audience, auto-published at New York peaks
-    # (12:30 / 16:30 / 20:00 America/New_York) via status.publishAt — the code
+    # (12:30 / 20:00 / 21:30 America/New_York) via status.publishAt — the code
     # snaps each upload to the exact next NY slot, so the cron only needs to
-    # start generation a bit before the slot. ONE cron per slot, year-round
-    # (the winter/summer twin-cron system + delay-tolerant gate were removed
-    # per owner request — publishAt already makes them unnecessary).
-    - cron: "30 18 * * *"   # generation ~14:30 NY -> publish 16:30 (data: 06:00 slot = 0-139 views)
-    - cron: "0 15 * * *"    # generation ~11:00 NY -> publish 12:30
-    - cron: "30 22 * * *"   # generation ~18:30 NY -> publish 20:00
+    # start generation a bit before the slot. ONE cron per slot, year-round.
+    # Slots tuned 2026-07-26 from an 87-video time-vs-views analysis:
+    # 12:30 avg 231 · 20:00 avg 261 · 16:30 retired (fresh median 53) ·
+    # 21:30 wind-down experiment (21:00 pair avg 218, a 23:54 upload hit 652).
+    - cron: "0 15 * * *"    # generation ~11:00 NY -> publish 12:30 lunch
+    - cron: "30 22 * * *"   # generation ~18:30 NY -> publish 20:00 prime
+    - cron: "0 0 * * *"     # generation ~20:00 NY -> publish 21:30 wind-down
 
 permissions:
   contents: write
@@ -82,6 +83,7 @@ jobs:
           FB_PAGE_ID_ALT: ${{ secrets.FB_PAGE_ID }}
           FACEBOOK_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
           FB_ACCESS_TOKEN_ALT: ${{ secrets.FB_ACCESS_TOKEN }}
+          INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
         run: |
           set -euo pipefail
           echo "Checking required secrets..."
@@ -113,6 +115,12 @@ jobs:
             fi
           else
             echo "✓ Facebook disabled - FB secrets not required"
+          fi
+          # Instagram cross-posting is optional: warn only, never fail the run.
+          if [ -z "${INSTAGRAM_USER_ID:-}" ]; then
+            echo "::warning::INSTAGRAM_USER_ID missing — Instagram Reels cross-post will be skipped (YouTube/FB unaffected)."
+          else
+            echo "✓ Instagram user id present (cross-post enabled)"
           fi
           exit "$missing"
 
@@ -154,7 +162,7 @@ jobs:
           YT_DECLARE_SYNTHETIC_MEDIA: "true"
           YT_PLAYLIST_ENABLED: "true"
           # Upload private + publishAt → YouTube auto-publishes at the next US
-          # peak slot (06:00 / 12:30 / 20:00 NY). Videos sit privately first,
+          # peak slot (12:30 / 20:00 / 21:30 NY). Videos sit privately first,
           # so anything broken can be deleted before it ever goes live.
           YT_PRIVACY_STATUS: "private"
           YT_SCHEDULE_PUBLISH: "true"
@@ -168,6 +176,13 @@ jobs:
           # fires in its own window); spoken CTA + caption auto-switch to the
           # FB-safe, engagement-bait-free variant when this is true.
           FB_STAGGER_MINUTES: "120"
+          # ---- Instagram Reels: same Short to the Page's linked @mrnextep ----
+          # Verified live 2026-07-26: container-create smoke test passed with
+          # the full-permissions token. Duplicate-safe via upload_state.json;
+          # any IG failure only logs a warning — YouTube/FB are unaffected.
+          IG_UPLOAD_ENABLED: "true"
+          INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN || secrets.FB_ACCESS_TOKEN }}
           # ---- Quality gates ----
           TARGET_MIN_SECONDS: "40"
           TARGET_MAX_SECONDS: "55"

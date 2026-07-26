@@ -638,6 +638,7 @@ class SKILLORPipeline:
                 'voiceover': script_data.get('voiceover', '')[:500],
                 'posted_at': datetime.now(timezone.utc).isoformat() if (upload_result.get('youtube_success') or upload_result.get('facebook_success')) else None,
                 'facebook_success': upload_result.get('facebook_success', False),
+                'instagram_success': upload_result.get('instagram_success', False),
                 'youtube_video_id': upload_result.get('youtube_video_id'),
                 'seo_score': script_data.get('seo_score', {}).get('scores', {}).get('overall_seo_score'),
                 'predicted_ctr': script_data.get('ctr_prediction', {}).get('ctr_prediction'),
