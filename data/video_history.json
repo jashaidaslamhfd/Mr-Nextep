@@ -208,5 +208,22 @@
     "predicted_ctr": 7.0,
     "hook_score": 85,
     "predicted_retention": 0.682
+  },
+  {
+    "content_fingerprint": "d53a7772221124002d96d6f3ae8da9b5d2c8085b3041880d949684fb362b5813",
+    "title": "Muscle Cramp \ud83d\ude34",
+    "topic": "a sudden charley horse cramp in your calf at night",
+    "trend_source": "body_glitch_series",
+    "trend_url": null,
+    "voiceover": "Your calf locks up But what triggers these sudden cramps at night and how can you stop them? You're left wondering what's causing the pain and discomfort in your leg Muscle fibers contract and can't relax due to overactive nerve impulses and fatigue These impulses can get overactive at night due to various factors like dehydration and muscle strain This is usually a normal muscle response to fatigue or dehydration, but it can be managed Gentle stretching before bed can help reduce muscle crampin",
+    "posted_at": "2026-07-26T16:41:35.002240+00:00",
+    "publish_at": "2026-07-27T00:00:00Z",
+    "facebook_success": true,
+    "instagram_success": true,
+    "youtube_video_id": "XCUNM30ET_8",
+    "seo_score": 73,
+    "predicted_ctr": 6.8,
+    "hook_score": 85,
+    "predicted_retention": 0.732
   }
 ]
