@@ -1,13 +1,13 @@
 {
-  "last_posted_date": "2026-07-25",
-  "question_index": 6,
+  "last_posted_date": "2026-07-26",
+  "question_index": 7,
   "targets": {
     "youtube": {
       "video_id": "L3idewWMmPU",
-      "comment_id": "Ugxef04X_zlk0LV6BzV4AaABAg"
+      "comment_id": "Ugz31YKHTXFEQqk6Fpl4AaABAg"
     },
     "facebook": {
-      "post_id": "1122980080905302_122122844817351165"
+      "error": "Facebook question post failed: {'error': {'code': 1, 'message': \"Please reduce the amount of data you're asking for, then retry your request\"}}"
     }
   }
 }
