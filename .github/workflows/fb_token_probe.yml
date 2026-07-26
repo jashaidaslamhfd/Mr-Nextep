@@ -28,4 +28,10 @@ jobs:
           FB_TOK_H: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
           FB_TOK_I: ${{ secrets.META_TOKEN }}
           FB_TOK_J: ${{ secrets.FACEBOOK_TOKEN }}
+          IG_ID_A: ${{ secrets.INSTAGRAM_USER_ID }}
+          IG_ID_B: ${{ secrets.IG_USER_ID }}
+          IG_ID_C: ${{ secrets.INSTAGRAM_BUSINESS_ACCOUNT_ID }}
+          IG_ID_D: ${{ secrets.IG_BUSINESS_ACCOUNT_ID }}
+          IG_ID_E: ${{ secrets.INSTAGRAM_ACCOUNT_ID }}
+          IG_ID_F: ${{ secrets.IG_ACCOUNT_ID }}
         run: python scripts/fb_token_probe.py

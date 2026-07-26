@@ -54,14 +54,58 @@ def probe(tok, label):
     print(f"{label}: " + " | ".join(caps))
 
 
+IG_ID_CANDIDATES = [
+    ("INSTAGRAM_USER_ID", "IG_ID_A"),
+    ("IG_USER_ID", "IG_ID_B"),
+    ("INSTAGRAM_BUSINESS_ACCOUNT_ID", "IG_ID_C"),
+    ("IG_BUSINESS_ACCOUNT_ID", "IG_ID_D"),
+    ("INSTAGRAM_ACCOUNT_ID", "IG_ID_E"),
+    ("IG_ACCOUNT_ID", "IG_ID_F"),
+]
+
+
+def probe_ig(ig_id, label, tok):
+    q = urllib.parse.quote(tok)
+    data, err = _try(
+        f"https://graph.facebook.com/{VER}/{ig_id}"
+        f"?fields=username,name,followers_count,ig_id&access_token={q}")
+    if err:
+        print(f"{label}: id present but NOT readable via token ({err})")
+        return
+    print(f"{label}: INSTAGRAM OK -> @{data.get('username')} "
+          f"(name={data.get('name')}, followers={data.get('followers_count')}, "
+          f"ig_id={data.get('ig_id', data.get('id'))})")
+
+
 found = 0
+best_token = ""
+best_score = -1
 for label, env in CANDIDATES:
     tok = os.environ.get(env, "").strip()
     if tok:
         found += 1
         probe(tok, label)
+        q = urllib.parse.quote(tok)
+        _, err = _try(f"https://graph.facebook.com/{VER}/{PAGE}?fields=name&access_token={q}")
+        if not err:
+            score = 1
+            _, ins = _try(f"https://graph.facebook.com/{VER}/{PAGE}/insights?metric=page_impressions&access_token={q}")
+            if not ins:
+                score = 2
+            if score > best_score:
+                best_score, best_token = score, tok
     else:
         print(f"{label}: (empty)")
-print(f"\nSCAN RESULT: {found} secret(s) contain a token.")
+print(f"\nSCAN RESULT: {found} token secret(s).")
 if found:
     print("NOTE: the pipeline reads ONLY 'FACEBOOK_ACCESS_TOKEN' and 'FB_ACCESS_TOKEN'.")
+
+print("\n--- INSTAGRAM scan ---")
+for label, env in IG_ID_CANDIDATES:
+    ig_id = os.environ.get(env, "").strip()
+    if ig_id and best_token:
+        probe_ig(ig_id, label, best_token)
+    elif ig_id:
+        print(f"{label}: id present but no working FB token to test it with")
+    else:
+        print(f"{label}: (empty)")
