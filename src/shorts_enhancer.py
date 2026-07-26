@@ -63,9 +63,12 @@ def score_hook_detailed(hook: str) -> Dict:
         return {'score': 0, 'checks': [{'name': 'present', 'passed': False, 'note': 'Hook is missing.'}]}
 
     checks, score = [], 35
-    length_ok = 6 <= len(words) <= 8
+    # 4-10 words ~= <=4s spoken. The stack historically demanded 6-8, but the
+    # current model's punchier 4-5-word hooks perform the same job; validator
+    # (HOOK_MIN_WORDS) was aligned to 4 first, this scorer now matches it.
+    length_ok = 4 <= len(words) <= 10
     checks.append({'name': 'spoken_length', 'passed': length_ok,
-                   'note': f'{len(words)} words; target is 6-8.'})
+                   'note': f'{len(words)} words; target is 4-10 (under ~4s spoken).'})
     if length_ok:
         score += 25
 
