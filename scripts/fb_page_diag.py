@@ -66,6 +66,20 @@ def main() -> int:
     out["reel_stats"] = stats
     out["posts"] = gget(f"{PAGE}/posts", limit=5, fields="id,created_time,message")
 
+    # Page-level growth metrics (verified working with the new full-perms
+    # token; per-reel view counts are not API-exposed on New-Experience pages).
+    page_metrics = {}
+    for metric in ("page_media_view", "page_follows", "page_views_total",
+                   "page_post_engagements"):
+        res = gget(f"{PAGE}/insights", metric=metric, period="day")
+        if "error" not in res:
+            try:
+                vals = res["data"][0].get("values", [])
+                page_metrics[metric] = vals[-1]["value"] if vals else None
+            except Exception:  # noqa: BLE001
+                pass
+    out["page_insights"] = page_metrics
+
     os.makedirs("data", exist_ok=True)
     path = f"data/fb_diag_{dt.date.today().strftime('%Y%m%d')}.json"
     with open(path, "w", encoding="utf-8") as fh:
@@ -73,6 +87,7 @@ def main() -> int:
     print("WROTE", path)
 
     print(json.dumps(out.get("page", {}), ensure_ascii=False, indent=1)[:700])
+    print("page insights (yesterday):", page_metrics)
     for s in stats:
         print(f"{(s.get('created_time') or '')[:16]} | views={s.get('views','?')} "
               f"L={s.get('likes','?')} C={s.get('comments','?')} | {s.get('caption','')[:60]}")
