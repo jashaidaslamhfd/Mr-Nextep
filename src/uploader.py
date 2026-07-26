@@ -59,20 +59,123 @@ _PUBLISH_SLOTS = [(12, 30), (20, 0), (21, 30)]  # (hour, minute) New York time
 #   evening uploads never eat each other's first-hour boost.
 _PUBLISH_MIN_LEAD_MINUTES = 30  # video must sit privately at least this long
 
+# ---------------------------------------------------------------------------
+# ONE VIDEO PER SLOT LOCK (ported from the FR channel fix, 2026-07-26)
+# The old clock-only picker let two adjacent runs grab the SAME NY slot —
+# both videos would then go public at the exact same minute, and the
+# ENFORCE_POSTING_GAP guard could silently skip the late-evening run. Now
+# every claim is re-checked against THREE sources before a slot is chosen:
+#   1. _CLAIMED_PUBLISH_ATS — claims made by this same process
+#   2. data/video_history.json — the publish_at ledger persisted via git
+#   3. the YouTube channel itself — private+publishAt videos already queued
+#      (best-effort: needs youtube.force-ssl; failure falls back to 1+2)
+# _RUN_PUBLISH_AT caches the result: one run = one video = one slot, so the
+# YT upload and the FB stagger always reference the SAME locked slot.
+# ---------------------------------------------------------------------------
+_CLAIMED_PUBLISH_ATS = []  # timezone-aware datetimes, this process only
+SLOT_CLAIM_TOLERANCE_SECONDS = 30 * 60  # slots are >=90 min apart; 30 is safe
+_SCHEDULE_LOOKAHEAD_DAYS = 3  # claims can push a late run into tomorrow
+_RUN_PUBLISH_AT = None
 
-def _compute_publish_at(now: datetime = None) -> str:
-    """Next US peak slot in UTC RFC-3339 ('…Z'), always at least
-    _PUBLISH_MIN_LEAD_MINUTES in the future. Scans today's and tomorrow's
-    slots so a late-evening run rolls cleanly into tomorrow 12:30."""
+
+def _parse_iso_quiet(value):
+    try:
+        if not value:
+            return None
+        parsed = datetime.fromisoformat(str(value).replace("Z", "+00:00"))
+        return parsed if parsed.tzinfo else parsed.replace(tzinfo=pytz.UTC)
+    except Exception:
+        return None
+
+
+def _channel_scheduled_publish_ats(yt) -> list:
+    """Slots already occupied by private+publishAt videos queued on the
+    channel — the cross-run source of truth. Best-effort: any failure
+    returns [] and the local ledger still protects us."""
+    claimed = []
+    if yt is None:
+        return claimed
+    try:
+        channels = yt.channels().list(part="contentDetails", mine=True).execute()
+        items = channels.get("items") or []
+        if not items:
+            return claimed
+        uploads_playlist = items[0]["contentDetails"]["relatedPlaylists"]["uploads"]
+        video_ids = [
+            item["contentDetails"]["videoId"]
+            for item in yt.playlistItems().list(
+                part="contentDetails", playlistId=uploads_playlist, maxResults=25
+            ).execute().get("items", [])
+            if item.get("contentDetails", {}).get("videoId")
+        ]
+        if not video_ids:
+            return claimed
+        videos = yt.videos().list(part="status", id=",".join(video_ids)).execute()
+        cutoff = datetime.now(pytz.UTC) - timedelta(hours=3)
+        for video in videos.get("items", []):
+            publish_at = _parse_iso_quiet(video.get("status", {}).get("publishAt"))
+            if publish_at and publish_at > cutoff:
+                claimed.append(publish_at)
+        if claimed:
+            logger.info("Channel already holds %d scheduled slot(s).", len(claimed))
+    except Exception as exc:
+        logger.warning("Scheduled-slot API check skipped (%s); local ledger only.", exc)
+    return claimed
+
+
+def _claimed_publish_times(yt=None) -> list:
+    """Every publish time already taken, from all three sources."""
+    now = datetime.now(pytz.UTC)
+    claimed = [c for c in _CLAIMED_PUBLISH_ATS if c and c > now - timedelta(hours=3)]
+    try:
+        if os.path.exists(VIDEO_HISTORY_PATH):
+            with open(VIDEO_HISTORY_PATH, encoding="utf-8") as handle:
+                for entry in json.load(handle):
+                    publish_at = _parse_iso_quiet(entry.get("publish_at"))
+                    if publish_at and publish_at > now - timedelta(hours=3):
+                        claimed.append(publish_at)
+    except Exception as exc:
+        logger.warning("Local publish_at ledger unreadable (%s).", exc)
+    claimed.extend(_channel_scheduled_publish_ats(yt))
+    return claimed
+
+
+def _slot_is_taken(when, claimed) -> bool:
+    return any(abs((when - taken).total_seconds()) < SLOT_CLAIM_TOLERANCE_SECONDS
+               for taken in claimed)
+
+
+def _compute_publish_at(now: datetime = None, yt=None) -> str:
+    """Next FREE US peak slot in UTC RFC-3339 ('…Z'): at least
+    _PUBLISH_MIN_LEAD_MINUTES in the future and NOT already claimed by any
+    other upload (process set + history ledger + live channel queue). The
+    result is cached per run, so the YouTube upload and the Facebook
+    stagger always use the same locked slot. Two videos can never again go
+    public at the same minute."""
+    global _RUN_PUBLISH_AT
+    if _RUN_PUBLISH_AT and now is None:
+        return _RUN_PUBLISH_AT
     now_ny = (now or datetime.now(_PUBLISH_TZ)).astimezone(_PUBLISH_TZ)
-    candidates = []
-    for day_offset in (0, 1):
+    claimed = _claimed_publish_times(yt)
+    first_future = None
+    for day_offset in range(_SCHEDULE_LOOKAHEAD_DAYS + 1):
         for hour, minute in _PUBLISH_SLOTS:
             slot = now_ny.replace(hour=hour, minute=minute, second=0, microsecond=0) + timedelta(days=day_offset)
-            if slot >= now_ny + timedelta(minutes=_PUBLISH_MIN_LEAD_MINUTES):
-                candidates.append(slot)
-    best = min(candidates) if candidates else (now_ny + timedelta(days=1)).replace(hour=6, minute=0, second=0, microsecond=0)
-    return best.astimezone(pytz.UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
+            if slot < now_ny + timedelta(minutes=_PUBLISH_MIN_LEAD_MINUTES):
+                continue
+            slot_utc = slot.astimezone(pytz.UTC)
+            if first_future is None:
+                first_future = slot_utc
+            if _slot_is_taken(slot_utc, claimed):
+                logger.info("Publish slot %s NY already claimed — taking the next one.",
+                            slot.strftime("%m-%d %H:%M"))
+                continue
+            _CLAIMED_PUBLISH_ATS.append(slot_utc)
+            result = slot_utc.strftime("%Y-%m-%dT%H:%M:%SZ")
+            if now is None:
+                _RUN_PUBLISH_AT = result
+            return result
+    return (first_future or (now_ny + timedelta(days=1)).astimezone(pytz.UTC)).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
 
@@ -279,7 +382,7 @@ def _upload_youtube(video_path, thumb_path, script_data, tags):
     }
 
     if YT_SCHEDULE_PUBLISH:
-        publish_at = _compute_publish_at()
+        publish_at = _compute_publish_at(yt)  # slot lock + live channel queue check
         # YouTube requires privacyStatus='private' whenever publishAt is set;
         # the platform itself flips the video to public at publishAt.
         body['status']['privacyStatus'] = 'private'
@@ -796,4 +899,7 @@ def upload_all(video_path, thumb_path, script_data):
         "youtube_video_id": yt_video_id,
         "facebook_success": facebook_success,
         "instagram_success": instagram_success,
+        # The locked publishAt slot (None when scheduling is off) — main.py
+        # persists it in video_history so future runs never claim it again.
+        "publish_at": _RUN_PUBLISH_AT if YT_SCHEDULE_PUBLISH else None,
     }

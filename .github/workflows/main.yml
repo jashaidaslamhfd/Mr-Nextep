@@ -9,15 +9,18 @@ on:
         type: string
   schedule:
     # 3 videos/day for a US audience, auto-published at New York peaks
-    # (12:30 / 20:00 / 21:30 America/New_York) via status.publishAt — the code
-    # snaps each upload to the exact next NY slot, so the cron only needs to
-    # start generation a bit before the slot. ONE cron per slot, year-round.
+    # (12:30 / 20:00 / 21:30 America/New_York) via status.publishAt.
     # Slots tuned 2026-07-26 from an 87-video time-vs-views analysis:
     # 12:30 avg 231 · 20:00 avg 261 · 16:30 retired (fresh median 53) ·
     # 21:30 wind-down experiment (21:00 pair avg 218, a 23:54 upload hit 652).
-    - cron: "0 15 * * *"    # generation ~11:00 NY -> publish 12:30 lunch
-    - cron: "30 22 * * *"   # generation ~18:30 NY -> publish 20:00 prime
-    - cron: "0 0 * * *"     # generation ~20:00 NY -> publish 21:30 wind-down
+    # Each cron starts generation ~2h before its slot so the upload lands
+    # with a comfortable ~55min lead (publishAt needs >=30min). If a run
+    # ever slips past its slot, the one-video-per-slot lock in uploader.py
+    # (process set + history ledger + live channel queue) moves it to the
+    # NEXT free slot — two videos can never publish at the same minute.
+    - cron: "30 14 * * *"   # generation ~10:30 NY -> publish 12:30 lunch
+    - cron: "0 22 * * *"    # generation ~18:00 NY -> publish 20:00 prime
+    - cron: "30 23 * * *"   # generation ~19:30 NY -> publish 21:30 wind-down
 
 permissions:
   contents: write

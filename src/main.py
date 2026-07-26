@@ -341,8 +341,13 @@ class SKILLORPipeline:
         logger.info("=" * 60)
 
         try:
-            # Phase 0: Check posting interval
-            if self.video_history:
+            # Phase 0: Check posting interval. When scheduled publishing is
+            # on, the one-video-per-slot lock in uploader.py already spaces
+            # publishes >=90 min apart via publishAt — the upload-TIME gap
+            # check here would only skip legitimate same-evening runs, so it
+            # stays active for instant-publish mode only.
+            _scheduling_on = os.environ.get("YT_SCHEDULE_PUBLISH", "false").lower() == "true"
+            if self.video_history and not _scheduling_on:
                 last_posted_at = self.video_history[-1].get('posted_at')
                 if last_posted_at:
                     try:
@@ -637,6 +642,7 @@ class SKILLORPipeline:
                 'trend_url': script_data.get('trend_url'),
                 'voiceover': script_data.get('voiceover', '')[:500],
                 'posted_at': datetime.now(timezone.utc).isoformat() if (upload_result.get('youtube_success') or upload_result.get('facebook_success')) else None,
+                'publish_at': upload_result.get('publish_at'),
                 'facebook_success': upload_result.get('facebook_success', False),
                 'instagram_success': upload_result.get('instagram_success', False),
                 'youtube_video_id': upload_result.get('youtube_video_id'),
