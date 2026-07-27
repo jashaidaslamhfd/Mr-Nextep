@@ -529,3 +529,67 @@ class FacebookCoverMatchTests(unittest.TestCase):
     def test_threshold_is_documented_in_source(self):
         source = (ROOT / "scripts" / "fb_page_tuneup.py").read_text()
         self.assertIn("overlap >= 5 and score >= 0.45", source)
+
+
+class PostingScheduleTests(unittest.TestCase):
+    """Three videos a day at US peaks, on all three platforms.
+
+    YouTube uses status.publishAt and Facebook uses scheduled_publish_time,
+    but the Instagram Graph API has NO scheduling parameter on media_publish
+    — so every Reel went live the moment generation finished (~10:38 / 18:08
+    / 19:38 NY), never at a peak. This channel's own 15 videos show 12:00 NY
+    averaging 833 views and 20:00 averaging 730, against 50-79 for the
+    06:00-09:00 band."""
+
+    def setUp(self):
+        try:
+            from scheduler import USAPeakTimeScheduler
+        except ModuleNotFoundError as exc:
+            self.skipTest(f"deps not installed here: {exc}")
+        self.sched = USAPeakTimeScheduler()
+
+    def test_exactly_three_daily_peak_slots(self):
+        self.assertEqual(len(self.sched.PEAK_TIMES), 3)
+
+    def test_slots_match_the_measured_winners(self):
+        slots = {(s["hour"], s["minute"]) for s in self.sched.PEAK_TIMES}
+        self.assertIn((12, 30), slots)   # 12:00 band averaged 833 views
+        self.assertIn((20, 0), slots)    # 20:00 band averaged 730 views
+
+    def test_slots_are_at_least_90_minutes_apart(self):
+        mins = sorted(s["hour"] * 60 + s["minute"] for s in self.sched.PEAK_TIMES)
+        for earlier, later in zip(mins, mins[1:]):
+            self.assertGreaterEqual(later - earlier, 90)
+
+    def test_instagram_waits_for_the_slot(self):
+        source = (ROOT / "src" / "uploader.py").read_text()
+        self.assertIn("_wait_for_instagram_slot", source)
+        self.assertIn("IG_MAX_WAIT_MINUTES", source)
+
+    def test_instagram_wait_is_bounded(self):
+        """An unbounded wait would hang the runner."""
+        import uploader
+        slept = []
+        original = uploader.time.sleep
+        try:
+            uploader.time.sleep = lambda s: slept.append(s)
+            os.environ["IG_WAIT_FOR_SLOT"] = "true"
+            os.environ["IG_MAX_WAIT_MINUTES"] = "1"
+            uploader._wait_for_instagram_slot()
+        finally:
+            uploader.time.sleep = original
+            os.environ.pop("IG_MAX_WAIT_MINUTES", None)
+        self.assertEqual(slept, [], "wait exceeded its own cap")
+
+    def test_job_timeout_covers_the_instagram_hold(self):
+        """8 min generation + a 112 min hold sat exactly on the old 120 limit."""
+        import re
+        workflow = (ROOT / ".github" / "workflows" / "main.yml").read_text()
+        timeout = int(re.search(r"timeout-minutes:\s*(\d+)", workflow).group(1))
+        cap = int(re.search(r'IG_MAX_WAIT_MINUTES:\s*"(\d+)"', workflow).group(1))
+        self.assertGreater(timeout, cap + 30,
+                           "job would be killed mid-hold")
+
+    def test_three_crons_scheduled(self):
+        workflow = (ROOT / ".github" / "workflows" / "main.yml").read_text()
+        self.assertEqual(workflow.count("- cron:"), 3)

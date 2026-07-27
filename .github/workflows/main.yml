@@ -32,7 +32,11 @@ concurrency:
 jobs:
   generate-and-upload:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    # Generation is ~8 min, but the Instagram publish now HOLDS until the
+    # peak slot (measured ~112 min) because IG has no scheduling API. 8 + 112
+    # = 120 exactly, which would sit on the old limit and get killed at
+    # random. 200 leaves room for the 150-min IG cap plus a slow run.
+    timeout-minutes: 200
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -186,6 +190,14 @@ jobs:
           IG_UPLOAD_ENABLED: "true"
           INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
           IG_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN || secrets.FB_ACCESS_TOKEN }}
+          # Instagram has no scheduling parameter, so the Reel used to go live
+          # the moment generation finished (~10:38 / 18:08 / 19:38 NY) — never
+          # at a peak. The uploader now holds the finished container until the
+          # same slot YouTube targets. Measured wait is ~112 min for all three
+          # crons, inside this cap; if a slot is ever further out the Reel
+          # publishes immediately rather than stalling the runner.
+          IG_WAIT_FOR_SLOT: "true"
+          IG_MAX_WAIT_MINUTES: "150"
           # ---- Quality gates ----
           TARGET_MIN_SECONDS: "40"
           TARGET_MAX_SECONDS: "55"

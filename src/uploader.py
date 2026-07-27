@@ -722,6 +722,55 @@ def _already_uploaded_to_instagram(script_data) -> bool:
     )
 
 
+def _wait_for_instagram_slot() -> None:
+    """Sleep until the next locked peak slot, so the Reel goes live on-peak.
+
+    Instagram's Graph API cannot schedule a publish, so the only way to hit a
+    peak is to hold the already-uploaded container and call media_publish at
+    the right moment. The container is valid for roughly 24 hours.
+
+    Reads the same slot table the YouTube scheduler uses, so all three
+    platforms target one consistent set of times. Bounded by
+    IG_MAX_WAIT_MINUTES (default 150) — if the next slot is further out than
+    that, publish now instead of stalling the runner.
+    """
+    if os.environ.get("IG_WAIT_FOR_SLOT", "true").lower() != "true":
+        logger.info("Instagram slot wait disabled (IG_WAIT_FOR_SLOT=false).")
+        return
+
+    max_wait_minutes = int(os.environ.get("IG_MAX_WAIT_MINUTES", "150") or "150")
+    try:
+        from scheduler import USAPeakTimeScheduler
+        slots = USAPeakTimeScheduler().get_next_posting_times(3)
+        if not slots:
+            return
+        target = min(s["time"] for s in slots)
+    except Exception as exc:  # noqa: BLE001 — timing must never break upload
+        logger.warning("Instagram slot lookup failed (%s); publishing now.", exc)
+        return
+
+    from datetime import datetime as _dtm
+    import pytz as _pytz
+
+    wait_seconds = (target - _dtm.now(_pytz.UTC).astimezone(target.tzinfo)).total_seconds()
+    if wait_seconds <= 0:
+        return
+    if wait_seconds > max_wait_minutes * 60:
+        logger.info(
+            "Next Instagram peak is %.0f min away (cap %d min) — publishing now.",
+            wait_seconds / 60, max_wait_minutes,
+        )
+        return
+
+    logger.info(
+        "Holding Instagram Reel %.0f min until the %s peak (%s).",
+        wait_seconds / 60,
+        next((s["peak_name"] for s in slots if s["time"] == target), "next"),
+        target.strftime("%H:%M %Z"),
+    )
+    time.sleep(wait_seconds)
+
+
 def _upload_instagram_reel(video_path, script_data, tags):
     """Cross-post the Short to the linked Instagram account. Best-effort by
     design: any permission/network failure logs a warning and returns False —
@@ -816,6 +865,22 @@ def _upload_instagram_reel(video_path, script_data, tags):
                 raise RuntimeError("IG container processing timed out")
 
             # ---- Phase 4: publish ----
+            # Hold the publish until the locked peak slot. YouTube uses
+            # status.publishAt and Facebook uses scheduled_publish_time, but
+            # the Instagram Graph API has NO scheduling parameter on
+            # media_publish — so before this, every Reel went live the moment
+            # generation finished (~10:45 / ~18:15 / ~19:45 NY), i.e. never at
+            # a peak. Measured on this channel's own 15 videos: 12:00 NY
+            # averaged 833 views and 20:00 averaged 730, while the 06:00-09:00
+            # band averaged 50-79. Publishing off-peak was giving away the
+            # single easiest gain.
+            #
+            # The container stays valid for ~24h, so waiting is safe. Capped
+            # by IG_MAX_WAIT_MINUTES so a runner is never held hostage; if the
+            # slot is further away than the cap, it publishes immediately
+            # rather than failing — a live Reel beats a lost one.
+            _wait_for_instagram_slot()
+
             pub_resp = requests.post(
                 f"https://graph.facebook.com/{FB_API_VERSION}/{ig_user}/media_publish",
                 data={"creation_id": container_id, "access_token": ig_token},
