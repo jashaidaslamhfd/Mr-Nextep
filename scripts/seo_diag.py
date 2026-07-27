@@ -14,7 +14,7 @@ Plus (YouTube Data API v3 — a few units):
   6. recent_uploads    last 15 uploads (cadence + title/hashtag check)
   7. videos_detail     snippet+stats for those 15 (tags present? category? duration?)
 
-Writes everything to data/seo_diag_<date>.json and prints a human summary.
+Writes everything to data/reports/seo_diag_<date>.json and prints a human summary.
 Stdlib only.
 """
 import datetime as dt
@@ -112,8 +112,8 @@ def main() -> int:
     except Exception as e:  # noqa: BLE001
         out["recent_uploads_error"] = str(e)
 
-    os.makedirs("data", exist_ok=True)
-    path = f"data/seo_diag_{today.strftime('%Y%m%d')}.json"
+    os.makedirs("data/reports", exist_ok=True)
+    path = f"data/reports/seo_diag_{today.strftime('%Y%m%d')}.json"
     with open(path, "w", encoding="utf-8") as fh:
         json.dump(out, fh, ensure_ascii=False, indent=2)
     print("WROTE", path)

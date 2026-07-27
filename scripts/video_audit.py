@@ -20,7 +20,7 @@ Scans the whole uploads list and flags per-video faults:
   FORMAT / STATE (informational)
     not_short (>65s), not_public, scheduled_pending
 
-Writes data/video_audit_us_<date>.json and prints a human summary.
+Writes data/reports/video_audit_us_<date>.json and prints a human summary.
 Stdlib only. READ-ONLY. Needs GOOGLE_CLIENT_ID / GOOGLE_CLIENT_SECRET /
 REFRESH_TOKEN env.
 """
@@ -266,8 +266,8 @@ def main() -> int:
         "fault_counts": dict(counter.most_common()),
         "faulty_videos": sorted(faulty, key=lambda e: -len(e["faults"])),
     }
-    os.makedirs("data", exist_ok=True)
-    path = f"data/video_audit_us_{dt.date.today().isoformat()}.json"
+    os.makedirs("data/reports", exist_ok=True)
+    path = f"data/reports/video_audit_us_{dt.date.today().isoformat()}.json"
     with open(path, "w") as fh:
         json.dump(out, fh, ensure_ascii=False, indent=1)
 

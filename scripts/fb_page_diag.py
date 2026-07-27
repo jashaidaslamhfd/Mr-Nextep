@@ -9,7 +9,7 @@ Pulls (Meta Graph API, page token from secrets):
                       token has insights perms; records warnings otherwise)
   3. recent posts   — last 5 text posts (daily-question engagement check)
 
-Writes data/fb_diag_<date>.json and prints a human summary.  Stdlib only.
+Writes data/reports/fb_diag_<date>.json and prints a human summary.  Stdlib only.
 """
 import datetime as dt
 import json
@@ -80,8 +80,8 @@ def main() -> int:
                 pass
     out["page_insights"] = page_metrics
 
-    os.makedirs("data", exist_ok=True)
-    path = f"data/fb_diag_{dt.date.today().strftime('%Y%m%d')}.json"
+    os.makedirs("data/reports", exist_ok=True)
+    path = f"data/reports/fb_diag_{dt.date.today().strftime('%Y%m%d')}.json"
     with open(path, "w", encoding="utf-8") as fh:
         json.dump(out, fh, ensure_ascii=False, indent=2)
     print("WROTE", path)

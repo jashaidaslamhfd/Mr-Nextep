@@ -22,7 +22,7 @@ the page set-up, all idempotently:
      created and pinned only if no welcome post exists yet.
 
 Every action is isolated (try/except) so one missing permission never kills
-the rest.  Writes data/fb_tuneup_<date>.json and prints a human summary.
+the rest.  Writes data/reports/fb_tuneup_<date>.json and prints a human summary.
 Set FB_TUNEUP_DRY=1 to preview without any writes.  Stdlib only.
 """
 import datetime as dt
@@ -591,8 +591,8 @@ def main() -> int:
     welcome_post()
 
     date = dt.datetime.utcnow().strftime("%Y%m%d")
-    path = os.path.join("data", f"fb_tuneup_{date}.json")
-    os.makedirs("data", exist_ok=True)
+    os.makedirs(os.path.join("data", "reports"), exist_ok=True)
+    path = os.path.join("data", "reports", f"fb_tuneup_{date}.json")
     with open(path, "w", encoding="utf-8") as fh:
         json.dump(report, fh, ensure_ascii=False, indent=2)
     ok = sum(1 for a in report["actions"] if a["status"] == "ok")

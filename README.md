@@ -11,14 +11,25 @@ Body Glitch topic → Llama script (Groq) → AI images (9-provider fallback)
 
 ## Production schedule (America/New_York)
 
-| Generation run starts | Auto-publishes (publishAt) |
-|---|---|
-| 04:30 NY | 06:00 NY |
-| 11:00 NY | 12:30 NY |
-| 18:30 NY | 20:00 NY |
+Slots were re-tuned on 2026-07-26 from an 87-video time-vs-views analysis.
+The single source of truth is `_PUBLISH_SLOTS` in `src/uploader.py`
+(mirrored by `PublishScheduler.PEAK_TIMES` in `src/scheduler.py`); the crons
+in `.github/workflows/main.yml` simply start generation ~2 h earlier.
 
-- Exactly **3 runs/day year-round** — the gate matches the New York hour
-  (`04|11|18`), so the off-season DST cron skips itself (no double uploads).
+| Cron (UTC) | Generation starts (NY) | Auto-publishes (publishAt) | Why |
+|---|---|---|---|
+| `30 14 * * *` | ~10:30 NY | **12:30 NY** — Lunch Time | avg 231 views, best slot |
+| `0 22 * * *` | ~18:00 NY | **20:00 NY** — Evening Prime | avg 261 views (n=11) |
+| `30 23 * * *` | ~19:30 NY | **21:30 NY** — Wind-down | experiment (21:00 pair avg 218) |
+
+- **3 runs/day.** Crons are UTC, so during US winter time (EST) the NY-local
+  generation times shift one hour earlier; the publish slot itself is always
+  computed in `America/New_York`, so the published time never drifts.
+- Each upload needs a ≥30 min lead before its `publishAt`; the ~2 h head start
+  leaves a comfortable margin.
+- If a run slips past its slot, the one-video-per-slot lock in `uploader.py`
+  (process set + history ledger + live channel queue) moves it to the **next
+  free slot** — two videos can never publish at the same minute.
 - Videos upload **private** with YouTube `publishAt`; YouTube itself flips
   them public at the slot — you can review/delete during the private window.
 - `ENFORCE_POSTING_GAP=true` refuses runs closer than 2 h to the last post.
@@ -35,6 +46,13 @@ python src/main.py                      # run one video locally
 
 Voice cloning (GPU only) and the screenshot fallback are **optional** extras:
 `pip install -r requirements-optional.txt`.
+
+## What lives in `data/`
+
+| Path | Committed? | What it is |
+|---|---|---|
+| `data/*.json` | **yes** | durable state the pipeline reads on every run — `upload_state.json`, `video_history.json`, `media_hash_history.json`, `*_done.json` ledgers |
+| `data/reports/` | **no** (git-ignored) | dated one-off dumps from `fb_page_audit` / `fb_page_diag` / `fb_page_tuneup` / `seo_diag` / `video_audit`. Nothing reads them back; the workflows upload them as **build artifacts** (90-day retention) instead of committing them, so the repo does not grow forever |
 
 ## Required GitHub Secrets
 
