@@ -96,6 +96,16 @@ _model_downgraded = False
 # A fast, clear opening that comfortably fits in the first 2–3 seconds.
 HOOK_MIN_WORDS = 4  # was 6: punchy 4-5-word hooks beat forced filler; the 4s cap stays (MAX 8)
 HOOK_MAX_WORDS = 8
+
+# Curiosity / open-loop phrases that mark a strong Shorts hook — the single
+# biggest first-3-second retention lever. Used by analyze_retention_potential
+# (mirrored in shorts_enhancer.score_hook_detailed) to tell a genuine
+# open-loop opener apart from a flat punctuated statement.
+_HOOK_CURIOSITY_TRIGGERS = (
+    "don't know", "doesn't know", "no one", "nobody", "myth", "truth",
+    "secret", "most people", "never knew", "did you", "ever wonder",
+    "here's why", "this is why", "the reason",
+)
 MIN_SCENE_WORDS = 12
 MAX_SCENE_WORDS = 16
 
@@ -587,9 +597,24 @@ def analyze_retention_potential(script_data: Dict) -> Dict:
         else:
             suggestions.append(f"Hook should be {HOOK_MIN_WORDS}-{HOOK_MAX_WORDS} words for a fast, clear opening")
         
-        # Check for pattern interrupt
-        if len(hook.split()) <= 9 and any(ch in hook for ch in ['?', '.', '!']):
-            score += 10
+        # Pattern interrupt / curiosity loop — the single biggest Shorts
+        # retention lever. A hook that opens a question or curiosity loop
+        # ("Why does your…", ending on "?", or a genuine curiosity phrase)
+        # keeps viewers past the first ~3s. Previously ANY punctuation earned
+        # the same credit, so flat openers scored identically to strong ones.
+        # Strong open-loop hooks now earn a larger bonus; merely-punctuated
+        # openers keep the original credit (no regression for passing scripts).
+        if len(hook.split()) <= 9:
+            hook_l = hook.lower().strip()
+            opens_loop = (
+                hook_l.endswith("?")
+                or re.search(r"\b(why|how|what|when)\b", hook_l) is not None
+                or any(t in hook_l for t in _HOOK_CURIOSITY_TRIGGERS)
+            )
+            if opens_loop:
+                score += 15
+            elif any(ch in hook for ch in ['?', '.', '!']):
+                score += 10
     
     # Check "YOU" language
     voiceover = script_data.get('voiceover', '')

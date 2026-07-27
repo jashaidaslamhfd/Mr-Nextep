@@ -684,6 +684,16 @@ def _upload_facebook_reels(video_path, script_data, tags, thumb_path=None):
                 time.sleep(RETRY_DELAY * (2 ** (attempt - 1)))
             continue
 
+    # Mirror the Instagram path: mark this attempt FAILED instead of leaving
+    # it stuck at "started". A stale "started" record makes the next run raise
+    # RuntimeError ("unknown completion state") for this script and crash the
+    # whole pipeline — even though Facebook is an optional/best-effort platform.
+    # Only a genuine mid-upload crash should leave "started" behind.
+    upload_state[fingerprint]["facebook"] = {
+        "status": "failed",
+        "failed_at": time.time(),
+    }
+    _save_upload_state(upload_state)
     logger.error("Facebook Reels upload failed after all retries")
     return False
 

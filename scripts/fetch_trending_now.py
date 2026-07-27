@@ -8,7 +8,7 @@ import sys
 import json
 import feedparser
 import requests
-from datetime import datetime, timedelta
+from datetime import datetime
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
 

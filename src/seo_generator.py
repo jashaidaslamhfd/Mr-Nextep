@@ -338,21 +338,32 @@ def generate_thumbnail_text(script_data: Dict, title: str) -> str:
 
 
 def generate_pinned_comment(script_data: Dict) -> str:
-    """A short comment worth pinning right after upload to seed the first
-    reply/engagement signal. Keep it a genuine question or prompt - not an
-    engagement-bait command like 'like if you agree', which YouTube's spam
-    systems increasingly downrank."""
-    topic = script_data.get('topic', script_data.get('title', 'this'))
-    
-    # Multiple comment templates for variety
+    """A short comment worth pinning right after upload to seed the first replies.
+
+    On a cold-start channel an empty comment section tends to stay empty, while
+    ONE seeded question markedly raises the odds a viewer leaves a reply — and
+    early comments are a strong ranking signal. This is the single most useful
+    engagement lever the pipeline controls, so it does the comment-inviting
+    (the spoken CTA stays a plain 'follow' prompt on purpose — comment-bait in
+    the narration is what Meta/YouTube actually downrank).
+
+    Kept as genuine, content-tied questions, never engagement-bait commands
+    like 'like if you agree' — an obvious bait comment can hurt the very video
+    it is meant to help."""
+    topic = (script_data.get('topic') or script_data.get('title') or 'this').strip()
+    topic_l = re.sub(r"\s+", " ", topic).lower().rstrip(".!?, ")
+
+    # Mix of low-friction prompts proven to seed replies: a shared-experience
+    # question, a surprise question, a soft emoji acknowledgment, and a
+    # "what next" invite that also doubles as topic research.
     comment_templates = [
-        f"Did you know this about {topic.lower()}? Curious what surprised you most 👇",
-        f"What's your reaction to this {topic.lower()} fact? Let me know 👇",
-        f"Which part of this {topic.lower()} explanation blew your mind the most? 🤯",
-        f"Did you already know this about {topic.lower()}? Or was it a shock? 👇",
-        "What should I explain next? Drop your suggestions below! 🔬",
+        "Has this ever happened to you? Tell me your story 👇",
+        f"Be honest — did you already know this about {topic_l}, or is it brand new to you? 🤔",
+        "Which part surprised you the most? I read every single reply 👇",
+        "Drop a 🧠 if you learned something new today!",
+        f"What should I explain next? Drop your {topic_l} questions below and I might pick yours 🔬",
     ]
-    
+
     comment = random.choice(comment_templates)
     return comment[:PINNED_COMMENT_MAX_LEN]
 

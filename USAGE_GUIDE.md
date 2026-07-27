@@ -1,257 +1,156 @@
-# YouTube Shorts Automation - Usage Guide
+# SKILLOR — Usage Guide (US Body-Science Shorts)
 
-## Quick Start
+Fully automated body-science YouTube Shorts pipeline. Generates a hook-driven
+script (Groq/Llama) → AI images (multi-provider fallback) → US-English voice →
+MoviePy render → SEO package → uploads to YouTube (private + auto-publish at a
+US peak slot), with optional Facebook/Instagram Reels cross-posting.
 
-### 1. Setup
+> For the **growth/data checklist** (enabling analytics, fixing the Facebook
+> token, the realistic growth path), see [`GROWTH_SETUP.md`](GROWTH_SETUP.md).
+
+---
+
+## 1. Setup
+
 ```bash
-python setup.py
+python -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt          # core pipeline (CPU-safe)
+cp env.example .env                       # then fill in your keys
+python -m unittest discover -s tests -v   # offline regression tests
 ```
 
-### 2. Configure API Keys
-Edit `.env` file with your API keys:
-```bash
-GROQ_API_KEY=your_groq_key
-GEMINI_API_KEY=your_gemini_key
-HF_API_KEY=your_huggingface_key
-YT_CLIENT_SECRET='{...}'
-FB_ACCESS_TOKEN=your_facebook_token
-FB_PAGE_ID=your_facebook_page_id
-```
+Optional heavy extras (voice cloning on GPU, screenshot fallback):
+`pip install -r requirements-optional.txt`.
 
-### 3. Run Pipeline
+## 2. Configure secrets / `.env`
 
-#### Single Video (Default Topic)
+| Variable | Required | Purpose |
+|---|---|---|
+| `GROQ_API_KEY` | ✅ | script generation (Llama) |
+| `GOOGLE_CLIENT_ID` | ✅ | YouTube OAuth |
+| `GOOGLE_CLIENT_SECRET` | ✅ | YouTube OAuth |
+| `REFRESH_TOKEN` | ✅ | YouTube upload (OAuth **user** token) |
+| `HF_API_KEY`, `GEMINI_API_KEY`, `DEEPAI_API_KEY`, `MODELSLAB_API_KEY`, `REPLICATE_API_TOKEN`, `PEXELS_API_KEY`, `PIXABAY_API_KEY`, `AI_HORDE_API_KEY` | optional | more image providers (missing ones are auto-skipped) |
+| `FB_ACCESS_TOKEN`, `FB_PAGE_ID`, `FB_UPLOAD_ENABLED=true` | optional | Facebook Reels cross-post (off by default) |
+| `INSTAGRAM_USER_ID`, `IG_ACCESS_TOKEN`, `IG_UPLOAD_ENABLED=true` | optional | Instagram Reel cross-post |
+
+> ⚠️ **YouTube needs OAuth USER credentials, NOT a service account** — service
+> accounts cannot upload to a normal channel. Get the three Google values with:
+> ```bash
+> python scripts/get_refresh_token.py
+> ```
+> The backup is written to `~/.skillor/` (git-ignored), **never** into the repo.
+
+Key US-audience settings already defaulted in `env.example`:
+`CONTENT_SERIES=body_glitches`, `TTS_ENGINE=kokoro`, `KOKORO_LANG_CODE=a`,
+`KOKORO_VOICE=am_adam`, `YT_PRIVACY_STATUS=private`, `YT_SCHEDULE_PUBLISH=true`,
+`QUALITY_APPROVAL_THRESHOLD=60`, `YT_MADE_FOR_KIDS=false`.
+
+## 3. Run the pipeline
+
+`src/main.py` is driven by **environment variables** (no CLI flags):
+
 ```bash
+# One video (auto-selected body-glitch topic)
 python src/main.py
+
+# One video on a specific topic
+VIDEO_TOPIC="Why You Hear Your Heartbeat at Night" python src/main.py
+
+# Batch of N videos
+BATCH_MODE=true BATCH_COUNT=3 python src/main.py
 ```
 
-#### Single Video (Custom Topic)
-```bash
-python src/main.py --topic "Why Babies Need to Crawl Before Walking"
-```
+In production this runs on **GitHub Actions** (`.github/workflows/main.yml`),
+3×/day, gated to the New York hours `04|11|18` so DST skips don't double-post.
 
-#### Daily Batch (3 Videos at Peak Times)
-```bash
-python src/main.py --batch 3
-```
+## 4. Publishing schedule (America/New_York)
 
-#### Custom Batch Size
-```bash
-python src/main.py --batch 5
-```
+| Generation run | Auto-publishes (`publishAt`) |
+|---|---|
+| 04:30 NY | 06:00 NY |
+| 11:00 NY | 12:30 NY |
+| 18:30 NY | 20:00 NY |
 
----
+Videos upload **private** with a `publishAt` timestamp; YouTube itself flips
+them public at the slot (peak slots used: 12:30 / 20:00 / 21:30 NY). You can
+review or delete during the private window. `ENFORCE_POSTING_GAP=true` refuses
+runs closer than 2 h to the last post.
 
-## Pipeline Phases
+## 5. Pipeline phases
 
-### Phase 1: Specialized Content Generation
-- Selects topic from Brain & Body Science database
-- Generates hook-optimized script
-- Quality checking (hook, engagement, pacing)
-- Anti-spam analysis
-- Medical accuracy validation
+1. **Script** — body-glitch topic → Groq/Llama generates an 8-scene,
+   hook→suspense→…→payoff→loop-back script; validated (word count, hook,
+   arc) and quality-gated.
+2. **Images** — 9-provider fallback chain (order = fallback order):
+   AI-Horde → Pollinations-flux → Pollinations-turbo → Hugging Face → Gemini →
+   DeepAI → ModelsLab → Replicate (missing keys auto-skipped). A channel-wide
+   media-hash ledger (`data/media_hash_history.json`) prevents repeats.
+3. **Voice** — Chatterbox clone (primary, GPU) with **Kokoro** US-English
+   fallback (`TTS_ENGINE=kokoro` on CPU runners); emergency cloud TTS as a last
+   resort. Validates output (no empty/NaN/too-short audio).
+4. **Video** — MoviePy 1080×1920 render, word-by-word captions, zoom effects,
+   optional royalty-free music with voice ducking (`assets/music/`).
+5. **Thumbnail + SEO** — 9:16 thumbnail, topic-aware title/tags/description,
+   hashtags, pinned-comment seed, SEO score.
+6. **Upload** — YouTube (primary, private + `publishAt`), then optional
+   Facebook Reels and Instagram Reel (each with its own platform-native caption
+   and duplicate-prevention).
 
-### Phase 2: Image Generation
-- Google Gemini (Priority 1)
-- Hugging Face FLUX.1 (Fallback)
-- Placeholder images (Last resort)
+## 6. Maintenance & repair tools (`scripts/`)
 
-### Phase 3: Voice Generation
-- Kokoro TTS (American English)
-- Audio normalization
-- Quality validation
+| Script / Workflow | Purpose |
+|---|---|
+| `get_refresh_token.py` | obtain YouTube OAuth `REFRESH_TOKEN` |
+| `seo_diag.py` (`US SEO Diagnostic`) | read-only channel CTR/AVD/traffic report → `data/seo_diag_<date>.json` |
+| `metadata_repair.py` (`Metadata Repair`) | heal titles/tags/descriptions of old uploads (dry-run by default) |
+| `fb_token_probe.py` (`FB token probe`) | check which FB token secret has which permissions (read-only) |
+| `fb_page_audit.py` / `fb_page_diag.py` / `fb_repair.py` / `fb_page_tuneup.py` | Facebook Page audit & one-shot repairs |
+| `channel_audit.py`, `video_audit.py`, `video_repair_us.py`, `yt_dead_cleanup.py` | YouTube channel audits/cleanup |
+| `generate_fallback_images.py` | build a local fallback image pool |
 
-### Phase 4: Video Composition
-- Image + Audio sync
-- Caption overlays
-- Zoom effects
-- Smooth transitions
-
-### Phase 5: Thumbnail Generation
-- Aspect ratio optimization
-- Professional styling
-- Text overlay
-
-### Phase 6: Scheduling
-- USA peak time detection
-- Timezone conversion
-- Queue management
-
-### Phase 7: Publishing
-- YouTube upload with metadata
-- Facebook Reels upload
-- Status tracking
-
----
-
-## Available Topics (Brain & Body Science)
-
-1. Why Babies Need to Crawl Before Walking
-2. The 3 Sleep Stages Every Baby Parent Must Know
-3. Brain Development Milestones: 0-6 Months
-4. Right Brain vs Left Brain: How Parents Can Help
-5. The Science Behind Baby Babbling
-6. Motor Skill Development Timeline
-7. How Touch Develops Baby's Brain
-8. Language Development: What Parents Miss
-9. Sensory Development in First Year
-10. Why Babies Cry: The Neuroscience
-11. Attachment Theory: Science Explained
-12. Brain Growth Nutrition for Babies
-13. The 4 Month Sleep Regression Explained
-14. How Play Develops Your Baby's Brain
-15. Emotional Intelligence in Toddlers
-16. Why Babies Love Repetition: Brain Science
-17. Object Permanence Development Explained
-18. Mirror Neurons and Baby Learning
-19. Bilingual Brain Development in Babies
-20. How Music Helps Baby Brain Development
-
----
-
-## Quality Metrics
-
-Each video is scored on:
-- **Hook Score** (0-100): First 3 seconds attention grab
-- **Engagement Score** (0-100): Overall engagement potential
-- **Pacing Score** (0-100): Timing for 50-60 second format
-- **CTA Score** (0-100): Call-to-action effectiveness
-- **Overall Quality** (0-100): Combined score
-
-**Approval Threshold:** 75+
-
----
-
-## Anti-Spam Checks
-
-Each video is analyzed for:
-- Keyword stuffing
-- Plagiarism (vs previous videos)
-- Engagement bait
-- Title quality
-- Content similarity
-- Duplicate detection
-
-**Risk Levels:** LOW, MEDIUM, HIGH, CRITICAL
-
----
-
-## Output Files
+## 7. Output files
 
 ```
 output/
-├── final_video.mp4          # Generated video
-├── thumbnail.jpg            # YouTube thumbnail
-├── voice.wav                # Generated audio
-└── video_history.json       # Track of all videos
-
-scene_0.png
-scene_1.png
-scene_2.png
-... (generated images)
+├── final_video.mp4     # rendered Short
+├── thumbnail.jpg       # 9:16 thumbnail
+├── captions.srt        # closed-caption track (uploaded best-effort)
+└── segments/seg_*.wav  # per-scene voiceover
 ```
+Durable channel state lives in `data/` (committed by the bot):
+`video_history.json`, `upload_state.json`, `media_hash_history.json`, etc.
+
+## 8. Troubleshooting
+
+- **YouTube upload fails / missing secrets** — confirm `GOOGLE_CLIENT_ID`,
+  `GOOGLE_CLIENT_SECRET`, `REFRESH_TOKEN` are set, and that the refresh token was
+  issued for a **user** account with `youtube.upload` (and `youtube.force-ssl`
+  for captions/seed-comment). Regenerate with `python scripts/get_refresh_token.py`.
+- **Can't see CTR / retention** — the YouTube **Analytics API** must be enabled
+  in your Google Cloud project, then run `US SEO Diagnostic`. See `GROWTH_SETUP.md`.
+- **Facebook reel views show as unavailable** — your page token needs
+  `read_insights` (+ `pages_read_engagement`, `pages_show_list`). Regenerate the
+  page token and verify with `FB token probe`. See `GROWTH_SETUP.md`.
+- **Image generation fails** — add at least one image-provider key; AI-Horde,
+  Pollinations work keyless. A local pool via `generate_fallback_images.py` is
+  the last resort.
+- **Script rejected / retried** — the quality gate (`QUALITY_APPROVAL_THRESHOLD`,
+  default 60) retries weak scripts; check the hook/arc suggestions in the logs.
+
+## 9. Legal / policy
+
+- MIT license. Every upload sets `containsSyntheticMedia: true` (AI disclosure)
+  and `selfDeclaredMadeForKids: false`; a science disclaimer is auto-added when
+  the medical-accuracy check trips.
+- Never commit `assets/voice_reference.wav` or any OAuth/token file (git-ignored).
+
+## 10. Support
+
+1. `README.md` (overview + secret table) · 2. `GROWTH_SETUP.md` (growth/data
+   checklist) · 3. `AUTOMATION_REQUIREMENTS.md` · 4. logs in `output/` ·
+   5. <https://github.com/jashaidaslamhfd/SKILLOR/issues>
 
 ---
 
-## Monitoring & Analytics
-
-After publishing, track these metrics:
-1. **CTR** (Click-Through Rate) - Target: 8%+
-2. **View Duration** - Target: 50%+ of video length
-3. **Swap Rate** - Target: 20% (from current 72%)
-4. **Engagement Rate** - Target: 80%+
-5. **Subscriber Growth** - Monthly tracking
-
----
-
-## Troubleshooting
-
-### Image Generation Fails
-```
-Error: Koi image generate nahi hui
-
-Solution:
-1. Check GEMINI_API_KEY and HF_API_KEY
-2. Ensure assets/placeholder.png exists
-3. Try with placeholder only
-```
-
-### YouTube Upload Fails
-```
-Error: YT_CLIENT_SECRET missing
-
-Solution:
-1. Create service account in Google Cloud
-2. Enable YouTube Data API v3
-3. Download credentials JSON
-4. Set YT_CLIENT_SECRET in .env
-```
-
-### Facebook Upload Fails
-```
-Error: FB_ACCESS_TOKEN missing
-
-Solution:
-1. Get access token from Facebook Developers
-2. Ensure token has required permissions
-3. Verify FB_PAGE_ID is correct
-```
-
-### Spam Risk Too High
-```
-Error: Spam risk too high: CRITICAL
-
-Solution:
-1. Rewrite script with different angle
-2. Change title wording
-3. Vary keywords and phrasing
-4. Check against recent videos
-```
-
----
-
-## Advanced Configuration
-
-### Custom Peak Times
-Edit `scheduler.py` `PEAK_TIMES` to customize posting times:
-
-```python
-PEAK_TIMES = [
-    {'hour': 6, 'minute': 0, 'zone': 'EST', 'name': 'Early Morning'},
-    {'hour': 12, 'minute': 30, 'zone': 'EST', 'name': 'Lunch Time'},
-    {'hour': 20, 'minute': 0, 'zone': 'EST', 'name': 'Evening'},
-]
-```
-
-### Quality Thresholds
-Edit `quality_checker.py` to adjust:
-
-```python
-self.hook_threshold = 0.8
-self.engagement_threshold = 0.75
-self.pacing_threshold = 0.8
-```
-
----
-
-## Performance Tips
-
-1. **Faster Generation:** Use Hugging Face (faster than Gemini)
-2. **Higher Quality:** Use Gemini (more creative)
-3. **Batch Processing:** Run multiple videos overnight
-4. **Rate Limiting:** Space out API calls to avoid throttling
-5. **Caching:** Reuse generated images where appropriate
-
----
-
-## Support
-
-For issues:
-1. Check README.md
-2. Review AUTOMATION_REQUIREMENTS.md
-3. Check logs in output/ directory
-4. GitHub Issues: https://github.com/jashaidaslamhfd/SKILLOR/issues
-
----
-
-**Made for USA Parents • Brain & Body Science • 3x Daily • Peak Times • Zero Spam**
+**US audience · Body-science Shorts · 3× daily · private + auto-publish at US peak slots**

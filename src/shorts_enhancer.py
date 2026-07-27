@@ -92,6 +92,22 @@ def score_hook_detailed(hook: str) -> Dict:
     else:
         score -= 30
 
+    # Curiosity / open-loop signal — the single biggest first-3s retention
+    # lever. The trigger phrases above were defined but never wired in; reward
+    # hooks that open a question/loop the viewer wants answered. Additive only
+    # (never subtracts) so a merely "fine" hook is not penalised — this just
+    # lets strong open-loop hooks score higher and sharpens predict_retention.
+    hook_l = hook.lower().strip()
+    curiosity = (
+        hook_l.endswith("?")
+        or re.search(r"\b(why|how|what|when)\b", hook_l) is not None
+        or any(t in hook_l for t in _CURIOSITY_TRIGGERS)
+    )
+    checks.append({'name': 'curiosity_loop', 'passed': curiosity,
+                   'note': 'Opens a question/curiosity loop the viewer wants answered.'})
+    if curiosity:
+        score += 15
+
     return {'score': max(0, min(score, 100)), 'checks': checks}
 
 
