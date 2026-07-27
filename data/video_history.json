@@ -242,5 +242,22 @@
     "predicted_ctr": 6.8,
     "hook_score": 85,
     "predicted_retention": 0.682
+  },
+  {
+    "content_fingerprint": "81677eec039429f24c89e425814cc54379e7d25d0fd42b7614160304bf883370",
+    "title": "Ringing Ears \ud83d\udc42",
+    "topic": "your ears ringing in absolute silence",
+    "trend_source": "body_glitch_series",
+    "trend_url": null,
+    "voiceover": "Your ears ring loudly But have you ever wondered why this happens in silence? It's confusing and a bit unsettling, right, to hear noise It's related to your cochlea and how it processes sound waves Your brain is still working to detect sound, even in complete silence and quiet This is a normal phenomenon, not a cause for concern or worry about your hearing So, the next time it happens, just relax and know it's a normal sound process And appreciate the quiet, even if your ears are ringing with a ",
+    "posted_at": "2026-07-27T01:22:02.600557+00:00",
+    "publish_at": "2026-07-27T16:30:00Z",
+    "facebook_success": true,
+    "instagram_success": true,
+    "youtube_video_id": "QVLAgCpKa1M",
+    "seo_score": 73,
+    "predicted_ctr": 6.8,
+    "hook_score": 85,
+    "predicted_retention": 0.682
   }
 ]
