@@ -1,0 +1,212 @@
+diff --git a/.github/workflows/ci.yml b/.github/workflows/ci.yml
+index 673a207..76a60c8 100644
+--- a/.github/workflows/ci.yml
++++ b/.github/workflows/ci.yml
+@@ -2,11 +2,15 @@ name: CI - guard tests on push
+ 
+ # Every push must pass the test suite BEFORE a scheduled pipeline run can
+ # break on it. If a commit would crash the daily pipeline, this fails loud
+-# here instead of silently killing uploads at 19:00 Paris time.
++# here instead of silently killing an upload at its New York publish slot.
+ 
+ on:
+   push:
+     branches: [main]
++  # Also gate pull requests — otherwise a broken branch is only caught after
++  # it has already been merged into main.
++  pull_request:
++    branches: [main]
+ 
+ permissions:
+   contents: read
+@@ -23,8 +27,9 @@ jobs:
+         run: |
+           python -m pip install --upgrade pip
+           for i in 1 2 3; do python -m pip install -r requirements.txt && break || { echo retry; sleep 10; }; done
+-          python -m pip install pytest
+       - name: Compile gate (syntax crash-landed commits die here)
+-        run: python -m compileall -q src scripts
++        run: python -m compileall -q src scripts tests
++      # Same runner as the production pipeline in main.yml — using pytest here
++      # and unittest there let behaviour diverge between the two gates.
+       - name: Run test suite
+-        run: python -m pytest tests/ -q
++        run: python -m unittest discover -s tests -v
+diff --git a/.github/workflows/fb_audit.yml b/.github/workflows/fb_audit.yml
+index f53d2f8..38d6632 100644
+--- a/.github/workflows/fb_audit.yml
++++ b/.github/workflows/fb_audit.yml
+@@ -3,8 +3,9 @@ name: FB Page Audit (read-only)
+ on:
+   workflow_dispatch:
+ 
++# Read-only: the dated report is uploaded as an artifact, not committed.
+ permissions:
+-  contents: write
++  contents: read
+ 
+ jobs:
+   audit:
+@@ -22,14 +23,10 @@ jobs:
+           FB_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID || secrets.FB_PAGE_ID }}
+         run: python scripts/fb_page_audit.py
+ 
+-      - name: Persist audit result
+-        run: |
+-          git config user.name "github-actions[bot]"
+-          git config user.email "github-actions[bot]@users.noreply.github.com"
+-          git add data/fb_audit_*.json
+-          if git diff --cached --quiet; then
+-            echo "no changes"
+-          else
+-            git commit -m "chore: fb page audit snapshot [skip ci]"
+-            git push
+-          fi
++      - name: Upload fb-page-audit report as artifact
++        uses: actions/upload-artifact@v4
++        with:
++          name: fb-page-audit
++          path: data/reports/
++          if-no-files-found: warn
++          retention-days: 90
+diff --git a/.github/workflows/fb_diag.yml b/.github/workflows/fb_diag.yml
+index 6e3a965..d01d3cc 100644
+--- a/.github/workflows/fb_diag.yml
++++ b/.github/workflows/fb_diag.yml
+@@ -3,8 +3,9 @@ name: FB Page Diagnostic (one-shot)
+ on:
+   workflow_dispatch:
+ 
++# Read-only: the dated report is uploaded as an artifact, not committed.
+ permissions:
+-  contents: write
++  contents: read
+ 
+ jobs:
+   diag:
+@@ -20,13 +21,10 @@ jobs:
+           FB_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID || secrets.FB_PAGE_ID }}
+           FB_API_VERSION: ${{ vars.FB_API_VERSION }}
+         run: python scripts/fb_page_diag.py
+-      - name: Persist diagnostic result
+-        run: |
+-          git config user.name "github-actions[bot]"
+-          git config user.email "github-actions[bot]@users.noreply.github.com"
+-          git add data/fb_diag_*.json
+-          if git diff --cached --quiet; then echo "no changes"; else
+-            git commit -m "chore: fb diagnostic snapshot [skip ci]"
+-            git pull --rebase --autostash || true
+-            git push
+-          fi
++      - name: Upload fb-page-diagnostic report as artifact
++        uses: actions/upload-artifact@v4
++        with:
++          name: fb-page-diagnostic
++          path: data/reports/
++          if-no-files-found: warn
++          retention-days: 90
+diff --git a/.github/workflows/fb_tuneup.yml b/.github/workflows/fb_tuneup.yml
+index 0e53965..4c1009b 100644
+--- a/.github/workflows/fb_tuneup.yml
++++ b/.github/workflows/fb_tuneup.yml
+@@ -29,13 +29,24 @@ jobs:
+           GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+           REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
+         run: python scripts/fb_page_tuneup.py
+-      - name: Persist tune-up report
++      - name: Upload fb-page-tuneup-report report as artifact
++        uses: actions/upload-artifact@v4
++        with:
++          name: fb-page-tuneup-report
++          path: data/reports/
++          if-no-files-found: warn
++          retention-days: 90
++
++      # The dated tune-up report goes to artifacts (above); only the durable
++      # done-state ledgers are committed — the tune-up script reads them back
++      # on the next run to avoid redoing work.
++      - name: Persist tune-up done-state
+         run: |
+           git config user.name "github-actions[bot]"
+           git config user.email "github-actions[bot]@users.noreply.github.com"
+-          git add data/fb_tuneup_*.json data/fb_thumbs_done.json data/fb_welcome_done.json 2>/dev/null || git add data/fb_tuneup_*.json
++          git add data/fb_thumbs_done.json data/fb_welcome_done.json
+           if git diff --cached --quiet; then echo "no changes"; else
+-            git commit -m "chore: fb tune-up report [skip ci]"
++            git commit -m "chore: fb tune-up done-state [skip ci]"
+             for i in 1 2 3; do
+               git pull --rebase --autostash && git push && break
+               echo "push race — retry $i"; sleep 8
+diff --git a/.github/workflows/seo_diag_us.yml b/.github/workflows/seo_diag_us.yml
+index 158434e..f400ed2 100644
+--- a/.github/workflows/seo_diag_us.yml
++++ b/.github/workflows/seo_diag_us.yml
+@@ -3,8 +3,9 @@ name: US SEO Diagnostic (one-shot)
+ on:
+   workflow_dispatch:
+ 
++# Read-only: the dated report is uploaded as an artifact, not committed.
+ permissions:
+-  contents: write
++  contents: read
+ 
+ jobs:
+   diag:
+@@ -20,13 +21,10 @@ jobs:
+           GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+           REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
+         run: python scripts/seo_diag.py
+-      - name: Persist diagnostic result
+-        run: |
+-          git config user.name "github-actions[bot]"
+-          git config user.email "github-actions[bot]@users.noreply.github.com"
+-          git add data/seo_diag_*.json
+-          if git diff --cached --quiet; then echo "no changes"; else
+-            git commit -m "chore: us seo diagnostic snapshot [skip ci]"
+-            git pull --rebase --autostash || true
+-            git push
+-          fi
++      - name: Upload us-seo-diagnostic report as artifact
++        uses: actions/upload-artifact@v4
++        with:
++          name: us-seo-diagnostic
++          path: data/reports/
++          if-no-files-found: warn
++          retention-days: 90
+diff --git a/.github/workflows/video_audit_us.yml b/.github/workflows/video_audit_us.yml
+index f5b00b4..572d3b9 100644
+--- a/.github/workflows/video_audit_us.yml
++++ b/.github/workflows/video_audit_us.yml
+@@ -3,8 +3,9 @@ name: Video Metadata Audit US (read-only)
+ on:
+   workflow_dispatch:
+ 
++# Read-only: the dated report is uploaded as an artifact, not committed.
+ permissions:
+-  contents: write
++  contents: read
+ 
+ jobs:
+   audit:
+@@ -23,14 +24,10 @@ jobs:
+           REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
+         run: python scripts/video_audit.py
+ 
+-      - name: Persist audit result
+-        run: |
+-          git config user.name "github-actions[bot]"
+-          git config user.email "github-actions[bot]@users.noreply.github.com"
+-          git add data/video_audit_us_*.json
+-          if git diff --cached --quiet; then
+-            echo "no changes"
+-          else
+-            git commit -m "chore: video metadata audit snapshot [skip ci]"
+-            git push
+-          fi
++      - name: Upload video-metadata-audit-us report as artifact
++        uses: actions/upload-artifact@v4
++        with:
++          name: video-metadata-audit-us
++          path: data/reports/
++          if-no-files-found: warn
++          retention-days: 90
