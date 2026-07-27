@@ -1,0 +1,37 @@
+name: "IG Diagnostic (read-only)"
+
+# Reads back what Instagram itself reports for the linked account: follower
+# count, per-Reel plays/reach, caption + hashtag shape. Nothing in this repo
+# had ever done that, so "few views on IG" could not be diagnosed.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  diag:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Instagram diagnostic
+        env:
+          INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN || secrets.FB_ACCESS_TOKEN }}
+          FB_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN || secrets.FB_ACCESS_TOKEN }}
+        run: python scripts/ig_diag.py
+      - name: Persist snapshot
+        if: always()
+        run: |
+          git config user.name "skillor-bot"
+          git config user.email "skillor-bot@users.noreply.github.com"
+          git add data/ig_diag.json 2>/dev/null || true
+          git diff --cached --quiet || {
+            git commit -m "chore: instagram diagnostic snapshot [skip ci]"
+            git push
+          }
