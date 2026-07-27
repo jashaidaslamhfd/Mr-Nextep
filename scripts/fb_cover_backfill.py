@@ -134,7 +134,7 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--apply", action="store_true")
     parser.add_argument("--min-overlap", type=int, default=3)
-    parser.add_argument("--min-score", type=float, default=0.40)
+    parser.add_argument("--min-score", type=float, default=0.25)
     args = parser.parse_args()
 
     if not TOKEN or not PAGE:
@@ -158,6 +158,12 @@ def main() -> int:
             titles[vid] = title
     print(f"resolvable YouTube titles: {len(titles)}")
 
+    # How many titles contain each word — used to weight rare words higher.
+    doc_freq = {}
+    for _t in titles.values():
+        for _w in words(_t):
+            doc_freq[_w] = doc_freq.get(_w, 0) + 1
+
     reels = get_all_reels()
     todo = [r for r in reels if r["id"] not in done]
     print(f"reels fetched: {len(reels)}   without a cover: {len(todo)}\n")
@@ -168,20 +174,34 @@ def main() -> int:
     for reel in todo:
         caption = reel.get("description") or ""
         reel_words = words(caption)
-        best = (0, 0.0, None)
+        best = (0.0, 0, None)
         for vid, title in titles.items():
             if vid in used:
                 continue                      # one cover per Reel
-            overlap = len(reel_words & words(title))
-            score = overlap / max(4, len(words(title)))
-            if overlap > best[0] or (overlap == best[0] and score > best[1]):
-                best = (overlap, score, vid)
+            title_words = words(title)
+            shared = reel_words & title_words
+            overlap = len(shared)
+            if not overlap:
+                continue
+            # Weight by how RARE each shared word is across the whole title
+            # set. A raw count cannot work here: these titles are 2-3 content
+            # words long ("Attachment Science in Seconds"), so requiring 3
+            # shared words is impossible by construction — the first pass
+            # matched only 2 of 23 for exactly this reason.
+            # A single distinctive hit ("gut", "attachment", "goosebumps") is
+            # far stronger evidence than three generic ones, so score on
+            # rarity and require the match to cover most of the title.
+            weight = sum(1.0 / max(1, doc_freq.get(w, 1)) for w in shared)
+            coverage = overlap / max(1, len(title_words))
+            score = weight * coverage
+            if score > best[0]:
+                best = (score, overlap, vid)
 
-        overlap, score, vid = best
+        score, overlap, vid = best
         first_line = caption.splitlines()[0][:44] if caption else ""
-        if not vid or overlap < args.min_overlap or score < args.min_score:
+        if not vid or score < args.min_score:
             skipped += 1
-            print(f"  ·  skip  ({overlap}w/{score:.2f})  {first_line}")
+            print(f"  ·  skip  (score {score:.2f})  {first_line}")
             continue
 
         cover = os.path.join(THUMB_DIR, f"{vid}.jpg")
@@ -193,7 +213,7 @@ def main() -> int:
         print(f"         -> {titles[vid][:56]}")
         report.append({"reel": reel["id"], "youtube": vid,
                        "title": titles[vid], "overlap": overlap,
-                       "score": round(score, 2)})
+                       "score": round(score, 3)})
         used.add(vid)
 
         if args.apply:
