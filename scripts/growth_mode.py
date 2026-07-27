@@ -9,7 +9,6 @@ import sys
 import json
 import random
 import argparse
-from datetime import datetime
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
 

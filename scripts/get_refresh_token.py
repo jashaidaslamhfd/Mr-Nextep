@@ -33,9 +33,9 @@ def main():
     
     print("\n✅ AUTHENTICATION SUCCESSFUL!")
     print("=" * 50)
-    print(f"\n📋 COPY THIS TO GITHUB SECRETS AS 'REFRESH_TOKEN':")
+    print("\n📋 COPY THIS TO GITHUB SECRETS AS 'REFRESH_TOKEN':")
     print(f"\n{creds.refresh_token}")
-    print(f"\n📋 ALSO ADD THESE TWO:")
+    print("\n📋 ALSO ADD THESE TWO:")
     print(f"GOOGLE_CLIENT_ID: {creds.client_id}")
     print(f"GOOGLE_CLIENT_SECRET: {creds.client_secret}")
     print("\n💾 Save these NOW. You won't see the refresh token again.")
