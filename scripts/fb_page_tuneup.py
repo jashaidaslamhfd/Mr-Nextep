@@ -437,7 +437,19 @@ def _ordered_match(reel, vids, ptr):
             continue
         overlap = len(probe & info.get("words", set()))
         score = overlap / max(4, len(probe))
-        if overlap >= 3 and score >= 0.25:
+        # Date-order matching is a FALLBACK and it is not reliable at low
+        # overlap. Checked against the live Page on 2026-07-27: every one of
+        # the 24 proposed covers scored 0.25-0.37, and a spot check showed
+        # reel "Attachment Theory in 60 Seconds" being paired with the
+        # YouTube video "The Brain Hack hiding in your Dizziness" at 0.26 —
+        # two unrelated topics that merely shared filler words and sat near
+        # each other in time.
+        #
+        # A wrong cover is worse than no cover: it misrepresents the video to
+        # every viewer. Requiring a real topical overlap (>=5 shared content
+        # words and >=0.45) keeps the genuine pairs — e.g. "brain shrinking"
+        # <-> "Why your brain starts shrinking" — and drops the guesses.
+        if overlap >= 5 and score >= 0.45:
             return vid, j, score
     return None, ptr, 0.0
 

@@ -488,3 +488,44 @@ class FacebookPaginationTests(unittest.TestCase):
         finally:
             self.fb.gget = original
         self.assertIsNone(result.get("data"))
+
+
+class FacebookCoverMatchTests(unittest.TestCase):
+    """Date-order cover matching accepted overlap>=3 / score>=0.25. Checked
+    against the live Page: all 24 proposed covers scored 0.25-0.37, and reel
+    "Attachment Theory in 60 Seconds" was paired with the YouTube video
+    "The Brain Hack hiding in your Dizziness" — unrelated topics that shared
+    filler words and sat near each other in time. A wrong cover misrepresents
+    the video to every viewer, so it is worse than no cover."""
+
+    def setUp(self):
+        sys.path.insert(0, str(ROOT / "scripts"))
+        os.environ.setdefault("FB_ACCESS_TOKEN", "test")
+        os.environ.setdefault("FB_PAGE_ID", "test")
+        import fb_page_tuneup
+        self.fb = fb_page_tuneup
+
+    def _match(self, reel_words, video_words, hours_apart=1):
+        reel = {"created_time": "2026-07-20T12:00:00+0000",
+                "description": " ".join(reel_words)}
+        base = self.fb._iso_ts("2026-07-20T12:00:00+0000") - hours_apart * 3600
+        vids = [(base, "vid123", {"words": set(video_words)})]
+        return self.fb._ordered_match(reel, vids, 0)
+
+    def test_weak_overlap_is_rejected(self):
+        # 3 shared filler-ish words — the shape that produced the bad pairing
+        ytid, _, score = self._match(
+            ["attachment", "theory", "your", "brain", "wires", "itself"],
+            {"your", "brain", "the"})
+        self.assertIsNone(ytid, f"weak match accepted at score {score}")
+
+    def test_strong_topical_overlap_is_accepted(self):
+        ytid, _, score = self._match(
+            ["your", "brain", "starts", "shrinking", "right", "now", "slowly"],
+            {"your", "brain", "starts", "shrinking", "now", "slowly"})
+        self.assertEqual(ytid, "vid123")
+        self.assertGreaterEqual(score, 0.45)
+
+    def test_threshold_is_documented_in_source(self):
+        source = (ROOT / "scripts" / "fb_page_tuneup.py").read_text()
+        self.assertIn("overlap >= 5 and score >= 0.45", source)
