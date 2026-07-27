@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-07-27T10:56:58.911124",
+  "generated_at_utc": "2026-07-27T11:07:55.075338",
   "api": "",
   "dry_run": false,
   "actions": [
@@ -15,248 +15,248 @@
     },
     {
       "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 3477770522430241: \"You're about to watch a scary movie\""
+      "status": "ignored-by-api",
+      "detail": "reel 3477770522430241: API accepted \"You're about to watch a scary movie\" but the title is still empty on read-back (Reels published before the current pipeline cannot be retro-titled)"
     },
     {
       "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 1523575096183415: 'Have you ever noticed your mouth dry up'"
+      "status": "ignored-by-api",
+      "detail": "reel 1523575096183415: API accepted 'Have you ever noticed your mouth dry up' but the title is still empty on read-back (Reels published before the current pipeline cannot be retro-titled)"
     },
     {
       "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 1787303285967704: 'You brush your back teeth every morning'"
+      "status": "ignored-by-api",
+      "detail": "reel 1787303285967704: API accepted 'You brush your back teeth every morning' but the title is still empty on read-back (Reels published before the current pipeline cannot be retro-titled)"
     },
     {
       "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 1241453812383979: 'Why Your Body Does This: Brain Freeze 😳'"
+      "status": "ignored-by-api",
+      "detail": "reel 1241453812383979: API accepted 'Why Your Body Does This: Brain Freeze 😳' but the title is still empty on read-back (Reels published before the current pipeline cannot be retro-titled)"
     },
     {
       "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 1044083038116002: 'Spreading Yawns 🫀'"
+      "status": "ignored-by-api",
+      "detail": "reel 1044083038116002: API accepted 'Spreading Yawns 🫀' but the title is still empty on read-back (Reels published before the current pipeline cannot be retro-titled)"
     },
     {
       "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 1754294192265457: 'Time Compression 🫀'"
+      "status": "ignored-by-api",
+      "detail": "reel 1754294192265457: API accepted 'Time Compression 🫀' but the title is still empty on read-back (Reels published before the current pipeline cannot be retro-titled)"
     },
     {
       "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 27722335547405806: 'Throat Lump 🫀'"
+      "status": "ignored-by-api",
+      "detail": "reel 27722335547405806: API accepted 'Throat Lump 🫀' but the title is still empty on read-back (Reels published before the current pipeline cannot be retro-titled)"
     },
     {
       "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 1026759496727537: 'Morning Voice 🫀'"
+      "status": "ignored-by-api",
+      "detail": "reel 1026759496727537: API accepted 'Morning Voice 🫀' but the title is still empty on read-back (Reels published before the current pipeline cannot be retro-titled)"
     },
     {
       "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 1680757336371264: 'Body Freeze ðŸ˜³ 🫀'"
+      "status": "blocked",
+      "detail": "reel 1680757336371264: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"ASUsIB2e2gmgiycZdeOuJw2\"}}"
     },
     {
       "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 1670686777493488: 'Wrinkled Hands ðŸ˜³ 🫀'"
+      "status": "blocked",
+      "detail": "reel 1670686777493488: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"ABU2gAQxBVjjFhIDymgp3zs\"}}"
     },
     {
       "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 1381698583844468: 'Cracking Knees ðŸ˜³ 🦵'"
+      "status": "blocked",
+      "detail": "reel 1381698583844468: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"ADk1u0n2m15-b-KrG70c5zS\"}}"
     },
     {
       "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 1952677572018954: 'Did you know gut bacteria produce neurotransmitters?'"
+      "status": "blocked",
+      "detail": "reel 1952677572018954: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"AZPxYvQNKjesDNRSq0-DxDp\"}}"
     },
     {
       "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 1595057902237036: 'Your brain creates 50,000 thoughts daily, but most are false'"
+      "status": "blocked",
+      "detail": "reel 1595057902237036: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"Aqr_Dtad2aAxUWn2kNRa22S\"}}"
     },
     {
       "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 1590736172650812: \"Your body's internal clock is controlled by a tiny gland\""
+      "status": "blocked",
+      "detail": "reel 1590736172650812: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"A79jYfqmjzlyh-tMietNFWc\"}}"
     },
     {
       "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 2127682905297477: \"When you hear music that isn't there, it's not\""
+      "status": "blocked",
+      "detail": "reel 2127682905297477: {\"error\":{\"message\":\"(#4) Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":4,\"fbtrace_id\":\"A67ZQTqpmetbPncW2lTTRxv\"}}"
     },
     {
       "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 967362659655619: 'You think you see a lot of greens, but'"
+      "status": "ignored-by-api",
+      "detail": "reel 967362659655619: API accepted 'You think you see a lot of greens, but' but the title is still empty on read-back (Reels published before the current pipeline cannot be retro-titled)"
     },
     {
       "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 2257463925002102: 'Nobody told you this is happening inside you right now'"
+      "status": "ignored-by-api",
+      "detail": "reel 2257463925002102: API accepted 'Nobody told you this is happening inside you right now' but the title is still empty on read-back (Reels published before the current pipeline cannot be retro-titled)"
     },
     {
       "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 1558634109273788: 'Stress is killing you'"
+      "status": "ignored-by-api",
+      "detail": "reel 1558634109273788: API accepted 'Stress is killing you' but the title is still empty on read-back (Reels published before the current pipeline cannot be retro-titled)"
     },
     {
       "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 1002834325717088: 'This is the creepiest thing your own body does'"
+      "status": "ignored-by-api",
+      "detail": "reel 1002834325717088: API accepted 'This is the creepiest thing your own body does' but the title is still empty on read-back (Reels published before the current pipeline cannot be retro-titled)"
     },
     {
       "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 1377013091021070: 'This sounds fake, but Your Lungs Can Drown You From Inside'"
+      "status": "ignored-by-api",
+      "detail": "reel 1377013091021070: API accepted 'This sounds fake, but Your Lungs Can Drown You From Inside' but the title is still empty on read-back (Reels published before the current pipeline cannot be retro-titled)"
     },
     {
       "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 1002453985926205: 'Your heart is racing, but why?'"
+      "status": "ignored-by-api",
+      "detail": "reel 1002453985926205: API accepted 'Your heart is racing, but why?' but the title is still empty on read-back (Reels published before the current pipeline cannot be retro-titled)"
     },
     {
       "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 1562083748879712: 'Your pulse betrays you'"
+      "status": "ignored-by-api",
+      "detail": "reel 1562083748879712: API accepted 'Your pulse betrays you' but the title is still empty on read-back (Reels published before the current pipeline cannot be retro-titled)"
     },
     {
       "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 1812219993275345: 'Nobody told you this is happening inside you right now'"
+      "status": "ignored-by-api",
+      "detail": "reel 1812219993275345: API accepted 'Nobody told you this is happening inside you right now' but the title is still empty on read-back (Reels published before the current pipeline cannot be retro-titled)"
     },
     {
       "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 1063311032815104: 'This is the creepiest thing your own body does'"
+      "status": "ignored-by-api",
+      "detail": "reel 1063311032815104: API accepted 'This is the creepiest thing your own body does' but the title is still empty on read-back (Reels published before the current pipeline cannot be retro-titled)"
     },
     {
       "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 1060877382948529: 'Scientists only figured this out about This Is What Deja Vu'"
+      "status": "ignored-by-api",
+      "detail": "reel 1060877382948529: API accepted 'Scientists only figured this out about This Is What Deja Vu' but the title is still empty on read-back (Reels published before the current pipeline cannot be retro-titled)"
     },
     {
       "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 4618601568425581: 'Scientists only figured this out about Your Bones Are Being'"
+      "status": "ignored-by-api",
+      "detail": "reel 4618601568425581: API accepted 'Scientists only figured this out about Your Bones Are Being' but the title is still empty on read-back (Reels published before the current pipeline cannot be retro-titled)"
     },
     {
       "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 1027753856883818: 'Most people go their entire life never knowing this about'"
+      "status": "ignored-by-api",
+      "detail": "reel 1027753856883818: API accepted 'Most people go their entire life never knowing this about' but the title is still empty on read-back (Reels published before the current pipeline cannot be retro-titled)"
     },
     {
       "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 2805630619816879: 'Your body is lying to you about the sound of your heartbeat'"
+      "status": "ignored-by-api",
+      "detail": "reel 2805630619816879: API accepted 'Your body is lying to you about the sound of your heartbeat' but the title is still empty on read-back (Reels published before the current pipeline cannot be retro-titled)"
     },
     {
       "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 909039548133339: \"Doctors don't want you to know this about your veins\""
+      "status": "ignored-by-api",
+      "detail": "reel 909039548133339: API accepted \"Doctors don't want you to know this about your veins\" but the title is still empty on read-back (Reels published before the current pipeline cannot be retro-titled)"
     },
     {
       "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 1039447355617327: \"Your body is lying to you about your lungs. Here's the truth\""
+      "status": "ignored-by-api",
+      "detail": "reel 1039447355617327: API accepted \"Your body is lying to you about your lungs. Here's the truth\" but the title is still empty on read-back (Reels published before the current pipeline cannot be retro-titled)"
     },
     {
       "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 997257099608361: 'This happens to your body every night... and you have no'"
+      "status": "ignored-by-api",
+      "detail": "reel 997257099608361: API accepted 'This happens to your body every night... and you have no' but the title is still empty on read-back (Reels published before the current pipeline cannot be retro-titled)"
     },
     {
       "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 1386742276679436: \"Doctors don't want you to know this about the human body\""
+      "status": "ignored-by-api",
+      "detail": "reel 1386742276679436: API accepted \"Doctors don't want you to know this about the human body\" but the title is still empty on read-back (Reels published before the current pipeline cannot be retro-titled)"
     },
     {
       "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 1031719582637032: 'This happens to your body every night... and you have no'"
+      "status": "ignored-by-api",
+      "detail": "reel 1031719582637032: API accepted 'This happens to your body every night... and you have no' but the title is still empty on read-back (Reels published before the current pipeline cannot be retro-titled)"
     },
     {
       "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 1005919162351949: \"Your body is lying to you about your heart's own brain\""
+      "status": "ignored-by-api",
+      "detail": "reel 1005919162351949: API accepted \"Your body is lying to you about your heart's own brain\" but the title is still empty on read-back (Reels published before the current pipeline cannot be retro-titled)"
     },
     {
       "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 1438140801456427: 'This happens to your body every night... and you have no'"
+      "status": "ignored-by-api",
+      "detail": "reel 1438140801456427: API accepted 'This happens to your body every night... and you have no' but the title is still empty on read-back (Reels published before the current pipeline cannot be retro-titled)"
     },
     {
       "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 3049328235257789: 'Your body is lying to you about Your Lungs Can Drown You'"
+      "status": "ignored-by-api",
+      "detail": "reel 3049328235257789: API accepted 'Your body is lying to you about Your Lungs Can Drown You' but the title is still empty on read-back (Reels published before the current pipeline cannot be retro-titled)"
     },
     {
       "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 1359126416180164: \"Doctors don't want you to know this about your lungs\""
+      "status": "ignored-by-api",
+      "detail": "reel 1359126416180164: API accepted \"Doctors don't want you to know this about your lungs\" but the title is still empty on read-back (Reels published before the current pipeline cannot be retro-titled)"
     },
     {
       "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 1025851906512601: 'Your body is lying to you about your heart having its own'"
+      "status": "ignored-by-api",
+      "detail": "reel 1025851906512601: API accepted 'Your body is lying to you about your heart having its own' but the title is still empty on read-back (Reels published before the current pipeline cannot be retro-titled)"
     },
     {
       "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 1360222282706092: \"Doctors don't want you to know this about your blood having\""
+      "status": "ignored-by-api",
+      "detail": "reel 1360222282706092: API accepted \"Doctors don't want you to know this about your blood having\" but the title is still empty on read-back (Reels published before the current pipeline cannot be retro-titled)"
     },
     {
       "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 4500592876865584: \"Doctors don't want you to know this about the bone that\""
+      "status": "ignored-by-api",
+      "detail": "reel 4500592876865584: API accepted \"Doctors don't want you to know this about the bone that\" but the title is still empty on read-back (Reels published before the current pipeline cannot be retro-titled)"
     },
     {
       "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 1053815270423351: \"Doctors don't want you to know this about your blood's\""
+      "status": "ignored-by-api",
+      "detail": "reel 1053815270423351: API accepted \"Doctors don't want you to know this about your blood's\" but the title is still empty on read-back (Reels published before the current pipeline cannot be retro-titled)"
     },
     {
       "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 2309700976438443: \"Doctors don't want you to know this about Your Heart Has Its\""
+      "status": "ignored-by-api",
+      "detail": "reel 2309700976438443: API accepted \"Doctors don't want you to know this about Your Heart Has Its\" but the title is still empty on read-back (Reels published before the current pipeline cannot be retro-titled)"
     },
     {
       "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 1781033269735266: \"Most parents don't know this about how music helps baby\""
+      "status": "ignored-by-api",
+      "detail": "reel 1781033269735266: API accepted \"Most parents don't know this about how music helps baby\" but the title is still empty on read-back (Reels published before the current pipeline cannot be retro-titled)"
     },
     {
       "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 1418137220128208: 'Most parents don’t know this about Attachment Theory: it’s'"
+      "status": "ignored-by-api",
+      "detail": "reel 1418137220128208: API accepted 'Most parents don’t know this about Attachment Theory: it’s' but the title is still empty on read-back (Reels published before the current pipeline cannot be retro-titled)"
     },
     {
       "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 788442081024484: \"Most parents don't know this about language development\""
+      "status": "ignored-by-api",
+      "detail": "reel 788442081024484: API accepted \"Most parents don't know this about language development\" but the title is still empty on read-back (Reels published before the current pipeline cannot be retro-titled)"
     },
     {
       "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 1689758258745947: 'Most parents don’t know this about bilingual brain'"
+      "status": "ignored-by-api",
+      "detail": "reel 1689758258745947: API accepted 'Most parents don’t know this about bilingual brain' but the title is still empty on read-back (Reels published before the current pipeline cannot be retro-titled)"
     },
     {
       "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 3270063829869638: \"Most parents don't know this about Brain Growth Nutrition\""
+      "status": "ignored-by-api",
+      "detail": "reel 3270063829869638: API accepted \"Most parents don't know this about Brain Growth Nutrition\" but the title is still empty on read-back (Reels published before the current pipeline cannot be retro-titled)"
     },
     {
       "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 1345906440366316: 'Attachment Theory in 60 Seconds'"
+      "status": "ignored-by-api",
+      "detail": "reel 1345906440366316: API accepted 'Attachment Theory in 60 Seconds' but the title is still empty on read-back (Reels published before the current pipeline cannot be retro-titled)"
     },
     {
       "action": "reel titles",
-      "status": "ok",
-      "detail": "reel 1780810203076642: 'Why Babies Need to Crawl Before Walking'"
+      "status": "ignored-by-api",
+      "detail": "reel 1780810203076642: API accepted 'Why Babies Need to Crawl Before Walking' but the title is still empty on read-back (Reels published before the current pipeline cannot be retro-titled)"
     },
     {
       "action": "reel titles",
@@ -326,52 +326,12 @@
     {
       "action": "reel thumbnails",
       "status": "info",
-      "detail": "65 reels fetched, 38 already covered"
+      "detail": "65 reels fetched, 47 already covered"
     },
     {
       "action": "reel thumbnails",
-      "status": "ok",
-      "detail": "reel 1381698583844468 custom cover set from bMkH0kI3V8Y.jpg via verified-map"
-    },
-    {
-      "action": "reel thumbnails",
-      "status": "ok",
-      "detail": "reel 1670686777493488 custom cover set from AbAXF8oHhp0.jpg via verified-map"
-    },
-    {
-      "action": "reel thumbnails",
-      "status": "ok",
-      "detail": "reel 1680757336371264 custom cover set from IjwfP0tcZH8.jpg via verified-map"
-    },
-    {
-      "action": "reel thumbnails",
-      "status": "ok",
-      "detail": "reel 1026759496727537 custom cover set from _2JHzwLIE50.jpg via verified-map"
-    },
-    {
-      "action": "reel thumbnails",
-      "status": "ok",
-      "detail": "reel 27722335547405806 custom cover set from QZF0IHtnbIg.jpg via verified-map"
-    },
-    {
-      "action": "reel thumbnails",
-      "status": "ok",
-      "detail": "reel 1754294192265457 custom cover set from FUgcHHnhLSM.jpg via verified-map"
-    },
-    {
-      "action": "reel thumbnails",
-      "status": "ok",
-      "detail": "reel 1044083038116002 custom cover set from L3idewWMmPU.jpg via verified-map"
-    },
-    {
-      "action": "reel thumbnails",
-      "status": "ok",
-      "detail": "reel 870075022564667 custom cover set from XCUNM30ET_8.jpg via verified-map"
-    },
-    {
-      "action": "reel thumbnails",
-      "status": "ok",
-      "detail": "reel 1543194320583010 custom cover set from ed031j4Pgy8.jpg via verified-map"
+      "status": "skip",
+      "detail": "no reel matched a cover (23 scanned)"
     },
     {
       "action": "page long description",
@@ -381,12 +341,12 @@
     {
       "action": "CTA button -> YouTube",
       "status": "blocked",
-      "detail": "{\"error\":{\"message\":\"(#100) Parameters do not match any fields that can be updated\",\"type\":\"OAuthException\",\"code\":100,\"fbtrace_id\":\"AW6brO_-s7uaT2X7yzfV1dZ\"}}"
+      "detail": "{\"error\":{\"message\":\"(#100) Parameters do not match any fields that can be updated\",\"type\":\"OAuthException\",\"code\":100,\"fbtrace_id\":\"ABnFu_2hnCUpV6KD42DmtaI\"}}"
     },
     {
       "action": "pinned welcome post",
       "status": "posted (pin blocked)",
-      "detail": "post 1122980080905302_122122949577351165 {\"error\":{\"message\":\"(#100) You do not have sufficient permissions to perform this action\",\"type\":\"OAuthException\",\"code\":100,\"fbtrace_id\":\"Ajr16T6D7X"
+      "detail": "post 1122980080905302_122122949577351165 {\"error\":{\"message\":\"(#100) You do not have sufficient permissions to perform this action\",\"type\":\"OAuthException\",\"code\":100,\"fbtrace_id\":\"AwS-4j-tnD"
     }
   ]
 }
