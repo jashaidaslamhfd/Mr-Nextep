@@ -101,6 +101,36 @@ def gget(path, **params):
     return _gget_raw(path, **params)
 
 
+def gget_all(path, max_pages: int = 10, **params):
+    """Follow Graph API paging cursors and return every item.
+
+    A bare `limit=50` returns only the newest 50 Reels. With 34 already in
+    fb_thumbs_done.json, the cover pass had just 16 candidates left and
+    reported "no reel matched a cover" — while the audit taken seven minutes
+    later still found 46 Reels with no cover. Those 30 older Reels were never
+    fetched at all, so no amount of re-running could ever reach them.
+    """
+    items, page, url = [], 0, None
+    while page < max_pages:
+        if url:
+            time.sleep(PACE)
+            try:
+                with urllib.request.urlopen(url, timeout=45) as resp:
+                    data = json.loads(resp.read())
+            except Exception as exc:  # noqa: BLE001
+                return {"data": items, "error": str(exc)}
+        else:
+            data = gget(path, **params)
+            if data.get("data") is None:
+                return data
+        items.extend(data.get("data") or [])
+        url = (data.get("paging") or {}).get("next")
+        if not url:
+            break
+        page += 1
+    return {"data": items}
+
+
 # ---------------------------------------------------------------- captions
 def is_legacy(desc: str, created: str) -> bool:
     if not desc or (created or "") >= LEGACY_CUTOFF:
@@ -157,8 +187,10 @@ def rebuild_caption(desc: str) -> str:
 
 
 def fix_legacy_captions():
-    reels = gget(f"{PAGE}/video_reels", limit=50,
-                 fields="id,created_time,description")
+    # Page through every Reel. The Page has 80; a bare limit=50 silently
+    # ignored the 30 oldest, which are exactly the legacy-caption ones.
+    reels = gget_all(f"{PAGE}/video_reels", limit=50,
+                     fields="id,created_time,description")
     data = reels.get("data")
     if data is None:
         note("legacy caption cleanup", "error", reels.get("body", reels))
@@ -351,8 +383,9 @@ def desired_title(reel: dict, history: list, yttexts=None) -> str:
 
 def fix_titles(history: list, yttexts=None):
     yttexts = yttexts or {}
-    reels = gget(f"{PAGE}/video_reels", limit=50,
-                 fields="id,created_time,title,description")
+    # 58 of 80 Reels had no title, but only the newest 50 were ever fetched.
+    reels = gget_all(f"{PAGE}/video_reels", limit=50,
+                     fields="id,created_time,title,description")
     data = reels.get("data")
     if data is None:
         note("reel titles", "error", reels.get("body", reels))
@@ -422,12 +455,15 @@ def fix_thumbnails(history: list, yttexts=None):
                 done = set(json.load(fh))
         except Exception:  # noqa: BLE001
             done = set()
-    reels = gget(f"{PAGE}/video_reels", limit=50,
-                 fields="id,created_time,description")
+    # Page through ALL Reels, not just the newest 50 — see gget_all().
+    reels = gget_all(f"{PAGE}/video_reels", limit=50,
+                     fields="id,created_time,description")
     data = reels.get("data")
     if data is None:
         note("reel thumbnails", "error", reels.get("body", reels))
         return
+    note("reel thumbnails", "info",
+         f"{len(data)} reels fetched, {len(done)} already covered")
     data.sort(key=lambda r: r.get("created_time", ""))
     vids = sorted(
         ((_iso_ts(i.get("published_at", "")), ytid, i)

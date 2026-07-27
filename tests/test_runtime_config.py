@@ -423,3 +423,68 @@ class SweepIdempotencyTests(unittest.TestCase):
         first, _ = self.sweep.fix_description(raw)
         second, _ = self.sweep.fix_description(raw)
         self.assertEqual(first, second)
+
+
+class FacebookPaginationTests(unittest.TestCase):
+    """The Page has 80 Reels but every tune-up pass fetched with a bare
+    limit=50, so the 30 oldest were never seen. Combined with the 34 entries
+    already in fb_thumbs_done.json, the cover pass had 16 candidates left and
+    reported "no reel matched a cover" — while the audit taken seven minutes
+    later still found 46 Reels with no cover and 58 with no title. Re-running
+    could never have reached them."""
+
+    def setUp(self):
+        sys.path.insert(0, str(ROOT / "scripts"))
+        os.environ.setdefault("FB_ACCESS_TOKEN", "test")
+        os.environ.setdefault("FB_PAGE_ID", "test")
+        import fb_page_tuneup
+        self.fb = fb_page_tuneup
+
+    def test_all_reel_passes_use_the_paginating_fetch(self):
+        source = (ROOT / "scripts" / "fb_page_tuneup.py").read_text()
+        # captions, titles and thumbnails must all page
+        self.assertEqual(source.count('gget_all(f"{PAGE}/video_reels"'), 3)
+        self.assertNotIn('gget(f"{PAGE}/video_reels"', source)
+
+    def test_pagination_follows_next_cursor(self):
+        import json as _json
+        import urllib.request
+        pages = [
+            {"data": [{"id": str(i)} for i in range(50)],
+             "paging": {"next": "http://example/2"}},
+            {"data": [{"id": str(i)} for i in range(50, 80)]},
+        ]
+
+        class FakeResponse:
+            def __init__(self, payload):
+                self.payload = _json.dumps(payload).encode()
+
+            def read(self):
+                return self.payload
+
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *args):
+                return False
+
+        original_get, original_open, original_pace = (
+            self.fb.gget, urllib.request.urlopen, self.fb.PACE)
+        try:
+            self.fb.gget = lambda path, **kw: pages[0]
+            urllib.request.urlopen = lambda url, timeout=45: FakeResponse(pages[1])
+            self.fb.PACE = 0
+            result = self.fb.gget_all("page/video_reels", limit=50)
+        finally:
+            self.fb.gget, urllib.request.urlopen, self.fb.PACE = (
+                original_get, original_open, original_pace)
+        self.assertEqual(len(result["data"]), 80)
+
+    def test_first_page_error_is_returned_not_swallowed(self):
+        original = self.fb.gget
+        try:
+            self.fb.gget = lambda path, **kw: {"error": 400, "body": "bad"}
+            result = self.fb.gget_all("page/video_reels", limit=50)
+        finally:
+            self.fb.gget = original
+        self.assertIsNone(result.get("data"))
