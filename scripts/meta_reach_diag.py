@@ -227,27 +227,63 @@ def main() -> int:
             print(f"\n  page_media_view trend unavailable: "
                   f"{trend.get('message', trend)}")
 
-        # Per-Reel view counts: prove availability rather than assume it.
-        reels = _get(f"{PAGE}/video_reels", limit=5,
-                     fields="id,created_time,length,description")
-        probes = []
-        for reel in reels.get("data", [])[:3]:
-            rid = reel["id"]
-            entry = {"id": rid, "created_time": reel.get("created_time"),
-                     "length": reel.get("length")}
-            for field in ("views", "post_views", "video_view_count"):
-                res = _get(rid, fields=field)
-                entry[field] = res.get(field, res.get("message", "?"))
-            ins = _get(f"{rid}/video_insights", metric="total_video_views")
-            entry["video_insights"] = ("OK" if "data" in ins
-                                       else ins.get("message", "?")[:90])
-            probes.append(entry)
-        report["fb_reel_probes"] = probes
-        print("\n  per-Reel view availability probe:")
-        for p in probes:
-            print(f"    {p['id']}  len={p.get('length')}  "
-                  f"views={str(p.get('views'))[:40]}  "
-                  f"insights={str(p.get('video_insights'))[:60]}")
+        # Per-Reel views. The earlier token probe concluded "read_insights=NO"
+        # from a 400 on /{page-id}/video_insights — but that is a PAGE-level
+        # call to a node-level edge, i.e. an invalid endpoint, not a missing
+        # permission. Per-REEL insights work fine with this same token, so
+        # the previous "FB views are unreadable" finding was WRONG. Pull the
+        # whole catalogue (paging through every Reel) and report the real
+        # distribution instead of a 3-Reel sample.
+        reels, page_count, after = [], 0, None
+        while page_count < 10:
+            params = {"limit": 50,
+                      "fields": "id,created_time,length,description,views"}
+            if after:
+                params["after"] = after
+            batch = _get(f"{PAGE}/video_reels", **params)
+            data = batch.get("data") or []
+            reels.extend(data)
+            after = (batch.get("paging") or {}).get("cursors", {}).get("after")
+            page_count += 1
+            if not after or not data:
+                break
+
+        stats = []
+        for reel in reels:
+            stats.append({
+                "id": reel["id"],
+                "created_time": reel.get("created_time"),
+                "length": reel.get("length"),
+                "views": reel.get("views"),
+                "first_line": (reel.get("description") or "").split("\n")[0][:50],
+            })
+        report["fb_reels"] = stats
+
+        vals = [s["views"] for s in stats if isinstance(s["views"], int)]
+        lens = [s["length"] for s in stats if isinstance(s["length"], (int, float))]
+        print(f"\n  {len(stats)} Reels fetched, {len(vals)} with a views count")
+        if vals:
+            ordered = sorted(vals)
+            mid = ordered[len(ordered) // 2]
+            report["fb_views_summary"] = {
+                "n": len(vals), "min": min(vals), "max": max(vals),
+                "median": mid, "mean": round(sum(vals) / len(vals), 1),
+                "total": sum(vals),
+            }
+            print(f"    views: min={min(vals)} median={mid} "
+                  f"mean={sum(vals)/len(vals):.0f} max={max(vals)} "
+                  f"total={sum(vals)}")
+            zero = sum(1 for v in vals if v < 10)
+            print(f"    {zero}/{len(vals)} Reels have fewer than 10 views")
+        if lens:
+            print(f"    length: min={min(lens):.0f}s median="
+                  f"{sorted(lens)[len(lens)//2]:.0f}s max={max(lens):.0f}s")
+
+        print("\n  newest 15 Reels:")
+        for s in stats[:15]:
+            print(f"    {(s['created_time'] or '')[:16]}  "
+                  f"len={str(s.get('length'))[:5]:>5}s  "
+                  f"views={str(s.get('views')):>6}  {s['first_line'][:40]}")
 
     os.makedirs("data", exist_ok=True)
     with open("data/meta_reach_diag.json", "w", encoding="utf-8") as fh:
