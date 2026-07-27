@@ -291,8 +291,12 @@ def generate_description(script_data: Dict, tags: List[str]) -> str:
     # and "#human body #body science #sudden".
     # Words are joined into a single CamelCase-free token instead.
     def _as_hashtag(tag: str) -> str:
-        return "".join(ch for ch in tag.replace("_", " ").title().replace(" ", "")
-                       if ch.isalnum())
+        # Capitalise only the first letter of each word. .title() lowercases
+        # the rest, so an already-correct "BrainFacts" would degrade to
+        # "Brainfacts" on every pass.
+        parts = [p for p in tag.replace("_", " ").split() if p]
+        joined = "".join(p[0].upper() + p[1:] for p in parts)
+        return "".join(ch for ch in joined if ch.isalnum())
 
     ht_words = ["Shorts"] + [t for t in _normalise_tags(tags, 3) if t.lower() != "shorts"]
     seen, clean_tags = set(), []

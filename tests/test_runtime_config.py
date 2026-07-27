@@ -277,3 +277,32 @@ class DescriptionSeoTests(unittest.TestCase):
     def test_normalise_tags_drops_short_and_stop_words(self):
         self.assertEqual(self.normalise(["ok", "having", "brain facts"], 4),
                          ["brain facts"])
+
+
+class HashtagIdempotencyTests(unittest.TestCase):
+    """as_hashtag() used .title(), which lowercases everything after the
+    first letter — so an already-correct '#BrainFacts' became '#Brainfacts'
+    on the next pass. The sweep then rewrote all 83 videos on every run,
+    burning quota and never converging."""
+
+    def setUp(self):
+        sys.path.insert(0, str(ROOT / "scripts"))
+        import us_seo_sweep
+        self.sweep = us_seo_sweep
+
+    def test_as_hashtag_is_stable(self):
+        for word in ("brain facts", "BrainFacts", "human body", "HumanBody"):
+            once = self.sweep.as_hashtag(word)
+            twice = self.sweep.as_hashtag(once)
+            self.assertEqual(once, twice, word)
+
+    def test_multiword_capitalisation_is_preserved(self):
+        self.assertEqual(self.sweep.as_hashtag("brain facts"), "BrainFacts")
+        self.assertEqual(self.sweep.as_hashtag("BrainFacts"), "BrainFacts")
+
+    def test_clean_description_is_left_untouched(self):
+        clean = ("Hook.\n\nSummary line.\n\n"
+                 "Learn the science behind brain facts, brain science. Follow.\n\n"
+                 "#Shorts #BrainFacts #BrainScience")
+        result, _ = self.sweep.fix_description(clean)
+        self.assertEqual(result, clean.strip())

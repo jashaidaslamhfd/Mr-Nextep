@@ -114,9 +114,16 @@ def _all_video_ids(token: str) -> list:
 
 
 def as_hashtag(word: str) -> str:
-    """'brain facts' -> 'BrainFacts' (a hashtag cannot contain a space)."""
-    return "".join(ch for ch in word.replace("_", " ").title().replace(" ", "")
-                   if ch.isalnum())
+    """'brain facts' -> 'BrainFacts' (a hashtag cannot contain a space).
+
+    Capitalises only the FIRST letter of each word instead of using .title(),
+    which lowercases the rest and would turn an already-correct 'BrainFacts'
+    back into 'Brainfacts'. That made the sweep non-idempotent: every re-run
+    rewrote all 83 videos and burned quota without changing anything real.
+    """
+    parts = [p for p in word.replace("_", " ").split() if p]
+    joined = "".join(p[0].upper() + p[1:] for p in parts)
+    return "".join(ch for ch in joined if ch.isalnum())
 
 
 def fix_description(description: str) -> tuple:
