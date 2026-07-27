@@ -83,15 +83,22 @@ def main() -> int:
         caption = item.get("caption") or ""
         hashtags = re.findall(r"#\w+", caption)
 
-        # Reels report 'plays'/'reach'; older API versions use 'video_views'.
-        ins = _get(f"{mid}/insights", metric="plays,reach,saved,shares")
+        # Metric names differ by API version and media type: newer versions
+        # expose 'plays', older ones only 'impressions'. Asking for one the
+        # account does not serve fails the WHOLE call with
+        # "(#100) metric[0] must be one of the following values: ...", so try
+        # the modern set first and fall back rather than losing every metric.
         metrics = {}
-        if "data" in ins:
-            for m in ins["data"]:
-                vals = m.get("values") or [{}]
-                metrics[m["name"]] = vals[0].get("value")
-        else:
-            metrics["_error"] = str(ins)[:120]
+        for metric_set in ("plays,reach,saved,shares",
+                           "impressions,reach,saved,shares",
+                           "reach"):
+            ins = _get(f"{mid}/insights", metric=metric_set)
+            if "data" in ins:
+                for m in ins["data"]:
+                    vals = m.get("values") or [{}]
+                    metrics[m["name"]] = vals[0].get("value")
+                break
+            metrics["_error"] = str(ins)[:160]
 
         row = {
             "id": mid,
