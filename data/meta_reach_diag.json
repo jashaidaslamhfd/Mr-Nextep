@@ -1,0 +1,250 @@
+{
+  "generated_at_utc": "2026-07-27T12:09:26.985147+00:00",
+  "api": "v23.0",
+  "assumed_video_seconds": 47.0,
+  "ig_account": {
+    "username": "mrnextep",
+    "followers_count": 0,
+    "media_count": 3,
+    "id": "17841419734693464"
+  },
+  "ig_media": [
+    {
+      "id": "18463627924119053",
+      "timestamp": "2026-07-27T01:21:56+0000",
+      "permalink": "https://www.instagram.com/reel/DbRxbYwEnaK/",
+      "type": "REELS",
+      "caption_len": 247,
+      "hashtags": 3,
+      "first_line": "Your ears ring loudly",
+      "avg_watch_s": 7.1,
+      "approx_completion_pct": 15.1,
+      "views": 108,
+      "reach": 102,
+      "saved": 0,
+      "shares": 0,
+      "comments": 0,
+      "likes": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 7065,
+      "ig_reels_video_view_total_time": 720687,
+      "_unsupported": {
+        "profile_visits": "(#100) The Media Insights API does not support the profile_visits metric for this media product type.",
+        "follows": "(#100) The Media Insights API does not support the follows metric for this media product type."
+      }
+    },
+    {
+      "id": "17894064276573755",
+      "timestamp": "2026-07-26T23:16:19+0000",
+      "permalink": "https://www.instagram.com/reel/DbRjC-KD49S/",
+      "type": "REELS",
+      "caption_len": 245,
+      "hashtags": 3,
+      "first_line": "You're stuck on it",
+      "avg_watch_s": 2.6,
+      "approx_completion_pct": 5.5,
+      "views": 68,
+      "reach": 58,
+      "saved": 0,
+      "shares": 0,
+      "comments": 0,
+      "likes": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 2639,
+      "ig_reels_video_view_total_time": 150473,
+      "_unsupported": {
+        "profile_visits": "(#100) The Media Insights API does not support the profile_visits metric for this media product type.",
+        "follows": "(#100) The Media Insights API does not support the follows metric for this media product type."
+      }
+    },
+    {
+      "id": "18123739615779087",
+      "timestamp": "2026-07-26T16:41:29+0000",
+      "permalink": "https://www.instagram.com/reel/DbQ13gqDhFB/",
+      "type": "REELS",
+      "caption_len": 258,
+      "hashtags": 3,
+      "first_line": "Your calf locks up",
+      "avg_watch_s": 7.5,
+      "approx_completion_pct": 16.0,
+      "views": 114,
+      "reach": 103,
+      "saved": 0,
+      "shares": 0,
+      "comments": 0,
+      "likes": 1,
+      "total_interactions": 1,
+      "ig_reels_avg_watch_time": 7544,
+      "ig_reels_video_view_total_time": 784591,
+      "_unsupported": {
+        "profile_visits": "(#100) The Media Insights API does not support the profile_visits metric for this media product type.",
+        "follows": "(#100) The Media Insights API does not support the follows metric for this media product type."
+      }
+    }
+  ],
+  "ig_avg_watch_seconds": 5.7,
+  "ig_approx_completion_pct": 12.2,
+  "fb_page": {
+    "name": "Mr. Nextep",
+    "followers_count": 34,
+    "fan_count": 34,
+    "id": "1122980080905302"
+  },
+  "fb_page_insights": {
+    "ok": {
+      "page_media_view": 322,
+      "page_follows": 2,
+      "page_post_engagements": 1,
+      "page_views_total": 0,
+      "page_video_views": 38,
+      "page_daily_follows_unique": 0
+    },
+    "unsupported": {
+      "page_impressions": "(#100) The value must be a valid insights metric",
+      "page_impressions_unique": "(#100) The value must be a valid insights metric"
+    }
+  },
+  "fb_media_view_28d": [
+    {
+      "date": "2026-06-30",
+      "value": 8
+    },
+    {
+      "date": "2026-07-01",
+      "value": 0
+    },
+    {
+      "date": "2026-07-02",
+      "value": 3
+    },
+    {
+      "date": "2026-07-03",
+      "value": 2
+    },
+    {
+      "date": "2026-07-04",
+      "value": 452
+    },
+    {
+      "date": "2026-07-05",
+      "value": 580
+    },
+    {
+      "date": "2026-07-06",
+      "value": 1452
+    },
+    {
+      "date": "2026-07-07",
+      "value": 973
+    },
+    {
+      "date": "2026-07-08",
+      "value": 1050
+    },
+    {
+      "date": "2026-07-09",
+      "value": 232
+    },
+    {
+      "date": "2026-07-10",
+      "value": 1240
+    },
+    {
+      "date": "2026-07-11",
+      "value": 43
+    },
+    {
+      "date": "2026-07-12",
+      "value": 1114
+    },
+    {
+      "date": "2026-07-13",
+      "value": 914
+    },
+    {
+      "date": "2026-07-14",
+      "value": 714
+    },
+    {
+      "date": "2026-07-15",
+      "value": 275
+    },
+    {
+      "date": "2026-07-16",
+      "value": 10
+    },
+    {
+      "date": "2026-07-17",
+      "value": 433
+    },
+    {
+      "date": "2026-07-18",
+      "value": 783
+    },
+    {
+      "date": "2026-07-19",
+      "value": 8
+    },
+    {
+      "date": "2026-07-20",
+      "value": 741
+    },
+    {
+      "date": "2026-07-21",
+      "value": 292
+    },
+    {
+      "date": "2026-07-22",
+      "value": 17
+    },
+    {
+      "date": "2026-07-23",
+      "value": 6
+    },
+    {
+      "date": "2026-07-24",
+      "value": 600
+    },
+    {
+      "date": "2026-07-25",
+      "value": 322
+    },
+    {
+      "date": "2026-07-26",
+      "value": 32
+    },
+    {
+      "date": "2026-07-27",
+      "value": 11
+    }
+  ],
+  "fb_reel_probes": [
+    {
+      "id": "1543194320583010",
+      "created_time": "2026-07-26T23:15:17+0000",
+      "length": 38.8,
+      "views": 3,
+      "post_views": 1,
+      "video_view_count": "(#100) Tried accessing nonexisting field (video_view_count)",
+      "video_insights": "OK"
+    },
+    {
+      "id": "870075022564667",
+      "created_time": "2026-07-26T16:40:31+0000",
+      "length": 42.2,
+      "views": 1,
+      "post_views": 0,
+      "video_view_count": "(#100) Tried accessing nonexisting field (video_view_count)",
+      "video_insights": "OK"
+    },
+    {
+      "id": "1541306318009452",
+      "created_time": "2026-07-25T23:39:26+0000",
+      "length": 41.75,
+      "views": 2,
+      "post_views": 1,
+      "video_view_count": "(#100) Tried accessing nonexisting field (video_view_count)",
+      "video_insights": "OK"
+    }
+  ]
+}
