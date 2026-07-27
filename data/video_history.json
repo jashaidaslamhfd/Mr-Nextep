@@ -259,5 +259,22 @@
     "predicted_ctr": 6.8,
     "hook_score": 85,
     "predicted_retention": 0.682
+  },
+  {
+    "content_fingerprint": "07ce27ca60dc5ddcfafa6d8ff89611d94748833ca71e2fd16f7ebf9d65d6046f",
+    "title": "Sleeping Foot \ud83e\udec0",
+    "topic": "your foot falling asleep and feeling numb",
+    "trend_source": "body_glitch_series",
+    "trend_url": null,
+    "voiceover": "Your foot falls asleep But have you ever wondered why this happens to you so often? You're not alone, many people experience numbness in their feet daily It's usually due to pressure on the nerves that supply sensation to your feet And reduced blood flow to the area can also cause numbness and tingling In most cases, it's not a cause for concern and will resolve on its own To relieve the numbness, simply stand up, move around, and stretch your feet And your foot should wake up from its sleepy st",
+    "posted_at": "2026-07-27T16:59:24.616406+00:00",
+    "publish_at": "2026-07-28T00:00:00Z",
+    "facebook_success": true,
+    "instagram_success": true,
+    "youtube_video_id": "IgJc5YtvLeY",
+    "seo_score": 75,
+    "predicted_ctr": 7.0,
+    "hook_score": 85,
+    "predicted_retention": 0.682
   }
 ]
