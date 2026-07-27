@@ -285,6 +285,29 @@ def main() -> int:
                   f"len={str(s.get('length'))[:5]:>5}s  "
                   f"views={str(s.get('views')):>6}  {s['first_line'][:40]}")
 
+    # ------------------------------------------------------------------
+    # PAGE STANDING — is the Page under a distribution restriction?
+    # ------------------------------------------------------------------
+    # Facebook Reel views on this Page fell off a cliff: median 247 for the
+    # 59 Reels before 2026-07-24, median 2 for the 6 after. That is a step
+    # change, not decay, so the question "is the Page restricted?" has to be
+    # asked of Facebook directly rather than inferred.
+    if PAGE:
+        print()
+        print("=" * 70)
+        print("PAGE STANDING")
+        print("=" * 70)
+        standing = {}
+        for field in ("is_published", "is_eligible_for_branded_content",
+                      "has_added_app", "verification_status",
+                      "restrictions", "is_restricted", "warning",
+                      "monetization_eligibility", "content_monetization"):
+            res = _get(PAGE, fields=field)
+            standing[field] = res.get(field, res.get("message", "?"))
+        report["fb_page_standing"] = standing
+        for k, v in standing.items():
+            print(f"    {k:34} {str(v)[:80]}")
+
     os.makedirs("data", exist_ok=True)
     with open("data/meta_reach_diag.json", "w", encoding="utf-8") as fh:
         json.dump(report, fh, indent=2, ensure_ascii=False)
