@@ -467,6 +467,22 @@ def fix_thumbnails(history: list, yttexts=None):
                 done = set(json.load(fh))
         except Exception:  # noqa: BLE001
             done = set()
+
+    # Verified reel -> youtube pairs, built by matching each Reel's opening
+    # line against the pipeline's own recorded voiceover. These are exact
+    # text matches, not date-order guesses, so they bypass the similarity
+    # scoring entirely. The guesser stays as the fallback for anything not
+    # listed here — after it wrongly paired "Attachment Theory in 60 Seconds"
+    # with "The Brain Hack hiding in your Dizziness", its threshold was
+    # raised and it now (correctly) declines most Reels.
+    cover_map = {}
+    map_path = os.path.join(ROOT, "data", "fb_cover_map.json")
+    if os.path.isfile(map_path):
+        try:
+            with open(map_path, encoding="utf-8") as fh:
+                cover_map = json.load(fh)
+        except Exception:  # noqa: BLE001
+            cover_map = {}
     # Page through ALL Reels, not just the newest 50 — see gget_all().
     reels = gget_all(f"{PAGE}/video_reels", limit=50,
                      fields="id,created_time,description")
@@ -487,9 +503,14 @@ def fix_thumbnails(history: list, yttexts=None):
     for reel in data:
         if reel["id"] in done:
             continue  # cover already applied in a previous run
-        ytid, _ = match_entry(reel, history, yttexts)
-        via = "text"
-        score = 0.0
+        # 1) verified map  2) text match  3) date-order guess (last resort)
+        ytid = cover_map.get(reel["id"])
+        via = "verified-map"
+        score = 1.0
+        if not ytid:
+            ytid, _ = match_entry(reel, history, yttexts)
+            via = "text"
+            score = 0.0
         if not ytid:
             ytid, ptr, score = _ordered_match(reel, vids, ptr)
             via = f"date-order({score:.2f})"

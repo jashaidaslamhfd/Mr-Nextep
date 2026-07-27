@@ -1,6 +1,7 @@
 """Regression tests for the runtime-config bugs fixed in the US-audience
 refactor. Every test here maps to a bug that once shipped to production."""
 
+import json
 import os
 import subprocess
 import sys
@@ -616,3 +617,41 @@ class PostingScheduleTests(unittest.TestCase):
     def test_three_crons_scheduled(self):
         workflow = (ROOT / ".github" / "workflows" / "main.yml").read_text()
         self.assertEqual(workflow.count("- cron:"), 3)
+
+
+class FacebookCoverMapTests(unittest.TestCase):
+    """32 Reels had no cover. The date-order guesser could not fill them
+    safely (it once paired "Attachment Theory" with "Dizziness"), so 9 were
+    matched exactly by comparing each Reel's opening line to the pipeline's
+    own recorded voiceover, and stored as a verified map."""
+
+    def setUp(self):
+        self.map_path = ROOT / "data" / "fb_cover_map.json"
+        if not self.map_path.exists():
+            self.skipTest("cover map not present")
+        self.cover_map = json.loads(self.map_path.read_text())
+
+    def test_every_mapped_reel_has_its_cover_file(self):
+        for reel_id, youtube_id in self.cover_map.items():
+            cover = ROOT / "assets" / "thumbnails_us" / f"{youtube_id}.jpg"
+            self.assertTrue(cover.is_file(), f"{reel_id} -> {youtube_id}.jpg missing")
+
+    def test_covers_are_valid_jpeg_under_the_api_limit(self):
+        for youtube_id in set(self.cover_map.values()):
+            cover = ROOT / "assets" / "thumbnails_us" / f"{youtube_id}.jpg"
+            data = cover.read_bytes()
+            self.assertEqual(data[:3], b"\xff\xd8\xff", f"{youtube_id} not JPEG")
+            self.assertLess(len(data), 2 * 1024 * 1024, f"{youtube_id} over 2MB")
+
+    def test_no_youtube_id_is_reused_for_two_reels(self):
+        values = list(self.cover_map.values())
+        self.assertEqual(len(values), len(set(values)),
+                         "one cover assigned to multiple Reels")
+
+    def test_tuneup_prefers_the_verified_map(self):
+        source = (ROOT / "scripts" / "fb_page_tuneup.py").read_text()
+        self.assertIn("fb_cover_map.json", source)
+        self.assertIn("verified-map", source)
+        # the map must be consulted BEFORE the guesser
+        self.assertLess(source.index('cover_map.get(reel["id"])'),
+                        source.index('via = f"date-order'))
