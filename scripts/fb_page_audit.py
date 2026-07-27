@@ -19,7 +19,7 @@ Checks EVERYTHING the Meta algorithm + monetization review look at:
   TOKEN
     read_insights YES/NO (needed for reel-view analytics)
 
-Writes data/fb_audit_<date>.json + human summary. Stdlib only, READ-ONLY.
+Writes data/reports/fb_audit_<date>.json + human summary. Stdlib only, READ-ONLY.
 Env: FB_ACCESS_TOKEN, FB_PAGE_ID (workflow maps FACEBOOK_ACCESS_TOKEN).
 """
 import datetime as dt
@@ -172,8 +172,8 @@ def main() -> int:
     if post_dups:
         counter["post_duplicate"] = sum(len(v) for v in post_dups.values())
     out["fault_counts"] = dict(counter.most_common())
-    path = f"data/fb_audit_{dt.date.today().isoformat()}.json"
-    os.makedirs("data", exist_ok=True)
+    os.makedirs("data/reports", exist_ok=True)
+    path = f"data/reports/fb_audit_{dt.date.today().isoformat()}.json"
     json.dump(out, open(path, "w"), ensure_ascii=False, indent=1)
 
     print("=" * 64)
