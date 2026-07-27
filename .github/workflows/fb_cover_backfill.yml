@@ -1,0 +1,59 @@
+name: "FB Cover Backfill (match by full caption)"
+
+# 23 Reels have no cover. They pre-date the pipeline, so the exact hook-text
+# map cannot reach them. This matches the FULL caption against the YouTube
+# title of every cover on disk — the first line is a clickbait template that
+# matches nothing, the real topic is in the body.
+# Dry-run by default. Never touches titles or captions.
+
+on:
+  workflow_dispatch:
+    inputs:
+      apply:
+        description: "true = upload covers; false = dry-run preview"
+        required: true
+        default: false
+        type: boolean
+      min_overlap:
+        description: "Minimum shared topic words (default 3)"
+        required: false
+        default: "3"
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Backfill covers
+        env:
+          FB_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN || secrets.FB_ACCESS_TOKEN }}
+          FB_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID || secrets.FB_PAGE_ID }}
+        run: |
+          set -euo pipefail
+          CMD="python scripts/fb_cover_backfill.py --min-overlap ${{ inputs.min_overlap }}"
+          if [ "${{ inputs.apply }}" = "true" ]; then CMD="$CMD --apply"; fi
+          $CMD
+      - name: Persist cover ledger
+        if: ${{ inputs.apply }}
+        run: |
+          git config user.name "skillor-bot"
+          git config user.email "skillor-bot@users.noreply.github.com"
+          git add data/fb_thumbs_done.json 2>/dev/null || true
+          git diff --cached --quiet || {
+            git commit -m "chore: fb cover backfill ledger [skip ci]"
+            git push
+          }
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: fb-cover-backfill-${{ github.run_id }}
+          path: output/fb_cover_backfill.json
+          if-no-files-found: ignore
