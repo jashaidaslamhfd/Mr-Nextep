@@ -306,3 +306,48 @@ class HashtagIdempotencyTests(unittest.TestCase):
                  "#Shorts #BrainFacts #BrainScience")
         result, _ = self.sweep.fix_description(clean)
         self.assertEqual(result, clean.strip())
+
+
+class AnalyticsLoopTests(unittest.TestCase):
+    """The analytics workflow reported SUCCESS for four consecutive days
+    while every single video failed with invalid_scope, leaving
+    data/video_history.json with 0 real view counts out of 17 entries."""
+
+    def test_credentials_do_not_pin_scopes_on_refresh(self):
+        """google-auth sends a `scope` field when scopes= is set, and Google
+        rejects any refresh that alters a token's scopes."""
+        import re
+        source = (ROOT / "src" / "seo_analytics.py").read_text()
+        block = re.search(r"google\.oauth2\.credentials\.Credentials\((.*?)\n    \)",
+                          source, re.S)
+        self.assertIsNotNone(block, "Credentials(...) call not found")
+        self.assertNotIn("scopes=", block.group(1))
+
+    def test_unsupported_metrics_are_dropped_not_fatal(self):
+        source = (ROOT / "src" / "seo_analytics.py").read_text()
+        self.assertIn("Unknown identifier", source)
+
+    def test_disabled_api_is_reported_distinctly(self):
+        """403 'API has not been used in project N' is a Google Cloud console
+        setting, not a scope or token problem. Blaming the scope sent the
+        previous debugging round down the wrong path."""
+        source = (ROOT / "src" / "seo_analytics.py").read_text()
+        self.assertIn("analytics_api_disabled", source)
+        self.assertIn("has not been used in project", source)
+
+    def test_entries_are_not_frozen_by_a_null_ctr(self):
+        """Refresh must key off analytics_fetched_at, not the mere presence
+        of an 'actual_ctr' key (which is written as None on channels that do
+        not serve CTR)."""
+        source = (ROOT / "src" / "seo_analytics.py").read_text()
+        self.assertNotIn('"actual_ctr" in entry', source)
+        self.assertIn("analytics_fetched_at", source)
+
+    def test_runner_exits_nonzero_when_nothing_was_written(self):
+        source = (ROOT / "src" / "analytics_updater.py").read_text()
+        self.assertIn("sys.exit(1)", source)
+        self.assertIn("sys.exit(2)", source)
+
+    def test_history_write_is_atomic(self):
+        source = (ROOT / "src" / "seo_analytics.py").read_text()
+        self.assertIn("os.replace(tmp, HISTORY_FILE)", source)

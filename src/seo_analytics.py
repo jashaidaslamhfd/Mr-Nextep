@@ -346,32 +346,85 @@ def fetch_actual_performance(youtube_video_id: str, days_back: int = 30) -> Dict
     if missing:
         return {"error": f"Missing credentials: {missing}"}
 
+    # Do NOT pass `scopes=` here. google-auth then sends a `scope` field on
+    # the refresh_token grant, and Google rejects any refresh that tries to
+    # narrow or alter the scopes a token was minted with — returning
+    # `invalid_scope: Bad Request` before a single metric is requested.
+    #
+    # This silently killed every analytics run: the workflow exited 0 (the
+    # errors are caught per-video and logged as warnings) while all 17 videos
+    # failed, so data/video_history.json never received a single real view
+    # count. Confirmed in the 2026-07-26 run log, which reports "success".
+    #
+    # scripts/seo_diag.py reads the same Analytics reports with the same
+    # REFRESH_TOKEN precisely because it posts a bare refresh grant with no
+    # scope field. The token already carries yt-analytics.readonly and the
+    # issued access token inherits it.
     creds = google.oauth2.credentials.Credentials(
         token=None, refresh_token=refresh_token,
         token_uri="https://oauth2.googleapis.com/token",
         client_id=client_id, client_secret=client_secret,
-        scopes=["https://www.googleapis.com/auth/yt-analytics.readonly"],
     )
     yta = _build("youtubeAnalytics", "v2", credentials=creds)
 
     end = _dt.date.today()
     start = end - _dt.timedelta(days=max(days_back, 1))
 
-    try:
-        resp = yta.reports().query(
-            ids="channel==MINE",
-            startDate=start.isoformat(),
-            endDate=end.isoformat(),
-            metrics="views,averageViewDuration,averageViewPercentage,impressions,impressionsClickThroughRate",
-            dimensions="video",
-            filters=f"video=={youtube_video_id}",
-        ).execute()
-    except HttpError as e:
-        logger.warning(f"YouTube Analytics fetch failed for {youtube_video_id}: {e}")
-        return {"error": f"HttpError {e.resp.status}: needs yt-analytics.readonly scope on REFRESH_TOKEN"}
-    except Exception as e:
-        logger.warning(f"YouTube Analytics fetch failed for {youtube_video_id}: {e}")
-        return {"error": str(e)}
+    # Self-healing metric list. `impressions` and `impressionsClickThroughRate`
+    # are not served for every channel; requesting them unconditionally makes
+    # the API reject the WHOLE query with 400 "Unknown identifier", so a
+    # channel that merely cannot report CTR also loses views and retention.
+    # Drop the offending metric and retry instead of failing outright.
+    import re as _re
+
+    requested = [
+        "views", "averageViewDuration", "averageViewPercentage",
+        "impressions", "impressionsClickThroughRate",
+    ]
+    resp, dropped = None, []
+    for _ in range(len(requested)):
+        try:
+            resp = yta.reports().query(
+                ids="channel==MINE",
+                startDate=start.isoformat(),
+                endDate=end.isoformat(),
+                metrics=",".join(requested),
+                dimensions="video",
+                filters=f"video=={youtube_video_id}",
+            ).execute()
+            break
+        except HttpError as e:
+            status = getattr(e.resp, "status", None)
+            raw = e.content.decode("utf-8", "replace") if isinstance(e.content, bytes) else str(e.content or e)
+            unknown = _re.search(r"Unknown identifier \((\w+)\)", raw)
+            if status == 400 and unknown and unknown.group(1) in requested and len(requested) > 1:
+                bad = unknown.group(1)
+                requested.remove(bad)
+                dropped.append(bad)
+                logger.info("Metric '%s' unavailable on this channel -> retrying without it.", bad)
+                continue
+            # 403 here is almost always "YouTube Analytics API has not been
+            # used in project N before or it is disabled" — a Google Cloud
+            # console setting, NOT a code or token problem. Say so plainly
+            # instead of blaming the scope, which sent the last debugging
+            # round down the wrong path.
+            if status == 403 and "has not been used in project" in raw:
+                logger.error(
+                    "YouTube Analytics API is DISABLED for this Google Cloud "
+                    "project. Enable it in the console, wait a few minutes, "
+                    "then re-run. No code change can work around this."
+                )
+                return {"error": "analytics_api_disabled", "detail": raw[:300]}
+            logger.warning(f"YouTube Analytics fetch failed for {youtube_video_id}: {e}")
+            if status in (401,):
+                return {"error": f"HttpError {status}: needs yt-analytics.readonly scope on REFRESH_TOKEN"}
+            return {"error": f"HttpError {status}: {raw[:200]}"}
+        except Exception as e:
+            logger.warning(f"YouTube Analytics fetch failed for {youtube_video_id}: {e}")
+            return {"error": str(e)}
+
+    if resp is None:
+        return {"error": "No supported metric combination was accepted by the Analytics API."}
 
     rows = resp.get("rows") or []
     if not rows:
@@ -387,6 +440,7 @@ def fetch_actual_performance(youtube_video_id: str, days_back: int = 30) -> Dict
         "average_view_percentage": values.get("averageViewPercentage"),
         "impressions": values.get("impressions"),
         "actual_ctr": values.get("impressionsClickThroughRate"),
+        "unavailable_metrics": dropped,
         "fetched_at": _dt.datetime.now(_dt.timezone.utc).isoformat(),
     }
 
@@ -411,22 +465,42 @@ def update_history_with_real_metrics(min_hours_old: int = 24) -> Dict:
         return {"updated": 0, "note": "No history file yet."}
 
     now = _dt.datetime.now(_dt.timezone.utc)
-    updated = 0
+    updated, failed, api_disabled = 0, 0, False
     for entry in history:
         vid = entry.get("youtube_video_id")
         posted_at = entry.get("posted_at")
-        if not vid or "actual_ctr" in entry or not posted_at:
+        # Freshness is tracked by 'analytics_fetched_at', NOT by the presence
+        # of an 'actual_ctr' key. On a channel where the API does not serve
+        # CTR that key gets written as None, which would permanently freeze
+        # the entry at its first empty reading and its views would never grow.
+        if not vid or not posted_at:
             continue
         try:
             posted_dt = _dt.datetime.fromisoformat(posted_at)
+            if posted_dt.tzinfo is None:
+                posted_dt = posted_dt.replace(tzinfo=_dt.timezone.utc)
         except Exception:
             continue
         age_hours = (now - posted_dt).total_seconds() / 3600
         if age_hours < min_hours_old:
             continue
+        last_fetch = entry.get("analytics_fetched_at")
+        if last_fetch:
+            try:
+                last_dt = _dt.datetime.fromisoformat(last_fetch)
+                if last_dt.tzinfo is None:
+                    last_dt = last_dt.replace(tzinfo=_dt.timezone.utc)
+                if (now - last_dt).total_seconds() / 3600 < 24:
+                    continue
+            except Exception:
+                pass
 
         metrics = fetch_actual_performance(vid)
+        if metrics.get("error") == "analytics_api_disabled":
+            api_disabled = True
+            break                      # pointless to try the other 16 videos
         if "error" in metrics or "note" in metrics:
+            failed += 1
             logger.info(f"{vid}: {metrics.get('error') or metrics.get('note')}")
             continue
 
@@ -442,10 +516,20 @@ def update_history_with_real_metrics(min_hours_old: int = 24) -> Dict:
         )
 
     if updated:
-        with open(HISTORY_FILE, "w") as f:
-            json.dump(history, f, indent=2)
+        # Atomic write, matching the rest of the pipeline: a crash mid-write
+        # previously truncated the whole channel history.
+        os.makedirs(os.path.dirname(HISTORY_FILE) or ".", exist_ok=True)
+        tmp = HISTORY_FILE + ".tmp"
+        with open(tmp, "w", encoding="utf-8") as f:
+            json.dump(history, f, indent=2, ensure_ascii=False)
+        os.replace(tmp, HISTORY_FILE)
 
-    return {"updated": updated, "total_entries": len(history)}
+    return {
+        "updated": updated,
+        "failed": failed,
+        "total_entries": len(history),
+        "api_disabled": api_disabled,
+    }
 
 
 if __name__ == "__main__":

@@ -38,3 +38,24 @@ logger = logging.getLogger(__name__)
 if __name__ == "__main__":
     result = update_history_with_real_metrics(min_hours_old=24)
     logger.info(f"Analytics update complete: {result}")
+
+    # Exit non-zero when the sync achieved nothing. Every per-video error is
+    # caught and logged as a warning, so this script used to exit 0 while all
+    # 17 videos failed with invalid_scope — the workflow showed a green tick
+    # for four consecutive days while data/video_history.json stayed empty.
+    # A broken feedback loop must be visible.
+    if result.get("api_disabled"):
+        logger.error(
+            "YouTube Analytics API is disabled for this Google Cloud project. "
+            "Enable it at console.cloud.google.com -> APIs & Services, then "
+            "re-run. This cannot be fixed in code."
+        )
+        sys.exit(2)
+
+    if result.get("failed") and not result.get("updated"):
+        logger.error(
+            "Every analytics fetch failed (%s videos) and nothing was written. "
+            "Failing loudly so this is not mistaken for a healthy run.",
+            result["failed"],
+        )
+        sys.exit(1)
