@@ -399,9 +399,27 @@ def fix_titles(history: list, yttexts=None):
             note("reel titles", "dry", f"reel {reel['id']}: {have[:40]!r} -> {want!r}")
             continue
         res = gpost(reel["id"], title=want)
-        note("reel titles", "ok" if "error" not in res else "blocked",
-             f"reel {reel['id']}: {want!r}" if "error" not in res
-             else f"reel {reel['id']}: {res.get('body', res)}")
+        if "error" in res:
+            note("reel titles", "blocked",
+                 f"reel {reel['id']}: {res.get('body', res)}")
+            continue
+        # Graph returns {"success": true} even when it silently DISCARDS the
+        # title. Verified on the live Page 2026-07-27: the tune-up reported
+        # 63 titles "ok", yet reading the Reels straight back showed only the
+        # 3 newest actually carrying one — the 3 posted by the current
+        # pipeline, which sets the title AT UPLOAD TIME. Every retro-fitted
+        # title on an older Reel was accepted and dropped.
+        #
+        # So verify instead of trusting the response, and report honestly.
+        check = gget(reel["id"], fields="title")
+        saved = (check.get("title") or "").strip()
+        if saved:
+            note("reel titles", "ok", f"reel {reel['id']}: {want!r}")
+        else:
+            note("reel titles", "ignored-by-api",
+                 f"reel {reel['id']}: API accepted {want!r} but the title is "
+                 f"still empty on read-back (Reels published before the "
+                 f"current pipeline cannot be retro-titled)")
 
 
 def _iso_ts(value: str) -> float:

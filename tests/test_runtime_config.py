@@ -655,3 +655,25 @@ class FacebookCoverMapTests(unittest.TestCase):
         # the map must be consulted BEFORE the guesser
         self.assertLess(source.index('cover_map.get(reel["id"])'),
                         source.index('via = f"date-order'))
+
+
+class FacebookTitleVerificationTests(unittest.TestCase):
+    """The tune-up reported 63 Reel titles "ok". Reading the Reels straight
+    back from Graph showed only 3 actually carrying a title — the 3 newest,
+    posted by the current pipeline, which sets the title at upload time.
+    Graph returns {"success": true} while silently discarding a retro-fitted
+    title on older Reels, so the report was confidently wrong."""
+
+    def setUp(self):
+        self.source = (ROOT / "scripts" / "fb_page_tuneup.py").read_text()
+
+    def test_title_write_is_verified_by_read_back(self):
+        self.assertIn('check = gget(reel["id"], fields="title")', self.source)
+
+    def test_silently_dropped_titles_are_reported_distinctly(self):
+        self.assertIn("ignored-by-api", self.source)
+
+    def test_success_is_not_assumed_from_the_response_alone(self):
+        # the old shape trusted the absence of an error key
+        self.assertNotIn('note("reel titles", "ok" if "error" not in res',
+                         self.source)
