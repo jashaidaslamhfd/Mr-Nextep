@@ -134,7 +134,7 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--apply", action="store_true")
     parser.add_argument("--min-overlap", type=int, default=3)
-    parser.add_argument("--min-score", type=float, default=0.25)
+    parser.add_argument("--min-score", type=float, default=0.55)
     args = parser.parse_args()
 
     if not TOKEN or not PAGE:
@@ -194,6 +194,13 @@ def main() -> int:
             weight = sum(1.0 / max(1, doc_freq.get(w, 1)) for w in shared)
             coverage = overlap / max(1, len(title_words))
             score = weight * coverage
+            # A high score built on ONE shared word is fragile: "Attachment
+            # Theory" scored 0.72 against "The Gut Brain Connection" purely
+            # because 'brain' happened to be rare in that title. Demand two
+            # shared words unless the single word is genuinely unique to one
+            # title (document frequency of 1).
+            if overlap == 1 and min(doc_freq.get(w, 99) for w in shared) > 1:
+                score *= 0.4
             if score > best[0]:
                 best = (score, overlap, vid)
 
