@@ -226,3 +226,54 @@ class FacebookSafetyTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class DescriptionSeoTests(unittest.TestCase):
+    """Live audit of the MrNextep channel (2026-07-27) found two SEO faults
+    in every published description."""
+
+    def setUp(self):
+        try:
+            from seo_generator import generate_description, _normalise_tags
+        except ModuleNotFoundError as exc:
+            self.skipTest(f"deps not installed here: {exc}")
+        self.build = generate_description
+        self.normalise = _normalise_tags
+
+    def _desc(self, tags):
+        return self.build(
+            {"hook": "Your calf locks up.",
+             "summary": "Learn what causes sudden calf cramps at night.",
+             "topic": "why calf muscles cramp at night", "category": "Body"},
+            tags,
+        )
+
+    def test_hashtags_never_contain_spaces(self):
+        """'#brain facts' is parsed by YouTube as '#brain' plus a loose word,
+        so the intended hashtag never existed."""
+        import re
+        desc = self._desc(["brain facts", "body science", "neuroscience"])
+        block = [ln for ln in desc.splitlines() if ln.strip().startswith("#")]
+        self.assertTrue(block, desc)
+        for line in block:
+            for token in line.split():
+                self.assertTrue(token.startswith("#"), f"loose word in {line!r}")
+                self.assertNotIn(" ", token)
+
+    def test_multiword_tags_become_single_hashtags(self):
+        desc = self._desc(["brain facts", "body science"])
+        self.assertIn("#BrainFacts", desc)
+        self.assertIn("#BodyScience", desc)
+
+    def test_filler_words_never_reach_the_description(self):
+        """Published live: '...neuroscience, having.' and '...sudden, charley.'"""
+        for junk in ("having", "charley", "sudden"):
+            desc = self._desc(["human body", "body science", junk])
+            context = [ln for ln in desc.splitlines()
+                       if ln.startswith("Learn the science behind")]
+            self.assertTrue(context)
+            self.assertNotIn(junk, context[0].lower(), context[0])
+
+    def test_normalise_tags_drops_short_and_stop_words(self):
+        self.assertEqual(self.normalise(["ok", "having", "brain facts"], 4),
+                         ["brain facts"])

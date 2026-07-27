@@ -483,11 +483,17 @@ def _synthesize(text: str, voice: str = "am_adam", speed: float = 1.0):
 
     # ---- STEP 2: Kokoro fallback (one shot) ----
     logger.info("Falling back to Kokoro TTS engine...")
+    # Python deletes the `as` variable when an except block exits, so binding
+    # the message to a normal name is required — referencing `kokoro_err`
+    # further down raised NameError and destroyed the real diagnostic exactly
+    # when all engines had failed and it was needed most.
+    kokoro_error_message = "not attempted"
     try:
         audio, sr = _synthesize_kokoro(narration_text, voice, speed)
         logger.info("Kokoro fallback SUCCESS")
         return audio, sr, "kokoro"
     except Exception as kokoro_err:
+        kokoro_error_message = str(kokoro_err)
         logger.warning(f"Kokoro fallback failed: {kokoro_err}. Trying emergency cloud TTS...")
 
     # ---- STEP 3: Emergency Cloud TTS fallback ----
@@ -499,7 +505,7 @@ def _synthesize(text: str, voice: str = "am_adam", speed: float = 1.0):
         error_msg = (
             f"VOICE GENERATION FAILED — all engines exhausted. "
             f"Chatterbox errors: [{' | '.join(chatterbox_errors)}]. "
-            f"Kokoro error: [{kokoro_err}]. "
+            f"Kokoro error: [{kokoro_error_message}]. "
             f"Cloud TTS error: [{cloud_err}]."
         )
         logger.error(error_msg)

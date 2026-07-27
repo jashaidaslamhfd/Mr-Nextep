@@ -59,6 +59,17 @@ _TITLE_STOP_WORDS = {
     "a", "an", "and", "are", "at", "does", "do", "for", "from", "helps",
     "how", "in", "is", "it", "make", "of", "on", "the", "this", "to", "what",
     "when", "why", "with", "your", "you",
+    # Bare verbs, gerunds and loose adjectives carry no search intent on their
+    # own. They were reaching live descriptions as trailing junk — published
+    # examples: "...neuroscience, having." and "...body science, sudden,
+    # charley." A viewer reads that as broken English and YouTube gets a
+    # keyword nobody searches.
+    "having", "being", "getting", "doing", "going", "making", "taking",
+    "feeling", "happens", "happening", "sudden", "suddenly", "really",
+    "very", "just", "some", "more", "most", "other", "such", "into",
+    "about", "after", "before", "while", "during", "because", "that",
+    "these", "those", "there", "here", "then", "than", "also", "even",
+    "charley", "stuck", "own", "new", "old", "big", "small", "good", "bad",
 }
 
 
@@ -192,7 +203,18 @@ def _normalise_tags(tags: List[str], limit: int = 3) -> List[str]:
     for raw in tags or []:
         tag = re.sub(r"[^A-Za-z0-9_ ]", "", str(raw).lstrip("#"))
         tag = re.sub(r"\s+", " ", tag).strip()
-        if tag and tag.lower() not in seen:
+        # Skip grammar/filler tokens. generate_upload_tags() already filters
+        # these for the YouTube tag field, but this helper feeds the
+        # DESCRIPTION, which had no filter — so live descriptions read
+        # "Learn the science behind brain facts, brain science, neuroscience,
+        # having." and "... human body, body science, sudden, charley."
+        # A trailing bare verb like "having" reads as broken English to the
+        # viewer and adds no search value.
+        if not tag or tag.lower() in _TITLE_STOP_WORDS:
+            continue
+        if len(tag) < 3:
+            continue
+        if tag.lower() not in seen:
             seen.add(tag.lower())
             clean.append(tag)
         if len(clean) >= limit:
@@ -261,8 +283,25 @@ def generate_description(script_data: Dict, tags: List[str]) -> str:
     # up to 3 topic hashtags (YouTube only surfaces the first 3 above the
     # title, and ignores everything past 15). #Shorts is deduped against the
     # topic tags so it never appears twice.
+    # A hashtag cannot contain a space. Multi-word tags such as "brain facts"
+    # were emitted verbatim as "#brain facts", which YouTube parses as the
+    # hashtag "#brain" followed by the loose word "facts" — so the intended
+    # tag never existed and the description ended in dangling words. Live
+    # examples on the channel: "#brain facts #brain science #neuroscience"
+    # and "#human body #body science #sudden".
+    # Words are joined into a single CamelCase-free token instead.
+    def _as_hashtag(tag: str) -> str:
+        return "".join(ch for ch in tag.replace("_", " ").title().replace(" ", "")
+                       if ch.isalnum())
+
     ht_words = ["Shorts"] + [t for t in _normalise_tags(tags, 3) if t.lower() != "shorts"]
-    hashtags = " ".join(f"#{tag}" for tag in ht_words[:4])
+    seen, clean_tags = set(), []
+    for tag in ht_words:
+        token = _as_hashtag(tag)
+        if len(token) > 2 and token.lower() not in seen:
+            seen.add(token.lower())
+            clean_tags.append(token)
+    hashtags = " ".join(f"#{tag}" for tag in clean_tags[:4])
     if hashtags:
         parts.append(hashtags)
     return "\n\n".join(parts)[:DESCRIPTION_MAX_LEN]
