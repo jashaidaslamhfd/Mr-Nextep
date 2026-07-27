@@ -553,8 +553,31 @@ class PostingScheduleTests(unittest.TestCase):
 
     def test_slots_match_the_measured_winners(self):
         slots = {(s["hour"], s["minute"]) for s in self.sched.PEAK_TIMES}
-        self.assertIn((12, 30), slots)   # 12:00 band averaged 833 views
-        self.assertIn((20, 0), slots)    # 20:00 band averaged 730 views
+        self.assertIn((12, 30), slots)   # channel avg 719 [830, 988, 339]
+        self.assertIn((20, 0), slots)    # channel avg 519 [664, 795, 98]
+
+    def test_every_slot_sits_in_a_consensus_window(self):
+        """Five independent 2026 studies of US Shorts (iqfluence n=325,
+        miraflow, socialrails, mediamister, sellerpic) all name 12-2 PM and
+        6-9 PM ET. The retired 21:30 slot sat outside both."""
+        for slot in self.sched.PEAK_TIMES:
+            minutes = slot["hour"] * 60 + slot["minute"]
+            in_lunch = 12 * 60 <= minutes <= 14 * 60
+            in_evening = 18 * 60 <= minutes <= 21 * 60
+            self.assertTrue(
+                in_lunch or in_evening,
+                f"{slot['hour']:02d}:{slot['minute']:02d} is outside 12-2 PM and 6-9 PM ET",
+            )
+
+    def test_retired_weak_slot_is_gone(self):
+        """21:30 averaged 117 views on this channel [107, 127] and competed
+        with the 20:00 upload 90 minutes earlier."""
+        slots = {(s["hour"], s["minute"]) for s in self.sched.PEAK_TIMES}
+        self.assertNotIn((21, 30), slots)
+
+    def test_crons_match_the_slot_count(self):
+        workflow = (ROOT / ".github" / "workflows" / "main.yml").read_text()
+        self.assertEqual(workflow.count("- cron:"), len(self.sched.PEAK_TIMES))
 
     def test_slots_are_at_least_90_minutes_apart(self):
         mins = sorted(s["hour"] * 60 + s["minute"] for s in self.sched.PEAK_TIMES)

@@ -12,14 +12,37 @@ class USAPeakTimeScheduler:
     Tuned for general adult short-form video audience behavior.
     """
     
-    # USA peak times for short-form video engagement (EST)
-    # DATA-DRIVEN 2026-07-26 (87-video time-vs-views analysis): 12:30 avg 231
-    # · 20:00 avg 261 · 16:30 RETIRED (fresh median only 53) · 21:30
-    # wind-down experiment (21:00 pair avg 218; a 23:54 upload hit 652).
+    # USA peak times for short-form video engagement (America/New_York).
+    #
+    # Set 2026-07-27 from TWO sources that agree:
+    #
+    # 1. THIS CHANNEL'S OWN DATA (mature videos, >=2 days old, current views)
+    #      12:30  n=3  avg 719   [830, 988, 339]   <- best slot on the channel
+    #      20:00  n=3  avg 519   [664, 795, 98]    <- second best
+    #      06:00  n=3  avg 308   [133, 139, 652]   <- one outlier carries it
+    #      21:00+ n=2  avg 117   [107, 127]        <- weakest evening band
+    #      14:00  n=2  avg  95   [103, 87]
+    #      17:58  n=1      77
+    #
+    # 2. INDUSTRY CONSENSUS for US Shorts, five independent 2026 sources
+    #    (iqfluence 325-campaign study, miraflow, socialrails, mediamister,
+    #    sellerpic). Every one of them lands on the same two windows:
+    #      12–2 PM ET   and   6–9 PM ET
+    #
+    # 21:30 was RETIRED. It sits outside the 6-9 PM window in all five
+    # sources, this channel's own 21:00 band is its weakest evening data
+    # (107, 127), and being only 90 minutes after the 20:00 slot it competes
+    # with the strongest upload of the day for the same evening audience.
+    #
+    # Replaced with 18:30 — inside the 6-9 PM consensus core, 5.5h clear of
+    # lunch and 1.5h before prime, so the three uploads no longer overlap.
+    # This is a deliberate experiment: the 17:58 sample (77 views, n=1) is
+    # the only nearby datapoint and is too thin to trust either way, so the
+    # slot is chosen on consensus and will be re-checked once it has data.
     PEAK_TIMES = [
-        {'hour': 12, 'minute': 30, 'zone': 'EST', 'name': 'Lunch Time'},     # 12:30 PM EST
-        {'hour': 20, 'minute': 0, 'zone': 'EST', 'name': 'Evening Prime'},   # 8:00 PM EST
-        {'hour': 21, 'minute': 30, 'zone': 'EST', 'name': 'Wind-down'},      # 9:30 PM EST
+        {'hour': 12, 'minute': 30, 'zone': 'EST', 'name': 'Lunch Time'},     # 12:30 PM ET
+        {'hour': 18, 'minute': 30, 'zone': 'EST', 'name': 'Early Evening'},  # 6:30 PM ET
+        {'hour': 20, 'minute': 0, 'zone': 'EST', 'name': 'Evening Prime'},   # 8:00 PM ET
     ]
     
     # Timezone mapping
@@ -83,9 +106,9 @@ class USAPeakTimeScheduler:
         """
         reasons = {
             'Early Morning': 'Commute/coffee scrolling before work',
-            'Lunch Time': 'Lunch break browsing — best measured slot (avg 231)',
-            'Evening Prime': 'Prime-time scroll — proven winner (avg 261)',
-            'Wind-down': 'Pre-bed wind-down scroll (21:00 pair averaged 218)',
+            'Lunch Time': 'Lunch break browsing — best measured slot (avg 719 views)',
+            'Early Evening': 'Start of the 6-9 PM consensus window (new slot, replaces 21:30)',
+            'Evening Prime': 'Prime-time scroll — proven second best (avg 519 views)',
         }
         return reasons.get(peak_name, 'Peak engagement time')
     
@@ -167,27 +190,27 @@ class USAPeakTimeScheduler:
         recommendations = [
             {
                 'slot': 1,
-                'time': '12:30 PM EST',
+                'time': '12:30 PM ET',
                 'audience': 'Lunch break browsers',
-                'expected_engagement': 'Best measured slot — avg 231 views (87-video study)',
-                'reason': 'Work break viewing, likely to share/comment'
+                'expected_engagement': 'Best measured slot — avg 719 views (830/988/339)',
+                'reason': 'Inside the 12-2 PM window all five 2026 US-Shorts studies agree on'
             },
             {
                 'slot': 2,
-                'time': '8:00 PM EST',
-                'audience': 'Evening prime-time scrolling',
-                'expected_engagement': 'Proven winner — avg 261 views',
-                'reason': 'Prime-time scrolling, widest relaxed audience'
+                'time': '6:30 PM ET',
+                'audience': 'Commute / post-work scroll',
+                'expected_engagement': 'New slot — replaces the retired 21:30 experiment',
+                'reason': 'Start of the 6-9 PM consensus window; 1.5h clear of prime so it '
+                          'does not compete with the strongest upload'
             },
             {
                 'slot': 3,
-                'time': '9:30 PM EST',
-                'audience': 'Pre-bed wind-down scrolling',
-                'expected_engagement': 'Experiment — 21:00 pair averaged 218; a 23:54 upload hit 652',
-                'reason': 'Second evening window, ≥90 min after prime slot'
+                'time': '8:00 PM ET',
+                'audience': 'Evening prime-time scrolling',
+                'expected_engagement': 'Proven — avg 519 views (664/795)',
+                'reason': 'Peak of the 6-9 PM window, widest relaxed audience'
             }
         ]
-        
         return recommendations
 
 

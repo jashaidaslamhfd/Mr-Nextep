@@ -9,18 +9,25 @@ on:
         type: string
   schedule:
     # 3 videos/day for a US audience, auto-published at New York peaks
-    # (12:30 / 20:00 / 21:30 America/New_York) via status.publishAt.
-    # Slots tuned 2026-07-26 from an 87-video time-vs-views analysis:
-    # 12:30 avg 231 · 20:00 avg 261 · 16:30 retired (fresh median 53) ·
-    # 21:30 wind-down experiment (21:00 pair avg 218, a 23:54 upload hit 652).
+    # (12:30 / 18:30 / 20:00 America/New_York) via status.publishAt.
+    #
+    # Slots set 2026-07-27 where the channel's own data and the industry
+    # consensus agree. Mature videos (>=2 days old), current view counts:
+    #   12:30  avg 719  [830, 988, 339]   best slot on the channel
+    #   20:00  avg 519  [664, 795, 98]    second best
+    #   21:00+ avg 117  [107, 127]        weakest evening band -> RETIRED
+    # Five independent 2026 studies of US Shorts (iqfluence n=325, miraflow,
+    # socialrails, mediamister, sellerpic) all name 12-2 PM and 6-9 PM ET.
+    # 21:30 sat outside that window and only 90 min after prime, competing
+    # with the day's strongest upload; 18:30 opens the 6-9 PM block instead.
     # Each cron starts generation ~2h before its slot so the upload lands
     # with a comfortable ~55min lead (publishAt needs >=30min). If a run
     # ever slips past its slot, the one-video-per-slot lock in uploader.py
     # (process set + history ledger + live channel queue) moves it to the
     # NEXT free slot — two videos can never publish at the same minute.
-    - cron: "30 14 * * *"   # generation ~10:30 NY -> publish 12:30 lunch
-    - cron: "0 22 * * *"    # generation ~18:00 NY -> publish 20:00 prime
-    - cron: "30 23 * * *"   # generation ~19:30 NY -> publish 21:30 wind-down
+    - cron: "40 14 * * *"   # generation ~10:40 NY -> publish 12:30 lunch
+    - cron: "40 20 * * *"   # generation ~16:40 NY -> publish 18:30 early evening
+    - cron: "10 22 * * *"   # generation ~18:10 NY -> publish 20:00 prime
 
 permissions:
   contents: write
