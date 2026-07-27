@@ -1,7 +1,7 @@
 {
-  "generated_at_utc": "2026-07-27T10:56:09.076720",
+  "generated_at_utc": "2026-07-27T10:56:58.911124",
   "api": "",
-  "dry_run": true,
+  "dry_run": false,
   "actions": [
     {
       "action": "youtube text map",
@@ -10,318 +10,318 @@
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 1541306318009452: 'Doorway Effect 🫀' -> 'You walk in a room and instantly forget'"
+      "status": "ok",
+      "detail": "reel 1541306318009452: 'You walk in a room and instantly forget'"
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 3477770522430241: '' -> \"You're about to watch a scary movie\""
+      "status": "ok",
+      "detail": "reel 3477770522430241: \"You're about to watch a scary movie\""
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 1523575096183415: '' -> 'Have you ever noticed your mouth dry up'"
+      "status": "ok",
+      "detail": "reel 1523575096183415: 'Have you ever noticed your mouth dry up'"
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 1787303285967704: '' -> 'You brush your back teeth every morning'"
+      "status": "ok",
+      "detail": "reel 1787303285967704: 'You brush your back teeth every morning'"
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 1241453812383979: '' -> 'Why Your Body Does This: Brain Freeze 😳'"
+      "status": "ok",
+      "detail": "reel 1241453812383979: 'Why Your Body Does This: Brain Freeze 😳'"
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 1044083038116002: '' -> 'Spreading Yawns 🫀'"
+      "status": "ok",
+      "detail": "reel 1044083038116002: 'Spreading Yawns 🫀'"
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 1754294192265457: '' -> 'Time Compression 🫀'"
+      "status": "ok",
+      "detail": "reel 1754294192265457: 'Time Compression 🫀'"
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 27722335547405806: '' -> 'Throat Lump 🫀'"
+      "status": "ok",
+      "detail": "reel 27722335547405806: 'Throat Lump 🫀'"
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 1026759496727537: '' -> 'Morning Voice 🫀'"
+      "status": "ok",
+      "detail": "reel 1026759496727537: 'Morning Voice 🫀'"
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 1680757336371264: '' -> 'Body Freeze ðŸ˜³ 🫀'"
+      "status": "ok",
+      "detail": "reel 1680757336371264: 'Body Freeze ðŸ˜³ 🫀'"
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 1670686777493488: '' -> 'Wrinkled Hands ðŸ˜³ 🫀'"
+      "status": "ok",
+      "detail": "reel 1670686777493488: 'Wrinkled Hands ðŸ˜³ 🫀'"
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 1381698583844468: '' -> 'Cracking Knees ðŸ˜³ 🦵'"
+      "status": "ok",
+      "detail": "reel 1381698583844468: 'Cracking Knees ðŸ˜³ 🦵'"
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 1952677572018954: '' -> 'Did you know gut bacteria produce neurotransmitters?'"
+      "status": "ok",
+      "detail": "reel 1952677572018954: 'Did you know gut bacteria produce neurotransmitters?'"
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 1595057902237036: '' -> 'Your brain creates 50,000 thoughts daily, but most are false'"
+      "status": "ok",
+      "detail": "reel 1595057902237036: 'Your brain creates 50,000 thoughts daily, but most are false'"
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 1590736172650812: '' -> \"Your body's internal clock is controlled by a tiny gland\""
+      "status": "ok",
+      "detail": "reel 1590736172650812: \"Your body's internal clock is controlled by a tiny gland\""
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 2127682905297477: '' -> \"When you hear music that isn't there, it's not\""
+      "status": "ok",
+      "detail": "reel 2127682905297477: \"When you hear music that isn't there, it's not\""
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 967362659655619: '' -> 'You think you see a lot of greens, but'"
+      "status": "ok",
+      "detail": "reel 967362659655619: 'You think you see a lot of greens, but'"
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 2257463925002102: '' -> 'Nobody told you this is happening inside you right now'"
+      "status": "ok",
+      "detail": "reel 2257463925002102: 'Nobody told you this is happening inside you right now'"
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 1558634109273788: '' -> 'Stress is killing you'"
+      "status": "ok",
+      "detail": "reel 1558634109273788: 'Stress is killing you'"
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 1002834325717088: '' -> 'This is the creepiest thing your own body does'"
+      "status": "ok",
+      "detail": "reel 1002834325717088: 'This is the creepiest thing your own body does'"
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 1377013091021070: '' -> 'This sounds fake, but Your Lungs Can Drown You From Inside'"
+      "status": "ok",
+      "detail": "reel 1377013091021070: 'This sounds fake, but Your Lungs Can Drown You From Inside'"
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 1002453985926205: '' -> 'Your heart is racing, but why?'"
+      "status": "ok",
+      "detail": "reel 1002453985926205: 'Your heart is racing, but why?'"
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 1562083748879712: '' -> 'Your pulse betrays you'"
+      "status": "ok",
+      "detail": "reel 1562083748879712: 'Your pulse betrays you'"
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 1812219993275345: '' -> 'Nobody told you this is happening inside you right now'"
+      "status": "ok",
+      "detail": "reel 1812219993275345: 'Nobody told you this is happening inside you right now'"
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 1063311032815104: '' -> 'This is the creepiest thing your own body does'"
+      "status": "ok",
+      "detail": "reel 1063311032815104: 'This is the creepiest thing your own body does'"
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 1060877382948529: '' -> 'Scientists only figured this out about This Is What Deja Vu'"
+      "status": "ok",
+      "detail": "reel 1060877382948529: 'Scientists only figured this out about This Is What Deja Vu'"
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 4618601568425581: '' -> 'Scientists only figured this out about Your Bones Are Being'"
+      "status": "ok",
+      "detail": "reel 4618601568425581: 'Scientists only figured this out about Your Bones Are Being'"
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 1027753856883818: '' -> 'Most people go their entire life never knowing this about'"
+      "status": "ok",
+      "detail": "reel 1027753856883818: 'Most people go their entire life never knowing this about'"
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 2805630619816879: '' -> 'Your body is lying to you about the sound of your heartbeat'"
+      "status": "ok",
+      "detail": "reel 2805630619816879: 'Your body is lying to you about the sound of your heartbeat'"
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 909039548133339: '' -> \"Doctors don't want you to know this about your veins\""
+      "status": "ok",
+      "detail": "reel 909039548133339: \"Doctors don't want you to know this about your veins\""
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 1039447355617327: '' -> \"Your body is lying to you about your lungs. Here's the truth\""
+      "status": "ok",
+      "detail": "reel 1039447355617327: \"Your body is lying to you about your lungs. Here's the truth\""
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 997257099608361: '' -> 'This happens to your body every night... and you have no'"
+      "status": "ok",
+      "detail": "reel 997257099608361: 'This happens to your body every night... and you have no'"
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 1386742276679436: '' -> \"Doctors don't want you to know this about the human body\""
+      "status": "ok",
+      "detail": "reel 1386742276679436: \"Doctors don't want you to know this about the human body\""
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 1031719582637032: '' -> 'This happens to your body every night... and you have no'"
+      "status": "ok",
+      "detail": "reel 1031719582637032: 'This happens to your body every night... and you have no'"
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 1005919162351949: '' -> \"Your body is lying to you about your heart's own brain\""
+      "status": "ok",
+      "detail": "reel 1005919162351949: \"Your body is lying to you about your heart's own brain\""
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 1438140801456427: '' -> 'This happens to your body every night... and you have no'"
+      "status": "ok",
+      "detail": "reel 1438140801456427: 'This happens to your body every night... and you have no'"
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 3049328235257789: '' -> 'Your body is lying to you about Your Lungs Can Drown You'"
+      "status": "ok",
+      "detail": "reel 3049328235257789: 'Your body is lying to you about Your Lungs Can Drown You'"
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 1359126416180164: '' -> \"Doctors don't want you to know this about your lungs\""
+      "status": "ok",
+      "detail": "reel 1359126416180164: \"Doctors don't want you to know this about your lungs\""
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 1025851906512601: '' -> 'Your body is lying to you about your heart having its own'"
+      "status": "ok",
+      "detail": "reel 1025851906512601: 'Your body is lying to you about your heart having its own'"
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 1360222282706092: '' -> \"Doctors don't want you to know this about your blood having\""
+      "status": "ok",
+      "detail": "reel 1360222282706092: \"Doctors don't want you to know this about your blood having\""
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 4500592876865584: '' -> \"Doctors don't want you to know this about the bone that\""
+      "status": "ok",
+      "detail": "reel 4500592876865584: \"Doctors don't want you to know this about the bone that\""
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 1053815270423351: '' -> \"Doctors don't want you to know this about your blood's\""
+      "status": "ok",
+      "detail": "reel 1053815270423351: \"Doctors don't want you to know this about your blood's\""
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 2309700976438443: '' -> \"Doctors don't want you to know this about Your Heart Has Its\""
+      "status": "ok",
+      "detail": "reel 2309700976438443: \"Doctors don't want you to know this about Your Heart Has Its\""
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 1781033269735266: '' -> \"Most parents don't know this about how music helps baby\""
+      "status": "ok",
+      "detail": "reel 1781033269735266: \"Most parents don't know this about how music helps baby\""
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 1418137220128208: '' -> 'Most parents don’t know this about Attachment Theory: it’s'"
+      "status": "ok",
+      "detail": "reel 1418137220128208: 'Most parents don’t know this about Attachment Theory: it’s'"
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 788442081024484: '' -> \"Most parents don't know this about language development\""
+      "status": "ok",
+      "detail": "reel 788442081024484: \"Most parents don't know this about language development\""
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 1689758258745947: '' -> 'Most parents don’t know this about bilingual brain'"
+      "status": "ok",
+      "detail": "reel 1689758258745947: 'Most parents don’t know this about bilingual brain'"
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 3270063829869638: '' -> \"Most parents don't know this about Brain Growth Nutrition\""
+      "status": "ok",
+      "detail": "reel 3270063829869638: \"Most parents don't know this about Brain Growth Nutrition\""
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 1345906440366316: '' -> 'Attachment Theory in 60 Seconds'"
+      "status": "ok",
+      "detail": "reel 1345906440366316: 'Attachment Theory in 60 Seconds'"
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 1780810203076642: '' -> 'Why Babies Need to Crawl Before Walking'"
+      "status": "ok",
+      "detail": "reel 1780810203076642: 'Why Babies Need to Crawl Before Walking'"
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 947830784988145: 'Why your body makes more mucus 🤧' -> 'Your body is ALREADY reacting to nighttime allergens'"
+      "status": "ok",
+      "detail": "reel 947830784988145: 'Your body is ALREADY reacting to nighttime allergens'"
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 2110486596201470: 'Your brain is forgetting Why your heart ' -> 'Your body is ALREADY skipping beats every day'"
+      "status": "ok",
+      "detail": "reel 2110486596201470: 'Your body is ALREADY skipping beats every day'"
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 844276145183200: 'Why ignoring Why your eye twitches ran i' -> 'Your brain is already sending signals right now'"
+      "status": "ok",
+      "detail": "reel 844276145183200: 'Your brain is already sending signals right now'"
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 1006828912076419: 'Why ignoring Why men experience cognit i' -> 'Your brain is ALREADY declining right now slowly'"
+      "status": "ok",
+      "detail": "reel 1006828912076419: 'Your brain is ALREADY declining right now slowly'"
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 995139406605549: 'Why ignoring Why you forget things you i' -> 'Your brain is already forgetting right now'"
+      "status": "ok",
+      "detail": "reel 995139406605549: 'Your brain is already forgetting right now'"
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 1323304896113007: 'What nobody explains about Why your brai' -> 'Your brain is already shrinking right now'"
+      "status": "ok",
+      "detail": "reel 1323304896113007: 'Your brain is already shrinking right now'"
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 4304682836438200: 'How I Can Boost Mind Intelli - What Nobo' -> 'Your brain is ALREADY capable of more right now'"
+      "status": "ok",
+      "detail": "reel 4304682836438200: 'Your brain is ALREADY capable of more right now'"
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 3314378625410338: 'Stress Heart Rate 🫀' -> \"Comment 'YES' if you agree! 💯\""
+      "status": "ok",
+      "detail": "reel 3314378625410338: \"Comment 'YES' if you agree! 💯\""
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 2171677247008570: 'Aging Procrastination 🕰️' -> 'Tag someone who needs to see this! 👇'"
+      "status": "ok",
+      "detail": "reel 2171677247008570: 'Tag someone who needs to see this! 👇'"
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 2524117774699365: 'Fear Response 🚨' -> \"Comment 'YES' if you agree! 💯\""
+      "status": "ok",
+      "detail": "reel 2524117774699365: \"Comment 'YES' if you agree! 💯\""
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 2213438389492888: 'Deja Vu Explained 🤯' -> 'Share if this blew your mind! 🤯'"
+      "status": "ok",
+      "detail": "reel 2213438389492888: 'Share if this blew your mind! 🤯'"
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 863548253034850: 'Brain Motor Skills 🧠' -> 'Tag someone who needs to see this! 👇'"
+      "status": "ok",
+      "detail": "reel 863548253034850: 'Tag someone who needs to see this! 👇'"
     },
     {
       "action": "reel titles",
-      "status": "dry",
-      "detail": "reel 1330722271833473: 'Dreams Explained 🧠' -> 'Tag someone who needs to see this! 👇'"
+      "status": "ok",
+      "detail": "reel 1330722271833473: 'Tag someone who needs to see this! 👇'"
     },
     {
       "action": "reel thumbnails",
@@ -330,48 +330,48 @@
     },
     {
       "action": "reel thumbnails",
-      "status": "dry",
-      "detail": "reel 1381698583844468 <- cover bMkH0kI3V8Y.jpg via verified-map"
+      "status": "ok",
+      "detail": "reel 1381698583844468 custom cover set from bMkH0kI3V8Y.jpg via verified-map"
     },
     {
       "action": "reel thumbnails",
-      "status": "dry",
-      "detail": "reel 1670686777493488 <- cover AbAXF8oHhp0.jpg via verified-map"
+      "status": "ok",
+      "detail": "reel 1670686777493488 custom cover set from AbAXF8oHhp0.jpg via verified-map"
     },
     {
       "action": "reel thumbnails",
-      "status": "dry",
-      "detail": "reel 1680757336371264 <- cover IjwfP0tcZH8.jpg via verified-map"
+      "status": "ok",
+      "detail": "reel 1680757336371264 custom cover set from IjwfP0tcZH8.jpg via verified-map"
     },
     {
       "action": "reel thumbnails",
-      "status": "dry",
-      "detail": "reel 1026759496727537 <- cover _2JHzwLIE50.jpg via verified-map"
+      "status": "ok",
+      "detail": "reel 1026759496727537 custom cover set from _2JHzwLIE50.jpg via verified-map"
     },
     {
       "action": "reel thumbnails",
-      "status": "dry",
-      "detail": "reel 27722335547405806 <- cover QZF0IHtnbIg.jpg via verified-map"
+      "status": "ok",
+      "detail": "reel 27722335547405806 custom cover set from QZF0IHtnbIg.jpg via verified-map"
     },
     {
       "action": "reel thumbnails",
-      "status": "dry",
-      "detail": "reel 1754294192265457 <- cover FUgcHHnhLSM.jpg via verified-map"
+      "status": "ok",
+      "detail": "reel 1754294192265457 custom cover set from FUgcHHnhLSM.jpg via verified-map"
     },
     {
       "action": "reel thumbnails",
-      "status": "dry",
-      "detail": "reel 1044083038116002 <- cover L3idewWMmPU.jpg via verified-map"
+      "status": "ok",
+      "detail": "reel 1044083038116002 custom cover set from L3idewWMmPU.jpg via verified-map"
     },
     {
       "action": "reel thumbnails",
-      "status": "dry",
-      "detail": "reel 870075022564667 <- cover XCUNM30ET_8.jpg via verified-map"
+      "status": "ok",
+      "detail": "reel 870075022564667 custom cover set from XCUNM30ET_8.jpg via verified-map"
     },
     {
       "action": "reel thumbnails",
-      "status": "dry",
-      "detail": "reel 1543194320583010 <- cover ed031j4Pgy8.jpg via verified-map"
+      "status": "ok",
+      "detail": "reel 1543194320583010 custom cover set from ed031j4Pgy8.jpg via verified-map"
     },
     {
       "action": "page long description",
@@ -380,13 +380,13 @@
     },
     {
       "action": "CTA button -> YouTube",
-      "status": "dry",
-      "detail": "would add LEARN_MORE button"
+      "status": "blocked",
+      "detail": "{\"error\":{\"message\":\"(#100) Parameters do not match any fields that can be updated\",\"type\":\"OAuthException\",\"code\":100,\"fbtrace_id\":\"AW6brO_-s7uaT2X7yzfV1dZ\"}}"
     },
     {
       "action": "pinned welcome post",
-      "status": "dry",
-      "detail": "would pin existing welcome post"
+      "status": "posted (pin blocked)",
+      "detail": "post 1122980080905302_122122949577351165 {\"error\":{\"message\":\"(#100) You do not have sufficient permissions to perform this action\",\"type\":\"OAuthException\",\"code\":100,\"fbtrace_id\":\"Ajr16T6D7X"
     }
   ]
 }
