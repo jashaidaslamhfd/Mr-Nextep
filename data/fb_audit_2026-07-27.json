@@ -1,5 +1,5 @@
 {
- "generated_at_utc": "2026-07-27T10:27:41.183430",
+ "generated_at_utc": "2026-07-27T10:58:39.521236",
  "api": "v23.0",
  "page": {
   "id": "1122980080905302",
@@ -15,7 +15,7 @@
    "cover_id": "122112479415351165",
    "offset_x": 50,
    "offset_y": 50,
-   "source": "https://scontent-iad6-1.xx.fbcdn.net/v/t39.30808-6/726002744_122112479421351165_2828795938232673996_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=dc4938&_nc_eui2=AeECdUgtSVsxq0v0Gav9-79HLxe6DlBWoeAvF7oOUFah4GOMAe-UVMPRArRj68PlyAufDGfcpkw7hRYPLJNp_CVY&_nc_ohc=VZQWut5bnz4Q7kNvwF2E4Su&_nc_oc=AdpohrtK3Erkb_Twd_15IhAx-qJHAO9IVXiaSwfzIxWn6Mu8adLhbJa9gzZ6h0nRCgU&_nc_zt=23&_nc_ht=scontent-iad6-1.xx&edm=AJdBtusEAAAA&_nc_gid=ZoIVhITd8iOcOMffKvGVzg&_nc_tpa=Q5bMBQHwMxAhoZqv-A0y9wTtGOU_GkDMKbZy0Y-FyGMptHu5sn43-PYsVxUNJJ8Y-4FaluZH6OTtyc50kg&oh=00_AQAWDylrPWcI2Sq9YkChfkPDiiISpWjPOOW2k88t-aALpw&oe=6A6CF31A",
+   "source": "https://scontent-sea1-1.xx.fbcdn.net/v/t39.30808-6/726002744_122112479421351165_2828795938232673996_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=dc4938&_nc_eui2=AeECdUgtSVsxq0v0Gav9-79HLxe6DlBWoeAvF7oOUFah4GOMAe-UVMPRArRj68PlyAufDGfcpkw7hRYPLJNp_CVY&_nc_ohc=VZQWut5bnz4Q7kNvwGxCGDe&_nc_oc=AdqzLUSabionomvoNLP08KqfENcsRKf_d5jPwESkVG8lg1rYl_3trz94eacj76WDaTk&_nc_zt=23&_nc_ht=scontent-sea1-1.xx&edm=AJdBtusEAAAA&_nc_gid=Lk1bHEEavDi-akJeDg2hmw&_nc_tpa=Q5bMBQFeKlJozejdbsDR4IQRBc1mjw6sfPQG0TsSE7QAQ-LH8Fs4bBx7d8_oEe30aLNtSfclpE_lX7TleA&oh=00_AQBtuBr8NlNllWRCLtiu2_o1WB3sl2Pi8t70YKP56bhq9A&oe=6A6CF31A",
    "id": "122112479415351165"
   }
  },
@@ -25,24 +25,8 @@
   "body": "{\"error\":{\"message\":\"(#10) This endpoint requires the 'pages_read_engagement' permission or the 'Page Public Content Access' feature. Refer to https:\\/\\/developers.facebook.com\\/docs\\/apps\\/review\\/login-permissions#manage-pages and https:\\/\\/developers.facebook.com\\/docs\\/apps\\/review\\/feature#refe"
  },
  "reels_total": 65,
- "reels_faulty": 64,
+ "reels_faulty": 62,
  "reel_faults": {
-  "1543194320583010": {
-   "created": "2026-07-26T23:15:17+0000",
-   "first_line": "You're stuck on it",
-   "desc_len": 205,
-   "faults": [
-    "reel_cover_missing"
-   ]
-  },
-  "870075022564667": {
-   "created": "2026-07-26T16:40:31+0000",
-   "first_line": "Your calf locks up",
-   "desc_len": 218,
-   "faults": [
-    "reel_cover_missing"
-   ]
-  },
   "1541306318009452": {
    "created": "2026-07-25T23:39:26+0000",
    "first_line": "You walk in a room and instantly forget",
@@ -88,8 +72,7 @@
    "first_line": "You yawn, and suddenly, your friend yawns too",
    "desc_len": 194,
    "faults": [
-    "reel_title_missing",
-    "reel_cover_missing"
+    "reel_title_missing"
    ]
   },
   "1754294192265457": {
@@ -97,8 +80,7 @@
    "first_line": "Have you ever felt like hours flew by",
    "desc_len": 225,
    "faults": [
-    "reel_title_missing",
-    "reel_cover_missing"
+    "reel_title_missing"
    ]
   },
   "27722335547405806": {
@@ -106,8 +88,7 @@
    "first_line": "Ever felt a lump in your throat when",
    "desc_len": 226,
    "faults": [
-    "reel_title_missing",
-    "reel_cover_missing"
+    "reel_title_missing"
    ]
   },
   "1026759496727537": {
@@ -115,8 +96,7 @@
    "first_line": "Have you ever woken up sounding deeper and.",
    "desc_len": 184,
    "faults": [
-    "reel_title_missing",
-    "reel_cover_missing"
+    "reel_title_missing"
    ]
   },
   "1680757336371264": {
@@ -124,8 +104,7 @@
    "first_line": "Ever felt like your body just freezes when.",
    "desc_len": 221,
    "faults": [
-    "reel_title_missing",
-    "reel_cover_missing"
+    "reel_title_missing"
    ]
   },
   "1670686777493488": {
@@ -133,8 +112,7 @@
    "first_line": "You've noticed it before, but why do your.",
    "desc_len": 197,
    "faults": [
-    "reel_title_missing",
-    "reel_cover_missing"
+    "reel_title_missing"
    ]
   },
   "1381698583844468": {
@@ -142,8 +120,7 @@
    "first_line": "Have you ever wondered why knees crack when. 🦴",
    "desc_len": 205,
    "faults": [
-    "reel_title_missing",
-    "reel_cover_missing"
+    "reel_title_missing"
    ]
   },
   "1952677572018954": {
@@ -597,7 +574,7 @@
  "read_insights": false,
  "fault_counts": {
   "reel_title_missing": 49,
-  "reel_cover_missing": 32,
+  "reel_cover_missing": 23,
   "reel_caption_duplicate": 5,
   "post_duplicate": 5
  }
