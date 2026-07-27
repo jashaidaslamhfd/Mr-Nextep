@@ -19,7 +19,8 @@
       "caption_len": 247,
       "hashtags": 3,
       "first_line": "Your ears ring loudly",
-      "_error": "{'error': 400, 'body': '{\"error\":{\"message\":\"(#100) metric[0] must be one of the following values: impressions, reach, r"
+      "_error": "{'error': 400, 'body': '{\"error\":{\"message\":\"(#100) The Media Insights API does not support the impressions metric for this media product type.\",\"type\":\"OAuthEx",
+      "reach": 102
     },
     {
       "id": "17894064276573755",
@@ -31,7 +32,8 @@
       "caption_len": 245,
       "hashtags": 3,
       "first_line": "You're stuck on it",
-      "_error": "{'error': 400, 'body': '{\"error\":{\"message\":\"(#100) metric[0] must be one of the following values: impressions, reach, r"
+      "_error": "{'error': 400, 'body': '{\"error\":{\"message\":\"(#100) The Media Insights API does not support the impressions metric for this media product type.\",\"type\":\"OAuthEx",
+      "reach": 56
     },
     {
       "id": "18123739615779087",
@@ -43,7 +45,8 @@
       "caption_len": 258,
       "hashtags": 3,
       "first_line": "Your calf locks up",
-      "_error": "{'error': 400, 'body': '{\"error\":{\"message\":\"(#100) metric[0] must be one of the following values: impressions, reach, r"
+      "_error": "{'error': 400, 'body': '{\"error\":{\"message\":\"(#100) The Media Insights API does not support the impressions metric for this media product type.\",\"type\":\"OAuthEx",
+      "reach": 103
     }
   ]
 }
