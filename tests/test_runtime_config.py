@@ -251,7 +251,7 @@ class DescriptionSeoTests(unittest.TestCase):
     def test_hashtags_never_contain_spaces(self):
         """'#brain facts' is parsed by YouTube as '#brain' plus a loose word,
         so the intended hashtag never existed."""
-        import re
+
         desc = self._desc(["brain facts", "body science", "neuroscience"])
         block = [ln for ln in desc.splitlines() if ln.strip().startswith("#")]
         self.assertTrue(block, desc)
@@ -301,11 +301,15 @@ class HashtagIdempotencyTests(unittest.TestCase):
         self.assertEqual(self.sweep.as_hashtag("BrainFacts"), "BrainFacts")
 
     def test_clean_description_is_left_untouched(self):
-        clean = ("Hook.\n\nSummary line.\n\n"
-                 "Learn the science behind brain facts, brain science. Follow.\n\n"
-                 "#Shorts #BrainFacts #BrainScience")
-        result, _ = self.sweep.fix_description(clean)
-        self.assertEqual(result, clean.strip())
+        """Feed the sweep its OWN output; a second pass must be a no-op.
+        (Built by running the sweep once rather than hand-writing the
+        expected closing line, which now rotates by topic hash.)"""
+        raw = ("Hook.\n\nSummary line.\n\n"
+               "Learn the science behind brain facts, brain science. Old CTA.\n\n"
+               "#Shorts #BrainFacts #BrainScience")
+        once, _ = self.sweep.fix_description(raw)
+        twice, _ = self.sweep.fix_description(once)
+        self.assertEqual(once, twice)
 
 
 class AnalyticsLoopTests(unittest.TestCase):
@@ -351,3 +355,71 @@ class AnalyticsLoopTests(unittest.TestCase):
     def test_history_write_is_atomic(self):
         source = (ROOT / "src" / "seo_analytics.py").read_text()
         self.assertIn("os.replace(tmp, HISTORY_FILE)", source)
+
+
+class DescriptionVarietyTests(unittest.TestCase):
+    """All 83 published videos carried the identical closing sentence
+    "Follow for clear science and brain facts explained simply." — byte for
+    byte. Identical boilerplate across a whole channel is a templated-content
+    signal and wastes the one line a viewer may actually read."""
+
+    def setUp(self):
+        try:
+            from seo_generator import generate_description
+        except ModuleNotFoundError as exc:
+            self.skipTest(f"deps not installed here: {exc}")
+        self.build = generate_description
+
+    def _closing(self, tags):
+        desc = self.build({"hook": "H.", "summary": "S.", "topic": "t",
+                           "category": "Brain"}, tags)
+        line = [l for l in desc.split("\n")
+                if l.startswith("Learn the science behind")]
+        return line[0] if line else ""
+
+    def test_closing_line_varies_across_topics(self):
+        seen = {self._closing(t) for t in (
+            ["brain facts", "neuroscience"],
+            ["human body", "muscle"],
+            ["sleep science", "dreams"],
+            ["gut health", "digestion"],
+        )}
+        self.assertGreater(len(seen), 1, "every video would share one CTA")
+
+    def test_closing_line_is_stable_for_the_same_topic(self):
+        """Must be deterministic or the repair sweep rewrites forever."""
+        first = self._closing(["brain facts", "neuroscience"])
+        second = self._closing(["brain facts", "neuroscience"])
+        self.assertEqual(first, second)
+
+    def test_old_hardcoded_cta_is_gone(self):
+        source = (ROOT / "src" / "seo_generator.py").read_text()
+        self.assertNotIn(
+            '"Follow for clear science and brain facts explained simply."',
+            source)
+
+
+class SweepIdempotencyTests(unittest.TestCase):
+    """The sweep must converge — a non-idempotent sweep rewrites all 83
+    videos on every run, burning quota and republishing for nothing."""
+
+    def setUp(self):
+        sys.path.insert(0, str(ROOT / "scripts"))
+        import us_seo_sweep
+        self.sweep = us_seo_sweep
+
+    def test_second_pass_changes_nothing(self):
+        raw = ("You're stuck on it.\n\nSummary.\n\n"
+               "Learn the science behind brain facts, brain science, having. "
+               "Follow for clear science and brain facts explained simply.\n\n"
+               "#Shorts #brain facts #brain science")
+        once, _ = self.sweep.fix_description(raw)
+        twice, _ = self.sweep.fix_description(once)
+        self.assertEqual(once, twice)
+
+    def test_closing_line_rotates_but_is_deterministic(self):
+        raw = ("H.\n\nS.\n\nLearn the science behind human body, muscle. Old.\n\n"
+               "#Shorts #HumanBody")
+        first, _ = self.sweep.fix_description(raw)
+        second, _ = self.sweep.fix_description(raw)
+        self.assertEqual(first, second)

@@ -55,6 +55,17 @@ _TITLE_TEMPLATES = (
     "The Science Of {topic}",
 )
 
+# Closing lines for the description's context sentence. Rotated by topic hash
+# so the channel does not ship one identical sentence on every upload.
+_CONTEXT_CLOSERS = (
+    "Follow for clear science explained simply.",
+    "Subscribe for more of what your body does and why.",
+    "Follow for one strange body fact a day.",
+    "More everyday science, explained in seconds.",
+    "Follow if your body keeps surprising you.",
+    "Subscribe for short, honest science.",
+)
+
 _TITLE_STOP_WORDS = {
     "a", "an", "and", "are", "at", "does", "do", "for", "from", "helps",
     "how", "in", "is", "it", "make", "of", "on", "the", "this", "to", "what",
@@ -274,10 +285,16 @@ def generate_description(script_data: Dict, tags: List[str]) -> str:
     context_tags = _normalise_tags(tags, 4)
     if context_tags:
         readable = ", ".join(t.replace("_", " ") for t in context_tags)
-        parts.append(
-            f"Learn the science behind {readable}. "
-            "Follow for clear science and brain facts explained simply."
-        )
+        # Vary the closing line. The identical sentence "Follow for clear
+        # science and brain facts explained simply." was on all 83 published
+        # videos — byte-for-byte. Identical boilerplate across an entire
+        # channel is a templated-content signal, and it also wastes the one
+        # line a viewer might actually read. Seeded by topic so a given video
+        # always renders the same text (idempotent for the repair sweep).
+        import hashlib as _hashlib
+        seed = int(_hashlib.sha256(readable.encode("utf-8")).hexdigest()[:8], 16)
+        closing = _CONTEXT_CLOSERS[seed % len(_CONTEXT_CLOSERS)]
+        parts.append(f"Learn the science behind {readable}. {closing}")
 
     # #Shorts FIRST so YouTube categorises this correctly as a Short, then
     # up to 3 topic hashtags (YouTube only surfaces the first 3 above the

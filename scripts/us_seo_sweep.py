@@ -113,6 +113,16 @@ def _all_video_ids(token: str) -> list:
             return ids
 
 
+CONTEXT_CLOSERS = (
+    "Follow for clear science explained simply.",
+    "Subscribe for more of what your body does and why.",
+    "Follow for one strange body fact a day.",
+    "More everyday science, explained in seconds.",
+    "Follow if your body keeps surprising you.",
+    "Subscribe for short, honest science.",
+)
+
+
 def as_hashtag(word: str) -> str:
     """'brain facts' -> 'BrainFacts' (a hashtag cannot contain a space).
 
@@ -161,6 +171,12 @@ def fix_description(description: str) -> tuple:
 
         # --- keyword context line ------------------------------------------
         if stripped.startswith("Learn the science behind"):
+            # Also rotate the closing sentence. All 83 videos carried the
+            # identical "Follow for clear science and brain facts explained
+            # simply." — byte-for-byte boilerplate reads as templated content
+            # and wastes the one line a viewer may read. Chosen by topic hash
+            # so the result is stable across re-runs (the sweep must stay
+            # idempotent).
             match = re.match(r"(Learn the science behind )(.+?)\.(.*)$", stripped, re.S)
             if match:
                 head, middle, tail = match.groups()
@@ -172,7 +188,11 @@ def fix_description(description: str) -> tuple:
                         continue
                     kept.append(term)
                 if kept:
-                    out.append(f"{head}{', '.join(kept)}.{tail}")
+                    import hashlib as _hl
+                    body = ", ".join(kept)
+                    seed = int(_hl.sha256(body.encode("utf-8")).hexdigest()[:8], 16)
+                    closer = CONTEXT_CLOSERS[seed % len(CONTEXT_CLOSERS)]
+                    out.append(f"{head}{body}. {closer}")
                 continue
 
         out.append(line)
