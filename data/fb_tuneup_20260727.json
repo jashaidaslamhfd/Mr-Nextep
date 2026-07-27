@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-07-27T10:19:37.119647",
+  "generated_at_utc": "2026-07-27T10:22:42.062150",
   "api": "",
   "dry_run": true,
   "actions": [
@@ -417,66 +417,6 @@
       "action": "reel thumbnails",
       "status": "info",
       "detail": "65 reels fetched, 34 already covered"
-    },
-    {
-      "action": "reel thumbnails",
-      "status": "dry",
-      "detail": "reel 1330722271833473 <- cover rOgA1rMVUtY.jpg via date-order(0.33)"
-    },
-    {
-      "action": "reel thumbnails",
-      "status": "dry",
-      "detail": "reel 863548253034850 <- cover 8843MFjllbw.jpg via date-order(0.33)"
-    },
-    {
-      "action": "reel thumbnails",
-      "status": "dry",
-      "detail": "reel 2213438389492888 <- cover I9d3K0ng0MQ.jpg via date-order(0.37)"
-    },
-    {
-      "action": "reel thumbnails",
-      "status": "dry",
-      "detail": "reel 2524117774699365 <- cover e0F7AlF7Aj4.jpg via date-order(0.30)"
-    },
-    {
-      "action": "reel thumbnails",
-      "status": "dry",
-      "detail": "reel 2171677247008570 <- cover Jhqjx48cDSg.jpg via date-order(0.29)"
-    },
-    {
-      "action": "reel thumbnails",
-      "status": "dry",
-      "detail": "reel 3314378625410338 <- cover agWKyQDzqWw.jpg via date-order(0.35)"
-    },
-    {
-      "action": "reel thumbnails",
-      "status": "dry",
-      "detail": "reel 4304682836438200 <- cover JUgUYsiGYpg.jpg via date-order(0.29)"
-    },
-    {
-      "action": "reel thumbnails",
-      "status": "dry",
-      "detail": "reel 1323304896113007 <- cover A79BYUVtpU8.jpg via date-order(0.31)"
-    },
-    {
-      "action": "reel thumbnails",
-      "status": "dry",
-      "detail": "reel 947830784988145 <- cover ug5r5qk4YKc.jpg via date-order(0.25)"
-    },
-    {
-      "action": "reel thumbnails",
-      "status": "dry",
-      "detail": "reel 1780810203076642 <- cover soWQwnALGsI.jpg via date-order(0.26)"
-    },
-    {
-      "action": "reel thumbnails",
-      "status": "dry",
-      "detail": "reel 1345906440366316 <- cover vs3FF4OLQrM.jpg via date-order(0.26)"
-    },
-    {
-      "action": "reel thumbnails",
-      "status": "dry",
-      "detail": "reel 1541306318009452 <- cover u1eCpGU38PI.jpg via date-order(0.25)"
     },
     {
       "action": "page long description",
