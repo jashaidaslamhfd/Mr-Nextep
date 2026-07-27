@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-07-27T12:12:50.782329+00:00",
+  "generated_at_utc": "2026-07-27T12:20:21.213943+00:00",
   "api": "v23.0",
   "assumed_video_seconds": 47.0,
   "ig_account": {
@@ -682,5 +682,16 @@
     "median": 244,
     "mean": 236.8,
     "total": 15395
+  },
+  "fb_page_standing": {
+    "is_published": true,
+    "is_eligible_for_branded_content": false,
+    "has_added_app": "?",
+    "verification_status": "not_verified",
+    "restrictions": "(#100) Tried accessing nonexisting field (restrictions)",
+    "is_restricted": "(#100) Tried accessing nonexisting field (is_restricted)",
+    "warning": "(#100) Tried accessing nonexisting field (warning)",
+    "monetization_eligibility": "(#100) Tried accessing nonexisting field (monetization_eligibility)",
+    "content_monetization": "(#100) Tried accessing nonexisting field (content_monetization)"
   }
 }
