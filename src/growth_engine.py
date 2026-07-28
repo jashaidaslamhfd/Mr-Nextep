@@ -79,6 +79,10 @@ WEIGHT_CEILING = 2.0
 # data can shift a weight by at most ~30% of the gap — fast enough to react
 # inside a week, slow enough that one outlier cannot flip the schedule.
 LEARNING_RATE = 0.3
+# How far above neutral a bucket must sit before it is declared a winner and
+# actually influences generation. One constant, used by both the report and
+# the consumers — see _best_of().
+WINNER_MARGIN = 0.10
 
 
 # ---------------------------------------------------------------------------
@@ -107,13 +111,38 @@ def _clamp(value: float, low: float = WEIGHT_FLOOR, high: float = WEIGHT_CEILING
     return round(max(low, min(float(value), high)), 3)
 
 
+def _configured_slots() -> List[str]:
+    """The publish slots the scheduler actually targets, as "HH:MM" strings."""
+    try:
+        from scheduler import USAPeakTimeScheduler
+        return [f"{p['hour']:02d}:{p['minute']:02d}"
+                for p in USAPeakTimeScheduler.PEAK_TIMES]
+    except Exception:  # noqa: BLE001 - learning must not depend on the scheduler
+        return []
+
+
+# How far a publish time may drift from its intended slot and still count as
+# that slot. GitHub cron routinely fires late, Instagram publishes when its
+# hold expires, and YouTube's publishAt lands on the minute — so a 45-minute
+# window comfortably absorbs real-world jitter while staying well inside the
+# 90-minute minimum gap between slots.
+_SLOT_MATCH_MINUTES = 45
+
+
 def _slot_key(record: Dict) -> Optional[str]:
     """Which publish slot a video belongs to, in New York local time.
 
-    publish_at is preferred over posted_at: posted_at is when the RUNNER
-    finished, which on this repo is up to two hours before the video is
-    actually visible. Bucketing by upload time instead of publish time was
-    quietly attributing every video to the wrong slot.
+    Two details that were quietly corrupting the data:
+
+    1. publish_at beats posted_at. posted_at is when the RUNNER finished,
+       which on this repo is up to two hours before the video is visible.
+       Bucketing by upload time attributed videos to the wrong slot entirely.
+
+    2. Snap to the nearest CONFIGURED slot rather than to a fixed 30-minute
+       grid. A video that went live at 20:35 (a late cron, or an Instagram
+       hold expiring) landed in a "20:30" bucket that no scheduler slot uses,
+       so the 20:00 slot never received credit for its own videos and stayed
+       permanently at neutral weight no matter how well it performed.
     """
     stamp = record.get("publish_at") or record.get("posted_at")
     if not stamp:
@@ -123,7 +152,22 @@ def _slot_key(record: Dict) -> Optional[str]:
         parsed = parsed if parsed.tzinfo else parsed.replace(tzinfo=timezone.utc)
     except ValueError:
         return None
+
     local = parsed.astimezone(NY)
+    minutes = local.hour * 60 + local.minute
+
+    best, best_gap = None, None
+    for slot in _configured_slots():
+        hour, minute = (int(part) for part in slot.split(":"))
+        gap = abs(minutes - (hour * 60 + minute))
+        if gap <= _SLOT_MATCH_MINUTES and (best_gap is None or gap < best_gap):
+            best, best_gap = slot, gap
+    if best:
+        return best
+
+    # Published outside every configured slot (a manual dispatch, or a slot
+    # that has since been retired). Keep it in its own half-hour bucket so the
+    # data is not lost, but it will never be confused with a real slot.
     return f"{local.hour:02d}:{local.minute // 30 * 30:02d}"
 
 
@@ -442,14 +486,20 @@ def analyse(min_age_hours: Optional[int] = None) -> Dict:
     return state
 
 
-def _best_of(weights: Dict[str, float], count: int = 1, margin: float = 0.1):
+def _best_of(weights: Dict[str, float], count: int = 1, margin: float = None):
     """Top bucket(s), but only when the weights have genuinely separated.
 
     `margin` is the minimum distance above neutral (1.0) a bucket must reach
     before it is called a winner. Without it, a set of untouched 1.0 weights
     would still produce a "best" by arbitrary dict ordering, and the report
     would state a preference the data never expressed.
+
+    Defaults to WINNER_MARGIN so the report and the consumers agree. They
+    previously used 0.10 and 0.15 independently, which produced the confusing
+    state of a report announcing 'best hook frame: why' at weight 1.147 while
+    the script generator silently ignored it for being under 1.15.
     """
+    margin = WINNER_MARGIN if margin is None else margin
     if not weights:
         return None if count == 1 else []
     ranked = sorted(weights.items(), key=lambda kv: kv[1], reverse=True)
@@ -569,7 +619,7 @@ def get_preferred_hook_frame() -> Optional[str]:
     frame = state.get("best_hook_frame")
     weights = state.get("hook_weights", {})
     samples = state.get("hook_samples", {})
-    if not frame or weights.get(frame, 0) < 1.15:
+    if not frame or weights.get(frame, 0) < 1.0 + WINNER_MARGIN:
         return None
     if samples.get(frame, 0) < HEALTH_THRESHOLDS["min_samples_per_slot"]:
         return None

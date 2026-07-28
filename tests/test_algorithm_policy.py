@@ -797,6 +797,36 @@ class GrowthEngineTests(unittest.TestCase):
         self.assertGreater(yt, 1.0)
         self.assertLess(ig, 1.0)
 
+    def test_slot_bucketing_snaps_to_configured_slots(self):
+        """A late cron or an expiring Instagram hold must still credit the
+        slot it was aiming at. Bucketing 20:35 into a "20:30" grid cell meant
+        the real 20:00 slot never received credit for its own videos and sat
+        at neutral weight no matter how it performed."""
+        import pytz
+        ny = pytz.timezone("America/New_York")
+        for minute, expected in ((0, "20:00"), (12, "20:00"), (35, "20:00")):
+            stamp = ny.localize(datetime(2026, 7, 20, 20, minute))
+            self.assertEqual(self.engine._slot_key({"publish_at": stamp.isoformat()}), expected)
+
+    def test_off_slot_publishes_are_kept_separate(self):
+        """A manual 03:00 dispatch must not be credited to a real slot."""
+        import pytz
+        ny = pytz.timezone("America/New_York")
+        stamp = ny.localize(datetime(2026, 7, 20, 3, 5))
+        self.assertEqual(self.engine._slot_key({"publish_at": stamp.isoformat()}), "03:00")
+
+    def test_report_and_consumers_agree_on_what_counts_as_a_winner(self):
+        """The report announced 'best hook frame: why' at weight 1.147 while
+        the generator ignored it for being under its own 1.15 threshold. Two
+        thresholds for one decision is a bug that only shows up in confusion."""
+        weights = {"why": 1.0 + self.engine.WINNER_MARGIN, "statement": 0.8}
+        self.assertEqual(self.engine._best_of(weights), "why")
+        state = {"best_hook_frame": "why", "hook_weights": weights,
+                 "hook_samples": {"why": 5}}
+        with open(self.state_path, "w", encoding="utf-8") as handle:
+            json.dump(state, handle)
+        self.assertEqual(self.engine.get_preferred_hook_frame(), "why")
+
     def test_hook_frame_classification(self):
         self.assertEqual(self.engine.hook_frame("Why your eye twitches"), "why")
         self.assertEqual(self.engine.hook_frame("Your knee cracks loudly"), "second_person")
