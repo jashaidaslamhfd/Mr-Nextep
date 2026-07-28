@@ -27,33 +27,30 @@ yesterday's lesson.
 
 ---
 
-## 2. The three things only you can do
+## 2. The two things only you can do
 
 The system is fully automatic **except** for access it cannot grant itself.
 Until these are in place the growth report will say `no_data` for the affected
 platform and name the exact blocker.
 
-### A. Enable the YouTube Analytics API
+### A. Enable the YouTube Analytics API  ← start here
 
-Without this the pipeline cannot read retention or CTR — it is publishing blind.
+This is almost certainly the *only* thing blocking YouTube data. The last
+diagnostic (`data/seo_diag_20260725.json`) failed with:
 
-1. Open <https://console.cloud.google.com/apis/library/youtubeanalytics.googleapis.com>
-2. Select the project used for the YouTube OAuth credentials.
-3. Click **Enable**, wait ~2 minutes.
-
-### B. Re-issue the YouTube refresh token with the analytics scope
-
-The upload token only needs `youtube.upload`. Reading analytics also needs
-`yt-analytics.readonly`, and a token cannot gain a scope after it is issued.
-
-```bash
-python scripts/get_refresh_token.py
+```
+403: YouTube Analytics API has not been used in project 559439687452
+     before or it is disabled.
 ```
 
-Consent to all requested scopes, then update the **`REFRESH_TOKEN`** repo
-secret. (The backup is written to `~/.skillor/`, never into the repo.)
+That is a Google Cloud project setting, not a token problem — no code change
+can work around it.
 
-### C. Regenerate the Meta page token with insights permissions
+1. Open <https://console.developers.google.com/apis/api/youtubeanalytics.googleapis.com/overview?project=559439687452>
+2. Click **Enable**, wait ~2 minutes for it to propagate.
+3. Run Actions → **SKILLOR - YouTube Analytics Learning**.
+
+### B. Regenerate the Meta page token with insights permissions
 
 Currently Facebook returns `(#200) read_insights permission missing`, which is
 why per-Reel Facebook data is unavailable.
@@ -72,6 +69,23 @@ why per-Reel Facebook data is unavailable.
 **How to check it worked:** run Actions → **SKILLOR - YouTube Analytics
 Learning** manually. Every platform should move from ⚪ `no_data` to a real
 status, and the run commits an updated `docs/GROWTH_REPORT.md`.
+
+### What you do NOT need to do
+
+**Re-issue the YouTube refresh token.** An earlier draft of this guide asked
+for it; that was wrong. The evidence says the existing token already carries
+`yt-analytics.readonly`:
+
+- The Analytics failure is `403 API not enabled`, not a scope or permission
+  error. A token missing the scope fails differently.
+- `scripts/seo_diag.py` calls the Analytics API with this same
+  `REFRESH_TOKEN` and reaches the API — it is stopped by the project setting,
+  not by the token.
+
+Note that `scripts/get_refresh_token.py` only requests `youtube.upload` and
+`youtube.force-ssl`. If you ever *do* need to mint a fresh token, add
+`https://www.googleapis.com/auth/yt-analytics.readonly` to its `SCOPES` list
+first, or the new token will be less capable than the one you have now.
 
 ---
 

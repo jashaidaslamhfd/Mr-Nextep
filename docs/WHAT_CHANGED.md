@@ -103,12 +103,16 @@ Each of these was already costing reach; none were in the original brief.
 
 **One thing, and it is the only real blocker:**
 
-**Grant the three access permissions** in
+**Grant two access permissions** in
 [`../GROWTH_SETUP.md`](../GROWTH_SETUP.md) §2 — enable the YouTube Analytics
-API, re-issue the refresh token with `yt-analytics.readonly`, and add
-`read_insights` to the Meta page token. Without these the system publishes
-correctly but cannot read its own results, so it cannot tune itself. The daily
-report will show ⚪ `no_data` and name the exact missing permission.
+API in the Google Cloud project, and add `read_insights` to the Meta page
+token. Without these the system publishes correctly but cannot read its own
+results, so it cannot tune itself. The daily report will show ⚪ `no_data` and
+name the exact missing permission.
+
+> The existing YouTube refresh token does **not** need re-issuing — the
+> Analytics failure is `403 API not enabled`, a project setting, and
+> `seo_diag.py` already reaches the API with this token.
 
 **Optional polish:** two small workflow patches in
 [`workflow_updates/`](workflow_updates/) that remove four obsolete env vars
