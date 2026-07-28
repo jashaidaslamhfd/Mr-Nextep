@@ -1,27 +1,49 @@
-# SKILLOR — Automated YouTube Shorts Pipeline (US Audience)
+# SKILLOR — Faceless Multi-Platform Shorts System (US Audience)
 
-Fully automated body-science YouTube Shorts factory, running 3×/day on
-GitHub Actions:
+Fully automated body-science short-form factory for **YouTube, Facebook and
+Instagram**, running on GitHub Actions:
 
 ```
 Body Glitch topic → Llama script (Groq) → AI images (9-provider fallback)
-→ Kokoro voice (US English) → MoviePy render → SEO package
-→ YouTube upload (private → auto-publishes at next US peak slot)
+→ Kokoro voice (US English) → MoviePy render
+→ DUAL CUT:  ~36s master  → YouTube Short
+             ~26s edit    → Facebook + Instagram Reels
+→ per-platform captions → scheduled publish at measured peak slots
+→ next morning: read all 3 platforms' real numbers and re-tune itself
 ```
+
+## What makes it a system rather than a scheduler
+
+`src/algorithm_policy.py` holds the 2026 ranking rules for all three platforms
+in one place — durations, completion gates, hook budgets, hashtag limits, bait
+vocabulary — and **every other module derives from it**. Change the strategy in
+one file and the writer, renderer, cuts, captions, validator and tests all
+follow.
+
+`src/growth_engine.py` closes the loop: it reads real completion data from
+every platform, normalises it against each platform's own gate, and re-weights
+publish slots, topic pillars, hook frames and cadence for the next run.
+
+Full reasoning: [`docs/ALGORITHM_PLAYBOOK.md`](docs/ALGORITHM_PLAYBOOK.md) ·
+Operator guide: [`GROWTH_SETUP.md`](GROWTH_SETUP.md)
 
 ## Production schedule (America/New_York)
 
-| Generation run starts | Auto-publishes (publishAt) |
-|---|---|
-| 04:30 NY | 06:00 NY |
-| 11:00 NY | 12:30 NY |
-| 18:30 NY | 20:00 NY |
+| Run | Publishes | Purpose |
+|---|---|---|
+| 05:20 NY | — | **Growth Loop**: learn from yesterday, re-tune today |
+| 10:40 NY | 12:30 NY | lunch slot (best measured on this channel) |
+| 16:40 NY | 18:30 NY | early evening |
+| 18:10 NY | 20:00 NY | evening prime |
 
-- Exactly **3 runs/day year-round** — the gate matches the New York hour
-  (`04|11|18`), so the off-season DST cron skips itself (no double uploads).
-- Videos upload **private** with YouTube `publishAt`; YouTube itself flips
-  them public at the slot — you can review/delete during the private window.
-- `ENFORCE_POSTING_GAP=true` refuses runs closer than 2 h to the last post.
+- The learning run happens **before** the day's first video, so each day's
+  uploads use the previous day's lesson.
+- Cadence is **retention-gated**: if measured completion falls below 60% of the
+  platform gate the engine drops to 1 video/day, because volume on a
+  low-retention format teaches the feed to stop showing the channel (and is
+  what YouTube's inauthentic-content policy targets).
+- Videos upload **private** with `publishAt`; YouTube flips them public at the
+  slot, so there is a review window.
 
 ## Quick start
 
@@ -41,7 +63,8 @@ Voice cloning (GPU only) and the screenshot fallback are **optional** extras:
 | Secret | Why |
 |---|---|
 | `GROQ_API_KEY` | script generation (Llama 3.1) |
-| `GOOGLE_CLIENT_ID` / `GOOGLE_CLIENT_SECRET` / `REFRESH_TOKEN` | YouTube OAuth upload |
+| `GOOGLE_CLIENT_ID` / `GOOGLE_CLIENT_SECRET` / `REFRESH_TOKEN` | YouTube OAuth upload. The refresh token also needs **`yt-analytics.readonly`** for the learning loop — see `GROWTH_SETUP.md` |
+| `FACEBOOK_ACCESS_TOKEN` / `FACEBOOK_PAGE_ID` / `INSTAGRAM_USER_ID` | Reels publishing + insights. The page token needs `read_insights`, `pages_read_engagement`, `instagram_manage_insights` |
 | Optional: `HF_API_KEY`, `GEMINI_API_KEY`, `DEEPAI_API_KEY`, `MODELSLAB_API_KEY`, `REPLICATE_API_TOKEN`, `AI_HORDE_API_KEY`, `PEXELS_API_KEY`, `PIXABAY_API_KEY`, `YOUTUBE_API_KEY`, Reddit pair | more image providers / trend sources — system auto-skips missing ones |
 
 The workflow **fails fast** (in seconds) if a required secret is missing,
@@ -70,16 +93,34 @@ across videos. Local pool: `python scripts/generate_fallback_images.py`
 Every variable in `env.example` is **read by code** — verified in CI tests.
 Key US-audience settings: `TTS_ENGINE=kokoro`, `KOKORO_LANG_CODE=a`,
 `KOKORO_VOICE=am_adam`, `TREND_REGION=US`, `CONTENT_SERIES=body_glitches`.
-(Anything previously decorative — e.g. `YT_SCHEDULE_PUBLISH` — is now wired
-or removed; see `docs/archive/` for the old patch notes.)
+
+Video length and hook budgets are **not** env vars any more. They live in
+`src/algorithm_policy.py`, derived from each platform's completion gate and the
+measured speech rate. `TARGET_MIN_SECONDS` / `TARGET_MAX_SECONDS` still work as
+a per-run override for experiments, but the workflow deliberately leaves them
+unset so strategy lives in one reviewable Python file instead of in YAML.
+
+New switches:
+
+| Variable | Default | Effect |
+|---|---|---|
+| `META_CUT_ENABLED` | `true` | build the shorter Facebook/Instagram edit |
+| `SPOKEN_CTA_MODE` | `loop` | `loop` = end on the loop-back line; `cta` = restore the spoken outro |
+| `GROWTH_STATE_PATH` | `data/growth_state.json` | learned weights the pipeline reads |
 
 ## Repo layout
 
 ```
-src/            pipeline modules (script, images, voice, video, SEO, upload, analytics)
-scripts/        maintenance & local tooling
-tests/          offline regression tests (run on every CI run)
-docs/archive/   historical patch notes
+src/
+  algorithm_policy.py   2026 ranking rules for all 3 platforms — the source of truth
+  growth_engine.py      learns from real metrics; re-weights slots/topics/hooks/cadence
+  platform_metrics.py   normalised YouTube + Facebook + Instagram performance
+  platform_cuts.py      dual-cut editor (YouTube master vs. shorter Meta edit)
+  platform_captions.py  one caption per platform, written for its own algorithm
+  (script, images, voice, video, SEO, upload, analytics modules as before)
+scripts/        maintenance, diagnostics, and scripts/growth_report.py
+tests/          offline regression tests (117, run on every CI run)
+docs/           ALGORITHM_PLAYBOOK.md (why) + GROWTH_REPORT.md (generated daily)
 data/           durable channel state (committed by skillor-bot)
 ```
 

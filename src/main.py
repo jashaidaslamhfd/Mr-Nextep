@@ -45,6 +45,12 @@ try:
     from shorts_enhancer import build_shorts_report, generate_srt, score_hook
     from seo_analytics import predict_ctr, score_thumbnail, rank_hashtags, generate_ab_variants, get_historical_insights
     from trend_fetcher import get_trending_topic
+    from algorithm_policy import (
+        FACEBOOK, INSTAGRAM, YOUTUBE,
+        contains_bait, duration_policy, hook_enforcement_seconds,
+        retention_gate, shared_hook_seconds,
+    )
+    from platform_cuts import apply_cut, cut_summary, fits_platform, select_meta_cut
 except ImportError as e:
     logger.error(f"Failed to import modules: {e}")
     logger.error("Make sure all required modules are in the same directory")
@@ -55,11 +61,14 @@ MAX_SCRIPT_ATTEMPTS = 3
 MAX_IMAGE_RETRIES = 3
 FALLBACK_ABORT_RATIO = float(os.environ.get("FALLBACK_ABORT_RATIO", "0.5"))
 # 70 accepts a clear, specific natural hook while still rejecting vague or
-# manipulative openings. The scorer and generator use the same 6–9 word policy.
+# manipulative openings. The scorer and generator use the same word policy.
 MIN_HOOK_SCORE = int(os.environ.get("MIN_HOOK_SCORE", "70"))
-# Natural cloned delivery varies by speaker/reference. Five seconds preserves
-# a concise hook without throwing away an otherwise healthy 30-second Short.
-MAX_HOOK_SECONDS = float(os.environ.get("MAX_HOOK_SECONDS", "5.0"))
+# The hook budget is a RANKING constraint, not a stylistic one: every 2026
+# feed decides whether to keep showing a video within the first 2-3 seconds,
+# so an opening that takes 5 seconds to land its promise has already lost the
+# cohort it was testing on. Default comes from algorithm_policy (2.8s for
+# YouTube) and can still be overridden per-run for experiments.
+MAX_HOOK_SECONDS = float(os.environ.get("MAX_HOOK_SECONDS") or 0) or None
 # Tracked repository state is durable across Actions runs; generated media
 # remains in output/ and is intentionally not committed.
 VIDEO_HISTORY_PATH = os.environ.get("VIDEO_HISTORY_PATH", "data/video_history.json")
@@ -151,6 +160,24 @@ class SKILLORPipeline:
     def _get_recent_topics(self, n: int = 90) -> list:
         """Get recent topics to avoid repetition"""
         return [v.get('topic') for v in self.video_history[-n:] if v.get('topic')]
+
+    @staticmethod
+    def _enabled_platforms() -> list:
+        """Platforms this run will actually publish to.
+
+        Gates that apply to shared assets (the single audio track, the hook
+        budget) must satisfy the STRICTEST enabled platform. Computing that
+        from the real upload flags means turning Instagram off automatically
+        relaxes the 2-second hook budget to YouTube's 2.8s, instead of the
+        pipeline silently enforcing a constraint for a platform it is not
+        even posting to.
+        """
+        platforms = [YOUTUBE]
+        if os.environ.get("FB_UPLOAD_ENABLED", "false").lower() == "true":
+            platforms.append(FACEBOOK)
+        if os.environ.get("IG_UPLOAD_ENABLED", "false").lower() == "true":
+            platforms.append(INSTAGRAM)
+        return platforms
 
     def _generate_and_check_once(self, topic: str) -> dict:
         """Generate script once and check quality"""
@@ -397,6 +424,19 @@ class SKILLORPipeline:
             except Exception as e:
                 logger.warning(f"SEO generation failed, continuing: {e}")
 
+            # Record which opening frame this video used, so the growth engine
+            # can learn which frames survive the first three seconds. Without
+            # this the classifier would have to re-derive the frame from the
+            # published title later — and the title gets rewritten by SEO, so
+            # it would be classifying the wrong string.
+            try:
+                from growth_engine import hook_frame
+                script_data['hook_frame'] = hook_frame(
+                    script_data.get('hook') or script_data.get('title', '')
+                )
+            except Exception:  # noqa: BLE001 - telemetry must never block a run
+                pass
+
             # CTR Prediction
             try:
                 ctr_result = predict_ctr(script_data)
@@ -430,46 +470,42 @@ class SKILLORPipeline:
             if fallback_ratio > FALLBACK_ABORT_RATIO:
                 raise RuntimeError(f"Quality gate failed: {fallback_ratio:.1%} fallbacks")
 
-            # Phase 2b: Outro / CTA scene
-            # `cta` was previously stored only as metadata and used in the
-            # YouTube description (uploader.py) - it was never spoken or
-            # shown on screen, so viewers never actually saw/heard a
-            # "like / follow / share" prompt at the end of the video.
-            # Turning it into one more real scene means it goes through the
-            # normal voice + caption + build_video pipeline like every other
-            # scene, so it is both spoken and displayed at the end.
+            # Phase 2b: Ending mode — loop-back (default) or a short spoken CTA
+            #
+            # WHY THE SPOKEN CTA IS OFF BY DEFAULT NOW
+            # A "follow for more" outro used to be appended as a real 9th
+            # scene, so every video spent 2-4 seconds of its runtime asking
+            # for something instead of delivering. On a 36-second Short those
+            # seconds are ~8% of the video, and they land exactly where the
+            # completion percentage is decided. All three 2026 ranking systems
+            # grade on completion (YouTube's watch-time-per-impression gate,
+            # Meta's watch-through), and Meta additionally demotes captions
+            # and audio that beg for engagement.
+            #
+            # Loop mode ends on the script's LOOP-BACK line instead, so the
+            # last frame flows back into the first. A clean loop earns replays,
+            # and replays count as watch time on every platform. The follow
+            # ask still exists — it just lives in the caption, where it costs
+            # zero seconds of retention.
+            #
+            # SPOKEN_CTA_MODE=cta restores the old behaviour with a hard 2s
+            # budget if the channel ever wants to test it again.
+            cta_mode = os.environ.get("SPOKEN_CTA_MODE", "loop").strip().lower()
             cta_text = (script_data.get('cta') or '').strip()
-            _cta_action_words = ('follow', 'share', 'subscribe', 'comment', 'like')
-            # Facebook's engagement-bait policy demotes Reels whose CTA begs
-            # for likes/shares/comments. When FB upload is enabled the SAME
-            # audio goes to both platforms, so the spoken CTA must be the
-            # FB-safe variant (follow-based). YouTube-only runs may use the
-            # full action-word pool.
-            _fb_bait_words = ('like', 'share', 'comment', 'tag', 'subscribe')
-            _fb_uploads = os.environ.get("FB_UPLOAD_ENABLED", "false").lower() == "true"
 
-            def _has_action_word(text: str) -> bool:
-                return any(w in text.lower() for w in _cta_action_words)
-
-            def _is_fb_safe_cta(text: str) -> bool:
-                lowered = text.lower()
-                return 'follow' in lowered and not any(b in lowered for b in _fb_bait_words)
-
-            def _cta_ok(text: str) -> bool:
-                return _is_fb_safe_cta(text) if _fb_uploads else _has_action_word(text)
-
-            if not cta_text or not _cta_ok(cta_text):
+            if not cta_text or contains_bait(cta_text):
+                # The CTA still ships in metadata (caption/description), so it
+                # must be bait-free even when it is never spoken.
                 for _ in range(10):
                     candidate = get_random_cta()
-                    if _cta_ok(candidate):
+                    if candidate and not contains_bait(candidate):
                         cta_text = candidate
                         break
                 else:
-                    cta_text = "Follow for more facts like this."
+                    cta_text = "Follow for more body science."
                 script_data['cta'] = cta_text
-                logger.info("No usable CTA in script; using fallback: %s", cta_text)
 
-            if cta_text and script_data.get('scenes') and image_paths:
+            if cta_mode == "cta" and script_data.get('scenes') and image_paths:
                 outro_scene = {
                     'visual': script_data['scenes'][-1].get('visual', ''),
                     'caption': cta_text,
@@ -478,7 +514,14 @@ class SKILLORPipeline:
                 image_paths.append(image_paths[-1])
                 image_sources.append(image_sources[-1] if image_sources else 'reused-outro')
                 media_types.append(media_types[-1] if media_types else 'image')
-                logger.info("✅ Added outro CTA scene: \"%s\"", cta_text)
+                logger.info("Added spoken CTA scene (SPOKEN_CTA_MODE=cta): \"%s\"", cta_text)
+            else:
+                script_data['ending_mode'] = 'loop'
+                logger.info(
+                    "Loop ending: no spoken CTA scene. The final scene echoes the hook so "
+                    "the Short loops cleanly (replays count as watch time); the follow ask "
+                    "lives in the caption instead of costing ~8%% of runtime."
+                )
 
             # Phase 3: Voice Generation
             logger.info("\n🔊 PHASE 3: VOICE GENERATION")
@@ -493,14 +536,21 @@ class SKILLORPipeline:
                 )
                 logger.info(f"✅ Generated {len(audio_segments)} audio segments")
                 narration_seconds = sum(float(seg.get("duration", 0)) for seg in audio_segments)
-                target_max_seconds = float(os.environ.get("TARGET_MAX_SECONDS", "55"))
-                # video_editor may make a small (<=12%) transparent speed
-                # correction. Anything beyond that must be regenerated instead
-                # of producing rushed, low-retention narration.
+                # The master cut's ceiling comes from algorithm_policy, which
+                # derives it from YouTube's retention gate rather than from a
+                # hand-picked number. video_editor may still make a small
+                # (<=12%) inaudible speed correction; anything beyond that
+                # gets regenerated, because rushed narration is exactly the
+                # "machine-made" quality the 2026 inauthentic-content policy
+                # penalises.
+                _yt_floor, _yt_ideal, target_max_seconds = duration_policy(YOUTUBE)
                 if narration_seconds > target_max_seconds * 1.12:
                     raise RuntimeError(
                         f"Narration too long: {narration_seconds:.1f}s "
-                        f"(maximum before regeneration: {target_max_seconds * 1.12:.1f}s)"
+                        f"(maximum before regeneration: {target_max_seconds * 1.12:.1f}s). "
+                        f"YouTube grades a {_yt_ideal:.0f}s Short on "
+                        f"{retention_gate(YOUTUBE, _yt_ideal):.0%} completion — a longer "
+                        "video has to hold viewers for longer to clear the same bar."
                     )
 
                 silence_count = sum(1 for s in audio_segments if s.get('tts_engine') == 'silence')
@@ -513,15 +563,28 @@ class SKILLORPipeline:
                 if os.environ.get("REQUIRE_CLONED_VOICE", "true").lower() == "true":
                     if engines != {"chatterbox_clone"}:
                         raise RuntimeError(f"Cloned voice required, got: {sorted(engines)}")
-                if audio_segments and audio_segments[0].get('duration', 99) > MAX_HOOK_SECONDS:
+                # Hook budget: the tightest ENABLED platform wins, because one
+                # audio track serves all of them and Instagram decides fastest
+                # (~2s). The enforcement threshold carries a delivery
+                # tolerance — the writer aims at the true budget, and the gate
+                # rejects genuinely slow openings rather than punishing a
+                # strong hook for a natural dramatic beat. Both numbers come
+                # from algorithm_policy so they can never drift apart again.
+                platforms = self._enabled_platforms()
+                hook_target = shared_hook_seconds(platforms)
+                hook_limit = MAX_HOOK_SECONDS or hook_enforcement_seconds(platforms)
+                hook_actual = audio_segments[0].get('duration', 99) if audio_segments else 99
+                if hook_actual > hook_limit:
                     raise RuntimeError(
-                        f"First scene exceeds {MAX_HOOK_SECONDS:.1f} seconds"
+                        f"Hook takes {hook_actual:.2f}s against a {hook_target:.1f}s target "
+                        f"(hard limit {hook_limit:.2f}s). Every 2026 feed decides whether to "
+                        "keep showing a video inside the first 2-3 seconds, so a slow opening "
+                        "caps distribution before any other signal is measured."
                     )
-                if audio_segments and audio_segments[0].get('duration', 0) > 4.0:
-                    logger.info(
-                        "Hook is %.2fs; accepted within the natural cloned-voice limit of %.1fs.",
-                        audio_segments[0]['duration'], MAX_HOOK_SECONDS,
-                    )
+                logger.info(
+                    "Hook lands in %.2fs (target %.1fs, limit %.2fs).",
+                    hook_actual, hook_target, hook_limit,
+                )
             except Exception as e:
                 logger.error(f"Voice generation failed: {e}")
                 raise
@@ -580,8 +643,8 @@ class SKILLORPipeline:
             except Exception as e:
                 logger.warning(f"SRT generation failed: {e}")
 
-            # Phase 4: Build Video (with visual effects)
-            logger.info("\n🎬 PHASE 4: BUILD VIDEO (WITH EFFECTS)")
+            # Phase 4: Build Video — master cut (YouTube)
+            logger.info("\n🎬 PHASE 4: BUILD VIDEO (MASTER CUT)")
             try:
                 final_video = build_video(
                     image_paths, audio_segments, script_data['scenes'], media_types=media_types
@@ -591,23 +654,86 @@ class SKILLORPipeline:
                     image_paths[0], thumb_text,
                     category=script_data.get('category', 'Body')
                 )
-                
-                # Pad video if slightly too short
-                target_min = float(os.environ.get("TARGET_MIN_SECONDS", "40"))
-                min_seconds = max(0.0, target_min - 5.0)
-                logger.info(f"Checking video duration against minimum {min_seconds:.2f}s...")
-                
+
+                # Duration floor comes from the platform policy, not a magic
+                # number. Padding only covers a small shortfall; a genuinely
+                # short video is a script problem and is reported as one.
+                yt_floor, yt_ideal, yt_ceiling = duration_policy(YOUTUBE)
+                min_seconds = max(0.0, yt_floor - 3.0)
+                logger.info("Checking master cut against the %.0fs floor...", yt_floor)
+
                 try:
                     final_video = pad_video_to_minimum(final_video, min_seconds)
                 except Exception as pad_err:
                     logger.warning(f"Video padding skipped: {pad_err}")
-                
+
                 technical = probe_video(final_video)
+                master_seconds = float(technical.get("duration") or 0.0) or sum(
+                    float(s.get("duration", 0)) for s in audio_segments
+                )
+                script_data['duration_seconds'] = round(master_seconds, 2)
+                ok, verdict = fits_platform(master_seconds, YOUTUBE)
+                logger.info(
+                    "Master cut %.1fs — %s (gate: %.0f%% average view percentage)",
+                    master_seconds, verdict, retention_gate(YOUTUBE, master_seconds) * 100,
+                )
+                if not ok:
+                    logger.warning("Master cut is outside the YouTube window: %s", verdict)
                 logger.info(f"✅ Video built and validated: {final_video} ({technical})")
                 logger.info(f"✅ Thumbnail built: {thumb_path}")
             except Exception as e:
                 logger.error(f"Video build failed: {e}")
                 raise
+
+            # Phase 4b: Meta cut (Facebook + Instagram)
+            #
+            # Facebook widens distribution around ~72% watch-through and
+            # Instagram decides in the first seconds; both sit well below
+            # YouTube's window. Publishing the 36s master to Meta was asking a
+            # 27s-shaped audience to finish a 36s video, and this channel's own
+            # Instagram insights showed the result: 2.6-7.5s average watch time.
+            #
+            # The Meta cut reuses the SAME rendered scenes and audio, so it
+            # costs one extra encode and zero extra generation. If anything
+            # fails, Meta simply receives the master cut — a slightly-too-long
+            # Reel beats no Reel.
+            meta_video = final_video
+            meta_cut_seconds = script_data.get('duration_seconds')
+            meta_platforms = [p for p in self._enabled_platforms() if p != YOUTUBE]
+            if meta_platforms and os.environ.get("META_CUT_ENABLED", "true").lower() == "true":
+                logger.info("\n✂️  PHASE 4b: META CUT (Facebook / Instagram)")
+                try:
+                    indices = select_meta_cut(script_data['scenes'], audio_segments)
+                    if len(indices) < len(script_data['scenes']):
+                        cut_images, cut_audio, cut_scenes, cut_media = apply_cut(
+                            indices, image_paths, audio_segments,
+                            script_data['scenes'], media_types,
+                        )
+                        meta_video = build_video(
+                            cut_images, cut_audio, cut_scenes,
+                            output_path="output/final_video_meta.mp4",
+                            media_types=cut_media,
+                        )
+                        summary = cut_summary(indices, audio_segments, len(script_data['scenes']))
+                        meta_cut_seconds = summary["seconds"]
+                        script_data['meta_cut'] = summary
+                        script_data['meta_cut_seconds'] = meta_cut_seconds
+                        for platform in meta_platforms:
+                            ok, verdict = fits_platform(meta_cut_seconds, platform)
+                            logger.info("  %s: %s", platform, verdict)
+                    else:
+                        logger.info(
+                            "Master cut already fits the Meta window (%.1fs) — no separate edit needed.",
+                            float(meta_cut_seconds or 0),
+                        )
+                except Exception as cut_err:  # noqa: BLE001 - never block the run
+                    logger.warning(
+                        "Meta cut failed (%s); Facebook/Instagram will receive the master cut.",
+                        cut_err,
+                    )
+                    meta_video = final_video
+                    meta_cut_seconds = script_data.get('duration_seconds')
+            script_data['meta_cut_seconds'] = meta_cut_seconds
 
             # Thumbnail SEO Score
             try:
@@ -621,7 +747,9 @@ class SKILLORPipeline:
             # Phase 5: Upload
             logger.info("\n📤 PHASE 5: UPLOAD")
             try:
-                upload_result = upload_all(final_video, thumb_path, script_data)
+                upload_result = upload_all(
+                    final_video, thumb_path, script_data, meta_video_path=meta_video
+                )
                 logger.info(f"✅ Upload result: {upload_result}")
             except Exception as e:
                 logger.error(f"Upload failed: {e}")
@@ -650,6 +778,16 @@ class SKILLORPipeline:
                 'predicted_ctr': script_data.get('ctr_prediction', {}).get('ctr_prediction'),
                 'hook_score': script_data.get('shorts_report', {}).get('hook_detail', {}).get('score'),
                 'predicted_retention': script_data.get('shorts_report', {}).get('retention_prediction', {}).get('predicted_avg_retention'),
+                # Real rendered lengths. platform_metrics divides each
+                # platform's average watch time by the length of the cut THAT
+                # platform actually received — without these two fields every
+                # completion rate would be computed against the wrong
+                # denominator and the learning loop would draw the wrong
+                # conclusion about which platform is working.
+                'duration_seconds': script_data.get('duration_seconds'),
+                'meta_cut_seconds': script_data.get('meta_cut_seconds'),
+                'ending_mode': script_data.get('ending_mode', 'cta'),
+                'hook_frame': script_data.get('hook_frame'),
             })
 
             elapsed = time.time() - start_time

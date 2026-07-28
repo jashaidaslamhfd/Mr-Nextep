@@ -220,10 +220,16 @@ def autofix_too_fast_captions(scenes: List[Dict], audio_segments: List[Dict]) ->
 # concrete suggestions, same spirit as quality_checker's scoring)
 # ---------------------------------------------------------------------------
 
-# Shorts retention drops off fastest in the first ~3s (the hook) and again
-# past the ~45-50s mark where swipe-away rates climb sharply.
-_IDEAL_MIN_SECONDS = 40.0
-_IDEAL_MAX_SECONDS = 55.0
+# The ideal window is no longer hardcoded here. algorithm_policy owns it for
+# every platform, so a policy change updates the writer, the renderer and this
+# prediction together instead of leaving one of them optimising for a target
+# the others abandoned. (This module used to advertise 40-55s while the rest
+# of the pipeline had moved on.)
+from algorithm_policy import (  # noqa: E402
+    YOUTUBE, duration_policy, retention_gate,
+)
+
+_IDEAL_MIN_SECONDS, _IDEAL_TARGET_SECONDS, _IDEAL_MAX_SECONDS = duration_policy(YOUTUBE)
 
 
 def predict_retention(script_data: Dict, audio_segments: List[Dict]) -> Dict:
@@ -232,6 +238,10 @@ def predict_retention(script_data: Dict, audio_segments: List[Dict]) -> Dict:
     and predicted_swipe_away as 0-1 fractions, plus actionable suggestions.
     Intentionally conservative/simple - it's a directional signal for the
     pipeline logs, not a trained model.
+
+    The estimate is also compared against the platform's real distribution
+    gate, so the log says "this will/won't get pushed wider" instead of
+    printing a number with no reference point.
     """
     suggestions = []
 
@@ -260,18 +270,27 @@ def predict_retention(script_data: Dict, audio_segments: List[Dict]) -> Dict:
             "should help viewers stay through those scenes."
         )
 
-    # Length penalty outside the sweet spot.
+    # Length effect. Completion is a PERCENTAGE of the video's own length, so
+    # every extra second makes the same gate harder to clear — a 36s Short and
+    # a 55s Short both need ~50% average view percentage, but the longer one
+    # has to hold viewers 10 seconds longer to get there.
     if total_seconds < _IDEAL_MIN_SECONDS:
-        retention -= 0.05
+        retention -= 0.03
         suggestions.append(
-            f"Video is {total_seconds:.0f}s, a bit short for strong Shorts "
-            f"retention curves - {_IDEAL_MIN_SECONDS:.0f}-{_IDEAL_MAX_SECONDS:.0f}s tends to perform better."
+            f"Video is {total_seconds:.0f}s, under the {_IDEAL_MIN_SECONDS:.0f}s floor - "
+            "too little runtime to land the arc, and very short Shorts are held to a "
+            "stricter 65% completion bar."
         )
     elif total_seconds > _IDEAL_MAX_SECONDS:
-        retention -= 0.08
+        # Scaled rather than flat: 3s over is a rounding issue, 20s over is a
+        # different video.
+        overshoot = (total_seconds - _IDEAL_MAX_SECONDS) / max(_IDEAL_MAX_SECONDS, 1.0)
+        retention -= min(0.25, 0.10 + overshoot * 0.30)
         suggestions.append(
-            f"Video is {total_seconds:.0f}s, past the "
-            f"{_IDEAL_MAX_SECONDS:.0f}s point where swipe-away rises - consider trimming a scene."
+            f"Video is {total_seconds:.0f}s against a {_IDEAL_MAX_SECONDS:.0f}s ceiling. "
+            f"Cut back toward {_IDEAL_TARGET_SECONDS:.0f}s: the completion gate is a "
+            "percentage, so every extra second raises the number of seconds a viewer "
+            "must watch to clear it."
         )
 
     if hook_score < 60:
@@ -283,9 +302,20 @@ def predict_retention(script_data: Dict, audio_segments: List[Dict]) -> Dict:
     retention = max(0.05, min(retention, 0.95))
     swipe_away = max(0.0, min(1.0 - retention, 0.95))
 
+    gate = retention_gate(YOUTUBE, total_seconds) if total_seconds else None
+    clears_gate = bool(gate and retention >= gate)
+    if gate and not clears_gate:
+        suggestions.append(
+            f"Predicted {retention:.0%} completion is under the {gate:.0%} gate this "
+            f"length is graded on — expect the test cohort not to expand."
+        )
+
     return {
         'predicted_avg_retention': round(retention, 3),
         'predicted_swipe_away': round(swipe_away, 3),
+        'distribution_gate': round(gate, 3) if gate else None,
+        'clears_gate': clears_gate,
+        'seconds': round(total_seconds, 2),
         'suggestions': suggestions,
     }
 

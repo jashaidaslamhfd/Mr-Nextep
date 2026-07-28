@@ -40,8 +40,17 @@ CANVAS_W, CANVAS_H = 1080, 1920
 AUDIO_EDGE_FADE = 0.01
 ZOOM_AMOUNT = 0.18
 PAN_PX = 50
-TARGET_MIN_SEC = float(os.environ.get("TARGET_MIN_SECONDS", "40"))
-TARGET_MAX_SEC = float(os.environ.get("TARGET_MAX_SECONDS", "55"))
+# Render targets follow the platform policy rather than a local constant, so
+# changing the strategy in one file updates the writer, the renderer and the
+# validator together. Env vars still win for one-off experiments.
+try:
+    from algorithm_policy import YOUTUBE as _YT_PLATFORM, duration_policy as _duration_policy
+    _POLICY_MIN, _POLICY_IDEAL, _POLICY_MAX = _duration_policy(_YT_PLATFORM)
+except Exception:  # pragma: no cover - editor must stay importable standalone
+    _POLICY_MIN, _POLICY_IDEAL, _POLICY_MAX = 30.0, 36.0, 42.0
+
+TARGET_MIN_SEC = float(os.environ.get("TARGET_MIN_SECONDS") or _POLICY_MIN)
+TARGET_MAX_SEC = float(os.environ.get("TARGET_MAX_SECONDS") or _POLICY_MAX)
 
 # RETENTION OPTIMIZATIONS
 CAPTION_Y_FRACTION = 0.52

@@ -57,34 +57,75 @@ class USAPeakTimeScheduler:
         self.est_tz = pytz.timezone(self.TIMEZONE_MAP['EST'])
         self.utc_tz = pytz.UTC
     
-    def get_next_posting_times(self, num_posts: int = 3) -> List[Dict]:
+    @staticmethod
+    def _learned_slot_weights() -> Dict[str, float]:
+        """Measured performance per slot, from the growth engine.
+
+        Returns an empty dict whenever the learning loop has no verdict yet,
+        which keeps the scheduler fully functional on a cold start — this
+        module must never depend on analytics being connected.
+        """
+        try:
+            from growth_engine import get_slot_weights
+            return get_slot_weights() or {}
+        except Exception:  # noqa: BLE001 - scheduling must never break
+            return {}
+
+    def ranked_peak_times(self) -> List[Dict]:
+        """Peak slots ordered by measured performance, best first.
+
+        Before this, slots were used in the order they happened to be written
+        in the list, so when the pipeline ran fewer than three videos in a day
+        it filled the FIRST slots rather than the BEST ones. On a channel
+        whose own data spans a 6x spread between slots, that is a large amount
+        of reach given away by list ordering.
+
+        Weights come from data/growth_state.json and default to 1.0, so an
+        unmeasured slot keeps its natural position instead of being buried.
+        """
+        weights = self._learned_slot_weights()
+        annotated = []
+        for peak in self.PEAK_TIMES:
+            key = f"{peak['hour']:02d}:{peak['minute'] // 30 * 30:02d}"
+            annotated.append({**peak, "weight": float(weights.get(key, 1.0))})
+        # Stable sort: equal weights keep chronological order, so an
+        # unmeasured channel behaves exactly as it did before.
+        return sorted(annotated, key=lambda p: -p["weight"])
+
+    def get_next_posting_times(self, num_posts: int = 3, prioritise: bool = True) -> List[Dict]:
         """
         Get next optimal posting times for videos.
-        
+
         Args:
-            num_posts: Number of daily posts (default 3)
-        
+            num_posts:  how many slots to return
+            prioritise: order by measured performance (default) instead of by
+                        clock order. Set False for a purely chronological view.
+
         Returns:
-            List of optimal posting times with timezone info
+            List of optimal posting times with timezone info, always sorted
+            chronologically in the OUTPUT (callers rely on that for "next
+            slot" logic) but SELECTED by performance when prioritise=True.
         """
+        source = self.ranked_peak_times() if prioritise else list(self.PEAK_TIMES)
+        chosen = source[:max(0, num_posts)]
+
         posting_schedule = []
-        
-        for i in range(num_posts):
-            if i < len(self.PEAK_TIMES):
-                peak_time = self.PEAK_TIMES[i]
-                next_post_time = self._get_next_occurrence(
-                    peak_time['hour'],
-                    peak_time['minute']
-                )
-                
-                posting_schedule.append({
-                    'time': next_post_time,
-                    'time_est': next_post_time.strftime('%Y-%m-%d %H:%M:%S EST'),
-                    'time_utc': next_post_time.astimezone(self.utc_tz).strftime('%Y-%m-%d %H:%M:%S UTC'),
-                    'peak_name': peak_time['name'],
-                    'reason': self._get_posting_reason(peak_time['name'])
-                })
-        
+        for peak_time in chosen:
+            next_post_time = self._get_next_occurrence(
+                peak_time['hour'], peak_time['minute']
+            )
+            entry = {
+                'time': next_post_time,
+                'time_est': next_post_time.strftime('%Y-%m-%d %H:%M:%S EST'),
+                'time_utc': next_post_time.astimezone(self.utc_tz).strftime('%Y-%m-%d %H:%M:%S UTC'),
+                'peak_name': peak_time['name'],
+                'reason': self._get_posting_reason(peak_time['name']),
+            }
+            if 'weight' in peak_time:
+                entry['measured_weight'] = round(peak_time['weight'], 3)
+            posting_schedule.append(entry)
+
+        posting_schedule.sort(key=lambda item: item['time'])
         return posting_schedule
     
     def _get_next_occurrence(self, hour: int, minute: int) -> datetime:
