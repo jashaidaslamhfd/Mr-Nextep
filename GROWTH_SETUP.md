@@ -12,7 +12,7 @@ For *why* each decision was made, see
 
 | Every day | What happens |
 |---|---|
-| 05:20 NY | **Growth Loop** — reads real numbers from YouTube + Facebook + Instagram, works out what is and isn't working, writes `docs/GROWTH_REPORT.md` and updates the weights the pipeline uses |
+| 05:20 NY | **Learning run** (the existing *YouTube Analytics Learning* workflow) — reads real numbers from YouTube + Facebook + Instagram, works out what is and isn't working, writes `docs/GROWTH_REPORT.md` and updates the weights the pipeline uses |
 | 10:40 NY | Generation run → publishes 12:30 NY |
 | 16:40 NY | Generation run → publishes 18:30 NY |
 | 18:10 NY | Generation run → publishes 20:00 NY |
@@ -69,8 +69,9 @@ why per-Reel Facebook data is unavailable.
 
 > Instagram insights use the same token. `INSTAGRAM_USER_ID` is already set.
 
-**How to check it worked:** run Actions → **SKILLOR — Growth Loop**. Every
-platform should move from ⚪ `no_data` to a real status.
+**How to check it worked:** run Actions → **SKILLOR - YouTube Analytics
+Learning** manually. Every platform should move from ⚪ `no_data` to a real
+status, and the run commits an updated `docs/GROWTH_REPORT.md`.
 
 ---
 

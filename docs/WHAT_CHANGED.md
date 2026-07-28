@@ -101,12 +101,23 @@ Each of these was already costing reach; none were in the original brief.
 
 ## What still needs a human
 
-1. **Apply the workflow updates** in [`workflow_updates/`](workflow_updates/) —
-   most importantly adding `growth_loop.yml`, without which nothing ever reads
-   your performance data.
-2. **Grant the three access permissions** in [`../GROWTH_SETUP.md`](../GROWTH_SETUP.md)
-   section 2 (YouTube Analytics API, `yt-analytics.readonly` on the refresh
-   token, Meta `read_insights`).
-3. **Reply to comments in the first hour**, pin the generated comment, and
-   watch one video a day yourself. Both platforms reward visible human
-   presence and neither can be automated.
+**One thing, and it is the only real blocker:**
+
+**Grant the three access permissions** in
+[`../GROWTH_SETUP.md`](../GROWTH_SETUP.md) §2 — enable the YouTube Analytics
+API, re-issue the refresh token with `yt-analytics.readonly`, and add
+`read_insights` to the Meta page token. Without these the system publishes
+correctly but cannot read its own results, so it cannot tune itself. The daily
+report will show ⚪ `no_data` and name the exact missing permission.
+
+**Optional polish:** two small workflow patches in
+[`workflow_updates/`](workflow_updates/) that remove four obsolete env vars
+(the code already ignores them, they just log warnings) and widen CI to every
+branch. GitHub blocks app-authored workflow edits, so these need a hand — but
+nothing depends on them. The learning loop already runs from the deployed
+`analytics.yml`.
+
+**Ongoing, and genuinely not automatable:** reply to comments in the first
+hour, pin the generated comment, and watch one of your own videos a day. Both
+platforms reward visible human presence, and if you get bored at second 12 so
+does everyone else — no amount of tuning fixes that.

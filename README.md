@@ -31,7 +31,7 @@ Operator guide: [`GROWTH_SETUP.md`](GROWTH_SETUP.md)
 
 | Run | Publishes | Purpose |
 |---|---|---|
-| 05:20 NY | — | **Growth Loop**: learn from yesterday, re-tune today |
+| 05:20 NY | — | **Learning run**: read all 3 platforms, re-tune today |
 | 10:40 NY | 12:30 NY | lunch slot (best measured on this channel) |
 | 16:40 NY | 18:30 NY | early evening |
 | 18:10 NY | 20:00 NY | evening prime |
