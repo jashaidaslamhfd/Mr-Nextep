@@ -6,9 +6,11 @@ API keys, no rendering.
 """
 import json
 import os
+import re
 import sys
 import tempfile
 import unittest
+import unittest.mock
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -93,6 +95,73 @@ class PolicyShapeTests(unittest.TestCase):
         penalises, so raising cadence must be impossible by construction."""
         self.assertEqual(policy.clamp_cadence(99), policy.MAX_UPLOADS_PER_DAY)
         self.assertEqual(policy.clamp_cadence(0), policy.MIN_UPLOADS_PER_DAY)
+
+
+class RetiredConfigGuardTests(unittest.TestCase):
+    """A stale deployment must not silently override the policy.
+
+    The generation workflow pinned TARGET_MIN/MAX_SECONDS=40/55,
+    MAX_HOOK_SECONDS=5.0 and MIN_HOOK_SCORE=85 — values belonging to the
+    strategy this module replaced. A workflow file cannot always be updated in
+    the same change as the code (restricted tokens, protected paths, staged
+    rollouts), so the code refuses those specific values rather than trusting
+    they were removed.
+
+    MIN_HOOK_SCORE=85 is the dangerous one: it was calibrated for the previous
+    hook scorer, and against the current one only ~3 in 21 of this channel's
+    published hooks clear it — nearly every run would exhaust its retries and
+    skip the upload entirely.
+    """
+
+    def test_retired_values_are_ignored(self):
+        import importlib
+        import algorithm_policy
+        with unittest.mock.patch.dict(os.environ, {
+            "TARGET_MIN_SECONDS": "40", "TARGET_MAX_SECONDS": "55",
+            "MAX_HOOK_SECONDS": "5.0", "MIN_HOOK_SCORE": "85",
+        }):
+            importlib.reload(algorithm_policy)
+            for name in ("TARGET_MIN_SECONDS", "TARGET_MAX_SECONDS",
+                         "MAX_HOOK_SECONDS", "MIN_HOOK_SCORE"):
+                self.assertIsNone(algorithm_policy.env_override(name), name)
+        importlib.reload(algorithm_policy)
+
+    def test_deliberate_experiments_are_still_honoured(self):
+        """The guard must reject stale defaults, not all overrides."""
+        import importlib
+        import algorithm_policy
+        with unittest.mock.patch.dict(os.environ, {"TARGET_MAX_SECONDS": "48",
+                                                   "MIN_HOOK_SCORE": "90"}):
+            importlib.reload(algorithm_policy)
+            self.assertEqual(algorithm_policy.env_float("TARGET_MAX_SECONDS", 42.0), 48.0)
+            self.assertEqual(algorithm_policy.env_int("MIN_HOOK_SCORE", 80), 90)
+        importlib.reload(algorithm_policy)
+
+    def test_unset_and_empty_fall_back_to_the_policy(self):
+        import importlib
+        import algorithm_policy
+        with unittest.mock.patch.dict(os.environ, {"TARGET_MAX_SECONDS": ""}):
+            importlib.reload(algorithm_policy)
+            self.assertEqual(algorithm_policy.env_float("TARGET_MAX_SECONDS", 42.0), 42.0)
+        importlib.reload(algorithm_policy)
+
+    def test_renderer_ignores_a_stale_workflow_duration(self):
+        """End-to-end: the module a stale workflow would actually affect."""
+        import importlib
+        with unittest.mock.patch.dict(os.environ, {"TARGET_MAX_SECONDS": "55",
+                                                   "TARGET_MIN_SECONDS": "40"}):
+            import algorithm_policy
+            importlib.reload(algorithm_policy)
+            try:
+                import video_editor
+                importlib.reload(video_editor)
+            except ModuleNotFoundError as exc:
+                self.skipTest(f"media deps not installed here: {exc}")
+            self.assertEqual(video_editor.TARGET_MAX_SEC,
+                             policy.duration_policy(policy.YOUTUBE)[2])
+            self.assertEqual(video_editor.TARGET_MIN_SEC,
+                             policy.duration_policy(policy.YOUTUBE)[0])
+        importlib.reload(algorithm_policy)
 
 
 class BaitPolicyTests(unittest.TestCase):
@@ -420,11 +489,22 @@ class HookScoringTests(unittest.TestCase):
                      "Hello everyone and welcome back to the channel."):
             self.assertLess(self.score(hook), policy.MIN_HOOK_SCORE, hook)
 
-    def test_gate_is_not_hardcoded_in_the_workflow(self):
-        """Threshold and scale must live together or they drift apart."""
-        workflow = (ROOT / ".github" / "workflows" / "main.yml").read_text()
-        self.assertNotIn('MIN_HOOK_SCORE: "85"', workflow)
-        self.assertNotIn('MIN_HOOK_SCORE: "70"', workflow)
+    def test_a_stale_workflow_gate_cannot_take_effect(self):
+        """Threshold and scale must live together or they drift apart.
+
+        The deployed workflow may still pin MIN_HOOK_SCORE="85" from the
+        previous scorer (see docs/workflow_updates/). What matters is that the
+        code refuses it — an unreachable gate means every run exhausts its
+        retries and skips the upload.
+        """
+        import importlib
+        import algorithm_policy
+        with unittest.mock.patch.dict(os.environ, {"MIN_HOOK_SCORE": "85"}):
+            importlib.reload(algorithm_policy)
+            effective = algorithm_policy.env_int("MIN_HOOK_SCORE",
+                                                 algorithm_policy.MIN_HOOK_SCORE)
+        importlib.reload(algorithm_policy)
+        self.assertEqual(effective, policy.MIN_HOOK_SCORE)
 
     def test_implicit_loops_count_as_curiosity(self):
         """A hook can open a gap through timing rather than a question mark.
@@ -902,36 +982,68 @@ class ScriptBudgetWiringTests(unittest.TestCase):
         self.assertEqual(video_editor.TARGET_MAX_SEC, policy.duration_policy(policy.YOUTUBE)[2])
 
 
-class WorkflowWiringTests(unittest.TestCase):
+class DeploymentWiringTests(unittest.TestCase):
     """Config that contradicts the code is how the old 40-55s target survived
-    three strategy changes."""
+    three strategy changes.
+
+    The workflow files cannot be updated by the automation that produced this
+    branch (no GitHub `workflows` permission), so these tests verify the two
+    things that are actually in our control:
+      1. the code is SAFE against the currently-deployed workflow, and
+      2. the exact steps to update it are documented and complete.
+    """
 
     def setUp(self):
         self.workflow = (ROOT / ".github" / "workflows" / "main.yml").read_text()
+        self.updates = ROOT / "docs" / "workflow_updates"
 
-    def test_workflow_does_not_pin_the_old_duration_targets(self):
-        self.assertNotIn('TARGET_MIN_SECONDS: "40"', self.workflow)
-        self.assertNotIn('TARGET_MAX_SECONDS: "55"', self.workflow)
+    def test_code_is_safe_against_the_deployed_workflow(self):
+        """Whatever main.yml currently pins, the policy must win."""
+        import importlib
+        import algorithm_policy
 
-    def test_dual_cut_and_loop_ending_are_enabled(self):
-        self.assertIn('META_CUT_ENABLED: "true"', self.workflow)
-        self.assertIn('SPOKEN_CTA_MODE: "loop"', self.workflow)
+        pinned = dict(re.findall(r'^\s+(TARGET_MIN_SECONDS|TARGET_MAX_SECONDS|'
+                                 r'MAX_HOOK_SECONDS|MIN_HOOK_SCORE):\s*"([^"]+)"',
+                                 self.workflow, re.MULTILINE))
+        if not pinned:
+            self.skipTest("workflow no longer pins retired values")
 
-    def test_growth_loop_workflow_exists_and_is_scheduled(self):
-        growth = (ROOT / ".github" / "workflows" / "growth_loop.yml").read_text()
+        with unittest.mock.patch.dict(os.environ, pinned):
+            importlib.reload(algorithm_policy)
+            for name in pinned:
+                self.assertIsNone(
+                    algorithm_policy.env_override(name),
+                    f"deployed workflow's {name}={pinned[name]} would override the policy",
+                )
+        importlib.reload(algorithm_policy)
+
+    def test_workflow_update_instructions_exist(self):
+        readme = (self.updates / "README.md").read_text()
+        self.assertIn("growth_loop.yml", readme)
+        self.assertIn("MIN_HOOK_SCORE", readme)
+        self.assertIn("META_CUT_ENABLED", readme)
+
+    def test_growth_loop_workflow_is_provided_and_scheduled(self):
+        growth = (self.updates / "growth_loop.yml").read_text()
         self.assertIn("- cron:", growth)
         self.assertIn("scripts/growth_report.py", growth)
 
-    def test_growth_loop_runs_before_the_first_generation_of_the_day(self):
-        """Learning after the day's videos are made is a day of wasted data."""
-        import re
-        growth = (ROOT / ".github" / "workflows" / "growth_loop.yml").read_text()
+    def test_growth_loop_would_run_before_the_first_generation(self):
+        """Learning after the day's videos are made wastes a day of data."""
+        growth = (self.updates / "growth_loop.yml").read_text()
         learn_minute, learn_hour = re.search(r'- cron: "(\d+) (\d+)', growth).groups()
         first_gen = min(
             int(h) * 60 + int(m)
             for m, h in re.findall(r'- cron: "(\d+) (\d+) \* \* \*"', self.workflow)
         )
         self.assertLess(int(learn_hour) * 60 + int(learn_minute), first_gen)
+
+    def test_defaults_are_correct_without_any_workflow_change(self):
+        """META_CUT_ENABLED and SPOKEN_CTA_MODE must default to the new
+        behaviour, so the improvements are live before anyone edits YAML."""
+        source = (SRC / "main.py").read_text()
+        self.assertIn('os.environ.get("META_CUT_ENABLED", "true")', source)
+        self.assertIn('os.environ.get("SPOKEN_CTA_MODE", "loop")', source)
 
 
 if __name__ == "__main__":

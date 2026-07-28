@@ -44,13 +44,22 @@ PAN_PX = 50
 # changing the strategy in one file updates the writer, the renderer and the
 # validator together. Env vars still win for one-off experiments.
 try:
-    from algorithm_policy import YOUTUBE as _YT_PLATFORM, duration_policy as _duration_policy
+    from algorithm_policy import (
+        YOUTUBE as _YT_PLATFORM,
+        duration_policy as _duration_policy,
+        env_float as _env_float,
+    )
     _POLICY_MIN, _POLICY_IDEAL, _POLICY_MAX = _duration_policy(_YT_PLATFORM)
 except Exception:  # pragma: no cover - editor must stay importable standalone
     _POLICY_MIN, _POLICY_IDEAL, _POLICY_MAX = 30.0, 36.0, 42.0
+    def _env_float(name, fallback):
+        return float(os.environ.get(name) or fallback)
 
-TARGET_MIN_SEC = float(os.environ.get("TARGET_MIN_SECONDS") or _POLICY_MIN)
-TARGET_MAX_SEC = float(os.environ.get("TARGET_MAX_SECONDS") or _POLICY_MAX)
+# env_float ignores values retired with the old strategy (e.g. the workflow's
+# legacy TARGET_MAX_SECONDS="55"), so a stale deployment cannot silently
+# override the policy this module is built on.
+TARGET_MIN_SEC = _env_float("TARGET_MIN_SECONDS", _POLICY_MIN)
+TARGET_MAX_SEC = _env_float("TARGET_MAX_SECONDS", _POLICY_MAX)
 
 # RETENTION OPTIMIZATIONS
 CAPTION_Y_FRACTION = 0.52

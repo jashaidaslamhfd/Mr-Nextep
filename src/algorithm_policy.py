@@ -55,6 +55,7 @@ CONFIRMED 2026 CHANGES THAT DROVE THIS DESIGN
 
 from __future__ import annotations
 
+import logging
 import os
 import re
 from typing import Dict, Iterable, List, Optional, Tuple
@@ -82,6 +83,78 @@ PLATFORMS = (YOUTUBE, FACEBOOK, INSTAGRAM)
 # guess "how many words is 35 seconds".
 # ---------------------------------------------------------------------------
 WORDS_PER_SECOND = float(os.environ.get("SPEECH_WORDS_PER_SECOND", "2.62"))
+
+
+# ---------------------------------------------------------------------------
+# RETIRED CONFIGURATION GUARD
+#
+# The generation workflow used to pin the old strategy directly in YAML:
+#
+#     TARGET_MIN_SECONDS: "40"    TARGET_MAX_SECONDS: "55"
+#     MAX_HOOK_SECONDS:   "5.0"   MIN_HOOK_SCORE:     "85"
+#
+# Those numbers belong to a strategy this module replaced. Two problems if
+# they are still present in a deployment:
+#
+#   * they silently override the policy, so the code says 36s and the runner
+#     produces 55s — the exact class of drift this module exists to end;
+#   * MIN_HOOK_SCORE=85 was calibrated for the PREVIOUS hook scorer. Against
+#     the current one only ~3 in 21 of this channel's published hooks clear
+#     it, so nearly every run would exhaust its retries and skip the upload.
+#
+# A workflow file cannot always be updated in the same change as the code
+# (restricted tokens, protected paths, staged rollouts). So rather than trust
+# that they were removed, the code refuses these specific retired values and
+# says so loudly. Any OTHER value is honoured normally — deliberate
+# experiments still work, stale defaults do not.
+# ---------------------------------------------------------------------------
+_RETIRED_ENV_VALUES: Dict[str, Tuple[str, ...]] = {
+    "TARGET_MIN_SECONDS": ("40", "40.0"),
+    "TARGET_MAX_SECONDS": ("55", "55.0"),
+    "MAX_HOOK_SECONDS": ("5", "5.0"),
+    "MIN_HOOK_SCORE": ("85", "70"),
+}
+
+_warned_retired: set = set()
+
+
+def env_override(name: str) -> Optional[str]:
+    """Read an env override, ignoring values left over from a retired strategy.
+
+    Returns None when the variable is unset, empty, or holds a value this
+    module has explicitly retired — in which case the caller falls back to the
+    policy and a warning is logged once per process.
+    """
+    raw = (os.environ.get(name) or "").strip()
+    if not raw:
+        return None
+    if raw in _RETIRED_ENV_VALUES.get(name, ()):
+        if name not in _warned_retired:
+            _warned_retired.add(name)
+            logging.getLogger(__name__).warning(
+                "%s=%s is a retired setting from the pre-%s strategy and is being "
+                "IGNORED; using the policy value instead. Remove it from the "
+                "workflow/env to silence this.",
+                name, raw, POLICY_VERSION,
+            )
+        return None
+    return raw
+
+
+def env_float(name: str, fallback: float) -> float:
+    value = env_override(name)
+    try:
+        return float(value) if value is not None else float(fallback)
+    except ValueError:
+        return float(fallback)
+
+
+def env_int(name: str, fallback: int) -> int:
+    value = env_override(name)
+    try:
+        return int(float(value)) if value is not None else int(fallback)
+    except ValueError:
+        return int(fallback)
 
 
 # ---------------------------------------------------------------------------

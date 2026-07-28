@@ -48,8 +48,8 @@ try:
     from algorithm_policy import (
         FACEBOOK, INSTAGRAM, YOUTUBE,
         MIN_HOOK_SCORE as _POLICY_MIN_HOOK_SCORE,
-        contains_bait, duration_policy, hook_enforcement_seconds,
-        retention_gate, shared_hook_seconds,
+        contains_bait, duration_policy, env_float, env_int,
+        hook_enforcement_seconds, retention_gate, shared_hook_seconds,
     )
     from platform_cuts import apply_cut, cut_summary, fits_platform, select_meta_cut
 except ImportError as e:
@@ -65,13 +65,13 @@ FALLBACK_ABORT_RATIO = float(os.environ.get("FALLBACK_ABORT_RATIO", "0.5"))
 # (algorithm_policy.MIN_HOOK_SCORE = 80 = "every structural check passes").
 # A hardcoded number here, or in the workflow, drifts the moment the scorer
 # changes — which is exactly what happened to the old "85".
-MIN_HOOK_SCORE = int(os.environ.get("MIN_HOOK_SCORE") or _POLICY_MIN_HOOK_SCORE)
+MIN_HOOK_SCORE = env_int("MIN_HOOK_SCORE", _POLICY_MIN_HOOK_SCORE)
 # The hook budget is a RANKING constraint, not a stylistic one: every 2026
 # feed decides whether to keep showing a video within the first 2-3 seconds,
 # so an opening that takes 5 seconds to land its promise has already lost the
 # cohort it was testing on. Default comes from algorithm_policy (2.8s for
 # YouTube) and can still be overridden per-run for experiments.
-MAX_HOOK_SECONDS = float(os.environ.get("MAX_HOOK_SECONDS") or 0) or None
+MAX_HOOK_SECONDS = env_float("MAX_HOOK_SECONDS", 0.0) or None
 # Tracked repository state is durable across Actions runs; generated media
 # remains in output/ and is intentionally not committed.
 VIDEO_HISTORY_PATH = os.environ.get("VIDEO_HISTORY_PATH", "data/video_history.json")

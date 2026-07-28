@@ -221,15 +221,19 @@ def probe_video(path: str) -> Dict:
     # catch a BROKEN render (truncated file, runaway narration), not to
     # second-guess an editorial choice that already passed the earlier checks.
     try:
-        from algorithm_policy import YOUTUBE, duration_policy
+        from algorithm_policy import YOUTUBE, duration_policy, env_float
         policy_floor, _ideal, policy_ceiling = duration_policy(YOUTUBE)
     except Exception:  # pragma: no cover - keeps validation usable standalone
         policy_floor, policy_ceiling = 30.0, 42.0
+        def env_float(name, fallback):
+            return float(os.environ.get(name) or fallback)
 
-    max_seconds = float(os.environ.get("TARGET_MAX_SECONDS") or policy_ceiling) + 0.25
+    # env_float ignores retired overrides, so a stale workflow pinning the old
+    # 40-55s window cannot widen this gate back open.
+    max_seconds = env_float("TARGET_MAX_SECONDS", policy_ceiling) + 0.25
     # A Short far below the floor (e.g. a truncated render) must not publish.
     # The grace below the floor covers normal TTS variance.
-    min_seconds = max(0.0, float(os.environ.get("TARGET_MIN_SECONDS") or policy_floor) - 5.0)
+    min_seconds = max(0.0, env_float("TARGET_MIN_SECONDS", policy_floor) - 5.0)
     if duration <= 0 or duration > max_seconds:
         raise MediaValidationError(f"Wrong duration {duration:.2f}s; maximum {max_seconds:.2f}s")
     if duration < min_seconds:
