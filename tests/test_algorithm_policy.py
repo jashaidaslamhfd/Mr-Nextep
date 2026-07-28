@@ -331,6 +331,76 @@ class MetaCutTests(unittest.TestCase):
         self.assertTrue(ok)
 
 
+class HookScoringTests(unittest.TestCase):
+    """The hook decides distribution before any other signal is measured, so
+    the scorer has to rank real hooks correctly.
+
+    The previous scorer gave "Hello everyone and welcome back to the channel"
+    a 70 and "Scientists discovered something interesting" an 85 — the same
+    band as a genuinely working hook. A scorer that cannot separate a cold
+    open from a promise cannot gate anything, and the workflow gates at 85.
+    """
+
+    def setUp(self):
+        from shorts_enhancer import score_hook_detailed
+        self.score = lambda h: score_hook_detailed(h)["score"]
+
+    def test_cold_opens_score_near_zero(self):
+        for hook in ("Hello everyone and welcome back to the channel.",
+                     "In this video we explore the human eye.",
+                     "Let's talk about throat lumps.",
+                     "Today I want to show you something."):
+            self.assertLess(self.score(hook), 30, hook)
+
+    def test_vague_authority_scores_badly(self):
+        for hook in ("Scientists discovered something interesting.",
+                     "Researchers found something amazing.",
+                     "Fun fact about the human body."):
+            self.assertLess(self.score(hook), 45, hook)
+
+    def test_fear_bait_is_vetoed_outright(self):
+        """Not a deduction — a veto. Fear-bait is an advertiser-friendliness
+        and medical-misinformation risk, and it otherwise scores well on every
+        other axis, so a points penalty alone let it climb back to passing."""
+        for hook in ("Doctors don't want you to know this.",
+                     "Big pharma won't tell you this about your heart."):
+            self.assertEqual(self.score(hook), 0, hook)
+
+    def test_strong_hooks_clear_the_production_gate(self):
+        """The workflow gates at MIN_HOOK_SCORE=85, so real hooks from this
+        channel's own catalogue must actually be able to pass it."""
+        for hook in ("Why does your voice sound dead every morning?",
+                     "Your body freezes before you hear it.",
+                     "Why your knee cracks when you stand."):
+            self.assertGreaterEqual(self.score(hook), 85, hook)
+
+    def test_implicit_loops_count_as_curiosity(self):
+        """A hook can open a gap through timing rather than a question mark.
+        Rewarding only "Why...?" would push every video into one opening
+        shape, which is a templating risk in its own right."""
+        from shorts_enhancer import score_hook_detailed
+        checks = {c["name"]: c["passed"]
+                  for c in score_hook_detailed("Your body freezes before you hear it.")["checks"]}
+        self.assertTrue(checks["curiosity_loop"])
+
+    def test_phenomenon_words_count_as_concrete(self):
+        """"Your calf locks up" names no organ but is entirely picturable."""
+        from shorts_enhancer import score_hook_detailed
+        checks = {c["name"]: c["passed"]
+                  for c in score_hook_detailed("Your calf locks up at 3am.")["checks"]}
+        self.assertTrue(checks["specificity"])
+
+    def test_ordering_is_sane_end_to_end(self):
+        good = self.score("Why does your voice sound dead every morning?")
+        mediocre = self.score("Morning voice happens to everyone.")
+        bad = self.score("Hello everyone and welcome back to the channel.")
+        self.assertGreater(good, mediocre)
+        self.assertGreater(mediocre, bad)
+
+    def test_empty_hook_scores_zero(self):
+        self.assertEqual(self.score(""), 0)
+
+
 class SafeZoneTests(unittest.TestCase):
     """Text rendered under the platform UI is text nobody reads.
 
