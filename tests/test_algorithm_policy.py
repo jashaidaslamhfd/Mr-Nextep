@@ -54,9 +54,30 @@ class PolicyShapeTests(unittest.TestCase):
             policy.retention_gate(policy.YOUTUBE, 40),
         )
 
-    def test_hook_budget_is_inside_the_three_second_decision_window(self):
+    def test_viewers_decide_inside_the_three_second_window(self):
         for platform in policy.PLATFORMS:
-            self.assertLessEqual(policy.hook_seconds(platform), 3.0, platform)
+            self.assertLessEqual(policy.decision_seconds(platform), 3.0, platform)
+
+    def test_hook_sentence_may_outlast_the_decision_moment(self):
+        """These are different things and conflating them broke the writer.
+
+        The viewer decides mid-sentence, on the first few words and the first
+        frame — the sentence does not have to be over. When hook_seconds was
+        set equal to decision_seconds it allowed only five words, and the
+        caption trimmer chopped good openers into fragments like "Your calf
+        locks up in." A truncated hook fails at the exact moment it was
+        supposed to win.
+        """
+        for platform in policy.PLATFORMS:
+            self.assertGreater(policy.hook_seconds(platform),
+                               policy.decision_seconds(platform), platform)
+            # Still short: an opener that runs past ~3.5s is a cold intro.
+            self.assertLessEqual(policy.hook_seconds(platform), 3.5, platform)
+
+    def test_hook_word_budget_fits_a_real_sentence(self):
+        """Below ~7 words the trimmer cannot keep natural openers intact."""
+        _low, high = policy.hook_word_budget()
+        self.assertGreaterEqual(high, 6)
 
     def test_word_budget_matches_the_duration_window(self):
         """The writer's word count is derived from seconds, not guessed. If
@@ -367,12 +388,43 @@ class HookScoringTests(unittest.TestCase):
             self.assertEqual(self.score(hook), 0, hook)
 
     def test_strong_hooks_clear_the_production_gate(self):
-        """The workflow gates at MIN_HOOK_SCORE=85, so real hooks from this
-        channel's own catalogue must actually be able to pass it."""
         for hook in ("Why does your voice sound dead every morning?",
                      "Your body freezes before you hear it.",
                      "Why your knee cracks when you stand."):
-            self.assertGreaterEqual(self.score(hook), 85, hook)
+            self.assertGreaterEqual(self.score(hook), policy.MIN_HOOK_SCORE, hook)
+
+    def test_the_gate_is_reachable_by_ordinary_good_hooks(self):
+        """A gate nothing can clear is an outage, not a quality bar.
+
+        The workflow previously hardcoded 85 against a different scoring
+        scale; after the scorer was rewritten only 3 of this channel's 21
+        published hooks would have passed, so most runs would have failed
+        their gates and skipped the upload. The gate must sit at the level
+        where a competent, non-exceptional hook passes.
+        """
+        competent = [
+            "Your calf locks up at 3am.",
+            "Your ears ring loudly at night.",
+            "Why does your voice sound dead every morning?",
+            "Your body freezes before you hear it.",
+        ]
+        passing = [h for h in competent if self.score(h) >= policy.MIN_HOOK_SCORE]
+        self.assertEqual(len(passing), len(competent),
+                         f"gate {policy.MIN_HOOK_SCORE} rejects ordinary good hooks: "
+                         f"{[h for h in competent if h not in passing]}")
+
+    def test_weak_hooks_still_fail_the_gate(self):
+        """Lowering the gate must not make it meaningless."""
+        for hook in ("Morning voice happens to everyone.",
+                     "Scientists discovered something interesting.",
+                     "Hello everyone and welcome back to the channel."):
+            self.assertLess(self.score(hook), policy.MIN_HOOK_SCORE, hook)
+
+    def test_gate_is_not_hardcoded_in_the_workflow(self):
+        """Threshold and scale must live together or they drift apart."""
+        workflow = (ROOT / ".github" / "workflows" / "main.yml").read_text()
+        self.assertNotIn('MIN_HOOK_SCORE: "85"', workflow)
+        self.assertNotIn('MIN_HOOK_SCORE: "70"', workflow)
 
     def test_implicit_loops_count_as_curiosity(self):
         """A hook can open a gap through timing rather than a question mark.
@@ -399,6 +451,155 @@ class HookScoringTests(unittest.TestCase):
 
     def test_empty_hook_scores_zero(self):
         self.assertEqual(self.score(""), 0)
+
+
+class HookRetryFeedbackTests(unittest.TestCase):
+    """A rejected hook must become corrective feedback, not a silent retry.
+
+    The hook gate lived in main.py, which calls generate_script fresh on every
+    attempt — so a weak opener produced a brand new conversation and the model
+    was never told what was wrong. It could return an equally weak hook three
+    times, burn every attempt and skip the upload entirely.
+    """
+
+    def _script(self, hook: str) -> dict:
+        captions = [
+            hook,
+            "But why does this happen when you are tired at night?",
+            "Most people assume something serious is going wrong inside them.",
+            "Tired nerves leak tiny electrical signals into the small eyelid muscle.",
+            "Because that muscle is thin, each stray signal becomes a visible flutter.",
+            "It repeats in short bursts until the nerve finally settles back down.",
+            "Caffeine and lost sleep raise nerve excitability, so rest usually ends it.",
+            "So your twitching eyelid is just an overtired nerve resetting itself tonight.",
+        ]
+        return {
+            "title": "Why Your Eyelid Twitches",
+            "thumbnail_text": "Nerve Misfire",
+            "hook": hook,
+            "cta": "Follow for more body science.",
+            "description": "Tired nerves misfire into the eyelid muscle.",
+            "scenes": [{"visual": f"shot {i}", "caption": c} for i, c in enumerate(captions)],
+        }
+
+    def test_weak_hook_triggers_a_second_call_with_specific_feedback(self):
+        import json
+        from unittest import mock
+        import script_generator as sg
+
+        weak = self._script("In this video we explore eyelid twitching.")
+        strong = self._script("Why does your eyelid twitch tonight?")
+        calls = []
+
+        class _Completion:
+            def __init__(self, payload):
+                message = type("M", (), {"content": json.dumps(payload)})()
+                self.choices = [type("C", (), {"message": message})()]
+
+        class _FakeClient:
+            class chat:
+                class completions:
+                    @staticmethod
+                    def create(messages=None, **_kw):
+                        calls.append(messages)
+                        return _Completion(weak if len(calls) == 1 else strong)
+
+            def __init__(self, *_a, **_k):
+                pass
+
+        with mock.patch.dict(os.environ, {"GROQ_API_KEY": "test"}), \
+             mock.patch.object(sg, "Groq", _FakeClient):
+            result = sg.generate_script("eyelid twitching")
+
+        self.assertEqual(len(calls), 2, "weak hook did not trigger a retry")
+        feedback = [m["content"] for m in calls[1] if m["role"] == "user"]
+        combined = " ".join(feedback)
+        self.assertIn("opening line scores", combined,
+                      "retry prompt did not mention the hook score")
+        self.assertIn("Never open with a greeting", combined)
+        self.assertEqual(result["hook"], "Why does your eyelid twitch tonight?")
+        self.assertGreaterEqual(result.get("hook_score", 0), policy.MIN_HOOK_SCORE)
+
+    def test_strong_hook_returns_on_the_first_call(self):
+        """Feedback must not cost an extra API call when nothing is wrong."""
+        import json
+        from unittest import mock
+        import script_generator as sg
+
+        strong = self._script("Why does your eyelid twitch tonight?")
+        calls = []
+
+        class _Completion:
+            def __init__(self, payload):
+                message = type("M", (), {"content": json.dumps(payload)})()
+                self.choices = [type("C", (), {"message": message})()]
+
+        class _FakeClient:
+            class chat:
+                class completions:
+                    @staticmethod
+                    def create(messages=None, **_kw):
+                        calls.append(messages)
+                        return _Completion(strong)
+
+            def __init__(self, *_a, **_k):
+                pass
+
+        with mock.patch.dict(os.environ, {"GROQ_API_KEY": "test"}), \
+             mock.patch.object(sg, "Groq", _FakeClient):
+            sg.generate_script("eyelid twitching")
+
+        self.assertEqual(len(calls), 1)
+
+
+class CaptionTrimTests(unittest.TestCase):
+    """The trimmer must never ship a fragment.
+
+    Its own docstring promised "regeneration is always better than broken
+    audio" while its last branch hard-cut mid-sentence and glued a period on.
+    With a tight hook budget that path became the common case:
+    "Your calf locks up in the middle of the night." -> "Your calf locks up in."
+    """
+
+    def setUp(self):
+        from script_generator import _trim_to_word_limit, HOOK_MAX_WORDS
+        self.trim = _trim_to_word_limit
+        self.hook_limit = HOOK_MAX_WORDS
+
+    _DANGLING = {"in", "the", "of", "and", "a", "to", "your", "every",
+                 "with", "when", "for", "at", "on", "but", "so", "is", "are"}
+
+    def _is_fragment(self, text: str) -> bool:
+        words = text.rstrip(".!?").split()
+        return bool(words) and words[-1].lower() in self._DANGLING
+
+    def test_never_produces_a_dangling_fragment(self):
+        for caption in ("Your calf locks up in the middle of the night.",
+                        "Why does your voice sound dead every single morning?",
+                        "You gag when brushing your back teeth and here is why.",
+                        "Tired nerves leak tiny signals into the eyelid muscle every night."):
+            out = self.trim(caption, self.hook_limit)
+            self.assertFalse(self._is_fragment(out), f"{caption!r} -> {out!r}")
+
+    def test_complete_sentence_in_range_is_the_preferred_cut(self):
+        out = self.trim("Your eyelid twitches. It happens when you are tired.", self.hook_limit)
+        self.assertEqual(out, "Your eyelid twitches.")
+
+    def test_slight_overshoot_keeps_the_sentence_whole(self):
+        """Two words over costs ~0.8s; a fragment costs comprehension at the
+        exact moment the feed is deciding."""
+        caption = "Why does your voice sound dead every morning?"
+        self.assertEqual(self.trim(caption, self.hook_limit), caption)
+
+    def test_uncuttable_caption_is_returned_for_regeneration(self):
+        """No honest cut exists -> hand it back so validation rejects it and
+        the model rewrites, rather than shipping something broken."""
+        caption = "Your calf locks up in the middle of the night."
+        self.assertEqual(self.trim(caption, self.hook_limit), caption)
+
+    def test_short_captions_are_untouched(self):
+        caption = "Your eyelid keeps twitching tonight."
+        self.assertEqual(self.trim(caption, self.hook_limit), caption)
 
 
 class SafeZoneTests(unittest.TestCase):

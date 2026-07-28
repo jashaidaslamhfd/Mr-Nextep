@@ -90,9 +90,20 @@ WORDS_PER_SECOND = float(os.environ.get("SPEECH_WORDS_PER_SECOND", "2.62"))
 # duration:        (floor, ideal, ceiling) seconds for THAT platform's cut
 # retention_gate:  average-view-percentage the cut has to clear to get pushed
 #                  wider; expressed as a function of its own length
-# hook_seconds:    how long the opening promise may take before the feed
-#                  decides. 2026 consensus across all three platforms is that
-#                  the first 2-3 seconds decide survival.
+# decision_seconds: how long the viewer gives the video before deciding to
+#                  stay or swipe. 2026 consensus across all three platforms is
+#                  2-3 seconds. This is an observation about VIEWERS.
+# hook_seconds:    how long the opening SENTENCE may run. Deliberately longer
+#                  than decision_seconds, because the two are different
+#                  things: the viewer decides mid-sentence, based on the first
+#                  few words and the first frame — the sentence does not have
+#                  to be finished for the promise to land.
+#                  Conflating them was a real bug here: hook_seconds was set
+#                  to decision_seconds, which at the measured speech rate
+#                  allowed only FIVE words, and the caption trimmer then
+#                  chopped good openers into fragments like "Your calf locks
+#                  up in." A truncated hook fails the very moment it was
+#                  supposed to win.
 # hashtags:        (min, max) — more is not better on any of the three
 # caption:         first-line and total character budgets
 # spoken_cta:      whether an out-loud "follow me" is allowed in the audio
@@ -106,7 +117,8 @@ PLATFORM_POLICY: Dict[str, Dict] = {
         # sit just above 30s so the easier 50% bar applies while still being
         # short enough to finish.
         "retention_gate": {"under_30s": 0.65, "over_30s": 0.50},
-        "hook_seconds": 2.8,
+        "decision_seconds": 2.5,
+        "hook_seconds": 3.2,
         "hashtags": (3, 4),
         "caption": {"first_line_chars": 100, "total_chars": 4800},
         # YouTube tolerates a follow prompt, but a spoken CTA costs completion
@@ -136,7 +148,8 @@ PLATFORM_POLICY: Dict[str, Dict] = {
         "duration": (20.0, 27.0, 32.0),
         "hard_max": 90.0,
         "retention_gate": {"under_30s": 0.72, "over_30s": 0.60},
-        "hook_seconds": 2.5,
+        "decision_seconds": 2.5,
+        "hook_seconds": 3.0,
         "hashtags": (2, 3),
         "caption": {"first_line_chars": 80, "total_chars": 2000},
         "spoken_cta": False,
@@ -159,7 +172,8 @@ PLATFORM_POLICY: Dict[str, Dict] = {
         "duration": (18.0, 26.0, 30.0),
         "hard_max": 180.0,
         "retention_gate": {"under_30s": 0.70, "over_30s": 0.55},
-        "hook_seconds": 2.0,
+        "decision_seconds": 2.0,
+        "hook_seconds": 2.8,
         # IG rewards niche keyword hashtags; 3-5 is the 2026 working range.
         "hashtags": (3, 5),
         "caption": {"first_line_chars": 90, "total_chars": 2100},
@@ -289,8 +303,18 @@ def retention_gate(platform: str, seconds: float) -> float:
 
 
 def hook_seconds(platform: str = YOUTUBE) -> float:
-    """Maximum spoken length of the opening promise."""
+    """Maximum spoken length of the opening SENTENCE."""
     return float(get_policy(platform)["hook_seconds"])
+
+
+def decision_seconds(platform: str = YOUTUBE) -> float:
+    """How long the viewer gives the video before staying or swiping.
+
+    Distinct from hook_seconds: the decision happens mid-sentence, on the
+    first few words and the first frame. Use this for "is the promise
+    arriving fast enough", not for "is the sentence over".
+    """
+    return float(get_policy(platform)["decision_seconds"])
 
 
 def shared_hook_seconds(platforms: Optional[Iterable[str]] = None) -> float:
@@ -481,6 +505,33 @@ def clamp_cadence(per_day: int) -> int:
 # are the numbers that turn "the algorithm wants retention" into an actual
 # if-statement somewhere.
 # ---------------------------------------------------------------------------
+# ---------------------------------------------------------------------------
+# HOOK GATE
+#
+# shorts_enhancer.score_hook_detailed awards:
+#     25  right spoken length (fits the hook budget)
+#     20  addresses the viewer ("you"/"your")
+#     25  names something concrete the viewer can picture
+#     20  opens a curiosity loop (explicit question OR implicit gap)
+#     10  not a cold open
+#     -35 vague authority   ·   veto (score 0) for fear-bait
+#
+# The gate is therefore not a taste value, it is a statement about which
+# checks are MANDATORY. 80 = every structural check must pass; the curiosity
+# loop is what separates a competent hook from a strong one, and the retry
+# loop spends its attempts chasing it.
+#
+# This lives here rather than in the workflow because the previous magic "85"
+# in main.yml was calibrated against a DIFFERENT scoring scale. When the
+# scorer was rewritten, that number silently became near-unreachable: only 3
+# of the channel's 21 published hooks would have cleared it, so most runs
+# would have failed their gates and skipped the upload entirely. A threshold
+# and the scale it is measured on must live together.
+MIN_HOOK_SCORE = 80
+# Above this the hook is strong enough that the retry loop stops early instead
+# of spending API calls trying to beat it.
+STRONG_HOOK_SCORE = 100
+
 HEALTH_THRESHOLDS = {
     # Below this share of the platform's retention gate, the format itself is
     # the problem — not the topic, not the posting time.

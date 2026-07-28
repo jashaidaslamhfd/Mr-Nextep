@@ -228,7 +228,12 @@ jobs:
           CHATTERBOX_TEMPERATURE: "0.60"
           MUSIC_VOLUME: "0.07"
           ENABLE_SCREENSHOT_FALLBACK: "false"
-          MIN_HOOK_SCORE: "85"
+          # MIN_HOOK_SCORE is intentionally unset: it lives in
+          # algorithm_policy next to the scoring scale it is measured against.
+          # The old hardcoded "85" was calibrated for a previous scorer; after
+          # the scorer was rewritten only 3 of the channel's 21 published
+          # hooks would have cleared it, so most runs would have failed their
+          # gates and skipped the upload entirely.
           QUALITY_APPROVAL_THRESHOLD: "85"
           # MAX_HOOK_SECONDS unset -> the tightest enabled platform wins
           # (Instagram, ~2.0s). Every 2026 feed decides inside the first 2-3

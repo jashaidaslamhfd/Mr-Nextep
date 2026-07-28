@@ -47,6 +47,7 @@ try:
     from trend_fetcher import get_trending_topic
     from algorithm_policy import (
         FACEBOOK, INSTAGRAM, YOUTUBE,
+        MIN_HOOK_SCORE as _POLICY_MIN_HOOK_SCORE,
         contains_bait, duration_policy, hook_enforcement_seconds,
         retention_gate, shared_hook_seconds,
     )
@@ -60,9 +61,11 @@ except ImportError as e:
 MAX_SCRIPT_ATTEMPTS = 3
 MAX_IMAGE_RETRIES = 3
 FALLBACK_ABORT_RATIO = float(os.environ.get("FALLBACK_ABORT_RATIO", "0.5"))
-# 70 accepts a clear, specific natural hook while still rejecting vague or
-# manipulative openings. The scorer and generator use the same word policy.
-MIN_HOOK_SCORE = int(os.environ.get("MIN_HOOK_SCORE", "70"))
+# The hook gate is defined next to the scoring scale it is measured against
+# (algorithm_policy.MIN_HOOK_SCORE = 80 = "every structural check passes").
+# A hardcoded number here, or in the workflow, drifts the moment the scorer
+# changes — which is exactly what happened to the old "85".
+MIN_HOOK_SCORE = int(os.environ.get("MIN_HOOK_SCORE") or _POLICY_MIN_HOOK_SCORE)
 # The hook budget is a RANKING constraint, not a stylistic one: every 2026
 # feed decides whether to keep showing a video within the first 2-3 seconds,
 # so an opening that takes 5 seconds to land its promise has already lost the
