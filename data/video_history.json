@@ -293,5 +293,22 @@
     "predicted_ctr": 6.8,
     "hook_score": 85,
     "predicted_retention": 0.682
+  },
+  {
+    "content_fingerprint": "4967b495a6fee83d69f6e411d1f8d32076461544216b06b3505ba6654e2307dc",
+    "title": "Dizzy Standing \ud83e\udec0",
+    "topic": "feeling lightheaded right after standing up fast",
+    "trend_source": "body_glitch_series",
+    "trend_url": null,
+    "voiceover": "You stand up fast But why do you feel lightheaded sometimes when this happens? It's confusing and a bit scary, making you wonder what's going on Blood rushes down to your feet, causing a temporary drop in blood pressure Your brain gets less blood for a second, leading to that lightheaded feeling It's usually harmless and temporary, but still unsettling To avoid the dizziness, stand up slowly and take deep breaths. Now, when you stand up fast, you'll know what's happening and can take steps to fe",
+    "posted_at": "2026-07-28T00:00:09.953380+00:00",
+    "publish_at": "2026-07-28T16:30:00Z",
+    "facebook_success": true,
+    "instagram_success": true,
+    "youtube_video_id": "tyPk5Wt1Xqg",
+    "seo_score": 75,
+    "predicted_ctr": 7.0,
+    "hook_score": 85,
+    "predicted_retention": 0.682
   }
 ]
