@@ -310,5 +310,22 @@
     "predicted_ctr": 7.0,
     "hook_score": 85,
     "predicted_retention": 0.682
+  },
+  {
+    "content_fingerprint": "9e3935b7f560bb42535357d54571e06bfed888ae126f9807b50bb95024a90eca",
+    "title": "Bright Spot Vision \ud83e\udec0",
+    "topic": "seeing glowing spots after looking near bright light",
+    "trend_source": "body_glitch_series",
+    "trend_url": null,
+    "voiceover": "You see glowing spots After looking at bright lights, what happens to your vision? It's confusing and a bit concerning, but is it harmless? Light overloads the retina's cells, causing a temporary glitch The brain struggles to process the excess light, resulting in glowing spots This is a normal response, not a cause for worry, and it's quite common Looking away helps your eyes recover quickly, and the spots fade And soon, the glowing spots disappear, leaving you seeing clearly again, with no lin",
+    "posted_at": "2026-07-28T16:34:00.467192+00:00",
+    "publish_at": "2026-07-29T00:00:00Z",
+    "facebook_success": true,
+    "instagram_success": true,
+    "youtube_video_id": "fnOuctDKhrw",
+    "seo_score": 77,
+    "predicted_ctr": 7.1,
+    "hook_score": 85,
+    "predicted_retention": 0.682
   }
 ]
