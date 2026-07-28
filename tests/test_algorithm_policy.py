@@ -331,6 +331,86 @@ class MetaCutTests(unittest.TestCase):
         self.assertTrue(ok)
 
 
+class SafeZoneTests(unittest.TestCase):
+    """Text rendered under the platform UI is text nobody reads.
+
+    generate_thumbnail used to draw the title between 84% and 97% down the
+    frame — entirely inside every platform's caption block, handle row and CTA
+    button — while wrapping against the full frame width, which pushed long
+    lines under the like/share column.
+    """
+
+    def setUp(self):
+        import safe_zones
+        self.zones = safe_zones
+
+    def test_safe_area_is_the_intersection_of_all_platforms(self):
+        """One render serves all three, so the safe area must be the strictest
+        of the three, not an average."""
+        combined = self.zones.insets()
+        for platform in policy.PLATFORMS:
+            single = self.zones.insets([platform])
+            for side, value in single.items():
+                self.assertGreaterEqual(combined[side], value, f"{platform}/{side}")
+
+    def test_bottom_chrome_is_respected(self):
+        _left, _top, _right, bottom = self.zones.safe_box(1080, 1920)
+        self.assertLessEqual(bottom / 1920, 0.80,
+                             "safe area extends into the caption/CTA block")
+
+    def test_right_action_column_is_avoided(self):
+        _left, _top, right, _bottom = self.zones.safe_box(1080, 1920)
+        self.assertLessEqual(right / 1080, 0.88,
+                             "safe area extends under the like/share column")
+
+    def test_thumbnail_band_sits_inside_the_safe_box(self):
+        left, top, right, bottom = self.zones.safe_box(1080, 1920)
+        band_top, band_bottom = self.zones.thumbnail_text_band(1080, 1920)
+        self.assertGreaterEqual(band_top, top)
+        self.assertLessEqual(band_bottom, bottom)
+        self.assertGreater(band_bottom - band_top, 200, "band too thin to hold text")
+
+    def test_caption_baseline_clears_the_chrome(self):
+        baseline = self.zones.caption_baseline(1920)
+        self.assertLess(baseline / 1920, 0.78)
+
+    def test_rendered_thumbnail_keeps_all_text_inside_the_safe_box(self):
+        """The real check: render actual thumbnails and measure the ink."""
+        try:
+            import numpy as np
+            from PIL import Image
+            from video_editor import generate_thumbnail
+        except ModuleNotFoundError as exc:
+            self.skipTest(f"media deps not installed here: {exc}")
+
+        import tempfile
+        with tempfile.TemporaryDirectory() as tmp:
+            source = os.path.join(tmp, "src.png")
+            Image.fromarray(
+                np.random.default_rng(5).integers(50, 140, (1920, 1080, 3)).astype("uint8")
+            ).save(source)
+            left, top, right, bottom = self.zones.safe_box(1080, 1920)
+
+            for title in ("Why Your Eyelid Twitches At Night",
+                          "Heartbeat",
+                          "Why You Hear Your Own Heartbeat Loudly At Night",
+                          "Extraordinarily Complicated Neurotransmitter Explanation"):
+                out = generate_thumbnail(source, title,
+                                         output_path=os.path.join(tmp, "t.jpg"),
+                                         category="Body")
+                rgb = np.asarray(Image.open(out).convert("RGB")).astype(int)
+                # Body-category text is red-tinted; isolate it from the greyish
+                # background rather than relying on absolute brightness.
+                redness = rgb[:, :, 0] - (rgb[:, :, 1] + rgb[:, :, 2]) // 2
+                rows = np.where(redness.max(axis=1) > 90)[0]
+                cols = np.where(redness.max(axis=0) > 90)[0]
+                self.assertTrue(len(rows) and len(cols), f"no text rendered for {title!r}")
+                self.assertGreaterEqual(rows.min(), top, title)
+                self.assertLessEqual(rows.max(), bottom, title)
+                self.assertGreaterEqual(cols.min(), left, title)
+                self.assertLessEqual(cols.max(), right, title)
+
+
 class GrowthEngineTests(unittest.TestCase):
     """The learning loop must be conservative: confident conclusions from thin
     data are how automated tuning destroys a channel."""
