@@ -986,27 +986,70 @@ class DeploymentWiringTests(unittest.TestCase):
     """Config that contradicts the code is how the old 40-55s target survived
     three strategy changes.
 
-    The workflow files cannot be updated by the automation that produced this
-    branch (no GitHub `workflows` permission), so these tests verify the two
-    things that are actually in our control:
-      1. the code is SAFE against the currently-deployed workflow, and
-      2. the exact steps to update it are documented and complete.
+    Two independent layers are asserted here, and BOTH must hold:
+
+      1. The workflow is correct — it no longer pins the retired strategy and
+         it does enable the new behaviour.
+      2. The code is safe even if it were not. Workflow files can be reverted,
+         edited by hand, or restored from an old branch; the policy must still
+         win. Testing only layer 1 would mean a single bad YAML edit silently
+         returns the channel to 55-second videos and an unreachable hook gate.
     """
 
     def setUp(self):
         self.workflow = (ROOT / ".github" / "workflows" / "main.yml").read_text()
         self.updates = ROOT / "docs" / "workflow_updates"
 
-    def test_code_is_safe_against_the_deployed_workflow(self):
-        """Whatever main.yml currently pins, the policy must win."""
+    # -- layer 1: the workflow itself -------------------------------------
+
+    def test_workflow_no_longer_pins_the_retired_strategy(self):
+        for retired in ('TARGET_MIN_SECONDS: "40"', 'TARGET_MAX_SECONDS: "55"',
+                        'MIN_HOOK_SCORE: "85"', 'MAX_HOOK_SECONDS: "5.0"'):
+            self.assertNotIn(retired, self.workflow,
+                             f"{retired} would override the policy at runtime")
+
+    def test_workflow_enables_the_new_behaviour(self):
+        self.assertIn('META_CUT_ENABLED: "true"', self.workflow)
+        self.assertIn('SPOKEN_CTA_MODE: "loop"', self.workflow)
+        self.assertIn("GROWTH_STATE_PATH", self.workflow)
+
+    def test_growth_loop_workflow_is_installed(self):
+        """Without this file nothing ever reads the channel's real numbers,
+        so the system cannot tune itself no matter how good the code is."""
+        installed = ROOT / ".github" / "workflows" / "growth_loop.yml"
+        self.assertTrue(installed.exists(), "growth_loop.yml is not installed")
+        content = installed.read_text()
+        self.assertIn("scripts/growth_report.py", content)
+        self.assertIn("- cron:", content)
+
+    def test_installed_growth_loop_runs_before_the_first_generation(self):
+        installed = (ROOT / ".github" / "workflows" / "growth_loop.yml").read_text()
+        learn_minute, learn_hour = re.search(r'- cron: "(\d+) (\d+)', installed).groups()
+        first_gen = min(
+            int(h) * 60 + int(m)
+            for m, h in re.findall(r'- cron: "(\d+) (\d+) \* \* \*"', self.workflow)
+        )
+        self.assertLess(int(learn_hour) * 60 + int(learn_minute), first_gen,
+                        "learning after the day's videos wastes a day of data")
+
+    def test_ci_guards_every_branch(self):
+        """Guarding only main meant a branch's first test signal arrived after
+        merge, when the scheduled pipeline already depended on it."""
+        ci = (ROOT / ".github" / "workflows" / "ci.yml").read_text()
+        self.assertIn('branches: ["**"]', ci)
+        self.assertIn("pull_request", ci)
+
+    # -- layer 2: the code survives a bad workflow -------------------------
+
+    def test_code_survives_a_reverted_workflow(self):
+        """If the retired values ever came back — a revert, a hand edit, an
+        old branch — the policy must still win. This is why the guard exists
+        as well as the workflow fix, not instead of it."""
         import importlib
         import algorithm_policy
 
-        pinned = dict(re.findall(r'^\s+(TARGET_MIN_SECONDS|TARGET_MAX_SECONDS|'
-                                 r'MAX_HOOK_SECONDS|MIN_HOOK_SCORE):\s*"([^"]+)"',
-                                 self.workflow, re.MULTILINE))
-        if not pinned:
-            self.skipTest("workflow no longer pins retired values")
+        pinned = {"TARGET_MIN_SECONDS": "40", "TARGET_MAX_SECONDS": "55",
+                  "MAX_HOOK_SECONDS": "5.0", "MIN_HOOK_SCORE": "85"}
 
         with unittest.mock.patch.dict(os.environ, pinned):
             importlib.reload(algorithm_policy)

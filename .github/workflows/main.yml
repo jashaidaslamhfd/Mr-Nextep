@@ -205,19 +205,46 @@ jobs:
           # publishes immediately rather than stalling the runner.
           IG_WAIT_FOR_SLOT: "true"
           IG_MAX_WAIT_MINUTES: "150"
-          # ---- Quality gates ----
-          TARGET_MIN_SECONDS: "40"
-          TARGET_MAX_SECONDS: "55"
+          # ---- Length & endings: owned by src/algorithm_policy.py ----
+          # TARGET_MIN_SECONDS / TARGET_MAX_SECONDS are intentionally NOT set
+          # here any more. They used to pin 40-55s in the workflow, which
+          # silently overrode the policy module and made the repo's strategy
+          # unchangeable without editing YAML. Leaving them unset means the
+          # pipeline uses the policy window (30-42s master cut) and a future
+          # strategy change is a one-line edit in one Python file.
+          #
+          # Dual cut: YouTube gets the ~36s master, Facebook/Instagram get a
+          # ~27s edit built from the same assets (their completion gates are
+          # much stricter — Meta widens distribution around ~72% watch-through).
+          META_CUT_ENABLED: "true"
+          # Loop ending instead of a spoken "follow me" outro. The CTA scene
+          # cost ~8% of a short video's runtime on the exact signal all three
+          # platforms rank on; the follow ask now lives in the caption, which
+          # costs nothing. Set to "cta" to A/B the old behaviour.
+          SPOKEN_CTA_MODE: "loop"
           CHATTERBOX_TEMPO: "0.96"
           CHATTERBOX_EXAGGERATION: "0.35"
           CHATTERBOX_CFG_WEIGHT: "0.70"
           CHATTERBOX_TEMPERATURE: "0.60"
           MUSIC_VOLUME: "0.07"
           ENABLE_SCREENSHOT_FALLBACK: "false"
-          MIN_HOOK_SCORE: "85"
+          # MIN_HOOK_SCORE is intentionally unset: it lives in
+          # algorithm_policy next to the scoring scale it is measured against.
+          # The old hardcoded "85" was calibrated for a previous scorer; after
+          # the scorer was rewritten only 3 of the channel's 21 published
+          # hooks would have cleared it, so most runs would have failed their
+          # gates and skipped the upload entirely.
           QUALITY_APPROVAL_THRESHOLD: "85"
-          MAX_HOOK_SECONDS: "5.0"
+          # MAX_HOOK_SECONDS unset -> the tightest enabled platform wins
+          # (Instagram, ~2.0s). Every 2026 feed decides inside the first 2-3
+          # seconds, so the old 5.0s allowance was three seconds of slack on
+          # the single most decisive moment of the video.
           FALLBACK_ABORT_RATIO: "0.80"
+          # Learned state produced by the Growth Loop workflow. Present in the
+          # checkout, so generation is biased toward whatever is measurably
+          # retaining viewers instead of being uniformly random.
+          GROWTH_STATE_PATH: data/growth_state.json
+          PLATFORM_METRICS_PATH: data/platform_metrics.json
           VIDEO_TOPIC: ${{ inputs.topic || '' }}
           PYTHONUNBUFFERED: "1"
         run: |

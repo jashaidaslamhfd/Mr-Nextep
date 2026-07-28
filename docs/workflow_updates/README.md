@@ -1,41 +1,42 @@
-# Workflow updates — apply these by hand
+# Workflow updates — APPLIED ✅
 
-The automation that pushed this branch does not hold GitHub's `workflows`
-permission, so it cannot create or edit anything under `.github/workflows/`.
-The code changes are pushed; these three workflow changes are not.
+These changes are **already in the branch**. This folder is kept as the record
+of what changed and why, plus a recovery copy if a workflow ever needs to be
+restored by hand.
 
-**Nothing here is urgent.** The code was written to work correctly against the
-*current* workflow — `src/algorithm_policy.py` detects the retired settings the
-existing `main.yml` pins and ignores them, logging a warning per run. Applying
-these updates removes the warnings and turns on the daily learning loop.
+| File | Status |
+|---|---|
+| `.github/workflows/growth_loop.yml` | ✅ installed (copy here: [`growth_loop.yml`](growth_loop.yml)) |
+| `.github/workflows/main.yml` | ✅ patched ([`main.yml.patch`](main.yml.patch)) |
+| `.github/workflows/ci.yml` | ✅ patched ([`ci.yml.patch`](ci.yml.patch)) |
 
-Do them in this order.
-
----
-
-## 1. Add the Growth Loop workflow (the one that matters)
-
-Without this, nothing ever reads your real performance data, so the system
-cannot tune itself — it will keep publishing on its default settings forever.
-
-Create `.github/workflows/growth_loop.yml` with the contents of
-[`growth_loop.yml`](growth_loop.yml) in this folder.
-
-Via the GitHub web UI: **Add file → Create new file**, name it
-`.github/workflows/growth_loop.yml`, paste, commit.
-
-It runs daily at 09:20 UTC (05:20 New York) — before the day's first
-generation run, so each day's videos use the previous day's lesson. It is
-read-only against every platform: it cannot publish, edit or delete anything.
+Six tests in `tests/test_algorithm_policy.py::DeploymentWiringTests` assert all
+three stay applied, so a future revert fails CI instead of silently returning
+the channel to the old strategy.
 
 ---
 
-## 2. Update the generation workflow
+## 1. Growth Loop workflow — added
 
-Apply [`main.yml.patch`](main.yml.patch), or make these edits by hand in
-`.github/workflows/main.yml`:
+`.github/workflows/growth_loop.yml` runs daily at 09:20 UTC (05:20 New York),
+**before** the day's first generation run at 14:40 UTC — so each day's videos
+are made using the previous day's lesson rather than a day-old one.
 
-**Remove these four lines** (they pin the strategy this release replaced):
+It reads real numbers from YouTube, Facebook and Instagram, normalises them
+into one comparable store, learns which slots / topic pillars / hook frames
+actually retain viewers, and writes both the machine-readable weights the
+pipeline consumes and `docs/GROWTH_REPORT.md` for you.
+
+It is **read-only** against every platform: it cannot publish, edit or delete.
+
+> Until the analytics permissions in [`../../GROWTH_SETUP.md`](../../GROWTH_SETUP.md)
+> §2 are granted, this workflow runs successfully and reports ⚪ `no_data` per
+> platform, naming the exact missing permission. It never fails loudly for a
+> reason you cannot act on.
+
+## 2. Generation workflow — patched
+
+**Removed** (these pinned the strategy this release replaced):
 
 ```yaml
 TARGET_MIN_SECONDS: "40"
@@ -44,7 +45,7 @@ MIN_HOOK_SCORE: "85"
 MAX_HOOK_SECONDS: "5.0"
 ```
 
-**Add these four** in the same env block:
+**Added:**
 
 ```yaml
 META_CUT_ENABLED: "true"
@@ -53,44 +54,50 @@ GROWTH_STATE_PATH: data/growth_state.json
 PLATFORM_METRICS_PATH: data/platform_metrics.json
 ```
 
-### Why each removed line has to go
+### Why each removed line had to go
 
 | Removed | Why |
 |---|---|
-| `TARGET_MIN/MAX_SECONDS: 40/55` | Targets the old length strategy. YouTube grades a 30-60s Short on ~50% completion and Meta on ~72%; the policy's 36s master and 26s Meta cut are sized against those gates. |
-| `MIN_HOOK_SCORE: "85"` | **The dangerous one.** It was calibrated for the previous hook scorer. Against the rewritten one, only ~3 of this channel's 21 published hooks would clear it — nearly every run would exhaust its retries and skip the upload. |
+| `TARGET_MIN/MAX_SECONDS: 40/55` | Env vars beat code, so these silently overrode the policy — the exact drift `algorithm_policy` exists to end. YouTube grades a 30-60s Short on ~50% completion and Meta on ~72%; the 36s master and 26s Meta cut are sized against those gates. |
+| `MIN_HOOK_SCORE: "85"` | **The dangerous one.** Calibrated for the previous hook scorer. Against the rewritten one only ~3 of this channel's 21 published hooks clear it — nearly every run would have exhausted its retries and skipped the upload. |
 | `MAX_HOOK_SECONDS: "5.0"` | Three seconds of slack on the single most decisive moment of the video. The budget now comes from the tightest enabled platform. |
 
-Until you remove them the pipeline still behaves correctly — the guard in
-`algorithm_policy.env_override()` ignores exactly these values and logs:
+## 3. CI — patched
 
-```
-WARNING - MIN_HOOK_SCORE=85 is a retired setting from the pre-2026.07 strategy
-and is being IGNORED; using the policy value instead.
-```
-
-Any *other* value is still honoured, so deliberate experiments (say
-`TARGET_MAX_SECONDS: "48"`) work normally.
-
----
-
-## 3. Widen CI
-
-Apply [`ci.yml.patch`](ci.yml.patch). It changes `branches: [main]` to
-`branches: ["**"]` plus `pull_request`, caches pip, compiles `tests/` too, and
-prints the active policy into the run log.
+`branches: [main]` → `branches: ["**"]` plus `pull_request`, pip caching,
+`tests/` added to the compile gate, and a step that prints the active policy
+into the run log so a strategy change is visible in the CI diff.
 
 Guarding only `main` meant a branch's first test signal arrived *after* merge —
 by which point the scheduled pipeline already depended on it.
 
 ---
 
-## Verifying it worked
+## Defence in depth: the code does not trust the workflow
 
-Run **Actions → SKILLOR — Growth Loop** manually. On a healthy setup it writes
-`docs/GROWTH_REPORT.md` and commits it. If a platform shows ⚪ `no_data`, the
-report names the exact missing permission — see [`../../GROWTH_SETUP.md`](../../GROWTH_SETUP.md)
-section 2.
+`algorithm_policy.env_override()` recognises the four retired values above and
+ignores them in favour of the policy, logging one warning per run:
 
-Then check any generation run's log for the phrase `retired setting`. Once it
-no longer appears, step 2 is complete.
+```
+WARNING - MIN_HOOK_SCORE=85 is a retired setting from the pre-2026.07 strategy
+and is being IGNORED; using the policy value instead.
+```
+
+This stays in place even though the workflow is now fixed, because workflow
+files get reverted, hand-edited and restored from old branches. Any *other*
+value is honoured normally, so deliberate experiments still work:
+
+```yaml
+TARGET_MAX_SECONDS: "48"   # honoured — a real experiment
+MIN_HOOK_SCORE: "90"       # honoured — a deliberately stricter gate
+```
+
+---
+
+## Verifying
+
+1. **Actions → SKILLOR — Growth Loop → Run workflow.** It should finish green
+   and commit `docs/GROWTH_REPORT.md`. Any ⚪ `no_data` platform names its
+   missing permission.
+2. **Check a generation run's log** for the phrase `retired setting`. It should
+   no longer appear.
