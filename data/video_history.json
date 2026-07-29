@@ -344,5 +344,22 @@
     "predicted_ctr": 6.8,
     "hook_score": 85,
     "predicted_retention": 0.682
+  },
+  {
+    "content_fingerprint": "5578c6258b9e334b3743cc54aedffab62ae60a2f33b147f63a438fb43866710b",
+    "title": "Deja Vu \ud83e\udec0",
+    "topic": "feeling like you've lived an exact new moment before",
+    "trend_source": "body_glitch_series",
+    "trend_url": null,
+    "voiceover": "You've lived this moment before But what's behind this strange feeling of familiarity somehow? Is it a glitch in our brain's memory system or something more complex It's actually a misfire of neurons in our brain creating a false memory Where our brain overlaps old and new experiences causing confusion This is a common experience for many people and is usually harmless So the next time it happens just know it's a normal brain function And you can move on with your day knowing you've lived a mome",
+    "posted_at": "2026-07-29T00:00:13.123150+00:00",
+    "publish_at": "2026-07-29T16:30:00Z",
+    "facebook_success": true,
+    "instagram_success": true,
+    "youtube_video_id": "gDZNVADEakY",
+    "seo_score": 70,
+    "predicted_ctr": 6.6,
+    "hook_score": 85,
+    "predicted_retention": 0.682
   }
 ]
