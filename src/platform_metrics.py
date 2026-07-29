@@ -268,6 +268,56 @@ def _clip_seconds(entry: Dict, platform: str) -> float:
     return float(duration_policy(platform)[1])
 
 
+def _instagram_user_id() -> str:
+    """The Instagram Business account id to read insights for.
+
+    Normally supplied as INSTAGRAM_USER_ID. When it is absent — which happens
+    because the analytics workflow's env block was written before Instagram
+    existed in this pipeline, and workflow files cannot be edited by the
+    automation maintaining this repo — fall back to the id recorded in the
+    committed diagnostic.
+
+    This is safe to read from the repo: an IG Business account id is a public
+    identifier (it appears in the Graph API response for the linked Page), not
+    a credential. Nothing can be done with it without the access token, which
+    is never committed.
+
+    Without this fallback the learning loop would report Instagram as
+    "no_data" forever while the token and permissions were both perfectly
+    fine — the most confusing possible failure.
+    """
+    explicit = (os.environ.get("INSTAGRAM_USER_ID") or "").strip()
+    if explicit:
+        return explicit
+    try:
+        diag = _load_json("data/ig_diag.json", {})
+        recorded = str((diag.get("account") or {}).get("id") or "").strip()
+        if recorded:
+            logger.info(
+                "INSTAGRAM_USER_ID not set; using the id recorded in "
+                "data/ig_diag.json (@%s).",
+                (diag.get("account") or {}).get("username", "unknown"),
+            )
+            return recorded
+    except Exception:  # noqa: BLE001 - a missing diagnostic is not an error
+        pass
+    return ""
+
+
+def _meta_token() -> str:
+    """Any of the token names this repo has used over time.
+
+    The workflows are inconsistent — analytics.yml sets FB_ACCESS_TOKEN from
+    the FACEBOOK_ACCESS_TOKEN secret, main.yml sets both plus IG_ACCESS_TOKEN.
+    Accepting all three means the loop works whichever step it runs in.
+    """
+    for name in ("IG_ACCESS_TOKEN", "FB_ACCESS_TOKEN", "FACEBOOK_ACCESS_TOKEN"):
+        value = (os.environ.get(name) or "").strip()
+        if value:
+            return value
+    return ""
+
+
 def collect(min_hours_old: int = 24, refresh_hours: int = 20) -> Dict:
     """Fetch metrics for every upload old enough to have data.
 
@@ -285,12 +335,14 @@ def collect(min_hours_old: int = 24, refresh_hours: int = 20) -> Dict:
     if not isinstance(store, dict):
         store = {}
 
-    meta_token = (
-        os.environ.get("IG_ACCESS_TOKEN")
-        or os.environ.get("FB_ACCESS_TOKEN")
-        or os.environ.get("FACEBOOK_ACCESS_TOKEN")
-        or ""
-    ).strip()
+    meta_token = _meta_token()
+    ig_user = _instagram_user_id()
+    if not meta_token:
+        logger.warning(
+            "No Meta access token in the environment (looked for IG_ACCESS_TOKEN, "
+            "FB_ACCESS_TOKEN, FACEBOOK_ACCESS_TOKEN) — Facebook and Instagram "
+            "will report no_data even if their permissions are correct."
+        )
 
     now = datetime.now(timezone.utc)
     stats = {"checked": 0, "updated": 0, "skipped_young": 0, "skipped_fresh": 0, "errors": {}}

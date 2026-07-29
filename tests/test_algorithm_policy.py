@@ -1035,6 +1035,54 @@ class DeploymentWiringTests(unittest.TestCase):
         )
         self.assertLess(int(learn_hour) * 60 + int(learn_minute), first_gen)
 
+    def test_meta_learning_runs_where_the_meta_token_actually_is(self):
+        """The analytics workflow gives its Google credentials to one step and
+        its Meta token to another. The learning loop was attached to the first,
+        so it reached Facebook and Instagram with no token and reported them as
+        no_data however correct their permissions were — the most confusing
+        failure available, because everything the operator had done was right.
+
+        The Meta half therefore runs from update_facebook_analytics.py, the
+        step that receives FB_ACCESS_TOKEN.
+        """
+        analytics = (ROOT / ".github" / "workflows" / "analytics.yml").read_text()
+        fb_step = analytics[analytics.index("Update Facebook Reels metrics"):]
+        self.assertIn("FB_ACCESS_TOKEN", fb_step.split("run:")[0],
+                      "the FB step no longer supplies a Meta token")
+
+        script = (ROOT / "scripts" / "update_facebook_analytics.py").read_text()
+        self.assertIn("from platform_metrics import collect", script)
+        self.assertIn("from growth_engine import analyse", script)
+
+    def test_meta_collection_accepts_any_of_the_token_names(self):
+        """analytics.yml sets FB_ACCESS_TOKEN, main.yml also sets
+        IG_ACCESS_TOKEN and FACEBOOK_ACCESS_TOKEN. Accepting only one name
+        would make the loop work in one workflow and silently not in another."""
+        import importlib
+        import platform_metrics
+        importlib.reload(platform_metrics)
+        for name in ("IG_ACCESS_TOKEN", "FB_ACCESS_TOKEN", "FACEBOOK_ACCESS_TOKEN"):
+            env = {k: "" for k in ("IG_ACCESS_TOKEN", "FB_ACCESS_TOKEN",
+                                   "FACEBOOK_ACCESS_TOKEN")}
+            env[name] = "tok"
+            with unittest.mock.patch.dict(os.environ, env):
+                self.assertEqual(platform_metrics._meta_token(), "tok", name)
+
+    def test_instagram_id_falls_back_to_the_committed_diagnostic(self):
+        """INSTAGRAM_USER_ID is absent from the analytics workflow's env, and
+        that file cannot be edited from here. An IG Business account id is a
+        public identifier, not a credential, so reading it from the committed
+        diagnostic avoids reporting Instagram as no_data forever."""
+        import importlib
+        import platform_metrics
+        importlib.reload(platform_metrics)
+        with unittest.mock.patch.dict(os.environ, {"INSTAGRAM_USER_ID": ""}):
+            self.assertTrue(platform_metrics._instagram_user_id(),
+                            "no Instagram id available from env or diagnostic")
+        with unittest.mock.patch.dict(os.environ, {"INSTAGRAM_USER_ID": "explicit"}):
+            self.assertEqual(platform_metrics._instagram_user_id(), "explicit",
+                             "the environment must win over the fallback")
+
     def test_learning_workflow_commits_the_state_the_pipeline_reads(self):
         """Weights that are computed but never committed are weights the next
         generation run cannot see."""
