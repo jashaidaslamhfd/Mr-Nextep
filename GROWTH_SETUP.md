@@ -1,94 +1,159 @@
-# Growth Setup & Action Guide — Mr. Nextep / SKILLOR US
+# Growth Setup — Mr. Nextep / SKILLOR
 
-This guide covers (1) what was fixed in the pipeline, (2) the ONE thing you must
-do to start **seeing your data**, and (3) the realistic growth path. Read it top
-to bottom — step 2 is the current bottleneck.
+This is the operator's guide: what the system now does on its own, the three
+access grants it needs from you, and how to read what it tells you.
+
+For *why* each decision was made, see
+[`docs/ALGORITHM_PLAYBOOK.md`](docs/ALGORITHM_PLAYBOOK.md).
 
 ---
 
-## 1. Pipeline fixes applied in this branch
+## 1. What runs automatically now
 
-| Fix | File(s) | Why it matters |
+| Every day | What happens |
+|---|---|
+| 05:20 NY | **Learning run** (the existing *YouTube Analytics Learning* workflow) — reads real numbers from YouTube + Facebook + Instagram, works out what is and isn't working, writes `docs/GROWTH_REPORT.md` and updates the weights the pipeline uses |
+| 10:40 NY | Generation run → publishes 12:30 NY |
+| 16:40 NY | Generation run → publishes 18:30 NY |
+| 18:10 NY | Generation run → publishes 20:00 NY |
+
+Each generation run now produces **two edits from one script**: a ~36s master
+for YouTube and a ~26s cut for Facebook and Instagram, because those platforms
+grade completion on a much stricter curve. Each platform also gets its own
+caption, written for its own ranking system.
+
+The learning loop runs *before* the day's first video, so today's uploads use
+yesterday's lesson.
+
+---
+
+## 2. The two things only you can do
+
+The system is fully automatic **except** for access it cannot grant itself.
+Until these are in place the growth report will say `no_data` for the affected
+platform and name the exact blocker.
+
+### A. Enable the YouTube Analytics API  ← start here
+
+This is almost certainly the *only* thing blocking YouTube data. The last
+diagnostic (`data/seo_diag_20260725.json`) failed with:
+
+```
+403: YouTube Analytics API has not been used in project 559439687452
+     before or it is disabled.
+```
+
+That is a Google Cloud project setting, not a token problem — no code change
+can work around it.
+
+1. Open <https://console.developers.google.com/apis/api/youtubeanalytics.googleapis.com/overview?project=559439687452>
+2. Click **Enable**, wait ~2 minutes for it to propagate.
+3. Run Actions → **SKILLOR - YouTube Analytics Learning**.
+
+### B. Regenerate the Meta page token with insights permissions
+
+Currently Facebook returns `(#200) read_insights permission missing`, which is
+why per-Reel Facebook data is unavailable.
+
+1. Open [Graph API Explorer](https://developers.facebook.com/tools/explorer).
+2. Select your app and the **Mr. Nextep** page.
+3. Add: `read_insights`, `pages_read_engagement`, `pages_show_list`,
+   `instagram_basic`, `instagram_manage_insights`.
+4. Generate a **Page Access Token** and save it as **`FACEBOOK_ACCESS_TOKEN`**
+   (and `FB_ACCESS_TOKEN` if you keep that one separately).
+5. Verify with Actions → **FB token probe** (prints labels and OK/NO only,
+   never the token).
+
+> Instagram insights use the same token. `INSTAGRAM_USER_ID` is already set.
+
+**How to check it worked:** run Actions → **SKILLOR - YouTube Analytics
+Learning** manually. Every platform should move from ⚪ `no_data` to a real
+status, and the run commits an updated `docs/GROWTH_REPORT.md`.
+
+### What you do NOT need to do
+
+**Re-issue the YouTube refresh token.** An earlier draft of this guide asked
+for it; that was wrong. The evidence says the existing token already carries
+`yt-analytics.readonly`:
+
+- The Analytics failure is `403 API not enabled`, not a scope or permission
+  error. A token missing the scope fails differently.
+- `scripts/seo_diag.py` calls the Analytics API with this same
+  `REFRESH_TOKEN` and reaches the API — it is stopped by the project setting,
+  not by the token.
+
+Note that `scripts/get_refresh_token.py` only requests `youtube.upload` and
+`youtube.force-ssl`. If you ever *do* need to mint a fresh token, add
+`https://www.googleapis.com/auth/yt-analytics.readonly` to its `SCOPES` list
+first, or the new token will be less capable than the one you have now.
+
+---
+
+## 3. Reading the growth report
+
+`docs/GROWTH_REPORT.md` is rewritten daily and committed, so you can read it
+from your phone without opening Actions logs.
+
+| Status | Meaning | What to do |
 |---|---|---|
-| Voice generation `NameError` crash | `src/voice_generator.py` | The "all engines failed" error path referenced a deleted variable and crashed |
-| Facebook permanent-failure crash | `src/uploader.py` | A failed FB Reel left state stuck at `"started"`, crashing the next run |
-| Broken hashtags in YouTube description | `src/seo_generator.py` + `scripts/metadata_repair.py` | `#human body` was truncated at the space; now `#humanbody` |
-| Stronger pinned/seed comment | `src/seo_generator.py` | Seeds the first reply — the biggest cold-start engagement lever |
-| Curiosity / open-loop hook scoring | `src/shorts_enhancer.py` + `src/script_generator.py` | The publish gate now prefers strong curiosity hooks (retention lever) |
-| Minor cleanups | `scripts/*.py` | unused imports / f-strings without placeholders |
+| 🟢 healthy | clearing the platform's distribution gate | nothing — scale what works |
+| 🟡 below_gate | watchable, not spreading | shorten the cut, tighten the first 3s |
+| 🔴 critical | viewers leaving early | rebuild the hook before touching anything else |
+| ⚪ no_data | no readable metrics | the report names the blocking permission |
 
-Verified: `pyflakes` clean, offline test suite passes (23 tests).
+**The retention index** is the one number to watch. `1.00` means the channel is
+exactly at the level where feeds widen distribution. Below `0.60`, the system
+automatically cuts back to 1 video/day — more uploads of a format that loses
+viewers actively teaches the feed to stop showing the channel.
 
----
-
-## 2. DO THIS FIRST — unlock your data (the #1 blocker)
-
-The pipeline is currently **flying blind**: it cannot read your retention/CTR
-(YouTube) or your reel views (Facebook). You cannot improve what you cannot
-measure. Fix these two:
-
-### A. Enable the YouTube Analytics API (CTR / retention / traffic)
-`scripts/seo_diag.py` fails with a 403 because the Analytics API is disabled in
-your Google Cloud project. Enable it here:
-
-```
-https://console.developers.google.com/apis/api/youtubeanalytics.googleapis.com/overview?project=559439687452
-```
-
-Click **Enable**, wait ~1 minute, then re-run the **US SEO Diagnostic** workflow
-(Actions → “US SEO Diagnostic (one-shot)”). It will then return daily
-views / impressions / CTR / average view duration and traffic sources.
-
-### B. Regenerate the Facebook PAGE token WITH `read_insights`
-Your FB diagnostic shows `(#200) read_insights permission missing`. Your page
-token can read AND write reels, but it lacks `read_insights`, so reel views
-cannot be read.
-
-1. Open **Graph API Explorer** (developers.facebook.com/tools/explorer).
-2. Select your app + the **Mr. Nextep** page.
-3. Add permissions: `read_insights`, `pages_read_engagement`, `pages_show_list`.
-4. Generate a new **Page Access Token**.
-5. Store it in the repo secret **`FB_ACCESS_TOKEN`** (used by analytics/diagnostics)
-   and — if it is a separate secret — **`FACEBOOK_ACCESS_TOKEN`** (used for posting).
-6. Verify: run Actions → **“FB token probe”**. Its output is safe to share (it
-   prints only labels + OK/NO, never the token) and should read `read_insights=OK`.
+**Order of operations when something is red:** retention → hook → length →
+topic → posting time → SEO. Tuning SEO while retention is red is wasted effort.
 
 ---
 
-## 3. Read & repair your existing videos
+## 4. What the system decides on its own
 
-- **Diagnose:** Actions → “US SEO Diagnostic (one-shot)” (read-only) → writes
-  `data/seo_diag_<date>.json`.
-- **Repair old metadata (titles/tags/descriptions):** Actions → “Metadata Repair
-  (one-shot)” → run with `apply=false` FIRST (preview report), then `apply=true`
-  once you are happy with the before/after plan.
+Once data is flowing, and only once there is enough of it (3+ mature videos
+per bucket), it adjusts:
 
----
+- **which time slots** get used, ranked by measured completion
+- **which body-system pillars** get picked more often
+- **which opening frame** ("Why…", "Your…", "What happens when…") the writer prefers
+- **how many videos a day** to publish (1-3, retention-gated)
 
-## 4. The realistic growth path (there is no magic button)
-
-Growth = good content + consistency + time. The pipeline removes friction; the
-algorithm still rewards genuine watch-time and engagement.
-
-1. **See your data** (step 2), then fix whatever retention/CTR reveals.
-2. **Win the first 3 seconds** — the hook decides whether viewers stay. The gate
-   now prefers curiosity/open-loop hooks.
-3. **Post consistently for months.** Don’t stop.
-4. **Double down on winners** — make more like your best performer
-   (“Why You Hear Your Heartbeat at Night”).
-5. **Reply to every comment** — engagement tells the algorithm to push more.
-
-### Monetization thresholds (so you know the target)
-- **YouTube (YPP):** 1,000 subscribers + 4,000 watch-hours (12 mo) **or** 10M
-  Shorts views (90 days). Currently ~22 subs — growth first.
-- **Facebook:** ~10,000 followers + watch-time criteria for in-stream/Reels.
-- **Instagram:** an engaged audience for bonuses / brand deals.
-
-Earnings follow growth. Aim for the next milestone (33 → 1,000), not millions.
+Safety rails, deliberately: no weight can reach zero, so nothing is ever
+permanently written off; one good or bad day cannot swing the schedule; and
+cadence can only be *lowered* by the engine, never raised past 3/day.
 
 ---
 
-## 5. Never do this
-Do **not** buy views/subscribers or use bots. Platforms detect this and
-terminate or shadow-ban the channel. Fake engagement does not fool the algorithm
-— real watch-time does.
+## 5. The part automation cannot do
+
+Both platforms measurably reward visible human presence, and neither can be
+faked:
+
+1. **Reply to comments in the first hour** — the strongest early signal you
+   personally control.
+2. **Pin the generated comment** (the API can post it but cannot pin it).
+3. **Watch one video a day yourself, all the way through.** If you get bored at
+   second 12, so does everyone else — and no amount of tuning fixes that.
+
+### Never
+Do not buy views, subscribers or engagement. Detection is reliable, the
+penalty is termination, and fake watch time cannot move a retention-based
+ranking system anyway.
+
+---
+
+## 6. Monetisation targets
+
+- **YouTube (YPP):** 1,000 subscribers + 4,000 watch-hours, **or** 10M Shorts
+  views in 90 days.
+- **Facebook:** ~10,000 followers plus watch-time criteria.
+- **Instagram:** an engaged audience for bonuses and brand deals.
+
+Every upload already declares synthetic media, keeps unique visuals via the
+channel-wide hash ledger, and rotates its caption boilerplate — the three
+things YouTube's inauthentic-content policy actually checks for. Those
+guardrails are what keep a faceless AI channel monetisable; please do not
+relax them to push more volume.

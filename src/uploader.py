@@ -180,11 +180,19 @@ def _compute_publish_at(now: datetime = None, yt=None) -> str:
 
 
 def _build_youtube_description(script_data: dict, tags: list) -> str:
-    """CTR-optimized YouTube description. Delegates to
-    seo_generator.generate_description() so upload and the SEO-package
-    preview (script_data['description'] set in main.py) can never drift
-    out of sync - this used to be a separate copy of the same logic."""
-    return generate_description(script_data, tags)
+    """Search-oriented YouTube description.
+
+    Delegates to platform_captions, which writes one caption per platform
+    against that platform's own ranking system, instead of shipping a single
+    block everywhere. Falls back to the legacy builder if the new module is
+    unavailable, so an import problem can never block an upload.
+    """
+    try:
+        from platform_captions import build_youtube_description
+        return build_youtube_description(script_data, tags)
+    except Exception as exc:  # noqa: BLE001 - never fail an upload over copy
+        logger.warning("Platform caption builder unavailable (%s); using legacy.", exc)
+        return generate_description(script_data, tags)
 
 
 def _build_facebook_description(script_data: dict, tags: list) -> str:
@@ -194,7 +202,20 @@ def _build_facebook_description(script_data: dict, tags: list) -> str:
     YouTube gets its own search-oriented description. We deliberately use
     `summary` first and strip old hashtags/formatting so a legacy YouTube
     description cannot be pasted inside the Facebook caption a second time.
+
+    Primary implementation lives in platform_captions, which also targets
+    Meta's UTIS true-interest model (Jan 2026). The inline version below is
+    kept as a dependency-free fallback and as the reference for what the
+    caption must never contain.
     """
+    try:
+        from platform_captions import build_facebook_caption
+        caption = build_facebook_caption(script_data, tags)
+        if caption:
+            return caption
+    except Exception as exc:  # noqa: BLE001
+        logger.warning("Facebook caption builder unavailable (%s); using legacy.", exc)
+
     import re
 
     def clean(value: object, limit: int) -> str:
@@ -710,11 +731,22 @@ def _upload_facebook_reels(video_path, script_data, tags, thumb_path=None):
 # ---------------------------------------------------------------------------
 
 def _build_instagram_caption(script_data, tags):
-    """IG caption = the same engagement-bait-free caption Facebook gets
-    (both run on Meta's ranking), plus a written-out YouTube pointer —
-    links aren't clickable in IG captions, so the handle goes in as text.
-    2200 chars is Instagram's caption ceiling."""
-    caption = _build_facebook_description(script_data, tags)
+    """Instagram-native caption.
+
+    This used to be Facebook's caption plus a YouTube pointer, which ignored
+    the two things Instagram actually ranks on: caption keywords (IG indexes
+    caption text for search, and niche keywords outperform hashtags) and
+    sends-per-reach, the confirmed #2 signal for reaching non-followers. The
+    dedicated builder writes for both, then the YouTube handle is appended as
+    plain text because IG captions have no clickable links.
+    """
+    try:
+        from platform_captions import build_instagram_caption
+        caption = build_instagram_caption(script_data, tags)
+    except Exception as exc:  # noqa: BLE001
+        logger.warning("Instagram caption builder unavailable (%s); using legacy.", exc)
+        caption = _build_facebook_description(script_data, tags)
+
     pointer = "More body science on YouTube @MrNextep"
     room = max(0, 2200 - len(pointer) - 2)
     return caption[:room].rstrip() + "\n\n" + pointer
@@ -920,8 +952,19 @@ def _upload_instagram_reel(video_path, script_data, tags):
     return False
 
 
-def upload_all(video_path, thumb_path, script_data):
-    """Upload video to YouTube and Facebook Reels with comprehensive error handling."""
+def upload_all(video_path, thumb_path, script_data, meta_video_path=None):
+    """Publish to YouTube, Facebook Reels and Instagram Reels.
+
+    video_path       the master cut — YouTube's edit (policy window ~30-42s)
+    meta_video_path  the shorter Meta cut (~20-32s) for Facebook/Instagram.
+                     Optional: when omitted both Meta platforms receive the
+                     master cut, which is what happened before the dual-cut
+                     change and is still an acceptable degraded mode.
+
+    Passing two files matters because Facebook and Instagram grade completion
+    on a much tighter curve than YouTube; sending one length to all three
+    guaranteed that at least two of them saw an under-performing video.
+    """
 
     if not os.path.exists(video_path):
         raise FileNotFoundError(f"Video file not found: {video_path}")
@@ -953,9 +996,15 @@ def upload_all(video_path, thumb_path, script_data):
             "dry_run": True,
         }
 
+    # Meta gets its own shorter cut when one was rendered; otherwise it falls
+    # back to the master so a failed second encode never costs us the Reels.
+    meta_path = meta_video_path if (meta_video_path and os.path.exists(meta_video_path)) else video_path
+    if meta_path != video_path:
+        logger.info("Meta platforms receive the short cut: %s", os.path.basename(meta_path))
+
     youtube_success, yt_video_id = _upload_youtube(video_path, thumb_path, script_data, tags)
-    facebook_success = _upload_facebook_reels(video_path, script_data, tags, thumb_path)
-    instagram_success = _upload_instagram_reel(video_path, script_data, tags)
+    facebook_success = _upload_facebook_reels(meta_path, script_data, tags, thumb_path)
+    instagram_success = _upload_instagram_reel(meta_path, script_data, tags)
 
     logger.info(f"YouTube Upload: {'SUCCESS' if youtube_success else 'FAILED/SKIPPED'}")
     if yt_video_id:

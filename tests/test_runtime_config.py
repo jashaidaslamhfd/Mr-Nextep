@@ -6,6 +6,7 @@ import os
 import subprocess
 import sys
 import unittest
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -349,9 +350,56 @@ class AnalyticsLoopTests(unittest.TestCase):
         self.assertIn("analytics_fetched_at", source)
 
     def test_runner_exits_nonzero_when_nothing_was_written(self):
-        source = (ROOT / "src" / "analytics_updater.py").read_text()
-        self.assertIn("sys.exit(1)", source)
-        self.assertIn("sys.exit(2)", source)
+        """A broken feedback loop must be visible in the Actions tab.
+
+        Every per-video error is caught and logged as a warning, so this
+        runner once exited 0 while all 17 videos failed with invalid_scope —
+        four consecutive green ticks over an empty history file.
+
+        This asserts the actual exit codes by running the module, rather than
+        grepping for the string "sys.exit(1)". The grep version broke on a
+        refactor that kept the behaviour identical (the code now assigns an
+        exit_code and exits once at the end), which is a test reporting on
+        source layout instead of on what the program does.
+        """
+        import subprocess
+        import tempfile
+
+        script = ROOT / "src" / "analytics_updater.py"
+
+        def run(history_payload: str, extra_env: dict) -> int:
+            with tempfile.TemporaryDirectory() as tmp:
+                history = Path(tmp) / "history.json"
+                history.write_text(history_payload, encoding="utf-8")
+                env = {
+                    **os.environ,
+                    "VIDEO_HISTORY_PATH": str(history),
+                    "PLATFORM_METRICS_PATH": str(Path(tmp) / "metrics.json"),
+                    "GROWTH_STATE_PATH": str(Path(tmp) / "growth.json"),
+                    **extra_env,
+                }
+                # Strip credentials so the fetch fails deterministically.
+                for key in ("GOOGLE_CLIENT_ID", "GOOGLE_CLIENT_SECRET", "REFRESH_TOKEN"):
+                    env.pop(key, None)
+                return subprocess.run(
+                    [sys.executable, str(script)], env=env,
+                    capture_output=True, text=True, timeout=120,
+                ).returncode
+
+        # One mature video whose fetch cannot succeed -> failed, nothing
+        # written -> must exit non-zero.
+        old = (datetime.now(timezone.utc) - timedelta(days=5)).isoformat()
+        payload = json.dumps([{
+            "content_fingerprint": "abc", "title": "t", "topic": "eye twitch",
+            "youtube_video_id": "vid123", "posted_at": old,
+        }])
+        self.assertNotEqual(run(payload, {}), 0,
+                            "a totally failed sync reported success")
+
+        # Nothing to sync at all is not a failure — an empty channel must not
+        # produce a red workflow every morning.
+        self.assertEqual(run("[]", {}), 0,
+                         "an empty history should not fail the run")
 
     def test_history_write_is_atomic(self):
         source = (ROOT / "src" / "seo_analytics.py").read_text()

@@ -9,6 +9,7 @@ from __future__ import annotations
 import json
 import logging
 import os
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -91,6 +92,69 @@ def fetch(video_id: str) -> dict:
     return result
 
 
+def _run_meta_learning() -> None:
+    """Collect Facebook + Instagram metrics and re-learn from all platforms.
+
+    WHY THIS LIVES HERE
+    The cross-platform learning loop hangs off src/analytics_updater.py, which
+    the analytics workflow runs in an EARLIER step — a step whose env block
+    only carries the Google credentials. So when the loop reached Meta it had
+    no token and reported Facebook and Instagram as "no_data" no matter how
+    correct their permissions were: the most confusing failure available,
+    because everything the operator had done was right.
+
+    This step is the one that receives FB_ACCESS_TOKEN, so the Meta half of
+    the collection runs here and the learning pass is repeated afterwards to
+    fold the newly-fetched numbers in. Re-running the analysis is cheap (it is
+    pure computation over a local JSON file) and idempotent.
+
+    The alternative — adding the token to the earlier step — needs a workflow
+    edit, which the automation maintaining this repo cannot perform. Doing it
+    in code means the operator's permissions take effect immediately rather
+    than waiting on a manual YAML change.
+    """
+    root = Path(__file__).resolve().parents[1]
+    sys.path.insert(0, str(root / "src"))
+    try:
+        from platform_metrics import collect
+        from growth_engine import analyse
+    except ImportError as exc:  # pragma: no cover
+        log.warning("Learning modules unavailable (%s); Meta metrics only.", exc)
+        return
+
+    try:
+        result = collect(
+            min_hours_old=int(os.environ.get("METRICS_MIN_HOURS", "24")),
+            refresh_hours=int(os.environ.get("METRICS_REFRESH_HOURS", "20")),
+        )
+        log.info("Cross-platform metrics (with Meta token): %s", result.get("stats"))
+    except Exception as exc:  # noqa: BLE001 - never fail the analytics run
+        log.warning("Cross-platform collection failed: %s", exc)
+        return
+
+    try:
+        state = analyse()
+        log.info(
+            "Growth state refreshed: %d mature videos, cadence=%s/day, best slot=%s",
+            state.get("sample_size", 0),
+            state.get("recommended_cadence"),
+            state.get("best_slot") or "not enough data",
+        )
+        for alert in state.get("alerts", []):
+            level = logging.ERROR if alert.get("level") == "error" else logging.WARNING
+            log.log(level, "ALERT: %s", alert.get("message"))
+
+        sys.path.insert(0, str(root / "scripts"))
+        from growth_report import build_report
+
+        report_path = root / "docs" / "GROWTH_REPORT.md"
+        report_path.parent.mkdir(parents=True, exist_ok=True)
+        report_path.write_text(build_report(state), encoding="utf-8")
+        log.info("Wrote docs/GROWTH_REPORT.md")
+    except Exception as exc:  # noqa: BLE001
+        log.warning("Growth analysis failed: %s", exc)
+
+
 def main() -> int:
     current = _load_json(OUTPUT_PATH, {})
     if not isinstance(current, dict):
@@ -105,6 +169,10 @@ def main() -> int:
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT_PATH.write_text(json.dumps(current, indent=2, ensure_ascii=False), encoding="utf-8")
     log.info("Facebook analytics updated: %d", updated)
+
+    # This step holds the Meta token, so the cross-platform learning pass runs
+    # here where it can actually reach Facebook and Instagram.
+    _run_meta_learning()
     return 0
 
 

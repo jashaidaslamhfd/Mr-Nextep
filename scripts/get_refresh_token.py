@@ -8,9 +8,23 @@ import os
 import json
 from google_auth_oauthlib.flow import InstalledAppFlow
 
+# A token cannot gain a scope after it is issued, so this list must cover
+# everything the pipeline will ever ask of it — otherwise a "routine" token
+# refresh silently downgrades the channel's capabilities.
+#
+# yt-analytics.readonly is the one that was missing here. The existing
+# production token happens to carry it (scripts/seo_diag.py reads the
+# Analytics API with it successfully), but a token minted from THIS script
+# would not have — so re-running it as a fix would have broken the learning
+# loop rather than repairing it.
 SCOPES = [
+    # upload the video
     "https://www.googleapis.com/auth/youtube.upload",
+    # captions + the seed comment (commentThreads.insert)
     "https://www.googleapis.com/auth/youtube.force-ssl",
+    # retention / CTR / traffic sources — required by src/platform_metrics.py
+    # and scripts/seo_diag.py. Without it the channel publishes blind.
+    "https://www.googleapis.com/auth/yt-analytics.readonly",
 ]
 
 def main():

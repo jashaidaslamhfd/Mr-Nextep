@@ -55,58 +55,167 @@ _POWER_WORDS = [
 ]
 
 
+# Openings that guarantee a swipe. These are the classic YouTube-native cold
+# starts — they make sense at the top of a ten-minute video and are fatal in a
+# feed where the viewer has given you two seconds and no context.
+_COLD_OPEN_PATTERNS = (
+    r"^(hi|hey|hello|welcome|what'?s up)\b",
+    r"\bwelcome back\b",
+    r"\bin (this|today'?s) (video|short|one)\b",
+    r"^(let'?s|lets) (talk|discuss|look|dive|get into)",
+    r"^(today|so today|so,? )",
+    r"\bbefore we (start|begin)\b",
+    r"\bsubscribe\b",
+)
+
+# Empty authority: sounds like content, promises nothing the viewer can
+# picture. "Scientists discovered something interesting" scored 85 under the
+# previous scorer purely because it avoided hype words.
+_VAGUE_PATTERNS = (
+    r"\b(something|anything|things?)\s+(interesting|amazing|weird|strange|crazy|surprising)\b",
+    r"\b(scientists?|researchers?|studies|experts?)\s+(say|found|discovered|reveal)",
+    r"\bfun fact\b",
+    r"\bdid you know\b",
+    r"\byou won'?t believe\b",
+    r"\b(this|that|it)\s+(is|was)\s+(interesting|amazing|crazy|wild)\b",
+)
+
+_COLD_OPEN_RE = re.compile("|".join(_COLD_OPEN_PATTERNS), re.IGNORECASE)
+_VAGUE_RE = re.compile("|".join(_VAGUE_PATTERNS), re.IGNORECASE)
+
+# Concrete anatomy/phenomenon vocabulary. A hook naming one of these gives the
+# viewer something to picture in frame one, which is what actually stops a
+# thumb. Broad on purpose — this channel covers the whole body.
+_CONCRETE_SUBJECTS = (
+    # body parts and systems
+    "eye", "eyelid", "ear", "nose", "throat", "voice", "tongue", "tooth", "teeth",
+    "brain", "memory", "dream", "sleep", "yawn", "hiccup", "sneeze", "cough",
+    "heart", "pulse", "blood", "vein", "lung", "breath", "stomach", "gut",
+    "hunger", "nerve", "muscle", "cramp", "knee", "joint", "bone",
+    "skin", "goosebump", "itch", "sweat", "blush", "hair", "hand", "foot",
+    "leg", "back", "head", "chest", "spine", "jaw", "finger", "shiver",
+    "clock", "light", "sound", "hormone", "cell", "energy", "balance",
+    # the PHENOMENON is often the concrete thing, not the body part:
+    # "Your body freezes before you hear it" names no organ but is entirely
+    # picturable. Scoring only nouns marked that hook as vague.
+    "twitch", "freeze", "crack", "pop", "ring", "lock", "jolt", "flutter",
+    "tingle", "numb", "spin", "blur", "flush", "chill", "ache", "throb",
+    "buzz", "stutter", "shake", "tremble", "clench", "gasp",
+)
+_CONCRETE_RE = re.compile(
+    r"\b(" + "|".join(_CONCRETE_SUBJECTS) + r")\w*\b", re.IGNORECASE
+)
+
+# Loops the viewer feels without a question mark. A hook can open a gap purely
+# through timing ("before you hear it", "the moment you stand up") or by
+# leaving a reference unresolved ("...before you hear IT"). Detecting only
+# why/how/what/? missed a whole class of strong hooks and pushed the writer
+# toward formulaic question openers — which is itself a templating risk.
+_IMPLICIT_LOOP_PATTERNS = (
+    r"\b(before|until|right after|the moment|seconds? (before|after)|just as)\b",
+    r"\b(but|yet|still)\b.*\b(does|do|happens|works|isn'?t|doesn'?t)\b",
+    r"\b(it|this|that|something)\s*[.!]?\s*$",
+    r"\b(here'?s|that'?s)\s+(why|how|what)\b",
+)
+_IMPLICIT_LOOP_RE = re.compile("|".join(_IMPLICIT_LOOP_PATTERNS), re.IGNORECASE)
+
+
 def score_hook_detailed(hook: str) -> Dict:
-    """Score a hook for clarity and specificity without rewarding clickbait."""
+    """Score a hook against what the first two seconds actually decide.
+
+    Rewritten because the previous version mis-ranked the two cases that
+    matter most: it gave "Hello everyone and welcome back to the channel" a 70
+    and "Scientists discovered something interesting" an 85, while a genuinely
+    strong hook like "Your eyelid keeps twitching tonight" also scored 85. A
+    scorer that cannot separate a cold open from a working hook cannot gate
+    anything.
+
+    Two structural changes:
+
+    1. The base is 0, not 35. A hook now EARNS its score. The old free 35
+       points meant an empty, generic line started most of the way to a pass.
+    2. Cold opens and vague-authority phrasing are penalised hard, because
+       they are not merely "less good" — they are the specific failure mode
+       that caps distribution before any other signal is measured.
+    """
     hook = (hook or "").strip()
     words = hook.split()
     if not hook:
-        return {'score': 0, 'checks': [{'name': 'present', 'passed': False, 'note': 'Hook is missing.'}]}
+        return {'score': 0, 'checks': [{'name': 'present', 'passed': False,
+                                        'note': 'Hook is missing.'}]}
 
-    checks, score = [], 35
-    # 4-10 words ~= <=4s spoken. The stack historically demanded 6-8, but the
-    # current model's punchier 4-5-word hooks perform the same job; validator
-    # (HOOK_MIN_WORDS) was aligned to 4 first, this scorer now matches it.
-    length_ok = 4 <= len(words) <= 10
+    hook_l = hook.lower()
+    checks, score = [], 0
+
+    # --- Length (25) -------------------------------------------------------
+    # 4-9 words is what fits inside the shared ~2s hook budget at this
+    # channel's measured speech rate.
+    length_ok = 4 <= len(words) <= 9
     checks.append({'name': 'spoken_length', 'passed': length_ok,
-                   'note': f'{len(words)} words; target is 4-10 (under ~4s spoken).'})
+                   'note': f'{len(words)} words; target is 4-9 to land inside the hook budget.'})
     if length_ok:
         score += 25
+    elif len(words) < 4:
+        score += 5   # a fragment names a subject but promises nothing
+    # over-long hooks earn nothing here
 
-    direct = any(re.search(rf"\b{w}\b", hook.lower()) for w in ('you', 'your', 'body', 'brain'))
+    # --- Speaks to the viewer (20) ----------------------------------------
+    direct = bool(re.search(r"\b(you|your|you'?re|yourself)\b", hook_l))
     checks.append({'name': 'viewer_or_subject', 'passed': direct,
-                   'note': 'Names the viewer or a clear body subject.'})
+                   'note': 'Addresses the viewer directly ("you"/"your").'})
     if direct:
-        score += 15
-
-    specific = bool(re.search(r"\b(clock|sleep|light|memory|heart|brain|blood|nerve|hormone|cell|muscle|skin|gut|energy|breath)\w*\b", hook.lower()))
-    checks.append({'name': 'specificity', 'passed': specific,
-                   'note': 'Uses a concrete topic word instead of generic hype.'})
-    if specific:
         score += 20
 
-    clickbait = any(x in hook.lower() for x in ("doctors don't", "won't believe", "shocking secret", "100% real"))
-    checks.append({'name': 'no_fake_hype', 'passed': not clickbait,
-                   'note': 'Avoids manipulative or unsupported hype.'})
-    if not clickbait:
-        score += 10
-    else:
-        score -= 30
+    # --- Concrete subject (25) --------------------------------------------
+    concrete = bool(_CONCRETE_RE.search(hook_l))
+    checks.append({'name': 'specificity', 'passed': concrete,
+                   'note': 'Names something the viewer can picture in the first frame.'})
+    if concrete:
+        score += 25
 
-    # Curiosity / open-loop signal — the single biggest first-3s retention
-    # lever. The trigger phrases above were defined but never wired in; reward
-    # hooks that open a question/loop the viewer wants answered. Additive only
-    # (never subtracts) so a merely "fine" hook is not penalised — this just
-    # lets strong open-loop hooks score higher and sharpens predict_retention.
-    hook_l = hook.lower().strip()
+    # --- Opens a loop (20) -------------------------------------------------
+    # Explicit (a question) or implicit (unresolved timing/reference). Both
+    # count: forcing every hook into "Why does..." would make the channel's
+    # openings formulaic, which is its own distribution risk.
     curiosity = (
-        hook_l.endswith("?")
+        hook_l.rstrip().endswith("?")
         or re.search(r"\b(why|how|what|when)\b", hook_l) is not None
         or any(t in hook_l for t in _CURIOSITY_TRIGGERS)
+        or bool(_IMPLICIT_LOOP_RE.search(hook_l))
     )
     checks.append({'name': 'curiosity_loop', 'passed': curiosity,
-                   'note': 'Opens a question/curiosity loop the viewer wants answered.'})
+                   'note': 'Opens a question or gap the viewer wants closed.'})
     if curiosity:
-        score += 15
+        score += 20
+
+    # --- Not a cold open (10, heavy penalty) -------------------------------
+    cold = bool(_COLD_OPEN_RE.search(hook_l))
+    checks.append({'name': 'no_cold_open', 'passed': not cold,
+                   'note': 'Starts on the subject, not on a greeting or "in this video".'})
+    score += 10 if not cold else -40
+
+    # --- Not vague authority (heavy penalty) -------------------------------
+    vague = bool(_VAGUE_RE.search(hook_l))
+    checks.append({'name': 'no_empty_claim', 'passed': not vague,
+                   'note': 'Makes a specific promise, not "scientists found something amazing".'})
+    if vague:
+        score -= 35
+
+    # --- No manipulative hype (disqualifying) ------------------------------
+    # This is not a deduction, it is a veto. Fear-bait phrasing on a
+    # body-science channel is an advertiser-friendliness and medical-
+    # misinformation risk, not merely a weak hook — and a "doctors don't want
+    # you to know" opener otherwise scores well on every other axis (it
+    # addresses the viewer, opens a loop, is a fine length), so a points
+    # penalty alone let it climb back into passing range.
+    clickbait = any(x in hook_l for x in
+                    ("doctors don't", "doctors won't", "won't believe",
+                     "shocking secret", "100% real", "they don't want",
+                     "big pharma", "miracle cure"))
+    checks.append({'name': 'no_fake_hype', 'passed': not clickbait,
+                   'note': 'Avoids manipulative or unsupported hype.'})
+    if clickbait:
+        return {'score': 0, 'checks': checks}
 
     return {'score': max(0, min(score, 100)), 'checks': checks}
 
@@ -220,10 +329,16 @@ def autofix_too_fast_captions(scenes: List[Dict], audio_segments: List[Dict]) ->
 # concrete suggestions, same spirit as quality_checker's scoring)
 # ---------------------------------------------------------------------------
 
-# Shorts retention drops off fastest in the first ~3s (the hook) and again
-# past the ~45-50s mark where swipe-away rates climb sharply.
-_IDEAL_MIN_SECONDS = 40.0
-_IDEAL_MAX_SECONDS = 55.0
+# The ideal window is no longer hardcoded here. algorithm_policy owns it for
+# every platform, so a policy change updates the writer, the renderer and this
+# prediction together instead of leaving one of them optimising for a target
+# the others abandoned. (This module used to advertise 40-55s while the rest
+# of the pipeline had moved on.)
+from algorithm_policy import (  # noqa: E402
+    YOUTUBE, duration_policy, retention_gate,
+)
+
+_IDEAL_MIN_SECONDS, _IDEAL_TARGET_SECONDS, _IDEAL_MAX_SECONDS = duration_policy(YOUTUBE)
 
 
 def predict_retention(script_data: Dict, audio_segments: List[Dict]) -> Dict:
@@ -232,6 +347,10 @@ def predict_retention(script_data: Dict, audio_segments: List[Dict]) -> Dict:
     and predicted_swipe_away as 0-1 fractions, plus actionable suggestions.
     Intentionally conservative/simple - it's a directional signal for the
     pipeline logs, not a trained model.
+
+    The estimate is also compared against the platform's real distribution
+    gate, so the log says "this will/won't get pushed wider" instead of
+    printing a number with no reference point.
     """
     suggestions = []
 
@@ -260,18 +379,27 @@ def predict_retention(script_data: Dict, audio_segments: List[Dict]) -> Dict:
             "should help viewers stay through those scenes."
         )
 
-    # Length penalty outside the sweet spot.
+    # Length effect. Completion is a PERCENTAGE of the video's own length, so
+    # every extra second makes the same gate harder to clear — a 36s Short and
+    # a 55s Short both need ~50% average view percentage, but the longer one
+    # has to hold viewers 10 seconds longer to get there.
     if total_seconds < _IDEAL_MIN_SECONDS:
-        retention -= 0.05
+        retention -= 0.03
         suggestions.append(
-            f"Video is {total_seconds:.0f}s, a bit short for strong Shorts "
-            f"retention curves - {_IDEAL_MIN_SECONDS:.0f}-{_IDEAL_MAX_SECONDS:.0f}s tends to perform better."
+            f"Video is {total_seconds:.0f}s, under the {_IDEAL_MIN_SECONDS:.0f}s floor - "
+            "too little runtime to land the arc, and very short Shorts are held to a "
+            "stricter 65% completion bar."
         )
     elif total_seconds > _IDEAL_MAX_SECONDS:
-        retention -= 0.08
+        # Scaled rather than flat: 3s over is a rounding issue, 20s over is a
+        # different video.
+        overshoot = (total_seconds - _IDEAL_MAX_SECONDS) / max(_IDEAL_MAX_SECONDS, 1.0)
+        retention -= min(0.25, 0.10 + overshoot * 0.30)
         suggestions.append(
-            f"Video is {total_seconds:.0f}s, past the "
-            f"{_IDEAL_MAX_SECONDS:.0f}s point where swipe-away rises - consider trimming a scene."
+            f"Video is {total_seconds:.0f}s against a {_IDEAL_MAX_SECONDS:.0f}s ceiling. "
+            f"Cut back toward {_IDEAL_TARGET_SECONDS:.0f}s: the completion gate is a "
+            "percentage, so every extra second raises the number of seconds a viewer "
+            "must watch to clear it."
         )
 
     if hook_score < 60:
@@ -283,9 +411,20 @@ def predict_retention(script_data: Dict, audio_segments: List[Dict]) -> Dict:
     retention = max(0.05, min(retention, 0.95))
     swipe_away = max(0.0, min(1.0 - retention, 0.95))
 
+    gate = retention_gate(YOUTUBE, total_seconds) if total_seconds else None
+    clears_gate = bool(gate and retention >= gate)
+    if gate and not clears_gate:
+        suggestions.append(
+            f"Predicted {retention:.0%} completion is under the {gate:.0%} gate this "
+            f"length is graded on — expect the test cohort not to expand."
+        )
+
     return {
         'predicted_avg_retention': round(retention, 3),
         'predicted_swipe_away': round(swipe_away, 3),
+        'distribution_gate': round(gate, 3) if gate else None,
+        'clears_gate': clears_gate,
+        'seconds': round(total_seconds, 2),
         'suggestions': suggestions,
     }
 

@@ -364,6 +364,18 @@ def generate_pinned_comment(script_data: Dict) -> str:
         f"What should I explain next? Drop your {topic_l} questions below and I might pick yours 🔬",
     ]
 
+    # Prefer the platform-aware builder: it ties the question to THIS video's
+    # topic (a generic "which part surprised you?" reads as boilerplate across
+    # a whole channel) and it runs the result through the shared bait filter,
+    # so a template can never reintroduce a phrase the ranking systems demote.
+    try:
+        from platform_captions import build_pinned_comment
+        targeted = build_pinned_comment(script_data)
+        if targeted:
+            return targeted[:PINNED_COMMENT_MAX_LEN]
+    except Exception as exc:  # noqa: BLE001 - comments must never break SEO
+        logger.debug("Pinned-comment builder unavailable (%s); using local pool.", exc)
+
     comment = random.choice(comment_templates)
     return comment[:PINNED_COMMENT_MAX_LEN]
 

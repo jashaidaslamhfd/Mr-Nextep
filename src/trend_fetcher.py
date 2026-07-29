@@ -395,6 +395,49 @@ def get_proven_topics() -> List[Dict]:
     return [_topic_record(topic, "proven_channel_pillar") for topic in PROVEN_TOPIC_POOL]
 
 
+def _weighted_topic_choice(candidates: List[Dict]) -> Dict:
+    """Pick a topic, biased toward the body-system pillars that are actually
+    holding viewers on this channel.
+
+    Selection used to be uniform random across 500 topics, which meant the
+    channel could not benefit from its own results: a pillar that consistently
+    retained viewers had exactly the same chance as one that consistently lost
+    them. Weights come from data/growth_state.json (see src/growth_engine.py)
+    and are clamped to [0.35, 2.0], so:
+
+      * a strong pillar is picked ~2x as often, not exclusively — variety is a
+        hard requirement under YouTube's inauthentic-content policy, and a
+        channel that only ever covers one body system also stops being a
+        body-science channel;
+      * a weak pillar keeps a real chance to recover, so a bad fortnight can
+        never permanently delete a topic area;
+      * with no analytics connected the weights are empty and this degrades
+        to exactly the previous uniform behaviour.
+    """
+    if not candidates:
+        raise ValueError("no topic candidates")
+    try:
+        from growth_engine import get_topic_weights, topic_pillar
+        weights_map = get_topic_weights()
+    except Exception:  # noqa: BLE001 - topic choice must never break
+        return random.choice(candidates)
+
+    if not weights_map:
+        return random.choice(candidates)
+
+    weights = [
+        float(weights_map.get(topic_pillar(item.get("topic", "")), 1.0))
+        for item in candidates
+    ]
+    chosen = random.choices(candidates, weights=weights, k=1)[0]
+    pillar = topic_pillar(chosen.get("topic", ""))
+    logger.info(
+        "Topic pillar '%s' selected (measured weight %.2f).",
+        pillar, weights_map.get(pillar, 1.0),
+    )
+    return chosen
+
+
 def get_trending_topic(
     exclude: Optional[List[str]] = None,
     *,
@@ -418,7 +461,7 @@ def get_trending_topic(
         series_topics = [t for t in series_topics
                          if not _near_duplicate_of_recent(t.get("topic", ""), exclude or [])]
         if series_topics:
-            chosen = random.choice(series_topics)
+            chosen = _weighted_topic_choice(series_topics)
         else:
             chosen = random.choice(get_body_glitch_topics())
             logger.warning("All Body Glitch topics were excluded; restarting the 500-topic series.")
@@ -448,8 +491,9 @@ def get_trending_topic(
         chosen = random.choice(real_topics)
     elif proven_topics:
         # During the rebuilding period, repeatedly deliver the relatable
-        # experiences that already earned this channel's strongest signals.
-        chosen = random.choice(proven_topics)
+        # experiences that already earned this channel's strongest signals —
+        # weighted by which body-system pillars are measurably retaining.
+        chosen = _weighted_topic_choice(proven_topics)
     elif real_topics:
         chosen = random.choice(real_topics)
     else:

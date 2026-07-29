@@ -73,16 +73,29 @@ def repair_mojibake(text: str) -> str:
 # ============================================
 # CONSTANTS
 # ============================================
-# One unified policy for a 40–55 second Body Glitch Short. Eight scenes give
-# enough room for a complete, accurate explanation without rushed claims.
+# Length policy is NOT defined here any more. src/algorithm_policy.py owns the
+# per-platform duration windows and the measured speech rate, and the word
+# budgets below are derived from them — so changing the target length in one
+# place updates the writer, the renderer, the cuts and the tests together.
+#
+# The old hardcoded 80-120 words targeted a 40-55s Short. YouTube's 2026
+# Shorts ranking is watch-time-per-impression with a ~50% average-view-
+# percentage gate for 30-60s videos, and this channel's own Meta data showed
+# 2.6-7.5s average watch time against a 47s clip. A shorter master cut is the
+# single highest-leverage change available, so the budget now follows the
+# policy's 30-42s window instead of a number nobody re-checked.
+from algorithm_policy import (  # noqa: E402  (config import, must precede use)
+    MIN_HOOK_SCORE as _MIN_HOOK_SCORE,
+    hook_word_budget as _policy_hook_words,
+    scene_word_budget as _policy_scene_words,
+    script_word_budget as _policy_script_words,
+)
+
 MIN_SCENES = 8
 MAX_SCENES = 8
-# 96 words at the cloned-voice pace reliably reaches ~40 seconds while
-# leaving normal language room; forcing 104+ made the LLM pad or fail scenes.
-MIN_WORDS = 80  # was 90: llama kept landing ~76-85; 80 still means a dense ~35s VO
-MAX_WORDS = 120
+MIN_WORDS, MAX_WORDS = _policy_script_words()
 MAX_RETRIES = 3
-SCRIPT_POLICY_VERSION = "BODY_GLITCH_V3_RELAXED_VALIDATION"
+SCRIPT_POLICY_VERSION = "ALGO_POLICY_2026_07"
 TEMPERATURE = 0.65
 MAX_TOKENS = 1400
 
@@ -93,9 +106,10 @@ GROQ_MODEL_PRIMARY = os.environ.get("GROQ_MODEL", "llama-3.3-70b-versatile")
 GROQ_MODEL_FALLBACK = "llama-3.1-8b-instant"
 _model_downgraded = False
 
-# A fast, clear opening that comfortably fits in the first 2–3 seconds.
-HOOK_MIN_WORDS = 4  # was 6: punchy 4-5-word hooks beat forced filler; the 4s cap stays (MAX 8)
-HOOK_MAX_WORDS = 8
+# A fast, clear opening that fits inside the platform hook budget. All three
+# 2026 feeds decide within the first 2-3 seconds, so the ceiling is whatever
+# fits in that window at the measured speech rate — not a guessed word count.
+HOOK_MIN_WORDS, HOOK_MAX_WORDS = _policy_hook_words()
 
 # Curiosity / open-loop phrases that mark a strong Shorts hook — the single
 # biggest first-3-second retention lever. Used by analyze_retention_potential
@@ -106,8 +120,7 @@ _HOOK_CURIOSITY_TRIGGERS = (
     "secret", "most people", "never knew", "did you", "ever wonder",
     "here's why", "this is why", "the reason",
 )
-MIN_SCENE_WORDS = 12
-MAX_SCENE_WORDS = 16
+MIN_SCENE_WORDS, MAX_SCENE_WORDS = _policy_scene_words(MAX_SCENES)
 
 # A title such as "Why Got Fired Matters" is grammatically short but gives
 # viewers no scientific subject. Require a concrete channel-relevant anchor.
@@ -149,6 +162,57 @@ NON-NEGOTIABLE QUALITY RULES:
 # 2. PROMPT GENERATION
 # ============================================
 
+def _score_hook_for_feedback(script_data: Dict) -> Tuple[int, List[str]]:
+    """Score the opening line and return concrete fixes for the retry prompt.
+
+    Imported lazily so this module stays importable in environments where the
+    enhancer's dependencies are unavailable; a scoring failure degrades to
+    "no opinion" rather than blocking generation.
+    """
+    try:
+        from shorts_enhancer import score_hook_detailed
+    except Exception:  # noqa: BLE001
+        return 100, []
+    result = score_hook_detailed(script_data.get('hook', ''))
+    fixes = [c['note'] for c in result.get('checks', []) if not c.get('passed', True)]
+    return int(result.get('score', 0)), fixes
+
+
+def _preferred_hook_frame_hint() -> str:
+    """Bias the opening frame toward whatever the channel's own data shows is
+    surviving the first three seconds.
+
+    This is the learning loop reaching into generation. It stays a HINT rather
+    than a rule for two reasons: the growth engine only returns a frame once it
+    has enough mature samples to be meaningful, and locking every video into
+    one opening shape is precisely the templated-output pattern YouTube's
+    inauthentic-content policy targets. Variety is a compliance requirement,
+    not just a stylistic preference.
+    """
+    try:
+        from growth_engine import get_preferred_hook_frame
+        frame = get_preferred_hook_frame()
+    except Exception:  # noqa: BLE001 - learning must never block generation
+        return ""
+    if not frame:
+        return ""
+    phrasing = {
+        "why": 'a "Why ..." question frame',
+        "what": 'a "What happens when ..." frame',
+        "how": 'a "How ..." frame',
+        "second_person": 'a direct "Your ..." statement frame',
+        "question": "a direct question frame",
+        "statement": "a flat declarative frame",
+    }.get(frame)
+    if not phrasing:
+        return ""
+    return (
+        f"\nCHANNEL DATA: {phrasing} is currently holding viewers best on this "
+        "channel. Prefer it unless the topic genuinely reads better another way "
+        "— do not force it.\n"
+    )
+
+
 def _default_prompt(topic: str) -> str:
     """Build one internally consistent short-form script brief."""
     body_glitch_mode = os.environ.get("CONTENT_SERIES", "").lower() == "body_glitches"
@@ -161,15 +225,25 @@ BODY GLITCH SERIES RULES:
 - If relevant, say persistent, severe, new or worrying symptoms deserve a
   qualified clinician's advice. Do not give medical instructions.
 """ if body_glitch_mode else ""
+    from algorithm_policy import YOUTUBE, duration_policy, hook_seconds
+    _floor, _ideal, _ceiling = duration_policy(YOUTUBE)
+    _hook_budget = hook_seconds(YOUTUBE)
+    preferred_frame = _preferred_hook_frame_hint()
     return f"""
-Create one original 40–55 second YouTube Short on this topic:
+Create one original {_floor:.0f}–{_ceiling:.0f} second YouTube Short on this topic:
 TOPIC: {topic}
-{series_rules}
+{series_rules}{preferred_frame}
 
 Use EXACTLY eight scenes and return the JSON schema below.
 
+LENGTH IS A RANKING RULE, NOT A STYLE CHOICE. YouTube pushes a Short wider
+only when viewers watch about half of it; Facebook and Instagram want closer
+to three quarters. A {_ideal:.0f}-second video that finishes beats a
+60-second video that gets abandoned, every time. Say the one idea and stop.
+
 STORY ARC:
-1. HOOK — scene 1; 6–8 words. A PATTERN INTERRUPT in second person ("you/your"):
+1. HOOK — scene 1; {HOOK_MIN_WORDS}–{HOOK_MAX_WORDS} words, spoken in under
+   {_hook_budget:.1f} seconds. A PATTERN INTERRUPT in second person ("you/your"):
    name the everyday moment, then snap to the unexpected twist. It must create
    an open loop the viewer cannot scroll past. GOOD: "Why does your voice sound
    dead every single morning?" / "Your body freezes you before a scary sound."
@@ -180,8 +254,16 @@ STORY ARC:
 3. PROBLEM — scene 3; state the relatable confusion or misconception.
 4. EXPLANATION — scenes 4–5; explain the mechanism in simple, connected steps.
 5. NORMAL VS NOTE — scene 6; explain the normal context without diagnosing.
-6. SOLUTION / PAYOFF — scene 7; give the clear science-based answer.
-7. LOOP-BACK — scene 8; connect the payoff to the opening idea so it feels complete.
+6. SOLUTION / PAYOFF — scene 7; give the clear science-based answer. Make it
+   ONE concrete, quotable fact — the kind a viewer would repeat to a friend.
+   Instagram's second-strongest ranking signal is how often a Reel gets sent
+   in a DM, and nobody forwards a vague summary.
+7. LOOP-BACK — scene 8; close by restating the opening moment now that the
+   viewer knows the answer, so the last line flows straight back into the
+   first. A Short that loops cleanly earns replays, and replays count as
+   watch time on all three platforms. Do NOT end with a sign-off, a farewell,
+   or any "follow/like/share" line — the spoken CTA has been removed on
+   purpose because it costs completion on a short video.
 
 HARD FORMAT RULES:
 - Total spoken captions: {MIN_WORDS}–{MAX_WORDS} words.
@@ -324,47 +406,61 @@ def _clean_json_response(raw_reply: str) -> Dict:
 # 4. SCRIPT VALIDATION & NORMALIZATION
 # ============================================
 
+# How many words over the limit a COMPLETE sentence may run before it is
+# worth breaking. Two words of overshoot costs ~0.8s; a fragment costs the
+# viewer's comprehension at the exact moment the feed is deciding.
+_OVERSHOOT_GRACE_WORDS = 2
+
+
 def _trim_to_word_limit(caption: str, max_words: int) -> str:
-    """Trim a caption down to at most max_words.
+    """Trim a caption to max_words WITHOUT ever emitting a fragment.
 
-    Production evidence (see data/video_history.json voiceovers like
-    "...due to our body's internal. Our body's") showed the old logic
-    shipping MID-SENTENCE cuts: it only accepted a sentence boundary at
-    >=50% of the limit, otherwise hard-cut with a period glued onto a
-    broken clause. A Short whose narration is cut mid-thought loses
-    viewers instantly.
+    Its own docstring used to promise "regeneration is always better than
+    broken audio" and then do the opposite: step 3 hard-cut mid-sentence and
+    glued a period on. With the tightened hook budget that path became the
+    common case, turning good openers into:
 
-    New order of preference:
-      1. last complete sentence within range (>=30% — early-but-complete
-         beats broken every time)
-      2. last clause boundary (comma/semicolon/dash) at >=40%
-      3. hard word cut (unchanged fallback, now genuinely rare)
-    If the result ends up too short, _validate_script rejects the script
-    and the LLM retries — regeneration is always better than broken audio.
+        "Your calf locks up in the middle of the night."
+          -> "Your calf locks up in."
+
+    A truncated hook fails at the precise moment it was supposed to win, and
+    the caption no longer matches the narration.
+
+    Order of preference now:
+      1. already short enough                      -> unchanged
+      2. a complete sentence ends within range     -> cut there
+      3. a complete sentence runs slightly over    -> keep it whole (grace)
+      4. a clause boundary sits late in the line   -> cut there
+      5. otherwise                                 -> return UNCHANGED and let
+         _validate_script reject it, so the LLM rewrites a genuinely short
+         line instead of the pipeline shipping a broken one.
     """
     words = caption.split()
     if len(words) <= max_words:
         return caption
+
     truncated = " ".join(words[:max_words])
 
-    # 1) Prefer cutting at the last sentence-ending punctuation in range.
+    # 2) A complete sentence that ends inside the budget is the ideal cut.
     last_stop = max(truncated.rfind("."), truncated.rfind("!"), truncated.rfind("?"))
     if last_stop >= len(truncated) * 0.3:
         return truncated[:last_stop + 1]
 
-    # 2) No sentence boundary: cut at the last clause boundary so the spoken
-    # line still sounds like a deliberate end, not a crash.
-    clause_floor = len(truncated) * 0.4
+    # 3) The whole caption is one sentence that only just overshoots. Keeping
+    # it intact is better than any cut we could make.
+    if len(words) <= max_words + _OVERSHOOT_GRACE_WORDS:
+        return caption
+
+    # 4) A late clause boundary still sounds deliberate when spoken.
+    clause_floor = len(truncated) * 0.55
     for sep in (";", "—", ",", ":"):
         idx = truncated.rfind(sep)
         if idx >= clause_floor:
             return truncated[:idx].rstrip() + "."
 
-    # 3) Last resort: hard cut with a trailing period.
-    truncated = truncated.rstrip(",;:")
-    if not truncated.endswith((".", "!", "?")):
-        truncated += "."
-    return truncated
+    # 5) No honest cut exists. Hand the over-long caption back untouched so
+    # validation fails it and the model regenerates.
+    return caption
 
 
 def _normalize_scenes(script_data: Dict) -> Dict:
@@ -751,28 +847,59 @@ def generate_script(
                 # Analyze retention
                 retention = analyze_retention_potential(script_data)
                 script_data['retention_analysis'] = retention
-                
+
                 score = retention['retention_score']
-                
-                # Track best script
-                if score > best_score:
+
+                # Score the hook HERE, inside the conversation loop.
+                #
+                # The hook gate lives in main.py, which calls this function
+                # fresh on every attempt — so a rejected hook produced a brand
+                # new conversation and the model was never told what was wrong
+                # with the last one. It could (and did) return an equally weak
+                # opener three times in a row, burn all three attempts, and
+                # skip the upload. Scoring it in here means the failure
+                # becomes corrective feedback in the SAME conversation, which
+                # is the only place the model can act on it.
+                hook_score, hook_fixes = _score_hook_for_feedback(script_data)
+                script_data['hook_score'] = hook_score
+
+                # Track best script by both signals, not retention alone: the
+                # hook is what decides distribution before retention is even
+                # measured.
+                combined = (hook_score * 0.6) + (score * 0.4)
+                if combined > best_score:
                     best_script = script_data
-                    best_score = score
-                
-                if score >= 80:
-                    logger.info(f"✅ Excellent script! Retention score: {score}/100")
-                    logger.info(f"📊 {len(script_data['scenes'])} scenes, {len(script_data['voiceover'].split())} words")
+                    best_score = combined
+
+                if score >= 80 and hook_score >= _MIN_HOOK_SCORE:
+                    logger.info(
+                        "✅ Strong script — hook %s/100, retention %s/100, %d scenes, %d words",
+                        hook_score, score, len(script_data['scenes']),
+                        len(script_data['voiceover'].split()),
+                    )
                     return script_data
-                else:
-                    logger.warning(f"⚠️ Good but could be better (Score: {score}/100)")
-                    # Add corrective feedback
-                    messages.append({"role": "assistant", "content": raw_reply})
-                    messages.append({"role": "user", "content": (
-                        f"The script is good but retention could be improved. "
-                        f"Current score: {score}/100. Issues: {', '.join(retention['suggestions'][:3])}. "
-                        f"Rewrite the script with these improvements while keeping the topic '{topic}'. "
-                        f"Return ONLY valid JSON with the same structure."
-                    )})
+
+                problems = []
+                if hook_score < _MIN_HOOK_SCORE:
+                    problems.append(
+                        f"the opening line scores {hook_score}/100 (needs {_MIN_HOOK_SCORE})"
+                    )
+                    problems.extend(hook_fixes[:2])
+                if score < 80:
+                    problems.append(f"retention scores {score}/100")
+                    problems.extend(retention['suggestions'][:2])
+
+                logger.warning("⚠️ Retrying with feedback: %s", "; ".join(problems[:3]))
+                messages.append({"role": "assistant", "content": raw_reply})
+                messages.append({"role": "user", "content": (
+                    f"That script needs work: {'; '.join(problems[:4])}. "
+                    f"Scene 1 is the whole video's chance — it must name something the "
+                    f"viewer can picture, speak to them as 'you', and open a gap they "
+                    f"need closed. Never open with a greeting, 'in this video', or "
+                    f"'scientists found something interesting'. "
+                    f"Rewrite the full script on the same topic '{topic}'. "
+                    f"Return ONLY valid JSON with the same structure."
+                )})
             else:
                 last_error = "; ".join(issues)
                 logger.warning(f"⚠️ Validation issues: {', '.join(issues[:3])}")

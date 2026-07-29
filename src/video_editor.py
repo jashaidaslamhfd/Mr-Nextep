@@ -40,8 +40,26 @@ CANVAS_W, CANVAS_H = 1080, 1920
 AUDIO_EDGE_FADE = 0.01
 ZOOM_AMOUNT = 0.18
 PAN_PX = 50
-TARGET_MIN_SEC = float(os.environ.get("TARGET_MIN_SECONDS", "40"))
-TARGET_MAX_SEC = float(os.environ.get("TARGET_MAX_SECONDS", "55"))
+# Render targets follow the platform policy rather than a local constant, so
+# changing the strategy in one file updates the writer, the renderer and the
+# validator together. Env vars still win for one-off experiments.
+try:
+    from algorithm_policy import (
+        YOUTUBE as _YT_PLATFORM,
+        duration_policy as _duration_policy,
+        env_float as _env_float,
+    )
+    _POLICY_MIN, _POLICY_IDEAL, _POLICY_MAX = _duration_policy(_YT_PLATFORM)
+except Exception:  # pragma: no cover - editor must stay importable standalone
+    _POLICY_MIN, _POLICY_IDEAL, _POLICY_MAX = 30.0, 36.0, 42.0
+    def _env_float(name, fallback):
+        return float(os.environ.get(name) or fallback)
+
+# env_float ignores values retired with the old strategy (e.g. the workflow's
+# legacy TARGET_MAX_SECONDS="55"), so a stale deployment cannot silently
+# override the policy this module is built on.
+TARGET_MIN_SEC = _env_float("TARGET_MIN_SECONDS", _POLICY_MIN)
+TARGET_MAX_SEC = _env_float("TARGET_MAX_SECONDS", _POLICY_MAX)
 
 # RETENTION OPTIMIZATIONS
 CAPTION_Y_FRACTION = 0.52
@@ -194,8 +212,20 @@ def _caption_clip(text: str, duration: float, is_important: bool = False, color_
     if color_theme is None:
         color_theme = {'primary': (255, 255, 255), 'secondary': (255, 200, 50)}
     
+    # Caption block must fit between its anchor and the platform-safe
+    # baseline. The old ceiling of 0.90 allowed a tall block to run to 90% of
+    # the frame — well inside every platform's caption/CTA chrome, where the
+    # last line of the payoff would simply be covered up. safe_zones computes
+    # the worst case across all three platforms, so one render is safe
+    # everywhere.
     max_width = int(CANVAS_W * 0.82)
-    available_height = int(CANVAS_H * (0.90 - CAPTION_Y_FRACTION))
+    try:
+        from safe_zones import caption_baseline, safe_text_width
+        baseline = caption_baseline(CANVAS_H)
+        max_width = min(max_width, safe_text_width(CANVAS_W))
+    except Exception:  # pragma: no cover - rendering must never depend on this
+        baseline = int(CANVAS_H * 0.75)
+    available_height = max(int(CANVAS_H * 0.12), baseline - int(CANVAS_H * CAPTION_Y_FRACTION))
 
     font_size = CAPTION_FONT_SIZE
     dummy = Image.new("RGBA", (10, 10), (0, 0, 0, 0))
@@ -829,11 +859,38 @@ def generate_thumbnail(image_path: str, title: str, output_path: str = "output/t
     words = (meaningful or all_words)[:4]
     title = " ".join(words)
 
-    # Word wrap
+    # Word wrap inside the horizontal safe area.
+    #
+    # THUMB_W - 130 allowed text to run to x=1002 on a 1080px frame, i.e.
+    # straight under the like/comment/share column every platform draws down
+    # the right-hand side. Wrapping against the safe width instead keeps the
+    # final word readable rather than tucked behind a button.
+    # The stroke and the glow-outline pass both paint OUTSIDE the glyph box
+    # that textlength() measures (5px stroke + 3px outline offset per side),
+    # so the wrap budget has to reserve room for them or a line that measures
+    # as fitting still bleeds past the safe edge.
+    _THUMB_STROKE_W = 5
+    _THUMB_OUTLINE_OFFSET = 3
+    _ink_margin = 2 * (_THUMB_STROKE_W + _THUMB_OUTLINE_OFFSET)
+    try:
+        from safe_zones import safe_box as _safe_box
+        safe_left, _sy0, safe_right, _sy1 = _safe_box(THUMB_W, THUMB_H)
+    except Exception:  # pragma: no cover
+        safe_left, safe_right = int(THUMB_W * 0.04), int(THUMB_W * 0.87)
+    wrap_width = (safe_right - safe_left) - _ink_margin
+
+    # Shrink the font before truncating: a four-word title that needs three
+    # lines is still better than one with a word chopped off.
+    while len(words) > 1:
+        longest = max(draw.textlength(w, font=font) for w in words)
+        if longest <= wrap_width or font.size <= 48:
+            break
+        font = _get_caption_font(max(48, font.size - 6))
+
     lines, current = [], ""
     for w in words:
         test = (current + " " + w).strip()
-        if draw.textlength(test, font=font) > THUMB_W - 130:
+        if current and draw.textlength(test, font=font) > wrap_width:
             lines.append(current)
             current = w
         else:
@@ -844,16 +901,45 @@ def generate_thumbnail(image_path: str, title: str, output_path: str = "output/t
     # ✅ Priority: Text color
     text_color = CATEGORY_TEXT_COLORS.get(category, (255, 255, 255))
 
-    # ✅ Priority: Object outline effect
-    y = THUMB_H - 60 - (len(lines) * 82)
+    # Place the text inside the platform-safe band instead of hard against the
+    # bottom edge.
+    #
+    # This previously started at THUMB_H - 60 - (lines * 82), i.e. 84-97% down
+    # the frame — entirely underneath every platform's caption block, handle
+    # row and CTA button. The thumbnail's whole job is to be legible in a feed
+    # at roughly 120x90 pixels, and it was being rendered where no viewer could
+    # read it on any of the three platforms.
+    try:
+        from safe_zones import thumbnail_text_band
+        band_top, band_bottom = thumbnail_text_band(THUMB_W, THUMB_H)
+    except Exception:  # pragma: no cover - thumbnails must never fail to render
+        band_top, band_bottom = int(THUMB_H * 0.55), int(THUMB_H * 0.80)
+
+    line_height = int(font.size * 1.15)
+    block_height = len(lines) * line_height
+    # Centre the block in the band, then clamp so a three-line title cannot
+    # push its last line back down into the chrome.
+    y = band_top + max(0, (band_bottom - band_top - block_height) // 2)
+    y = min(y, band_bottom - block_height)
+    y = max(y, band_top)
+
+    # Centre on the SAFE box, not the raw frame. The safe area is asymmetric
+    # (every platform draws its action column on the right), so centring on
+    # the frame pushes text ~80px too far right and the last characters of a
+    # long line end up behind the like/share buttons even after wrapping.
+    safe_centre = (safe_left + safe_right) / 2
+
     for line in lines:
         w = draw.textlength(line, font=font)
-        x = (THUMB_W - w) / 2
+        x = safe_centre - w / 2
+        # Never let the ink cross either safe edge, whatever the wrap produced.
+        x = max(safe_left + _ink_margin / 2, min(x, safe_right - w - _ink_margin / 2))
+
         
         # Draw outline (glow effect)
-        for dx in [-3, -2, -1, 0, 1, 2, 3]:
-            for dy in [-3, -2, -1, 0, 1, 2, 3]:
-                if abs(dx) == 3 or abs(dy) == 3:
+        for dx in range(-_THUMB_OUTLINE_OFFSET, _THUMB_OUTLINE_OFFSET + 1):
+            for dy in range(-_THUMB_OUTLINE_OFFSET, _THUMB_OUTLINE_OFFSET + 1):
+                if abs(dx) == _THUMB_OUTLINE_OFFSET or abs(dy) == _THUMB_OUTLINE_OFFSET:
                     draw.text((x + dx, y + dy), line, font=font, 
                               fill=(0, 0, 0, 100), stroke_width=0)
         
@@ -863,10 +949,10 @@ def generate_thumbnail(image_path: str, title: str, output_path: str = "output/t
             line,
             font=font,
             fill=text_color,
-            stroke_width=5,
+            stroke_width=_THUMB_STROKE_W,
             stroke_fill="black"
         )
-        y += 82
+        y += line_height
 
     canvas.save(output_path, quality=95)
     logger.info(f"Thumbnail saved: {output_path}")
