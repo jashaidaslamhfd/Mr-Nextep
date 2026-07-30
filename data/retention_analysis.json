@@ -1,0 +1,1015 @@
+{
+  "generated_at": "2026-07-30T11:48:54.371204+00:00",
+  "total_videos": 20,
+  "critical": 8,
+  "below_gate": 11,
+  "healthy": 1,
+  "top_issues": [
+    [
+      "Label title 3 words - no curiosity loop",
+      11
+    ],
+    [
+      "Low views 0 after mature period",
+      5
+    ],
+    [
+      "Hook score 70 <80",
+      3
+    ],
+    [
+      "Critical retention 30% vs gate 50% (ratio 0.59) - viewers leaving early",
+      2
+    ],
+    [
+      "Low views 77 after mature period",
+      2
+    ]
+  ],
+  "videos": [
+    {
+      "youtube_video_id": "cGVDXd8HN4g",
+      "title": "Why Got Fired Matters",
+      "topic": "WE GOT FIRED in Animal Hospital Anomaly..",
+      "views": 0,
+      "ctr": null,
+      "ctr_pct": null,
+      "average_view_percentage": null,
+      "avp_frac": null,
+      "hook_score": 70,
+      "seo_score": 92,
+      "issues": [
+        "Hook score 70 <80",
+        "Low views 0 after mature period"
+      ],
+      "suggestions": [
+        "Hook must have question + you/your + concrete visual"
+      ],
+      "heatmap_proxy": [],
+      "status": "below_gate"
+    },
+    {
+      "youtube_video_id": "QVLAgCpKa1M",
+      "title": "Ringing Ears 👂",
+      "topic": "your ears ringing in absolute silence",
+      "views": 0,
+      "ctr": null,
+      "ctr_pct": null,
+      "average_view_percentage": null,
+      "avp_frac": null,
+      "hook_score": 85,
+      "seo_score": 73,
+      "issues": [
+        "Label title 3 words - no curiosity loop",
+        "Low views 0 after mature period"
+      ],
+      "suggestions": [
+        "Use Why Your pattern: Why Your {subject}"
+      ],
+      "heatmap_proxy": [],
+      "status": "below_gate"
+    },
+    {
+      "youtube_video_id": "IgJc5YtvLeY",
+      "title": "Sleeping Foot 🫀",
+      "topic": "your foot falling asleep and feeling numb",
+      "views": 0,
+      "ctr": null,
+      "ctr_pct": null,
+      "average_view_percentage": null,
+      "avp_frac": null,
+      "hook_score": 85,
+      "seo_score": 75,
+      "issues": [
+        "Label title 3 words - no curiosity loop",
+        "Low views 0 after mature period"
+      ],
+      "suggestions": [
+        "Use Why Your pattern: Why Your {subject}"
+      ],
+      "heatmap_proxy": [],
+      "status": "below_gate"
+    },
+    {
+      "youtube_video_id": "NNVgyS0NF4U",
+      "title": "Gag Reflex 🫀",
+      "topic": "brushing back teeth triggering a sudden gag",
+      "views": 0,
+      "ctr": null,
+      "ctr_pct": null,
+      "average_view_percentage": null,
+      "avp_frac": null,
+      "hook_score": 85,
+      "seo_score": 73,
+      "issues": [
+        "Label title 3 words - no curiosity loop",
+        "Low views 0 after mature period"
+      ],
+      "suggestions": [
+        "Use Why Your pattern: Why Your {subject}"
+      ],
+      "heatmap_proxy": [],
+      "status": "below_gate"
+    },
+    {
+      "youtube_video_id": "tyPk5Wt1Xqg",
+      "title": "Dizzy Standing 🫀",
+      "topic": "feeling lightheaded right after standing up fast",
+      "views": 0,
+      "ctr": null,
+      "ctr_pct": null,
+      "average_view_percentage": null,
+      "avp_frac": null,
+      "hook_score": 85,
+      "seo_score": 75,
+      "issues": [
+        "Label title 3 words - no curiosity loop",
+        "Low views 0 after mature period"
+      ],
+      "suggestions": [
+        "Use Why Your pattern: Why Your {subject}"
+      ],
+      "heatmap_proxy": [],
+      "status": "below_gate"
+    },
+    {
+      "youtube_video_id": "QZF0IHtnbIg",
+      "title": "Throat Lump 🫀",
+      "topic": "a feeling of a lump in your throat when sad",
+      "views": 2,
+      "ctr": null,
+      "ctr_pct": null,
+      "average_view_percentage": 114.59000000000002,
+      "avp_frac": 1.1459000000000001,
+      "hook_score": 85,
+      "seo_score": 73,
+      "issues": [
+        "Label title 3 words - no curiosity loop",
+        "Low views 2 after mature period"
+      ],
+      "suggestions": [
+        "Retention healthy - scale this format",
+        "Use Why Your pattern: Why Your {subject}"
+      ],
+      "heatmap_proxy": [
+        {
+          "video_pct": 0,
+          "estimated_retention": 1.0
+        },
+        {
+          "video_pct": 12,
+          "estimated_retention": 1.02
+        },
+        {
+          "video_pct": 25,
+          "estimated_retention": 1.05
+        },
+        {
+          "video_pct": 37,
+          "estimated_retention": 1.07
+        },
+        {
+          "video_pct": 50,
+          "estimated_retention": 1.09
+        },
+        {
+          "video_pct": 62,
+          "estimated_retention": 1.12
+        },
+        {
+          "video_pct": 75,
+          "estimated_retention": 1.14
+        },
+        {
+          "video_pct": 87,
+          "estimated_retention": 1.17
+        },
+        {
+          "video_pct": 100,
+          "estimated_retention": 1.19
+        }
+      ],
+      "status": "below_gate"
+    },
+    {
+      "youtube_video_id": "2uHI9kXSRLQ",
+      "title": "Heartbeat Sound ðŸ«€ 👂",
+      "topic": "hearing your heartbeat at night",
+      "views": 50,
+      "ctr": null,
+      "ctr_pct": null,
+      "average_view_percentage": 29.600000000000005,
+      "avp_frac": 0.29600000000000004,
+      "hook_score": 90,
+      "seo_score": 78,
+      "issues": [
+        "Critical retention 30% vs gate 50% (ratio 0.59) - viewers leaving early",
+        "Low views 50 after mature period"
+      ],
+      "suggestions": [
+        "Hook + first 3s weak - open with question, tighten first frame"
+      ],
+      "heatmap_proxy": [
+        {
+          "video_pct": 0,
+          "estimated_retention": 1.0
+        },
+        {
+          "video_pct": 12,
+          "estimated_retention": 0.89
+        },
+        {
+          "video_pct": 25,
+          "estimated_retention": 0.77
+        },
+        {
+          "video_pct": 37,
+          "estimated_retention": 0.66
+        },
+        {
+          "video_pct": 50,
+          "estimated_retention": 0.54
+        },
+        {
+          "video_pct": 62,
+          "estimated_retention": 0.43
+        },
+        {
+          "video_pct": 75,
+          "estimated_retention": 0.31
+        },
+        {
+          "video_pct": 87,
+          "estimated_retention": 0.2
+        },
+        {
+          "video_pct": 100,
+          "estimated_retention": 0.08
+        }
+      ],
+      "status": "critical"
+    },
+    {
+      "youtube_video_id": "BiyXoAJBq4g",
+      "title": "Why your body freezes when you feel scared 🫀",
+      "topic": "Why your body freezes when you feel scared",
+      "views": 77,
+      "ctr": null,
+      "ctr_pct": null,
+      "average_view_percentage": 16.75,
+      "avp_frac": 0.1675,
+      "hook_score": 85,
+      "seo_score": 88,
+      "issues": [
+        "Critical retention 17% vs gate 50% (ratio 0.34) - viewers leaving early",
+        "Low views 77 after mature period"
+      ],
+      "suggestions": [
+        "Hook + first 3s weak - open with question, tighten first frame"
+      ],
+      "heatmap_proxy": [
+        {
+          "video_pct": 0,
+          "estimated_retention": 1.0
+        },
+        {
+          "video_pct": 12,
+          "estimated_retention": 0.87
+        },
+        {
+          "video_pct": 25,
+          "estimated_retention": 0.73
+        },
+        {
+          "video_pct": 37,
+          "estimated_retention": 0.6
+        },
+        {
+          "video_pct": 50,
+          "estimated_retention": 0.46
+        },
+        {
+          "video_pct": 62,
+          "estimated_retention": 0.33
+        },
+        {
+          "video_pct": 75,
+          "estimated_retention": 0.19
+        },
+        {
+          "video_pct": 87,
+          "estimated_retention": 0.06
+        },
+        {
+          "video_pct": 100,
+          "estimated_retention": 0
+        }
+      ],
+      "status": "critical"
+    },
+    {
+      "youtube_video_id": "XCUNM30ET_8",
+      "title": "Muscle Cramp 😴",
+      "topic": "a sudden charley horse cramp in your calf at night",
+      "views": 77,
+      "ctr": null,
+      "ctr_pct": null,
+      "average_view_percentage": 33.06,
+      "avp_frac": 0.3306,
+      "hook_score": 85,
+      "seo_score": 73,
+      "issues": [
+        "Below gate 33% vs 50% (ratio 0.66)",
+        "Label title 3 words - no curiosity loop",
+        "Low views 77 after mature period"
+      ],
+      "suggestions": [
+        "Shorten middle scenes, keep payoff early",
+        "Use Why Your pattern: Why Your {subject}"
+      ],
+      "heatmap_proxy": [
+        {
+          "video_pct": 0,
+          "estimated_retention": 1.0
+        },
+        {
+          "video_pct": 12,
+          "estimated_retention": 0.9
+        },
+        {
+          "video_pct": 25,
+          "estimated_retention": 0.78
+        },
+        {
+          "video_pct": 37,
+          "estimated_retention": 0.68
+        },
+        {
+          "video_pct": 50,
+          "estimated_retention": 0.56
+        },
+        {
+          "video_pct": 62,
+          "estimated_retention": 0.46
+        },
+        {
+          "video_pct": 75,
+          "estimated_retention": 0.35
+        },
+        {
+          "video_pct": 87,
+          "estimated_retention": 0.24
+        },
+        {
+          "video_pct": 100,
+          "estimated_retention": 0.13
+        }
+      ],
+      "status": "below_gate"
+    },
+    {
+      "youtube_video_id": "H7HDSb0yX5A",
+      "title": "Why You Hear Your Heartbeat at Night 🫀",
+      "topic": "Why you hear your heartbeat at night",
+      "views": 87,
+      "ctr": null,
+      "ctr_pct": null,
+      "average_view_percentage": 44.13,
+      "avp_frac": 0.4413,
+      "hook_score": 90,
+      "seo_score": 90,
+      "issues": [
+        "Below gate 44% vs 50% (ratio 0.88)",
+        "Low views 87 after mature period"
+      ],
+      "suggestions": [
+        "Shorten middle scenes, keep payoff early"
+      ],
+      "heatmap_proxy": [
+        {
+          "video_pct": 0,
+          "estimated_retention": 1.0
+        },
+        {
+          "video_pct": 12,
+          "estimated_retention": 0.91
+        },
+        {
+          "video_pct": 25,
+          "estimated_retention": 0.82
+        },
+        {
+          "video_pct": 37,
+          "estimated_retention": 0.73
+        },
+        {
+          "video_pct": 50,
+          "estimated_retention": 0.64
+        },
+        {
+          "video_pct": 62,
+          "estimated_retention": 0.55
+        },
+        {
+          "video_pct": 75,
+          "estimated_retention": 0.46
+        },
+        {
+          "video_pct": 87,
+          "estimated_retention": 0.37
+        },
+        {
+          "video_pct": 100,
+          "estimated_retention": 0.27
+        }
+      ],
+      "status": "below_gate"
+    },
+    {
+      "youtube_video_id": "_2JHzwLIE50",
+      "title": "Morning Voice 🫀",
+      "topic": "your voice sounding noticeably deeper right after waking up",
+      "views": 103,
+      "ctr": null,
+      "ctr_pct": null,
+      "average_view_percentage": 24.1,
+      "avp_frac": 0.24100000000000002,
+      "hook_score": 85,
+      "seo_score": 73,
+      "issues": [
+        "Critical retention 24% vs gate 50% (ratio 0.48) - viewers leaving early",
+        "Label title 3 words - no curiosity loop",
+        "Low views 103 after mature period"
+      ],
+      "suggestions": [
+        "Hook + first 3s weak - open with question, tighten first frame",
+        "Use Why Your pattern: Why Your {subject}"
+      ],
+      "heatmap_proxy": [
+        {
+          "video_pct": 0,
+          "estimated_retention": 1.0
+        },
+        {
+          "video_pct": 12,
+          "estimated_retention": 0.88
+        },
+        {
+          "video_pct": 25,
+          "estimated_retention": 0.75
+        },
+        {
+          "video_pct": 37,
+          "estimated_retention": 0.63
+        },
+        {
+          "video_pct": 50,
+          "estimated_retention": 0.51
+        },
+        {
+          "video_pct": 62,
+          "estimated_retention": 0.39
+        },
+        {
+          "video_pct": 75,
+          "estimated_retention": 0.26
+        },
+        {
+          "video_pct": 87,
+          "estimated_retention": 0.14
+        },
+        {
+          "video_pct": 100,
+          "estimated_retention": 0.01
+        }
+      ],
+      "status": "critical"
+    },
+    {
+      "youtube_video_id": "IjwfP0tcZH8",
+      "title": "Body Freeze ðŸ˜³ 🫀",
+      "topic": "your body freezing when scared",
+      "views": 107,
+      "ctr": null,
+      "ctr_pct": null,
+      "average_view_percentage": 28.27,
+      "avp_frac": 0.2827,
+      "hook_score": 85,
+      "seo_score": 82,
+      "issues": [
+        "Critical retention 28% vs gate 50% (ratio 0.57) - viewers leaving early",
+        "Low views 107 after mature period"
+      ],
+      "suggestions": [
+        "Hook + first 3s weak - open with question, tighten first frame"
+      ],
+      "heatmap_proxy": [
+        {
+          "video_pct": 0,
+          "estimated_retention": 1.0
+        },
+        {
+          "video_pct": 12,
+          "estimated_retention": 0.89
+        },
+        {
+          "video_pct": 25,
+          "estimated_retention": 0.77
+        },
+        {
+          "video_pct": 37,
+          "estimated_retention": 0.65
+        },
+        {
+          "video_pct": 50,
+          "estimated_retention": 0.53
+        },
+        {
+          "video_pct": 62,
+          "estimated_retention": 0.42
+        },
+        {
+          "video_pct": 75,
+          "estimated_retention": 0.3
+        },
+        {
+          "video_pct": 87,
+          "estimated_retention": 0.19
+        },
+        {
+          "video_pct": 100,
+          "estimated_retention": 0.07
+        }
+      ],
+      "status": "critical"
+    },
+    {
+      "youtube_video_id": "ed031j4Pgy8",
+      "title": "Song Earworm 🧠",
+      "topic": "having a 5-second song loop stuck in your brain",
+      "views": 108,
+      "ctr": null,
+      "ctr_pct": null,
+      "average_view_percentage": 26.14,
+      "avp_frac": 0.2614,
+      "hook_score": 85,
+      "seo_score": 73,
+      "issues": [
+        "Critical retention 26% vs gate 50% (ratio 0.52) - viewers leaving early",
+        "Label title 3 words - no curiosity loop",
+        "Low views 108 after mature period"
+      ],
+      "suggestions": [
+        "Hook + first 3s weak - open with question, tighten first frame",
+        "Use Why Your pattern: Why Your {subject}"
+      ],
+      "heatmap_proxy": [
+        {
+          "video_pct": 0,
+          "estimated_retention": 1.0
+        },
+        {
+          "video_pct": 12,
+          "estimated_retention": 0.88
+        },
+        {
+          "video_pct": 25,
+          "estimated_retention": 0.76
+        },
+        {
+          "video_pct": 37,
+          "estimated_retention": 0.64
+        },
+        {
+          "video_pct": 50,
+          "estimated_retention": 0.52
+        },
+        {
+          "video_pct": 62,
+          "estimated_retention": 0.4
+        },
+        {
+          "video_pct": 75,
+          "estimated_retention": 0.28
+        },
+        {
+          "video_pct": 87,
+          "estimated_retention": 0.16
+        },
+        {
+          "video_pct": 100,
+          "estimated_retention": 0.04
+        }
+      ],
+      "status": "critical"
+    },
+    {
+      "youtube_video_id": "FUgcHHnhLSM",
+      "title": "Time Compression 🫀",
+      "topic": "feeling like hours passed in minutes or vice versa",
+      "views": 133,
+      "ctr": null,
+      "ctr_pct": null,
+      "average_view_percentage": 25.41,
+      "avp_frac": 0.2541,
+      "hook_score": 85,
+      "seo_score": 73,
+      "issues": [
+        "Critical retention 25% vs gate 50% (ratio 0.51) - viewers leaving early",
+        "Label title 3 words - no curiosity loop",
+        "Low views 133 after mature period"
+      ],
+      "suggestions": [
+        "Hook + first 3s weak - open with question, tighten first frame",
+        "Use Why Your pattern: Why Your {subject}"
+      ],
+      "heatmap_proxy": [
+        {
+          "video_pct": 0,
+          "estimated_retention": 1.0
+        },
+        {
+          "video_pct": 12,
+          "estimated_retention": 0.88
+        },
+        {
+          "video_pct": 25,
+          "estimated_retention": 0.76
+        },
+        {
+          "video_pct": 37,
+          "estimated_retention": 0.64
+        },
+        {
+          "video_pct": 50,
+          "estimated_retention": 0.52
+        },
+        {
+          "video_pct": 62,
+          "estimated_retention": 0.4
+        },
+        {
+          "video_pct": 75,
+          "estimated_retention": 0.27
+        },
+        {
+          "video_pct": 87,
+          "estimated_retention": 0.16
+        },
+        {
+          "video_pct": 100,
+          "estimated_retention": 0.03
+        }
+      ],
+      "status": "critical"
+    },
+    {
+      "youtube_video_id": "OuakWz2vLcs",
+      "title": "Why Deja Vu Feels Strangely Familiar 🫀",
+      "topic": "Why deja vu feels strangely familiar",
+      "views": 179,
+      "ctr": null,
+      "ctr_pct": null,
+      "average_view_percentage": 25.230000000000004,
+      "avp_frac": 0.2523,
+      "hook_score": 85,
+      "seo_score": 87,
+      "issues": [
+        "Critical retention 25% vs gate 50% (ratio 0.50) - viewers leaving early"
+      ],
+      "suggestions": [
+        "Hook + first 3s weak - open with question, tighten first frame"
+      ],
+      "heatmap_proxy": [
+        {
+          "video_pct": 0,
+          "estimated_retention": 1.0
+        },
+        {
+          "video_pct": 12,
+          "estimated_retention": 0.88
+        },
+        {
+          "video_pct": 25,
+          "estimated_retention": 0.76
+        },
+        {
+          "video_pct": 37,
+          "estimated_retention": 0.64
+        },
+        {
+          "video_pct": 50,
+          "estimated_retention": 0.51
+        },
+        {
+          "video_pct": 62,
+          "estimated_retention": 0.4
+        },
+        {
+          "video_pct": 75,
+          "estimated_retention": 0.27
+        },
+        {
+          "video_pct": 87,
+          "estimated_retention": 0.15
+        },
+        {
+          "video_pct": 100,
+          "estimated_retention": 0.03
+        }
+      ],
+      "status": "critical"
+    },
+    {
+      "youtube_video_id": "AbAXF8oHhp0",
+      "title": "Wrinkled Hands ðŸ˜³ 🫀",
+      "topic": "your hands wrinkling in water",
+      "views": 183,
+      "ctr": null,
+      "ctr_pct": null,
+      "average_view_percentage": 305.03,
+      "avp_frac": 3.0502999999999996,
+      "hook_score": 85,
+      "seo_score": 78,
+      "issues": [],
+      "suggestions": [
+        "Retention healthy - scale this format"
+      ],
+      "heatmap_proxy": [
+        {
+          "video_pct": 0,
+          "estimated_retention": 1.0
+        },
+        {
+          "video_pct": 12,
+          "estimated_retention": 1.32
+        },
+        {
+          "video_pct": 25,
+          "estimated_retention": 1.67
+        },
+        {
+          "video_pct": 37,
+          "estimated_retention": 1.99
+        },
+        {
+          "video_pct": 50,
+          "estimated_retention": 2.33
+        },
+        {
+          "video_pct": 62,
+          "estimated_retention": 2.65
+        },
+        {
+          "video_pct": 75,
+          "estimated_retention": 3.0
+        },
+        {
+          "video_pct": 87,
+          "estimated_retention": 3.32
+        },
+        {
+          "video_pct": 100,
+          "estimated_retention": 3.67
+        }
+      ],
+      "status": "healthy"
+    },
+    {
+      "youtube_video_id": "aOSF9iJ4eV0",
+      "title": "Body Glitch #388: Fast Hunger",
+      "topic": "The body signal behind getting hungry at the same time daily",
+      "views": 192,
+      "ctr": null,
+      "ctr_pct": null,
+      "average_view_percentage": 36,
+      "avp_frac": 0.36,
+      "hook_score": 70,
+      "seo_score": 92,
+      "issues": [
+        "Below gate 36% vs 50% (ratio 0.72)",
+        "Hook score 70 <80"
+      ],
+      "suggestions": [
+        "Shorten middle scenes, keep payoff early",
+        "Hook must have question + you/your + concrete visual"
+      ],
+      "heatmap_proxy": [
+        {
+          "video_pct": 0,
+          "estimated_retention": 1.0
+        },
+        {
+          "video_pct": 12,
+          "estimated_retention": 0.9
+        },
+        {
+          "video_pct": 25,
+          "estimated_retention": 0.79
+        },
+        {
+          "video_pct": 37,
+          "estimated_retention": 0.69
+        },
+        {
+          "video_pct": 50,
+          "estimated_retention": 0.58
+        },
+        {
+          "video_pct": 62,
+          "estimated_retention": 0.48
+        },
+        {
+          "video_pct": 75,
+          "estimated_retention": 0.38
+        },
+        {
+          "video_pct": 87,
+          "estimated_retention": 0.28
+        },
+        {
+          "video_pct": 100,
+          "estimated_retention": 0.17
+        }
+      ],
+      "status": "below_gate"
+    },
+    {
+      "youtube_video_id": "h3e9jl39zR4",
+      "title": "Sleep Jerk ðŸ˜³",
+      "topic": "your body jerking as you fall asleep",
+      "views": 202,
+      "ctr": null,
+      "ctr_pct": null,
+      "average_view_percentage": 29.62,
+      "avp_frac": 0.2962,
+      "hook_score": 70,
+      "seo_score": 88,
+      "issues": [
+        "Critical retention 30% vs gate 50% (ratio 0.59) - viewers leaving early",
+        "Label title 3 words - no curiosity loop",
+        "Hook score 70 <80"
+      ],
+      "suggestions": [
+        "Hook + first 3s weak - open with question, tighten first frame",
+        "Use Why Your pattern: Why Your {subject}",
+        "Hook must have question + you/your + concrete visual"
+      ],
+      "heatmap_proxy": [
+        {
+          "video_pct": 0,
+          "estimated_retention": 1.0
+        },
+        {
+          "video_pct": 12,
+          "estimated_retention": 0.89
+        },
+        {
+          "video_pct": 25,
+          "estimated_retention": 0.77
+        },
+        {
+          "video_pct": 37,
+          "estimated_retention": 0.66
+        },
+        {
+          "video_pct": 50,
+          "estimated_retention": 0.54
+        },
+        {
+          "video_pct": 62,
+          "estimated_retention": 0.43
+        },
+        {
+          "video_pct": 75,
+          "estimated_retention": 0.31
+        },
+        {
+          "video_pct": 87,
+          "estimated_retention": 0.2
+        },
+        {
+          "video_pct": 100,
+          "estimated_retention": 0.09
+        }
+      ],
+      "status": "critical"
+    },
+    {
+      "youtube_video_id": "bMkH0kI3V8Y",
+      "title": "Cracking Knees ðŸ˜³ 🦵",
+      "topic": "your knees cracking when you move",
+      "views": 357,
+      "ctr": null,
+      "ctr_pct": null,
+      "average_view_percentage": 36.66,
+      "avp_frac": 0.3666,
+      "hook_score": 85,
+      "seo_score": 78,
+      "issues": [
+        "Below gate 37% vs 50% (ratio 0.73)"
+      ],
+      "suggestions": [
+        "Shorten middle scenes, keep payoff early"
+      ],
+      "heatmap_proxy": [
+        {
+          "video_pct": 0,
+          "estimated_retention": 1.0
+        },
+        {
+          "video_pct": 12,
+          "estimated_retention": 0.9
+        },
+        {
+          "video_pct": 25,
+          "estimated_retention": 0.79
+        },
+        {
+          "video_pct": 37,
+          "estimated_retention": 0.7
+        },
+        {
+          "video_pct": 50,
+          "estimated_retention": 0.59
+        },
+        {
+          "video_pct": 62,
+          "estimated_retention": 0.49
+        },
+        {
+          "video_pct": 75,
+          "estimated_retention": 0.38
+        },
+        {
+          "video_pct": 87,
+          "estimated_retention": 0.28
+        },
+        {
+          "video_pct": 100,
+          "estimated_retention": 0.18
+        }
+      ],
+      "status": "below_gate"
+    },
+    {
+      "youtube_video_id": "L3idewWMmPU",
+      "title": "Spreading Yawns 🫀",
+      "topic": "yawning spreading instantly from person to person",
+      "views": 664,
+      "ctr": null,
+      "ctr_pct": null,
+      "average_view_percentage": 35.08,
+      "avp_frac": 0.3508,
+      "hook_score": 85,
+      "seo_score": 75,
+      "issues": [
+        "Below gate 35% vs 50% (ratio 0.70)",
+        "Label title 3 words - no curiosity loop"
+      ],
+      "suggestions": [
+        "Shorten middle scenes, keep payoff early",
+        "Use Why Your pattern: Why Your {subject}"
+      ],
+      "heatmap_proxy": [
+        {
+          "video_pct": 0,
+          "estimated_retention": 1.0
+        },
+        {
+          "video_pct": 12,
+          "estimated_retention": 0.9
+        },
+        {
+          "video_pct": 25,
+          "estimated_retention": 0.79
+        },
+        {
+          "video_pct": 37,
+          "estimated_retention": 0.69
+        },
+        {
+          "video_pct": 50,
+          "estimated_retention": 0.58
+        },
+        {
+          "video_pct": 62,
+          "estimated_retention": 0.48
+        },
+        {
+          "video_pct": 75,
+          "estimated_retention": 0.37
+        },
+        {
+          "video_pct": 87,
+          "estimated_retention": 0.27
+        },
+        {
+          "video_pct": 100,
+          "estimated_retention": 0.16
+        }
+      ],
+      "status": "below_gate"
+    }
+  ]
+}

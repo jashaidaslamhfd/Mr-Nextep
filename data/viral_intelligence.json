@@ -1,0 +1,320 @@
+{
+  "generated_at": "2026-07-30T11:48:54.301621+00:00",
+  "total_viral_videos": 15,
+  "queries_used": [
+    "why your body does this",
+    "human body facts",
+    "brain facts",
+    "body glitch",
+    "weird body facts",
+    "psychology facts",
+    "human anatomy facts",
+    "why you feel",
+    "body science",
+    "mystery body facts"
+  ],
+  "min_views_threshold": 500000,
+  "title_starters": {
+    "Why Your": 3,
+    "Why You": 1
+  },
+  "power_words": {},
+  "top_tags": {
+    "human body": 2,
+    "body facts": 2,
+    "brain facts": 2,
+    "science facts": 2,
+    "psychology facts": 2,
+    "weird facts": 2,
+    "interesting facts": 2,
+    "did you know": 2,
+    "amazing facts": 2,
+    "human anatomy": 2,
+    "body science": 2,
+    "neuroscience": 2,
+    "mind blowing facts": 2,
+    "health facts": 2,
+    "medical facts": 2,
+    "biology": 2,
+    "anatomy": 2,
+    "physiology": 2,
+    "why does my body": 2,
+    "body glitch": 2,
+    "mystery facts": 2,
+    "creepy facts": 2,
+    "science behind": 2,
+    "how your body works": 2,
+    "human body explained": 2,
+    "facts in english": 2,
+    "science facts in english": 2,
+    "body facts shorts": 2,
+    "viral facts": 2,
+    "shorts": 2,
+    "youtubeshorts": 2,
+    "facts shorts": 2
+  },
+  "avg_title_length": 52,
+  "viral_videos": [
+    {
+      "video_id": "curated_4",
+      "title": "The Real Reason Your Your Body Does This",
+      "tags": [
+        "psychology facts",
+        "weird facts",
+        "interesting facts",
+        "did you know",
+        "amazing facts"
+      ],
+      "view_count": 4769183,
+      "query": "curated",
+      "channel_title": "Viral Channel Pattern"
+    },
+    {
+      "video_id": "curated_5",
+      "title": "What Happens To Your Body When You Sleep",
+      "tags": [
+        "weird facts",
+        "interesting facts",
+        "did you know",
+        "amazing facts",
+        "human anatomy"
+      ],
+      "view_count": 4503997,
+      "query": "curated",
+      "channel_title": "Viral Channel Pattern"
+    },
+    {
+      "video_id": "curated_14",
+      "title": "The Shocking Truth About Your Body",
+      "tags": [
+        "medical facts",
+        "biology",
+        "anatomy",
+        "physiology",
+        "why does my body"
+      ],
+      "view_count": 4419488,
+      "query": "curated",
+      "channel_title": "Viral Channel Pattern"
+    },
+    {
+      "video_id": "curated_7",
+      "title": "The Hidden Reason Behind Your Body",
+      "tags": [
+        "did you know",
+        "amazing facts",
+        "human anatomy",
+        "body science",
+        "neuroscience"
+      ],
+      "view_count": 4378240,
+      "query": "curated",
+      "channel_title": "Viral Channel Pattern"
+    },
+    {
+      "video_id": "curated_8",
+      "title": "Your Your Body Is Trying To Tell You Something",
+      "tags": [
+        "amazing facts",
+        "human anatomy",
+        "body science",
+        "neuroscience",
+        "mind blowing facts"
+      ],
+      "view_count": 3378589,
+      "query": "curated",
+      "channel_title": "Viral Channel Pattern"
+    },
+    {
+      "video_id": "curated_10",
+      "title": "Scientists Finally Explain Why Your Body",
+      "tags": [
+        "body science",
+        "neuroscience",
+        "mind blowing facts",
+        "health facts",
+        "medical facts"
+      ],
+      "view_count": 2920206,
+      "query": "curated",
+      "channel_title": "Viral Channel Pattern"
+    },
+    {
+      "video_id": "curated_2",
+      "title": "This Is Why Your Your Body Does This",
+      "tags": [
+        "brain facts",
+        "science facts",
+        "psychology facts",
+        "weird facts",
+        "interesting facts"
+      ],
+      "view_count": 2743511,
+      "query": "curated",
+      "channel_title": "Viral Channel Pattern"
+    },
+    {
+      "video_id": "curated_6",
+      "title": "Why You Does This Your Body Without Knowing",
+      "tags": [
+        "interesting facts",
+        "did you know",
+        "amazing facts",
+        "human anatomy",
+        "body science"
+      ],
+      "view_count": 2599625,
+      "query": "curated",
+      "channel_title": "Viral Channel Pattern"
+    },
+    {
+      "video_id": "curated_0",
+      "title": "Why Your Your Body Does This Every Time",
+      "tags": [
+        "human body",
+        "body facts",
+        "brain facts",
+        "science facts",
+        "psychology facts"
+      ],
+      "view_count": 2597103,
+      "query": "curated",
+      "channel_title": "Viral Channel Pattern"
+    },
+    {
+      "video_id": "curated_12",
+      "title": "Why Your Body Does This When You're {state}",
+      "tags": [
+        "mind blowing facts",
+        "health facts",
+        "medical facts",
+        "biology",
+        "anatomy"
+      ],
+      "view_count": 2577004,
+      "query": "curated",
+      "channel_title": "Viral Channel Pattern"
+    },
+    {
+      "video_id": "curated_9",
+      "title": "This Is What Your Your Body Really Means",
+      "tags": [
+        "human anatomy",
+        "body science",
+        "neuroscience",
+        "mind blowing facts",
+        "health facts"
+      ],
+      "view_count": 2432242,
+      "query": "curated",
+      "channel_title": "Viral Channel Pattern"
+    },
+    {
+      "video_id": "curated_1",
+      "title": "The Truth About Your Your Body",
+      "tags": [
+        "body facts",
+        "brain facts",
+        "science facts",
+        "psychology facts",
+        "weird facts"
+      ],
+      "view_count": 1860929,
+      "query": "curated",
+      "channel_title": "Viral Channel Pattern"
+    },
+    {
+      "video_id": "curated_11",
+      "title": "The Secret Behind Your Your Body",
+      "tags": [
+        "neuroscience",
+        "mind blowing facts",
+        "health facts",
+        "medical facts",
+        "biology"
+      ],
+      "view_count": 1703725,
+      "query": "curated",
+      "channel_title": "Viral Channel Pattern"
+    },
+    {
+      "video_id": "curated_13",
+      "title": "What Your Your Body Says About Your Health",
+      "tags": [
+        "health facts",
+        "medical facts",
+        "biology",
+        "anatomy",
+        "physiology"
+      ],
+      "view_count": 1268072,
+      "query": "curated",
+      "channel_title": "Viral Channel Pattern"
+    },
+    {
+      "video_id": "curated_3",
+      "title": "Your Body Does This For A Reason",
+      "tags": [
+        "science facts",
+        "psychology facts",
+        "weird facts",
+        "interesting facts",
+        "did you know"
+      ],
+      "view_count": 1036465,
+      "query": "curated",
+      "channel_title": "Viral Channel Pattern"
+    }
+  ],
+  "curated_patterns": [
+    "Why Your {subject} {verb} Every Time",
+    "The Truth About Your {subject}",
+    "This Is Why Your {subject} {verb}",
+    "Your Body Does This For A Reason",
+    "The Real Reason Your {subject} {verb}",
+    "What Happens To Your Body When {action}",
+    "Why You {verb} {subject} Without Knowing",
+    "The Hidden Reason Behind {subject}",
+    "Your {subject} Is Trying To Tell You Something",
+    "This Is What Your {subject} Really Means",
+    "Scientists Finally Explain Why {subject}",
+    "The Secret Behind Your {subject}",
+    "Why Your Body {verb} When You're {state}",
+    "What Your {subject} Says About Your Health",
+    "The Shocking Truth About {subject}"
+  ],
+  "curated_tags": [
+    "human body",
+    "body facts",
+    "brain facts",
+    "science facts",
+    "psychology facts",
+    "weird facts",
+    "interesting facts",
+    "did you know",
+    "amazing facts",
+    "human anatomy",
+    "body science",
+    "neuroscience",
+    "mind blowing facts",
+    "health facts",
+    "medical facts",
+    "biology",
+    "anatomy",
+    "physiology",
+    "why does my body",
+    "body glitch",
+    "mystery facts",
+    "creepy facts",
+    "science behind",
+    "how your body works",
+    "human body explained",
+    "facts in english",
+    "science facts in english",
+    "body facts shorts",
+    "viral facts",
+    "shorts",
+    "youtubeshorts",
+    "facts shorts"
+  ]
+}

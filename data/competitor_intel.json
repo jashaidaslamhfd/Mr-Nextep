@@ -1,0 +1,225 @@
+{
+  "generated_at": "2026-07-30T11:48:54.305820+00:00",
+  "total_viral_videos": 11,
+  "competitors_analyzed": 5,
+  "per_channel": {
+    "BRIGHT SIDE": {
+      "channel_id": "UC4a-Gbdw7vOaccHmFo40b9g",
+      "name": "BRIGHT SIDE",
+      "viral_count": 3,
+      "avg_views": 1200000.0,
+      "videos": [
+        {
+          "video_id": "curated_UC4a-Gbdw7vOaccHmFo40b9g_0",
+          "title": "Why Your Body Does This When You're Nervous",
+          "view_count": 1000000,
+          "like_count": 50000,
+          "tags": [
+            "human body",
+            "body facts",
+            "science facts"
+          ],
+          "published_at": "2026-01-01T00:00:00Z",
+          "channel_id": "UC4a-Gbdw7vOaccHmFo40b9g"
+        },
+        {
+          "video_id": "curated_UC4a-Gbdw7vOaccHmFo40b9g_1",
+          "title": "The Truth About Your Body That No One Tells You",
+          "view_count": 1200000,
+          "like_count": 50000,
+          "tags": [
+            "human body",
+            "body facts",
+            "science facts"
+          ],
+          "published_at": "2026-01-01T00:00:00Z",
+          "channel_id": "UC4a-Gbdw7vOaccHmFo40b9g"
+        },
+        {
+          "video_id": "curated_UC4a-Gbdw7vOaccHmFo40b9g_2",
+          "title": "What Happens To Your Body When You Don't Sleep",
+          "view_count": 1400000,
+          "like_count": 50000,
+          "tags": [
+            "human body",
+            "body facts",
+            "science facts"
+          ],
+          "published_at": "2026-01-01T00:00:00Z",
+          "channel_id": "UC4a-Gbdw7vOaccHmFo40b9g"
+        }
+      ]
+    },
+    "AsapSCIENCE": {
+      "channel_id": "UC1yBKRuGpC1tSM73A0ZjYjQ",
+      "name": "AsapSCIENCE",
+      "viral_count": 3,
+      "avg_views": 1200000.0,
+      "videos": [
+        {
+          "video_id": "curated_UC1yBKRuGpC1tSM73A0ZjYjQ_0",
+          "title": "Why Do We Get Goosebumps?",
+          "view_count": 1000000,
+          "like_count": 50000,
+          "tags": [
+            "human body",
+            "body facts",
+            "science facts"
+          ],
+          "published_at": "2026-01-01T00:00:00Z",
+          "channel_id": "UC1yBKRuGpC1tSM73A0ZjYjQ"
+        },
+        {
+          "video_id": "curated_UC1yBKRuGpC1tSM73A0ZjYjQ_1",
+          "title": "The Science of Why You Feel Dizzy",
+          "view_count": 1200000,
+          "like_count": 50000,
+          "tags": [
+            "human body",
+            "body facts",
+            "science facts"
+          ],
+          "published_at": "2026-01-01T00:00:00Z",
+          "channel_id": "UC1yBKRuGpC1tSM73A0ZjYjQ"
+        },
+        {
+          "video_id": "curated_UC1yBKRuGpC1tSM73A0ZjYjQ_2",
+          "title": "What Happens When You Hold Your Breath?",
+          "view_count": 1400000,
+          "like_count": 50000,
+          "tags": [
+            "human body",
+            "body facts",
+            "science facts"
+          ],
+          "published_at": "2026-01-01T00:00:00Z",
+          "channel_id": "UC1yBKRuGpC1tSM73A0ZjYjQ"
+        }
+      ]
+    },
+    "Body Hub": {
+      "channel_id": "UC2bkH_zZgZ9G0T2z9lP3Q0g",
+      "name": "Body Hub",
+      "viral_count": 3,
+      "avg_views": 1200000.0,
+      "videos": [
+        {
+          "video_id": "curated_UC2bkH_zZgZ9G0T2z9lP3Q0g_0",
+          "title": "Why Your Knees Crack Every Time You Move",
+          "view_count": 1000000,
+          "like_count": 50000,
+          "tags": [
+            "human body",
+            "body facts",
+            "science facts"
+          ],
+          "published_at": "2026-01-01T00:00:00Z",
+          "channel_id": "UC2bkH_zZgZ9G0T2z9lP3Q0g"
+        },
+        {
+          "video_id": "curated_UC2bkH_zZgZ9G0T2z9lP3Q0g_1",
+          "title": "Why You Feel a Lump in Your Throat When Sad",
+          "view_count": 1200000,
+          "like_count": 50000,
+          "tags": [
+            "human body",
+            "body facts",
+            "science facts"
+          ],
+          "published_at": "2026-01-01T00:00:00Z",
+          "channel_id": "UC2bkH_zZgZ9G0T2z9lP3Q0g"
+        },
+        {
+          "video_id": "curated_UC2bkH_zZgZ9G0T2z9lP3Q0g_2",
+          "title": "Why Your Body Freezes When You're Scared",
+          "view_count": 1400000,
+          "like_count": 50000,
+          "tags": [
+            "human body",
+            "body facts",
+            "science facts"
+          ],
+          "published_at": "2026-01-01T00:00:00Z",
+          "channel_id": "UC2bkH_zZgZ9G0T2z9lP3Q0g"
+        }
+      ]
+    },
+    "Mind Warehouse": {
+      "channel_id": "UC3gNmTGu-TTv1_SopBTaMxA",
+      "name": "Mind Warehouse",
+      "viral_count": 1,
+      "avg_views": 1000000.0,
+      "videos": [
+        {
+          "video_id": "curated_UC3gNmTGu-TTv1_SopBTaMxA_0",
+          "title": "Why Your Body Does This",
+          "view_count": 1000000,
+          "like_count": 50000,
+          "tags": [
+            "human body",
+            "body facts",
+            "science facts"
+          ],
+          "published_at": "2026-01-01T00:00:00Z",
+          "channel_id": "UC3gNmTGu-TTv1_SopBTaMxA"
+        }
+      ]
+    },
+    "BE AMAZED": {
+      "channel_id": "UC9Kq-yEt1yB4ykc3o2U5QdA",
+      "name": "BE AMAZED",
+      "viral_count": 1,
+      "avg_views": 1000000.0,
+      "videos": [
+        {
+          "video_id": "curated_UC9Kq-yEt1yB4ykc3o2U5QdA_0",
+          "title": "Why Your Body Does This",
+          "view_count": 1000000,
+          "like_count": 50000,
+          "tags": [
+            "human body",
+            "body facts",
+            "science facts"
+          ],
+          "published_at": "2026-01-01T00:00:00Z",
+          "channel_id": "UC9Kq-yEt1yB4ykc3o2U5QdA"
+        }
+      ]
+    }
+  },
+  "overall_title_analysis": {
+    "total": 11,
+    "avg_length": 36.54545454545455,
+    "starters": {
+      "Why Your": 5,
+      "What Happens": 2,
+      "Other": 2,
+      "The Truth": 1,
+      "Why You": 1
+    },
+    "power_words": {
+      "Why": 8,
+      "What": 2,
+      "Truth": 1,
+      "Science": 1
+    },
+    "question_pct": 18.181818181818183,
+    "emoji_pct": 0.0
+  },
+  "overall_tag_analysis": {
+    "total_unique": 3,
+    "top_tags": {
+      "human body": 11,
+      "body facts": 11,
+      "science facts": 11
+    },
+    "avg_per_video": 3.0
+  },
+  "recommendations": [
+    "Viral channels use avg 37 chars title length — keep yours 45-55 chars (US mobile optimal)",
+    "Top starter in viral channels: Why Your (5 videos) — use this pattern more",
+    "Power words that work: Why, What, Truth — include one per title",
+    "Top viral tags to include: human body, body facts, science facts"
+  ],
+  "min_views_threshold": 500000
+}
