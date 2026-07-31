@@ -83,7 +83,13 @@ class USAPeakTimeScheduler:
         Weights come from data/growth_state.json and default to 1.0, so an
         unmeasured slot keeps its natural position instead of being buried.
         """
-        weights = self._learned_slot_weights()
+        # Called through the class, not `self`, so the method keeps working
+        # even when a caller (a test, a diagnostic) has swapped it for a bare
+        # function instead of a staticmethod — otherwise `self` is passed as a
+        # positional argument and every slot lookup dies with "takes 0
+        # positional arguments but 1 was given", silently downgrading the
+        # Instagram publish to "post now" and losing the peak slot.
+        weights = type(self)._learned_slot_weights()
         annotated = []
         for peak in self.PEAK_TIMES:
             key = f"{peak['hour']:02d}:{peak['minute'] // 30 * 30:02d}"

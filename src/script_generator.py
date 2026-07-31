@@ -409,7 +409,26 @@ def _clean_json_response(raw_reply: str) -> Dict:
 # How many words over the limit a COMPLETE sentence may run before it is
 # worth breaking. Two words of overshoot costs ~0.8s; a fragment costs the
 # viewer's comprehension at the exact moment the feed is deciding.
+#
+# THIS NUMBER IS PART OF THE VALIDATION CONTRACT, not a private detail of the
+# trimmer. _trim_to_word_limit deliberately hands back a slightly-over
+# sentence rather than mutilating it, so _validate_script has to accept the
+# very same allowance. When it did not, the grace branch was unreachable by
+# construction: every caption the trimmer spared was then rejected by the
+# validator with "Scene N has 17 words (maximum 15)", the attempt was burned,
+# and after three of those the whole run exited 1 without uploading. Both
+# sides now read this constant.
 _OVERSHOOT_GRACE_WORDS = 2
+
+
+def effective_word_ceiling(max_words: int) -> int:
+    """The largest caption the pipeline will actually accept for a budget.
+
+    Anything above this is genuinely uncuttable and is bounced back to the
+    model for a rewrite. Anything at or below it either fits, or is a whole
+    sentence the trimmer chose to keep intact.
+    """
+    return max_words + _OVERSHOOT_GRACE_WORDS
 
 
 def _trim_to_word_limit(caption: str, max_words: int) -> str:
@@ -497,13 +516,16 @@ def _normalize_scenes(script_data: Dict) -> Dict:
     for i, scene in enumerate(normalized):
         limit = HOOK_MAX_WORDS if i == 0 else MAX_SCENE_WORDS
         scene['caption'] = _trim_to_word_limit(scene['caption'], limit)
-                # Models often omit terminal punctuation in JSON captions.
-        # Repair harmless formatting before retrying.
-        if (
-            scene['caption']
-            and scene['caption'][-1] not in '.!?…'
-        ):
-            scene['caption'] = scene['caption'].rstrip() + '.'
+
+        # Models often omit terminal punctuation in JSON captions. Repair
+        # that harmless formatting here instead of spending an LLM retry.
+        # Strip any dangling clause punctuation first: appending to a caption
+        # that already ends in a comma produced "your foot tingles,." which
+        # then reached the SRT file and the burned-in captions.
+        caption = scene['caption'].rstrip().rstrip(',;:—-').rstrip()
+        if caption and caption[-1] not in '.!?…':
+            caption += '.'
+        scene['caption'] = caption
     script_data['scenes'] = normalized
     script_data['voiceover'] = ' '.join(s['caption'] for s in normalized)
 
@@ -556,6 +578,13 @@ def _validate_script(script_data: Dict, lenient: bool = False) -> Tuple[bool, Li
     # _normalize_scenes already auto-trims to, so a script that's been
     # normalized should always pass this - this check is now mostly a
     # safety net for anything normalization didn't catch.)
+    #
+    # The ceiling checked here must match what the trimmer is allowed to keep
+    # (see _OVERSHOOT_GRACE_WORDS). Checking the raw budget while the trimmer
+    # preserved a whole sentence two words over made those two paths disagree,
+    # and the disagreement — not the model — is what failed entire runs.
+    hook_ceiling = effective_word_ceiling(HOOK_MAX_WORDS)
+    scene_ceiling = effective_word_ceiling(MAX_SCENE_WORDS)
     for i, scene in enumerate(scenes):
         if not scene.get('visual'):
             issues.append(f"Scene {i+1} missing visual description")
@@ -564,12 +593,12 @@ def _validate_script(script_data: Dict, lenient: bool = False) -> Tuple[bool, Li
         else:
             scene_words = len(scene['caption'].split())
             if i == 0:
-                if scene_words < HOOK_MIN_WORDS or scene_words > HOOK_MAX_WORDS:
+                if scene_words < HOOK_MIN_WORDS or scene_words > hook_ceiling:
                     issues.append(
                         f"Scene {i+1} (hook) has {scene_words} words "
-                        f"(allowed {HOOK_MIN_WORDS}-{HOOK_MAX_WORDS} to stay under the 4s hook-duration gate)"
+                        f"(allowed {HOOK_MIN_WORDS}-{HOOK_MAX_WORDS} to stay under the hook-duration gate)"
                     )
-            elif scene_words > MAX_SCENE_WORDS:
+            elif scene_words > scene_ceiling:
                 issues.append(f"Scene {i+1} has {scene_words} words (maximum {MAX_SCENE_WORDS})")
 
     # The scored hook must be the line viewers actually hear first.

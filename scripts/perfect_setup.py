@@ -28,7 +28,6 @@ Usage:
 import json
 import os
 import sys
-import time
 from pathlib import Path
 from datetime import datetime, timezone
 
@@ -102,7 +101,7 @@ def main():
         for f in thumb_fallback.glob("*.jpg"):
             if not (thumb_dir / f.name).exists():
                 shutil.copy(f, thumb_dir / f.name)
-        _log(f"  ✅ Copied to output")
+        _log("  ✅ Copied to output")
     else:
         _log("  ⚠️ Generating thumbnails...")
         try:
@@ -172,12 +171,12 @@ def main():
         import subprocess
         # Growth report
         subprocess.run([sys.executable, str(ROOT / "scripts" / "growth_report.py"), "--no-fetch", "--auto-repair", "--repair-limit", "1"], check=False, timeout=30)
-        _log(f"  ✅ Growth report generated: docs/GROWTH_REPORT.md")
+        _log("  ✅ Growth report generated: docs/GROWTH_REPORT.md")
 
         # Tests (quick)
         result = subprocess.run([sys.executable, "-m", "pytest", "tests/test_runtime_config.py::HashtagIdempotencyTests", "-q"], capture_output=True, text=True, timeout=30)
         if "passed" in result.stdout:
-            _log(f"  ✅ Tests: Hashtag tests PASS")
+            _log("  ✅ Tests: Hashtag tests PASS")
         else:
             _log(f"  ⚠️ Tests: {result.stdout[-200:]}")
 

@@ -948,7 +948,7 @@ def main() -> int:
                 log["warnings"].append(f"FB {rid} edit failed: {res}")
                 print(f"  ❌ caption edit failed: {res}")
             else:
-                print(f"  ✅ caption updated")
+                print("  ✅ caption updated")
         if args.apply and args.seed_comment and (r.get("comments") or 0) == 0:
             topic_for_seed = _best_text(rid, r.get("description") or "", by_fbid)[1]
             seed = seed_comment_text(topic_for_seed)
@@ -957,7 +957,7 @@ def main() -> int:
             if "error" in cres:
                 log["warnings"].append(f"FB {rid} comment failed: {cres}")
             else:
-                print(f"  ✅ seed comment posted")
+                print("  ✅ seed comment posted")
         log["facebook"].append(entry)
 
     # ---------- Instagram ----------
@@ -998,7 +998,7 @@ def main() -> int:
                 log["warnings"].append(f"IG {mid} caption edit failed: {res}")
                 print(f"  ❌ edit failed: {res}")
             else:
-                print(f"  ✅ caption updated")
+                print("  ✅ caption updated")
         log["instagram"].append(entry)
 
     REPAIR_LOG_PATH.parent.mkdir(exist_ok=True)

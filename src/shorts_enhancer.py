@@ -102,8 +102,36 @@ _CONCRETE_SUBJECTS = (
     "tingle", "numb", "spin", "blur", "flush", "chill", "ache", "throb",
     "buzz", "stutter", "shake", "tremble", "clench", "gasp",
 )
+def _inflected_patterns(subjects: tuple) -> List[str]:
+    """Build match patterns that survive ordinary English inflection.
+
+    A trailing ``\\w*`` only catches suffixes that are APPENDED to the stem
+    ("twitch" -> "twitching"). English also drops a trailing "e" before a
+    vowel suffix ("shake" -> "shaking", "freeze" -> "freezing", "tingle" ->
+    "tingling") and swaps "y" for "ies" ("memory" -> "memories"). The plain
+    suffix regex therefore reported "Your voice starts shaking in front of
+    crowds" as naming nothing concrete, even though "shake" is in this very
+    list — costing the hook 25 points and pushing it under the 80 gate.
+    That is what made an entire run fail with hook=55/80 while the writer
+    was, in fact, on topic.
+
+    The drop-e form is restricted to real inflections rather than ``\\w*`` so
+    a clipped stem cannot swallow an unrelated word ("ache" must not match
+    "achieve").
+    """
+    patterns: List[str] = []
+    for word in subjects:
+        patterns.append(word + r"\w*")
+        if word.endswith("e"):
+            patterns.append(word[:-1] + r"(?:ing|ed|es|y)\w*")
+        if word.endswith("y"):
+            patterns.append(word[:-1] + r"ies")
+    return patterns
+
+
 _CONCRETE_RE = re.compile(
-    r"\b(" + "|".join(_CONCRETE_SUBJECTS) + r")\w*\b", re.IGNORECASE
+    r"\b(?:" + "|".join(_inflected_patterns(_CONCRETE_SUBJECTS)) + r")\b",
+    re.IGNORECASE,
 )
 
 # Loops the viewer feels without a question mark. A hook can open a gap purely
