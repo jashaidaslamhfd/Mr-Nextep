@@ -225,6 +225,10 @@ def main() -> int:
                         help="skip the API round-trip and re-use stored metrics")
     parser.add_argument("--no-write", action="store_true",
                         help="print only; do not update docs/GROWTH_REPORT.md")
+    parser.add_argument("--auto-repair", action="store_true",
+                        help="auto-repair low performing videos")
+    parser.add_argument("--repair-limit", type=int, default=0,
+                        help="limit how many repairs to generate")
     args = parser.parse_args()
 
     if not args.no_fetch:

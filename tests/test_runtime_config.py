@@ -129,7 +129,7 @@ class PublishAtTests(unittest.TestCase):
             parsed = datetime.strptime(publish_at, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=pytz.UTC)
             self.assertGreaterEqual(parsed, datetime.now(pytz.UTC) + timedelta(minutes=25))
             slot_ny = parsed.astimezone(pytz.timezone("America/New_York"))
-            self.assertIn((slot_ny.hour, slot_ny.minute), [(12, 30), (20, 0), (21, 30)])
+            self.assertIn((slot_ny.hour, slot_ny.minute), [(12, 30), (18, 30), (20, 0)])
         finally:
             if old is None:
                 os.environ.pop("YT_SCHEDULE_PUBLISH", None)
