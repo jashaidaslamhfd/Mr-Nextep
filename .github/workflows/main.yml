@@ -155,7 +155,7 @@ jobs:
           CHANNEL_COUNTRY: "US"
 
           CONTENT_SERIES: "body_glitches"
-          TOPIC_STRATEGY: "body_glitch_series"
+          TOPIC_STRATEGY: "viral_hijack"
           REQUIRE_DAILY_TREND: "false"
 
           TTS_ENGINE: "kokoro"
