@@ -49,7 +49,11 @@ if YT_PRIVACY_STATUS not in {"private", "unlisted", "public"}:
 # ---------------------------------------------------------------------------
 YT_SCHEDULE_PUBLISH = os.environ.get("YT_SCHEDULE_PUBLISH", "false").lower() == "true"
 _PUBLISH_TZ = pytz.timezone("America/New_York")
-_PUBLISH_SLOTS = [(12, 30), (20, 0), (21, 30)]  # (hour, minute) New York time
+_PUBLISH_SLOTS = [
+    (12, 30),
+    (18, 30),
+    (20, 0),
+]# (hour, minute) New York time
 # DATA-DRIVEN (2026-07-26, 87-video time-vs-views analysis):
 #   12:30 lunch  → avg 231 views (fresh ≤21d avg 252) — channel's best slot
 #   20:00 prime  → avg 261 views (n=11) — proven evening winner
