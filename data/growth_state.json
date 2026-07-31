@@ -1,0 +1,105 @@
+{
+  "generated_at": "2026-07-31T15:26:21.266461+00:00",
+  "sample_size": 23,
+  "scored_videos": 21,
+  "channel_gate_ratio": 0.983,
+  "slot_weights": {
+    "00:00": 1.0,
+    "05:00": 1.0,
+    "11:00": 1.0,
+    "15:30": 1.0,
+    "20:00": 1.205,
+    "04:30": 1.0,
+    "14:30": 1.0,
+    "18:30": 1.0,
+    "01:00": 1.0,
+    "12:30": 0.86,
+    "21:30": 0.799
+  },
+  "topic_weights": {
+    "other": 1.276,
+    "brain": 0.789,
+    "muscle": 0.827,
+    "ear": 0.888,
+    "gut": 1.0,
+    "breath": 1.0
+  },
+  "hook_weights": {
+    "statement": 1.045,
+    "why": 0.727
+  },
+  "slot_samples": {
+    "00:00": 1,
+    "05:00": 2,
+    "11:00": 1,
+    "15:30": 1,
+    "20:00": 5,
+    "04:30": 1,
+    "14:30": 2,
+    "18:30": 1,
+    "01:00": 1,
+    "12:30": 3,
+    "21:30": 3
+  },
+  "topic_samples": {
+    "other": 7,
+    "brain": 4,
+    "muscle": 3,
+    "ear": 5,
+    "gut": 1,
+    "breath": 1
+  },
+  "hook_samples": {
+    "statement": 18,
+    "why": 3
+  },
+  "platform_health": {
+    "youtube_shorts": {
+      "platform": "youtube_shorts",
+      "label": "YouTube Shorts",
+      "status": "below_gate",
+      "samples": 21,
+      "gate": 0.5,
+      "avg_completion": 0.4915,
+      "gate_ratio": 0.983,
+      "avg_views": 280.0,
+      "action": "Averaging 49% against a 50% bar. Shorten the cut toward 27s and tighten the first 3 seconds — the gap is retention, not reach."
+    },
+    "facebook_reels": {
+      "platform": "facebook_reels",
+      "label": "Facebook Reels",
+      "status": "no_data",
+      "samples": 0,
+      "gate": 0.72,
+      "blocking_error": null,
+      "action": "No metrics yet — publish and wait 24h, or connect this platform's analytics."
+    },
+    "instagram_reels": {
+      "platform": "instagram_reels",
+      "label": "Instagram Reels",
+      "status": "no_data",
+      "samples": 0,
+      "gate": 0.7,
+      "blocking_error": null,
+      "action": "No metrics yet — publish and wait 24h, or connect this platform's analytics."
+    }
+  },
+  "instagram_sends": null,
+  "recommended_cadence": 2,
+  "cadence_reason": "Retention is 98% of the bar — close but under. Two uploads a day at the channel's two best-measured slots concentrates the quality budget where it converts.",
+  "alerts": [
+    {
+      "level": "warn",
+      "message": "Slot 12:30 NY is under-performing across 3 videos — its weight has been reduced automatically."
+    },
+    {
+      "level": "warn",
+      "message": "Slot 21:30 NY is under-performing across 3 videos — its weight has been reduced automatically."
+    }
+  ],
+  "best_slot": "20:00",
+  "best_topics": [
+    "other"
+  ],
+  "best_hook_frame": null
+}

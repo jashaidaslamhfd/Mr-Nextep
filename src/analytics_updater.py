@@ -124,15 +124,18 @@ if __name__ == "__main__":
         yt_result = {"failed": 1}
 
     if yt_result.get("api_disabled"):
-        # A Google Cloud console setting, not a code or token problem. Say so
-        # plainly instead of sending the next debugging round down the wrong
-        # path, as an earlier version of this message did.
+        # FIXED 2026-07-31: Previously exit_code=2 caused the entire analytics workflow
+        # to fail, preventing FB/IG collection (which runs in later steps) and growth report.
+        # Now we exit 0 after logging — Meta data can still be collected and the report
+        # shows exactly what is blocked. The 403 error message already says what to do.
         logger.error(
-            "YouTube Analytics API is DISABLED for this Google Cloud project. "
-            "Enable it at console.cloud.google.com -> APIs & Services, wait a "
-            "minute, then re-run. No code change can work around this."
+            "YouTube Analytics API is DISABLED for this Google Cloud project (403). "
+            "Enable it at https://console.developers.google.com/apis/api/youtubeanalytics.googleapis.com/overview?project=559439687452 "
+            "-> Click Enable, wait 2 min, then re-run 'YouTube Analytics Learning' workflow. "
+            "Continuing to collect Facebook/Instagram metrics anyway."
         )
-        exit_code = 2
+        # Don't fail the workflow — let Meta collection run
+        exit_code = 0
     elif yt_result.get("failed") and not yt_result.get("updated"):
         # Every per-video error is caught and logged as a warning, so this
         # script used to exit 0 while all 17 videos failed with invalid_scope

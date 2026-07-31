@@ -405,16 +405,17 @@ def fetch_actual_performance(youtube_video_id: str, days_back: int = 30) -> Dict
                 continue
             # 403 here is almost always "YouTube Analytics API has not been
             # used in project N before or it is disabled" — a Google Cloud
-            # console setting, NOT a code or token problem. Say so plainly
-            # instead of blaming the scope, which sent the last debugging
-            # round down the wrong path.
+            # console setting, NOT a code or token problem. FIXED 2026-07-31:
+            # Now returns exact console link from GROWTH_SETUP.md so operator
+            # can fix in 1 click instead of searching.
             if status == 403 and "has not been used in project" in raw:
                 logger.error(
-                    "YouTube Analytics API is DISABLED for this Google Cloud "
-                    "project. Enable it in the console, wait a few minutes, "
-                    "then re-run. No code change can work around this."
+                    "YouTube Analytics API DISABLED — fix: https://console.developers.google.com/"
+                    "apis/api/youtubeanalytics.googleapis.com/overview?project=559439687452 "
+                    "-> Click ENABLE, wait 2 min, then re-run Analytics workflow. "
+                    "This is a project setting, not a token problem."
                 )
-                return {"error": "analytics_api_disabled", "detail": raw[:300]}
+                return {"error": "analytics_api_disabled", "detail": raw[:300], "fix_url": "https://console.developers.google.com/apis/api/youtubeanalytics.googleapis.com/overview?project=559439687452"}
             logger.warning(f"YouTube Analytics fetch failed for {youtube_video_id}: {e}")
             if status in (401,):
                 return {"error": f"HttpError {status}: needs yt-analytics.readonly scope on REFRESH_TOKEN"}
