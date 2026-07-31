@@ -497,7 +497,13 @@ def _normalize_scenes(script_data: Dict) -> Dict:
     for i, scene in enumerate(normalized):
         limit = HOOK_MAX_WORDS if i == 0 else MAX_SCENE_WORDS
         scene['caption'] = _trim_to_word_limit(scene['caption'], limit)
-
+                # Models often omit terminal punctuation in JSON captions.
+        # Repair harmless formatting before retrying.
+        if (
+            scene['caption']
+            and scene['caption'][-1] not in '.!?…'
+        ):
+            scene['caption'] = scene['caption'].rstrip() + '.'
     script_data['scenes'] = normalized
     script_data['voiceover'] = ' '.join(s['caption'] for s in normalized)
 
