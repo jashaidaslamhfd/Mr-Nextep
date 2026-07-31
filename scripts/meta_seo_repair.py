@@ -1,29 +1,32 @@
 #!/usr/bin/env python3
 """
-scripts/meta_seo_repair.py — Meta (Facebook + Instagram) Reels SEO repair.
+scripts/meta_seo_repair.py — strong SEO repair for existing Facebook + Instagram Reels.
 
-Why this exists
----------------
-15/15 Facebook reels uploaded by SKILLOR had their captions TRUNCATED mid-sentence
-("...and a simple way to redu", "...why your body shivers when you're extremely ner")
-because the caption writer appended "Learn..." after a hook that was already at
-the Meta length cap. Truncated captions:
-  - break Meta's on-topic classifier (UTIS) so reels aren't bucketed into the
-    right interest audiences,
-  - miss every hashtag and follow CTA,
-  - look low-quality in the Reels feed.
-3/3 Instagram reels had blank / generic captions and no fold-friendly first line.
+PROBLEM
+-------
+Existing FB/IG Reels are under-performing for reasons visible in the data:
+  * Captions are truncated mid-sentence (e.g. "Ever felt a lump in your throat when"
+    — never closes), which Meta reads as low-quality / aggregated.
+  * The first line is a teaser like "Learn why ..." rather than naming the topic,
+    so Meta's UTIS true-interest survey can't classify the video and kills reach.
+  * No follow CTA on many reels (missing audience-relationship signal).
+  * Hashtags are either missing or carry #shorts / #youtubeshorts which mark the
+    video as cross-posted (Meta's originality penalty).
+  * Zero comments — an empty comment section tells the feed not to push.
 
-This script:
-  1. Lists every reel the page / IG business account has published.
-  2. Rebuilds a tight caption for each one: a ≤88-char curiosity lead (IG fold-
-     safe), a 130-140 char body sentence, a follow CTA, and hygiene-checked tags.
-  3. Scores the old vs new caption (0-10). Only patches when the new caption
-     is clearly better (score gap OR truncated OR cross-posted YouTube tags).
-  4. Optionally posts a seed comment on reels with 0 comments (kick-starts the
-     engagement signal Meta's algorithm waits for on a cold page).
-  5. Always idempotent: re-running doesn't double-patch or add duplicate tags.
-  6. Offline-safe: compiles, imports and unit-tests without a token.
+This script is SAFE (compare-and-swap, idempotent). It only PATCHES captions
+where the new version scores higher on an internal caption-quality heuristic
+AND differs from the live caption. It never uploads, deletes or re-encodes.
+
+REQUIRED ENV
+  FB_ACCESS_TOKEN (or FACEBOOK_ACCESS_TOKEN)  — page token with pages_manage_posts
+  FB_PAGE_ID                                  — page id
+  INSTAGRAM_USER_ID (optional)                — IG business account to patch too
+
+USAGE
+  python scripts/meta_seo_repair.py --dry-run         # preview, no writes
+  python scripts/meta_seo_repair.py --apply           # write all repairs + seed comments
+  python scripts/meta_seo_repair.py --apply --limit 3 # touch only 3 worst per platform
 """
 from __future__ import annotations
 
@@ -34,345 +37,407 @@ import json
 import os
 import re
 import sys
-from pathlib import Path
-from typing import Any, Dict, List, Optional, Tuple
-
-import urllib.request
-import urllib.parse
 import urllib.error
-
-# ---------------------------------------------------------------------------
-# Config
-# ---------------------------------------------------------------------------
+import urllib.parse
+import urllib.request
+from pathlib import Path
+from typing import Any, Dict, List, Tuple
 
 ROOT = Path(__file__).resolve().parents[1]
-DATA = ROOT / "data"
+sys.path.insert(0, str(ROOT / "src"))
 
-TOKEN = os.environ.get("FB_ACCESS_TOKEN", "")
-PAGE_ID = os.environ.get("FB_PAGE_ID") or os.environ.get("FACEBOOK_PAGE_ID", "")
-IG_USER = os.environ.get("INSTAGRAM_USER_ID", "")
 API = os.environ.get("FB_API_VERSION", "v23.0")
+TOKEN = (os.environ.get("FB_ACCESS_TOKEN") or os.environ.get("FACEBOOK_ACCESS_TOKEN") or "").strip()
+PAGE = (os.environ.get("FB_PAGE_ID") or os.environ.get("FACEBOOK_PAGE_ID") or "").strip()
+IG_USER = os.environ.get("INSTAGRAM_USER_ID", "").strip()
 
-UPLOAD_STATE_PATH = DATA / "upload_state.json"
-HISTORY_PATH = DATA / "video_history.json"
-REPAIR_LOG_PATH = DATA / f"meta_seo_repair_{dt.datetime.utcnow().strftime('%Y%m%d_%H%M%S')}.json"
+HISTORY_PATH = ROOT / "data" / "video_history.json"
+UPLOAD_STATE_PATH = ROOT / "data" / "upload_state.json"
+PLATFORM_METRICS_PATH = ROOT / "data" / "platform_metrics.json"
+REPAIR_LOG_PATH = ROOT / "data" / f"meta_seo_repair_{dt.date.today():%Y%m%d}.json"
+
 
 # ---------------------------------------------------------------------------
-# Graph helpers (kept tiny — no heavy SDK dependency so the workflow stays
-# fast and the script works on the bare runner).
+# Graph helpers (stdlib only)
 # ---------------------------------------------------------------------------
 
-def _gget(path: str, **params) -> Dict[str, Any]:
-    url = f"https://graph.facebook.com/{API}/{path.lstrip('/')}"
-    if params:
-        url += "?" + urllib.parse.urlencode({k: v for k, v in params.items() if v is not None})
-    req = urllib.request.Request(url, headers={"Authorization": f"Bearer {TOKEN}"})
+def _graph(method: str, node: str, **params) -> Dict[str, Any]:
+    if not TOKEN:
+        return {"error": "no_token"}
+    url = f"https://graph.facebook.com/{API}/{node}"
+    if method == "GET":
+        url = f"{url}?{urllib.parse.urlencode({**params, 'access_token': TOKEN})}"
+        req = urllib.request.Request(url)
+        data_bytes = None
+    else:
+        data_bytes = urllib.parse.urlencode({**params, "access_token": TOKEN}).encode()
+        req = urllib.request.Request(url, data=data_bytes, method=method)
     try:
-        with urllib.request.urlopen(req, timeout=30) as r:
-            return json.loads(r.read().decode())
+        with urllib.request.urlopen(req, timeout=40) as r:
+            return json.load(r)
     except urllib.error.HTTPError as e:
-        try:
-            return json.loads(e.read().decode())
-        except Exception:
-            return {"error": {"message": str(e), "code": e.code}}
+        return {"error": e.code, "body": e.read()[:400].decode("utf-8", "replace")}
+    except Exception as e:  # noqa: BLE001
+        return {"error": "network", "body": str(e)[:200]}
 
 
-def _gpost(path: str, **params) -> Dict[str, Any]:
-    url = f"https://graph.facebook.com/{API}/{path.lstrip('/')}"
-    data = urllib.parse.urlencode({k: v for k, v in params.items() if v is not None}).encode()
-    req = urllib.request.Request(url, data=data, headers={"Authorization": f"Bearer {TOKEN}"}, method="POST")
-    try:
-        with urllib.request.urlopen(req, timeout=30) as r:
-            return json.loads(r.read().decode())
-    except urllib.error.HTTPError as e:
-        try:
-            return json.loads(e.read().decode())
-        except Exception:
-            return {"error": {"message": str(e), "code": e.code}}
+def gget(node: str, **params) -> Dict[str, Any]:
+    return _graph("GET", node, **params)
 
 
-# Keep module-level short aliases used elsewhere.
-gget = _gget
-gpost = _gpost
+def gpost(node: str, **params) -> Dict[str, Any]:
+    return _graph("POST", node, **params)
 
-PAGE = PAGE_ID  # convenient alias used in _list_fb
 
 # ---------------------------------------------------------------------------
-# Text cleaning
+# Caption primitives
 # ---------------------------------------------------------------------------
-
-_STOP = {"the", "a", "an", "and", "or", "but", "of", "to", "in", "on", "at", "for",
-        "with", "by", "from", "as", "is", "are", "was", "were", "be", "been",
-        "being", "have", "has", "had", "do", "does", "did", "will", "would",
-        "can", "could", "this", "that", "these", "those", "you", "your", "yours",
-        "i", "me", "my", "we", "us", "our", "it", "its", "they", "them", "their",
-        "what", "when", "where", "why", "how", "if", "then", "than", "just",
-        "really", "about", "into", "over", "out", "up", "down", "off", "why",
-        "here", "there", "so", "because", "learn", "discover", "find", "ever",
-        "noticed", "know", "did", "wonder", "wondered", "feel", "felt"}
-
-_FRAGMENT_TAIL = {"when", "and", "but", "or", "do", "to", "of", "in", "on", "at",
-                  "up", "like", "for", "with", "the", "a", "an", "your", "you",
-                  "is", "are", "extremely", "ner", "red", "sim", "qui", "sim",
-                  "a", "si", "sim", "b", "disc", "qui", "scared", "scary",
-                  "col", "red", "caus", "sci", "no", "hyp", "discov", "simpl",
-                  "scientist", "link", "sh"}
-
-_BODY_PARTS = ("calf", "leg", "foot", "feet", "knee", "knees", "hand", "hands",
-              "finger", "fingers", "arm", "eye", "eyes", "ear", "ears", "nose",
-              "mouth", "throat", "neck", "back", "stomach", "gut", "chest",
-              "heart", "lung", "brain", "skin", "hair", "teeth", "tooth",
-              "tongue", "lip", "voice", "body", "muscle", "bone", "joint",
-              "voice", "lump", "pupil", "vision")
-_BODY_PART_RE = re.compile(rf"\b({'|'.join(_BODY_PARTS)})\b", re.I)
-
-_EMOJI_RE = re.compile(
-    "["
-    "\U0001F300-\U0001FAFF"
-    "\U00002600-\U000027BF"
-    "\U0001F000-\U0001F2FF"
-    "]+", flags=re.UNICODE)
-
-# Exhaustive lead-in patterns that the previous caption writer / hook generator
-# prepended. We strip ALL of them iteratively so stacking ("Ever noticed Have you
-# ever noticed X") collapses cleanly to X.
-_LEAD_STRIP_PATTERNS = [
-    r"^have\s+you\s+ever\s+(?:noticed|wondered|felt|seen|experienced|had|thought(?:\s+about)?|asked\s+yourself)\s+",
-    r"^did\s+you\s+ever\s+(?:notice|wonder|feel|see|experience|have|think)\s+",
-    r"^do\s+you\s+ever\s+(?:notice|wonder|feel|see|experience|have|think)\s+",
-    r"^ever\s+(?:noticed?|wondered?|felt?|seen?|experienced?|had|thought(?:\s+about)?|asked\s+yourself)\s+",
-    r"^you've\s+noticed\s+it\s+before\s*,\s*but\s+why\s+do\s+",
-    r"^you\s+know\s+that\s+feeling\s+(?:when|where|of)\s+",
-    r"^do\s+you\s+know\s+why\s+",
-    r"^did\s+you\s+know\s+",
-    r"^here(?:'s| is)\s+why\s+",
-    r"^here(?:'s| is)\s+the\s+science\s+behind\s+",
-    r"^what\s+happens\s+(?:when|if)\s+",
-    r"^why\s+do\s+",
-    r"^why\s+does\s+",
-    r"^why\s+is\s+",
-    r"^the\s+reason\s+why\s+",
-    r"^learn\s+(?:why|how|what|about)\s+",
-    r"^discover\s+(?:why|how|what|about)\s+",
-    r"^find\s+out\s+(?:why|how|what)\s+",
-    r"^here(?:'s| is)\s+",
-    r"^ever\s+wondered\s+why\s+",
-    r"^you\s+know\s+",
-]
-_LEAD_STRIP_RES = [re.compile(p, re.I) for p in _LEAD_STRIP_PATTERNS]
-
-_LEAD_TAIL_RE = re.compile(r"\s*[—\-–]{1,3}\s*the\s+science\.?\s*$", re.I)
-
-# Hashtag hygiene
-_BANNED_TAGS = {"#shorts", "#youtubeshorts", "#ytshorts", "#fyp", "#foryou",
-                "#foryoupage", "#viral", "#viralshorts", "#fypシ", "#viralreels",
-                "#trending", "#reels", "#reelsfb", "#reelsinstagram", "#share",
-                "#likeforlike", "#followforfollowback", "#followme", "#tagafriend",
-                "#tagyourfriends", "#subscribetomychannel", "#linkinbio",
-                "#subscribe", "#like", "#comment", "#sharethis", "#repost"}
 
 _BODY_HASHTAGS_FB = ["#BodyScience", "#HumanBody", "#ScienceFacts"]
 _BODY_HASHTAGS_IG = ["#BodyScience", "#HumanBodyFacts", "#ScienceExplained",
                      "#EverydayScience", "#BiologyFacts"]
 
-_PILLAR_TAGS = {
-    "eye":   ["#VisionFacts", "#EyeHealth"],
-    "ear":   ["#EarScience", "#Tinnitus", "#AuditorySystem"],
-    "brain": ["#Neuroscience", "#BrainFacts", "#PsychologyFacts"],
-    "heart": ["#HeartHealth", "#CardioFacts"],
-    "muscle":["#MuscleFacts", "#JointHealth", "#Cramps"],
-    "gut":   ["#GutHealth", "#DigestiveHealth"],
-    "skin":  ["#SkinScience", "#DermatologyFacts"],
-    "breath":["#Breathing", "#RespiratoryHealth"],
-    "nerve": ["#NervousSystem", "#NerveFacts"],
+_TOPIC_TAGS = {
+    "sleep": ["#SleepScience"], "dream": ["#SleepScience"],
+    "brain": ["#Neuroscience"], "memory": ["#Neuroscience"],
+    "eye": ["#VisionScience"], "ear": ["#Hearing"],
+    "heart": ["#Cardio"], "muscle": ["#MuscleScience"],
+    "cramp": ["#MuscleScience"], "knee": ["#JointHealth"],
+    "skin": ["#SkinFacts"], "nerve": ["#Nerves"],
+    "gut": ["#GutHealth"], "stress": ["#StressResponse"],
+    "breath": ["#Breathing"], "sneeze": ["#Sneeze"],
+    "yawn": ["#Yawning"],
 }
 
-_BODY_KEYWORDS = {
-    "calf": ("#CalfCramps", "#MuscleFacts"),
-    "cramp": ("#Cramps", "#MuscleFacts"),
-    "ear": ("#EarScience", "#Hearing"),
-    "ring": ("#Tinnitus", "#EarHealth"),
-    "throat": ("#ThroatFacts", "#WhyWeCry"),
-    "lump": ("#Emotions", "#BodyResponse"),
-    "freeze": ("#FearResponse", "#FightOrFlight"),
-    "shiver": ("#Goosebumps", "#FearResponse"),
-    "yawn": ("#Yawning", "#Contagious"),
-    "knee": ("#JointHealth", "#BodyFacts"),
-    "crack": ("#JointHealth", "#CrackingJoints"),
-    "mouth": ("#DryMouth", "#NervousSystem"),
-    "wake": ("#MorningVoice", "#VocalCords"),
-    "voice": ("#VoiceFacts", "#SpeechScience"),
-    "song": ("#Earworm", "#BrainFacts"),
-    "stuck": ("#Earworm", "#BrainLoops"),
-    "forget": ("#DoorwayEffect", "#MemoryFacts"),
-    "room": ("#DoorwayEffect", "#MemoryFacts"),
-    "scary": ("#FearResponse", "#HorrorMovies"),
-    "movie": ("#FearResponse", "#BodyFacts"),
-    "gut": ("#GutHealth", "#Microbiome"),
-    "bacteria": ("#GutHealth", "#Microbiome"),
-    "brush": ("#GagReflex", "#DentalFacts"),
-    "teeth": ("#GagReflex", "#DentalFacts"),
-    "wrinkle": ("#SkinScience", "#WaterHands"),
-    "water": ("#SkinScience", "#PruneyFingers"),
-    "deja": ("#DejaVu", "#BrainFacts"),
-    "familiar": ("#DejaVu", "#BrainFacts"),
-    "heartbeat": ("#HeartHealth", "#BodyPulse"),
-    "heart": ("#HeartFacts", "#Cardio"),
-    "dizzy": ("#Orthostatic", "#StandingUpFast"),
-    "stand": ("#DizzySpells", "#BloodFlow"),
-    "numb": ("#SleepingFoot", "#NerveCompression"),
-    "sleep": ("#SleepFacts", "#Parasomnia"),
-    "foot": ("#NerveFacts", "#PinsAndNeedles"),
-    "hungry": ("#Hunger", "#BodyClock"),
-    "hunger": ("#HungerHormones", "#CircadianRhythm"),
-    "gag": ("#GagReflex", "#ThroatFacts"),
-    "tongue": ("#BurnedTongue", "#TasteBuds"),
-    "ice": ("#BrainFreeze", "#ColdFood"),
-    "sweet": ("#TasteFacts", "#Sugar"),
+_STOP = {
+    "the", "a", "an", "and", "or", "but", "why", "how", "what", "when",
+    "your", "you", "you're", "do", "does", "is", "are", "was", "were", "to",
+    "of", "in", "on", "at", "for", "with", "that", "this", "it", "just",
+    "really", "actually", "ever", "feel", "feels", "felt", "like", "about",
+    "will", "can", "have", "has", "there", "here", "out", "up", "down",
+    "get", "got", "make", "makes", "about", "suddenly", "instantly", "me",
+    "my", "our", "i",
+}
+
+_FRAGMENT_TAIL = {
+    "when", "why", "how", "what", "the", "your", "you", "a", "an", "to",
+    "for", "and", "up", "it", "on", "in", "out", "off", "about", "with",
+    "can", "will", "is", "are", "my", "our", "me", "extremely", "really",
+    "very", "just", "but", "or", "if", "like", "that", "this",
 }
 
 
-def _clean(s: str) -> str:
-    if s is None:
+def _clean(text: str) -> str:
+    return re.sub(r"\s+", " ", str(text or "")).strip().strip(" .,:;")
+
+
+def _ends_sentence(ch: str) -> bool:
+    return ch in ".!?…\"'"
+
+
+def _sentence(text: str) -> str:
+    t = (text or "").strip()
+    t = re.sub(r"\s+", " ", t)
+    if not t:
         return ""
-    s = _EMOJI_RE.sub(" ", s)
-    s = re.sub(r"\s+", " ", s).strip()
-    return s
-
-
-def _sentence(s: str) -> str:
-    s = _clean(s)
-    if not s:
-        return s
-    if s[-1] not in ".!?…\"'":
-        s += "."
-    return s
-
-
-def _strip_bait(s: str) -> str:
-    """Remove explicit engagement-ask sentences so we don't fight Meta anti-bait
-    filters ('like and share', 'tag a friend', 'link in bio', subscribe etc.).
-    'Follow' is kept because the CTA is genuine and not ask-for-engagement bait.
-    """
-    out_lines = []
-    for line in re.split(r"(?<=[.!?…])\s+", s):
-        l = line.strip()
-        low = l.lower()
-        if re.search(r"\b(like|share|tag|comment|subscribe|hit the bell|turn on notifications|link in bio)\b", low):
-            # Only strip if it's an ASK, not a mention
-            if re.search(r"\b(please|do not forget|don't forget|make sure|go ahead|smash|hit)\b|\?$", low) \
-               or "like and share" in low or "tag a friend" in low or "tag your" in low \
-               or "subscribe to" in low or "link in bio" in low:
-                continue
-        out_lines.append(l)
-    return " ".join(out_lines).strip()
-
-
-# ---------------------------------------------------------------------------
-# Phrase extraction
-# ---------------------------------------------------------------------------
-
-def _strip_lead_in(text: str) -> str:
-    t = _clean(text)
-    # Iteratively strip stacked lead-ins ("Ever noticed Have you ever noticed")
-    for _ in range(6):
-        t0 = t
-        for rx in _LEAD_STRIP_RES:
-            t = rx.sub("", t, count=1)
-            t = t.lstrip(",;:-— ").rstrip()
-        if t == t0:
-            break
+    t = t.strip().lstrip(" .,:;")
+    if not t:
+        return ""
+    if not _ends_sentence(t[-1]):
+        t += "."
     return t
 
 
-def _strip_tail_fragments(text: str) -> str:
+def _truncate(text: str, max_len: int = 200) -> str:
     t = _clean(text)
-    # Strip trailing fragment + "Learn"/"Discover" lead (double truncation pattern).
-    t = re.sub(r"\s+(?:learn|discover|find\s+out)\b.*$", "", t, flags=re.I).rstrip(",;:-— ")
-    words = t.split()
-    while words and words[-1].lower().strip("',.!?;:") in _FRAGMENT_TAIL:
-        words.pop()
-    return " ".join(words).rstrip(",;:-— ")
+    if len(t) <= max_len:
+        return t
+    cut = t[:max_len].rsplit(" ", 1)[0].rstrip(",;:")
+    if cut and not _ends_sentence(cut[-1]):
+        cut = cut.rstrip(".") + "…"
+    return cut
 
 
-def _strip_lead_fragments(text: str) -> str:
-    t = _clean(text)
-    words = t.split()
-    while words and words[0].lower().strip("',.!?;:") in {"do", "and", "but", "like", "up",
-                                                          "to", "the", "a", "an", "you",
-                                                          "your", "when", "if"}:
-        # Only drop these if what remains is still a valid phrase (>=2 words)
-        if len(words) > 2:
-            words.pop(0)
-        else:
+def _follow_line(seed: str, platform_suffix: str = "") -> str:
+    options = [
+        "Follow for one body mystery explained every day.",
+        "Follow for short, accurate body science daily.",
+        "Follow — everyday biology, no hype.",
+        "Follow along for the things your body does and why.",
+    ]
+    idx = int(hashlib.sha256((seed + platform_suffix).encode()).hexdigest()[:8], 16) % len(options)
+    return options[idx]
+
+
+def _topic_tags(topic: str, title: str, max_extra: int = 2) -> List[str]:
+    hay = f"{topic} {title}".lower()
+    out = []
+    for kw, tags in _TOPIC_TAGS.items():
+        if kw in hay:
+            for t in tags:
+                if t not in out:
+                    out.append(t)
+        if len(out) >= max_extra:
             break
-    return " ".join(words).lstrip(",;:-— ")
+    return out[:max_extra]
+
+
+def _format_tags(tags: List[str]) -> str:
+    """Join cleaned hashtags with spaces, never double-#."""
+    return " ".join(_enforce_tag_count(tags, 2, 7))
+
+
+def _enforce_tag_count(tags: List[str], minimum: int, maximum: int) -> List[str]:
+    cleaned = []
+    seen = set()
+    for t in tags:
+        t = t.strip()
+        if not t.startswith("#"):
+            t = "#" + t
+        token = re.sub(r"[^A-Za-z0-9_]", "", t)
+        if len(token) <= 2:
+            continue
+        key = token.lower()
+        if key in seen:
+            continue
+        if key in {"shorts", "short", "youtubeshorts", "ytshorts", "fyp", "reels",
+                   "viral", "trending", "foryou", "foryoupage"}:
+            continue
+        seen.add(key)
+        cleaned.append("#" + token)
+        if len(cleaned) >= maximum:
+            break
+    return cleaned
+
+
+def _strip_bait(text: str) -> str:
+    """Remove blatant engagement-bait lines Meta penalises. Conservative:
+    only drops whole sentences that contain a banned ask."""
+    bait = re.compile(
+        r"\b(like (this|if|and)|double tap|smash that|share (this|it|with)|"
+        r"send this to|tag (a|your|someone)|comment (below|down)|"
+        r"drop a (like|comment)|vote (below|now)|who agrees|"
+        r"subscribe|link in bio)\b",
+        re.IGNORECASE,
+    )
+    blocks = []
+    for block in (text or "").split("\n\n"):
+        kept = []
+        for s in re.split(r"(?<=[.!?…])\s+", block):
+            if not bait.search(s):
+                kept.append(s)
+        rebuilt = re.sub(r"\s+", " ", " ".join(kept)).strip()
+        if rebuilt:
+            blocks.append(rebuilt)
+    return "\n\n".join(blocks)
+
+
+# ---------------------------------------------------------------------------
+# Rebuilding from a damaged live caption
+# ---------------------------------------------------------------------------
+
+def _first_line(text: str) -> str:
+    return _clean((text or "").split("\n")[0])
 
 
 def _phrase_from_line(line: str) -> str:
-    t = _clean(line)
-    t = _strip_tail_fragments(t)
-    t = _strip_lead_in(t)
-    t = _strip_tail_fragments(t)
-    t = _strip_lead_fragments(t)
-    return _clean(t)
+    """Clean a raw first line: drop fragment tails and punctuate."""
+    words = [w for w in re.split(r"\s+", _clean(line)) if w]
+    if not words:
+        return "Everyday body science, explained."
+    frag = _FRAGMENT_TAIL | {"suddenly", "instantly", "extremely", "really",
+                              "just", "that", "this", "very", "the", "about",
+                              "why", "how"}
+    while words and words[-1].lower().strip("',.!?;:\")(") in frag:
+        words.pop()
+    if not words:
+        return "Everyday body science, explained."
+    text = " ".join(words)
+    if not text[-1] in ".!?…":
+        text += "."
+    return text
+
+
+def _strip_lead_in(text: str) -> str:
+    """Backwards-compatible alias for the iterative lead-framing stripper."""
+    return _strip_lead_framing(text)
+
+
+_LEAD_STRIP_PATTERNS = [
+    r"^have\s+you\s+ever\s+felt\s+like\s+",
+    r"^have\s+you\s+ever\s+(?:woken|gotten|got|ended|wound)\s+up\s+",
+    r"^have\s+you\s+ever\s+(?:noticed|wondered(?:\s+why)?|thought\s+about|asked\s+yourself|felt|seen|woken|gotten|got|had|been)\s+",
+    r"^did\s+you\s+ever\s+(?:notice|wonder|feel|see)\s+",
+    r"^do\s+you\s+ever\s+(?:notice|wonder|feel|see)\s+",
+    r"^did\s+you\s+know\s+",
+    r"^do\s+you\s+know\s+",
+    r"^you(?:'ve|have)\s+(?:noticed|seen|wondered|experienced)\s+(?:it\s+before[, ]*|that\s+)?(?:but\s+)?(?:why|how|what|when|do|does|is|are)?\s*",
+    r"^ever\s+noticed\s+(?:that\s+|like\s+)?",
+    r"^ever\s+felt\s+(?:like\s+|that\s+)?",
+    r"^ever\s+wondered\s+(?:why|how|what|when|if)\s*",
+    r"^(?:it'?s\s+when|that'?s\s+when|the\s+feeling\s+when)\s+",
+    r"^here'?s\s+what\s+happens\s+(?:when|if|after)\s+",
+    r"^here\s+is\s+what\s+happens\s+(?:when|if|after)\s+",
+    r"^what\s+happens\s+(?:when|if|after)\s+",
+    r"^here'?s\s+why\s+",
+    r"^here\s+is\s+why\s+",
+    r"^this\s+is\s+why\s+",
+    r"^that'?s\s+why\s+",
+    r"^learn\s+(?:why|how|what|when|where)\s+",
+    r"^discover\s+(?:why|how|what|when|where)\s+",
+    r"^find\s*out\s+(?:why|how|what|when|where)\s+",
+    r"^(?:the\s+)?science(?:\s+explained)?[:\-\–—]?\s*",
+    r"^your\s+body\s+(?:does\s+this|explained)[—\-\–.]?\s*(?:here'?s\s+why\.?)?\s*",
+    r"^body\s+science,?\s*explained\.?\s*",
+]
+
+_WHEN_CLAUSE_RE = re.compile(r"\b(when|if|after)\s+you\b", re.I)
+
+
+def _strip_lead_framing(text: str) -> str:
+    """Iteratively strip every leading teaser/question frame so that
+    stacking ("Ever noticed Have you ever noticed X") collapses to just X."""
+    t = _clean(text)
+    changed = True
+    rounds = 0
+    while changed and rounds < 6:
+        changed = False
+        rounds += 1
+        for pat in _LEAD_STRIP_PATTERNS:
+            t2 = re.sub(pat, "", t, flags=re.I).strip()
+            if t2 and len(t2) > 4 and t2.lower() != t.lower():
+                t = t2
+                changed = True
+                break
+    return t
+
+
+_MID_LEARN_SPLIT_RE = re.compile(
+    r"\s+(?:learn|discover|find\s*out|see|watch)\s+"
+    r"(?:why|how|what(?:\s+causes?|\s+happens)?|when|where)\b.*$",
+    re.I,
+)
+
+
+_LEAD_TAIL_RE = re.compile(r"\s*[—\-\–]\s*the\s+science\.?\s*$", re.I)
 
 
 def _core_for_lead(hook_text: str) -> str:
-    """Extract the core topic phrase (no lead-ins, no tails, usable as the body
-    of a rebuilt lead question)."""
-    h = _clean(hook_text)
-    if not h:
-        return "everyday body science"
-    # Take the first line/sentence only — multi-line hooks are body.
-    h = re.split(r"\n+", h)[0]
-    h = re.split(r"(?<=[.!?…])\s", h)[0]
-    h = _LEAD_TAIL_RE.sub("", h)
-    h = _strip_tail_fragments(h)
-    h = _strip_lead_in(h)
-    h = _strip_tail_fragments(h)
-    h = _strip_lead_fragments(h)
-    return _clean(h) or "everyday body science"
+    """Extract the actual subject from a hook line, removing leading AND
+    trailing teaser framing."""
+    raw = re.sub(r"[\U0001F300-\U0001FAFF\U00002700-\U000027BF\U00002600-\U000026FF]",
+                 "", hook_text or "")
+    raw = _LEAD_TAIL_RE.sub("", raw)
+    t = _phrase_from_line(raw).rstrip(".!?…,;:")
+    t = _MID_LEARN_SPLIT_RE.sub("", t).strip()
+    m = re.match(
+        r"^(?:learn|discover|find\s*out|see|watch)\s+"
+        r"(?:why|how|what(?:\s+causes?)?|when|where)\s+"
+        r"(.+)$",
+        t, re.I,
+    )
+    if m:
+        tail = m.group(1).strip()
+        tail = re.split(r"\s+and\s+(?:a|how|why|what|when|you)", tail, maxsplit=1, flags=re.I)[0]
+        t = tail.strip().rstrip(".!?…,;:")
+    t = _strip_tail_fragments(t)
+    t = _strip_lead_framing(t)
+    t = t.rstrip(".!?…,;:")
+    t = _strip_lead_fragments(t)
+    t = t.rstrip(".!?…,;:")
+    if len(t) < 5:
+        t = "everyday body science"
+    return t
 
 
-# ---------------------------------------------------------------------------
-# Grammar helpers (a / an, capitalisation, plural detection)
-# ---------------------------------------------------------------------------
+_TAIL_FRAG_WORDS = _FRAGMENT_TAIL | {
+    "do", "does", "did", "can", "will", "would", "could", "should",
+    "is", "are", "was", "were", "your", "my", "the", "a", "an",
+    "and", "but", "or", "so", "like", "just", "really", "very",
+}
 
-_VOWEL_SOUND = re.compile(r"^[aeiou]", re.I)
+
+def _strip_tail_fragments(text: str) -> str:
+    words = [w for w in re.split(r"\s+", text) if w]
+    while words:
+        last = words[-1].lower().strip("',.!?;:\"()")
+        if last in _TAIL_FRAG_WORDS or len(last) < 2:
+            words.pop()
+            continue
+        break
+    return " ".join(words) if words else text
+
+
+_LEAD_FRAG_WORDS = {
+    "and", "but", "or", "so", "like", "up", "out", "off", "down",
+    "do", "does", "did", "the", "is", "are", "it", "a", "an",
+}
+
+
+def _strip_lead_fragments(text: str) -> str:
+    words = [w for w in re.split(r"\s+", text) if w]
+    while words:
+        first = words[0].lower().strip("',.!?;:\"()")
+        if first in _LEAD_FRAG_WORDS:
+            words.pop(0)
+            continue
+        break
+    return " ".join(words) if words else text
+
+
+_BODY_PART_RE = re.compile(
+    r"\b(your|my|the|this|a|an)?\s*"
+    r"(heart|brain|eye|eyes|ear|ears|skin|knee|knees|muscle|muscles|calf|calves|"
+    r"arm|arms|leg|legs|hand|hands|foot|feet|finger|fingers|toe|toes|stomach|"
+    r"gut|throat|nose|lung|lungs|liver|kidney|spine|back|neck|shoulder|hips|"
+    r"jaw|chest|bone|bones|vein|nerves?|head|hair|nail|nails|body|mouth|teeth|tooth|tongue|lip|lips)\b",
+    re.I,
+)
 
 
 def _needs_indefinite_article(word: str) -> bool:
-    w = word.lower().lstrip("'\"")
-    if w.startswith(("hon", "hour")):
-        return True
-    return bool(_VOWEL_SOUND.match(w))
+    if not word:
+        return False
+    return bool(re.match(r"^[aieou]", word.lower()))
+
+
+_IRREGULAR_PLURALS = {
+    "bacteria", "data", "media", "criteria", "people", "men", "women", "children",
+    "teeth", "feet", "lice",
+}
 
 
 def _looks_plural(word: str) -> bool:
-    w = word.lower().rstrip("',.!?;:")
-    if w.endswith("ies") and len(w) > 4:
+    w = word.lower()
+    if w in _IRREGULAR_PLURALS:
         return True
-    if w.endswith("es") and not w.endswith(("ses", "sses", "shes", "ches", "tches")):
-        # Not a perfect heuristic; err on the side of "don't prepend a".
-        return w[-3] not in "sxz"
-    if w.endswith("s") and not w.endswith(("ss", "us", "is", "os")):
+    if w.endswith("ies") or w.endswith("es") or w.endswith("ae") or w.endswith("oa"):
+        return True
+    if w.endswith("s") and not w.endswith("ss") and not w.endswith("us"):
         return True
     return False
 
 
+_POSSESSIVE_BODY = {"calf", "foot", "feet", "hand", "hands", "arm", "arms", "leg", "legs",
+                    "knee", "knees", "eye", "eyes", "ear", "ears", "nose", "mouth",
+                    "throat", "neck", "back", "stomach", "gut", "chest", "finger",
+                    "fingers", "toe", "toes", "tongue", "lip", "lips", "teeth",
+                    "voice", "skin", "hair", "heart", "lungs", "head", "face", "body",
+                    "shoulder", "wrist", "ankle", "elbow"}
+
+_VERB_STARTS = {"stand", "see", "hear", "feel", "wake", "walk", "get", "brush", "yawn",
+                "break", "shiver", "freeze", "gag", "cough", "sneeze", "hiccup", "blink",
+                "notice", "wonder", "love", "hate", "like", "lose", "smell",
+                "taste", "touch", "breathe", "swallow", "bite", "hold", "lift",
+                "woken"}
+
+
 def _starts_with_bare_singular_noun(core: str) -> bool:
-    """Return True if the core starts with a singular countable noun with no
-    determiner (so we want to prepend 'a' / 'an'). e.g. 'lump in your throat' → True.
-    """
-    c = _clean(core)
-    if not c:
+    words = core.split()
+    if not words:
         return False
-    words = [w.strip("',.!?;:\")(") for w in c.split()]
-    if len(words) < 2:
-        return False
-    first = words[0].lower()
-    if not first or not first[0].isalpha():
+    first = words[0].lower().strip("',.!?;:")
+    if first in _POSSESSIVE_BODY:
         return False
     if first in {"a", "an", "the", "your", "my", "this", "that", "his", "her", "our", "their", "some"}:
         return False
@@ -382,15 +447,31 @@ def _starts_with_bare_singular_noun(core: str) -> bool:
         return False
     if first.endswith("ing") or first.endswith("ed"):
         return False
+    if first in _VERB_STARTS:
+        return False
+    if len(words) < 2:
+        return False
     second = words[1].lower().strip("',.!?;:")
     if second not in {"in", "on", "at", "up", "down", "out", "off", "inside", "when",
-                      "your", "my", "the", "a", "an", "under", "behind", "like"}:
+                      "your", "my", "the", "a", "an", "under", "behind", "like", "for",
+                      "that", "this", "about"}:
         return False
     if not re.match(r"^[a-z]{3,}$", first):
         return False
     if _looks_plural(first):
         return False
     return True
+
+
+def _prepend_your_if_bodypart(core: str) -> str:
+    """If core starts with a bare body-part noun (no determiner), prepend 'your'."""
+    words = core.split()
+    if not words:
+        return core
+    first = words[0].lower().strip("',.!?;:")
+    if first in _POSSESSIVE_BODY:
+        return "your " + core
+    return core
 
 
 def _prepend_article_if_needed(core: str) -> str:
@@ -416,24 +497,22 @@ def _capitalise_first(text: str) -> str:
     return text[0].upper() + text[1:]
 
 
-# ---------------------------------------------------------------------------
-# Lead (curiosity first line)
-# ---------------------------------------------------------------------------
-
 _PP_VERBS = ("woken", "felt", "seen", "gotten", "had", "been",
-            "wondered", "thought", "asked", "noticed")
+             "wondered", "thought", "asked", "noticed")
 _PP_RE = re.compile(rf"^({'|'.join(_PP_VERBS)})\b", re.I)
 
 
 def _build_lead(hook_text: str) -> str:
     """One complete curiosity-driven sentence, <= 88 chars for IG."""
     core0 = _core_for_lead(hook_text) or "everyday body science"
+    core0 = _prepend_your_if_bodypart(core0)
     core0 = _prepend_article_if_needed(core0)
 
     low = core0.lower()
     starts_with_you = bool(re.match(r"^you\b", low))
     when_at_start = bool(re.match(r"^(when|if|after)\s+you\b", low))
     starts_with_pp = bool(_PP_RE.match(core0))
+    starts_with_verb = bool(re.match(r"^(stand|see|hear|feel|wake|walk|get|brush|yawn|break|shiver|freeze|gag|cough|sneeze|hiccup|blink|notice|wonder|love|hate|like|lose|smell|taste|touch|breathe|swallow|bite|hold|lift|wake|woken|have|do|does)\b", low))
 
     if starts_with_pp:
         def fmt(h: str) -> str: return f"Have you ever {_lowercase_first(h)}?"
@@ -443,6 +522,8 @@ def _build_lead(hook_text: str) -> str:
             if re.match(r"^(when|if|after)\s+you\b", lh):
                 return f"What happens {lh}?"
             return f"What happens when {lh}?"
+    elif starts_with_verb:
+        def fmt(h: str) -> str: return f"What happens when you {_lowercase_first(h)}?"
     elif _BODY_PART_RE.search(core0):
         core0 = _lowercase_first(core0)
         def fmt(h: str) -> str: return f"Ever noticed {_lowercase_first(h)}?"
@@ -453,6 +534,8 @@ def _build_lead(hook_text: str) -> str:
 
     def _try(core_text: str) -> str:
         lead = fmt(core_text)
+        # Collapse accidental double punctuation.
+        lead = re.sub(r"([.!?…])[.!?…]+", r"\1", lead)
         if not lead.endswith((".", "!", "?", "…")):
             if lead.startswith(("Ever noticed ", "What happens ", "Have you ever ",
                                 "Did you ever ", "Do you ever ", "Here's why ")):
@@ -492,74 +575,27 @@ def _rebuild_from_caption(existing: str) -> Tuple[str, str]:
 
 
 # ---------------------------------------------------------------------------
-# Topic tags
+# Per-platform caption builders
 # ---------------------------------------------------------------------------
 
-def _topic_tags(topic: str, core: str, max_extra: int = 3) -> List[str]:
-    tags: List[str] = []
-    hay = f"{topic or ''} {core or ''}".lower()
-    for kw, tlist in _BODY_KEYWORDS.items():
-        if kw in hay:
-            for t in tlist:
-                ht = "#" + t
-                if ht not in tags:
-                    tags.append(ht)
-    for pillar, plist in _PILLAR_TAGS.items():
-        if re.search(rf"\b{pillar}\b", hay):
-            for t in plist[:1]:
-                ht = "#" + t
-                if ht not in tags:
-                    tags.append(ht)
-            break
-    return tags[:max_extra]
+def _finalise(lines: List[str], max_chars: int) -> str:
+    text = "\n\n".join(l for l in lines if l).strip()
+    if text and text[-1] not in ".!?…\"'":
+        text += "."
+    return _strip_bait(text)[:max_chars]
 
 
-def _enforce_tag_count(tags: List[str], mn: int, mx: int) -> List[str]:
-    out = []
-    seen = set()
-    for t in tags:
-        if not t.startswith("#"):
-            t = "#" + t
-        t = re.sub(r"[^A-Za-z0-9_#]", "", t)
-        if t.lower() in _BANNED_TAGS:
-            continue
-        if t.lower() in seen:
-            continue
-        seen.add(t.lower())
-        out.append(t)
-        if len(out) >= mx:
-            break
-    while len(out) < mn:
-        for fb in ["#BodyScience", "#HumanBody", "#ScienceFacts",
-                    "#EverydayScience", "#BiologyFacts"]:
-            if fb.lower() not in seen:
-                out.append(fb)
-                seen.add(fb.lower())
-                break
-        else:
-            break
-    return out[:mx]
+def _first_sentence_cap(core: str, cap: int) -> str:
+    """Return <= cap chars ending at a word boundary, with trailing
+    punctuation normalised."""
+    t = _clean(core)
+    if len(t) <= cap:
+        return t
+    cut = t[:cap].rsplit(" ", 1)[0].rstrip(",;:")
+    if not cut:
+        cut = t[:cap]
+    return cut
 
-
-def _follow_line(topic: str, platform: str) -> str:
-    low = (topic or "").lower()
-    if platform == "ig":
-        return "Follow for one body mystery explained every day."
-    if platform == "fb":
-        options = [
-            "Follow along for the things your body does and why.",
-            "Follow for short, accurate body science daily.",
-            "Follow for one body mystery explained every day.",
-            "Follow — everyday biology, no hype.",
-        ]
-        idx = int(hashlib.sha256(low.encode()).hexdigest()[:8], 16) % len(options)
-        return options[idx]
-    return "Follow for body science."
-
-
-# ---------------------------------------------------------------------------
-# Body-sentence embedding
-# ---------------------------------------------------------------------------
 
 _STARTS_CLAUSE_RE = re.compile(r"^(when|if|after|because|while|as|during)\b", re.I)
 
@@ -573,6 +609,7 @@ _IRREGULAR_PP = {
 
 
 def _de_pp(verb: str) -> str:
+    """Best-effort convert a past participle to simple-present (2nd person)."""
     v = verb.lower()
     if v in _IRREGULAR_PP:
         return _IRREGULAR_PP[v]
@@ -587,6 +624,8 @@ def _de_pp(verb: str) -> str:
 
 
 def _as_when_you_clause(body: str) -> str:
+    """Turn a 'Have you ever <pp> …' body into a 'when you <present> …'
+    noun clause for mid-sentence embedding."""
     words = body.strip().split()
     if not words:
         return "when you experience this"
@@ -604,6 +643,8 @@ _HAVE_YOU_EVER_EMBED_RE = re.compile(r"^have\s+you\s+ever\s+(.+)$", re.I)
 
 
 def _embed_core(core: str) -> str:
+    """Return core in a form suitable for embedding mid-sentence after a
+    preposition like 'behind'."""
     raw = _LEAD_TAIL_RE.sub("", core or "").rstrip(".!?…,;:")
     m = _HAVE_YOU_EVER_EMBED_RE.match(raw)
     if m:
@@ -625,39 +666,23 @@ def _embed_core(core: str) -> str:
     return c
 
 
-def _finalise(lines: List[str], max_chars: int) -> str:
-    text = "\n\n".join(l for l in lines if l).strip()
-    if text and text[-1] not in ".!?…\"'":
-        text += "."
-    return _strip_bait(text)[:max_chars]
-
-
-def _first_sentence_cap(core: str, cap: int) -> str:
-    t = _clean(core)
-    if len(t) <= cap:
-        return t
-    cut = t[:cap].rsplit(" ", 1)[0].rstrip(",;:")
-    if not cut:
-        cut = t[:cap]
-    return cut
-
-
-# ---------------------------------------------------------------------------
-# Per-platform caption builders
-# ---------------------------------------------------------------------------
-
 def build_fb_caption(topic: str, hook: str) -> str:
     lead = _build_lead(hook or topic)
     body_core = _core_for_lead(hook or topic)
+    follow = _follow_line(topic, "fb")
+    tags = _BODY_HASHTAGS_FB + _topic_tags(topic, body_core, max_extra=2)
+    body_budget = 2000 - (len(lead) + len(follow) + 80)
     body = _first_sentence_cap(
         f"Here's a quick look at the science behind {_embed_core(body_core)} — short, accurate, no hype.",
-        140,
+        max(120, min(200, body_budget)),
     )
-    tags = _BODY_HASHTAGS_FB + _topic_tags(topic, body_core)
-    hashtags = _enforce_tag_count(tags, 2, 5)
-    lines = [lead, _sentence(body), _follow_line(topic, "fb")]
-    if hashtags:
-        lines.append(" ".join(hashtags))
+    lines = [lead, _sentence(body), follow, _format_tags(tags)]
+    while len("\n\n".join(l for l in lines if l)) > 2000 and lines[-1].startswith("#"):
+        parts = lines[-1].rsplit(" ", 1)
+        if len(parts) > 1:
+            lines[-1] = parts[0]
+        else:
+            lines.pop()
     return _finalise(lines, 2000)
 
 
@@ -667,15 +692,20 @@ def build_ig_caption(topic: str, hook: str) -> str:
     if len(first) > 90:
         first = _first_sentence_cap(first, 86) + "…"
     body_core = _core_for_lead(hook or topic)
+    follow = _follow_line(topic, "ig")
+    tags = _BODY_HASHTAGS_IG + _topic_tags(topic, body_core, max_extra=2)
+    body_budget = 2100 - (len(first) + len(follow) + 80)
     body = _first_sentence_cap(
         f"Here's the body science behind {_embed_core(body_core)} — quick, accurate, no hype.",
-        130,
+        max(110, min(200, body_budget)),
     )
-    tags = _BODY_HASHTAGS_IG + _topic_tags(topic, body_core, max_extra=2)
-    hashtags = _enforce_tag_count(tags, 3, 7)
-    lines = [_sentence(first), _sentence(body), _follow_line(topic, "ig")]
-    if hashtags:
-        lines.append(" ".join(hashtags))
+    lines = [_sentence(first), _sentence(body), follow, _format_tags(tags)]
+    while len("\n\n".join(l for l in lines if l)) > 2100 and lines[-1].startswith("#"):
+        parts = lines[-1].rsplit(" ", 1)
+        if len(parts) > 1:
+            lines[-1] = parts[0]
+        else:
+            lines.pop()
     return _finalise(lines, 2100)
 
 
@@ -776,6 +806,7 @@ def _fingerprints():
 
 
 def _best_text(rid: str, live: str, index: Dict[str, Dict]) -> Tuple[str, str]:
+    """Pick the best hook/topic text."""
     e = index.get(rid, {})
     hook = _clean(e.get("hook") or "")
     topic = _clean(e.get("topic") or e.get("title") or "")
@@ -800,7 +831,7 @@ def _list_fb() -> List[Dict[str, Any]]:
         params = {"limit": 25, "fields": "id,description,created_time,permalink_url"}
         if cursor:
             params["after"] = cursor
-        res = _gget(f"{PAGE}/video_reels", **params)
+        res = gget(f"{PAGE}/video_reels", **params)
         for r in res.get("data", []):
             out.append({
                 "id": r["id"],
@@ -824,7 +855,7 @@ def _list_ig() -> List[Dict[str, Any]]:
         params = {"limit": 25, "fields": "id,caption,timestamp,permalink,media_type"}
         if cursor:
             params["after"] = cursor
-        res = _gget(f"{IG_USER}/media", **params)
+        res = gget(f"{IG_USER}/media", **params)
         for m in res.get("data", []):
             if m.get("media_type") != "VIDEO":
                 continue
@@ -856,7 +887,7 @@ def main() -> int:
 
     if not TOKEN:
         print("ERROR: FB_ACCESS_TOKEN missing.", file=sys.stderr); return 2
-    if not PAGE_ID:
+    if not PAGE:
         print("ERROR: FB_PAGE_ID missing.", file=sys.stderr); return 2
     if not args.apply and not args.dry_run:
         print("No action specified — defaulting to --dry-run."); args.dry_run = True
@@ -891,7 +922,7 @@ def main() -> int:
         trunc = _looks_truncated_caption(existing)
         cross = _cross_posted(existing)
         needs_repair = (not same) and (score_new > score_old or trunc or cross)
-        soc = _gget(rid, fields="likes.summary(true),comments.summary(true),from.id")
+        soc = gget(rid, fields="likes.summary(true),comments.summary(true),from.id")
         likes = (soc.get("likes", {}).get("summary") or {}).get("total_count")
         comments = (soc.get("comments", {}).get("summary") or {}).get("total_count")
         r.update({"new_caption": new_cap, "score_old": score_old, "score_new": score_new,
@@ -911,7 +942,7 @@ def main() -> int:
                  "old_score": r["score_old"], "new_score": r["score_new"],
                  "old_caption": r["description"], "new_caption": r["new_caption"]}
         if args.apply and r["needs_repair"]:
-            res = _gpost(rid, description=r["new_caption"])
+            res = gpost(rid, description=r["new_caption"])
             entry["edit_result"] = res
             if "error" in res:
                 log["warnings"].append(f"FB {rid} edit failed: {res}")
@@ -921,7 +952,7 @@ def main() -> int:
         if args.apply and args.seed_comment and (r.get("comments") or 0) == 0:
             topic_for_seed = _best_text(rid, r.get("description") or "", by_fbid)[1]
             seed = seed_comment_text(topic_for_seed)
-            cres = _gpost(rid + "/comments", message=seed)
+            cres = gpost(rid + "/comments", message=seed)
             entry["seed_comment"] = {"text": seed, "result": cres}
             if "error" in cres:
                 log["warnings"].append(f"FB {rid} comment failed: {cres}")
@@ -959,10 +990,12 @@ def main() -> int:
                  "old_score": m["score_old"], "new_score": m["score_new"],
                  "old_caption": m["caption"], "new_caption": m["new_caption"]}
         if args.apply:
-            res = _gpost(m["id"], caption=m["new_caption"])
+            # Instagram media caption edit. v23 requires comment_enabled=true,
+            # otherwise you get "(#100) The parameter comment_enabled is required".
+            res = gpost(m["id"], caption=m["new_caption"], comment_enabled="true")
             entry["edit_result"] = res
             if "error" in res:
-                log["warnings"].append(f"IG {m['id']} caption edit failed: {res}")
+                log["warnings"].append(f"IG {mid} caption edit failed: {res}")
                 print(f"  ❌ edit failed: {res}")
             else:
                 print(f"  ✅ caption updated")
