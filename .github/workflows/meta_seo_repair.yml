@@ -1,0 +1,91 @@
+name: "SKILLOR - Meta (FB/IG) Strong SEO Repair"
+
+on:
+  workflow_dispatch:
+    inputs:
+      apply:
+        description: "Actually edit live captions (false = dry run only)"
+        required: false
+        type: boolean
+        default: false
+      limit:
+        description: "Max reels to touch per platform (0 = all in need)"
+        required: false
+        type: number
+        default: 0
+  schedule:
+    - cron: "0 14 * * 2"
+    - cron: "0 14 * * 5"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: skillor-meta-seo-repair
+  cancel-in-progress: false
+
+jobs:
+  meta-seo-repair:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install minimal deps
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install python-dotenv requests numpy pillow
+      - name: Check Meta secrets
+        env:
+          FB_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
+          FB_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID || secrets.FB_PAGE_ID }}
+        run: |
+          missing=0
+          for var in FB_ACCESS_TOKEN FB_PAGE_ID; do
+            if [ -z "${!var:-}" ]; then echo "::error::$var missing"; missing=1; fi
+          done
+          exit $missing
+      - name: Dry-run audit (always)
+        env:
+          FB_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
+          FB_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID || secrets.FB_PAGE_ID }}
+          INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
+          FB_API_VERSION: "v23.0"
+        run: python scripts/meta_seo_repair.py --dry-run
+      - name: Apply repairs
+        if: github.event_name == 'workflow_dispatch' && inputs.apply == true
+        env:
+          FB_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
+          FB_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID || secrets.FB_PAGE_ID }}
+          INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
+          FB_API_VERSION: "v23.0"
+        run: |
+          LIMIT_ARG=""
+          if [ "${{ inputs.limit }}" != "0" ]; then LIMIT_ARG="--limit ${{ inputs.limit }}"; fi
+          python scripts/meta_seo_repair.py --apply $LIMIT_ARG --seed-comment
+      - name: Persist repair log
+        if: always()
+        run: |
+          set -euo pipefail
+          if [ -z "$(git status --porcelain -- data/)" ]; then echo "No log changes."; exit 0; fi
+          git config user.name "skillor-bot"
+          git config user.email "skillor-bot@users.noreply.github.com"
+          git add data/ docs/ 2>/dev/null || true
+          git commit -m "chore: meta SEO repair log [skip ci]"
+          for i in 1 2 3; do
+            git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}" && break
+            echo "retry $i"; sleep $((i*5))
+            [ $i -eq 3 ] && echo "::warning::push failed" && exit 0
+          done
+      - name: Upload repair log artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: meta-seo-repair-${{ github.run_id }}
+          path: |
+            data/meta_seo_repair_*.json
+            pipeline.log
+          if-no-files-found: ignore
+          retention-days: 30
