@@ -77,6 +77,7 @@ _TITLE_STOP_WORDS = {
     # keyword nobody searches.
     "having", "being", "getting", "doing", "going", "making", "taking",
     "feeling", "happens", "happening", "sudden", "suddenly", "really",
+    "keeps", "without", "knowing",
     "very", "just", "some", "more", "most", "other", "such", "into",
     "about", "after", "before", "while", "during", "because", "that",
     "these", "those", "there", "here", "then", "than", "also", "even",
