@@ -682,6 +682,183 @@ class CaptionTrimTests(unittest.TestCase):
         self.assertEqual(self.trim(caption, self.hook_limit), caption)
 
 
+class TrimmerAndValidatorAgreeTests(unittest.TestCase):
+    """The trimmer and the validator must enforce the SAME ceiling.
+
+    Run 30625527563 (all three workflow attempts) died on
+    "Scene 8 has 17 words (maximum 15)". No model was misbehaving: the
+    trimmer deliberately keeps a complete sentence that runs up to
+    _OVERSHOOT_GRACE_WORDS over budget rather than mutilating it, but the
+    validator still checked the raw budget. So every caption the trimmer
+    spared was rejected on the next line, all three attempts burned, and the
+    run exited 1 without uploading.
+    """
+
+    def setUp(self):
+        import script_generator as sg
+        self.sg = sg
+
+    def test_a_caption_the_trimmer_keeps_is_accepted_by_the_validator(self):
+        sg = self.sg
+        for over in range(1, sg._OVERSHOOT_GRACE_WORDS + 1):
+            caption = " ".join(["word"] * (sg.MAX_SCENE_WORDS + over)) + "."
+            kept = sg._trim_to_word_limit(caption, sg.MAX_SCENE_WORDS)
+            if len(kept.split()) <= sg.MAX_SCENE_WORDS:
+                continue  # trimmer found an honest cut; nothing to reconcile
+            script = _script_with_scene_caption(sg, kept)
+            _, issues = sg._validate_script(script)
+            offending = [i for i in issues if "maximum" in i]
+            self.assertFalse(
+                offending,
+                f"trimmer kept a {len(kept.split())}-word caption the "
+                f"validator then rejected: {offending}",
+            )
+
+    def test_genuinely_over_long_captions_are_still_rejected(self):
+        """The reconciliation must not turn the ceiling into a suggestion."""
+        sg = self.sg
+        caption = " ".join(["word"] * (sg.MAX_SCENE_WORDS + 12)) + "."
+        script = _script_with_scene_caption(sg, caption)
+        _, issues = sg._validate_script(script)
+        self.assertTrue([i for i in issues if "maximum" in i],
+                        "a wildly over-long caption slipped through")
+
+    def test_normalized_scripts_pass_their_own_word_checks(self):
+        """End-to-end: whatever _normalize_scenes emits, _validate_script
+        must not reject on scene word count. These two run back to back on
+        every single attempt, so any disagreement is an automatic outage."""
+        sg = self.sg
+        captions = [
+            "Your foot goes numb after sitting still",
+            "Why does the tingling start the second you finally stand up again?",
+            "Pressure on the nerve interrupts the signal it keeps sending your brain",
+            "The nerve is not damaged it is simply muted for a moment",
+            "Blood flow returns and the nerve fires every delayed message at once",
+            "That flood of signals is the pins and needles you feel",
+            "It fades within a minute once the nerve catches up completely",
+            "So the next time your foot goes numb you will know exactly why",
+        ]
+        script = {
+            "title": "Why Your Foot Falls Asleep",
+            "hook": captions[0],
+            "cta": "Follow for more body science",
+            "scenes": [{"visual": f"close up shot {i}", "caption": c}
+                       for i, c in enumerate(captions)],
+        }
+        script = sg._normalize_scenes(script)
+        _, issues = sg._validate_script(script)
+        word_issues = [i for i in issues if "maximum" in i or "allowed" in i]
+        self.assertFalse(word_issues,
+                         f"normalize and validate disagree: {word_issues}")
+
+    def test_the_grace_allowance_cannot_breach_the_spoken_hook_gate(self):
+        """The word grace buys the writer room; it must not spend room the
+        RENDERER does not have. main.py fails the run outright if the spoken
+        hook exceeds hook_enforcement_seconds, so the longest hook the
+        validator now accepts has to still fit inside that limit."""
+        sg = self.sg
+        longest = sg.effective_word_ceiling(sg.HOOK_MAX_WORDS)
+        spoken = longest / policy.WORDS_PER_SECOND
+        limit = policy.hook_enforcement_seconds(policy.PLATFORMS)
+        self.assertLessEqual(
+            spoken, limit,
+            f"a {longest}-word hook takes {spoken:.2f}s but the runtime gate "
+            f"is {limit:.2f}s — the validator would pass scripts the renderer "
+            f"then rejects",
+        )
+
+    def test_trailing_clause_punctuation_is_not_doubled(self):
+        """Appending a period to a caption already ending in a comma produced
+        "your foot tingles,." in the SRT and the burned-in captions."""
+        sg = self.sg
+        script = {
+            "title": "T", "hook": "h", "cta": "c",
+            "scenes": [{"visual": "v", "caption": "Your foot tingles,"}],
+        }
+        out = sg._normalize_scenes(script)
+        self.assertEqual(out["scenes"][0]["caption"], "Your foot tingles.")
+
+
+def _script_with_scene_caption(sg, caption: str) -> dict:
+    """A structurally valid 8-scene script whose LAST scene is `caption`."""
+    filler = " ".join(["word"] * min(10, sg.MAX_SCENE_WORDS)) + "."
+    scenes = [{"visual": "v", "caption": "Your eyelid twitches at night"}]
+    scenes += [{"visual": "v", "caption": filler} for _ in range(6)]
+    scenes += [{"visual": "v", "caption": caption}]
+    return {
+        "title": "Why Your Eyelid Twitches",
+        "hook": "Your eyelid twitches at night",
+        "cta": "Follow for more",
+        "scenes": scenes,
+        "voiceover": " ".join(s["caption"] for s in scenes),
+    }
+
+
+class HookScorerMorphologyTests(unittest.TestCase):
+    """The concrete-subject list must survive ordinary English inflection.
+
+    The scorer matched a stem plus appended characters, so "twitch" caught
+    "twitching" but "shake" did NOT catch "shaking" — English drops the
+    trailing "e" before a vowel suffix. Topic #161 ("your voice shaking when
+    speaking in front of crowds") therefore scored 55/80 no matter how well
+    the model wrote it, and the run failed with hook=55/80.
+    """
+
+    def setUp(self):
+        from shorts_enhancer import score_hook_detailed
+        self.detail = score_hook_detailed
+        self.score = lambda h: score_hook_detailed(h)["score"]
+
+    def _concrete(self, hook: str) -> bool:
+        return {c["name"]: c["passed"]
+                for c in self.detail(hook)["checks"]}["specificity"]
+
+    def test_drop_e_inflections_are_recognised(self):
+        for hook in ("Your voice starts shaking in front of crowds",
+                     "Your whole body is freezing before you react",
+                     "Your foot starts tingling after sitting still",
+                     "Your hands keep trembling before you speak"):
+            self.assertTrue(self._concrete(hook), hook)
+
+    def test_the_exact_topic_that_failed_the_run_now_clears_the_gate(self):
+        hook = "Your voice keeps shaking when the whole room turns"
+        self.assertGreaterEqual(self.score(hook), policy.MIN_HOOK_SCORE, hook)
+
+    def test_inflection_matching_does_not_swallow_unrelated_words(self):
+        """A drop-e stem must not match a different word that merely starts
+        the same way — "ache" must not light up on "achieve"."""
+        for hook in ("Teams achieve better results with planning",
+                     "The project will achieve its target"):
+            self.assertFalse(self._concrete(hook), hook)
+
+    def test_weak_hooks_are_still_weak_after_the_fix(self):
+        """Widening the vocabulary must not hand points to empty openers."""
+        for hook in ("Scientists discovered something interesting.",
+                     "Hello everyone and welcome back to the channel."):
+            self.assertLess(self.score(hook), policy.MIN_HOOK_SCORE, hook)
+
+
+class PublishSlotConsistencyTests(unittest.TestCase):
+    """YouTube's publishAt and Instagram's wait-for-slot must use one clock.
+
+    uploader kept its own hardcoded copy of the peak slots. It had already
+    drifted — the list still said 21:30 after the scheduler moved to 18:30 —
+    so a scheduled YouTube video and the Instagram post for the SAME video
+    were aiming at different times.
+    """
+
+    def test_uploader_slots_match_the_scheduler(self):
+        try:
+            import uploader
+        except ModuleNotFoundError as exc:
+            self.skipTest(f"deps not installed here: {exc}")
+        from scheduler import USAPeakTimeScheduler
+        self.assertEqual(
+            uploader._PUBLISH_SLOTS,
+            sorted((p["hour"], p["minute"]) for p in USAPeakTimeScheduler.PEAK_TIMES),
+        )
+
+
 class SafeZoneTests(unittest.TestCase):
     """Text rendered under the platform UI is text nobody reads.
 
@@ -919,37 +1096,53 @@ class GrowthEngineTests(unittest.TestCase):
 
 
 class SchedulerLearningTests(unittest.TestCase):
+    """Patching note: `SomeClass.a_staticmethod` reads back as a PLAIN
+    FUNCTION, not as the staticmethod descriptor stored in the class dict.
+    Saving that and assigning it back therefore does not restore the original
+    class — it replaces a staticmethod with an instance method, and every
+    later `self._learned_slot_weights()` call in the same test session raises
+    "takes 0 positional arguments but 1 was given". That leak used to reach
+    the uploader test and log "Instagram slot lookup failed". Patch via
+    unittest.mock, which restores the descriptor itself.
+    """
+
+    def _patch_weights(self, func):
+        patcher = unittest.mock.patch.object(
+            self.scheduler_cls, "_learned_slot_weights", staticmethod(func)
+        )
+        patcher.start()
+        self.addCleanup(patcher.stop)
+
+    def setUp(self):
+        from scheduler import USAPeakTimeScheduler
+        self.scheduler_cls = USAPeakTimeScheduler
+        self.scheduler = USAPeakTimeScheduler()
+
     def test_slots_are_ranked_by_measured_weight(self):
         """When cadence drops below 3, the pipeline must fill the BEST slots,
         not the first ones in list order."""
-        from scheduler import USAPeakTimeScheduler
-        scheduler = USAPeakTimeScheduler()
-        original = USAPeakTimeScheduler._learned_slot_weights
-        try:
-            USAPeakTimeScheduler._learned_slot_weights = staticmethod(
-                lambda: {"12:30": 0.5, "18:30": 0.6, "20:00": 1.9}
-            )
-            ranked = scheduler.ranked_peak_times()
-            self.assertEqual((ranked[0]["hour"], ranked[0]["minute"]), (20, 0))
-            two = scheduler.get_next_posting_times(2)
-            self.assertEqual(len(two), 2)
-            self.assertIn(20, [entry["time"].hour for entry in two])
-        finally:
-            USAPeakTimeScheduler._learned_slot_weights = original
+        self._patch_weights(lambda: {"12:30": 0.5, "18:30": 0.6, "20:00": 1.9})
+        ranked = self.scheduler.ranked_peak_times()
+        self.assertEqual((ranked[0]["hour"], ranked[0]["minute"]), (20, 0))
+        two = self.scheduler.get_next_posting_times(2)
+        self.assertEqual(len(two), 2)
+        self.assertIn(20, [entry["time"].hour for entry in two])
 
     def test_unmeasured_channel_keeps_chronological_behaviour(self):
-        from scheduler import USAPeakTimeScheduler
-        scheduler = USAPeakTimeScheduler()
-        original = USAPeakTimeScheduler._learned_slot_weights
-        try:
-            USAPeakTimeScheduler._learned_slot_weights = staticmethod(dict)
-            ranked = scheduler.ranked_peak_times()
-            self.assertEqual(
-                [(p["hour"], p["minute"]) for p in ranked],
-                [(p["hour"], p["minute"]) for p in scheduler.PEAK_TIMES],
-            )
-        finally:
-            USAPeakTimeScheduler._learned_slot_weights = original
+        self._patch_weights(dict)
+        ranked = self.scheduler.ranked_peak_times()
+        self.assertEqual(
+            [(p["hour"], p["minute"]) for p in ranked],
+            [(p["hour"], p["minute"]) for p in self.scheduler.PEAK_TIMES],
+        )
+
+    def test_patching_the_hook_does_not_leak_into_later_tests(self):
+        """The regression itself: after a patched block ends, an ordinary
+        instance call must still work."""
+        self._patch_weights(dict)
+        self.scheduler.ranked_peak_times()
+        unittest.mock.patch.stopall()
+        self.scheduler_cls().ranked_peak_times()  # must not raise
 
 
 class ScriptBudgetWiringTests(unittest.TestCase):

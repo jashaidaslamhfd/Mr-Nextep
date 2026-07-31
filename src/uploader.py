@@ -44,23 +44,36 @@ if YT_PRIVACY_STATUS not in {"private", "unlisted", "public"}:
 # thinking. Implemented for real now:
 #   YT_SCHEDULE_PUBLISH=true  →  upload as private with a publishAt timestamp
 #   YouTube then flips it to public automatically at the next US peak slot
-#   (12:30 / 20:00 / 21:30 America/New_York — kept in sync with
+#   (12:30 / 18:30 / 20:00 America/New_York — kept in sync with
 #   scheduler.USAPeakTimeScheduler.PEAK_TIMES and the workflow cron table).
 # ---------------------------------------------------------------------------
 YT_SCHEDULE_PUBLISH = os.environ.get("YT_SCHEDULE_PUBLISH", "false").lower() == "true"
 _PUBLISH_TZ = pytz.timezone("America/New_York")
-_PUBLISH_SLOTS = [
-    (12, 30),
-    (18, 30),
-    (20, 0),
-]# (hour, minute) New York time
+
 # DATA-DRIVEN (2026-07-26, 87-video time-vs-views analysis):
 #   12:30 lunch  → avg 231 views (fresh ≤21d avg 252) — channel's best slot
+#   18:30 early  → commute/wind-down slot, paired with the 20:40 UTC cron
 #   20:00 prime  → avg 261 views (n=11) — proven evening winner
 #   16:30        → RETIRED: fresh median only 53, work-end crowd never came
-#   21:30        → new wind-down experiment. Signals: 21:00 pair avg 218 and
-#   a 23:54 upload hit 652. Sits ≥90 min after the 20:00 slot so the two
-#   evening uploads never eat each other's first-hour boost.
+#
+# Sourced from the scheduler rather than re-typed, because these three slots
+# also drive Instagram's wait-for-slot logic and the workflow cron table. The
+# duplicated literal list had already drifted once (it still said 21:30 after
+# the scheduler moved to 18:30), which silently sends the YouTube publishAt
+# and the Instagram publish to two different clocks.
+def _peak_publish_slots() -> list:
+    """(hour, minute) New York slots, single-sourced from the scheduler."""
+    try:
+        from scheduler import USAPeakTimeScheduler
+        slots = [(p["hour"], p["minute"]) for p in USAPeakTimeScheduler.PEAK_TIMES]
+        if slots:
+            return sorted(slots)
+    except Exception:  # noqa: BLE001 — scheduling must never block an upload
+        logger.warning("Peak slot lookup failed; using the built-in fallback slots.")
+    return [(12, 30), (18, 30), (20, 0)]
+
+
+_PUBLISH_SLOTS = _peak_publish_slots()  # (hour, minute) New York time
 _PUBLISH_MIN_LEAD_MINUTES = 30  # video must sit privately at least this long
 
 # ---------------------------------------------------------------------------

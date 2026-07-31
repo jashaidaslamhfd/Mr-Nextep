@@ -45,7 +45,7 @@ import logging
 import os
 import time
 from datetime import datetime, timezone
-from typing import Dict, List, Optional
+from typing import Dict, List
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)
@@ -336,7 +336,6 @@ def collect(min_hours_old: int = 24, refresh_hours: int = 20) -> Dict:
         store = {}
 
     meta_token = _meta_token()
-    ig_user = _instagram_user_id()
     if not meta_token:
         logger.warning(
             "No Meta access token in the environment (looked for IG_ACCESS_TOKEN, "
