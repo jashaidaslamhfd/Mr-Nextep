@@ -8,26 +8,14 @@ on:
         required: false
         type: string
   schedule:
-    # 3 videos/day for a US audience, auto-published at New York peaks
-    # (12:30 / 18:30 / 20:00 America/New_York) via status.publishAt.
+    # 3 videos/day for a US audience, auto-published at New York peaks:
+    # 12:30 / 18:30 / 20:00 America/New_York.
     #
-    # Slots set 2026-07-27 where the channel's own data and the industry
-    # consensus agree. Mature videos (>=2 days old), current view counts:
-    #   12:30  avg 719  [830, 988, 339]   best slot on the channel
-    #   20:00  avg 519  [664, 795, 98]    second best
-    #   21:00+ avg 117  [107, 127]        weakest evening band -> RETIRED
-    # Five independent 2026 studies of US Shorts (iqfluence n=325, miraflow,
-    # socialrails, mediamister, sellerpic) all name 12-2 PM and 6-9 PM ET.
-    # 21:30 sat outside that window and only 90 min after prime, competing
-    # with the day's strongest upload; 18:30 opens the 6-9 PM block instead.
-    # Each cron starts generation ~2h before its slot so the upload lands
-    # with a comfortable ~55min lead (publishAt needs >=30min). If a run
-    # ever slips past its slot, the one-video-per-slot lock in uploader.py
-    # (process set + history ledger + live channel queue) moves it to the
-    # NEXT free slot — two videos can never publish at the same minute.
-    - cron: "40 14 * * *"   # generation ~10:40 NY -> publish 12:30 lunch
-    - cron: "40 20 * * *"   # generation ~16:40 NY -> publish 18:30 early evening
-    - cron: "10 22 * * *"   # generation ~18:10 NY -> publish 20:00 prime
+    # GitHub cron UTC mein run hota hai. Uploader.py actual publishAt ko
+    # America/New_York timezone mein calculate karta hai.
+    - cron: "40 14 * * *"
+    - cron: "40 20 * * *"
+    - cron: "10 22 * * *"
 
 permissions:
   contents: write
@@ -39,11 +27,8 @@ concurrency:
 jobs:
   generate-and-upload:
     runs-on: ubuntu-latest
-    # Generation is ~8 min, but the Instagram publish now HOLDS until the
-    # peak slot (measured ~112 min) because IG has no scheduling API. 8 + 112
-    # = 120 exactly, which would sit on the old limit and get killed at
-    # random. 200 leaves room for the 150-min IG cap plus a slow run.
     timeout-minutes: 200
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -69,96 +54,115 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+
           sudo apt-get update
-          # ffmpeg: video assembly · fonts-dejavu-core: PIL captions ·
-          # espeak-ng: Kokoro phonemizer. (imagemagick removed — captions are
-          # drawn with PIL now, nothing in the codebase reads IMAGEMAGICK_BINARY.)
-          sudo apt-get install -y --no-install-recommends ffmpeg fonts-dejavu-core espeak-ng
+
+          sudo apt-get install -y --no-install-recommends \
+            ffmpeg \
+            fonts-dejavu-core \
+            espeak-ng
+
           python -m pip install --upgrade pip setuptools wheel
-          for i in 1 2 3; do python -m pip install -r requirements.txt && break || { echo "retry $i"; sleep 15; }; done
+
+          for i in 1 2 3; do
+            python -m pip install -r requirements.txt && break || {
+              echo "Install retry $i"
+              sleep 15
+            }
+          done
 
       - name: Run offline quality regression tests
         shell: bash
         run: |
           set -euo pipefail
+
           python scripts/generate_body_glitch_topics.py
           python -m compileall -q src scripts tests
           python -m unittest discover -s tests -v
 
-      - name: Validate required secrets (fail fast, before burning compute)
+      - name: Validate required secrets
         shell: bash
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
           GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
           REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
+
           FB_UPLOAD_ENABLED: "true"
           FACEBOOK_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID }}
           FB_PAGE_ID_ALT: ${{ secrets.FB_PAGE_ID }}
           FACEBOOK_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
           FB_ACCESS_TOKEN_ALT: ${{ secrets.FB_ACCESS_TOKEN }}
+
           INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
+
         run: |
           set -euo pipefail
+
           echo "Checking required secrets..."
           missing=0
+
           if [ -z "${GROQ_API_KEY:-}" ]; then
-            echo "::error::GROQ_API_KEY missing. Add it in https://github.com/${{ github.repository }}/settings/secrets/actions"
+            echo "::error::GROQ_API_KEY missing"
             missing=1
           else
-            echo "✓ GROQ_API_KEY present"
+            echo "GROQ_API_KEY present"
           fi
-          # YouTube OAuth trio — without these the run used to fail in
-          # phase 5 AFTER ~60 min of video generation. Fail in seconds instead.
+
           for var in GOOGLE_CLIENT_ID GOOGLE_CLIENT_SECRET REFRESH_TOKEN; do
             if [ -z "${!var:-}" ]; then
-              echo "::error::$var missing — the video would fail at upload time. Set it in repo secrets."
+              echo "::error::$var missing"
               missing=1
             fi
           done
-          [ "$missing" -eq 0 ] && echo "✓ YouTube OAuth secrets present"
 
-          # Facebook is DISABLED by default (FB_UPLOAD_ENABLED=false) — only
-          # warn (never fail) for FB secrets unless uploads are enabled.
+          if [ "$missing" -eq 0 ]; then
+            echo "YouTube OAuth secrets present"
+          fi
+
           if [ "${FB_UPLOAD_ENABLED,,}" = "true" ]; then
             FB_PAGE="${FACEBOOK_PAGE_ID:-${FB_PAGE_ID_ALT:-}}"
             FB_TOKEN="${FACEBOOK_ACCESS_TOKEN:-${FB_ACCESS_TOKEN_ALT:-}}"
+
             if [ -z "$FB_PAGE" ] || [ -z "$FB_TOKEN" ]; then
-              echo "::error::Facebook enabled but page id / access token missing."
+              echo "::error::Facebook enabled but Page ID or access token missing"
               missing=1
+            else
+              echo "Facebook Page ID and token present"
             fi
-          else
-            echo "✓ Facebook disabled - FB secrets not required"
           fi
-          # Instagram cross-posting is optional: warn only, never fail the run.
+
           if [ -z "${INSTAGRAM_USER_ID:-}" ]; then
-            echo "::warning::INSTAGRAM_USER_ID missing — Instagram Reels cross-post will be skipped (YouTube/FB unaffected)."
+            echo "::warning::INSTAGRAM_USER_ID missing — Instagram will be skipped"
           else
-            echo "✓ Instagram user id present (cross-post enabled)"
+            echo "Instagram user ID present"
           fi
+
           exit "$missing"
 
       - name: Generate and upload Short
         shell: bash
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
           REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
           REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
-          # ---- US AUDIENCE ----
+
           TREND_REGION: "US"
           YOUTUBE_REGION_CODE: "US"
           CHANNEL_LANGUAGE: "en-US"
           CHANNEL_COUNTRY: "US"
+
           CONTENT_SERIES: "body_glitches"
           TOPIC_STRATEGY: "body_glitch_series"
           REQUIRE_DAILY_TREND: "false"
-          # ---- Voice: American English (these envs are ACTUALLY read now) ----
+
           TTS_ENGINE: "kokoro"
           KOKORO_LANG_CODE: "a"
           KOKORO_VOICE: "am_adam"
           REQUIRE_CLONED_VOICE: "false"
-          # ---- Image providers (optional keys; no-key providers always on) ----
+
           AI_HORDE_API_KEY: ${{ secrets.AI_HORDE_API_KEY }}
           AI_HORDE_MAX_WAIT: "300"
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
@@ -168,92 +172,93 @@ jobs:
           REPLICATE_API_TOKEN: ${{ secrets.REPLICATE_API_TOKEN }}
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
-          # ---- YouTube OAuth ----
+
           GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
           GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
           REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
+
           YT_MADE_FOR_KIDS: "false"
           YT_DECLARE_SYNTHETIC_MEDIA: "true"
           YT_PLAYLIST_ENABLED: "true"
-          # Upload private + publishAt → YouTube auto-publishes at the next US
-          # peak slot (12:30 / 20:00 / 21:30 NY). Videos sit privately first,
-          # so anything broken can be deleted before it ever goes live.
+
           YT_PRIVACY_STATUS: "private"
           YT_SCHEDULE_PUBLISH: "true"
-          # ---- Anti-spam ----
+
           ENFORCE_POSTING_GAP: "true"
-          # ---- Facebook Reels (ON — secrets verified in repo) ----
+
           FB_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN || secrets.FB_ACCESS_TOKEN }}
           FB_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID || secrets.FB_PAGE_ID }}
           FB_UPLOAD_ENABLED: "true"
-          # Reel publishes 2h after the YouTube slot (Meta same-day boost
-          # fires in its own window); spoken CTA + caption auto-switch to the
-          # FB-safe, engagement-bait-free variant when this is true.
           FB_STAGGER_MINUTES: "120"
-          # ---- Instagram Reels: same Short to the Page's linked @mrnextep ----
-          # Verified live 2026-07-26: container-create smoke test passed with
-          # the full-permissions token. Duplicate-safe via upload_state.json;
-          # any IG failure only logs a warning — YouTube/FB are unaffected.
+
           IG_UPLOAD_ENABLED: "true"
           INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
           IG_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN || secrets.FB_ACCESS_TOKEN }}
-          # Instagram has no scheduling parameter, so the Reel used to go live
-          # the moment generation finished (~10:38 / 18:08 / 19:38 NY) — never
-          # at a peak. The uploader now holds the finished container until the
-          # same slot YouTube targets. Measured wait is ~112 min for all three
-          # crons, inside this cap; if a slot is ever further out the Reel
-          # publishes immediately rather than stalling the runner.
           IG_WAIT_FOR_SLOT: "true"
           IG_MAX_WAIT_MINUTES: "150"
-          # ---- Quality gates ----
-          TARGET_MIN_SECONDS: "40"
-          TARGET_MAX_SECONDS: "55"
+
+          META_CUT_ENABLED: "true"
+          SPOKEN_CTA_MODE: "loop"
+
           CHATTERBOX_TEMPO: "0.96"
           CHATTERBOX_EXAGGERATION: "0.35"
           CHATTERBOX_CFG_WEIGHT: "0.70"
           CHATTERBOX_TEMPERATURE: "0.60"
+
           MUSIC_VOLUME: "0.07"
           ENABLE_SCREENSHOT_FALLBACK: "false"
-          MIN_HOOK_SCORE: "85"
-          QUALITY_APPROVAL_THRESHOLD: "85"
-          MAX_HOOK_SECONDS: "5.0"
           FALLBACK_ABORT_RATIO: "0.80"
+
           VIDEO_TOPIC: ${{ inputs.topic || '' }}
           PYTHONUNBUFFERED: "1"
+
         run: |
           set -euo pipefail
+
           for attempt in 1 2 3; do
             echo "=== Attempt $attempt / 3 ==="
+
             if python src/main.py; then
               break
             else
               rc=$?
-              echo "::warning::Fail $attempt code $rc"
-              if [ $attempt -eq 3 ]; then exit $rc; fi
+              echo "::warning::Generation attempt $attempt failed with code $rc"
+
+              if [ "$attempt" -eq 3 ]; then
+                exit "$rc"
+              fi
+
               sleep $((attempt * 60))
             fi
           done
 
-      - name: Persist durable channel state (with rebase retry)
+      - name: Persist durable channel state
         if: always()
         shell: bash
         run: |
           set -euo pipefail
-          if [ -z "$(git status --porcelain -- data/)" ]; then echo "No state changes."; exit 0; fi
+
+          if [ -z "$(git status --porcelain -- data/)" ]; then
+            echo "No state changes."
+            exit 0
+          fi
+
           git config user.name "skillor-bot"
           git config user.email "skillor-bot@users.noreply.github.com"
+
           git add -A data/
           git commit -m "chore: persist SKILLOR channel state [skip ci]"
+
           for i in 1 2 3; do
-            if git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}"; then
+            if git pull --rebase origin "${GITHUB_REF_NAME}" \
+              && git push origin "HEAD:${GITHUB_REF_NAME}"; then
               break
             else
               echo "Push retry $i"
-              sleep $((i*5))
-              if [ $i -eq 3 ]; then
-                # State stays in the run artifact below as a recovery copy —
-                # data/ is uploaded alongside output/ and pipeline.log.
-                echo "::warning::State push failed after 3 tries; recovery copy is in this run's artifact."
+              sleep $((i * 5))
+
+              if [ "$i" -eq 3 ]; then
+                echo "::warning::State push failed after 3 tries"
                 exit 0
               fi
             fi
