@@ -454,6 +454,12 @@ def get_trending_topic(
     strategy = os.environ.get("TOPIC_STRATEGY", "body_glitch_series").strip().lower()
     require_daily_trend = os.environ.get("REQUIRE_DAILY_TREND", "false").lower() == "true"
 
+    # Dynamic competitor viral hijacker & real-time search trends strategy
+    if strategy in ("competitor_hijack", "viral_hijack"):
+        from competitor_hijacker import get_hijacked_viral_topic
+        chosen = get_hijacked_viral_topic(exclude)
+        return chosen if return_metadata else str(chosen["topic"])
+
     # The Body Glitch launch is deliberately isolated from noisy general
     # trend feeds. This gives YouTube 500 tightly consistent audience signals.
     if strategy == "body_glitch_series":
