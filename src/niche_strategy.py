@@ -546,13 +546,15 @@ CTAS = [
     "More coming — follow so you don't miss it.",
     "If this surprised you, there's more where that came from.",
     "Follow for the next one — it's just as wild.",
-    "Share this with someone who loves random facts.",
+    # FIXED 2026-07-31: Removed bait CTA "Share this with someone..." -> matches \bshare (this|it|with)\b
+    # and gets stripped by strip_bait(), leaving empty CTA. Replaced with bait-free.
+    "Your body is weirder than you think — follow for daily proof.",
     "Follow for daily body science.",
     "Bookmark this for later — you'll want to remember it.",
     "Want more? Follow for the next deep dive.",
     "This channel explains the stuff nobody else does — follow.",
     "Follow along — new facts every day.",
-    "Save this one — it comes up in conversation.",
+    "The oddest body fact is tomorrow — follow so you catch it.",
     "Follow for the next body mystery explained.",
 ]
 

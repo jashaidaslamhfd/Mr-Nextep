@@ -1,0 +1,255 @@
+name: "SKILLOR - Full Platform Repair (YT + FB + IG)"
+
+# Ek workflow se sab clean:
+# - YouTube: SEO audit + US sweep repair (titles, descs, tags)
+# - Facebook: audit + cover backfill + title/cover tuneup + caption repair + seed comments
+# - Instagram: caption repair (score 6->10) + hashtags fix
+# - Analytics: YT Analytics + FB insights refresh + growth report
+#
+# Kyunki GitHub App workflow files ko push nahi kar sakta, ye file
+# docs/workflow_updates/ mein rakhi hai. Isko GitHub UI se manually
+# .github/workflows/full_platform_repair.yml mein copy-paste karo,
+# phir Actions tab se run karo.
+
+on:
+  workflow_dispatch:
+    inputs:
+      apply:
+        description: "true = Actually edit live YT/FB/IG (false = dry-run preview only)"
+        required: true
+        default: false
+        type: boolean
+      limit:
+        description: "Max items per platform to touch (0 = all)"
+        required: false
+        default: "0"
+        type: string
+      include_youtube:
+        description: "Repair YouTube?"
+        required: false
+        default: true
+        type: boolean
+      include_facebook:
+        description: "Repair Facebook?"
+        required: false
+        default: true
+        type: boolean
+      include_instagram:
+        description: "Repair Instagram?"
+        required: false
+        default: true
+        type: boolean
+
+permissions:
+  contents: write
+
+concurrency:
+  group: skillor-full-platform-repair
+  cancel-in-progress: false
+
+jobs:
+  full-repair:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+          cache-dependency-path: requirements.txt
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip setuptools wheel
+          pip install -r requirements.txt
+          pip install 'google-api-python-client>=2.100.0' 'google-auth>=2.25.0' 'google-auth-oauthlib>=1.1.0' 'google-auth-httplib2>=0.2.0' requests python-dotenv numpy pillow
+
+      - name: Validate secrets
+        env:
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
+          FB_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN || secrets.FB_ACCESS_TOKEN }}
+          FB_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID || secrets.FB_PAGE_ID }}
+          INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
+        run: |
+          echo "=== Secrets Check ==="
+          missing=0
+          for var in GOOGLE_CLIENT_ID GOOGLE_CLIENT_SECRET REFRESH_TOKEN; do
+            if [ -z "${!var:-}" ]; then echo "::warning::$var missing - YouTube repair will be dry only"; else echo "$var present"; fi
+          done
+          if [ -z "${FB_ACCESS_TOKEN:-}" ]; then echo "::warning::FB token missing - FB/IG repair will be dry only"; missing=1; else echo "FB token present"; fi
+          if [ -z "${FB_PAGE_ID:-}" ]; then echo "::warning::FB_PAGE_ID missing"; fi
+          if [ -z "${INSTAGRAM_USER_ID:-}" ]; then echo "::warning::INSTAGRAM_USER_ID missing - IG repair skipped"; fi
+          echo "Secrets check done"
+
+      - name: FB Token Probe (ensures read_insights OK)
+        if: inputs.include_facebook || inputs.include_instagram
+        env:
+          FB_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID || secrets.FB_PAGE_ID }}
+          FB_API_VERSION: "v23.0"
+          FB_TOK_A: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
+          FB_TOK_B: ${{ secrets.FB_ACCESS_TOKEN }}
+        run: |
+          echo "Probing FB token permissions (read_insights, pages_read_engagement)..."
+          python scripts/fb_token_probe.py || echo "::warning::Token probe had issues - check logs"
+
+      - name: AUDIT - YouTube US & Facebook Page
+        env:
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
+          FB_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN || secrets.FB_ACCESS_TOKEN }}
+          FB_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID || secrets.FB_PAGE_ID }}
+          FB_API_VERSION: "v23.0"
+          INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
+        run: |
+          set -euo pipefail
+          echo "=== YOUTUBE AUDIT ==="
+          if [ "${{ inputs.include_youtube }}" = "true" ]; then
+            python scripts/video_audit.py 2>&1 | tee -a audit.log || true
+            python scripts/seo_diag.py 2>&1 | tee -a audit.log || true
+            python scripts/channel_audit.py 2>&1 | tee -a audit.log || true
+          fi
+          echo "=== FACEBOOK AUDIT ==="
+          if [ "${{ inputs.include_facebook }}" = "true" ]; then
+            python scripts/fb_page_audit.py 2>&1 | tee -a audit.log || echo "FB audit failed - token may lack permission (expected if not yet updated)"
+            python scripts/meta_reach_diag.py 2>&1 | tee -a audit.log || true
+          fi
+          echo "=== IG DIAG ==="
+          if [ "${{ inputs.include_instagram }}" = "true" ]; then
+            python scripts/ig_diag.py 2>&1 | tee -a audit.log || true
+          fi
+
+      - name: DRY-RUN - YouTube SEO Repair (preview)
+        if: inputs.include_youtube
+        env:
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
+        run: |
+          echo "=== YT SEO SWEEP DRY RUN ==="
+          python scripts/us_seo_sweep.py --dry-run 2>&1 | tee -a yt_repair.log || true
+          python scripts/metadata_repair.py --dry-run 2>&1 | tee -a yt_repair.log || true
+
+      - name: APPLY - YouTube SEO Repair
+        if: inputs.apply && inputs.include_youtube
+        env:
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
+        run: |
+          echo "=== APPLY YT REPAIRS ==="
+          LIMIT_ARG=""; if [ "${{ inputs.limit }}" != "0" ]; then LIMIT_ARG="--limit ${{ inputs.limit }}"; fi
+          python scripts/us_seo_sweep.py --apply $LIMIT_ARG 2>&1 | tee -a yt_repair.log || echo "::warning::YT sweep apply had errors"
+          python scripts/video_repair_us.py $LIMIT_ARG 2>&1 | tee -a yt_repair.log || true
+
+      - name: DRY-RUN - Facebook Cover + SEO
+        if: inputs.include_facebook || inputs.include_instagram
+        env:
+          FB_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN || secrets.FB_ACCESS_TOKEN }}
+          FB_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID || secrets.FB_PAGE_ID }}
+          INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
+          FB_API_VERSION: "v23.0"
+        run: |
+          echo "=== FB COVER BACKFILL DRY ==="
+          python scripts/fb_cover_backfill.py --min-overlap 3 2>&1 | tee -a fb_repair.log || true
+          echo "=== META SEO REPAIR DRY ==="
+          python scripts/meta_seo_repair.py --dry-run 2>&1 | tee -a fb_repair.log || true
+
+      - name: APPLY - Facebook Cover Backfill
+        if: inputs.apply && inputs.include_facebook
+        env:
+          FB_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN || secrets.FB_ACCESS_TOKEN }}
+          FB_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID || secrets.FB_PAGE_ID }}
+          FB_API_VERSION: "v23.0"
+        run: |
+          echo "=== APPLY FB COVER BACKFILL ==="
+          LIMIT=""; if [ "${{ inputs.limit }}" != "0" ]; then LIMIT="--limit ${{ inputs.limit }}"; fi
+          # min-overlap 3 = safe, 2 = more aggressive
+          python scripts/fb_cover_backfill.py --apply --min-overlap 3 $LIMIT 2>&1 | tee -a fb_repair.log || echo "::warning::Cover backfill had errors"
+
+      - name: APPLY - Facebook Tuneup (titles + covers verification)
+        if: inputs.apply && inputs.include_facebook
+        env:
+          FB_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN || secrets.FB_ACCESS_TOKEN }}
+          FB_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID || secrets.FB_PAGE_ID }}
+          FB_API_VERSION: "v23.0"
+        run: |
+          echo "=== FB TUNEUP ==="
+          python scripts/fb_page_tuneup.py 2>&1 | tee -a fb_repair.log || echo "::warning::FB tuneup had errors (some titles may need manual)"
+
+      - name: APPLY - Meta (FB+IG) SEO Repair + Seed Comments
+        if: inputs.apply && (inputs.include_facebook || inputs.include_instagram)
+        env:
+          FB_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN || secrets.FB_ACCESS_TOKEN }}
+          FB_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID || secrets.FB_PAGE_ID }}
+          INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
+          FB_API_VERSION: "v23.0"
+        run: |
+          echo "=== META SEO REPAIR + SEED COMMENTS ==="
+          LIMIT_ARG=""; if [ "${{ inputs.limit }}" != "0" ]; then LIMIT_ARG="--limit ${{ inputs.limit }}"; fi
+          python scripts/meta_seo_repair.py --apply --seed-comment $LIMIT_ARG 2>&1 | tee -a fb_repair.log || echo "::warning::Meta repair had errors"
+
+      - name: Refresh Analytics (YouTube + Facebook)
+        env:
+          VIDEO_HISTORY_PATH: data/video_history.json
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
+          FB_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN || secrets.FB_ACCESS_TOKEN }}
+          FB_API_VERSION: "v23.0"
+          UPLOAD_STATE_PATH: data/upload_state.json
+          FACEBOOK_ANALYTICS_PATH: data/facebook_analytics.json
+        run: |
+          echo "=== YT ANALYTICS REFRESH ==="
+          python src/analytics_updater.py 2>&1 | tee -a analytics.log || echo "::warning::YT analytics had errors (API disabled? check link in logs)"
+          echo "=== FB ANALYTICS REFRESH (second pass with Meta token) ==="
+          python scripts/update_facebook_analytics.py 2>&1 | tee -a analytics.log || true
+          echo "=== GROWTH REPORT REGEN ==="
+          python scripts/growth_report.py --no-fetch 2>&1 | tee -a analytics.log || true
+          cat docs/GROWTH_REPORT.md || true
+
+      - name: Persist all repairs
+        if: always()
+        run: |
+          set -euo pipefail
+          echo "=== Persisting ==="
+          git config user.name "skillor-bot"
+          git config user.email "skillor-bot@users.noreply.github.com"
+          git add -A data/ docs/ || true
+          if git diff --cached --quiet; then
+            echo "No changes to persist"
+          else
+            git commit -m "chore: full platform repair - YT+FB+IG clean [skip ci] - apply=${{ inputs.apply }} limit=${{ inputs.limit }}"
+            for i in 1 2 3; do
+              if git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}"; then
+                break
+              else
+                echo "Push retry $i"; sleep $((i*5))
+                [ $i -eq 3 ] && echo "::warning::Push failed" && exit 0
+              fi
+            done
+          fi
+
+      - name: Upload repair artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: full-platform-repair-${{ github.run_id }}
+          path: |
+            data/fb_audit_*.json
+            data/fb_thumbs_done.json
+            data/meta_seo_repair_*.json
+            data/fb_cover_map.json
+            docs/GROWTH_REPORT.md
+            audit.log
+            yt_repair.log
+            fb_repair.log
+            analytics.log
+          if-no-files-found: ignore
+          retention-days: 30

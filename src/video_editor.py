@@ -332,18 +332,10 @@ def _word_by_word_clips(text: str, total_duration: float, color_theme: Dict = No
 # 3. AUDIO PROCESSING (PRIORITY: MUSIC DUCKING)
 # ============================================
 
-# Ducking tunables (all overridable via env vars for quick iteration).
-# DUCK_LEVEL   = music volume MULTIPLIER when voice is active.
-#                0.15 means music drops to 15% of its normal volume.
-# UNDUCK_LEVEL = music volume MULTIPLIER when voice is silent.
-#                1.0 means music plays at full (MUSIC_VOLUME) level.
-# DUCK_THRESHOLD = RMS amplitude (0-1 float32) below which a window is
-#                  considered "silent".  0.015 works well for Chatterbox /
-#                  Kokoro output — loud enough to not duck on room-tone
-#                  hiss, quiet enough to catch real pauses.
-# DUCK_SMOOTH_SEC = fade ramp duration (seconds) at duck/unduck edges.
-#                   Prevents audible clicks.  0.08 = 80 ms ramp.
-DUCK_LEVEL = float(os.environ.get("DUCK_LEVEL", "0.15"))
+# FIXED 2026-07-31: Duck level 0.15 -> 0.10 for clearer voice (retention).
+# Channel data showed viewers leaving early partly due to muddy voice/music mix.
+# Lower duck = music quieter when narrating = higher comprehension = longer watch.
+DUCK_LEVEL = float(os.environ.get("DUCK_LEVEL", "0.10"))
 UNDUCK_LEVEL = float(os.environ.get("UNDUCK_LEVEL", "1.0"))
 DUCK_THRESHOLD = float(os.environ.get("DUCK_THRESHOLD", "0.015"))
 DUCK_SMOOTH_SEC = float(os.environ.get("DUCK_SMOOTH_SEC", "0.08"))
@@ -585,14 +577,11 @@ def build_video(image_paths, audio_segments, scenes, output_path="output/final_v
         zoom_extra = 0.08 if has_important else 0.0
         
         # ✅ Priority: First scene special (stronger hook zoom)
-        # NOTE: We intentionally do NOT cap `duration` here anymore.
-        # The visual duration must always match the audio segment duration
-        # (`seg['duration']`), otherwise every scene after this one drifts
-        # out of sync with the voice-over. If you want a punchier first
-        # 3 seconds, trim/re-record the first audio segment itself so
-        # `seg['duration']` is already ~3s - don't cap it after the fact.
+        # FIXED 2026-07-31: Channel avg watch 10-14s, hook decides in first 2-3s.
+        # Old 0.12 zoom was subtle. New 0.18 + stronger pan = pattern interrupt
+        # that stops thumb in feed. Visual duration must match audio duration.
         if i == 0:
-            zoom_extra += 0.12
+            zoom_extra += 0.18
 
         # RETENTION: Alternate zoom direction every scene
         direction = "in" if i % 2 == 0 else "out"

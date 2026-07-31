@@ -99,6 +99,14 @@ for label, env in CANDIDATES:
 print(f"\nSCAN RESULT: {found} token secret(s).")
 if found:
     print("NOTE: the pipeline reads ONLY 'FACEBOOK_ACCESS_TOKEN' and 'FB_ACCESS_TOKEN'.")
+    print("\n[FIX] If read_insights=NO, do this:")
+    print("1. https://developers.facebook.com/tools/explorer/")
+    print("2. Select app + Mr. Nextep page (1122980080905302)")
+    print("3. Add: read_insights, pages_read_engagement, pages_show_list, pages_manage_posts, instagram_basic, instagram_manage_insights")
+    print("4. Generate NEW Page Access Token -> save as FACEBOOK_ACCESS_TOKEN + FB_ACCESS_TOKEN")
+    print("5. Re-run probe -> should show read_insights=OK")
+else:
+    print("No token found - add FACEBOOK_ACCESS_TOKEN secret")
 
 print("\n--- INSTAGRAM scan ---")
 for label, env in IG_ID_CANDIDATES:

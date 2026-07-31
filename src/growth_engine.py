@@ -519,9 +519,13 @@ def _recommend_cadence(scores: List[float], health: Dict) -> Tuple[int, str]:
     proving the current ones clear their retention gates.
     """
     if len(scores) < HEALTH_THRESHOLDS["min_samples_per_slot"]:
-        return clamp_cadence(3), (
-            "Not enough mature videos to judge yet — holding the default 3/day "
-            "while data accumulates."
+        # FIXED 2026-07-31: Was 3/day on no_data — this channel's own metrics show
+        # retention 27-44% vs 50% gate (critical/below_gate). Shipping 3 low-retention
+        # videos/day teaches the feed to stop showing the channel. Hold 2/day while
+        # data accumulates, drop to 1 if critical.
+        return clamp_cadence(2), (
+            "Not enough mature videos to judge yet — holding a conservative 2/day "
+            "while data accumulates to avoid teaching the feed that this format loses viewers."
         )
 
     average = mean(scores)

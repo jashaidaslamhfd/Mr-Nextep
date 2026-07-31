@@ -64,8 +64,8 @@ from typing import Dict, Iterable, List, Optional, Tuple
 # Version + review metadata. scripts/growth_report.py prints these so nobody
 # has to guess how stale the strategy is.
 # ---------------------------------------------------------------------------
-POLICY_VERSION = "2026.07"
-LAST_VERIFIED = "2026-07-29"
+POLICY_VERSION = "2026.07-fix1"
+LAST_VERIFIED = "2026-07-31"
 REVERIFY_AFTER_DAYS = 90
 
 YOUTUBE = "youtube_shorts"
@@ -184,14 +184,14 @@ def env_int(name: str, fallback: int) -> int:
 PLATFORM_POLICY: Dict[str, Dict] = {
     YOUTUBE: {
         "label": "YouTube Shorts",
-        "duration": (30.0, 36.0, 42.0),
+        "duration": (27.0, 33.0, 40.0),
         "hard_max": 60.0,
-        # Sub-30s Shorts are held to ~65% AVP, 30-60s to ~50%. We deliberately
-        # sit just above 30s so the easier 50% bar applies while still being
-        # short enough to finish.
+        # FIXED 2026-07-31: avg watch 10-14s vs 36s ideal = 27-38% completion vs 50% gate.
+        # 33s ideal lifts completion ~9% (12/33=36% vs 12/36=33%) while staying over 30s
+        # so the easier 50% bar still applies.
         "retention_gate": {"under_30s": 0.65, "over_30s": 0.50},
-        "decision_seconds": 2.5,
-        "hook_seconds": 3.2,
+        "decision_seconds": 2.2,
+        "hook_seconds": 2.8,
         "hashtags": (3, 4),
         "caption": {"first_line_chars": 100, "total_chars": 4800},
         # YouTube tolerates a follow prompt, but a spoken CTA costs completion
@@ -214,15 +214,13 @@ PLATFORM_POLICY: Dict[str, Dict] = {
     },
     FACEBOOK: {
         "label": "Facebook Reels",
-        # Meta's own benchmark: Reels that clear ~72% watch-through get
-        # materially more distribution, and 15-45s is where brands actually
-        # clear it. 24-30s is our compromise between "completable" and
-        # "enough room for a real explanation".
-        "duration": (20.0, 27.0, 32.0),
+        # FIXED 2026-07-31: FB ideal 27s -> 24s because IG data showed 2.6-7.5s avg vs 47s = 5-16%
+        # completion vs 72% gate. Shorter cut = higher % automatically.
+        "duration": (18.0, 24.0, 28.0),
         "hard_max": 90.0,
         "retention_gate": {"under_30s": 0.72, "over_30s": 0.60},
-        "decision_seconds": 2.5,
-        "hook_seconds": 3.0,
+        "decision_seconds": 2.0,
+        "hook_seconds": 2.5,
         "hashtags": (2, 3),
         "caption": {"first_line_chars": 80, "total_chars": 2000},
         "spoken_cta": False,
@@ -242,11 +240,13 @@ PLATFORM_POLICY: Dict[str, Dict] = {
     },
     INSTAGRAM: {
         "label": "Instagram Reels",
-        "duration": (18.0, 26.0, 30.0),
+        "duration": (16.0, 23.0, 27.0),
         "hard_max": 180.0,
+        # FIXED: IG ideal 26s -> 23s, gate 70%. Sends_per_reach 0% vs healthy 0.5%+ -> need
+        # shorter cut + quotable payoff for DM shares.
         "retention_gate": {"under_30s": 0.70, "over_30s": 0.55},
-        "decision_seconds": 2.0,
-        "hook_seconds": 2.8,
+        "decision_seconds": 1.8,
+        "hook_seconds": 2.3,
         # IG rewards niche keyword hashtags; 3-5 is the 2026 working range.
         "hashtags": (3, 5),
         "caption": {"first_line_chars": 90, "total_chars": 2100},
