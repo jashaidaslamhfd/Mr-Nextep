@@ -465,6 +465,11 @@
     "seo_score": 70,
     "predicted_ctr": 6.6,
     "hook_score": 85,
-    "predicted_retention": 0.682
+    "predicted_retention": 0.682,
+    "views": 122,
+    "actual_ctr": null,
+    "average_view_duration_sec": 9,
+    "average_view_percentage": 26.08,
+    "analytics_fetched_at": "2026-08-01T10:52:28.862066+00:00"
   }
 ]
