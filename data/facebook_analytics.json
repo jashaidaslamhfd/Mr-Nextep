@@ -1,62 +1,62 @@
 {
   "8642df72ef46b2dccc3c3e0e896c10ac8b9d2defd934a939952d85a5294a6a98": {
     "video_id": "27722335547405806",
-    "fetched_at": "2026-08-01T10:52:42.823078+00:00",
+    "fetched_at": "2026-08-02T10:53:48.870374+00:00",
     "status": "insights_unavailable: grant `read_insights` and `pages_read_engagement` to the page token"
   },
   "1f2dae481737371341141a76f5f2ce8497ff890e5fc3868a0de59c2c17b02536": {
     "video_id": "1754294192265457",
-    "fetched_at": "2026-08-01T10:52:43.305083+00:00",
+    "fetched_at": "2026-08-02T10:53:49.309612+00:00",
     "status": "insights_unavailable: grant `read_insights` and `pages_read_engagement` to the page token"
   },
   "fa2a1f444ac7309d9e2eabe862569d0c3506add9bf1c02a98dc5bc2c533ed28b": {
     "video_id": "1044083038116002",
-    "fetched_at": "2026-08-01T10:52:43.740432+00:00",
+    "fetched_at": "2026-08-02T10:53:49.719272+00:00",
     "status": "insights_unavailable: grant `read_insights` and `pages_read_engagement` to the page token"
   },
   "d53a7772221124002d96d6f3ae8da9b5d2c8085b3041880d949684fb362b5813": {
     "video_id": "870075022564667",
-    "fetched_at": "2026-08-01T10:52:44.076327+00:00",
+    "fetched_at": "2026-08-02T10:53:50.170778+00:00",
     "status": "insights_unavailable: grant `read_insights` and `pages_read_engagement` to the page token"
   },
   "9963ef33654989b167393b3bec2616c2106879bab003bb09d3b537edd01de591": {
     "video_id": "1543194320583010",
-    "fetched_at": "2026-08-01T10:52:44.351503+00:00",
+    "fetched_at": "2026-08-02T10:53:50.576602+00:00",
     "status": "insights_unavailable: grant `read_insights` and `pages_read_engagement` to the page token"
   },
   "81677eec039429f24c89e425814cc54379e7d25d0fd42b7614160304bf883370": {
     "video_id": "2732800527099046",
-    "fetched_at": "2026-08-01T10:52:44.659379+00:00",
+    "fetched_at": "2026-08-02T10:53:50.972035+00:00",
     "status": "insights_unavailable: grant `read_insights` and `pages_read_engagement` to the page token"
   },
   "07ce27ca60dc5ddcfafa6d8ff89611d94748833ca71e2fd16f7ebf9d65d6046f": {
     "video_id": "2236092447213631",
-    "fetched_at": "2026-08-01T10:52:45.081777+00:00",
+    "fetched_at": "2026-08-02T10:53:51.451347+00:00",
     "status": "insights_unavailable: grant `read_insights` and `pages_read_engagement` to the page token"
   },
   "dc7b3440077a981e8c666562fefe7e35c0358932d69c882a906c9619065d2483": {
     "video_id": "2583015618843182",
-    "fetched_at": "2026-08-01T10:52:45.571310+00:00",
+    "fetched_at": "2026-08-02T10:53:51.988996+00:00",
     "status": "insights_unavailable: grant `read_insights` and `pages_read_engagement` to the page token"
   },
   "4967b495a6fee83d69f6e411d1f8d32076461544216b06b3505ba6654e2307dc": {
     "video_id": "2305951026812474",
-    "fetched_at": "2026-08-01T10:52:45.818274+00:00",
+    "fetched_at": "2026-08-02T10:53:52.340114+00:00",
     "status": "insights_unavailable: grant `read_insights` and `pages_read_engagement` to the page token"
   },
   "9e3935b7f560bb42535357d54571e06bfed888ae126f9807b50bb95024a90eca": {
     "video_id": "1077174624995562",
-    "fetched_at": "2026-08-01T10:52:46.069770+00:00",
+    "fetched_at": "2026-08-02T10:53:52.713013+00:00",
     "status": "insights_unavailable: grant `read_insights` and `pages_read_engagement` to the page token"
   },
   "61f168687fbdfde9e36177961b34c81ee274fa6d0d6d86b7911d32f98fad4e66": {
     "video_id": "1061730079681546",
-    "fetched_at": "2026-08-01T10:52:46.314679+00:00",
+    "fetched_at": "2026-08-02T10:53:53.108501+00:00",
     "status": "insights_unavailable: grant `read_insights` and `pages_read_engagement` to the page token"
   },
   "5578c6258b9e334b3743cc54aedffab62ae60a2f33b147f63a438fb43866710b": {
     "video_id": "1058950339921124",
-    "fetched_at": "2026-08-01T10:52:46.603312+00:00",
+    "fetched_at": "2026-08-02T10:53:53.458497+00:00",
     "status": "insights_unavailable: grant `read_insights` and `pages_read_engagement` to the page token"
   }
 }
