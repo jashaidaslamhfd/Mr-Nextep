@@ -401,6 +401,28 @@ DARK_TOPICS = [
     "The Reason You Get Motion Sick in a Car But Not While Walking",
     "Why Your Brain Fills In Silences in Conversation",
     "The Reason You Can Balance on One Foot With Your Eyes Closed",
+    
+    # ── Dark Mystery & Medical Curiosities (Added August 2026) ──
+    "Why you see a 'demon' during Sleep Paralysis",
+    "Why your face distorts in the mirror (Troxler's Effect)",
+    "The mystery of Exploding Head Syndrome",
+    "The disease that stops you from ever sleeping again",
+    "When your brain thinks your family are clones",
+    "Why your brain forces you to see faces in shadows",
+    "The mental glitch where you believe you are dead",
+    "When your own hand acts without your permission",
+    "Why your body violently twitches right before sleep",
+    "The nightmare of remembering every second of your life",
+    "The horror of not being able to recognize your own face",
+    "The person who actually feels the physical pain of others",
+    "The rare glitch where people see their own double",
+    "When your brain makes the room feel miles long",
+    "How your brain feels pain in a limb that isn't there",
+    "Waking up with an accent from a country you never visited",
+    "The scientific truth behind Near-Death Experiences",
+    "The parasite that might be controlling your behavior",
+    "The biological reason we are terrified of human-like faces",
+    "The nightmare of being fully awake but unable to blink",
 ]
 
 

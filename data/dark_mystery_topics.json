@@ -1,0 +1,162 @@
+[
+  {
+    "series_title": "Sleep Demon 🌑",
+    "topic": "Sleep Paralysis",
+    "angle": "Why you see a 'demon' in your room when you can't move",
+    "thumbnail_text": "SLEEP DEMON?",
+    "pillar": "dark_mystery",
+    "tags": ["sleepparalysis", "darkscience", "brainmysteries"]
+  },
+  {
+    "series_title": "Mirror Horror 🪞",
+    "topic": "Troxler's Effect",
+    "angle": "Why your face starts to distort if you stare in a mirror too long",
+    "thumbnail_text": "MIRROR GLITCH",
+    "pillar": "dark_mystery",
+    "tags": ["brainhack", "mirrorchallenge", "scaryfacts"]
+  },
+  {
+    "series_title": "Night Bang 💥",
+    "topic": "Exploding Head Syndrome",
+    "angle": "The dark reason you hear a loud explosion right before sleep",
+    "thumbnail_text": "LOUD BANG!",
+    "pillar": "dark_mystery",
+    "tags": ["sleepscience", "brainmysteries", "weirdscience"]
+  },
+  {
+    "series_title": "Eternal Wake 👁️",
+    "topic": "Fatal Familial Insomnia",
+    "angle": "The terrifying disease that stops you from ever sleeping again",
+    "thumbnail_text": "NEVER SLEEP",
+    "pillar": "dark_mystery",
+    "tags": ["medicalmystery", "darkfacts", "insomnia"]
+  },
+  {
+    "series_title": "The Imposter 👥",
+    "topic": "Capgras Delusion",
+    "angle": "When your brain believes your family has been replaced by clones",
+    "thumbnail_text": "IMPOSTER!",
+    "pillar": "dark_mystery",
+    "tags": ["psychology", "brainscience", "creepyfacts"]
+  },
+  {
+    "series_title": "Shadow People 👤",
+    "topic": "Pareidolia",
+    "angle": "Why your brain forces you to see faces in the dark shadows",
+    "thumbnail_text": "SHADOW FACES",
+    "pillar": "dark_mystery",
+    "tags": ["brainfacts", "opticalillusion", "scary"]
+  },
+  {
+    "series_title": "Walking Dead 🧟",
+    "topic": "Cotard Delusion",
+    "angle": "The mental glitch where you believe you are actually dead",
+    "thumbnail_text": "I AM DEAD",
+    "pillar": "dark_mystery",
+    "tags": ["psychiatry", "darkhistory", "weirdfacts"]
+  },
+  {
+    "series_title": "Alien Hand 🖐️",
+    "topic": "Alien Hand Syndrome",
+    "angle": "When your own hand starts acting without your permission",
+    "thumbnail_text": "ALIEN HAND",
+    "pillar": "dark_mystery",
+    "tags": ["neuroscience", "bodycontrol", "strange"]
+  },
+  {
+    "series_title": "Falling Loop 🕳️",
+    "topic": "Hypnic Jerks",
+    "angle": "Why your body violently twitches to 'save' you from falling",
+    "thumbnail_text": "FALLING?",
+    "pillar": "dark_mystery",
+    "tags": ["sleepfacts", "bodyglitch", "didyouknow"]
+  },
+  {
+    "series_title": "Total Recall 🧠",
+    "topic": "Hyperthymesia",
+    "angle": "The nightmare of remembering every single second of your life",
+    "thumbnail_text": "TOTAL RECALL",
+    "pillar": "dark_mystery",
+    "tags": ["memory", "brainpower", "science"]
+  },
+  {
+    "series_title": "Face Blind 🌫️",
+    "topic": "Prosopagnosia",
+    "angle": "The horror of not being able to recognize your own face",
+    "thumbnail_text": "WHO AM I?",
+    "pillar": "dark_mystery",
+    "tags": ["brainscience", "anatomy", "medical"]
+  },
+  {
+    "series_title": "Pain Echo ⚡",
+    "topic": "Mirror-Touch Synesthesia",
+    "angle": "The person who actually feels the physical pain of others",
+    "thumbnail_text": "I FEEL YOU",
+    "pillar": "dark_mystery",
+    "tags": ["empathy", "superhuman", "synesthesia"]
+  },
+  {
+    "series_title": "The Double 👥",
+    "topic": "Autoscopy",
+    "angle": "The rare glitch where people see their own double standing nearby",
+    "thumbnail_text": "MY DOUBLE",
+    "pillar": "dark_mystery",
+    "tags": ["hallucination", "creepy", "brainfacts"]
+  },
+  {
+    "series_title": "Size Warp 🍄",
+    "topic": "Alice in Wonderland Syndrome",
+    "angle": "When your brain makes the room feel miles long or tiny",
+    "thumbnail_text": "SIZE WARP",
+    "pillar": "dark_mystery",
+    "tags": ["brainhack", "vision", "weird"]
+  },
+  {
+    "series_title": "Phantom Pain 🦾",
+    "topic": "Phantom Limb Syndrome",
+    "angle": "How your brain feels pain in a limb that isn't even there",
+    "thumbnail_text": "GHOST LIMB",
+    "pillar": "dark_mystery",
+    "tags": ["neurobiology", "bodyfacts", "mystery"]
+  },
+  {
+    "series_title": "Foreign Voice 🗣️",
+    "topic": "Foreign Accent Syndrome",
+    "angle": "Waking up with an accent from a country you've never visited",
+    "thumbnail_text": "NEW ACCENT",
+    "pillar": "dark_mystery",
+    "tags": ["linguistics", "braininjury", "strange"]
+  },
+  {
+    "series_title": "White Light 🕯️",
+    "topic": "Near-Death Experiences",
+    "angle": "The scientific truth behind the 'white light' people see",
+    "thumbnail_text": "THE END?",
+    "pillar": "dark_mystery",
+    "tags": ["deathscience", "afterlife", "brain"]
+  },
+  {
+    "series_title": "Brain Parasite 🦠",
+    "topic": "Toxoplasmosis",
+    "angle": "The parasite that might be controlling your behavior right now",
+    "thumbnail_text": "CONTROLLED?",
+    "pillar": "dark_mystery",
+    "tags": ["parasite", "biology", "scaryscience"]
+  },
+  {
+    "series_title": "Uncanny Valley 🤖",
+    "topic": "The Uncanny Valley",
+    "angle": "The biological reason we are terrified of human-like faces",
+    "thumbnail_text": "UNCANNY",
+    "pillar": "dark_mystery",
+    "tags": ["evolution", "psychology", "robotics"]
+  },
+  {
+    "series_title": "Locked In 🔒",
+    "topic": "Locked-In Syndrome",
+    "angle": "The nightmare of being fully awake but unable to blink",
+    "thumbnail_text": "LOCKED IN",
+    "pillar": "dark_mystery",
+    "tags": ["medical", "horror", "science"]
+  }
+]
