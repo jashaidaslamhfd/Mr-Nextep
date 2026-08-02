@@ -77,6 +77,7 @@ jobs:
           set -euo pipefail
 
           python scripts/generate_body_glitch_topics.py
+          python scripts/generate_mystery_music.py
           python -m compileall -q src scripts tests
           python -m unittest discover -s tests -v
 

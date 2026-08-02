@@ -466,16 +466,23 @@ def _synthesize_ambient_bed(duration: float, seed: int = None) -> np.ndarray:
 
 
 def _get_music_track(duration: float, output_dir: str) -> str:
-    """Select a licensed background track from ``assets/music``.
+    """Select a mystery/science background track.
 
-    ``MUSIC_TRACK`` may name one exact file (for example
-    ``paulyudin-suspense-513011.mp3``). When it is empty, one real local track
-    is selected at random. The procedural drone exists only as an explicit
-    last-resort fallback when the asset folder is missing/empty; normal videos
-    always use the creator-provided music files.
+    Priority:
+    1. Generated mystery tracks ('brain_tension.wav', etc.)
+    2. Environment-configured track
+    3. Random licensed track from assets/music
     """
     configured_track = os.environ.get("MUSIC_TRACK", "").strip()
     supported_extensions = (".wav", ".mp3", ".m4a", ".ogg", ".aac", ".flac")
+
+    # 🚀 MYSTERY PRIORITY: Use synthetic high-tension tracks if available
+    mystery_tracks = ["brain_tension.wav", "cosmic_mystery.wav"]
+    for mt in mystery_tracks:
+        mpath = os.path.join(MUSIC_DIR, mt)
+        if not configured_track and os.path.isfile(mpath):
+            logger.info("Using SYNTHETIC MYSTERY track: %s", mt)
+            return mpath
 
     if configured_track:
         # Accept only a filename, not an arbitrary path outside the approved
