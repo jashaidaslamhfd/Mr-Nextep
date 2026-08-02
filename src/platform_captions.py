@@ -381,6 +381,13 @@ def build_instagram_caption(
 
     parts.append(closer)
 
+    # 🚀 US-STRATEGY: Add targeted hashtag clusters for US audience
+    try:
+        from hashtag_clusters import get_optimized_us_tags
+        tags = get_optimized_us_tags(script_data.get("topic", ""), tags)
+    except Exception:
+        pass
+
     hashtags = enforce_hashtag_limit(
         _meta_tags(tags),
         INSTAGRAM,
