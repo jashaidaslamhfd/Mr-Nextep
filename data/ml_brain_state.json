@@ -1,113 +1,167 @@
 {
-  "trained_at": "2026-08-03T19:56:52.664210+00:00",
-  "n_samples": 23,
-  "views_r2": 0.22668317695027773,
-  "viral_accuracy": 0.9130434782608695,
+  "trained_at": "2026-08-03T20:05:50.435395+00:00",
+  "n_samples": 115,
+  "views_r2": 0.11047328277725754,
+  "viral_accuracy": 0.7478260869565218,
   "hook_pattern_weights": {
-    "your": 355.14285714285717,
-    "why": 114.0,
+    "feeling": 314.6666666666667,
     "a": 173.0,
-    "feeling": 314.6666666666667
+    "why": 293.1111111111111,
+    "stop": 141.0,
+    "the": 81.875,
+    "your": 326.84615384615387,
+    "🫀": 168.25,
+    "have": 0.0
   },
   "word_impact": {
-    "body": -161.6304347826087,
-    "your": -56.361204013377915,
-    "asleep": 193.3695652173913,
-    "when": -170.6304347826087,
-    "scared": -214.1304347826087,
-    "heartbeat": -238.1304347826087,
-    "night": -146.1304347826087,
-    "right": 30.36956521739131,
-    "after": 151.1195652173913,
-    "feeling": 42.469565217391334,
-    "like": -119.13043478260869,
-    "sudden": 194.3695652173913
+    "like": -133.5333333333333,
+    "feeling": 9.228571428571456,
+    "hours": -191.7,
+    "from": 312.8,
+    "your": 12.597619047619048,
+    "cramp": -86.19999999999999,
+    "sudden": 242.8,
+    "night": -52.19999999999999,
+    "right": 20.133333333333326,
+    "after": 109.94285714285718,
+    "fast": 308.8,
+    "before": -153.2,
+    "seconds": -114.19999999999999,
+    "what": 19.80000000000001,
+    "fall": -49.866666666666646,
+    "asleep": 148.8,
+    "memory": 147.4666666666667,
+    "does": 64.06315789473683,
+    "body": 34.02222222222224,
+    "this": 63.27368421052631,
+    "dark": -194.36666666666665,
+    "facts": -69.69999999999999,
+    "muscle": -96.19999999999999,
+    "brain": -61.19999999999999,
+    "names": -128.2,
+    "baby": 212.05,
+    "secrets": -135.7,
+    "goosebumps": -143.7,
+    "deja": -78.19999999999999,
+    "scared": 69.92500000000001,
+    "freezes": 52.94285714285718,
+    "when": 57.4666666666667,
+    "faster": -137.7,
+    "shorts": -56.44999999999999,
+    "heart": -172.34285714285713,
+    "forget": -75.19999999999999,
+    "explained": -144.7,
+    "brainhealth": 169.8,
+    "science": -124.86666666666665,
+    "stop": -151.2,
+    "twitches": -78.44999999999999,
+    "actually": -17.19999999999999,
+    "skips": -104.69999999999999,
+    "reason": -214.53333333333333,
+    "beat": -104.69999999999999,
+    "lump": -247.2,
+    "emotions": -236.7,
+    "sleep": -221.7,
+    "music": -159.7,
+    "silent": -238.2
   },
   "best_word_patterns": [
     [
+      "cold",
+      369.3
+    ],
+    [
+      "knees",
+      332.3
+    ],
+    [
+      "move",
+      332.3
+    ],
+    [
+      "from",
+      312.8
+    ],
+    [
+      "fast",
+      308.8
+    ],
+    [
+      "hands",
+      292.8
+    ],
+    [
       "sudden",
-      194.3695652173913
+      242.8
+    ],
+    [
+      "baby",
+      212.05
+    ],
+    [
+      "taste",
+      182.8
+    ],
+    [
+      "brainhealth",
+      169.8
+    ],
+    [
+      "reflex",
+      168.8
     ],
     [
       "asleep",
-      193.3695652173913
+      148.8
     ],
     [
-      "after",
-      151.1195652173913
+      "memory",
+      147.4666666666667
     ],
     [
-      "feeling",
-      42.469565217391334
+      "freeze",
+      144.13333333333333
     ],
     [
-      "right",
-      30.36956521739131
-    ],
-    [
-      "your",
-      -56.361204013377915
-    ],
-    [
-      "like",
-      -119.13043478260869
-    ],
-    [
-      "night",
-      -146.1304347826087
-    ],
-    [
-      "body",
-      -161.6304347826087
-    ],
-    [
-      "when",
-      -170.6304347826087
-    ],
-    [
-      "scared",
-      -214.1304347826087
-    ],
-    [
-      "heartbeat",
-      -238.1304347826087
+      "numb",
+      140.8
     ]
   ],
   "pillar_performance": {
     "other": {
-      "avg_views": 0.0,
+      "avg_views": 214.5625,
       "avg_retention": 0.0,
-      "count": 1
-    },
-    "behavioral": {
-      "avg_views": 240.75,
-      "avg_retention": 52.400000000000006,
-      "count": 4
-    },
-    "neurological": {
-      "avg_views": 269.7,
-      "avg_retention": 31.672000000000004,
-      "count": 10
-    },
-    "muscular": {
-      "avg_views": 350.0,
-      "avg_retention": 37.165,
-      "count": 2
-    },
-    "sensory": {
-      "avg_views": 579.0,
-      "avg_retention": 117.30666666666667,
-      "count": 3
+      "count": 32
     },
     "temporal": {
-      "avg_views": 187.0,
-      "avg_retention": 26.295,
-      "count": 2
+      "avg_views": 134.0,
+      "avg_retention": 17.53,
+      "count": 3
+    },
+    "behavioral": {
+      "avg_views": 335.57142857142856,
+      "avg_retention": 29.942857142857147,
+      "count": 7
+    },
+    "muscular": {
+      "avg_views": 304.125,
+      "avg_retention": 9.29125,
+      "count": 8
     },
     "circulatory": {
-      "avg_views": 570.0,
-      "avg_retention": 31.920000000000005,
-      "count": 1
+      "avg_views": 459.0,
+      "avg_retention": 4.5600000000000005,
+      "count": 7
+    },
+    "neurological": {
+      "avg_views": 219.72222222222223,
+      "avg_retention": 5.865185185185185,
+      "count": 54
+    },
+    "sensory": {
+      "avg_views": 641.25,
+      "avg_retention": 87.98,
+      "count": 4
     }
   },
   "slot_performance": {
@@ -124,36 +178,128 @@
     "21:30": 0.768
   },
   "topic_clusters": {
-    "0": [
+    "1": [
       "WE GOT FIRED in Animal Hospital Anomaly..",
-      "your body jerking as you fall asleep",
-      "your hands wrinkling in water",
-      "your body freezing when scared",
-      "hearing your heartbeat at night",
-      "your voice sounding noticeably deeper right after waking up",
       "feeling like hours passed in minutes or vice versa",
       "yawning spreading instantly from person to person",
+      "feeling lightheaded right after standing up fast",
+      "feeling like you've lived an exact new moment before",
+      "What happens in the last seconds before you fall asleep?",
+      "After 35, Your Brain Does This Automatically #BrainHealth #MenOver35 #Tips",
+      "Stop ignoring why you forget things! 🧠 #brainhealth #shorts #science",
+      "The Brain Hack hidding in your Dizziness 🧠💪",
+      "Attachment Science in Seconds",
+      "Music Boosts Baby Sleep",
+      "Heart's Hidden Brain: The Silent Whisper",
+      "🫀 Lungs That Drown You From Inside",
+      "Goosebumps: The Dark Reflex You Can't Escape",
+      "The Heart's Secret Brain",
+      "🫀 🫀 The Nightly Brain Battle",
+      "🫀 🫀 The Bone That Breaks Most in Fights",
+      "Veins: The Dark Truth",
+      "The Truth About Your Body Twitches When You Sleep",
+      "The Truth About Reason Your Pulse Changes When You Lie",
+      "The Truth About Reason Your Heart Pounds in a Crowd ❤️",
+      "The Music Playing in Your Head 🧠",
+      "The Gut Brain Connection Explained",
+      "The body signal behind getting hungry at the same time daily",
+      "Have you ever felt like hours flew by\n\nFeeling like time distorts is usually due to our brain's internal clock being influenced by our emotions\n\nMore science that surprises you — follow along\n\n#humanb",
+      "Muscle Cramp 😴",
+      "Song Earworm 🧠",
+      "Sleeping Foot 🫀",
+      "brushing back teeth triggering a sudden gag",
+      "seeing glowing spots after looking near bright light",
+      "losing taste sensation after hot coffee"
+    ],
+    "0": [
+      "a sudden charley horse cramp in your calf at night",
+      "Stop this to save your brain #brainfog #healthtips #shorts",
+      "Your body gets a lump sometimes 💡",
+      "Your baby forgets what they just read 📖",
+      "Your baby's heart skips a beat suddenly 💖",
+      "Your Heart’s Hidden Brain: The Silent Sleepless Whisper",
+      "🫀 🫀 Your Blood’s Midnight War",
+      "Your Eyes Never Actually Stop Moving 👁️",
+      "Your Body's Secret Timekeeping Trick",
+      "your hands wrinkling in water",
+      "your voice sounding noticeably deeper right after waking up",
+      "a feeling of a lump in your throat when sad",
+      "hearing your heartbeat at night",
       "having a 5-second song loop stuck in your brain",
       "your ears ringing in absolute silence",
       "your foot falling asleep and feeling numb",
-      "brushing back teeth triggering a sudden gag",
-      "feeling lightheaded right after standing up fast",
-      "seeing glowing spots after looking near bright light",
-      "losing taste sensation after hot coffee",
-      "feeling like you've lived an exact new moment before"
-    ],
-    "2": [
-      "The body signal behind getting hungry at the same time daily"
+      "your body jerking as you fall asleep",
+      "your knees cracking when you move",
+      "your body freezing when scared"
     ],
     "3": [
-      "your knees cracking when you move",
-      "a feeling of a lump in your throat when sad",
-      "a sudden charley horse cramp in your calf at night"
-    ],
-    "1": [
-      "Why your body freezes when you feel scared",
+      "Why Your Body Does This: Memory Boost 😳",
+      "Why Your Body Does This: Dark Psychology 😳",
+      "Why Your Body Does This: Cat Alert Signs 😳",
+      "Why Your Body Does This: Dreams 😳",
+      "Why Your Body Does This: Yawn 😳",
+      "Why Your Body Does This: Parallel Lives 😳",
+      "Why Your Body Does This: Blush Uncontrollably 😳",
+      "Why Your Body Does This: Rush Visual Effects 😳",
+      "Why Your Body Does This: Consciousness 😳",
+      "Why Your Body Does This: Gut Feeling 😳",
+      "Why Your Body Does This: Eye Weird Facts 😳",
+      "Why Your Body Does This: Brain Muscle 😳",
+      "Why Your Body Does This: Forgetting Names 😳",
+      "Why Your Body Does This: Baby Memory Lost 😳",
+      "Why Your Body Does This: Body Dark Secrets 😳",
+      "Why Your Body Does This: Goosebumps 😳",
+      "Why Your Body Does This: Memory Palace 😳",
+      "Why Your Body Does This: Deja Vu 😳",
+      "Why does your body age faster after 35 🙂",
+      "Why your brain starts shrinking 🧠",
+      "Why your eye actually twitches 👀 #shorts #health",
+      "Why your emotions shift with seasons 🌻",
+      "Why your belly always seems to rumble 🌟",
+      "Why Your Body Does This: Dark Circles 😳",
+      "Why Your Body Does This: Fear Smells 😳",
+      "Why Your Body Does This: Heartbeat Secrets 😳",
+      "Why Your Body Does This: Bones Replaced 😳",
+      "Why Your Body Does This: Body Jerking As Fall 😳",
+      "Why Your Knees Crack Every Time You Move 🦵",
+      "Why Deja Vu Feels So Real",
+      "Why you hear your heartbeat at night",
+      "Why Yawns Are Contagious 🫀",
+      "Why Your Body Does This: Brain Freeze 😳",
+      "Why Your Body Does This: Gag Reflex 😳",
+      "Why Your Body Does This: Dry Mouth 😳",
+      "Why Your Body Does This: Nervous Shivers 😳",
+      "Why Your Body Does This: Brain Freeze 😳",
+      "Why Your Body Does This: Doorway Effect 😳",
       "Why deja vu feels strangely familiar",
-      "Why you hear your heartbeat at night"
+      "Why Your Body Does This: Cold Sweat 😳",
+      "Why Your Body Does This: Cold Hands 😳",
+      "Why Your Body Does This: Cold Tip Nose 😳",
+      "Why Your Body Freezes When Scared 🫀",
+      "Why Your Body Shakes When Sleeping 😴",
+      "Why Your Body Freezes When Scared 🫀",
+      "Why Your Body Freezes When Scared 🫀",
+      "Why Your Body Twitches Every Time 🫀",
+      "Why Your Body Freezes When Scared 🫀",
+      "Why Your Body Twitches Every Time 🫀"
+    ],
+    "2": [
+      "Why Your Body Does This: Brain Motor Skills 😳",
+      "Why your body freezes when you're scared 🧠",
+      "Why your body heart rate spikes under stress 💓 #shorts",
+      "Why You Forget Names Right Aft Explained in 60 Seconds 🧠",
+      "Why your heart skips a beat for no reason 😱💔",
+      "Why Your Body Does This: The Deadly Secret Inside 😳",
+      "Why Your Body Does This: The Dark Heartbeat 😳",
+      "Why Your Eyes See More Greens Than Any Other Color 👁️",
+      "Why Your Body Freezes When You're Scared 🫀",
+      "Why Your Heartbeat Sounds So Loud at Night 👂",
+      "Why You Freeze Up When You're Terrified 🫀",
+      "Why Your Body Does This: Faster Or Slower Than 😳",
+      "You love the sweet taste of cold ice\n\nDiscover why your tongue feels numb after eating cold ice cream and how it's a normal response to cold temperatures\n\nFollow along — new facts every day\n\n#brainfac",
+      "Have you ever noticed your mouth dry up\n\nLearn why your mouth dries up before big speeches and how to prevent it\n\nMore coming — follow so you don't miss it\n\n#humanbody #bodyscience #mouth",
+      "Why You Get Dizzy When You Stand Up Fast 🫀",
+      "Why your body freezes when you feel scared"
     ]
   }
 }
