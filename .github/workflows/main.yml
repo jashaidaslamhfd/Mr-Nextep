@@ -1,50 +1,29 @@
 name: "SKILLOR - YouTube Shorts Automation (US)"
 
 on:
-concurrency:
-  group: main-pipeline
-  cancel-in-progress: false
   workflow_dispatch:
     inputs:
       topic:
         description: "Optional video topic (empty = next Body Glitch episode)"
-concurrency:
-  group: main-pipeline
-  cancel-in-progress: false
         required: false
         type: string
   schedule:
     # 3 videos/day for a US audience, auto-published at New York peaks:
     # 12:30 / 18:30 / 20:00 America/New_York.
-    #
-    # GitHub cron UTC mein run hota hai. Uploader.py actual publishAt ko
-    # America/New_York timezone mein calculate karta hai.
     - cron: "40 14 * * *"
-concurrency:
-  group: main-pipeline
-  cancel-in-progress: false
     - cron: "40 20 * * *"
-concurrency:
-  group: main-pipeline
-  cancel-in-progress: false
     - cron: "10 22 * * *"
-concurrency:
-  group: main-pipeline
-  cancel-in-progress: false
 
 permissions:
   contents: write
 
 concurrency:
-  group: skillor-video-generation
+  group: skillor-pipeline
   cancel-in-progress: false
 
 jobs:
   generate-and-upload:
     runs-on: ubuntu-latest
-concurrency:
-  group: main-pipeline
-  cancel-in-progress: false
     timeout-minutes: 200
 
     steps:
@@ -55,9 +34,6 @@ concurrency:
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-concurrency:
-  group: main-pipeline
-  cancel-in-progress: false
           cache: "pip"
           cache-dependency-path: requirements.txt
 
@@ -75,16 +51,9 @@ concurrency:
         shell: bash
         run: |
           set -euo pipefail
-
           sudo apt-get update
-
-          sudo apt-get install -y --no-install-recommends \
-            ffmpeg \
-            fonts-dejavu-core \
-            espeak-ng
-
+          sudo apt-get install -y --no-install-recommends ffmpeg fonts-dejavu-core espeak-ng
           python -m pip install --upgrade pip setuptools wheel
-
           for i in 1 2 3; do
             python -m pip install -r requirements.txt && break || {
               echo "Install retry $i"
@@ -96,7 +65,6 @@ concurrency:
         shell: bash
         run: |
           set -euo pipefail
-
           python scripts/generate_body_glitch_topics.py
           python scripts/generate_mystery_music.py
           python -m compileall -q src scripts tests
@@ -109,147 +77,66 @@ concurrency:
           GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
           GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
           REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
-
           FB_UPLOAD_ENABLED: "true"
           FACEBOOK_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID }}
-          FB_PAGE_ID_ALT: ${{ secrets.FB_PAGE_ID }}
           FACEBOOK_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
-          FB_ACCESS_TOKEN_ALT: ${{ secrets.FB_ACCESS_TOKEN }}
-
           INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
-
         run: |
           set -euo pipefail
-
           echo "Checking required secrets..."
           missing=0
-
-          if [ -z "${GROQ_API_KEY:-}" ]; then
-            echo "::error::GROQ_API_KEY missing"
-            missing=1
-          else
-            echo "GROQ_API_KEY present"
-          fi
-
+          [ -z "${GROQ_API_KEY:-}" ] && { echo "::error::GROQ_API_KEY missing"; missing=1; }
           for var in GOOGLE_CLIENT_ID GOOGLE_CLIENT_SECRET REFRESH_TOKEN; do
-            if [ -z "${!var:-}" ]; then
-              echo "::error::$var missing"
-              missing=1
-            fi
+            [ -z "${!var:-}" ] && { echo "::error::$var missing"; missing=1; }
           done
-
-          if [ "$missing" -eq 0 ]; then
-            echo "YouTube OAuth secrets present"
-          fi
-
           if [ "${FB_UPLOAD_ENABLED,,}" = "true" ]; then
-            FB_PAGE="${FACEBOOK_PAGE_ID:-${FB_PAGE_ID_ALT:-}}"
-            FB_TOKEN="${FACEBOOK_ACCESS_TOKEN:-${FB_ACCESS_TOKEN_ALT:-}}"
-
-            if [ -z "$FB_PAGE" ] || [ -z "$FB_TOKEN" ]; then
-              echo "::error::Facebook enabled but Page ID or access token missing"
-              missing=1
-            else
-              echo "Facebook Page ID and token present"
-            fi
+            [ -z "$FACEBOOK_PAGE_ID" ] || [ -z "$FACEBOOK_ACCESS_TOKEN" ] && { echo "::error::FB secrets missing"; missing=1; }
           fi
-
-          if [ -z "${INSTAGRAM_USER_ID:-}" ]; then
-            echo "::warning::INSTAGRAM_USER_ID missing — Instagram will be skipped"
-          else
-            echo "Instagram user ID present"
-          fi
-
           exit "$missing"
 
       - name: Generate and upload Short
         shell: bash
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
-
-          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
-          REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
-          REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
-
           TREND_REGION: "US"
           YOUTUBE_REGION_CODE: "US"
           CHANNEL_LANGUAGE: "en-US"
-          CHANNEL_COUNTRY: "US"
-
           CONTENT_SERIES: "body_glitches"
           TOPIC_STRATEGY: "viral_hijack"
-          REQUIRE_DAILY_TREND: "false"
-
           TTS_ENGINE: "kokoro"
           KOKORO_LANG_CODE: "a"
           KOKORO_VOICE: "am_adam"
-          REQUIRE_CLONED_VOICE: "false"
-
           AI_HORDE_API_KEY: ${{ secrets.AI_HORDE_API_KEY }}
-          AI_HORDE_MAX_WAIT: "300"
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           HF_API_KEY: ${{ secrets.HF_API_KEY }}
-          DEEPAI_API_KEY: ${{ secrets.DEEPAI_API_KEY }}
-          MODELSLAB_API_KEY: ${{ secrets.MODELSLAB_API_KEY }}
-          REPLICATE_API_TOKEN: ${{ secrets.REPLICATE_API_TOKEN }}
-          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
-          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
-
           GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
           GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
           REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
-
           YT_MADE_FOR_KIDS: "false"
           YT_DECLARE_SYNTHETIC_MEDIA: "true"
           YT_PLAYLIST_ENABLED: "true"
-
           YT_PRIVACY_STATUS: "private"
           YT_SCHEDULE_PUBLISH: "true"
-
           ENFORCE_POSTING_GAP: "true"
-
-          FB_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN || secrets.FB_ACCESS_TOKEN }}
-          FB_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID || secrets.FB_PAGE_ID }}
+          FB_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
+          FB_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID }}
           FB_UPLOAD_ENABLED: "true"
-          FB_STAGGER_MINUTES: "120"
-
           IG_UPLOAD_ENABLED: "true"
           INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
-          IG_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN || secrets.FB_ACCESS_TOKEN }}
-          IG_WAIT_FOR_SLOT: "true"
-          IG_MAX_WAIT_MINUTES: "150"
-
+          IG_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
           META_CUT_ENABLED: "true"
           SPOKEN_CTA_MODE: "loop"
-
-          CHATTERBOX_TEMPO: "0.96"
-          CHATTERBOX_EXAGGERATION: "0.35"
-          CHATTERBOX_CFG_WEIGHT: "0.70"
-          CHATTERBOX_TEMPERATURE: "0.60"
-
           MUSIC_VOLUME: "0.07"
-          ENABLE_SCREENSHOT_FALLBACK: "false"
-          FALLBACK_ABORT_RATIO: "0.80"
-
           VIDEO_TOPIC: ${{ inputs.topic || '' }}
           PYTHONUNBUFFERED: "1"
-
         run: |
           set -euo pipefail
-
           for attempt in 1 2 3; do
             echo "=== Attempt $attempt / 3 ==="
-
-            if python src/main.py; then
-              break
+            if python src/main.py; then break
             else
-              rc=$?
-              echo "::warning::Generation attempt $attempt failed with code $rc"
-
-              if [ "$attempt" -eq 3 ]; then
-                exit "$rc"
-              fi
-
+              rc=$?; echo "::warning::Failed code $rc"
+              if [ "$attempt" -eq 3 ]; then exit "$rc"; fi
               sleep $((attempt * 60))
             fi
           done
@@ -259,34 +146,17 @@ concurrency:
         shell: bash
         run: |
           set -euo pipefail
-
-          if [ -z "$(git status --porcelain -- data/)" ]; then
-            echo "No state changes."
-            exit 0
-          fi
-
+          if [ -z "$(git status --porcelain -- data/)" ]; then exit 0; fi
           git config user.name "skillor-bot"
           git config user.email "skillor-bot@users.noreply.github.com"
-
           git add -A data/
           git commit -m "chore: persist SKILLOR channel state [skip ci]"
-
           for i in 1 2 3; do
-            if git pull --rebase origin "${GITHUB_REF_NAME}" \
-              && git push origin "HEAD:${GITHUB_REF_NAME}"; then
-              break
-            else
-              echo "Push retry $i"
-              sleep $((i * 5))
-
-              if [ "$i" -eq 3 ]; then
-                echo "::warning::State push failed after 3 tries"
-                exit 0
-              fi
-            fi
+            if git pull --rebase origin main && git push origin HEAD:main; then break
+            else sleep $((i * 5)); fi
           done
 
-      - name: Upload video, thumbnail, state backup and logs
+      - name: Upload artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -295,5 +165,4 @@ concurrency:
             output/
             pipeline.log
             data/
-          if-no-files-found: ignore
           retention-days: 14
