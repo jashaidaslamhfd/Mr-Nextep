@@ -34,7 +34,9 @@ jobs:
             'google-auth>=2.25.0' \
             'google-auth-oauthlib>=1.1.0' \
             'google-auth-httplib2>=0.2.0' \
-            'numpy>=1.24.0' 'Pillow>=10.0.0'
+            'numpy>=1.24.0' 'Pillow>=10.0.0' \
+            'requests>=2.31.0' 'python-dotenv>=1.0.0' \
+            'pytz>=2024.1'
 
       - name: Update real YouTube metrics
         env:
