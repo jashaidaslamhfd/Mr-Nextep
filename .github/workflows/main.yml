@@ -165,4 +165,5 @@ jobs:
             output/
             pipeline.log
             data/
+          if-no-files-found: ignore
           retention-days: 14

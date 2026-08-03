@@ -11,7 +11,7 @@ groq>=0.9.0
 # ---- Text-to-Speech ----
 # Kokoro = production engine (fast on CPU, Apache-2.0). torch is a hard
 # Kokoro dependency, so it stays in CORE requirements even though it is big.
-kokoro==0.9.4
+kokoro>=0.7.0,<0.8.0
 torch>=2.1.2
 soundfile>=0.12.1
 # Emergency cloud fallback used by voice_generator._synthesize_cloud_tts()
