@@ -1,10 +1,16 @@
 name: "SKILLOR - YouTube Shorts Automation (US)"
 
 on:
+concurrency:
+  group: main-pipeline
+  cancel-in-progress: false
   workflow_dispatch:
     inputs:
       topic:
         description: "Optional video topic (empty = next Body Glitch episode)"
+concurrency:
+  group: main-pipeline
+  cancel-in-progress: false
         required: false
         type: string
   schedule:
@@ -14,8 +20,17 @@ on:
     # GitHub cron UTC mein run hota hai. Uploader.py actual publishAt ko
     # America/New_York timezone mein calculate karta hai.
     - cron: "40 14 * * *"
+concurrency:
+  group: main-pipeline
+  cancel-in-progress: false
     - cron: "40 20 * * *"
+concurrency:
+  group: main-pipeline
+  cancel-in-progress: false
     - cron: "10 22 * * *"
+concurrency:
+  group: main-pipeline
+  cancel-in-progress: false
 
 permissions:
   contents: write
@@ -27,6 +42,9 @@ concurrency:
 jobs:
   generate-and-upload:
     runs-on: ubuntu-latest
+concurrency:
+  group: main-pipeline
+  cancel-in-progress: false
     timeout-minutes: 200
 
     steps:
@@ -37,6 +55,9 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+concurrency:
+  group: main-pipeline
+  cancel-in-progress: false
           cache: "pip"
           cache-dependency-path: requirements.txt
 
