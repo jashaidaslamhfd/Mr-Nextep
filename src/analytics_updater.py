@@ -160,12 +160,23 @@ if __name__ == "__main__":
         # script used to exit 0 while all 17 videos failed with invalid_scope
         # — four consecutive green ticks over an empty history file. A broken
         # feedback loop must be visible.
-        logger.error(
-            "Every YouTube analytics fetch failed (%s videos) and nothing was "
-            "written. Failing loudly so this is not mistaken for a healthy run.",
-            yt_result.get("failed"),
-        )
-        exit_code = 1
+        #
+        # BUT: "no data yet" for young videos is normal (24-48h delay).
+        # Only fail if there are REAL errors beyond just young videos.
+        if yt_result.get("no_data_yet", 0) > 0 and yt_result.get("failed", 0) == 0:
+            logger.info(
+                "All unscored videos are simply too young for analytics "
+                "(%s videos still within the 24-48h window). This is normal.",
+                yt_result.get("no_data_yet"),
+            )
+        else:
+            logger.error(
+                "Every YouTube analytics fetch failed (%s videos, %s too young) and nothing was "
+                "written. Failing loudly so this is not mistaken for a healthy run.",
+                yt_result.get("failed"),
+                yt_result.get("no_data_yet", 0),
+            )
+            exit_code = 1
 
     # ---- Stages 2 and 3: the cross-platform learning loop -----------------
     # Deliberately still attempted when stage 1 failed: Meta data is useful on

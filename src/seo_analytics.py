@@ -467,6 +467,7 @@ def update_history_with_real_metrics(min_hours_old: int = 24) -> Dict:
 
     now = _dt.datetime.now(_dt.timezone.utc)
     updated, failed, api_disabled = 0, 0, False
+    no_data_yet = 0  # videos too young for analytics (normal, not a failure)
     for entry in history:
         vid = entry.get("youtube_video_id")
         posted_at = entry.get("posted_at")
@@ -501,8 +502,12 @@ def update_history_with_real_metrics(min_hours_old: int = 24) -> Dict:
             api_disabled = True
             break                      # pointless to try the other 16 videos
         if "error" in metrics or "note" in metrics:
-            failed += 1
-            logger.info(f"{vid}: {metrics.get('error') or metrics.get('note')}")
+            if "note" in metrics and "No analytics rows yet" in str(metrics.get("note", "")):
+                no_data_yet += 1
+                logger.info(f"{vid}: {metrics['note']}")
+            else:
+                failed += 1
+                logger.info(f"{vid}: {metrics.get('error') or metrics.get('note')}")
             continue
 
         entry["views"] = metrics["views"]
@@ -528,6 +533,7 @@ def update_history_with_real_metrics(min_hours_old: int = 24) -> Dict:
     return {
         "updated": updated,
         "failed": failed,
+        "no_data_yet": no_data_yet,
         "total_entries": len(history),
         "api_disabled": api_disabled,
     }
