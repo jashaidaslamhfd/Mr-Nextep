@@ -654,11 +654,15 @@ class PostingScheduleTests(unittest.TestCase):
         self.assertEqual(slept, [], "wait exceeded its own cap")
 
     def test_job_timeout_covers_the_instagram_hold(self):
-        """8 min generation + a 112 min hold sat exactly on the old 120 limit."""
+        """Job timeout must exceed the Instagram slot-wait cap + a safe margin."""
         import re
+        import os
         workflow = (ROOT / ".github" / "workflows" / "main.yml").read_text()
         timeout = int(re.search(r"timeout-minutes:\s*(\d+)", workflow).group(1))
-        cap = int(re.search(r'IG_MAX_WAIT_MINUTES:\s*"(\d+)"', workflow).group(1))
+        # IG_MAX_WAIT_MINUTES defaults to 150 in uploader.py; the env var is no
+        # longer set in main.yml (scheduler now owns slot timing, the env var is
+        # only a fallback belt-and-suspenders guard in _wait_for_instagram_slot).
+        cap = int(os.environ.get("IG_MAX_WAIT_MINUTES", "150"))
         self.assertGreater(timeout, cap + 30,
                            "job would be killed mid-hold")
 
