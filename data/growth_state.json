@@ -1,32 +1,32 @@
 {
-  "generated_at": "2026-07-31T18:53:36.789057+00:00",
-  "sample_size": 23,
-  "scored_videos": 21,
-  "channel_gate_ratio": 0.983,
+  "generated_at": "2026-08-04T10:09:02.338781+00:00",
+  "sample_size": 113,
+  "scored_videos": 22,
+  "channel_gate_ratio": 0.887,
   "slot_weights": {
     "00:00": 1.0,
     "05:00": 1.0,
     "11:00": 1.0,
     "15:30": 1.0,
-    "20:00": 1.237,
+    "20:00": 1.263,
     "04:30": 1.0,
     "14:30": 1.0,
     "18:30": 1.0,
     "01:00": 1.0,
-    "12:30": 0.838,
-    "21:30": 0.768
+    "12:30": 0.837,
+    "21:30": 0.742
   },
   "topic_weights": {
-    "other": 1.319,
-    "brain": 0.756,
-    "muscle": 0.8,
-    "ear": 0.87,
+    "other": 1.358,
+    "brain": 0.712,
+    "muscle": 0.782,
+    "ear": 0.835,
     "gut": 1.0,
     "breath": 1.0
   },
   "hook_weights": {
-    "statement": 1.052,
-    "why": 0.684
+    "statement": 1.053,
+    "why": 0.673
   },
   "slot_samples": {
     "00:00": 1,
@@ -38,11 +38,11 @@
     "14:30": 2,
     "18:30": 1,
     "01:00": 1,
-    "12:30": 3,
+    "12:30": 4,
     "21:30": 3
   },
   "topic_samples": {
-    "other": 7,
+    "other": 8,
     "brain": 4,
     "muscle": 3,
     "ear": 5,
@@ -50,7 +50,7 @@
     "breath": 1
   },
   "hook_samples": {
-    "statement": 18,
+    "statement": 19,
     "why": 3
   },
   "platform_health": {
@@ -58,12 +58,12 @@
       "platform": "youtube_shorts",
       "label": "YouTube Shorts",
       "status": "below_gate",
-      "samples": 21,
+      "samples": 22,
       "gate": 0.5,
-      "avg_completion": 0.4915,
-      "gate_ratio": 0.983,
-      "avg_views": 280.0,
-      "action": "Averaging 49% against a 50% bar. Shorten the cut toward 27s and tighten the first 3 seconds — the gap is retention, not reach."
+      "avg_completion": 0.4716,
+      "gate_ratio": 0.937,
+      "avg_views": 322.9,
+      "action": "Averaging 47% against a 50% bar. Shorten the cut toward 27s and tighten the first 3 seconds — the gap is retention, not reach."
     },
     "facebook_reels": {
       "platform": "facebook_reels",
@@ -71,30 +71,49 @@
       "status": "no_data",
       "samples": 0,
       "gate": 0.72,
-      "blocking_error": null,
-      "action": "No metrics yet — publish and wait 24h, or connect this platform's analytics."
+      "blocking_error": "total_video_views: (#100) Tried accessing nonexisting field (insights); total_video_avg_time_watched: (#100) Tried acces",
+      "action": "No readable metrics. total_video_views: (#100) Tried accessing nonexisting field (insights); total_video_avg_time_watched: (#100) Tried acces"
     },
     "instagram_reels": {
       "platform": "instagram_reels",
       "label": "Instagram Reels",
-      "status": "no_data",
-      "samples": 0,
+      "status": "critical",
+      "samples": 9,
       "gate": 0.7,
-      "blocking_error": null,
-      "action": "No metrics yet — publish and wait 24h, or connect this platform's analytics."
+      "avg_completion": 0.2357,
+      "gate_ratio": 0.337,
+      "avg_views": 89.1,
+      "action": "Only 24% of a 70% bar. The format itself is losing viewers early: rebuild the hook (visual payoff in frame one, promise in under 3 seconds) before changing anything else."
     }
   },
-  "instagram_sends": null,
+  "instagram_sends": {
+    "avg_sends_per_reach": 0.0007,
+    "samples": 9,
+    "healthy": false,
+    "action": "Almost nobody DMs these Reels. Sends are Instagram's strongest non-follower signal: end on one surprising, quotable fact a viewer would send to a specific friend, not a generic wrap-up line."
+  },
   "recommended_cadence": 2,
-  "cadence_reason": "Retention is 98% of the bar — close but under. Two uploads a day at the channel's two best-measured slots concentrates the quality budget where it converts.",
+  "cadence_reason": "Retention is 89% of the bar — close but under. Two uploads a day at the channel's two best-measured slots concentrates the quality budget where it converts.",
   "alerts": [
     {
+      "level": "error",
+      "message": "Facebook Reels: total_video_views: (#100) Tried accessing nonexisting field (insights); total_video_avg_time_watched: (#100) Tried acces — analytics are blind here."
+    },
+    {
+      "level": "error",
+      "message": "Instagram Reels: Only 24% of a 70% bar. The format itself is losing viewers early: rebuild the hook (visual payoff in frame one, promise in under 3 seconds) before changing anything else."
+    },
+    {
       "level": "warn",
-      "message": "Slot 12:30 NY is under-performing across 3 videos — its weight has been reduced automatically."
+      "message": "Slot 12:30 NY is under-performing across 4 videos — its weight has been reduced automatically."
     },
     {
       "level": "warn",
       "message": "Slot 21:30 NY is under-performing across 3 videos — its weight has been reduced automatically."
+    },
+    {
+      "level": "warn",
+      "message": "Almost nobody DMs these Reels. Sends are Instagram's strongest non-follower signal: end on one surprising, quotable fact a viewer would send to a specific friend, not a generic wrap-up line."
     }
   ],
   "best_slot": "20:00",
