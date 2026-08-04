@@ -65,8 +65,9 @@ IG_METRICS = (
     "views", "reach", "saved", "shares", "comments", "likes",
     "total_interactions", "ig_reels_avg_watch_time",
 )
+# FB_METRICS — for video_insights (Reels). post_* metrics FAIL on Page Reels.
+# VERIFIED 2026-08-04: total_video_views & total_video_avg_time_watched WORK.
 FB_METRICS = (
-    "post_impressions", "post_impressions_unique",
     "total_video_views", "total_video_avg_time_watched",
     "post_video_avg_time_watched", "post_reactions_by_type_total",
 )
@@ -231,8 +232,8 @@ def fetch_facebook(video_id: str, clip_seconds: float, token: str) -> Dict:
 
     return {
         "views": values.get("total_video_views"),
-        "impressions": values.get("post_impressions"),
-        "reach": values.get("post_impressions_unique"),
+        "impressions": None,
+        "reach": None,
         "completion": completion,
         "avg_watch_seconds": round(float(avg_ms) / 1000.0, 2) if avg_ms else None,
         "reactions": values.get("post_reactions_by_type_total"),
