@@ -60,6 +60,7 @@ jobs:
         run: python scripts/update_facebook_analytics.py
 
       - name: Persist analytics state
+        if: always()
         run: |
           set -euo pipefail
           if [ -z "$(git status --porcelain -- data/)" ]; then
