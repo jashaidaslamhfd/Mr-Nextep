@@ -437,8 +437,8 @@ class SKILLORPipeline:
                 script_data['hook_frame'] = hook_frame(
                     script_data.get('hook') or script_data.get('title', '')
                 )
-            except Exception:  # noqa: BLE001 - telemetry must never block a run
-                pass
+            except Exception as e:  # noqa: BLE001 - telemetry must never block a run
+                logger.debug(f"Could not classify hook frame: {e}")
 
             # CTR Prediction
             try:

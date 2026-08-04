@@ -30,8 +30,8 @@ def _ffprobe_exe() -> str:
         candidate = ffmpeg.replace("ffmpeg", "ffprobe")
         if os.path.isfile(candidate):
             return candidate
-    except Exception:
-        pass
+        except Exception as e:
+            logger.debug(f"Media validation error: {e}")
     return ""
 
 

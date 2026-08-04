@@ -179,8 +179,8 @@ def get_hijacked_viral_topic(exclude_list: list[str] = None) -> dict:
                 viral_data = json.load(f)
             for vid in viral_data.get("viral_videos", []):
                 candidates.append(score_topic(vid["title"], "viral_intelligence_curated", vid.get("view_count", 500000)))
-        except Exception:
-            pass
+        except Exception as e:
+            logger.debug(f"Media generation cleanup failed: {e}")
 
     # --- Step 3: Filtering, Deduplicating, and Selection ---
     logger.info("Step 3/3: Evaluating, filtering and selecting the ultimate winner...")

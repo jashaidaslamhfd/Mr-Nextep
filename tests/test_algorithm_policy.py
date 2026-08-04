@@ -1317,8 +1317,11 @@ class DeploymentWiringTests(unittest.TestCase):
             for key in ("GOOGLE_CLIENT_ID", "GOOGLE_CLIENT_SECRET", "REFRESH_TOKEN"):
                 env.pop(key, None)
 
-            subprocess.run([sys.executable, str(SRC / "analytics_updater.py")],
+            res = subprocess.run([sys.executable, str(SRC / "analytics_updater.py")],
                            env=env, capture_output=True, text=True, timeout=180)
+            if not metrics.exists():
+                print(res.stdout)
+                print(res.stderr)
 
             self.assertTrue(metrics.exists(),
                             "stage 2 did not run after stage 1 failed")
