@@ -1,0 +1,83 @@
+name: "SKILLOR - 2026 SEO Repair (All Platforms)"
+
+on:
+  workflow_dispatch:
+    inputs:
+      apply:
+        description: "true = actually fix videos; false = dry-run preview"
+        required: true
+        type: boolean
+        default: false
+      limit:
+        description: "Max videos per platform (0 = all)"
+        required: false
+        type: number
+        default: 0
+      youtube_only:
+        description: "Only YouTube (skip FB/IG)"
+        required: false
+        type: boolean
+        default: false
+      facebook_only:
+        description: "Only Facebook + Instagram"
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  repair-seo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install requests pytz python-dotenv Pillow numpy
+      
+      - name: 2026 SEO Repair
+        env:
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
+          FACEBOOK_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
+          FB_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
+          FACEBOOK_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID }}
+          FB_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID }}
+          INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
+        run: |
+          ARGS=""
+          if [ "${{ inputs.apply }}" = "true" ]; then ARGS="$ARGS --apply"; fi
+          if [ "${{ inputs.limit }}" != "0" ]; then ARGS="$ARGS --limit ${{ inputs.limit }}"; fi
+          if [ "${{ inputs.youtube_only }}" = "true" ]; then ARGS="$ARGS --youtube-only"; fi
+          if [ "${{ inputs.facebook_only }}" = "true" ]; then ARGS="$ARGS --facebook-only"; fi
+          python scripts/repair_all_seo.py $ARGS
+      
+      - name: Persist repair log
+        if: always()
+        run: |
+          git config user.name "skillor-bot"
+          git config user.email "skillor-bot@users.noreply.github.com"
+          git add data/seo_repair_*.json 2>/dev/null || true
+          if [ -z "$(git diff --cached --name-only)" ]; then echo "No changes."; exit 0; fi
+          git commit -m "chore: 2026 SEO repair log [skip ci]"
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push origin main && break
+            sleep $((i*5))
+          done
+      
+      - name: Upload repair log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: seo-repair-2026-${{ github.run_id }}
+          path: data/seo_repair_*.json
+          if-no-files-found: ignore
+          retention-days: 30
