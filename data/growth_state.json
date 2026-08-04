@@ -1,5 +1,9 @@
 {
+<<<<<<< Updated upstream
   "generated_at": "2026-08-04T10:30:35.397082+00:00",
+=======
+  "generated_at": "2026-08-04T10:39:05.082270+00:00",
+>>>>>>> Stashed changes
   "sample_size": 113,
   "scored_videos": 33,
   "channel_gate_ratio": 0.661,
@@ -22,7 +26,11 @@
     "other": 1.45,
     "breath": 1.0,
     "muscle": 0.743,
+<<<<<<< Updated upstream
     "brain": 0.648,
+=======
+    "brain": 0.649,
+>>>>>>> Stashed changes
     "ear": 0.803,
     "gut": 1.0
   },
@@ -66,9 +74,9 @@
       "status": "below_gate",
       "samples": 22,
       "gate": 0.5,
-      "avg_completion": 0.4716,
+      "avg_completion": 0.4715,
       "gate_ratio": 0.937,
-      "avg_views": 322.9,
+      "avg_views": 320.9,
       "action": "Averaging 47% against a 50% bar. Shorten the cut toward 27s and tighten the first 3 seconds — the gap is retention, not reach."
     },
     "facebook_reels": {
@@ -79,7 +87,11 @@
       "gate": 0.72,
       "avg_completion": 0.1937,
       "gate_ratio": 0.269,
+<<<<<<< Updated upstream
       "avg_views": 0.0,
+=======
+      "avg_views": 61.1,
+>>>>>>> Stashed changes
       "action": "Only 19% of a 72% bar. The format itself is losing viewers early: rebuild the hook (visual payoff in frame one, promise in under 3 seconds) before changing anything else."
     },
     "instagram_reels": {
