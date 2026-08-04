@@ -1,0 +1,642 @@
+{
+ "generated_at_utc": "2026-08-04T06:31:13.438228",
+ "api": "v23.0",
+ "page": {
+  "id": "1122980080905302",
+  "name": "Mr. Nextep",
+  "about": "Your body does weird things... and we explain why 😳\n1-Minute Science | Body Glitches | Daily Facts\nWhy does this happen to you? Find out here 👇",
+  "description": "Mr. Nextep explains the weird things your body and brain do — in under a minute. Body glitches, brain quirks and everyday science mysteries, answered simply. New short videos daily.\n\nWatch on YouTube: https://youtube.com/@mrnextep",
+  "category": "Digital creator",
+  "website": "https://youtube.com/@mrnextep?si=LkySlKo9dXJoSx2m",
+  "link": "https://www.facebook.com/1122980080905302",
+  "followers_count": 35,
+  "fan_count": 35,
+  "cover": {
+   "cover_id": "122112479415351165",
+   "offset_x": 50,
+   "offset_y": 50,
+   "source": "https://scontent-sea1-1.xx.fbcdn.net/v/t39.30808-6/726002744_122112479421351165_2828795938232673996_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=dc4938&_nc_eui2=AeECdUgtSVsxq0v0Gav9-79HLxe6DlBWoeAvF7oOUFah4GOMAe-UVMPRArRj68PlyAufDGfcpkw7hRYPLJNp_CVY&_nc_ohc=agGP6LGChoYQ7kNvwGezRVl&_nc_oc=AdoO_bC_HxPMINsfzJCWJql8yMHh8qzcpKfYFCDx-SbuYxJ1bK1ky2HQuQXkrMZIixQ&_nc_zt=23&_nc_ht=scontent-sea1-1.xx&edm=AJdBtusEAAAA&_nc_gid=TZQmJi9lcAG-YLd2m9o5oA&_nc_tpa=Q5bMBQGTBozw73GQWcvMYTvuL3MGEUFGZmOlgY_u0QZuHjoa3Iq6x2TCWZFKjwngGCQ-VBPxZJRrt_bZWg&oh=00_AQFlT5B5TUoAYoKr-X0lIzde_YncmcEyI55mtKc-InjgQg&oe=6A7746DA",
+   "id": "122112479415351165"
+  }
+ },
+ "followers": 35,
+ "cta_probe": {
+  "error": 400,
+  "body": "{\"error\":{\"message\":\"(#10) This endpoint requires the 'pages_read_engagement' permission or the 'Page Public Content Access' feature. Refer to https:\\/\\/developers.facebook.com\\/docs\\/apps\\/review\\/login-permissions#manage-pages and https:\\/\\/developers.facebook.com\\/docs\\/apps\\/review\\/feature#refe"
+ },
+ "reels_total": 79,
+ "reels_faulty": 71,
+ "reel_faults": {
+  "793469103829436": {
+   "created": "2026-08-02T23:22:10+0000",
+   "first_line": "Your body twitches suddenly.",
+   "desc_len": 289,
+   "faults": [
+    "reel_cover_missing"
+   ]
+  },
+  "1788053772639430": {
+   "created": "2026-08-02T21:48:32+0000",
+   "first_line": "Your body freezes suddenly.",
+   "desc_len": 265,
+   "faults": [
+    "reel_cover_missing"
+   ]
+  },
+  "4462053344063433": {
+   "created": "2026-08-02T21:20:38+0000",
+   "first_line": "You shake while asleep.",
+   "desc_len": 275,
+   "faults": [
+    "reel_cover_missing"
+   ]
+  },
+  "1594844678672436": {
+   "created": "2026-08-01T23:21:32+0000",
+   "first_line": "You suddenly shake awake.",
+   "desc_len": 294,
+   "faults": [
+    "reel_cover_missing"
+   ]
+  },
+  "1703627814193953": {
+   "created": "2026-08-01T15:56:17+0000",
+   "first_line": "Your body freezes suddenly.",
+   "desc_len": 237,
+   "faults": [
+    "reel_cover_missing"
+   ]
+  },
+  "1051855414448490": {
+   "created": "2026-07-31T22:51:52+0000",
+   "first_line": "Truth About Your Body Twitches When You Sleep — here's the simple scie",
+   "desc_len": 230,
+   "faults": [
+    "reel_cover_missing"
+   ]
+  },
+  "2796503204059829": {
+   "created": "2026-07-31T20:12:57+0000",
+   "first_line": "your body shakes when sleeping — here's the simple science. Our bodies",
+   "desc_len": 209,
+   "faults": [
+    "reel_cover_missing"
+   ]
+  },
+  "1583829023133226": {
+   "created": "2026-07-31T19:43:17+0000",
+   "first_line": "your body freezes when scared — here's the simple science. Our bodies ",
+   "desc_len": 191,
+   "faults": [
+    "reel_cover_missing"
+   ]
+  },
+  "2583015618843182": {
+   "created": "2026-07-27T22:00:07+0000",
+   "first_line": "your body gag reflex — here's the simple science. Our bodies do strang",
+   "desc_len": 182,
+   "faults": [
+    "reel_cover_missing"
+   ]
+  },
+  "2236092447213631": {
+   "created": "2026-07-27T16:58:21+0000",
+   "first_line": "Sleeping Foot — here's the simple science. Our bodies do strange thing",
+   "desc_len": 175,
+   "faults": [
+    "reel_cover_missing"
+   ]
+  },
+  "2732800527099046": {
+   "created": "2026-07-27T01:21:03+0000",
+   "first_line": "your ears ringing in absolute silence — here's the simple science. Our",
+   "desc_len": 222,
+   "faults": [
+    "reel_cover_missing"
+   ]
+  },
+  "1541306318009452": {
+   "created": "2026-07-25T23:39:26+0000",
+   "first_line": "your body doorway effect — here's the simple science. Our bodies do st",
+   "desc_len": 203,
+   "faults": [
+    "reel_cover_missing"
+   ]
+  },
+  "3477770522430241": {
+   "created": "2026-07-24T23:45:39+0000",
+   "first_line": "your body freezes when you're scared — here's the simple science. Our ",
+   "desc_len": 221,
+   "faults": [
+    "reel_title_missing"
+   ]
+  },
+  "1523575096183415": {
+   "created": "2026-07-24T17:01:16+0000",
+   "first_line": "Have you ever noticed your mouth dry up Learn why your mouth dries up ",
+   "desc_len": 341,
+   "faults": [
+    "reel_title_missing"
+   ]
+  },
+  "1787303285967704": {
+   "created": "2026-07-24T10:45:22+0000",
+   "first_line": "brushing back teeth triggering a sudden gag — here's the simple scienc",
+   "desc_len": 228,
+   "faults": [
+    "reel_title_missing"
+   ]
+  },
+  "1241453812383979": {
+   "created": "2026-07-23T23:38:16+0000",
+   "first_line": "You love the sweet taste of cold ice Discover why your tongue feels nu",
+   "desc_len": 356,
+   "faults": [
+    "reel_title_missing"
+   ]
+  },
+  "1044083038116002": {
+   "created": "2026-07-23T16:53:38+0000",
+   "first_line": "yawning spreading instantly from person to person — here's the simple ",
+   "desc_len": 211,
+   "faults": [
+    "reel_title_missing"
+   ]
+  },
+  "1754294192265457": {
+   "created": "2026-07-23T05:05:27+0000",
+   "first_line": "Have you ever felt like hours flew by Feeling like time distorts is us",
+   "desc_len": 356,
+   "faults": [
+    "reel_title_missing"
+   ]
+  },
+  "27722335547405806": {
+   "created": "2026-07-22T23:41:19+0000",
+   "first_line": "a feeling of a lump in your throat when sad — here's the simple scienc",
+   "desc_len": 222,
+   "faults": [
+    "reel_title_missing"
+   ]
+  },
+  "1026759496727537": {
+   "created": "2026-07-20T18:40:40+0000",
+   "first_line": "Have you ever woken up sounding deeper and.",
+   "desc_len": 184,
+   "faults": [
+    "reel_title_missing"
+   ]
+  },
+  "1680757336371264": {
+   "created": "2026-07-20T00:38:47+0000",
+   "first_line": "Ever felt like your body just freezes when.",
+   "desc_len": 221,
+   "faults": [
+    "reel_title_missing"
+   ]
+  },
+  "1670686777493488": {
+   "created": "2026-07-19T19:52:38+0000",
+   "first_line": "You've noticed it before, but why do your.",
+   "desc_len": 197,
+   "faults": [
+    "reel_title_missing"
+   ]
+  },
+  "1381698583844468": {
+   "created": "2026-07-19T15:04:28+0000",
+   "first_line": "Have you ever wondered why knees crack when. 🦴",
+   "desc_len": 205,
+   "faults": [
+    "reel_title_missing"
+   ]
+  },
+  "1952677572018954": {
+   "created": "2026-07-17T20:26:15+0000",
+   "first_line": "Did you know gut bacteria produce neurotransmitters?",
+   "desc_len": 226,
+   "faults": [
+    "reel_title_missing",
+    "reel_cover_missing"
+   ]
+  },
+  "1595057902237036": {
+   "created": "2026-07-17T16:55:45+0000",
+   "first_line": "Your brain creates 50,000 thoughts daily, but most are false.",
+   "desc_len": 299,
+   "faults": [
+    "reel_title_missing"
+   ]
+  },
+  "1590736172650812": {
+   "created": "2026-07-17T12:43:31+0000",
+   "first_line": "Your body's internal clock is controlled by a tiny gland.",
+   "desc_len": 300,
+   "faults": [
+    "reel_title_missing"
+   ]
+  },
+  "2127682905297477": {
+   "created": "2026-07-16T19:51:06+0000",
+   "first_line": "When you hear music that isn't there, it's not...",
+   "desc_len": 240,
+   "faults": [
+    "reel_title_missing"
+   ]
+  },
+  "967362659655619": {
+   "created": "2026-07-16T19:31:48+0000",
+   "first_line": "You think you see a lot of greens, but.",
+   "desc_len": 274,
+   "faults": [
+    "reel_title_missing"
+   ]
+  },
+  "2257463925002102": {
+   "created": "2026-07-14T14:31:32+0000",
+   "first_line": "Nobody told you this is happening inside you right now.",
+   "desc_len": 284,
+   "faults": [
+    "reel_title_missing"
+   ]
+  },
+  "1558634109273788": {
+   "created": "2026-07-14T02:17:01+0000",
+   "first_line": "Stress is killing you",
+   "desc_len": 277,
+   "faults": [
+    "reel_title_missing",
+    "reel_cover_missing"
+   ]
+  },
+  "1002834325717088": {
+   "created": "2026-07-13T15:17:51+0000",
+   "first_line": "This is the creepiest thing your own body does.",
+   "desc_len": 252,
+   "faults": [
+    "reel_title_missing"
+   ]
+  },
+  "1377013091021070": {
+   "created": "2026-07-13T04:49:04+0000",
+   "first_line": "This sounds fake, but Your Lungs Can Drown You From Inside is 100% rea",
+   "desc_len": 276,
+   "faults": [
+    "reel_title_missing"
+   ]
+  },
+  "1002453985926205": {
+   "created": "2026-07-12T19:31:43+0000",
+   "first_line": "Your heart is racing, but why?",
+   "desc_len": 311,
+   "faults": [
+    "reel_title_missing"
+   ]
+  },
+  "1562083748879712": {
+   "created": "2026-07-12T14:10:03+0000",
+   "first_line": "Your pulse betrays you",
+   "desc_len": 286,
+   "faults": [
+    "reel_title_missing"
+   ]
+  },
+  "1812219993275345": {
+   "created": "2026-07-12T07:35:25+0000",
+   "first_line": "Nobody told you this is happening inside you right now.",
+   "desc_len": 274,
+   "faults": [
+    "reel_title_missing"
+   ]
+  },
+  "1063311032815104": {
+   "created": "2026-07-12T00:18:59+0000",
+   "first_line": "This is the creepiest thing your own body does.",
+   "desc_len": 255,
+   "faults": [
+    "reel_title_missing"
+   ]
+  },
+  "1060877382948529": {
+   "created": "2026-07-11T19:33:00+0000",
+   "first_line": "Scientists only figured this out about This Is What Deja Vu Actually I",
+   "desc_len": 323,
+   "faults": [
+    "reel_title_missing"
+   ]
+  },
+  "4618601568425581": {
+   "created": "2026-07-11T17:12:04+0000",
+   "first_line": "Scientists only figured this out about Your Bones Are Being Replaced R",
+   "desc_len": 331,
+   "faults": [
+    "reel_title_missing"
+   ]
+  },
+  "1027753856883818": {
+   "created": "2026-07-11T10:36:13+0000",
+   "first_line": "Most people go their entire life never knowing this about The Secret B",
+   "desc_len": 319,
+   "faults": [
+    "reel_title_missing"
+   ]
+  },
+  "2805630619816879": {
+   "created": "2026-07-10T00:18:44+0000",
+   "first_line": "Your body is lying to you about the sound of your heartbeat. Here's th",
+   "desc_len": 352,
+   "faults": [
+    "reel_title_missing"
+   ]
+  },
+  "909039548133339": {
+   "created": "2026-07-09T23:43:49+0000",
+   "first_line": "Doctors don't want you to know this about your veins...",
+   "desc_len": 288,
+   "faults": [
+    "reel_title_missing"
+   ]
+  },
+  "1039447355617327": {
+   "created": "2026-07-09T18:04:47+0000",
+   "first_line": "Your body is lying to you about your lungs. Here's the truth.",
+   "desc_len": 330,
+   "faults": [
+    "reel_title_missing"
+   ]
+  },
+  "997257099608361": {
+   "created": "2026-07-09T15:41:25+0000",
+   "first_line": "This happens to your body every night... and you have no idea.",
+   "desc_len": 459,
+   "faults": [
+    "reel_title_missing"
+   ]
+  },
+  "1386742276679436": {
+   "created": "2026-07-09T04:17:00+0000",
+   "first_line": "Doctors don't want you to know this about the human body...",
+   "desc_len": 316,
+   "faults": [
+    "reel_title_missing"
+   ]
+  },
+  "1031719582637032": {
+   "created": "2026-07-08T14:50:47+0000",
+   "first_line": "This happens to your body every night... and you have no idea.",
+   "desc_len": 243,
+   "faults": [
+    "reel_title_missing"
+   ]
+  },
+  "1005919162351949": {
+   "created": "2026-07-08T00:10:38+0000",
+   "first_line": "Your body is lying to you about your heart's own brain. Here’s the tru",
+   "desc_len": 314,
+   "faults": [
+    "reel_title_missing"
+   ]
+  },
+  "1438140801456427": {
+   "created": "2026-07-07T19:47:55+0000",
+   "first_line": "This happens to your body every night... and you have no idea.",
+   "desc_len": 401,
+   "faults": [
+    "reel_title_missing"
+   ]
+  },
+  "3049328235257789": {
+   "created": "2026-07-07T14:43:48+0000",
+   "first_line": "Your body is lying to you about Your Lungs Can Drown You From Inside. ",
+   "desc_len": 317,
+   "faults": [
+    "reel_title_missing"
+   ]
+  },
+  "1359126416180164": {
+   "created": "2026-07-07T04:56:42+0000",
+   "first_line": "Doctors don't want you to know this about your lungs drowning inside, ",
+   "desc_len": 305,
+   "faults": [
+    "reel_title_missing"
+   ]
+  },
+  "1025851906512601": {
+   "created": "2026-07-06T19:27:26+0000",
+   "first_line": "Your body is lying to you about your heart having its own brain. Here'",
+   "desc_len": 321,
+   "faults": [
+    "reel_title_missing"
+   ]
+  },
+  "1360222282706092": {
+   "created": "2026-07-06T19:24:25+0000",
+   "first_line": "Doctors don't want you to know this about your blood having a secret w",
+   "desc_len": 288,
+   "faults": [
+    "reel_title_missing"
+   ]
+  },
+  "4500592876865584": {
+   "created": "2026-07-06T14:46:37+0000",
+   "first_line": "Doctors don't want you to know this about the bone that breaks most in",
+   "desc_len": 285,
+   "faults": [
+    "reel_title_missing"
+   ]
+  },
+  "1053815270423351": {
+   "created": "2026-07-06T05:16:46+0000",
+   "first_line": "Doctors don't want you to know this about your blood's secret weapon. ",
+   "desc_len": 412,
+   "faults": [
+    "reel_title_missing",
+    "reel_cover_missing"
+   ]
+  },
+  "2309700976438443": {
+   "created": "2026-07-05T21:04:59+0000",
+   "first_line": "Doctors don't want you to know this about Your Heart Has Its Own Brain",
+   "desc_len": 289,
+   "faults": [
+    "reel_title_missing"
+   ]
+  },
+  "1781033269735266": {
+   "created": "2026-07-05T18:50:28+0000",
+   "first_line": "Most parents don't know this about how music helps baby brain developm",
+   "desc_len": 289,
+   "faults": [
+    "reel_title_missing"
+   ]
+  },
+  "1418137220128208": {
+   "created": "2026-07-05T16:02:17+0000",
+   "first_line": "Most parents don’t know this about Attachment Theory: it’s the brain’s",
+   "desc_len": 304,
+   "faults": [
+    "reel_title_missing"
+   ]
+  },
+  "788442081024484": {
+   "created": "2026-07-05T12:32:13+0000",
+   "first_line": "Most parents don't know this about language development... You’re conf",
+   "desc_len": 289,
+   "faults": [
+    "reel_title_missing",
+    "reel_cover_missing"
+   ]
+  },
+  "1689758258745947": {
+   "created": "2026-07-05T02:26:36+0000",
+   "first_line": "Most parents don’t know this about bilingual brain development... We a",
+   "desc_len": 295,
+   "faults": [
+    "reel_title_missing",
+    "reel_cover_missing"
+   ]
+  },
+  "3270063829869638": {
+   "created": "2026-07-04T21:20:57+0000",
+   "first_line": "Most parents don't know this about Brain Growth Nutrition for Babies, ",
+   "desc_len": 290,
+   "faults": [
+    "reel_title_missing",
+    "reel_cover_missing"
+   ]
+  },
+  "1345906440366316": {
+   "created": "2026-07-04T04:37:53+0000",
+   "first_line": "Attachment Theory in 60 Seconds",
+   "desc_len": 217,
+   "faults": [
+    "reel_title_missing"
+   ]
+  },
+  "1780810203076642": {
+   "created": "2026-07-04T03:12:16+0000",
+   "first_line": "Why Babies Need to Crawl Before Walking",
+   "desc_len": 218,
+   "faults": [
+    "reel_title_missing",
+    "reel_cover_missing"
+   ]
+  },
+  "947830784988145": {
+   "created": "2026-06-28T16:10:19+0000",
+   "first_line": "Your body is ALREADY reacting to nighttime allergens...",
+   "desc_len": 254,
+   "faults": [
+    "reel_cover_missing"
+   ]
+  },
+  "2110486596201470": {
+   "created": "2026-06-27T16:02:23+0000",
+   "first_line": "Your body is ALREADY skipping beats every day...",
+   "desc_len": 238,
+   "faults": [
+    "reel_cover_missing"
+   ]
+  },
+  "844276145183200": {
+   "created": "2026-06-26T21:16:43+0000",
+   "first_line": "Your brain is already sending signals right now...",
+   "desc_len": 259,
+   "faults": [
+    "reel_cover_missing"
+   ]
+  },
+  "1006828912076419": {
+   "created": "2026-06-26T18:19:28+0000",
+   "first_line": "Your brain is ALREADY declining right now slowly...",
+   "desc_len": 237,
+   "faults": [
+    "reel_cover_missing"
+   ]
+  },
+  "995139406605549": {
+   "created": "2026-06-26T10:37:29+0000",
+   "first_line": "Your brain is already forgetting right now...",
+   "desc_len": 224,
+   "faults": [
+    "reel_cover_missing"
+   ]
+  },
+  "4304682836438200": {
+   "created": "2026-06-26T03:54:26+0000",
+   "first_line": "Your brain is ALREADY capable of more right now...",
+   "desc_len": 251,
+   "faults": [
+    "reel_cover_missing"
+   ]
+  },
+  "3314378625410338": {
+   "created": "2026-06-24T10:36:52+0000",
+   "first_line": "Comment 'YES' if you agree! 💯",
+   "desc_len": 98,
+   "faults": [
+    "reel_cover_missing",
+    "reel_caption_duplicate"
+   ]
+  },
+  "2524117774699365": {
+   "created": "2026-06-24T02:00:49+0000",
+   "first_line": "Comment 'YES' if you agree! 💯",
+   "desc_len": 98,
+   "faults": [
+    "reel_cover_missing",
+    "reel_caption_duplicate"
+   ]
+  },
+  "2171677247008570": {
+   "created": null,
+   "first_line": "",
+   "desc_len": 0,
+   "faults": [
+    "reel_caption_duplicate"
+   ]
+  },
+  "863548253034850": {
+   "created": null,
+   "first_line": "",
+   "desc_len": 0,
+   "faults": [
+    "reel_caption_duplicate"
+   ]
+  }
+ },
+ "posts_total": 86,
+ "post_duplicates": [
+  [
+   [
+    "1122980080905302_122114248359351165",
+    "2026-06-24T10:37:20+0000",
+    "Comment 'YES' if you agree! 💯\n\nFollow for daily body science"
+   ],
+   [
+    "1122980080905302_122114111343351165",
+    "2026-06-24T02:01:43+0000",
+    "Comment 'YES' if you agree! 💯\n\nFollow for daily body science"
+   ]
+  ],
+  [
+   [
+    "1122980080905302_122114190477351165",
+    "2026-06-24T07:08:32+0000",
+    "Tag someone who needs to see this! 👇\n\nFollow for daily body "
+   ],
+   [
+    "1122980080905302_122114070639351165",
+    "2026-06-23T21:17:21+0000",
+    "Tag someone who needs to see this! 👇\n\nFollow for daily body "
+   ]
+  ]
+ ],
+ "read_insights": false,
+ "fault_counts": {
+  "reel_title_missing": 49,
+  "reel_cover_missing": 27,
+  "reel_caption_duplicate": 4,
+  "post_duplicate": 4
+ }
+}
