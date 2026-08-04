@@ -63,22 +63,16 @@ jobs:
         if: always()
         run: |
           set -euo pipefail
-          if [ -z "$(git status --porcelain -- data/)" ]; then
-            echo "No analytics changes to persist."
-            exit 0
-          fi
           git config user.name "skillor-bot"
           git config user.email "skillor-bot@users.noreply.github.com"
           git add data/
+          if git diff --cached --quiet; then
+            echo "No analytics changes to persist."
+            exit 0
+          fi
           git commit -m "chore: update SKILLOR analytics [skip ci]"
-          # Retry like main.yml — a failed rebase/push used to fail the whole
-          # analytics run for no real reason.
           for i in 1 2 3; do
-            if git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}"; then
-              break
-            else
-              echo "Push retry $i"
-              sleep $((i*5))
-              [ $i -eq 3 ] && echo "::warning::Analytics push failed after 3 tries; will retry next run." && exit 0
-            fi
+            git pull --rebase origin main && git push origin main && break
+            sleep $((i*5))
+            [ $i -eq 3 ] && echo "::warning::push failed" && exit 0
           done
