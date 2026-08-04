@@ -65,11 +65,16 @@ IG_METRICS = (
     "views", "reach", "saved", "shares", "comments", "likes",
     "total_interactions", "ig_reels_avg_watch_time",
 )
-# FB_METRICS — for video_insights (Reels). post_* metrics FAIL on Page Reels.
-# VERIFIED 2026-08-04: total_video_views & total_video_avg_time_watched WORK.
+# FB_METRICS — for video_insights endpoint (Reels). LIVE VERIFIED 2026-08-04.
+# WORKING: total_video_views, total_video_avg_time_watched,
+#          total_video_impressions, total_video_impressions_unique,
+#          post_video_avg_time_watched
+# BROKEN:  post_impressions, post_impressions_unique,
+#          post_reactions_by_type_total, post_engaged_users
 FB_METRICS = (
     "total_video_views", "total_video_avg_time_watched",
-    "post_video_avg_time_watched", "post_reactions_by_type_total",
+    "total_video_impressions", "total_video_impressions_unique",
+    "post_video_avg_time_watched",
 )
 
 
@@ -232,11 +237,11 @@ def fetch_facebook(video_id: str, clip_seconds: float, token: str) -> Dict:
 
     return {
         "views": values.get("total_video_views"),
-        "impressions": None,
-        "reach": None,
+        "impressions": values.get("total_video_impressions"),
+        "reach": values.get("total_video_impressions_unique"),
         "completion": completion,
         "avg_watch_seconds": round(float(avg_ms) / 1000.0, 2) if avg_ms else None,
-        "reactions": values.get("post_reactions_by_type_total"),
+        "reactions": None,
         "unsupported": probe["unsupported"] or None,
         "fetched_at": datetime.now(timezone.utc).isoformat(),
     }
