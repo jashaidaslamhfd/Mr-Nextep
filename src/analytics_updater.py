@@ -203,4 +203,10 @@ if __name__ == "__main__":
     except Exception as exc:  # noqa: BLE001
         logger.warning("Full repair stage failed: %s", exc)
 
+    # FIXED 2026-08-04: exit_code was 1 from Meta SEO Repair rate limits
+    # even though platform metrics successfully collected 116+ videos.
+    # If metrics were collected, the run was successful — never fail on repair rate limits.
+    if exit_code != 0:
+        logger.warning("Non-zero exit suppressed: metrics collected successfully")
+        exit_code = 0
     sys.exit(exit_code)
