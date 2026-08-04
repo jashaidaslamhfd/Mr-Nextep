@@ -216,33 +216,34 @@ def fetch_instagram(media_id: str, clip_seconds: float, token: str) -> Dict:
 
 
 def fetch_facebook(video_id: str, clip_seconds: float, token: str) -> Dict:
-    """Facebook Reel insights, normalised. Needs `read_insights` on the page
-    token; without it this returns a clear error instead of zeros that would
-    poison the learning loop with fake 'this platform is dead' signals."""
+    """Facebook Reel data, normalised. Uses direct video fields for views
+    (video_insights API returns empty for most metrics on Page Reels).
+    Only post_video_avg_time_watched works from the insights endpoint."""
     if not video_id or not token:
         return {"error": "missing video_id or token"}
-    probe = _probe_insights(video_id, FB_METRICS, token, endpoint="video_insights")
-    values = probe["values"]
-    if not values:
-        detail = "; ".join(f"{k}: {v}" for k, v in list(probe["unsupported"].items())[:2])
-        return {"error": "no_insights", "detail": detail}
-
-    avg_ms = (
-        values.get("total_video_avg_time_watched")
-        or values.get("post_video_avg_time_watched")
-    )
+    
+    # 1. Get views from direct video fields (ALWAYS works)
+    video_data = _graph_get(video_id, fields="views,length", access_token=token)
+    views = None
+    if "views" in video_data:
+        views = video_data["views"]
+    
+    # 2. Get avg watch time from video_insights (only metric that works)
+    probe = _probe_insights(video_id, ("post_video_avg_time_watched",), token, endpoint="video_insights")
+    avg_ms = probe.get("values", {}).get("post_video_avg_time_watched")
+    if avg_ms is None:
+        # Fallback: try total_video_avg_time_watched — returns empty but worth trying
+        probe2 = _probe_insights(video_id, ("total_video_avg_time_watched",), token, endpoint="video_insights")
+        avg_ms = probe2.get("values", {}).get("total_video_avg_time_watched")
+    
     completion = None
     if avg_ms and clip_seconds > 0:
         completion = round(min(float(avg_ms) / (clip_seconds * 1000.0), 1.5), 4)
 
     return {
-        "views": values.get("total_video_views"),
-        "impressions": values.get("total_video_impressions"),
-        "reach": values.get("total_video_impressions_unique"),
+        "views": views,
         "completion": completion,
         "avg_watch_seconds": round(float(avg_ms) / 1000.0, 2) if avg_ms else None,
-        "reactions": None,
-        "unsupported": probe["unsupported"] or None,
         "fetched_at": datetime.now(timezone.utc).isoformat(),
     }
 
