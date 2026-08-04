@@ -63,7 +63,8 @@ _GRAPH = f"https://graph.facebook.com/{FB_API_VERSION}"
 # metric to one bad name.
 IG_METRICS = (
     "views", "reach", "saved", "shares", "comments", "likes",
-    "total_interactions", "ig_reels_avg_watch_time",
+    "total_interactions", "ig_reels_avg_watch_time", "impressions",
+    "replies", "follows", "profile_visits",
 )
 FB_METRICS = (
     "post_impressions", "post_impressions_unique",
