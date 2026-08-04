@@ -1,6 +1,6 @@
 # SKILLOR growth report
 
-_Generated 2026-08-04 20:37 UTC · policy 2026.07-fix1 (verified 2026-07-31)_
+_Generated 2026-08-04 20:50 UTC · policy 2026.07-fix1 (verified 2026-07-31)_
 
 This file is produced by `scripts/growth_report.py`. It reads real
 numbers from all three platforms, compares each against that

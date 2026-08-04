@@ -27,11 +27,13 @@ def _ffprobe_exe() -> str:
     try:
         import imageio_ffmpeg
         ffmpeg = imageio_ffmpeg.get_ffmpeg_exe()
-        candidate = ffmpeg.replace("ffmpeg", "ffprobe")
-        if os.path.isfile(candidate):
-            return candidate
-        except Exception as e:
-            logger.debug(f"Media validation error: {e}")
+    except Exception as e:
+        logger.debug(f"Media validation error: {e}")
+    
+    candidate = ffmpeg.replace("ffmpeg", "ffprobe")
+    if os.path.isfile(candidate):
+        return candidate
+    
     return ""
 
 
