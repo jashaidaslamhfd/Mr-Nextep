@@ -1,0 +1,803 @@
+{
+  "run_at": "2026-08-04T05:23:12.450177+00:00",
+  "dry_run": false,
+  "stats": {
+    "youtube": {
+      "total": 103,
+      "repaired": 53,
+      "errors": 0,
+      "skipped": 50
+    },
+    "facebook": {
+      "total": 20,
+      "repaired": 20,
+      "errors": 0,
+      "skipped": 0
+    },
+    "instagram": {
+      "total": 0,
+      "repaired": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "platform": "youtube",
+      "video_id": "8843MFjllbw",
+      "old_title": "Why Your Body Does This: Memory Boost 😳",
+      "new_title": "Your Body Memory Boost — Explained",
+      "old_desc_len": 321,
+      "new_desc_len": 316,
+      "needs_title": true,
+      "needs_desc": true,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "I9d3K0ng0MQ",
+      "old_title": "Why Your Body Does This: Dark Psychology 😳",
+      "new_title": "Your Body Dark Psychology — Explained",
+      "old_desc_len": 341,
+      "new_desc_len": 322,
+      "needs_title": true,
+      "needs_desc": true,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "e0F7AlF7Aj4",
+      "old_title": "Why Your Body Does This: Cat Alert Signs 😳",
+      "new_title": "Your Body Cat Alert Signs — Explained",
+      "old_desc_len": 333,
+      "new_desc_len": 312,
+      "needs_title": true,
+      "needs_desc": true,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "Jhqjx48cDSg",
+      "old_title": "Why Your Body Does This: Dreams 😳",
+      "new_title": "Your Body Dreams — Explained",
+      "old_desc_len": 316,
+      "new_desc_len": 293,
+      "needs_title": true,
+      "needs_desc": true,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "agWKyQDzqWw",
+      "old_title": "Why Your Body Does This: Yawn 😳",
+      "new_title": "Your Body Yawn — Explained",
+      "old_desc_len": 313,
+      "new_desc_len": 290,
+      "needs_title": true,
+      "needs_desc": true,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "lS4NreG-nn0",
+      "old_title": "Why Your Body Does This: Parallel Lives 😳",
+      "new_title": "Your Body Parallel Lives — Explained",
+      "old_desc_len": 338,
+      "new_desc_len": 309,
+      "needs_title": true,
+      "needs_desc": true,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "aucwZP-WUAQ",
+      "old_title": "Why Your Body Does This: Blush Uncontrollably 😳",
+      "new_title": "Your Body Blush Uncontrollably — Explained",
+      "old_desc_len": 350,
+      "new_desc_len": 322,
+      "needs_title": true,
+      "needs_desc": true,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "HhI71V4T0Xs",
+      "old_title": "Why Your Body Does This: Rush Visual Effects 😳",
+      "new_title": "Your Body Rush Visual Effects — Explained",
+      "old_desc_len": 343,
+      "new_desc_len": 319,
+      "needs_title": true,
+      "needs_desc": true,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "SUX9h1oa5Mg",
+      "old_title": "Why Your Body Does This: Consciousness 😳",
+      "new_title": "Your Body Consciousness — Explained",
+      "old_desc_len": 348,
+      "new_desc_len": 308,
+      "needs_title": true,
+      "needs_desc": true,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "Y-V-aZyNxO4",
+      "old_title": "Why Your Body Does This: Gut Feeling 😳",
+      "new_title": "Your Body Gut Feeling — Explained",
+      "old_desc_len": 310,
+      "new_desc_len": 300,
+      "needs_title": true,
+      "needs_desc": true,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "hMAs4US2R1o",
+      "old_title": "Why Your Body Does This: Eye Weird Facts 😳",
+      "new_title": "Your Body Eye Weird Facts — Explained",
+      "old_desc_len": 321,
+      "new_desc_len": 308,
+      "needs_title": true,
+      "needs_desc": true,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "VLa-7pVbmT8",
+      "old_title": "Why Your Body Does This: Brain Muscle 😳",
+      "new_title": "Your Body Brain Muscle — Explained",
+      "old_desc_len": 340,
+      "new_desc_len": 315,
+      "needs_title": true,
+      "needs_desc": true,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "eKD0RKCMUFM",
+      "old_title": "Why Your Body Does This: Forgetting Names 😳",
+      "new_title": "Your Body Forgetting Names — Explained",
+      "old_desc_len": 345,
+      "new_desc_len": 313,
+      "needs_title": true,
+      "needs_desc": true,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "KbNYV-0mX_4",
+      "old_title": "Why Your Body Does This: Baby Memory Lost 😳",
+      "new_title": "Your Body Baby Memory Lost — Explained",
+      "old_desc_len": 319,
+      "new_desc_len": 324,
+      "needs_title": true,
+      "needs_desc": true,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "XvG20Hrubxc",
+      "old_title": "Why Your Body Does This: Body Dark Secrets 😳",
+      "new_title": "Your Body Body Dark Secrets — Explained",
+      "old_desc_len": 315,
+      "new_desc_len": 308,
+      "needs_title": true,
+      "needs_desc": true,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "Uh83XIdIPGQ",
+      "old_title": "Why Your Body Does This: Goosebumps 😳",
+      "new_title": "Your Body Goosebumps — Explained",
+      "old_desc_len": 338,
+      "new_desc_len": 302,
+      "needs_title": true,
+      "needs_desc": true,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "WZ5FqCerN8g",
+      "old_title": "Why Your Body Does This: Memory Palace 😳",
+      "new_title": "Your Body Memory Palace — Explained",
+      "old_desc_len": 339,
+      "new_desc_len": 310,
+      "needs_title": true,
+      "needs_desc": true,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "n9aii3sh6JE",
+      "old_title": "Why Your Body Does This: Brain Motor Skills 😳",
+      "new_title": "Your Body Brain Motor Skills — Explained",
+      "old_desc_len": 352,
+      "new_desc_len": 318,
+      "needs_title": true,
+      "needs_desc": true,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "o9RMmgJTx5c",
+      "old_title": "Why Your Body Does This: Deja Vu 😳",
+      "new_title": "Your Body Deja Vu — Explained",
+      "old_desc_len": 320,
+      "new_desc_len": 288,
+      "needs_title": true,
+      "needs_desc": true,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "_C20nA1aPf4",
+      "old_title": "Why Your Body Does This: The Deadly Secret Inside 😳",
+      "new_title": "Your Body The Deadly Secret Inside — Explained",
+      "old_desc_len": 340,
+      "new_desc_len": 322,
+      "needs_title": true,
+      "needs_desc": true,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "4H4otPb3sOw",
+      "old_title": "Why Your Body Does This: The Dark Heartbeat 😳",
+      "new_title": "Your Body The Dark Heartbeat — Explained",
+      "old_desc_len": 339,
+      "new_desc_len": 310,
+      "needs_title": true,
+      "needs_desc": true,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "KFLQLzuFBtw",
+      "old_title": "Why Your Body Does This: Dark Circles 😳",
+      "new_title": "Your Body Dark Circles — Explained",
+      "old_desc_len": 317,
+      "new_desc_len": 305,
+      "needs_title": true,
+      "needs_desc": true,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "S2l4wBWaSJA",
+      "old_title": "Why Your Body Does This: Fear Smells 😳",
+      "new_title": "Your Body Fear Smells — Explained",
+      "old_desc_len": 324,
+      "new_desc_len": 303,
+      "needs_title": true,
+      "needs_desc": true,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "kq5xEAGb2Rc",
+      "old_title": "Why Your Body Does This: Heartbeat Secrets 😳",
+      "new_title": "Your Body Heartbeat Secrets — Explained",
+      "old_desc_len": 329,
+      "new_desc_len": 315,
+      "needs_title": true,
+      "needs_desc": true,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "UxYCvncYg1A",
+      "old_title": "Why Your Body Does This: Bones Replaced 😳",
+      "new_title": "Your Body Bones Replaced — Explained",
+      "old_desc_len": 329,
+      "new_desc_len": 302,
+      "needs_title": true,
+      "needs_desc": true,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "aOSF9iJ4eV0",
+      "old_title": "Why You Get Hungry at the Exact Same Time Daily 🫀",
+      "new_title": "Why Body signal behind getting hungry at the same time daily — Explained",
+      "old_desc_len": 49,
+      "new_desc_len": 386,
+      "needs_title": false,
+      "needs_desc": true,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "h3e9jl39zR4",
+      "old_title": "Why Your Body Does This: Body Jerking As Fall 😳",
+      "new_title": "Your Body Body Jerking As Fall — Explained",
+      "old_desc_len": 222,
+      "new_desc_len": 322,
+      "needs_title": true,
+      "needs_desc": false,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "AbAXF8oHhp0",
+      "old_title": "Why Your Fingers Wrinkle in Water So Fast 🫀",
+      "new_title": "Your Hands wrinkling in water",
+      "old_desc_len": 43,
+      "new_desc_len": 155,
+      "needs_title": false,
+      "needs_desc": true,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "_2JHzwLIE50",
+      "old_title": "Why Your Voice Is Deeper Every Morning 🫀",
+      "new_title": "Your Voice sounding noticeably deeper right after waking up — Explained",
+      "old_desc_len": 40,
+      "new_desc_len": 374,
+      "needs_title": false,
+      "needs_desc": true,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "H7HDSb0yX5A",
+      "old_title": "Why You Can Hear Your Heartbeat at Night 🫀",
+      "new_title": "Why You hear your heartbeat at night — Explained",
+      "old_desc_len": 42,
+      "new_desc_len": 173,
+      "needs_title": false,
+      "needs_desc": true,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "FUgcHHnhLSM",
+      "old_title": "Why Your Body Does This: Faster Or Slower Than 😳",
+      "new_title": "Your Body Faster Or Slower Than — Explained",
+      "old_desc_len": 197,
+      "new_desc_len": 316,
+      "needs_title": true,
+      "needs_desc": false,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "QZF0IHtnbIg",
+      "old_title": "Why You Feel a Lump in Your Throat When Sad 🫀",
+      "new_title": "Why A feeling of a lump in your throat when sad",
+      "old_desc_len": 45,
+      "new_desc_len": 336,
+      "needs_title": false,
+      "needs_desc": true,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "u1eCpGU38PI",
+      "old_title": "Why Your Body Does This: Brain Freeze 😳",
+      "new_title": "Your Body Brain Freeze — Explained",
+      "old_desc_len": 316,
+      "new_desc_len": 305,
+      "needs_title": true,
+      "needs_desc": false,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "1Z9bg95d3pY",
+      "old_title": "Why Your Body Does This: Gag Reflex 😳",
+      "new_title": "Your Body Gag Reflex — Explained",
+      "old_desc_len": 264,
+      "new_desc_len": 309,
+      "needs_title": true,
+      "needs_desc": false,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "hTDfqIbjQXk",
+      "old_title": "Why Your Body Does This: Dry Mouth 😳",
+      "new_title": "Your Body Dry Mouth — Explained",
+      "old_desc_len": 269,
+      "new_desc_len": 299,
+      "needs_title": true,
+      "needs_desc": false,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "nM-1t8agPN8",
+      "old_title": "Why Your Body Does This: Nervous Shivers 😳",
+      "new_title": "Your Body Nervous Shivers — Explained",
+      "old_desc_len": 251,
+      "new_desc_len": 312,
+      "needs_title": true,
+      "needs_desc": false,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "qy9GhQJ8Gyc",
+      "old_title": "Why Your Body Does This: Brain Freeze 😳",
+      "new_title": "Your Body Brain Freeze — Explained",
+      "old_desc_len": 280,
+      "new_desc_len": 312,
+      "needs_title": true,
+      "needs_desc": false,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "GRt5WedPBLo",
+      "old_title": "Why Your Body Does This: Doorway Effect 😳",
+      "new_title": "Your Body Doorway Effect — Explained",
+      "old_desc_len": 292,
+      "new_desc_len": 302,
+      "needs_title": true,
+      "needs_desc": false,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "XCUNM30ET_8",
+      "old_title": "Why Your Leg Cramps at Night Without Warning",
+      "new_title": "Why Hearing your heartbeat at night — Explained",
+      "old_desc_len": 44,
+      "new_desc_len": 173,
+      "needs_title": false,
+      "needs_desc": true,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "ed031j4Pgy8",
+      "old_title": "Why a Song Gets Stuck in Your Head All Day 🧠",
+      "new_title": "Why Having a 5-second song loop stuck in your brain — Explained",
+      "old_desc_len": 44,
+      "new_desc_len": 354,
+      "needs_title": false,
+      "needs_desc": true,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "QVLAgCpKa1M",
+      "old_title": "Why Your Ears Ring in Complete Silence 👂",
+      "new_title": "Your Ears ringing in absolute silence — Explained",
+      "old_desc_len": 40,
+      "new_desc_len": 174,
+      "needs_title": false,
+      "needs_desc": true,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "IgJc5YtvLeY",
+      "old_title": "Why Your Foot Falls Asleep and Goes Numb 🫀",
+      "new_title": "Your Foot falling asleep and feeling numb — Explained",
+      "old_desc_len": 42,
+      "new_desc_len": 336,
+      "needs_title": false,
+      "needs_desc": true,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "NNVgyS0NF4U",
+      "old_title": "Why Brushing Back Teeth Makes You Gag 🫀",
+      "new_title": "Why Brushing back teeth triggering a sudden gag",
+      "old_desc_len": 39,
+      "new_desc_len": 165,
+      "needs_title": false,
+      "needs_desc": true,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "fnOuctDKhrw",
+      "old_title": "Why You See Spots After Bright Light 🫀",
+      "new_title": "Why Seeing glowing spots after looking near bright light — Explained",
+      "old_desc_len": 38,
+      "new_desc_len": 194,
+      "needs_title": false,
+      "needs_desc": true,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "xEFEjJBP--E",
+      "old_title": "Why Hot Coffee Kills Your Taste 🫀",
+      "new_title": "Why Losing taste sensation after hot coffee — Explained",
+      "old_desc_len": 33,
+      "new_desc_len": 346,
+      "needs_title": false,
+      "needs_desc": true,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "gDZNVADEakY",
+      "old_title": "Why Deja Vu Happens to Your Brain 🫀",
+      "new_title": "Why Deja vu feels strangely familiar",
+      "old_desc_len": 35,
+      "new_desc_len": 161,
+      "needs_title": false,
+      "needs_desc": true,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "pYnoyM6RWMY",
+      "old_title": "Why Your Body Does This: Cold Sweat 😳",
+      "new_title": "Your Body Cold Sweat — Explained",
+      "old_desc_len": 184,
+      "new_desc_len": 302,
+      "needs_title": true,
+      "needs_desc": false,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "2dBMH64Fyms",
+      "old_title": "Why Your Body Does This: Cold Hands 😳",
+      "new_title": "Your Body Cold Hands — Explained",
+      "old_desc_len": 166,
+      "new_desc_len": 294,
+      "needs_title": true,
+      "needs_desc": false,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "_hGrosRB02o",
+      "old_title": "Why Your Body Does This: Cold Tip Nose 😳",
+      "new_title": "Your Body Cold Tip Nose — Explained",
+      "old_desc_len": 289,
+      "new_desc_len": 306,
+      "needs_title": true,
+      "needs_desc": false,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "FimJdODHVvc",
+      "old_title": "What Happens To Your Body When You Sleep 😴",
+      "new_title": "Your Body Jerking As You Fall Asleep — Explained",
+      "old_desc_len": 42,
+      "new_desc_len": 333,
+      "needs_title": false,
+      "needs_desc": true,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "LIHZLv8a9ps",
+      "old_title": "Why Your Body Shakes When You Sleep 😴",
+      "new_title": "Your Knees cracking when you move — Explained",
+      "old_desc_len": 37,
+      "new_desc_len": 170,
+      "needs_title": false,
+      "needs_desc": true,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "FPyokHKdhNk",
+      "old_title": "Why Your Body Freezes When You're Scared 🫀",
+      "new_title": "Your Body Freezing When Scared — Explained",
+      "old_desc_len": 42,
+      "new_desc_len": 314,
+      "needs_title": false,
+      "needs_desc": true,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "mWnKEZll6jA",
+      "old_title": "Why Your Body Shakes When You Sleep 😴",
+      "new_title": "Your Body Freezes When You Feel Scared — Explained",
+      "old_desc_len": 37,
+      "new_desc_len": 336,
+      "needs_title": false,
+      "needs_desc": true,
+      "applied": true,
+      "comment": true
+    },
+    {
+      "platform": "facebook",
+      "reel_id": "1044083038116002",
+      "old_title": "Spreading Yawns 🫀",
+      "new_caption": "yawning spreading instantly from person to person — here's the simple science. Our bodies do strange",
+      "applied": true
+    },
+    {
+      "platform": "facebook",
+      "reel_id": "1051855414448490",
+      "old_title": "The Truth About Your Body Twitches When You Sleep",
+      "new_caption": "Truth About Your Body Twitches When You Sleep — here's the simple science. Our bodies do strange thi",
+      "applied": true
+    },
+    {
+      "platform": "facebook",
+      "reel_id": "3477770522430241",
+      "old_title": "Why Your Body Freezes When You're Scared 🫀",
+      "new_caption": "your body freezes when you're scared — here's the simple science. Our bodies do strange things every",
+      "applied": true
+    },
+    {
+      "platform": "facebook",
+      "reel_id": "1754294192265457",
+      "old_title": "",
+      "new_caption": "Have you ever felt like hours flew by Feeling like time distorts is usually due to our brain's inter",
+      "applied": true
+    },
+    {
+      "platform": "facebook",
+      "reel_id": "27722335547405806",
+      "old_title": "Why You Feel a Lump in Your Throat When Sad 🫀",
+      "new_caption": "a feeling of a lump in your throat when sad — here's the simple science. Our bodies do strange thing",
+      "applied": true
+    },
+    {
+      "platform": "facebook",
+      "reel_id": "2081125756163684",
+      "old_title": "",
+      "new_caption": "— here's the simple science. Our bodies do strange things every day. Most people never learn why. Mo",
+      "applied": true
+    },
+    {
+      "platform": "facebook",
+      "reel_id": "1241453812383979",
+      "old_title": "",
+      "new_caption": "You love the sweet taste of cold ice Discover why your tongue feels numb after eating cold ice cream",
+      "applied": true
+    },
+    {
+      "platform": "facebook",
+      "reel_id": "1722979402180192",
+      "old_title": "",
+      "new_caption": "— here's the simple science. Our bodies do strange things every day. Most people never learn why. Fo",
+      "applied": true
+    },
+    {
+      "platform": "facebook",
+      "reel_id": "1413329767314698",
+      "old_title": "",
+      "new_caption": "— here's the simple science. Our bodies do strange things every day. Most people never learn why. Fo",
+      "applied": true
+    },
+    {
+      "platform": "facebook",
+      "reel_id": "2583015618843182",
+      "old_title": "Why Your Body Does This: Gag Reflex 😳",
+      "new_caption": "your body gag reflex — here's the simple science. Our bodies do strange things every day. Most peopl",
+      "applied": true
+    },
+    {
+      "platform": "facebook",
+      "reel_id": "1523575096183415",
+      "old_title": "",
+      "new_caption": "Have you ever noticed your mouth dry up Learn why your mouth dries up before big speeches and how to",
+      "applied": true
+    },
+    {
+      "platform": "facebook",
+      "reel_id": "1541306318009452",
+      "old_title": "Why Your Body Does This: Doorway Effect 😳",
+      "new_caption": "your body doorway effect — here's the simple science. Our bodies do strange things every day. Most p",
+      "applied": true
+    },
+    {
+      "platform": "facebook",
+      "reel_id": "870075022564667",
+      "old_title": "",
+      "new_caption": "Muscle Cramp — here's the simple science. Our bodies do strange things every day. Most people never ",
+      "applied": true
+    },
+    {
+      "platform": "facebook",
+      "reel_id": "1543194320583010",
+      "old_title": "",
+      "new_caption": "Song Earworm — here's the simple science. Our bodies do strange things every day. Most people never ",
+      "applied": true
+    },
+    {
+      "platform": "facebook",
+      "reel_id": "2732800527099046",
+      "old_title": "Why Your Ears Ring in Complete Silence 👂",
+      "new_caption": "your ears ringing in absolute silence — here's the simple science. Our bodies do strange things ever",
+      "applied": true
+    },
+    {
+      "platform": "facebook",
+      "reel_id": "2236092447213631",
+      "old_title": "",
+      "new_caption": "Sleeping Foot — here's the simple science. Our bodies do strange things every day. Most people never",
+      "applied": true
+    },
+    {
+      "platform": "facebook",
+      "reel_id": "1787303285967704",
+      "old_title": "Why Brushing Back Teeth Makes You Gag 🫀",
+      "new_caption": "brushing back teeth triggering a sudden gag — here's the simple science. Our bodies do strange thing",
+      "applied": true
+    },
+    {
+      "platform": "facebook",
+      "reel_id": "2796503204059829",
+      "old_title": "Why Your Body Shakes When Sleeping 😴",
+      "new_caption": "your body shakes when sleeping — here's the simple science. Our bodies do strange things every day. ",
+      "applied": true
+    },
+    {
+      "platform": "facebook",
+      "reel_id": "1583829023133226",
+      "old_title": "Why Your Body Freezes When Scared 🫀",
+      "new_caption": "your body freezes when scared — here's the simple science. Our bodies do strange things every day. M",
+      "applied": true
+    },
+    {
+      "platform": "facebook",
+      "reel_id": "2219523898781644",
+      "old_title": "Why Your Body Twitches Every Time 🫀",
+      "new_caption": "your body twitches every time — here's the simple science. Our bodies do strange things every day. M",
+      "applied": true
+    }
+  ],
+  "total_results": 73
+}
