@@ -128,6 +128,7 @@ jobs:
           SPOKEN_CTA_MODE: "loop"
           MUSIC_VOLUME: "0.07"
           VIDEO_TOPIC: ${{ inputs.topic || '' }}
+          GROQ_MODEL: "llama-3.1-8b-instant"
           PYTHONUNBUFFERED: "1"
         run: |
           set -euo pipefail
