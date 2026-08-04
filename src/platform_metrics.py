@@ -116,13 +116,13 @@ def _graph_get(node: str, **params) -> Dict:
         return {"error": str(exc)[:200]}
 
 
-def _probe_insights(node: str, metrics, token: str) -> Dict:
+def _probe_insights(node: str, metrics, token: str, endpoint: str = "insights") -> Dict:
     """Fetch each metric separately; return {metric: value} for the ones that
     work plus an 'unsupported' map explaining the rest. Honest partial data
     beats a single opaque failure."""
     values, unsupported = {}, {}
     for metric in metrics:
-        result = _graph_get(f"{node}/insights", metric=metric, access_token=token)
+        result = _graph_get(f"{node}/{endpoint}", metric=metric, access_token=token)
         if "error" in result:
             unsupported[metric] = result["error"]
             continue
@@ -216,7 +216,7 @@ def fetch_facebook(video_id: str, clip_seconds: float, token: str) -> Dict:
     poison the learning loop with fake 'this platform is dead' signals."""
     if not video_id or not token:
         return {"error": "missing video_id or token"}
-    probe = _probe_insights(video_id, FB_METRICS, token)
+    probe = _probe_insights(video_id, FB_METRICS, token, endpoint="video_insights")
     values = probe["values"]
     if not values:
         detail = "; ".join(f"{k}: {v}" for k, v in list(probe["unsupported"].items())[:2])
