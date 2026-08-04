@@ -57,14 +57,13 @@ PLATFORM_METRICS_PATH = os.environ.get("PLATFORM_METRICS_PATH", "data/platform_m
 FB_API_VERSION = os.environ.get("FB_API_VERSION", "v23.0").strip()
 _GRAPH = f"https://graph.facebook.com/{FB_API_VERSION}"
 
-# Metrics are requested ONE AT A TIME on purpose. Meta fails the entire
-# insights call if any single metric in the list is unsupported for that media
-# product type, which is how the previous diagnostics lost every working
-# metric to one bad name.
+# -- ONE AT A TIME on purpose. Meta fails the entire insights call if any
+# -- single metric in the list is unsupported for that media product type.
+# -- VERIFIED 2026-08-04 live test: these 8 work for IG Reel insights.
+# -- FAILED: impressions, plays, replies, follows, profile_visits
 IG_METRICS = (
     "views", "reach", "saved", "shares", "comments", "likes",
     "total_interactions", "ig_reels_avg_watch_time",
-    "replies", "follows", "profile_visits",
 )
 FB_METRICS = (
     "post_impressions", "post_impressions_unique",
