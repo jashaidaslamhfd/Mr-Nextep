@@ -27,6 +27,23 @@ logger = logging.getLogger(__name__)
 # 1. EXPANDED DARK TOPICS (360+ static topics)
 # ============================================
 DARK_TOPICS = [
+    # ── High Demand / Low Competition Micro-Niches ──
+    "What Happens When You Sleep Wrong on Your Neck",
+    "What Happens When You Sleep With Your Mouth Open",
+    "Why Your Body Fights Weight Loss While You Sleep",
+    "Why Your Brain Is Active Immediately After You Wake Up",
+    "Why Your Body Randomly Needs to Fart",
+    "What Happens When You Sleep On Your Stomach",
+    "What Happens When You Sleep With a Fan on All Night",
+    "Why Your Brain Doesn't Understand Fast Talking When You're Tired",
+    "Why Your Body Feels Older Than It Should",
+    "What Happens When You Sleep Immediately After Eating",
+    "Why Your Brain Traps You in Past Memories",
+    "What Happens When You Sleep With Wet Hair",
+    "What Happens When You Sleep Late Every Night",
+    "Why Your Body Randomly Twitches Right As You Fall Asleep",
+    "Why You Can Hear Your Own Heartbeat When You Lie Down",
+    
     # ── Brain / Mind / Neuroscience (50+) ──
     "Your Heart Has Its Own Brain",
     "This Happens Inside Your Brain When You Sleep",
