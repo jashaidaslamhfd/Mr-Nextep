@@ -124,6 +124,10 @@ jobs:
           IG_UPLOAD_ENABLED: "true"
           INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
           IG_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          HF_API_KEY: ${{ secrets.HF_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           META_CUT_ENABLED: "true"
           SPOKEN_CTA_MODE: "loop"
           MUSIC_VOLUME: "0.07"
