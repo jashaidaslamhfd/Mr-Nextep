@@ -225,7 +225,9 @@ def _stock_photo_request(
     source: str,
     used_fallbacks: set,
 ):
-    query = (scene_text or "mystery science").strip()[:80]
+    raw_text = (scene_text or "human body science").strip()
+    words = [w for w in raw_text.replace(",", "").replace(".", "").split() if len(w) > 3]
+    query = " ".join(words[:2]) if words else "human body"
 
     if source == "pexels":
         key = os.environ.get("PEXELS_API_KEY")
@@ -347,8 +349,12 @@ def _stock_video_request(
     used_fallbacks: set,
 ):
     """Download licensed stock B-roll video."""
-    query = (scene_text or "human body science").strip()[:80]
-
+    # Pexels and Pixabay fail on long descriptive sentences. We need 1-3 simple keywords.
+    # We'll take the first 2 meaningful words longer than 3 chars to form a robust stock query.
+    raw_text = (scene_text or "human body science").strip()
+    words = [w for w in raw_text.replace(",", "").replace(".", "").split() if len(w) > 3]
+    query = " ".join(words[:2]) if words else "human body"
+    
     if source == "pexels":
         key = os.environ.get("PEXELS_API_KEY")
 
