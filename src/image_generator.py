@@ -534,30 +534,6 @@ def _generate_one(
 
     layers = [
         (
-            "Pexels-video-first",
-            lambda: _layer_pexels_video(
-                index,
-                scene_text,
-                used_fallbacks,
-            ),
-        ),
-        (
-            "Pixabay-video-second",
-            lambda: _layer_pixabay_video(
-                index,
-                scene_text,
-                used_fallbacks,
-            ),
-        ),
-        (
-            "AI-Horde-image",
-            lambda: _layer_ai_providers(
-                index,
-                scene_text,
-                ["AI-Horde"],
-            ),
-        ),
-        (
             "Other-AI-image",
             lambda: _layer_ai_providers(
                 index,
@@ -571,6 +547,30 @@ def _generate_one(
                     "ModelsLab",
                     "Replicate",
                 ],
+            ),
+        ),
+        (
+            "AI-Horde-image",
+            lambda: _layer_ai_providers(
+                index,
+                scene_text,
+                ["AI-Horde"],
+            ),
+        ),
+        (
+            "Pexels-video-first",
+            lambda: _layer_pexels_video(
+                index,
+                scene_text,
+                used_fallbacks,
+            ),
+        ),
+        (
+            "Pixabay-video-second",
+            lambda: _layer_pixabay_video(
+                index,
+                scene_text,
+                used_fallbacks,
             ),
         ),
         (

@@ -62,14 +62,19 @@ def _pollinations_request(prompt, seed, model):
     url = f"{POLLINATIONS_URL}/{encoded_prompt}?width=1080&height=1920&seed={seed}&model={model}&nologo=true"
     last_status = None
     for attempt in range(3):
-        response = requests.get(url, timeout=POLLINATIONS_TIMEOUT)
-        if response.status_code == 200 and len(response.content) > 2000:
-            return response.content
-        last_status = response.status_code
-        if response.status_code == 429:
-            time.sleep(2 + attempt * 3)
-            continue
-        break
+        try:
+            response = requests.get(url, timeout=POLLINATIONS_TIMEOUT)
+            if response.status_code == 200 and len(response.content) > 2000:
+                return response.content
+            last_status = response.status_code
+            if response.status_code == 429:
+                time.sleep(2 + attempt * 3)
+                continue
+            break
+        except requests.exceptions.RequestException as e:
+            last_status = str(e)
+            break
+            
     if last_status == 429:
         raise RateLimitError(f"Pollinations({model}): rate limited")
     raise RuntimeError(f"Pollinations({model}) bad response: {last_status}")
