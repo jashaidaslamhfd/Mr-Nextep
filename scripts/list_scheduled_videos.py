@@ -97,9 +97,20 @@ def main() -> int:
         videos = [v for v in videos if v["scheduled"]]
 
     videos.sort(key=lambda v: v.get("publishAt") or "", reverse=True)
-    print(json.dumps(videos, indent=2, ensure_ascii=False))
-    print(f"# TOTAL={len(videos)} SCHEDULED={sum(1 for v in videos if v['scheduled'])}",
-          file=sys.stderr)
+
+    # Write to a committed file so we can read it back from the repo (the raw
+    # Actions log download can truncate long JSON).
+    out_path = os.path.abspath(os.path.join(
+        os.path.dirname(os.path.abspath(__file__)), "..", "data", "scheduled_videos.json"
+    ))
+    with open(out_path, "w", encoding="utf-8") as fh:
+        json.dump(videos, fh, indent=2, ensure_ascii=False)
+    print(f"WROTE {out_path} count={len(videos)}")
+    print(f"SCHEDULED_COUNT={sum(1 for v in videos if v['scheduled'])}")
+
+    # Compact one-line-per-video for the log too.
+    for v in videos:
+        print(f"| {v['id']} | {v['privacy']} | {v.get('publishAt','')[:19]} | {v['title']}")
     return 0
 
 
