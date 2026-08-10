@@ -20,10 +20,9 @@ Run:  python scripts/ml_brain.py                    # train + report
 import json
 import os
 import re
-import math
 import hashlib
 import logging
-from collections import Counter, defaultdict
+from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple, Any
@@ -409,7 +408,7 @@ class MLBrain:
         # 2. Feature extraction
         X = self.extractor.extract_all(topics)
         y_views = np.array(views, dtype=np.float64)
-        y_retention = np.array(retention, dtype=np.float64)
+        _ = np.array(retention, dtype=np.float64)  # reserved for future retention model
 
         # Log-transform views (long-tailed distribution)
         y_views_log = np.log1p(y_views)
@@ -418,7 +417,7 @@ class MLBrain:
         logger.info("\n── Training Views Predictor (Ridge) ──")
         self.views_model = RidgeRegression(alpha=0.5)
         self.views_model.fit(X, y_views_log)
-        pred_views_log = self.views_model.predict(X)
+        _ = self.views_model.predict(X)  # used to report residuals if needed
         self.views_r2 = self.views_model.score(X, y_views_log)
         logger.info("  Views R² (log space): %.3f", self.views_r2)
         logger.info("  Top 5 feature importances (views):")

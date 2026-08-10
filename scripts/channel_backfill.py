@@ -31,12 +31,10 @@ import os
 import re
 import sys
 import time
-import hashlib
 import logging
-from collections import defaultdict
-from datetime import datetime, timezone, timedelta
+from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Set, Tuple
+from typing import Dict, List, Optional, Set
 from difflib import SequenceMatcher
 
 import requests
@@ -739,7 +737,7 @@ class BackfillEngine:
         print(f"  YouTube:    {self.stats['youtube_matched']} matched | {self.stats['youtube_new']} new")
         print(f"  Facebook:   {self.stats['facebook_matched']} matched | {self.stats['facebook_new']} new")
         print(f"  Instagram:  {self.stats['instagram_matched']} matched | {self.stats['instagram_new']} new")
-        print(f"  ─────────────────────────────────────")
+        print("  ─────────────────────────────────────")
         total = sum(v for k, v in self.stats.items() if k.endswith("_matched") or k.endswith("_new"))
         print(f"  TOTAL:      {total} videos processed")
         print(f"  Views updated:     {self.stats['views_updated']}")

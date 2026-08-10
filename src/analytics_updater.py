@@ -93,6 +93,23 @@ def _run_growth_analysis() -> dict:
     for alert in state.get("alerts", []):
         level = logging.ERROR if alert.get("level") == "error" else logging.WARNING
         logger.log(level, "ALERT: %s", alert.get("message"))
+
+    # Stage 3b: Autonomous strategy decision — after learning from real
+    # metrics, re-decide which series / quality gate / cadence the NEXT run
+    # should use and persist it for main.py to consume. Best-effort.
+    try:
+        sys.path.insert(0, os.path.join(os.path.dirname(__file__)))
+        from strategy_engine import decide_and_report
+        decision = decide_and_report()
+        logger.info(
+            "Strategy decision: series=%s barrier=%s cadence=%s quality=%s",
+            decision.get("recommended_series"),
+            decision.get("barrier"),
+            decision.get("cadence"),
+            decision.get("quality_threshold"),
+        )
+    except Exception as exc:  # noqa: BLE001 - strategy must never break learning
+        logger.warning("Strategy decision failed (non-fatal): %s", exc)
     return state
 
 

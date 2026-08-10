@@ -84,7 +84,7 @@ def main() -> int:
     today = dt.date.today()
     start = (today - dt.timedelta(days=28)).isoformat()
     end = today.isoformat()
-    out = {"window": {"start": start, "end": end, "generated_at_utc": dt.datetime.utcnow().isoformat()}}
+    out = {"window": {"start": start, "end": end, "generated_at_utc": dt.datetime.now(dt.timezone.utc).isoformat().replace("+00:00", "Z")}}
 
     out["daily_28d"] = ana(tok, start, end,
         "views,impressions,impressionsClickThroughRate,averageViewDuration,subscribersGained,likes,shares,comments",

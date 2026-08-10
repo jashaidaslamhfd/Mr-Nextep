@@ -8,7 +8,7 @@ import sys
 import json
 import feedparser
 import requests
-from datetime import datetime
+from datetime import datetime, timezone
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
 
@@ -117,7 +117,7 @@ def main():
     
     os.makedirs(os.path.dirname(args.output), exist_ok=True)
     output_data = {
-        'fetched_at': datetime.utcnow().isoformat() + 'Z',
+        'fetched_at': datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'),
         'topics': [{
             'topic': item['topic'],
             'source': item['source'],

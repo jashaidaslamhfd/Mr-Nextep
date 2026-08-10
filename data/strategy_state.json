@@ -1,0 +1,55 @@
+{
+  "recommended_series": "dark_mystery",
+  "topic_strategy": "dark_mystery_series",
+  "barrier": "volume",
+  "barrier_advice": "Retention healthy enough; increase cadence for reach.",
+  "pivot": false,
+  "pivot_reason": null,
+  "best_slot": null,
+  "cadence": 3,
+  "quality_threshold": 60,
+  "lever_analysis": {
+    "trained": false,
+    "lever_importance": [
+      {
+        "lever": "hook_score",
+        "label": "hook (first-3s)",
+        "importance": 0.5
+      },
+      {
+        "lever": "predicted_ctr",
+        "label": "click-through / title+thumbnail",
+        "importance": 0.3
+      },
+      {
+        "lever": "seo_score",
+        "label": "SEO / description+tags",
+        "importance": 0.2
+      }
+    ],
+    "sample_size": 0,
+    "note": "Not enough samples to train; using neutral priorities."
+  },
+  "series_weights": {
+    "dark_mystery": 1.0,
+    "body_glitches": 1.0,
+    "trend": 1.0
+  },
+  "competitor_leads": [
+    "Viral channels use avg 37 chars title length \u2014 keep yours 45-55 chars (US mobile optimal)",
+    "Top starter in viral channels: Why Your (5 videos) \u2014 use this pattern more",
+    "Power words that work: Why, What, Truth \u2014 include one per title",
+    "Top viral tags to include: human body, body facts, science facts"
+  ],
+  "viral_tags": [
+    "human body",
+    "body facts",
+    "brain facts",
+    "science facts",
+    "psychology facts",
+    "weird facts",
+    "interesting facts",
+    "did you know"
+  ],
+  "decided_at": "2026-08-10T21:27:43.116040+00:00"
+}

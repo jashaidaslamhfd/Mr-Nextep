@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import logging
 import os
 import shutil
 import subprocess
@@ -9,6 +10,8 @@ from typing import Dict
 
 import numpy as np
 from PIL import Image
+
+logger = logging.getLogger(__name__)
 
 
 def _ffprobe_exe() -> str:
@@ -26,14 +29,13 @@ def _ffprobe_exe() -> str:
         return system
     try:
         import imageio_ffmpeg
-        ffmpeg = imageio_ffmpeg.get_ffmpeg_exe()
-    except Exception as e:
-        logger.debug(f"Media validation error: {e}")
-    
-    candidate = ffmpeg.replace("ffmpeg", "ffprobe")
+    except Exception as exc:  # noqa: BLE001 - probe fallback must never crash
+        logger.debug("ffprobe discovery failed (no imageio_ffmpeg): %s", exc)
+        return ""
+    candidate = imageio_ffmpeg.get_ffmpeg_exe().replace("ffmpeg", "ffprobe")
     if os.path.isfile(candidate):
         return candidate
-    
+
     return ""
 
 

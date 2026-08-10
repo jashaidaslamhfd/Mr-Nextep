@@ -904,7 +904,7 @@ def main() -> int:
     ig_live = _list_ig()
 
     log: Dict[str, Any] = {
-        "generated_at": dt.datetime.utcnow().isoformat() + "Z",
+        "generated_at": dt.datetime.now(dt.timezone.utc).isoformat().replace("+00:00", "Z"),
         "mode": "dry-run" if args.dry_run else "apply",
         "facebook": [], "instagram": [], "warnings": [],
     }

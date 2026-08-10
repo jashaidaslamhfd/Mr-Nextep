@@ -26,3 +26,9 @@ transformers>=4.40.0
 # Only needed if you set ENABLE_SCREENSHOT_FALLBACK=true. Remember to also
 # run `playwright install chromium` — the pip package alone ships no browser.
 playwright>=1.44.0
+
+# ---- Advanced Data Science / ML (Autonomous Strategy Engine) ----
+# The core strategy engine (src/strategy_engine.py) works with numpy +
+# scikit-learn, both already in requirements.txt. Install pandas if you want
+# to extend it further (feature DataFrames, richer feature engineering).
+pandas>=2.0.0

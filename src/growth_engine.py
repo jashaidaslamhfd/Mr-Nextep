@@ -472,7 +472,7 @@ def analyse(min_age_hours: Optional[int] = None) -> Dict:
         if len(X) >= 5:
             rf = RandomForestRegressor(n_estimators=50, random_state=42)
             rf.fit(X, y)
-            importance = rf.feature_importances_
+            _ = rf.feature_importances_  # noqa: F841 - computed for future weighting
             
             # Penalize long titles if title_length is negatively correlated 
             # (simple correlation check)
@@ -483,7 +483,7 @@ def analyse(min_age_hours: Optional[int] = None) -> Dict:
             # Incorporate ML finding into topic weights
             if title_corr < -0.3:
                 alerts.append({"level": "warn", "message": "ML Alert: Shorter titles are driving better completion. Keep hooks brief."})
-    except Exception as exc:
+    except Exception:
         pass
 
     state = {

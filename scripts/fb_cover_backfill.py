@@ -144,7 +144,8 @@ def main() -> int:
     done = set()
     if os.path.isfile(DONE_PATH):
         try:
-            done = set(json.load(open(DONE_PATH, encoding="utf-8")))
+            with open(DONE_PATH, encoding="utf-8") as fh:
+                done = set(json.load(fh))
         except Exception:  # noqa: BLE001
             done = set()
 
@@ -168,7 +169,10 @@ def main() -> int:
     todo = [r for r in reels if r["id"] not in done]
     print(f"reels fetched: {len(reels)}   without a cover: {len(todo)}\n")
 
-    used = set(json.load(open(MAP_PATH, encoding="utf-8")).values()) if os.path.isfile(MAP_PATH) else set()
+    used = set()
+    if os.path.isfile(MAP_PATH):
+        with open(MAP_PATH, encoding="utf-8") as fh:
+            used = set(json.load(fh).values())
     applied, skipped, report = 0, 0, []
 
     for reel in todo:

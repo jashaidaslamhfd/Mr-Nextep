@@ -19,7 +19,7 @@ import sqlite3
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict
 
 DATA_DIR = Path(os.environ.get("SKILLOR_DATA_DIR", "data"))
 DB_PATH = Path(os.environ.get("SKILLOR_DB_PATH", "data/skillor.db"))
@@ -347,7 +347,7 @@ def main():
         print(f"\n✅ Migration complete! Database: {DB_PATH} ({DB_PATH.stat().st_size:,} bytes)")
     else:
         conn.rollback()
-        print(f"\n🔍 Dry run complete. Run with --apply to actually migrate.")
+        print("\n🔍 Dry run complete. Run with --apply to actually migrate.")
 
     print_summary(stats)
     conn.close()

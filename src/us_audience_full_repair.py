@@ -21,7 +21,7 @@ def main():
                 "new_title": f"Why Your Body Does This Repair {i}",
                 "original_tags": ["body facts"],
                 "new_tags": ["human body", "body facts", "science facts"],
-                "description": f"Learn the amazing science behind your body's functions in this video."
+                "description": "Learn the amazing science behind your body's functions in this video."
             }
             for i in range(1, 24)
         ]

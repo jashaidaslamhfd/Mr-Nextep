@@ -3,7 +3,6 @@ import os
 import logging
 from pathlib import Path
 from datetime import datetime, timezone
-import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_PATH = ROOT / "data" / "retention_analysis.json"

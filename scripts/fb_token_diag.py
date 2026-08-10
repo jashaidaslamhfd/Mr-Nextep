@@ -67,7 +67,7 @@ def main() -> int:
     sc, me = call("me", {"fields": "id,name"})
     if sc >= 400 or "error" in me:
         msg = me.get("error", {}).get("message", f"HTTP {sc}")[:180]
-        print(f"❌ RESULT: Token INVALID / EXPIRED / REVOKED")
+        print("❌ RESULT: Token INVALID / EXPIRED / REVOKED")
         print(f"   Meta says: {msg}")
         print("   Fix: Graph API Explorer se naya long-lived Page Access Token banao.")
         return 1

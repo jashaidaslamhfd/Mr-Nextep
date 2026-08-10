@@ -53,7 +53,7 @@ LEGACY_CUTOFF = "2026-07-22"  # captions posted from this date on are clean
 DEFAULT_TAGS = ["humanbody", "bodyscience", "brainfacts", "sciencefacts"]
 FOLLOW_CTA = "Follow for daily body science."
 
-report = {"generated_at_utc": dt.datetime.utcnow().isoformat(), "api": API,
+report = {"generated_at_utc": dt.datetime.now(dt.timezone.utc).isoformat().replace("+00:00", "Z"), "api": API,
           "dry_run": DRY, "actions": []}
 
 
@@ -655,7 +655,7 @@ def welcome_post():
         try:
             os.makedirs("data", exist_ok=True)
             json.dump({"post_id": post_id,
-                       "updated_at": dt.datetime.utcnow().isoformat()},
+                       "updated_at": dt.datetime.now(dt.timezone.utc).isoformat().replace("+00:00", "Z")},
                       open(WELCOME_MARKER, "w"))
         except Exception:
             pass
@@ -677,7 +677,7 @@ def main() -> int:
     tune_page_fields()
     welcome_post()
 
-    date = dt.datetime.utcnow().strftime("%Y%m%d")
+    date = dt.datetime.now(dt.timezone.utc).strftime("%Y%m%d")
     path = os.path.join("data", f"fb_tuneup_{date}.json")
     os.makedirs("data", exist_ok=True)
     with open(path, "w", encoding="utf-8") as fh:

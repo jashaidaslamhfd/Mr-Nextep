@@ -101,6 +101,7 @@ PROVEN_TOPIC_POOL = [
 REDDIT_SUBREDDITS = ("science", "technology", "space", "todayilearned")
 USER_AGENT = "SKILLOR/1.1 (automated topic research; contact: channel-owner)"
 BODY_GLITCH_CATALOGUE_PATH = Path("data/body_glitch_topics.json")
+DARK_MYSTERY_CATALOGUE_PATH = Path("data/dark_mystery_topics.json")
 
 
 def _normalise_topic(value: str) -> str:
@@ -390,6 +391,41 @@ def get_body_glitch_topics() -> List[Dict]:
     return result
 
 
+def get_dark_mystery_topics() -> List[Dict]:
+    """Load the Dark Mystery & Mind-Bending Facts catalogue with series metadata.
+
+    Mirrors the Body Glitch catalogue loader so the two 500-topic launch
+    series can share one strategy switch. Topics lean on tension + curiosity
+    (sleep paralysis, delusions, sensory glitches) because mystery/critical
+    "why?" prompts drive the watch-to-end completion that the saturated
+    body-facts niche was failing on, especially on Facebook/Instagram Reels.
+    """
+    try:
+        with DARK_MYSTERY_CATALOGUE_PATH.open(encoding="utf-8") as file_handle:
+            records = json.load(file_handle)
+    except (OSError, json.JSONDecodeError) as exc:
+        raise RuntimeError(f"Dark Mystery catalogue unavailable: {exc}") from exc
+
+    result = []
+    for item in records:
+        topic = _clean_topic(item.get("topic", ""))
+        if not topic:
+            continue
+        record = _topic_record(topic, "dark_mystery_series", pillar="dark_mystery")
+        record.update({
+            "series_number": item.get("series_number"),
+            "series_title": item.get("series_title"),
+            "thumbnail_text": item.get("thumbnail_text"),
+            "angle": item.get("angle"),
+        })
+        result.append(record)
+    if len(result) < 500:
+        raise RuntimeError(
+            f"Dark Mystery catalogue must contain at least 500 valid topics; found {len(result)}"
+        )
+    return result
+
+
 def get_proven_topics() -> List[Dict]:
     """Return channel-fit evergreen topics based on proven content pillars."""
     return [_topic_record(topic, "proven_channel_pillar") for topic in PROVEN_TOPIC_POOL]
@@ -472,6 +508,21 @@ def get_trending_topic(
             chosen = random.choice(get_body_glitch_topics())
             logger.warning("All Body Glitch topics were excluded; restarting the 500-topic series.")
         logger.info("Selected Body Glitch #%s: %s", chosen.get("series_number"), chosen["topic"])
+        return chosen if return_metadata else str(chosen["topic"])
+
+    # Dark Mystery & Mind-Bending Facts launch — tension + curiosity drives the
+    # completion the saturated body-facts niche was losing on (Meta gate was
+    # 19-24% vs a 70-72% bar). Same 500-topic micro-niche pattern.
+    if strategy == "dark_mystery_series":
+        series_topics = _deduplicate(get_dark_mystery_topics(), exclude)
+        series_topics = [t for t in series_topics
+                         if not _near_duplicate_of_recent(t.get("topic", ""), exclude or [])]
+        if series_topics:
+            chosen = _weighted_topic_choice(series_topics)
+        else:
+            chosen = random.choice(get_dark_mystery_topics())
+            logger.warning("All Dark Mystery topics were excluded; restarting the 500-topic series.")
+        logger.info("Selected Dark Mystery #%s: %s", chosen.get("series_number"), chosen["topic"])
         return chosen if return_metadata else str(chosen["topic"])
 
     records: List[Dict] = []

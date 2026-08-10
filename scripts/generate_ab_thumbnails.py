@@ -27,7 +27,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
-from PIL import Image, ImageDraw, ImageFont, ImageFilter, ImageEnhance
+from PIL import Image, ImageDraw, ImageFont
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)
@@ -94,7 +94,6 @@ class ThumbnailABGenerator:
         if key in self._font_cache:
             return self._font_cache[key]
 
-        font_name = self.style["font_bold"] if bold else self.style["font_regular"]
         font = None
         try:
             # Try system fonts first

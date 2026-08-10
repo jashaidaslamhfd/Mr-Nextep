@@ -1,0 +1,100 @@
+name: "SKILLOR - Deep Repair 2026 (All Platforms, High CTR)"
+
+on:
+  workflow_dispatch:
+    inputs:
+      apply:
+        description: "Actually edit live videos (false = dry run / preview only)"
+        required: false
+        type: boolean
+        default: false
+      limit:
+        description: "Max videos to touch per platform (0 = all)"
+        required: false
+        type: number
+        default: 0
+      force:
+        description: "Ignore the repair ledger and re-process everything"
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: skillor-deep-repair-2026
+  cancel-in-progress: false
+
+jobs:
+  deep-repair:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install python-dotenv requests numpy pillow google-api-python-client \
+            google-auth google-auth-oauthlib google-auth-httplib2
+
+      - name: Check required secrets
+        env:
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
+          FB_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
+          FB_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID }}
+        run: |
+          missing=0
+          for var in GOOGLE_CLIENT_ID GOOGLE_CLIENT_SECRET REFRESH_TOKEN; do
+            if [ -z "${!var:-}" ]; then echo "::warning::$var missing (YouTube repair skipped)"; fi
+          done
+          for var in FB_ACCESS_TOKEN FB_PAGE_ID; do
+            if [ -z "${!var:-}" ]; then echo "::warning::$var missing (FB/IG repair skipped)"; fi
+          done
+          exit 0
+
+      - name: Dry-run audit (always, previews every change)
+        env:
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
+          FACEBOOK_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
+          FB_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
+          FB_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID }}
+          INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
+          FB_API_VERSION: "v23.0"
+          LIMIT: ${{ inputs.limit }}
+        run: |
+          python scripts/deep_repair_2026.py --limit "${LIMIT:-0}"
+
+      - name: Apply deep repairs (manual dispatch + apply=true)
+        if: github.event_name == 'workflow_dispatch' && inputs.apply == true
+        env:
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
+          FACEBOOK_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
+          FB_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
+          FB_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID }}
+          INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
+          FB_API_VERSION: "v23.0"
+          LIMIT: ${{ inputs.limit }}
+          FORCE: ${{ inputs.force }}
+        run: |
+          args=""
+          [ "${FORCE}" = "true" ] && args="$args --force"
+          python scripts/deep_repair_2026.py --apply $args --limit "${LIMIT:-0}"
+
+      - name: Persist repair ledger + report
+        if: always()
+        run: |
+          git add data/deep_repair_ledger.json data/deep_repair_*.json
+          git diff --cached --quiet || (git -c user.name="skillor-bot" \
+            -c user.email="actions@github.com" commit -m "chore: deep repair 2026 ledger [skip ci]" \
+            && git push)

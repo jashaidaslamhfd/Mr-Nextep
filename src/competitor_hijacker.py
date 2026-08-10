@@ -5,7 +5,6 @@ import urllib.parse
 import urllib.request
 import logging
 from pathlib import Path
-from datetime import datetime, timezone
 
 ROOT = Path(__file__).resolve().parents[1]
 COMPETITOR_INTEL_PATH = ROOT / "data" / "competitor_intel.json"
@@ -76,8 +75,8 @@ def fetch_live_competitor_videos(channel_id: str, api_key: str) -> list[dict]:
     }
     try:
         encoded_params = urllib.parse.urlencode(params)
-        req = urllib.request.urlopen(f"{url}?{encoded_params}", timeout=10)
-        data = json.loads(req.read().decode("utf-8"))
+        with urllib.request.urlopen(f"{url}?{encoded_params}", timeout=10) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
         videos = []
         for item in data.get("items", []):
             snippet = item.get("snippet", {})

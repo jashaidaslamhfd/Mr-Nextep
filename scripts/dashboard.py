@@ -11,10 +11,9 @@ Install: pip install streamlit pandas plotly
 
 import json
 import os
-import sys
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Optional
 
 import streamlit as st
 import pandas as pd

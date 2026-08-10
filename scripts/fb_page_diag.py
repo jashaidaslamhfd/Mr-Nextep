@@ -38,7 +38,7 @@ def gget(path: str, **params):
 
 
 def main() -> int:
-    out = {"generated_at_utc": dt.datetime.utcnow().isoformat(), "api": API}
+    out = {"generated_at_utc": dt.datetime.now(dt.timezone.utc).isoformat().replace("+00:00", "Z"), "api": API}
 
     out["page"] = gget(PAGE, fields="id,name,about,category,category_list,"
                                     "followers_count,fan_count,link,website,cover")

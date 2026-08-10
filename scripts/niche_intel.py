@@ -12,15 +12,12 @@
 
 import json
 import os
-import re
-import sys
 import time
-import hashlib
 import logging
-from collections import Counter, defaultdict
+from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Set, Tuple
+from typing import Dict, List, Optional, Tuple
 
 import requests
 import numpy as np
@@ -590,10 +587,10 @@ class NicheIntelligence:
             print(f"     Our Videos: {target['our_coverage']} | Gap: {target['gap']}")
             print(f"     Competitors Avg: {target['competitor_avg_views']:,} views")
             print(f"     ⇒ Make {target['recommended_videos']} videos in this niche")
-            print(f"     Content Angles:")
+            print("     Content Angles:")
             for angle in target.get("content_angles", [])[:3]:
                 print(f"       • {angle}")
-            print(f"     Sample Topics:")
+            print("     Sample Topics:")
             for idea in target.get("sample_topics", [])[:4]:
                 print(f"       ✏️  {idea}")
         
@@ -776,7 +773,7 @@ def main():
     
     print("\n✅ DONE! Niche intelligence ready.")
     print(f"   Report: {NICHE_INTEL_PATH}")
-    print(f"   Run 'python scripts/niche_intel.py' to refresh daily.")
+    print("   Run 'python scripts/niche_intel.py' to refresh daily.")
 
 
 if __name__ == "__main__":

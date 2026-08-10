@@ -1,6 +1,5 @@
 import os
 import requests
-import json
 import time
 
 TOKEN = os.environ.get("GITHUB_TOKEN") or os.environ.get("GITHUB_PAT")
@@ -50,7 +49,7 @@ def trigger_workflow(dispatch):
     print(f"🔄 Triggering '{dispatch['name']}' on main branch...")
     response = requests.post(url, headers=headers, json=payload)
     if response.status_code == 204:
-        print(f"  ✅ Successfully triggered!")
+        print("  ✅ Successfully triggered!")
     else:
         print(f"  ❌ Failed (Status Code {response.status_code}): {response.text}")
 

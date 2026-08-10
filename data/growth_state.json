@@ -1,10 +1,5 @@
 {
-<<<<<<< Updated upstream
-  "generated_at": "2026-08-04T10:30:35.397082+00:00",
-=======
-  "generated_at": "2026-08-04T10:39:05.082270+00:00",
->>>>>>> Stashed changes
-  "sample_size": 113,
+  "generated_at": "2026-08-04T10:39:05.082270+00:00",  "sample_size": 113,
   "scored_videos": 33,
   "channel_gate_ratio": 0.661,
   "slot_weights": {
@@ -26,12 +21,7 @@
     "other": 1.45,
     "breath": 1.0,
     "muscle": 0.743,
-<<<<<<< Updated upstream
-    "brain": 0.648,
-=======
-    "brain": 0.649,
->>>>>>> Stashed changes
-    "ear": 0.803,
+    "brain": 0.649,    "ear": 0.803,
     "gut": 1.0
   },
   "hook_weights": {
@@ -87,12 +77,7 @@
       "gate": 0.72,
       "avg_completion": 0.1937,
       "gate_ratio": 0.269,
-<<<<<<< Updated upstream
-      "avg_views": 0.0,
-=======
-      "avg_views": 61.1,
->>>>>>> Stashed changes
-      "action": "Only 19% of a 72% bar. The format itself is losing viewers early: rebuild the hook (visual payoff in frame one, promise in under 3 seconds) before changing anything else."
+      "avg_views": 61.1,      "action": "Only 19% of a 72% bar. The format itself is losing viewers early: rebuild the hook (visual payoff in frame one, promise in under 3 seconds) before changing anything else."
     },
     "instagram_reels": {
       "platform": "instagram_reels",

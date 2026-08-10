@@ -103,7 +103,8 @@ def score_thumbnail(thumb_path: str, title: str) -> Dict:
     if not thumb_path or not os.path.exists(thumb_path):
         return {'error': f'Thumbnail not found at {thumb_path}'}
 
-    img = Image.open(thumb_path).convert("RGB")
+    with Image.open(thumb_path) as _src:
+        img = _src.convert("RGB")
     arr = np.array(img)
     h, w, _ = arr.shape
 

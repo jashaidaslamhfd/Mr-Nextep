@@ -73,7 +73,7 @@ def _norm(text: str) -> str:
 
 
 def main() -> int:
-    out = {"generated_at_utc": dt.datetime.utcnow().isoformat(), "api": API}
+    out = {"generated_at_utc": dt.datetime.now(dt.timezone.utc).isoformat().replace("+00:00", "Z"), "api": API}
     faults = {}
 
     # ---------- page ----------
@@ -105,7 +105,8 @@ def main() -> int:
     thumbs_done = set()
     if os.path.exists(MARKER_PATH):
         try:
-            thumbs_done = set(json.load(open(MARKER_PATH)))
+            with open(MARKER_PATH) as fh:
+                thumbs_done = set(json.load(fh))
         except Exception:  # noqa: BLE001
             pass
     reels, perr = gget_all(f"{PAGE}/video_reels",
@@ -174,7 +175,8 @@ def main() -> int:
     out["fault_counts"] = dict(counter.most_common())
     path = f"data/fb_audit_{dt.date.today().isoformat()}.json"
     os.makedirs("data", exist_ok=True)
-    json.dump(out, open(path, "w"), ensure_ascii=False, indent=1)
+    with open(path, "w", encoding="utf-8") as fh:
+        json.dump(out, fh, ensure_ascii=False, indent=1)
 
     print("=" * 64)
     print(f"FB PAGE AUDIT — Mr. Nextep — {dt.date.today().isoformat()}")

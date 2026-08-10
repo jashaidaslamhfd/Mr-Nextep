@@ -116,7 +116,8 @@ COLOR_THEMES = [
 
 def _cover_fit(img_path: str, out_path: str, size=(CANVAS_W, CANVAS_H)):
     """Resize+crop an image to exactly fill `size` (cover-fit)."""
-    img = Image.open(img_path).convert("RGB")
+    with Image.open(img_path) as _src:
+        img = _src.convert("RGB")
     target_w, target_h = size
     src_w, src_h = img.size
     src_ratio = src_w / src_h
@@ -800,7 +801,8 @@ def generate_thumbnail(image_path: str, title: str, output_path: str = "output/t
         finally:
             preview.close()
     else:
-        src = Image.open(image_path).convert("RGB")
+        with Image.open(image_path) as _src:
+            src = _src.convert("RGB")
 
     # ✅ Priority: Face zoom (focus on center 70% of image)
     src_ratio = src.width / src.height

@@ -11,7 +11,9 @@ sys.path.insert(0, str(SRC_DIR))
 from script_generator import _normalize_scenes, validate_script  # noqa: E402
 from seo_generator import generate_seo_package  # noqa: E402
 from shorts_enhancer import check_caption_pacing, score_hook  # noqa: E402
-from trend_fetcher import _deduplicate, _is_relevant, get_body_glitch_topics  # noqa: E402
+from trend_fetcher import (  # noqa: E402
+    _deduplicate, _is_relevant, get_body_glitch_topics, get_dark_mystery_topics,
+)
 
 
 class ScriptPolicyTests(unittest.TestCase):
@@ -104,6 +106,34 @@ class TrendSafetyTests(unittest.TestCase):
         self.assertGreaterEqual(len(records), 500)
         self.assertEqual(records[0]["series_title"], "Eye Twitch 👁️")
         self.assertTrue(all(record["source"] == "body_glitch_series" for record in records))
+
+    def test_dark_mystery_catalogue_has_500_branded_topics(self):
+        """The pivot series must be launch-ready at 500 unique topics, all
+        tagged as dark_mystery, and every topic must be a valid curiosity hook
+        the medical-accuracy gate will accept (real phenomena, no invented
+        cures or panic)."""
+        records = get_dark_mystery_topics()
+        self.assertGreaterEqual(len(records), 500)
+        topics = {r["topic"] for r in records}
+        self.assertEqual(len(topics), len(records), "topics must be unique")
+        self.assertTrue(all(r["source"] == "dark_mystery_series" for r in records))
+        self.assertTrue(all(r["pillar"] == "dark_mystery" for r in records))
+        # Every record must carry the hook metadata the pipeline consumes.
+        for r in records:
+            self.assertTrue(r.get("angle"))
+            self.assertTrue(r.get("series_title"))
+            self.assertTrue(r.get("thumbnail_text"))
+        # Series numbers must be a clean 1..N sequence for episode labelling.
+        self.assertEqual([r["series_number"] for r in records],
+                         list(range(1, len(records) + 1)))
+
+    def test_dark_mystery_prompt_mode_is_live(self):
+        """When CONTENT_SERIES=dark_mystery the writer must emit the dark
+        mystery ruleset (curiosity/tension framing, no gore, no fake cures)."""
+        import script_generator
+        src = __import__("inspect").getsource(script_generator._default_prompt)
+        self.assertIn("dark_mystery_mode", src)
+        self.assertIn("DARK MYSTERY & MIND-BENDING FACTS SERIES RULES", src)
 
 
 if __name__ == "__main__":

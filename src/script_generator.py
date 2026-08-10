@@ -218,6 +218,9 @@ def _preferred_hook_frame_hint() -> str:
 def _default_prompt(topic: str) -> str:
     """Build one internally consistent short-form script brief."""
     body_glitch_mode = os.environ.get("CONTENT_SERIES", "").lower() == "body_glitches"
+    dark_mystery_mode = os.environ.get("CONTENT_SERIES", "").lower() in (
+        "dark_mystery", "dark_mysteries", "mind_bending", "mystery_facts"
+    )
     series_rules = """
 BODY GLITCH SERIES RULES:
 - Cover one familiar, low-risk everyday body or brain phenomenon only.
@@ -227,6 +230,18 @@ BODY GLITCH SERIES RULES:
 - If relevant, say persistent, severe, new or worrying symptoms deserve a
   qualified clinician's advice. Do not give medical instructions.
 """ if body_glitch_mode else ""
+
+    dark_series_rules = """DARK MYSTERY & MIND-BENDING FACTS SERIES RULES:
+- Open with a curiosity or mild-tension hook that makes the viewer need the
+  answer (a "why does this happen?" gap). Keep the framing intriguing, not gory.
+- Deliver one surprising, well-sourced fact, then resolve it by the last scene
+  so the video ends on a loopable "wait... so it's [X]" payoff.
+- End on a clean loop-back line (no spoken CTA). The follow-ask lives in the
+  caption. Use a confident, even-keeled narrator voice — calm contrast with
+  curiosity makes the reveal land harder.
+- Keep it fact-based and truthful. No invented "facts", no fake cures, no
+  panic. Frame unusual phenomena as real but explainable.
+""" if dark_mystery_mode else ""
     from algorithm_policy import YOUTUBE, duration_policy, hook_seconds
     _floor, _ideal, _ceiling = duration_policy(YOUTUBE)
     _hook_budget = hook_seconds(YOUTUBE)
@@ -234,7 +249,7 @@ BODY GLITCH SERIES RULES:
     return f"""
 Create one original {_floor:.0f}–{_ceiling:.0f} second YouTube Short on this topic:
 TOPIC: {topic}
-{series_rules}{preferred_frame}
+{series_rules}{dark_series_rules}{preferred_frame}
 
 Use EXACTLY eight scenes and return the JSON schema below.
 

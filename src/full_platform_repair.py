@@ -65,9 +65,7 @@ def _run_fb_tuneup() -> dict:
     if not _has_fb_token():
         return {"skipped": "no_token"}
     try:
-        import fb_page_tuneup
-        # fb_page_tuneup has no main(), it runs on import? Check - it has logic in file
-        # We'll run via subprocess for safety
+        # fb_page_tuneup has no main() — it runs via subprocess for safety.
         import subprocess
         env = os.environ.copy()
         result = subprocess.run(

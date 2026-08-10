@@ -165,6 +165,67 @@ class SKILLORPipeline:
         return [v.get('topic') for v in self.video_history[-n:] if v.get('topic')]
 
     @staticmethod
+    def _apply_strategy_decision(self) -> dict:
+        """Consult the Autonomous Strategy Engine before generating.
+
+        The engine aggregates real analytics (growth_state, per-video metrics,
+        viral/competitor intel, ML lever importance) into one decision: which
+        series to run, cadence, adaptive quality gate and the current growth
+        barrier. This lets the system make its own calls instead of waiting
+        for a human to re-tune the workflow.
+
+        Never raises: on any failure we log and continue with the policy
+        defaults so a broken decision file can never block a publish.
+        """
+        try:
+            from strategy_engine import load_decision
+            decision = load_decision()
+            if not decision:
+                logger.info("🤖 No strategy decision yet — using policy defaults.")
+                return {}
+
+            series = decision.get("recommended_series")
+            strategy = decision.get("topic_strategy")
+            barrier = decision.get("barrier")
+            barrier_advice = decision.get("barrier_advice")
+            quality = decision.get("quality_threshold")
+            cadence = decision.get("cadence")
+
+            if series and series in ("dark_mystery", "body_glitches", "trend"):
+                os.environ["CONTENT_SERIES"] = series
+                if strategy:
+                    os.environ["TOPIC_STRATEGY"] = strategy
+                logger.info("🤖 Strategy: running series=%s (strategy=%s)", series, strategy)
+
+            if barrier:
+                logger.info("🤖 Growth barrier detected: %s", barrier)
+                if barrier_advice:
+                    logger.info("🤖 Barrier advice: %s", barrier_advice)
+
+            if quality:
+                # Auto-tighten the quality gate only when the data demands it;
+                # never loosen below the policy floor.
+                current = env_int("QUALITY_APPROVAL_THRESHOLD", 60)
+                if quality >= current:
+                    os.environ["QUALITY_APPROVAL_THRESHOLD"] = str(quality)
+                    logger.info("🤖 Adaptive quality gate set to %s", quality)
+
+            if cadence:
+                logger.info("🤖 Recommended cadence: %s video(s)/day", cadence)
+
+            lever = decision.get("lever_analysis", {})
+            if lever and lever.get("lever_importance"):
+                top = lever["lever_importance"][0]
+                logger.info(
+                    "🤖 ML lever insight: %s drives views most (%s%%).",
+                    top.get("label"), int(round(top.get("share", 0) * 100)),
+                )
+
+            return decision
+        except Exception as exc:  # noqa: BLE001 - strategy must never block a run
+            logger.warning("🤖 Strategy engine unavailable (%s); using defaults.", exc)
+            return {}
+
     def _enabled_platforms() -> list:
         """Platforms this run will actually publish to.
 
@@ -398,6 +459,10 @@ class SKILLORPipeline:
                     except Exception as e:
                         logger.warning(f"Could not validate posting interval: {e}")
 
+            # Phase 0b: Autonomous strategy — let the ML/DS engine decide the
+            # series, quality gate and cadence for THIS run before we generate.
+            self._apply_strategy_decision()
+
             # Phase 1: Script Generation (with trending topics)
             logger.info("\n📝 PHASE 1: SCRIPT GENERATION (TRENDING)")
             script_data = self.generate_with_niche_strategy(topic)
@@ -426,6 +491,34 @@ class SKILLORPipeline:
                 logger.info(f"✅ SEO score: {seo_overall}/100")
             except Exception as e:
                 logger.warning(f"SEO generation failed, continuing: {e}")
+
+            # Phase 1c: High-CTR title reinforcement. The SEO package picks a
+            # good title; we also build a curiosity-driven CTR title and keep
+            # whichever passes the CTR health gate — so every new upload goes
+            # out with a hook that maximises click-through, never a flat label.
+            try:
+                from ctr_engine import generate_high_ctr_title, validate_title
+                ctr_title = generate_high_ctr_title(
+                    script_data.get('topic') or script_data.get('title', ''),
+                    platform='youtube',
+                )
+                check = validate_title(ctr_title)
+                if check['ok']:
+                    old = script_data.get('title', 'Untitled')
+                    script_data['title'] = ctr_title
+                    # keep the SEO description's keyword line, but refresh the
+                    # first line to the CTR hook so search + click align.
+                    desc = script_data.get('description', '')
+                    if desc and not desc.startswith(ctr_title.split(' — ')[0]):
+                        script_data['description'] = (
+                            ctr_title + "\n\n" + desc
+                        )
+                    logger.info("✅ High-CTR title: %r (was %r)", ctr_title, old)
+                else:
+                    logger.info("High-CTR title skipped (%s); keeping SEO title.",
+                                "; ".join(check['issues']))
+            except Exception as e:  # noqa: BLE001 - title polish must not block
+                logger.warning(f"High-CTR title step skipped: {e}")
 
             # Record which opening frame this video used, so the growth engine
             # can learn which frames survive the first three seconds. Without
