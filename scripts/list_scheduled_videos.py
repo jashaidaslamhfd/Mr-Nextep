@@ -100,8 +100,9 @@ def main() -> int:
 
     # Write to a committed file so we can read it back from the repo (the raw
     # Actions log download can truncate long JSON).
+    fname = "scheduled_videos.json" if only_scheduled else "all_videos.json"
     out_path = os.path.abspath(os.path.join(
-        os.path.dirname(os.path.abspath(__file__)), "..", "data", "scheduled_videos.json"
+        os.path.dirname(os.path.abspath(__file__)), "..", "data", fname
     ))
     with open(out_path, "w", encoding="utf-8") as fh:
         json.dump(videos, fh, indent=2, ensure_ascii=False)

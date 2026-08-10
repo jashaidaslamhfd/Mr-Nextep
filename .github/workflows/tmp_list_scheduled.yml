@@ -11,15 +11,17 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: {python-version: "3.11"}
-      - name: Run scheduled-video listing + persist
+      - name: Run full video listing + persist
         env:
           GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
           GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
           REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
-        run: python scripts/list_scheduled_videos.py --only-scheduled
-      - name: Commit the scheduled list
         run: |
-          git add data/scheduled_videos.json
+          python scripts/list_scheduled_videos.py --only-scheduled
+          python scripts/list_scheduled_videos.py
+      - name: Commit the video lists
+        run: |
+          git add data/scheduled_videos.json data/all_videos.json
           git diff --cached --quiet || (git -c user.name="skillor-bot" \
-            -c user.email="actions@github.com" commit -m "tmp: scheduled video list [skip ci]" \
+            -c user.email="actions@github.com" commit -m "tmp: full video list [skip ci]" \
             && git push)
