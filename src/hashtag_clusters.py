@@ -23,10 +23,15 @@ HASHTAG_CLUSTERS = {
 }
 
 def get_optimized_us_tags(topic: str, base_tags: list) -> list:
-    """Combine base tags with US-optimized clusters based on topic keywords."""
+    """Combine base tags with US-optimized clusters based on topic keywords.
+
+    Uses humanizer.rotate_hashtags so different topics get a varied (but
+    deterministic and on-niche) subset/order — identical hashtag sets across
+    every video is a machine tell that the 2026 feeds demote.
+    """
     topic_l = topic.lower()
     final_tags = set(base_tags)
-    
+
     # 1. Map keywords to clusters
     if any(w in topic_l for w in ["brain", "memory", "mind", "think", "deja"]):
         final_tags.update(HASHTAG_CLUSTERS["brain_science"])
@@ -34,12 +39,19 @@ def get_optimized_us_tags(topic: str, base_tags: list) -> list:
         final_tags.update(HASHTAG_CLUSTERS["body_mysteries"])
     if any(w in topic_l for w in ["dark", "mystery", "creepy", "scary", "why"]):
         final_tags.update(HASHTAG_CLUSTERS["mystery_dark"])
-        
-    # 2. Always add discovery cluster for US reach
+
+    # 2. Always add a few discovery tags for US reach (varied subset/order).
     final_tags.update(HASHTAG_CLUSTERS["us_discovery"])
-    
-    # 3. Clean and limit (Meta/IG preference: 5-10 strong tags)
+
+    # 3. Clean
     import re
-    clean = [re.sub(r'[^a-z0-9]', '', t.lower()) for t in final_tags]
-    return sorted(list(set(clean)))[:12]
+    clean = sorted({re.sub(r'[^a-z0-9]', '', t.lower()) for t in final_tags})
+
+    # 4. Humanised variation: anchor tags first, then a deterministic varied
+    #    subset so no two videos carry the identical set/order.
+    try:
+        from humanizer import rotate_hashtags
+        return rotate_hashtags(clean, topic, keep_top=3, total=10)
+    except Exception:  # noqa: BLE001 - humanizer must never break tag generation
+        return clean[:12]
 

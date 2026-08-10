@@ -397,7 +397,12 @@ class SKILLORPipeline:
             for retry in range(MAX_IMAGE_RETRIES):
                 try:
                     logger.info(f"Scene {i+1}/{total_scenes} - Attempt {retry+1}")
-                    res = generate_images(i, scene, used_hashes, used_fallbacks)
+                    # topic_seed keeps one video's visual style cohesive while
+                    # letting different videos look distinct (human, not templated).
+                    res = generate_images(
+                        i, scene, used_hashes, used_fallbacks,
+                        topic_seed=script_data.get('topic') or script_data.get('title', ''),
+                    )
                     if res and res.get('path') and os.path.exists(res['path']):
                         image_paths.append(res['path'])
                         image_sources.append(res.get('source', 'unknown'))
@@ -625,10 +630,17 @@ class SKILLORPipeline:
                 # Voice/lang are env-driven now (KOKORO_VOICE / KOKORO_LANG_CODE
                 # / TTS_ENGINE). Previously hardcoded "am_adam" here overrode
                 # the workflow's voice config without anyone noticing.
+                # A tiny per-video tempo jitter (humanizer) stops every video
+                # being exactly on-beat, which is a machine tell.
+                try:
+                    from humanizer import tempo_jitter
+                    _voice_speed = tempo_jitter(1.0, script_data.get('topic') or script_data.get('title', ''))
+                except Exception:  # noqa: BLE001 - jitter must never block
+                    _voice_speed = 1.0
                 audio_segments = generate_voice_segments(
                     script_data['scenes'],
                     voice=os.environ.get("KOKORO_VOICE") or None,
-                    speed=1.0
+                    speed=_voice_speed
                 )
                 logger.info(f"✅ Generated {len(audio_segments)} audio segments")
                 narration_seconds = sum(float(seg.get("duration", 0)) for seg in audio_segments)

@@ -14,6 +14,9 @@ logger = logging.getLogger(__name__)
 REQUEST_TIMEOUT = 30
 _fallback_lock = threading.Lock()
 
+# Legacy fixed style kept for backward-compat references; the prompt builder now
+# uses humanizer.style_suffix() so different videos get a varied visual look
+# instead of one identical suffix on every scene.
 DARK_STYLE_SUFFIX = (
     "clean cinematic documentary lighting, realistic human detail, sharp focus, "
     "crisp high-resolution detail, natural color, professional camera quality, "
@@ -31,8 +34,13 @@ def _save_bytes(content: bytes, index: int, ext: str = "jpg") -> str:
     return path
 
 
-def _build_prompt(scene_text: str, *, first_frame: bool = False) -> str:
-    """Build a scene-specific prompt with a stronger first-frame hook."""
+def _build_prompt(scene_text: str, *, first_frame: bool = False, topic_seed: str = "") -> str:
+    """Build a scene-specific prompt with a stronger first-frame hook.
+
+    `topic_seed` (the video topic/title) stabilises the visual style per video
+    via humanizer.style_suffix, so one video keeps a cohesive look while
+    different videos don't all share the identical template.
+    """
     base = (scene_text or "mystery science").strip()
 
     if first_frame:
@@ -43,10 +51,16 @@ def _build_prompt(scene_text: str, *, first_frame: bool = False) -> str:
             + base
         )
 
-    return f"{base}, {DARK_STYLE_SUFFIX}"
+    try:
+        from humanizer import style_suffix
+        suffix = style_suffix(topic_seed or scene_text or "x", first_frame=first_frame)
+    except Exception:  # noqa: BLE001 - never let a style helper break generation
+        suffix = DARK_STYLE_SUFFIX
+
+    return f"{base}, {suffix}"
 
 
-def _layer_ai_providers(index, scene_text, provider_names=None):
+def _layer_ai_providers(index, scene_text, provider_names=None, topic_seed=""):
     """Try configured AI image providers in order."""
     providers = available_providers()
 
@@ -64,6 +78,7 @@ def _layer_ai_providers(index, scene_text, provider_names=None):
     prompt_text = _build_prompt(
         scene_text,
         first_frame=(index == 0),
+        topic_seed=topic_seed,
     )
     prompt = prompt_text.replace(" ", "_").replace(",", "")
     seed = random.randint(1, 999999)
@@ -535,6 +550,7 @@ def _generate_one(
     scene,
     used_hashes: set,
     used_fallbacks: set,
+    topic_seed: str = "",
 ):
     scene_text = _scene_text(scene)
 
@@ -553,6 +569,7 @@ def _generate_one(
                     "ModelsLab",
                     "Replicate",
                 ],
+                topic_seed=topic_seed,
             ),
         ),
         (
@@ -561,6 +578,7 @@ def _generate_one(
                 index,
                 scene_text,
                 ["AI-Horde"],
+                topic_seed=topic_seed,
             ),
         ),
         (
