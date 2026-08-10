@@ -94,7 +94,13 @@ jobs:
       - name: Persist repair ledger + report
         if: always()
         run: |
-          git add data/deep_repair_ledger.json data/deep_repair_*.json
-          git diff --cached --quiet || (git -c user.name="skillor-bot" \
-            -c user.email="actions@github.com" commit -m "chore: deep repair 2026 ledger [skip ci]" \
-            && git push)
+          # Only ledger file is generated on --apply; a dry-run produces no
+          # ledger, so guard the git add to avoid a failing pathspec.
+          if ls data/deep_repair_ledger.json data/deep_repair_*.json >/dev/null 2>&1; then
+            git add data/deep_repair_ledger.json data/deep_repair_*.json
+            git diff --cached --quiet || (git -c user.name="skillor-bot" \
+              -c user.email="actions@github.com" commit -m "chore: deep repair 2026 ledger [skip ci]" \
+              && git push)
+          else
+            echo "No repair ledger/report produced (dry-run or nothing changed) — nothing to persist."
+          fi
