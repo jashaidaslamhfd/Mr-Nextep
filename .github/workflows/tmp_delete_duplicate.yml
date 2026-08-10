@@ -1,0 +1,32 @@
+name: "TMP - Delete duplicate scheduled video"
+on:
+  workflow_dispatch:
+    inputs:
+      video_id:
+        description: "YouTube video id to delete"
+        required: true
+permissions:
+  contents: write
+jobs:
+  delete:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Delete the video
+        env:
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
+          VIDEO_ID: ${{ inputs.video_id }}
+        run: python scripts/delete_duplicate_video.py
+      - name: Record deletion in repo
+        run: |
+          echo "vAL7qETwL1o" >> data/deleted_duplicate_videos.txt
+          sort -u data/deleted_duplicate_videos.txt -o data/deleted_duplicate_videos.txt
+          git add data/deleted_duplicate_videos.txt
+          git diff --cached --quiet || (git -c user.name="skillor-bot" \
+            -c user.email="actions@github.com" commit -m "chore: record deleted duplicate video [skip ci]" \
+            && git push)
