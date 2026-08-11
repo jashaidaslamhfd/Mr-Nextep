@@ -554,7 +554,9 @@ def _set_fb_reel_cover(video_id, thumb_path, fb_token):
             resp = requests.post(
                 f"https://graph.facebook.com/{FB_API_VERSION}/{video_id}/thumbnails",
                 data={"access_token": fb_token},
-                files={"file": (os.path.basename(thumb_path), fh, "image/jpeg")},
+                # The field MUST be named "source" for the video-thumbnails
+                # endpoint — "file" returns "The parameter source is required".
+                files={"source": (os.path.basename(thumb_path), fh, "image/jpeg")},
                 timeout=60,
             )
         ok = resp.status_code == 200 and "error" not in (
