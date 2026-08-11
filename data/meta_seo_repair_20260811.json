@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-11T05:24:05.363768Z",
-  "mode": "dry-run",
+  "generated_at": "2026-08-11T05:25:46.542332Z",
+  "mode": "apply",
   "facebook": [
     {
       "id": "863548253034850",
@@ -8,7 +8,16 @@
       "old_score": 6,
       "new_score": 9,
       "old_caption": "Tag someone who needs to see this! 👇\n\nFollow for daily body science.\n\n#humanbody #bodyscience #brainfacts",
-      "new_caption": "Follow — everyday biology, no hype.\n\n#BodyScience #HumanBody #ScienceFacts."
+      "new_caption": "Follow — everyday biology, no hype.\n\n#BodyScience #HumanBody #ScienceFacts.",
+      "edit_result": {
+        "success": true
+      },
+      "seed_comment": {
+        "text": "Curious — did you already know why Tag someone who needs see happens?",
+        "result": {
+          "id": "1330722271833473_26867783929565224"
+        }
+      }
     },
     {
       "id": "2213438389492888",
@@ -16,7 +25,16 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Share if this blew your mind! 🤯\n\nFollow for daily body science.\n\n#humanbody #bodyscience #brainfacts",
-      "new_caption": "Share if this blew your mind — the science.\n\nHere's a quick look at the science behind share if this blew your mind — short, accurate, no hype.\n\nFollow — everyday biology, no hype.\n\n#BodyScience #HumanBody #ScienceFacts."
+      "new_caption": "Share if this blew your mind — the science.\n\nHere's a quick look at the science behind share if this blew your mind — short, accurate, no hype.\n\nFollow — everyday biology, no hype.\n\n#BodyScience #HumanBody #ScienceFacts.",
+      "edit_result": {
+        "success": true
+      },
+      "seed_comment": {
+        "text": "Curious — did you already know why Share blew mind happens?",
+        "result": {
+          "id": "1330722271833473_2631291250640348"
+        }
+      }
     },
     {
       "id": "2524117774699365",
@@ -24,7 +42,16 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Comment 'YES' if you agree! 💯\n\nFollow for daily body science.\n\n#humanbody #bodyscience #brainfacts",
-      "new_caption": "Comment 'YES' if you agree — the science.\n\nHere's a quick look at the science behind comment 'YES' if you agree — short, accurate, no hype.\n\nFollow for one body mystery explained every day.\n\n#BodyScience #HumanBody #ScienceFacts."
+      "new_caption": "Comment 'YES' if you agree — the science.\n\nHere's a quick look at the science behind comment 'YES' if you agree — short, accurate, no hype.\n\nFollow for one body mystery explained every day.\n\n#BodyScience #HumanBody #ScienceFacts.",
+      "edit_result": {
+        "success": true
+      },
+      "seed_comment": {
+        "text": "Curious — did you already know why Comment 'YES' agree happens?",
+        "result": {
+          "id": "1330722271833473_2477038086041262"
+        }
+      }
     },
     {
       "id": "2171677247008570",
@@ -32,7 +59,16 @@
       "old_score": 6,
       "new_score": 9,
       "old_caption": "Tag someone who needs to see this! 👇\n\nFollow for daily body science.\n\n#humanbody #bodyscience #brainfacts",
-      "new_caption": "Follow — everyday biology, no hype.\n\n#BodyScience #HumanBody #ScienceFacts."
+      "new_caption": "Follow — everyday biology, no hype.\n\n#BodyScience #HumanBody #ScienceFacts.",
+      "edit_result": {
+        "success": true
+      },
+      "seed_comment": {
+        "text": "Curious — did you already know why Tag someone who needs see happens?",
+        "result": {
+          "id": "1330722271833473_1590531815770380"
+        }
+      }
     },
     {
       "id": "3314378625410338",
@@ -40,7 +76,16 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Comment 'YES' if you agree! 💯\n\nFollow for daily body science.\n\n#humanbody #bodyscience #brainfacts",
-      "new_caption": "Comment 'YES' if you agree — the science.\n\nHere's a quick look at the science behind comment 'YES' if you agree — short, accurate, no hype.\n\nFollow for one body mystery explained every day.\n\n#BodyScience #HumanBody #ScienceFacts."
+      "new_caption": "Comment 'YES' if you agree — the science.\n\nHere's a quick look at the science behind comment 'YES' if you agree — short, accurate, no hype.\n\nFollow for one body mystery explained every day.\n\n#BodyScience #HumanBody #ScienceFacts.",
+      "edit_result": {
+        "success": true
+      },
+      "seed_comment": {
+        "text": "Curious — did you already know why Comment 'YES' agree happens?",
+        "result": {
+          "id": "1330722271833473_1812725850157307"
+        }
+      }
     },
     {
       "id": "4304682836438200",
@@ -48,7 +93,16 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Your brain is ALREADY capable of more right now...\n\nYour brain processes 70,000 thoughts daily... and forgets 90% of them.\n\n🧠 The science behind why this happens to men after 35.\n\nFollow for daily body science.\n\n#brainfacts #brainscience #neuroscience",
-      "new_caption": "Ever noticed your brain is ALREADY capable of more right now?\n\nHere's a quick look at the science behind your brain is ALREADY capable of more right now — short, accurate, no hype.\n\nFollow — everyday biology, no hype.\n\n#BodyScience #HumanBody #ScienceFacts #Neuroscience."
+      "new_caption": "Ever noticed your brain is ALREADY capable of more right now?\n\nHere's a quick look at the science behind your brain is ALREADY capable of more right now — short, accurate, no hype.\n\nFollow — everyday biology, no hype.\n\n#BodyScience #HumanBody #ScienceFacts #Neuroscience.",
+      "edit_result": {
+        "success": true
+      },
+      "seed_comment": {
+        "text": "Which body question should I explain next about brain ALREADY capable more right now?",
+        "result": {
+          "id": "1330722271833473_1347157207122062"
+        }
+      }
     },
     {
       "id": "1323304896113007",
@@ -56,7 +110,16 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Your brain is already shrinking right now...\n\nYour brain processes 70,000 thoughts daily... and forgets 90% of them.\n\n🧠 The science behind why this happens to men after 35.\n\nFollow for daily body science.\n\n#brainfacts #brainscience #neuroscience",
-      "new_caption": "Ever noticed your brain is already shrinking right now?\n\nHere's a quick look at the science behind your brain is already shrinking right now — short, accurate, no hype.\n\nFollow for short, accurate body science daily.\n\n#BodyScience #HumanBody #ScienceFacts #Neuroscience."
+      "new_caption": "Ever noticed your brain is already shrinking right now?\n\nHere's a quick look at the science behind your brain is already shrinking right now — short, accurate, no hype.\n\nFollow for short, accurate body science daily.\n\n#BodyScience #HumanBody #ScienceFacts #Neuroscience.",
+      "edit_result": {
+        "success": true
+      },
+      "seed_comment": {
+        "text": "Curious — did you already know why brain already shrinking right now happens?",
+        "result": {
+          "id": "1330722271833473_1108404025182893"
+        }
+      }
     },
     {
       "id": "995139406605549",
@@ -64,7 +127,16 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Your brain is already forgetting right now...\n\nMulti-tasking reduces productivity by up to 40%.\n\n🧠 The science behind why this happens to men after 35.\n\nFollow for daily body science.\n\n#brainfacts #brainscience #neuroscience",
-      "new_caption": "Ever noticed your brain is already forgetting right now?\n\nHere's a quick look at the science behind your brain is already forgetting right now — short, accurate, no hype.\n\nFollow — everyday biology, no hype.\n\n#BodyScience #HumanBody #ScienceFacts #Neuroscience."
+      "new_caption": "Ever noticed your brain is already forgetting right now?\n\nHere's a quick look at the science behind your brain is already forgetting right now — short, accurate, no hype.\n\nFollow — everyday biology, no hype.\n\n#BodyScience #HumanBody #ScienceFacts #Neuroscience.",
+      "edit_result": {
+        "success": true
+      },
+      "seed_comment": {
+        "text": "Curious — did you already know why brain already forgetting right now happens?",
+        "result": {
+          "id": "1330722271833473_1525503612205308"
+        }
+      }
     },
     {
       "id": "1006828912076419",
@@ -72,7 +144,16 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Your brain is ALREADY declining right now slowly...\n\nSleep deprivation accelerates brain aging by 3-5 years.\n\n🧠 The science behind why this happens to men after 35.\n\nFollow for daily body science.\n\n#brainfacts #brainscience #neuroscience",
-      "new_caption": "Ever noticed your brain is ALREADY declining right now slowly?\n\nHere's a quick look at the science behind your brain is ALREADY declining right now slowly — short, accurate, no hype.\n\nFollow — everyday biology, no hype.\n\n#BodyScience #HumanBody #ScienceFacts #Neuroscience."
+      "new_caption": "Ever noticed your brain is ALREADY declining right now slowly?\n\nHere's a quick look at the science behind your brain is ALREADY declining right now slowly — short, accurate, no hype.\n\nFollow — everyday biology, no hype.\n\n#BodyScience #HumanBody #ScienceFacts #Neuroscience.",
+      "edit_result": {
+        "success": true
+      },
+      "seed_comment": {
+        "text": "Which body question should I explain next about brain ALREADY declining right now slowly?",
+        "result": {
+          "id": "1330722271833473_1793227478515140"
+        }
+      }
     },
     {
       "id": "844276145183200",
@@ -80,7 +161,16 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Your brain is already sending signals right now...\n\nStress can shrink your brain's prefrontal cortex... affecting decision making.\n\n🧠 The science behind why this happens to men after 35.\n\nFollow for daily body science.\n\n#brainfacts #brainscience #neuroscience",
-      "new_caption": "Ever noticed your brain is already sending signals right now?\n\nHere's a quick look at the science behind your brain is already sending signals right now — short, accurate, no hype.\n\nFollow — everyday biology, no hype.\n\n#BodyScience #HumanBody #ScienceFacts #Neuroscience."
+      "new_caption": "Ever noticed your brain is already sending signals right now?\n\nHere's a quick look at the science behind your brain is already sending signals right now — short, accurate, no hype.\n\nFollow — everyday biology, no hype.\n\n#BodyScience #HumanBody #ScienceFacts #Neuroscience.",
+      "edit_result": {
+        "success": true
+      },
+      "seed_comment": {
+        "text": "Curious — did you already know why brain already sending signals right now happens?",
+        "result": {
+          "id": "1330722271833473_1949457049057178"
+        }
+      }
     },
     {
       "id": "2110486596201470",
@@ -88,7 +178,16 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Your body is ALREADY skipping beats every day...\n\nYour bones are 5 times stronger than steel of the same density.\n\n🧠 The science behind why this happens to men after 35.\n\nFollow for daily body science.\n\n#humanbody #bodyscience #brainfacts",
-      "new_caption": "Ever noticed your body is ALREADY skipping beats every day?\n\nHere's a quick look at the science behind your body is ALREADY skipping beats every day — short, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBody #ScienceFacts."
+      "new_caption": "Ever noticed your body is ALREADY skipping beats every day?\n\nHere's a quick look at the science behind your body is ALREADY skipping beats every day — short, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBody #ScienceFacts.",
+      "edit_result": {
+        "success": true
+      },
+      "seed_comment": {
+        "text": "Curious — did you already know why body ALREADY skipping beats every day happens?",
+        "result": {
+          "id": "1330722271833473_1061164282987236"
+        }
+      }
     },
     {
       "id": "947830784988145",
@@ -96,7 +195,16 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Your body is ALREADY reacting to nighttime allergens...\n\nEvery time you remember something, your brain actually rewrites that memory.\n\nThe science behind why this happens to your...\n\nFollow for daily body science.\n\n#brainfacts #brainscience #neuroscience",
-      "new_caption": "Ever noticed your body is ALREADY reacting to nighttime allergens?\n\nHere's a quick look at the science behind your body is ALREADY reacting to nighttime allergens — short, accurate, no hype.\n\nFollow — everyday biology, no hype.\n\n#BodyScience #HumanBody #ScienceFacts."
+      "new_caption": "Ever noticed your body is ALREADY reacting to nighttime allergens?\n\nHere's a quick look at the science behind your body is ALREADY reacting to nighttime allergens — short, accurate, no hype.\n\nFollow — everyday biology, no hype.\n\n#BodyScience #HumanBody #ScienceFacts.",
+      "edit_result": {
+        "success": true
+      },
+      "seed_comment": {
+        "text": "Which body question should I explain next about body ALREADY reacting nighttime allergens?",
+        "result": {
+          "id": "1330722271833473_1027820170117926"
+        }
+      }
     },
     {
       "id": "1780810203076642",
@@ -104,7 +212,16 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Why Babies Need to Crawl Before Walking\n\nSkipping the crawling stage changes how the brain maps movement and balance — the science in 60 seconds.\n\nFollow for daily body science.\n\n#brainfacts #brainscience #neuroscience",
-      "new_caption": "Here's why why Babies Need to Crawl Before Walking?\n\nHere's a quick look at the science behind why Babies Need to Crawl Before Walking — short, accurate, no hype.\n\nFollow for one body mystery explained every day.\n\n#BodyScience #HumanBody #ScienceFacts."
+      "new_caption": "Here's why why Babies Need to Crawl Before Walking?\n\nHere's a quick look at the science behind why Babies Need to Crawl Before Walking — short, accurate, no hype.\n\nFollow for one body mystery explained every day.\n\n#BodyScience #HumanBody #ScienceFacts.",
+      "edit_result": {
+        "success": true
+      },
+      "seed_comment": {
+        "text": "Have you ever noticed this with Babies Need Crawl Before Walking? Drop a 👇 if it's happened to you.",
+        "result": {
+          "id": "1330722271833473_1376586614659816"
+        }
+      }
     },
     {
       "id": "1345906440366316",
@@ -112,7 +229,16 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Attachment Theory in 60 Seconds\n\nYour brain wires itself for connection from the very first day — here is the science of why, in under a minute.\n\nFollow for daily body science.\n\n#brainfacts #brainscience #neuroscience",
-      "new_caption": "Attachment Theory in 60 Seconds — the science.\n\nHere's a quick look at the science behind attachment Theory in 60 Seconds — short, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBody #ScienceFacts."
+      "new_caption": "Attachment Theory in 60 Seconds — the science.\n\nHere's a quick look at the science behind attachment Theory in 60 Seconds — short, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBody #ScienceFacts.",
+      "edit_result": {
+        "success": true
+      },
+      "seed_comment": {
+        "text": "Which body question should I explain next about Attachment Theory Seconds?",
+        "result": {
+          "id": "1330722271833473_1530318091689462"
+        }
+      }
     },
     {
       "id": "3270063829869638",
@@ -120,7 +246,16 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Most parents don't know this about Brain Growth Nutrition for Babies, especially when worrying about language delays. You might worry that your little one isn’t speaking yet, but n...\n\nSave and share with your partner\n\nFollow for daily body science.\n\n#brainfacts #brainscience #neuroscience",
-      "new_caption": "Ever noticed most parents don't know this about Brain Growth Nutrition for Babies?\n\nHere's a quick look at the science behind most parents don't know this about Brain Growth Nutrition for Babies — short, accurate, no hype.\n\nFollow — everyday biology, no hype.\n\n#BodyScience #HumanBody #ScienceFacts #Neuroscience."
+      "new_caption": "Ever noticed most parents don't know this about Brain Growth Nutrition for Babies?\n\nHere's a quick look at the science behind most parents don't know this about Brain Growth Nutrition for Babies — short, accurate, no hype.\n\nFollow — everyday biology, no hype.\n\n#BodyScience #HumanBody #ScienceFacts #Neuroscience.",
+      "edit_result": {
+        "success": true
+      },
+      "seed_comment": {
+        "text": "Has Most parents don't know Brain Growth ever happened at the worst possible time?",
+        "result": {
+          "id": "1330722271833473_1059580656545033"
+        }
+      }
     },
     {
       "id": "1689758258745947",
@@ -128,7 +263,16 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Most parents don’t know this about bilingual brain development... We all know a chaotic sleep schedule can feel like a constant juggling act. Research suggests that early exposure ...\n\nDoes your baby do this? Comment below\n\nFollow for daily body science.\n\n#brainfacts #brainscience #neuroscience",
-      "new_caption": "Ever noticed most parents don’t know this about bilingual brain development. We all?\n\nHere's a quick look at the science behind most parents don’t know this about bilingual brain development. We all — short, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBody #ScienceFacts #Neuroscience."
+      "new_caption": "Ever noticed most parents don’t know this about bilingual brain development. We all?\n\nHere's a quick look at the science behind most parents don’t know this about bilingual brain development. We all — short, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBody #ScienceFacts #Neuroscience.",
+      "edit_result": {
+        "success": true
+      },
+      "seed_comment": {
+        "text": "Have you ever noticed this with Most parents don know bilingual brain? Drop a 👇 if it's happened to you.",
+        "result": {
+          "id": "1330722271833473_2129758611254339"
+        }
+      }
     },
     {
       "id": "788442081024484",
@@ -136,7 +280,16 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Most parents don't know this about language development... You’re confused about why your baby sleeps in waves and still chases every sound. Research shows that during active wakef...\n\nComment: Did your baby do this?\n\nFollow for daily body science.\n\n#brainfacts #brainscience #neuroscience",
-      "new_caption": "Most parents don't know this about language development. You’re confused — the science.\n\nHere's a quick look at the science behind most parents don't know this about language development. You’re confused — short, accurate, no hype.\n\nFollow — everyday biology, no hype.\n\n#BodyScience #HumanBody #ScienceFacts."
+      "new_caption": "Most parents don't know this about language development. You’re confused — the science.\n\nHere's a quick look at the science behind most parents don't know this about language development. You’re confused — short, accurate, no hype.\n\nFollow — everyday biology, no hype.\n\n#BodyScience #HumanBody #ScienceFacts.",
+      "edit_result": {
+        "success": true
+      },
+      "seed_comment": {
+        "text": "Has Most parents don't know language development ever happened at the worst possible time?",
+        "result": {
+          "id": "1330722271833473_950999041345639"
+        }
+      }
     },
     {
       "id": "1418137220128208",
@@ -144,7 +297,16 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Most parents don’t know this about Attachment Theory: it’s the brain’s way of creating lifelong trust. If you’re wondering whether your baby needs intervention, pause—research show...\n\nFollow for more research-backed parenting tips\n\nFollow for daily body science.\n\n#brainfacts #brainscience #neuroscience",
-      "new_caption": "Ever noticed most parents don’t know this about Attachment Theory: it’s the brain’s way?\n\nHere's a quick look at the science behind most parents don’t know this about Attachment Theory: it’s the brain’s way — short, accurate, no hype.\n\nFollow for short, accurate body science daily.\n\n#BodyScience #HumanBody #ScienceFacts #Neuroscience."
+      "new_caption": "Ever noticed most parents don’t know this about Attachment Theory: it’s the brain’s way?\n\nHere's a quick look at the science behind most parents don’t know this about Attachment Theory: it’s the brain’s way — short, accurate, no hype.\n\nFollow for short, accurate body science daily.\n\n#BodyScience #HumanBody #ScienceFacts #Neuroscience.",
+      "edit_result": {
+        "success": true
+      },
+      "seed_comment": {
+        "text": "Has Most parents don know Attachment Theory ever happened at the worst possible time?",
+        "result": {
+          "id": "1330722271833473_1621964552835432"
+        }
+      }
     },
     {
       "id": "1781033269735266",
@@ -152,7 +314,16 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Most parents don't know this about how music helps baby brain development. If your baby's sleep feels unpredictable, you're not alone. Neuroscience shows that rhythmic music activa...\n\nComment: Did your baby do this?\n\nFollow for daily body science.\n\n#brainfacts #brainscience #neuroscience",
-      "new_caption": "Ever noticed most parents don't know this about how music helps baby brain development?\n\nHere's a quick look at the science behind most parents don't know this about how music helps baby brain development — short, accurate, no hype.\n\nFollow for short, accurate body science daily.\n\n#BodyScience #HumanBody #ScienceFacts #Neuroscience."
+      "new_caption": "Ever noticed most parents don't know this about how music helps baby brain development?\n\nHere's a quick look at the science behind most parents don't know this about how music helps baby brain development — short, accurate, no hype.\n\nFollow for short, accurate body science daily.\n\n#BodyScience #HumanBody #ScienceFacts #Neuroscience.",
+      "edit_result": {
+        "success": true
+      },
+      "seed_comment": {
+        "text": "Has Most parents don't know music helps ever happened at the worst possible time?",
+        "result": {
+          "id": "1330722271833473_1031427976465948"
+        }
+      }
     },
     {
       "id": "2309700976438443",
@@ -160,7 +331,16 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Doctors don't want you to know this about Your Heart Has Its Own Brain... Your heart isn’t just a pump—it’s a secret neural network. Every beat sends signals faster than any laptop...\n\nShare this if it blew your mind\n\nFollow for daily body science.\n\n#brainfacts #brainscience #neuroscience",
-      "new_caption": "Ever noticed doctors don't want you to know this about Your Heart Has Its Own Brain?\n\nHere's a quick look at the science behind doctors don't want you to know this about Your Heart Has Its Own Brain — short, accurate, no hype.\n\nFollow for short, accurate body science daily.\n\n#BodyScience #HumanBody #ScienceFacts #Neuroscience #Hearing."
+      "new_caption": "Ever noticed doctors don't want you to know this about Your Heart Has Its Own Brain?\n\nHere's a quick look at the science behind doctors don't want you to know this about Your Heart Has Its Own Brain — short, accurate, no hype.\n\nFollow for short, accurate body science daily.\n\n#BodyScience #HumanBody #ScienceFacts #Neuroscience #Hearing.",
+      "edit_result": {
+        "success": true
+      },
+      "seed_comment": {
+        "text": "Have you ever noticed this with Doctors don't want know Heart Its? Drop a 👇 if it's happened to you.",
+        "result": {
+          "id": "1330722271833473_3803743739768208"
+        }
+      }
     },
     {
       "id": "1053815270423351",
@@ -168,7 +348,16 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Doctors don't want you to know this about your blood's secret weapon. Every night you lie awake, eyes wide, mind racing like a broken clock. Scientists discovered that hemoglobin c...\n\nShare this if it blew your mind This video is for educational/entertainment purposes only and is not medical advice. Consult a doctor for any health concerns.\n\nFollow for daily body science.\n\n#humanbody #bodyscience #brainfacts",
-      "new_caption": "Doctors don't want you to know this about your blood's secret weapon — the science.\n\nHere's a quick look at the science behind doctors don't want you to know this about your blood's secret weapon — short, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBody #ScienceFacts."
+      "new_caption": "Doctors don't want you to know this about your blood's secret weapon — the science.\n\nHere's a quick look at the science behind doctors don't want you to know this about your blood's secret weapon — short, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBody #ScienceFacts.",
+      "edit_result": {
+        "success": true
+      },
+      "seed_comment": {
+        "text": "Curious — did you already know why Doctors don't want know blood's secret happens?",
+        "result": {
+          "id": "1330722271833473_1570415008213360"
+        }
+      }
     },
     {
       "id": "4500592876865584",
@@ -176,7 +365,16 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Doctors don't want you to know this about the bone that breaks most in fights—every secret. Every punch, every slam, cracks this silent warrior hidden beneath your ribs—inside you,...\n\nShare this if it blew your mind\n\nFollow for daily body science.\n\n#humanbody #bodyscience #brainfacts",
-      "new_caption": "Ever noticed doctors don't want you to know this about the bone that breaks most?\n\nHere's a quick look at the science behind doctors don't want you to know this about the bone that breaks most — short, accurate, no hype.\n\nFollow for short, accurate body science daily.\n\n#BodyScience #HumanBody #ScienceFacts."
+      "new_caption": "Ever noticed doctors don't want you to know this about the bone that breaks most?\n\nHere's a quick look at the science behind doctors don't want you to know this about the bone that breaks most — short, accurate, no hype.\n\nFollow for short, accurate body science daily.\n\n#BodyScience #HumanBody #ScienceFacts.",
+      "edit_result": {
+        "success": true
+      },
+      "seed_comment": {
+        "text": "Curious — did you already know why Doctors don't want know bone breaks happens?",
+        "result": {
+          "id": "1330722271833473_2038804676761959"
+        }
+      }
     },
     {
       "id": "1360222282706092",
@@ -184,7 +382,16 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Doctors don't want you to know this about your blood having a secret weapon.\n\nUncover the hidden power in your blood that keeps you awake and learn how to silence it for peaceful nights.\n\nShare this if it blew your mind\n\nFollow for daily body science.\n\n#humanbody #bodyscience #brainfacts",
-      "new_caption": "Doctors don't want you to know this about your blood having a secret — the science.\n\nHere's a quick look at the science behind doctors don't want you to know this about your blood having a secret — short, accurate, no hype.\n\nFollow — everyday biology, no hype.\n\n#BodyScience #HumanBody #ScienceFacts."
+      "new_caption": "Doctors don't want you to know this about your blood having a secret — the science.\n\nHere's a quick look at the science behind doctors don't want you to know this about your blood having a secret — short, accurate, no hype.\n\nFollow — everyday biology, no hype.\n\n#BodyScience #HumanBody #ScienceFacts.",
+      "edit_result": {
+        "success": true
+      },
+      "seed_comment": {
+        "text": "Has Doctors don't want know blood having ever happened at the worst possible time?",
+        "result": {
+          "id": "1330722271833473_27598046539877854"
+        }
+      }
     },
     {
       "id": "1025851906512601",
@@ -192,7 +399,16 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Your body is lying to you about your heart having its own brain. Here's the truth daily.\n\nUnveil the secret link between your heart and brain—discover how this hidden network can trigger anxiety and how to calm it.\n\nComment: Did this happen to you?\n\nFollow for daily body science.\n\n#brainfacts #brainscience #neuroscience",
-      "new_caption": "Ever noticed your body is lying to you about your heart having its own brain. Here's?\n\nHere's a quick look at the science behind your body is lying to you about your heart having its own brain. Here's — short, accurate, no hype.\n\nFollow for one body mystery explained every day.\n\n#BodyScience #HumanBody #ScienceFacts #Neuroscience #Hearing."
+      "new_caption": "Ever noticed your body is lying to you about your heart having its own brain. Here's?\n\nHere's a quick look at the science behind your body is lying to you about your heart having its own brain. Here's — short, accurate, no hype.\n\nFollow for one body mystery explained every day.\n\n#BodyScience #HumanBody #ScienceFacts #Neuroscience #Hearing.",
+      "edit_result": {
+        "success": true
+      },
+      "seed_comment": {
+        "text": "Has body lying heart having its own ever happened at the worst possible time?",
+        "result": {
+          "id": "1330722271833473_1030814743101109"
+        }
+      }
     },
     {
       "id": "1359126416180164",
@@ -200,7 +416,16 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Doctors don't want you to know this about your lungs drowning inside, a silent, deadly trap.\n\nA chilling look at how fluid in your lungs can silently suffocate you—and how to escape the nightmarish trap.\n\nShare this if it blew your mind\n\nFollow for daily body science.\n\n#humanbody #bodyscience #brainfacts",
-      "new_caption": "Ever noticed doctors don't want you to know this about your lungs drowning inside?\n\nHere's a quick look at the science behind doctors don't want you to know this about your lungs drowning inside — short, accurate, no hype.\n\nFollow for short, accurate body science daily.\n\n#BodyScience #HumanBody #ScienceFacts."
+      "new_caption": "Ever noticed doctors don't want you to know this about your lungs drowning inside?\n\nHere's a quick look at the science behind doctors don't want you to know this about your lungs drowning inside — short, accurate, no hype.\n\nFollow for short, accurate body science daily.\n\n#BodyScience #HumanBody #ScienceFacts.",
+      "edit_result": {
+        "success": true
+      },
+      "seed_comment": {
+        "text": "Curious — did you already know why Doctors don't want know lungs drowning happens?",
+        "result": {
+          "id": "1330722271833473_1641425767690580"
+        }
+      }
     },
     {
       "id": "3049328235257789",
@@ -208,7 +433,16 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Your body is lying to you about Your Lungs Can Drown You From Inside. Here's the truth.\n\nExplore the silent danger that can turn your lungs into an internal trap. Learn how to spot the signs before it’s too late.\n\n👇 Comment: Did this happen to you?\n\nFollow for daily body science.\n\n#humanbody #bodyscience #brainfacts",
-      "new_caption": "Ever noticed your body is lying to you about Your Lungs Can Drown You From Inside?\n\nHere's a quick look at the science behind your body is lying to you about Your Lungs Can Drown You From Inside — short, accurate, no hype.\n\nFollow for short, accurate body science daily.\n\n#BodyScience #HumanBody #ScienceFacts."
+      "new_caption": "Ever noticed your body is lying to you about Your Lungs Can Drown You From Inside?\n\nHere's a quick look at the science behind your body is lying to you about Your Lungs Can Drown You From Inside — short, accurate, no hype.\n\nFollow for short, accurate body science daily.\n\n#BodyScience #HumanBody #ScienceFacts.",
+      "edit_result": {
+        "success": true
+      },
+      "seed_comment": {
+        "text": "Have you ever noticed this with body lying Lungs Drown From Inside? Drop a 👇 if it's happened to you.",
+        "result": {
+          "id": "1330722271833473_1740401683903501"
+        }
+      }
     },
     {
       "id": "1438140801456427",
@@ -216,7 +450,16 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "This happens to your body every night... and you have no idea.\n\nExplore the hidden nightly defense that protects your body—an invisible shield formed by your own blood.\n\n👇 Follow for more dark body secrets This video is for educational/entertainment purposes only and is not medical advice. Consult a doctor for any health concerns.\n\nFollow for daily body science.\n\n#humanbody #bodyscience #brainfacts",
-      "new_caption": "Ever noticed this happens to your body every night. and you have no idea?\n\nHere's a quick look at the science behind this happens to your body every night. and you have no idea — short, accurate, no hype.\n\nFollow for short, accurate body science daily.\n\n#BodyScience #HumanBody #ScienceFacts."
+      "new_caption": "Ever noticed this happens to your body every night. and you have no idea?\n\nHere's a quick look at the science behind this happens to your body every night. and you have no idea — short, accurate, no hype.\n\nFollow for short, accurate body science daily.\n\n#BodyScience #HumanBody #ScienceFacts.",
+      "edit_result": {
+        "success": true
+      },
+      "seed_comment": {
+        "text": "Which body question should I explain next about happens body every night idea?",
+        "result": {
+          "id": "1330722271833473_3586355168186736"
+        }
+      }
     },
     {
       "id": "1005919162351949",
@@ -224,7 +467,16 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Your body is lying to you about your heart's own brain. Here’s the truth.\n\nExplore the hidden neural network inside your heart and how it can trigger anxiety. Learn to recognize and calm your heart’s mind.\n\n👇 Comment: Did this happen to you?\n\nFollow for daily body science.\n\n#brainfacts #brainscience #neuroscience",
-      "new_caption": "Ever noticed your body is lying to you about your heart's own brain. Here’s the truth?\n\nHere's a quick look at the science behind your body is lying to you about your heart's own brain. Here’s the truth — short, accurate, no hype.\n\nFollow — everyday biology, no hype.\n\n#BodyScience #HumanBody #ScienceFacts #Neuroscience #Hearing."
+      "new_caption": "Ever noticed your body is lying to you about your heart's own brain. Here’s the truth?\n\nHere's a quick look at the science behind your body is lying to you about your heart's own brain. Here’s the truth — short, accurate, no hype.\n\nFollow — everyday biology, no hype.\n\n#BodyScience #HumanBody #ScienceFacts #Neuroscience #Hearing.",
+      "edit_result": {
+        "success": true
+      },
+      "seed_comment": {
+        "text": "Have you ever noticed this with body lying heart's own brain truth? Drop a 👇 if it's happened to you.",
+        "result": {
+          "id": "1330722271833473_1094024566469224"
+        }
+      }
     },
     {
       "id": "1031719582637032",
@@ -232,7 +484,16 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "This happens to your body every night... and you have no idea.\n\nUnveil the eerie science behind your brain’s midnight transformation.\n\n👇 Follow for more dark body secrets\n\nFollow for daily body science.\n\n#brainfacts #brainscience #neuroscience",
-      "new_caption": "Ever noticed this happens to your body every night. and you have no idea?\n\nHere's a quick look at the science behind this happens to your body every night. and you have no idea — short, accurate, no hype.\n\nFollow for short, accurate body science daily.\n\n#BodyScience #HumanBody #ScienceFacts."
+      "new_caption": "Ever noticed this happens to your body every night. and you have no idea?\n\nHere's a quick look at the science behind this happens to your body every night. and you have no idea — short, accurate, no hype.\n\nFollow for short, accurate body science daily.\n\n#BodyScience #HumanBody #ScienceFacts.",
+      "edit_result": {
+        "success": true
+      },
+      "seed_comment": {
+        "text": "Which body question should I explain next about happens body every night idea?",
+        "result": {
+          "id": "1330722271833473_1059666443187095"
+        }
+      }
     },
     {
       "id": "1386742276679436",
@@ -240,7 +501,16 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Doctors don't want you to know this about the human body...\n\nDiscover the bone that breaks most in fights and the dark reason behind it, a secret doctors don't want you to know, and learn how to protect yourself.\n\n👇 Share this if it blew your mind\n\nFollow for daily body science.\n\n#humanbody #bodyscience #brainfacts",
-      "new_caption": "Ever noticed doctors don't want you to know this about the human body?\n\nHere's a quick look at the science behind doctors don't want you to know this about the human body — short, accurate, no hype.\n\nFollow for short, accurate body science daily.\n\n#BodyScience #HumanBody #ScienceFacts."
+      "new_caption": "Ever noticed doctors don't want you to know this about the human body?\n\nHere's a quick look at the science behind doctors don't want you to know this about the human body — short, accurate, no hype.\n\nFollow for short, accurate body science daily.\n\n#BodyScience #HumanBody #ScienceFacts.",
+      "edit_result": {
+        "success": true
+      },
+      "seed_comment": {
+        "text": "Which body question should I explain next about Doctors don't want know human body?",
+        "result": {
+          "id": "1330722271833473_1572283074685464"
+        }
+      }
     },
     {
       "id": "997257099608361",
@@ -248,7 +518,16 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "This happens to your body every night... and you have no idea.\n\nExplore the dark side of breathing and how your lungs can drown you from the inside, silently and without warning, every night, and learn how to protect yourself.\n\n👇 Follow for more dark body secrets This video is for educational/entertainment purposes only and is not medical advice. Consult a doctor for any health concerns.\n\nFollow for daily body science.\n\n#humanbody #bodyscience #brainfacts",
-      "new_caption": "Ever noticed this happens to your body every night. and you have no idea?\n\nHere's a quick look at the science behind this happens to your body every night. and you have no idea — short, accurate, no hype.\n\nFollow for short, accurate body science daily.\n\n#BodyScience #HumanBody #ScienceFacts."
+      "new_caption": "Ever noticed this happens to your body every night. and you have no idea?\n\nHere's a quick look at the science behind this happens to your body every night. and you have no idea — short, accurate, no hype.\n\nFollow for short, accurate body science daily.\n\n#BodyScience #HumanBody #ScienceFacts.",
+      "edit_result": {
+        "success": true
+      },
+      "seed_comment": {
+        "text": "Which body question should I explain next about happens body every night idea?",
+        "result": {
+          "id": "1330722271833473_4607708389467557"
+        }
+      }
     },
     {
       "id": "1039447355617327",
@@ -256,7 +535,16 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Your body is lying to you about your lungs. Here's the truth.\n\nDiscover the deadly secret inside you, and learn how to take control of your lung health, reducing anxiety about random body symptoms, and staying one step ahead.\n\n👇 Comment: Did this happen to you?\n\nFollow for daily body science.\n\n#humanbody #bodyscience #brainfacts",
-      "new_caption": "Ever noticed your body is lying to you about your lungs. Here's the truth?\n\nHere's a quick look at the science behind your body is lying to you about your lungs. Here's the truth — short, accurate, no hype.\n\nFollow — everyday biology, no hype.\n\n#BodyScience #HumanBody #ScienceFacts."
+      "new_caption": "Ever noticed your body is lying to you about your lungs. Here's the truth?\n\nHere's a quick look at the science behind your body is lying to you about your lungs. Here's the truth — short, accurate, no hype.\n\nFollow — everyday biology, no hype.\n\n#BodyScience #HumanBody #ScienceFacts.",
+      "edit_result": {
+        "success": true
+      },
+      "seed_comment": {
+        "text": "Has body lying lungs Here's truth ever happened at the worst possible time?",
+        "result": {
+          "id": "1330722271833473_1034210462723885"
+        }
+      }
     },
     {
       "id": "909039548133339",
@@ -264,7 +552,16 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Doctors don't want you to know this about your veins...\n\nExplore the dark truth about your veins and how they work, it's fascinating and will change your perspective on the human body.\n\n👇 Share this if it blew your mind\n\nFollow for daily body science.\n\n#humanbody #bodyscience #brainfacts",
-      "new_caption": "Doctors don't want you to know this about your veins — the science.\n\nHere's a quick look at the science behind doctors don't want you to know this about your veins — short, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBody #ScienceFacts."
+      "new_caption": "Doctors don't want you to know this about your veins — the science.\n\nHere's a quick look at the science behind doctors don't want you to know this about your veins — short, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBody #ScienceFacts.",
+      "edit_result": {
+        "success": true
+      },
+      "seed_comment": {
+        "text": "Have you ever noticed this with Doctors don't want know veins? Drop a 👇 if it's happened to you.",
+        "result": {
+          "id": "1330722271833473_1738290643880381"
+        }
+      }
     },
     {
       "id": "2805630619816879",
@@ -272,7 +569,16 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Your body is lying to you about the sound of your heartbeat. Here's the truth.\n\nUncover the dark truth about the sounds your heart makes and find relief from anxiety about mysterious body symptoms, taking back control of your health and wellbeing.\n\n👇 Comment: Did this happen to you?\n\nFollow for daily body science.\n\n#humanbody #bodyscience #brainfacts",
-      "new_caption": "Ever noticed your body is lying to you about the sound of your heartbeat. Here's?\n\nHere's a quick look at the science behind your body is lying to you about the sound of your heartbeat. Here's — short, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBody #ScienceFacts #Hearing #Cardio."
+      "new_caption": "Ever noticed your body is lying to you about the sound of your heartbeat. Here's?\n\nHere's a quick look at the science behind your body is lying to you about the sound of your heartbeat. Here's — short, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBody #ScienceFacts #Hearing #Cardio.",
+      "edit_result": {
+        "success": true
+      },
+      "seed_comment": {
+        "text": "Which body question should I explain next about body lying sound heartbeat Here's truth?",
+        "result": {
+          "id": "1330722271833473_2261518134599014"
+        }
+      }
     },
     {
       "id": "1027753856883818",
@@ -280,7 +586,16 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Most people go their entire life never knowing this about The Secret Behind Your Heartbeat.\n\nUnlock the secrets behind your heartbeat and discover the surprising truth about your body and its intricate systems.\n\n👇 Follow to unlock more body mysteries\n\nFollow for daily body science.\n\n#humanbody #bodyscience #brainfacts",
-      "new_caption": "Most people go their entire life never knowing this about The Secret — the science.\n\nHere's a quick look at the science behind most people go their entire life never knowing this about The Secret — short, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBody #ScienceFacts."
+      "new_caption": "Most people go their entire life never knowing this about The Secret — the science.\n\nHere's a quick look at the science behind most people go their entire life never knowing this about The Secret — short, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBody #ScienceFacts.",
+      "edit_result": {
+        "success": true
+      },
+      "seed_comment": {
+        "text": "Which body question should I explain next about Most people their entire life never?",
+        "result": {
+          "id": "1330722271833473_1799027991085071"
+        }
+      }
     },
     {
       "id": "4618601568425581",
@@ -288,7 +603,16 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Scientists only figured this out about Your Bones Are Being Replaced Right Now recently.\n\nDiscover the dark, mysterious process of bone replacement in your body, and how it affects your daily life, every moment, every breath.\n\n👇 Follow for more dark body secrets\n\nFollow for daily body science.\n\n#humanbody #bodyscience #brainfacts",
-      "new_caption": "Ever noticed scientists only figured this out about Your Bones Are Being Replaced Right?\n\nHere's a quick look at the science behind scientists only figured this out about Your Bones Are Being Replaced Right — short, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBody #ScienceFacts."
+      "new_caption": "Ever noticed scientists only figured this out about Your Bones Are Being Replaced Right?\n\nHere's a quick look at the science behind scientists only figured this out about Your Bones Are Being Replaced Right — short, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBody #ScienceFacts.",
+      "edit_result": {
+        "success": true
+      },
+      "seed_comment": {
+        "text": "Has Scientists only figured Bones Being Replaced ever happened at the worst possible time?",
+        "result": {
+          "id": "1330722271833473_1598527831648072"
+        }
+      }
     },
     {
       "id": "1060877382948529",
@@ -296,7 +620,16 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Scientists only figured this out about This Is What Deja Vu Actually Is recently.\n\nDiscover the mysterious truth behind Deja Vu, a phenomenon that has puzzled scientists for centuries, and learn what it actually is.\n\n👇 Share this if it blew your mind\n\nFollow for daily body science.\n\n#brainfacts #brainscience #neuroscience",
-      "new_caption": "Scientists only figured this out about This Is What Deja Vu Actually — the science.\n\nHere's a quick look at the science behind scientists only figured this out about This Is What Deja Vu Actually — short, accurate, no hype.\n\nFollow for short, accurate body science daily.\n\n#BodyScience #HumanBody #ScienceFacts."
+      "new_caption": "Scientists only figured this out about This Is What Deja Vu Actually — the science.\n\nHere's a quick look at the science behind scientists only figured this out about This Is What Deja Vu Actually — short, accurate, no hype.\n\nFollow for short, accurate body science daily.\n\n#BodyScience #HumanBody #ScienceFacts.",
+      "edit_result": {
+        "success": true
+      },
+      "seed_comment": {
+        "text": "Which body question should I explain next about Scientists only figured Deja recently?",
+        "result": {
+          "id": "1330722271833473_1812546693445738"
+        }
+      }
     },
     {
       "id": "1063311032815104",
@@ -304,7 +637,16 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "This is the creepiest thing your own body does.\n\nDiscover the dark reason your brain forgets names, and how it affects you daily.\n\n👇 Share this with someone who overthinks everything\n\nFollow for daily body science.\n\n#brainfacts #brainscience #neuroscience",
-      "new_caption": "Ever noticed this is the creepiest thing your own body?\n\nHere's a quick look at the science behind this is the creepiest thing your own body — short, accurate, no hype.\n\nFollow — everyday biology, no hype.\n\n#BodyScience #HumanBody #ScienceFacts."
+      "new_caption": "Ever noticed this is the creepiest thing your own body?\n\nHere's a quick look at the science behind this is the creepiest thing your own body — short, accurate, no hype.\n\nFollow — everyday biology, no hype.\n\n#BodyScience #HumanBody #ScienceFacts.",
+      "edit_result": {
+        "success": true
+      },
+      "seed_comment": {
+        "text": "Which body question should I explain next about creepiest thing own body?",
+        "result": {
+          "id": "1330722271833473_2081418932743926"
+        }
+      }
     },
     {
       "id": "1812219993275345",
@@ -312,7 +654,16 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Nobody told you this is happening inside you right now.\n\nDiscover the mysterious reasons behind your body's twitches at night, and what your body is trying to tell you.\n\n👇 Follow for more dark body secrets\n\nFollow for daily body science.\n\n#humanbody #bodyscience #brainfacts",
-      "new_caption": "Nobody told you this is happening inside you right now — the science.\n\nHere's a quick look at the science behind nobody told you this is happening inside you right now — short, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBody #ScienceFacts."
+      "new_caption": "Nobody told you this is happening inside you right now — the science.\n\nHere's a quick look at the science behind nobody told you this is happening inside you right now — short, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBody #ScienceFacts.",
+      "edit_result": {
+        "success": true
+      },
+      "seed_comment": {
+        "text": "Has Nobody told happening inside right now ever happened at the worst possible time?",
+        "result": {
+          "id": "1330722271833473_28020408284255165"
+        }
+      }
     },
     {
       "id": "1562083748879712",
@@ -320,7 +671,16 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Your pulse betrays you\n\nDiscover the shocking reason your pulse changes when you lie, and how your body reveals the truth, it's more complex than you think.\n\n👇 Save this for when you need to impress someone with facts\n\nFollow for daily body science.\n\n#humanbody #bodyscience #brainfacts",
-      "new_caption": "Your pulse betrays — the science.\n\nHere's a quick look at the science behind your pulse betrays — short, accurate, no hype.\n\nFollow — everyday biology, no hype.\n\n#BodyScience #HumanBody #ScienceFacts."
+      "new_caption": "Your pulse betrays — the science.\n\nHere's a quick look at the science behind your pulse betrays — short, accurate, no hype.\n\nFollow — everyday biology, no hype.\n\n#BodyScience #HumanBody #ScienceFacts.",
+      "edit_result": {
+        "success": true
+      },
+      "seed_comment": {
+        "text": "Curious — did you already know why pulse betrays happens?",
+        "result": {
+          "id": "1330722271833473_1761192878556129"
+        }
+      }
     },
     {
       "id": "1002453985926205",
@@ -328,7 +688,16 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Your heart is racing, but why?\n\nDiscover the reason your heart pounds in a crowd and what your body is trying to tell you, it's a warning sign you shouldn't ignore, and it's just the start of a bigger journey\n\n👇 Save this before you forget it\n\nFollow for daily body science.\n\n#humanbody #bodyscience #brainfacts",
-      "new_caption": "Ever noticed your heart is racing?\n\nHere's a quick look at the science behind your heart is racing — short, accurate, no hype.\n\nFollow for short, accurate body science daily.\n\n#BodyScience #HumanBody #ScienceFacts #Hearing #Cardio."
+      "new_caption": "Ever noticed your heart is racing?\n\nHere's a quick look at the science behind your heart is racing — short, accurate, no hype.\n\nFollow for short, accurate body science daily.\n\n#BodyScience #HumanBody #ScienceFacts #Hearing #Cardio.",
+      "edit_result": {
+        "success": true
+      },
+      "seed_comment": {
+        "text": "Which body question should I explain next about heart racing?",
+        "result": {
+          "id": "1330722271833473_881213018115737"
+        }
+      }
     },
     {
       "id": "1377013091021070",
@@ -336,7 +705,16 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "This sounds fake, but Your Lungs Can Drown You From Inside is 100% real.\n\nDiscover the shocking truth about your lungs and how they can drown you from the inside.\n\n👇 Comment 'same' if this happens to you too\n\nFollow for daily body science.\n\n#humanbody #bodyscience #brainfacts",
-      "new_caption": "Ever noticed this sounds fake, but Your Lungs Can Drown You From Inside is 100% real?\n\nHere's a quick look at the science behind this sounds fake, but Your Lungs Can Drown You From Inside is 100% real — short, accurate, no hype.\n\nFollow for short, accurate body science daily.\n\n#BodyScience #HumanBody #ScienceFacts."
+      "new_caption": "Ever noticed this sounds fake, but Your Lungs Can Drown You From Inside is 100% real?\n\nHere's a quick look at the science behind this sounds fake, but Your Lungs Can Drown You From Inside is 100% real — short, accurate, no hype.\n\nFollow for short, accurate body science daily.\n\n#BodyScience #HumanBody #ScienceFacts.",
+      "edit_result": {
+        "success": true
+      },
+      "seed_comment": {
+        "text": "Have you ever noticed this with sounds fake Lungs Drown From Inside? Drop a 👇 if it's happened to you.",
+        "result": {
+          "id": "1330722271833473_1749755839560372"
+        }
+      }
     },
     {
       "id": "1002834325717088",
@@ -344,7 +722,16 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "This is the creepiest thing your own body does.\n\nDiscover the creepy truth about your eyes and how they're moving even when you think they're still.\n\n👇 Comment '🤯' if this shocked you\n\nFollow for daily body science.\n\n#humanbody #bodyscience #brainfacts",
-      "new_caption": "Ever noticed this is the creepiest thing your own body?\n\nHere's a quick look at the science behind this is the creepiest thing your own body — short, accurate, no hype.\n\nFollow — everyday biology, no hype.\n\n#BodyScience #HumanBody #ScienceFacts."
+      "new_caption": "Ever noticed this is the creepiest thing your own body?\n\nHere's a quick look at the science behind this is the creepiest thing your own body — short, accurate, no hype.\n\nFollow — everyday biology, no hype.\n\n#BodyScience #HumanBody #ScienceFacts.",
+      "edit_result": {
+        "success": true
+      },
+      "seed_comment": {
+        "text": "Which body question should I explain next about creepiest thing own body?",
+        "result": {
+          "id": "1330722271833473_2780149979034338"
+        }
+      }
     },
     {
       "id": "1558634109273788",
@@ -352,7 +739,16 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Stress is killing you\n\n🤔 Did you know this?\n\nDiscover the shocking truth behind stress and blood pressure. Learn how your body reacts and what you can do about it to improve your overall health and wellbeing.\n\nFollow for daily body science.\n\n#humanbody #bodyscience #brainfacts",
-      "new_caption": "Stress is killing — the science.\n\nHere's a quick look at the science behind stress is killing — short, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBody #ScienceFacts #StressResponse."
+      "new_caption": "Stress is killing — the science.\n\nHere's a quick look at the science behind stress is killing — short, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBody #ScienceFacts #StressResponse.",
+      "edit_result": {
+        "success": true
+      },
+      "seed_comment": {
+        "text": "Which body question should I explain next about Stress killing?",
+        "result": {
+          "id": "1330722271833473_2055380601733191"
+        }
+      }
     },
     {
       "id": "2257463925002102",
@@ -360,7 +756,16 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Nobody told you this is happening inside you right now.\n\n🤔 Did you know this?\n\nDiscover the science behind super recognition and how your brain remembers faces, it's fascinating and will change your perspective.\n\nFollow for daily body science.\n\n#brainfacts #brainscience #neuroscience",
-      "new_caption": "Nobody told you this is happening inside you right now — the science.\n\nHere's a quick look at the science behind nobody told you this is happening inside you right now — short, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBody #ScienceFacts."
+      "new_caption": "Nobody told you this is happening inside you right now — the science.\n\nHere's a quick look at the science behind nobody told you this is happening inside you right now — short, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBody #ScienceFacts.",
+      "edit_result": {
+        "success": true
+      },
+      "seed_comment": {
+        "text": "Has Nobody told happening inside right now ever happened at the worst possible time?",
+        "result": {
+          "id": "1330722271833473_1043490105143846"
+        }
+      }
     },
     {
       "id": "967362659655619",
@@ -368,7 +773,16 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "You think you see a lot of greens, but.\n\nDid you know your eyes can see more shades of green than any other color? Learn why in this video.\n\nThis Facebook page explains the stuff nobody else does — follow.\n\nFollow for daily body science.\n\n#humanbody #bodyscience #brainfacts",
-      "new_caption": "What happens when you think you see a lot of greens?\n\nHere's a quick look at the science behind what happens when you think you see a lot of greens — short, accurate, no hype.\n\nFollow for one body mystery explained every day.\n\n#BodyScience #HumanBody #ScienceFacts."
+      "new_caption": "What happens when you think you see a lot of greens?\n\nHere's a quick look at the science behind what happens when you think you see a lot of greens — short, accurate, no hype.\n\nFollow for one body mystery explained every day.\n\n#BodyScience #HumanBody #ScienceFacts.",
+      "edit_result": {
+        "success": true
+      },
+      "seed_comment": {
+        "text": "Has think see lot greens ever happened at the worst possible time?",
+        "result": {
+          "id": "1330722271833473_2328445911229482"
+        }
+      }
     },
     {
       "id": "2127682905297477",
@@ -376,7 +790,16 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "When you hear music that isn't there, it's not...\n\nUncover the fascinating science behind phantom music in your brain.\n\nShare this with someone who loves random facts.\n\nFollow for daily body science.\n\n#brainfacts #brainscience #neuroscience",
-      "new_caption": "What happens when you hear music that isn't there, it's not?\n\nHere's a quick look at the science behind what happens when you hear music that isn't there, it's not — short, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBody #ScienceFacts #Hearing."
+      "new_caption": "What happens when you hear music that isn't there, it's not?\n\nHere's a quick look at the science behind what happens when you hear music that isn't there, it's not — short, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBody #ScienceFacts #Hearing.",
+      "edit_result": {
+        "success": true
+      },
+      "seed_comment": {
+        "text": "Have you ever noticed this with hear music isn't it's not? Drop a 👇 if it's happened to you.",
+        "result": {
+          "id": "1330722271833473_911715751710938"
+        }
+      }
     },
     {
       "id": "1590736172650812",
@@ -384,7 +807,16 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Your body's internal clock is controlled by a tiny gland.\n\nLearn how your body's internal clock and brain activity affect your sleep-wake cycle and overall well-being.\n\nThis channel explains the stuff nobody else does — follow.\n\nFollow for daily body science.\n\n#brainfacts #brainscience #neuroscience",
-      "new_caption": "Ever noticed your body's internal clock is controlled by a tiny gland?\n\nHere's a quick look at the science behind your body's internal clock is controlled by a tiny gland — short, accurate, no hype.\n\nFollow for short, accurate body science daily.\n\n#BodyScience #HumanBody #ScienceFacts."
+      "new_caption": "Ever noticed your body's internal clock is controlled by a tiny gland?\n\nHere's a quick look at the science behind your body's internal clock is controlled by a tiny gland — short, accurate, no hype.\n\nFollow for short, accurate body science daily.\n\n#BodyScience #HumanBody #ScienceFacts.",
+      "edit_result": {
+        "success": true
+      },
+      "seed_comment": {
+        "text": "Have you ever noticed this with body's internal clock controlled tiny gland? Drop a 👇 if it's happened to you.",
+        "result": {
+          "id": "1330722271833473_1721712595720568"
+        }
+      }
     },
     {
       "id": "1595057902237036",
@@ -392,7 +824,16 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Your brain creates 50,000 thoughts daily, but most are false.\n\nYour brain creates 50,000 thoughts daily, most of which are false. Learn how to break free from this cycle and take back control.\n\nFollow for more facts like this.\n\nFollow for daily body science.\n\n#brainfacts #brainscience #neuroscience",
-      "new_caption": "Ever noticed your brain creates 50,000 thoughts daily, but most are false?\n\nHere's a quick look at the science behind your brain creates 50,000 thoughts daily, but most are false — short, accurate, no hype.\n\nFollow for short, accurate body science daily.\n\n#BodyScience #HumanBody #ScienceFacts #Neuroscience."
+      "new_caption": "Ever noticed your brain creates 50,000 thoughts daily, but most are false?\n\nHere's a quick look at the science behind your brain creates 50,000 thoughts daily, but most are false — short, accurate, no hype.\n\nFollow for short, accurate body science daily.\n\n#BodyScience #HumanBody #ScienceFacts #Neuroscience.",
+      "edit_result": {
+        "success": true
+      },
+      "seed_comment": {
+        "text": "Have you ever noticed this with brain creates thoughts daily most false? Drop a 👇 if it's happened to you.",
+        "result": {
+          "id": "1330722271833473_1036052609178595"
+        }
+      }
     },
     {
       "id": "1952677572018954",
@@ -400,7 +841,16 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Did you know gut bacteria produce neurotransmitters?\n\nScientists have found a link between gut bacteria and mood regulation through serotonin production.\n\nFollow for daily body science.\n\n#brainfacts #brainscience #neuroscience",
-      "new_caption": "Ever noticed your gut bacteria produce neurotransmitters?\n\nHere's a quick look at the science behind your gut bacteria produce neurotransmitters — short, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBody #ScienceFacts #GutHealth."
+      "new_caption": "Ever noticed your gut bacteria produce neurotransmitters?\n\nHere's a quick look at the science behind your gut bacteria produce neurotransmitters — short, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBody #ScienceFacts #GutHealth.",
+      "edit_result": {
+        "success": true
+      },
+      "seed_comment": {
+        "text": "Have you ever noticed this with gut bacteria produce neurotransmitters? Drop a 👇 if it's happened to you.",
+        "result": {
+          "id": "1330722271833473_1346733424298120"
+        }
+      }
     }
   ],
   "instagram": [
@@ -410,7 +860,10 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Your calf locks up\n\nLearn what causes sudden calf cramps at night and a simple way to reduce them for better sleep and overall well-being\n\nMore science that surprises you — follow along\n\n#humanbody #bodyscience #sudden\n\nMore body science on YouTube @MrNextep",
-      "new_caption": "Ever noticed your calf locks?\n\nHere's the body science behind your calf locks — quick, accurate, no hype.\n\nFollow for short, accurate body science daily.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts."
+      "new_caption": "Ever noticed your calf locks?\n\nHere's the body science behind your calf locks — quick, accurate, no hype.\n\nFollow for short, accurate body science daily.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts.",
+      "edit_result": {
+        "success": true
+      }
     },
     {
       "id": "17894064276573755",
@@ -418,7 +871,10 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "You're stuck on it\n\nLearn why you get stuck on a 5-second song loop and how to replace it with a new tune\n\nThis channel explains the stuff nobody else does — follow\n\n#brainfacts #brainscience #neuroscience\n\nMore body science on YouTube @MrNextep",
-      "new_caption": "What happens when you're stuck?\n\nHere's the body science behind what happens when you're stuck — quick, accurate, no hype.\n\nFollow — everyday biology, no hype.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts."
+      "new_caption": "What happens when you're stuck?\n\nHere's the body science behind what happens when you're stuck — quick, accurate, no hype.\n\nFollow — everyday biology, no hype.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts.",
+      "edit_result": {
+        "success": true
+      }
     },
     {
       "id": "18463627924119053",
@@ -426,7 +882,10 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Your ears ring loudly\n\nLearn why your ears sometimes ring in complete silence and what it means for your body and hearing health\n\nMore science that surprises you — follow along\n\n#humanbody #bodyscience #ears\n\nMore body science on YouTube @MrNextep",
-      "new_caption": "Ever noticed your ears ring loudly?\n\nHere's the body science behind your ears ring loudly — quick, accurate, no hype.\n\nFollow — everyday biology, no hype.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts #Hearing."
+      "new_caption": "Ever noticed your ears ring loudly?\n\nHere's the body science behind your ears ring loudly — quick, accurate, no hype.\n\nFollow — everyday biology, no hype.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts #Hearing.",
+      "edit_result": {
+        "success": true
+      }
     },
     {
       "id": "18347411611221956",
@@ -434,7 +893,10 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Your foot falls asleep\n\nFollow for daily body science\n\n#humanbody #bodyscience #foot\n\nMore body science on YouTube @MrNextep",
-      "new_caption": "Ever noticed your foot falls asleep?\n\nHere's the body science behind your foot falls asleep — quick, accurate, no hype.\n\nFollow — everyday biology, no hype.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts #SleepScience."
+      "new_caption": "Ever noticed your foot falls asleep?\n\nHere's the body science behind your foot falls asleep — quick, accurate, no hype.\n\nFollow — everyday biology, no hype.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts #SleepScience.",
+      "edit_result": {
+        "success": true
+      }
     },
     {
       "id": "18202408738367339",
@@ -442,7 +904,10 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "You gag brushing back teeth\n\nLearn why brushing your back teeth can trigger a sudden gag and how to prevent it for a more comfortable daily routine\n\nFollow along — new facts every day\n\n#humanbody #bodyscience #brushing\n\nMore body science on YouTube @MrNextep",
-      "new_caption": "What happens when you gag brushing back teeth?\n\nHere's the body science behind what happens when you gag brushing back teeth — quick, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts."
+      "new_caption": "What happens when you gag brushing back teeth?\n\nHere's the body science behind what happens when you gag brushing back teeth — quick, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts.",
+      "edit_result": {
+        "success": true
+      }
     },
     {
       "id": "18543842077076212",
@@ -450,7 +915,10 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "You see glowing spots\n\nFollow for daily body science\n\n#humanbody #bodyscience #seeing\n\nMore body science on YouTube @MrNextep",
-      "new_caption": "What happens when you see glowing spots?\n\nHere's the body science behind what happens when you see glowing spots — quick, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts."
+      "new_caption": "What happens when you see glowing spots?\n\nHere's the body science behind what happens when you see glowing spots — quick, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts.",
+      "edit_result": {
+        "success": true
+      }
     },
     {
       "id": "18105670700521685",
@@ -458,7 +926,10 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Your coffee kills taste\n\nFind out why hot coffee can temporarily ruin your sense of taste and what you can do about it\n\nFollow along — new facts every day\n\n#humanbody #bodyscience #losing\n\nMore body science on YouTube @MrNextep",
-      "new_caption": "Your coffee kills taste — the science.\n\nHere's the body science behind your coffee kills taste — quick, accurate, no hype.\n\nFollow for short, accurate body science daily.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts."
+      "new_caption": "Your coffee kills taste — the science.\n\nHere's the body science behind your coffee kills taste — quick, accurate, no hype.\n\nFollow for short, accurate body science daily.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts.",
+      "edit_result": {
+        "success": true
+      }
     },
     {
       "id": "18009592496946887",
@@ -466,7 +937,10 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Your hands feel cold.\n\nBody science explained: human body, body science, hands.\n\nFollow along — one body mystery a day.\n\n#humanbody #bodyscience #hands #cold #stressful\n\nMore body science on YouTube @MrNextep",
-      "new_caption": "Ever noticed your hands feel cold?\n\nHere's the body science behind your hands feel cold — quick, accurate, no hype.\n\nFollow — everyday biology, no hype.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts."
+      "new_caption": "Ever noticed your hands feel cold?\n\nHere's the body science behind your hands feel cold — quick, accurate, no hype.\n\nFollow — everyday biology, no hype.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts.",
+      "edit_result": {
+        "success": true
+      }
     },
     {
       "id": "18022095557886789",
@@ -474,7 +948,10 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Your nose tip freezes.\n\nLearn why your nose tip feels freezing even when you're indoors and warm, and how your body responds to cold air.\n\nBody science explained: human body, body science, nose.\n\nFollow along — one body mystery a day.\n\n#humanbody #bodyscience #nose #tip #freezing\n\nMore body science on YouTube @MrNextep",
-      "new_caption": "Ever noticed your nose tip freezes?\n\nHere's the body science behind your nose tip freezes — quick, accurate, no hype.\n\nFollow — everyday biology, no hype.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts."
+      "new_caption": "Ever noticed your nose tip freezes?\n\nHere's the body science behind your nose tip freezes — quick, accurate, no hype.\n\nFollow — everyday biology, no hype.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts.",
+      "edit_result": {
+        "success": true
+      }
     },
     {
       "id": "18418327993146692",
@@ -482,7 +959,10 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "You Stop Breathing Normally.\n\nYour body regulates breathing and heart rate naturally.\n\nLearn what happens to your body when you sleep and how it affects your daily life and overall health and wellness.\n\nBody science: body, sleep, neuroscience.\n\nFollow for more everyday biology, explained simply.\n\n#body #sleep #neuroscience #brainfacts #mindblowing\n\nMore body science on YouTube @MrNextep",
-      "new_caption": "What happens when you Stop Breathing Normally?\n\nHere's the body science behind what happens when you Stop Breathing Normally — quick, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts #Breathing."
+      "new_caption": "What happens when you Stop Breathing Normally?\n\nHere's the body science behind what happens when you Stop Breathing Normally — quick, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts #Breathing.",
+      "edit_result": {
+        "success": true
+      }
     },
     {
       "id": "18201772657365544",
@@ -490,7 +970,10 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Your body freezes suddenly.\n\nYou can breathe and relax to calm your nervous system.\n\nLearn why your body freezes when you're scared and how to calm down.\n\nBody science: human body, body science, body.\n\nFollow for daily body science.\n\n#humanbody #bodyscience #body #freezes #youre\n\nMore body science on YouTube @MrNextep",
-      "new_caption": "Ever noticed your body freezes?\n\nHere's the body science behind your body freezes — quick, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts."
+      "new_caption": "Ever noticed your body freezes?\n\nHere's the body science behind your body freezes — quick, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts.",
+      "edit_result": {
+        "success": true
+      }
     },
     {
       "id": "18069798800706226",
@@ -498,7 +981,10 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Your body twitches suddenly.\n\nBut if they're persistent, it's a good idea to consult a doctor for advice.\n\nLearn why your body twitches every time and what it means for your overall health and well-being daily.\n\nBody science: human body, body science, body.\n\nFollow along — one body mystery a day.\n\n#humanbody #bodyscience #body #every #time\n\nMore body science on YouTube @MrNextep",
-      "new_caption": "Ever noticed your body twitches?\n\nHere's the body science behind your body twitches — quick, accurate, no hype.\n\nFollow — everyday biology, no hype.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts."
+      "new_caption": "Ever noticed your body twitches?\n\nHere's the body science behind your body twitches — quick, accurate, no hype.\n\nFollow — everyday biology, no hype.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts.",
+      "edit_result": {
+        "success": true
+      }
     },
     {
       "id": "17922877575404932",
@@ -506,7 +992,10 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "You suddenly shake awake.\n\nIt's called a hypnic jerk, a common and harmless occurrence.\n\nLearn why your body shakes when you sleep and what it's called, a hypnic jerk, a common sleep phenomenon that's usually harmless.\n\nBody science: body, shakes, sleep.\n\nFollow for daily body science.\n\n#body #shakes #sleep #neuroscience #brainfacts\n\nMore body science on YouTube @MrNextep",
-      "new_caption": "What happens when you suddenly shake awake?\n\nHere's the body science behind what happens when you suddenly shake awake — quick, accurate, no hype.\n\nFollow for short, accurate body science daily.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts."
+      "new_caption": "What happens when you suddenly shake awake?\n\nHere's the body science behind what happens when you suddenly shake awake — quick, accurate, no hype.\n\nFollow for short, accurate body science daily.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts.",
+      "edit_result": {
+        "success": true
+      }
     },
     {
       "id": "18071429744404417",
@@ -514,7 +1003,10 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Your body freezes suddenly.\n\nYour body freezes to protect you from potential harm instinctively.\n\nLearn why your body freezes when you're scared and how it's a natural response to protect you from harm.\n\nBody science: human body, body science, body.\n\nFollow for daily body science.\n\n#humanbody #bodyscience #body #freezes #youre\n\nMore body science on YouTube @MrNextep",
-      "new_caption": "Ever noticed your body freezes?\n\nHere's the body science behind your body freezes — quick, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts."
+      "new_caption": "Ever noticed your body freezes?\n\nHere's the body science behind your body freezes — quick, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts.",
+      "edit_result": {
+        "success": true
+      }
     },
     {
       "id": "18121504340493589",
@@ -522,7 +1014,10 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Your body freezes up.\n\nGetting enough sleep helps your brain and muscles function properly.\n\nFind out why your body stiffens when you don't sleep enough, and how to fix it.\n\nBody science: body, dont, sleep.\n\nFollow for more everyday biology, explained simply.\n\n#americanstem #anatomy #body #bodyglitches #bodymysteries\n\nMore body science on YouTube @MrNextep",
-      "new_caption": "Ever noticed your body freezes?\n\nHere's the body science behind your body freezes — quick, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts."
+      "new_caption": "Ever noticed your body freezes?\n\nHere's the body science behind your body freezes — quick, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts.",
+      "edit_result": {
+        "success": true
+      }
     },
     {
       "id": "18088727129373160",
@@ -530,7 +1025,10 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "You freeze up in your sleep every night.\n\nIt's not a cause for concern, just a normal part of sleep.\n\nYour body freezes up in your sleep every night due to normal brain activity during REM sleep.\n\nBody science: body, sleep, neuroscience.\n\nFollow for more everyday biology, explained simply.\n\n#americanstem #anatomy #body #bodyglitches #bodymysteries\n\nMore body science on YouTube @MrNextep",
-      "new_caption": "What happens when you freeze up in your sleep every night?\n\nHere's the body science behind what happens when you freeze up in your sleep every night — quick, accurate, no hype.\n\nFollow for short, accurate body science daily.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts #SleepScience."
+      "new_caption": "What happens when you freeze up in your sleep every night?\n\nHere's the body science behind what happens when you freeze up in your sleep every night — quick, accurate, no hype.\n\nFollow for short, accurate body science daily.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts #SleepScience.",
+      "edit_result": {
+        "success": true
+      }
     },
     {
       "id": "18175352608438214",
@@ -538,7 +1036,10 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "You're freezing on your couch every night.\n\nSo your body shakes as it tries to adjust to the slower response time.\n\nYour body shakes when you sleep due to your brain's motor control system being active.\n\nBody science: body, shakes, sleep.\n\nFollow for daily body science.\n\n#americanstem #anatomy #body #bodyglitches #bodymysteries\n\nMore body science on YouTube @MrNextep",
-      "new_caption": "What happens when you're freezing on your couch every night?\n\nHere's the body science behind what happens when you're freezing on your couch every night — quick, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts."
+      "new_caption": "What happens when you're freezing on your couch every night?\n\nHere's the body science behind what happens when you're freezing on your couch every night — quick, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts.",
+      "edit_result": {
+        "success": true
+      }
     },
     {
       "id": "17958833967189983",
@@ -546,7 +1047,10 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "You're sleeping, but still aware of your heart.\n\nYour heart rate drops to around 40-50 beats per minute.\n\nLearn why your heart rate drops while you sleep.\n\nBody science: body, sleep, neuroscience.\n\nFollow for more everyday biology, explained simply.\n\n#americanstem #anatomy #body #bodyglitches #bodymysteries\n\nMore body science on YouTube @MrNextep",
-      "new_caption": "What happens when you're sleeping, but still aware of your heart?\n\nHere's the body science behind what happens when you're sleeping, but still aware of your heart — quick, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts #SleepScience #Hearing."
+      "new_caption": "What happens when you're sleeping, but still aware of your heart?\n\nHere's the body science behind what happens when you're sleeping, but still aware of your heart — quick, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts #SleepScience #Hearing.",
+      "edit_result": {
+        "success": true
+      }
     },
     {
       "id": "17859956940680737",
@@ -554,7 +1058,10 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Why do you feel paralyzed when you sleep?\n\nIn fact, you're most likely to experience this paralysis during the REM sleep stage.\n\nLearn why your body freezes up when you sleep and what's happening in your brain.\n\nBody science: body, sleep, neuroscience.\n\nFollow for more everyday biology, explained simply.\n\n#americanstem #anatomy #body #bodyglitches #bodymysteries\n\nMore body science on YouTube @MrNextep",
-      "new_caption": "Here's why why do you feel paralyzed when you sleep?\n\nHere's the body science behind why do you feel paralyzed when you sleep — quick, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts #SleepScience."
+      "new_caption": "Here's why why do you feel paralyzed when you sleep?\n\nHere's the body science behind why do you feel paralyzed when you sleep — quick, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts #SleepScience.",
+      "edit_result": {
+        "success": true
+      }
     },
     {
       "id": "17910974838444227",
@@ -562,7 +1069,10 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "You're having a great night's sleep, then suddenly.\n\nBut when the threat passes, your body relaxes and you can move again.\n\nYour body needs sleep to recover from stress caused by the brain's 'fight or flight' response.\n\nBody science: body, needs, sleep.\n\nFollow — your body does weirder things than you think.\n\n#americanstem #anatomy #body #bodyglitches #bodymysteries\n\nMore body science on YouTube @MrNextep",
-      "new_caption": "What happens when you're having a great night's sleep, then?\n\nHere's the body science behind what happens when you're having a great night's sleep, then — quick, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts #SleepScience."
+      "new_caption": "What happens when you're having a great night's sleep, then?\n\nHere's the body science behind what happens when you're having a great night's sleep, then — quick, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts #SleepScience.",
+      "edit_result": {
+        "success": true
+      }
     },
     {
       "id": "18154709416477168",
@@ -570,7 +1080,10 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "You wake up, but your voice is gone.\n\nBut it's normal, and usually goes away after a few minutes.\n\nLearn why your voice sounds hoarse or weak when you wake up, and how long it takes for your vocal cords to adjust.\n\nBody science: body, dont, sleep.\n\nFollow for more everyday biology, explained simply.\n\n#americanstem #anatomy #body #bodyglitches #bodymysteries\n\nMore body science on YouTube @MrNextep",
-      "new_caption": "What happens when you wake up, but your voice is gone?\n\nHere's the body science behind what happens when you wake up, but your voice is gone — quick, accurate, no hype.\n\nFollow for short, accurate body science daily.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts."
+      "new_caption": "What happens when you wake up, but your voice is gone?\n\nHere's the body science behind what happens when you wake up, but your voice is gone — quick, accurate, no hype.\n\nFollow for short, accurate body science daily.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts.",
+      "edit_result": {
+        "success": true
+      }
     },
     {
       "id": "18106750781120830",
@@ -578,7 +1091,10 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Your body freezes you before a scare.\n\nIn fact, your body freezes up to 0.\n\nDiscover why your body freezes when you're scared, and why it's a normal response to a sudden threat.\n\nBody science: human body, body science, body.\n\nFollow for daily body science.\n\n#americanstem #anatomy #biology #body #bodyawareness\n\nMore body science on YouTube @MrNextep",
-      "new_caption": "Ever noticed your body freezes you before a scare?\n\nHere's the body science behind your body freezes you before a scare — quick, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts."
+      "new_caption": "Ever noticed your body freezes you before a scare?\n\nHere's the body science behind your body freezes you before a scare — quick, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts.",
+      "edit_result": {
+        "success": true
+      }
     },
     {
       "id": "18106270670273654",
@@ -586,7 +1102,10 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "You wake up to a terrifying sound.\n\nThe good news is that most people experience sleep paralysis at some point.\n\nLearn why your body freezes when scared at night, and why it's not as scary as it seems.\n\nBody science: body, sleep, neuroscience.\n\nFollow for more everyday biology, explained simply.\n\n#americanstem #anatomy #body #bodyglitches #bodymysteries\n\nMore body science on YouTube @MrNextep",
-      "new_caption": "What happens when you wake up to a terrifying sound?\n\nHere's the body science behind what happens when you wake up to a terrifying sound — quick, accurate, no hype.\n\nFollow for short, accurate body science daily.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts."
+      "new_caption": "What happens when you wake up to a terrifying sound?\n\nHere's the body science behind what happens when you wake up to a terrifying sound — quick, accurate, no hype.\n\nFollow for short, accurate body science daily.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts.",
+      "edit_result": {
+        "success": true
+      }
     },
     {
       "id": "18156423490496365",
@@ -594,7 +1113,10 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Your body freezes in scary moments.\n\nSo, your brain is trying to keep you safe.\n\nLearn why your body freezes when you're scared, and what your brain is really doing.\n\nBody science: human body, body science, body.\n\nFollow for daily body science.\n\n#americanstem #anatomy #biology #body #bodyawareness\n\nMore body science on YouTube @MrNextep",
-      "new_caption": "Ever noticed your body freezes in scary moments?\n\nHere's the body science behind your body freezes in scary moments — quick, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts."
+      "new_caption": "Ever noticed your body freezes in scary moments?\n\nHere's the body science behind your body freezes in scary moments — quick, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts.",
+      "edit_result": {
+        "success": true
+      }
     },
     {
       "id": "18114529840822982",
@@ -602,7 +1124,10 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "You wake up groggy, your voice is gone.\n\nAnd your voice sounds normal again.\n\nWhen you don't sleep for 24 hours, your vocal cords become inflamed and your voice weakens.\n\nBody science: body, dont, sleep.\n\nFollow for more everyday biology, explained simply.\n\n#americanstem #anatomy #body #bodyglitches #bodymysteries\n\nMore body science on YouTube @MrNextep",
-      "new_caption": "What happens when you wake up groggy, your voice is gone?\n\nHere's the body science behind what happens when you wake up groggy, your voice is gone — quick, accurate, no hype.\n\nFollow — everyday biology, no hype.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts."
+      "new_caption": "What happens when you wake up groggy, your voice is gone?\n\nHere's the body science behind what happens when you wake up groggy, your voice is gone — quick, accurate, no hype.\n\nFollow — everyday biology, no hype.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts.",
+      "edit_result": {
+        "success": true
+      }
     },
     {
       "id": "18612613474022611",
@@ -610,7 +1135,10 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Your body shakes when you sleep, why?\n\nAnd it's usually nothing to worry about.\n\nYour body shakes when you sleep because your brain's motor cortex is active and sending signals to your muscles.\n\nBody science: body, shakes, sleep.\n\nFollow for daily body science.\n\n#americanstem #anatomy #body #bodyglitches #bodymysteries\n\nMore body science on YouTube @MrNextep",
-      "new_caption": "Ever noticed your body shakes when you sleep?\n\nHere's the body science behind your body shakes when you sleep — quick, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts #SleepScience."
+      "new_caption": "Ever noticed your body shakes when you sleep?\n\nHere's the body science behind your body shakes when you sleep — quick, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts #SleepScience.",
+      "edit_result": {
+        "success": true
+      }
     },
     {
       "id": "18137677459577895",
@@ -618,7 +1146,10 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Your body shakes when you sleep, but why?\n\nSo, your body shakes when you sleep because of active muscles during REM sleep.\n\nYour body shakes when you sleep due to active muscles during REM sleep.\n\nBody science: body, shakes, sleep.\n\nFollow for daily body science.\n\n#americanstem #anatomy #body #bodyglitches #bodymysteries\n\nMore body science on YouTube @MrNextep",
-      "new_caption": "Ever noticed your body shakes when you sleep?\n\nHere's the body science behind your body shakes when you sleep — quick, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts #SleepScience."
+      "new_caption": "Ever noticed your body shakes when you sleep?\n\nHere's the body science behind your body shakes when you sleep — quick, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts #SleepScience.",
+      "edit_result": {
+        "success": true
+      }
     },
     {
       "id": "18029134769666573",
@@ -626,7 +1157,10 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Your body shakes when you sleep why.\n\nAnd that's why your body shakes when you sleep.\n\nYour body shakes when you sleep due to remaining stress and tension release.\n\nBody science: body, shakes, sleep.\n\nFollow for daily body science.\n\n#americanstem #anatomy #body #bodyglitches #bodymysteries\n\nMore body science on YouTube @MrNextep",
-      "new_caption": "Ever noticed your body shakes when you sleep?\n\nHere's the body science behind your body shakes when you sleep — quick, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts #SleepScience."
+      "new_caption": "Ever noticed your body shakes when you sleep?\n\nHere's the body science behind your body shakes when you sleep — quick, accurate, no hype.\n\nFollow along for the things your body does and why.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts #SleepScience.",
+      "edit_result": {
+        "success": true
+      }
     },
     {
       "id": "18080252354690210",
@@ -634,7 +1168,10 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Body shakes at night, why?\n\nSo, the next time your body shakes at night.\n\nFind out why your body shakes at night, and what it means for your sleep.\n\nBody science: body, shakes, sleep.\n\nFollow for daily body science.\n\n#americanstem #anatomy #body #bodyglitches #bodymysteries\n\nMore body science on YouTube @MrNextep",
-      "new_caption": "Ever noticed your Body shakes at night?\n\nHere's the body science behind your Body shakes at night — quick, accurate, no hype.\n\nFollow — everyday biology, no hype.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts."
+      "new_caption": "Ever noticed your Body shakes at night?\n\nHere's the body science behind your Body shakes at night — quick, accurate, no hype.\n\nFollow — everyday biology, no hype.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts.",
+      "edit_result": {
+        "success": true
+      }
     },
     {
       "id": "17932288374122345",
@@ -642,7 +1179,10 @@
       "old_score": 6,
       "new_score": 10,
       "old_caption": "Think back to your high school sports days.\n\nSo, your high school sports skills were probably just a lucky streak.\n\nRegression to the mean explains why your high school sports skills seemed so much better than they actually were.\n\nBody science: human body, body science, regression.\n\nFollow along — one body mystery a day.\n\n#americanstem #anatomy #biology #bodyawareness #yourbody\n\nMore body science on YouTube @MrNextep",
-      "new_caption": "Ever noticed think back to your high school sports days?\n\nHere's the body science behind think back to your high school sports days — quick, accurate, no hype.\n\nFollow — everyday biology, no hype.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts."
+      "new_caption": "Ever noticed think back to your high school sports days?\n\nHere's the body science behind think back to your high school sports days — quick, accurate, no hype.\n\nFollow — everyday biology, no hype.\n\n#BodyScience #HumanBodyFacts #ScienceExplained #EverydayScience #BiologyFacts.",
+      "edit_result": {
+        "success": true
+      }
     }
   ],
   "warnings": []
