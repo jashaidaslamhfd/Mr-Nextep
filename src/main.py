@@ -164,7 +164,6 @@ class SKILLORPipeline:
         """Get recent topics to avoid repetition"""
         return [v.get('topic') for v in self.video_history[-n:] if v.get('topic')]
 
-    @staticmethod
     def _apply_strategy_decision(self) -> dict:
         """Consult the Autonomous Strategy Engine before generating.
 
