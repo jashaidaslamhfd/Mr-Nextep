@@ -115,3 +115,33 @@ python scripts/strategy_decision.py --reset
 - **180/180 tests pass** (172 existing + 8 new strategy-engine tests).
 - `pyflakes` clean across `src/`, `scripts/`, `tests/`.
 - All modules compile.
+
+---
+
+## Advanced Intelligence Layer (new — `src/intelligence.py`)
+
+The basic strategy engine now sits on top of a genuinely smarter model stack.
+Where before there was a single RandomForest, the advanced layer provides:
+
+1. **Cross-validated weighted ENSEMBLE** — RandomForest + GradientBoosting +
+   ExtraTrees + Ridge each predict views/completion, blended by out-of-fold
+   R² so the model that is actually best on THIS channel dominates.
+2. **Stacking meta-learner (DL-inspired)** — treats each base model's
+   out-of-fold prediction as a *feature* and fits a ridge meta-model to learn
+   the optimal blend (which model to trust when). Learnt coefficients show
+   exactly how much weight each base model should get.
+3. **IsolationForest viral-outlier detection** — flags 1000+ view spikes so
+   the model isn't skewed by anomalies, and so outliers can be studied.
+4. **KMeans-on-PCA topic segments** — clusters videos by feature profile and
+   recommends which content segment retains best.
+5. **Feature importance with correlation fallback** — always returns a ranked
+   lever list even when the best model is linear.
+6. **Calibrated confidence** (low/medium/high) so the pipeline knows how much
+   to trust each prediction.
+
+Wired into `strategy_engine.decide()` as the `intelligence` field (non-blocking:
+if the advanced stack fails, the basic lever analysis still runs).
+
+### Test status
+- **53 tests pass** (12 intelligence + 41 prior).
+- `pyflakes` clean; all modules compile.
