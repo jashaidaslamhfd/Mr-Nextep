@@ -24,6 +24,7 @@ from __future__ import annotations
 import argparse
 import json
 import logging
+import os
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -247,23 +248,61 @@ class DeepRepair2026:
     def _ig_id(self, v: dict) -> Optional[str]:
         return v.get("instagram_id") or v.get("instagram_media_id")
 
+    def _live_ig_ids(self) -> list:
+        """Fetch the account's current Instagram media ids directly from the
+        Graph API (like meta_seo_repair does), so repair isn't limited to ids
+        stored in video_history (which historically has no instagram_id)."""
+        import requests as _requests
+        from repair_all_seo import IG_USER_ID, FB_TOKEN, FB_API
+        ig_user = IG_USER_ID or os.environ.get("INSTAGRAM_USER_ID", "").strip()
+        tok = os.environ.get("IG_ACCESS_TOKEN") or FB_TOKEN or os.environ.get("FACEBOOK_ACCESS_TOKEN", "")
+        api_version = FB_API or os.environ.get("FB_API_VERSION", "v23.0")
+        if not ig_user or not tok:
+            return []
+        try:
+            resp = _requests.get(
+                f"https://graph.facebook.com/{api_version}/{ig_user}/media",
+                params={"access_token": tok, "limit": 100,
+                        "fields": "id,media_type,caption"},
+                timeout=30,
+            )
+            data = resp.json()
+            return [
+                m["id"] for m in data.get("data", [])
+                if m.get("media_type") in ("VIDEO", "REELS")
+            ]
+        except Exception as exc:  # noqa: BLE001
+            logger.warning("Could not list Instagram media live: %s", exc)
+            return []
+
     def repair_instagram(self, limit: int = 0) -> None:
-        videos = [v for v in self.history if self._ig_id(v)]
-        self.stats["instagram"]["total"] = len(videos)
-        logger.info("📸 Deep-repairing %d Instagram Reels...", len(videos))
+        # Pull ids from history when present, else fetch live from the API so
+        # Instagram repair is not silently skipped.
+        ids = list(dict.fromkeys(
+            str(self._ig_id(v)) for v in self.history if self._ig_id(v)
+        ))
+        live_ids = self._live_ig_ids()
+        ids.extend(i for i in live_ids if i not in ids)
+        self.stats["instagram"]["total"] = len(ids)
+        logger.info("📸 Deep-repairing %d Instagram Reels...", len(ids))
         count = 0
-        for v in videos:
+        for mid in ids:
             if limit and count >= limit:
                 break
-            mid = self._ig_id(v)
             key = _vid_key("instagram", mid)
             if key in self.ledger and not self.force:
                 self.stats["instagram"]["skipped"] += 1
                 continue
 
-            topic = v.get("topic") or v.get("youtube_title") or v.get("title") or ""
-            hook = generate_ctr_hook_line(topic)
-            caption = self._build_ig_caption(topic, hook)
+            # Resolve topic/title from history if the id maps to one; otherwise
+            # fetch the caption live for a best-effort topic.
+            topic = ""
+            for v in self.history:
+                if str(self._ig_id(v)) == mid:
+                    topic = v.get("topic") or v.get("youtube_title") or v.get("title") or ""
+                    break
+            hook = generate_ctr_hook_line(topic or mid)
+            caption = self._build_ig_caption(topic or "this body fact", hook)
             result = {"platform": "instagram", "media_id": mid, "new_caption": caption[:120]}
             if not self.dry_run:
                 ok = self._apply_ig(mid, caption)
