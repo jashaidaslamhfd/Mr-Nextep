@@ -285,6 +285,73 @@ def topic_segments(video_features: List[Dict[str, float]],
 
 
 # --------------------------------------------------------------------------- #
+# 3b. Meta-learner (stacking): learn the optimal blend of model predictions
+# --------------------------------------------------------------------------- #
+
+def stacking_meta_learner(video_features: List[Dict[str, float]],
+                          target: str = "views") -> Dict[str, Any]:
+    """A lightweight DL-inspired stacking layer.
+
+    Instead of hand-picking the ensemble blend weights, we treat each base
+    model's out-of-fold prediction as a FEATURE and fit a final (ridge /
+    polynomial) meta-model on them to learn the optimal combination. This is
+    the stacking trick that advanced ML systems use — the meta-model learns
+    WHEN each base model is right, which fixed R² weights can't.
+
+    Returns the meta-model's blend predictions + score, plus the learnt
+    coefficients (how much to trust each base model).
+    """
+    result: Dict[str, Any] = {"trained": False, "target": target, "n": 0}
+    if len(video_features) < MIN_MODEL_SAMPLES:
+        return result
+    import numpy as np
+    X = _features_matrix(video_features, ENSEMBLE_KEYS)
+    y = _target(video_features, target)
+    if X.shape[0] < MIN_MODEL_SAMPLES or np.all(y == 0):
+        return result
+    std = X.std(axis=0)
+    X = X[:, np.where(std > 1e-6)[0]]
+    if X.shape[0] < MIN_MODEL_SAMPLES:
+        return result
+    from sklearn.preprocessing import StandardScaler
+    from sklearn.linear_model import Ridge
+    from sklearn.metrics import r2_score
+    from sklearn.model_selection import KFold
+    from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
+
+    scaler = StandardScaler().fit(X)
+    Xs = scaler.transform(X)
+
+    base = {
+        "random_forest": RandomForestRegressor(n_estimators=120, random_state=42, min_samples_leaf=2),
+        "gradient_boosting": GradientBoostingRegressor(n_estimators=120, random_state=42, learning_rate=0.05, max_depth=3),
+    }
+    nfolds = max(2, min(5, Xs.shape[0] // 2))
+    skf = KFold(n_splits=nfolds, shuffle=True, random_state=11)
+    oof = {name: np.zeros_like(y) for name in base}
+    for tr, te in skf.split(Xs):
+        for name, m in base.items():
+            mm = m.__class__(**m.get_params()).fit(Xs[tr], y[tr])
+            oof[name][te] = mm.predict(Xs[te])
+
+    # meta-features = the base predictions; fit ridge meta-model
+    Z = np.column_stack([oof[n] for n in base])
+    meta = Ridge(alpha=1.0).fit(Z, y)
+    blend = meta.predict(Z)
+    r2 = r2_score(y, blend)
+    coef = {name: round(float(c), 4) for name, c in zip(base.keys(), meta.coef_)}
+    result.update({
+        "trained": True, "n": int(Xs.shape[0]),
+        "r2_cv": round(float(r2), 4),
+        "meta_coefficients": coef,
+        "base_models": list(base.keys()),
+        "predictions": [round(float(p), 2) for p in blend[:20]],
+        "confidence": _confidence(r2, Xs.shape[0]),
+    })
+    return result
+
+
+# --------------------------------------------------------------------------- #
 # 4. Recommendation synthesizer — turn all model outputs into one insight
 # --------------------------------------------------------------------------- #
 
@@ -295,6 +362,7 @@ def synthesize_intelligence(video_features: List[Dict[str, float]]) -> Dict[str,
     """
     ensemble = ensemble_predict(video_features, target="views")
     comp_ensemble = ensemble_predict(video_features, target="completion")
+    stacking = stacking_meta_learner(video_features, target="views")
     outliers = viral_outliers(video_features)
     segments = topic_segments(video_features)
 
@@ -328,6 +396,7 @@ def synthesize_intelligence(video_features: List[Dict[str, float]]) -> Dict[str,
     return {
         "views_ensemble": ensemble,
         "completion_ensemble": comp_ensemble,
+        "stacking_meta": stacking,
         "viral_outliers": outliers,
         "topic_segments": segments,
         "top_levers": top_levers,

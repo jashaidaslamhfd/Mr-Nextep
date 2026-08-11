@@ -11,6 +11,7 @@ from intelligence import (  # noqa: E402
     viral_outliers,
     topic_segments,
     synthesize_intelligence,
+    stacking_meta_learner,
 )
 
 
@@ -75,6 +76,21 @@ class SegmentTests(unittest.TestCase):
 
     def test_falls_back_on_too_few(self):
         self.assertFalse(topic_segments(_feats(3))["clustered"])
+
+
+class StackingTests(unittest.TestCase):
+    def test_meta_learner_trains(self):
+        r = stacking_meta_learner(_feats(16), target="views")
+        self.assertTrue(r["trained"])
+        self.assertIn("meta_coefficients", r)
+        self.assertIn("random_forest", r["meta_coefficients"])
+
+    def test_meta_learner_falls_back(self):
+        self.assertFalse(stacking_meta_learner(_feats(3))["trained"])
+
+    def test_synthesize_includes_stacking(self):
+        r = synthesize_intelligence(_feats(16))
+        self.assertIn("stacking_meta", r)
 
 
 class SynthesizeTests(unittest.TestCase):
