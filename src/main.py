@@ -161,8 +161,75 @@ class SKILLORPipeline:
             logger.error(f"Failed to save video history: {e}")
 
     def _get_recent_topics(self, n: int = 90) -> list:
-        """Get recent topics to avoid repetition"""
-        return [v.get('topic') for v in self.video_history[-n:] if v.get('topic')]
+        """Get recent topics to avoid repetition.
+
+        Uses BOTH the topic field and the final published title, because some
+        history rows have a garbled/missing topic while the actual YouTube
+        title is what matters for near-duplicate detection. Titles are stripped
+        of the series frame (e.g. "Why Your Body Does This: X" -> "X") so a
+        reworded repeat of an already-made video is still excluded.
+        """
+        terms = []
+        import re as _re
+        for v in self.video_history[-n:]:
+            t = v.get('topic')
+            title = v.get('title') or v.get('youtube_title')
+            for cand in (t, title):
+                if not cand:
+                    continue
+                s = str(cand)
+                # strip common series frames / emoji / hashtags for a cleaner key
+                s = _re.sub(r"[\U0001F000-\U0001FAFF\u2600-\u27BF]", " ", s)
+                s = _re.sub(r"#[A-Za-z0-9_]+", "", s)
+                s = _re.sub(r"(?i)^(why your body does this[: ]*|why your body |why does this happen[—\-: ]*)", "", s)
+                s = _re.sub(r"\s+", " ", s).strip(" —-–:.,!?")
+                if len(s) >= 8:
+                    terms.append(s)
+        return terms
+
+    def _is_duplicate_title(self, title: str) -> bool:
+        """Return True if `title` is an exact (or near-exact) duplicate of an
+        already-made or currently-scheduled video on this channel.
+
+        Checks the full video_history + upload_state so a freshly generated
+        title can never collide with a published OR scheduled video. This is
+        the belt-and-suspenders guard behind the topic-level exclude.
+        """
+        import re as _re
+
+        def _norm(t: str) -> str:
+            t = _re.sub(r"[\U0001F000-\U0001FAFF\u2600-\u27BF]", " ", str(t or ""))
+            t = _re.sub(r"#[A-Za-z0-9_]+", "", t)
+            t = _re.sub(r"[^a-z0-9 ]", " ", t.lower())
+            return _re.sub(r"\s+", " ", t).strip()
+
+        target = _norm(title)
+        if len(target) < 10:
+            return False
+
+        known = []
+        for v in self.video_history:
+            for k in ("title", "youtube_title", "topic"):
+                val = v.get(k)
+                if val:
+                    known.append(val)
+        # include scheduled/pending upload_state titles resolved from history
+        # (they carry their own title in history rows already)
+
+        for candidate in known:
+            c = _norm(candidate)
+            if len(c) < 10:
+                continue
+            if c == target:
+                return True
+            # word-overlap near-dup on short titles
+            tw = set(target.split())
+            cw = set(c.split())
+            if len(tw) >= 2 and len(cw) >= 2:
+                overlap = len(tw & cw) / min(len(tw), len(cw))
+                if overlap >= 0.85:
+                    return True
+        return False
 
     def _apply_strategy_decision(self) -> dict:
         """Consult the Autonomous Strategy Engine before generating.
@@ -523,6 +590,25 @@ class SKILLORPipeline:
                                 "; ".join(check['issues']))
             except Exception as e:  # noqa: BLE001 - title polish must not block
                 logger.warning(f"High-CTR title step skipped: {e}")
+
+            # Phase 1d: Duplicate-title guard. NEVER publish a title that
+            # already exists on this channel (published or scheduled) — a
+            # duplicate Short tanks retention AND is an inauthentic-content
+            # risk. If the final title is a duplicate, abort the run so the
+            # operator/system can pick a fresh topic rather than upload a copy.
+            try:
+                _final_title = script_data.get('title', '') or ''
+                if self._is_duplicate_title(_final_title):
+                    raise RuntimeError(
+                        f"DUPLICATE TITLE BLOCKED: '{_final_title}' already exists "
+                        "on this channel (published or scheduled). Refusing to "
+                        "publish a duplicate. Pick a new topic and re-run."
+                    )
+                logger.info("✅ Title passes duplicate guard: %r", _final_title)
+            except RuntimeError:
+                raise
+            except Exception as e:  # noqa: BLE001 - guard must never break the run silently
+                logger.warning(f"Duplicate guard skipped: {e}")
 
             # Record which opening frame this video used, so the growth engine
             # can learn which frames survive the first three seconds. Without
