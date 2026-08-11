@@ -1,0 +1,33 @@
+name: "TMP - Delete Duplicate Videos (batch)"
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  delete:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Delete duplicate batch from audit
+        env:
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
+        run: python scripts/delete_duplicate_batch.py --from-audit
+      - name: Record deletions
+        run: |
+          python3 - <<'EOF'
+          import json, os
+          audit=json.load(open('data/duplicate_audit.json'))
+          ids=[d['id'] for g in audit.get('groups',[]) for d in g.get('delete',[])]
+          with open('data/deleted_duplicate_videos.txt','a') as fh:
+              for i in ids: fh.write(i+chr(10))
+          EOF
+          sort -u data/deleted_duplicate_videos.txt -o data/deleted_duplicate_videos.txt
+          git add data/deleted_duplicate_videos.txt
+          git diff --cached --quiet || (git -c user.name="skillor-bot" \
+            -c user.email="actions@github.com" commit -m "chore: record deleted duplicate videos [skip ci]" \
+            && git push)
