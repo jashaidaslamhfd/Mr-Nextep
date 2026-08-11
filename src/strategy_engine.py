@@ -121,6 +121,7 @@ def _load_video_features() -> List[Dict[str, float]]:
             "seo_score": _safe_float(v.get("seo_score")),
             "duration_seconds": _safe_float(v.get("duration_seconds"), 30.0),
             "predicted_retention": _safe_float(v.get("predicted_retention")),
+            "word_count": _safe_float(v.get("word_count")),
         })
     return rows
 
@@ -279,6 +280,18 @@ def decide_from_state(*, platform_health: Optional[Dict] = None,
     # ---- 5. ML lever analysis (which lever drives views) ------------------ #
     lever = ml_lever_analysis(video_features)
 
+    # ---- 5b. Advanced intelligence (ensemble, outliers, segments) --------- #
+    # Best-effort: the advanced stack (cross-validated ensemble, IsolationForest
+    # outliers, KMeans segments) adds a deeper view on top of the basic lever
+    # analysis. Never blocks the decision if it fails.
+    intelligence = {}
+    try:
+        from intelligence import synthesize_intelligence
+        intelligence = synthesize_intelligence(video_features)
+    except Exception as exc:  # noqa: BLE001 - advanced intel must never block
+        logger.warning("Advanced intelligence unavailable (%s); using basic lever analysis.", exc)
+        intelligence = {"error": str(exc)[:120]}
+
     return {
         "recommended_series": recommended_series,
         "topic_strategy": top_series,
@@ -290,6 +303,7 @@ def decide_from_state(*, platform_health: Optional[Dict] = None,
         "cadence": cadence,
         "quality_threshold": quality_threshold,
         "lever_analysis": lever,
+        "intelligence": intelligence,
         "series_weights": series_weights,
         "competitor_leads": competitor_recs[:5],
         "viral_tags": viral_tags[:8],
