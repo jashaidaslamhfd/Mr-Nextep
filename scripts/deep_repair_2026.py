@@ -335,11 +335,26 @@ class DeepRepair2026:
         return strip_bait(base.filter_hashtags(caption, base.INSTAGRAM_RULES))[:400]
 
     def _apply_ig(self, mid, caption) -> bool:
+        # Instagram Graph API v23 requires comment_enabled=true on a caption
+        # edit, otherwise it returns "(#100) The parameter comment_enabled is
+        # required". Do the POST directly rather than via update_caption (which
+        # omits it), matching meta_seo_repair's working path.
         try:
-            if self.ig is None:
-                self.ig = base.InstagramRepair()
-            res = self.ig.update_caption(mid, caption)
-            return bool(res.get("ok") or res.get("success") or res.get("id"))
+            import requests as _requests
+            from repair_all_seo import FB_TOKEN, FB_API
+            tok = os.environ.get("IG_ACCESS_TOKEN") or FB_TOKEN or os.environ.get("FACEBOOK_ACCESS_TOKEN", "")
+            api_version = FB_API or os.environ.get("FB_API_VERSION", "v23.0")
+            resp = _requests.post(
+                f"https://graph.facebook.com/{api_version}/{mid}",
+                data={"access_token": tok, "caption": caption[:2200], "comment_enabled": "true"},
+                timeout=60,
+            )
+            data = resp.json()
+            if "error" in data:
+                logger.warning("IG caption edit failed for %s: %s", mid,
+                               data["error"].get("message", str(data))[:160])
+                return False
+            return bool(data.get("success") or data.get("id"))
         except Exception as exc:  # noqa: BLE001
             logger.warning("IG repair error for %s: %s", mid, exc)
             return False
