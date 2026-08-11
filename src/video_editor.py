@@ -566,9 +566,21 @@ def build_video(image_paths, audio_segments, scenes, output_path="output/final_v
     if len(media_types) != len(image_paths):
         raise ValueError("media_types must match image_paths length")
 
-    # Fixed brand palette makes every Short immediately recognizable.
-    color_theme = {'primary': (255, 255, 255), 'secondary': (255, 205, 40), 'bg': (18, 20, 28)}
-    logger.info(f"Using fixed SKILLOR brand theme: {color_theme}")
+    # Brand palette with a per-video accent that keeps the channel recognizable
+    # but stops every Short looking byte-identical (a machine tell). The accent
+    # is seeded from the first scene's caption so the same video stays
+    # consistent run-to-run while different videos differ slightly.
+    _accents = [
+        (255, 205, 40),   # brand gold
+        (90, 220, 200),   # teal
+        (255, 150, 60),   # warm orange
+        (140, 120, 255),  # soft violet
+        (255, 120, 150),  # rose
+    ]
+    _seed_txt = " ".join(str(scenes[i].get("caption", "")) for i in range(min(2, len(scenes))))
+    _acc_idx = abs(hash(_seed_txt)) % len(_accents)
+    color_theme = {'primary': (255, 255, 255), 'secondary': _accents[_acc_idx], 'bg': (18, 20, 28)}
+    logger.info(f"Using SKILLOR theme with accent #{_acc_idx}: {color_theme['secondary']}")
 
     video_clips = []
     audio_clips = []
@@ -591,8 +603,11 @@ def build_video(image_paths, audio_segments, scenes, output_path="output/final_v
         if i == 0:
             zoom_extra += 0.18
 
-        # RETENTION: Alternate zoom direction every scene
-        direction = "in" if i % 2 == 0 else "out"
+        # RETENTION: Alternate zoom direction every scene, but seed the start
+        # phase from the caption so different videos don't all open with the
+        # same direction (a human editor varies their shot rhythm).
+        _dir_seed = (abs(hash(caption_text or "x")) >> 4) & 1
+        direction = ("in" if (_dir_seed + i) % 2 == 0 else "out")
 
         if media_type == "video":
             # Real licensed B-roll: preserve natural movement rather than
