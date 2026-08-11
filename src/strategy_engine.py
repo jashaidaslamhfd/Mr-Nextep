@@ -309,11 +309,26 @@ def decide_from_state(*, platform_health: Optional[Dict] = None,
         "quality_threshold": quality_threshold,
         "lever_analysis": lever,
         "intelligence": intelligence,
+        "viral_readiness": viral_readiness_report(),
         "series_weights": series_weights,
         "competitor_leads": competitor_recs[:5],
         "viral_tags": viral_tags[:8],
         "decided_at": datetime.now(timezone.utc).isoformat(),
     }
+
+
+def viral_readiness_report() -> Dict[str, Any]:
+    """The viral-readiness scorecard, as a standalone decision field.
+
+    Non-blocking: if the scorecard can't load it returns a neutral dict so a
+    broken check can never fail a strategy decision.
+    """
+    try:
+        from viral_readiness import readiness_scorecard
+        return readiness_scorecard()
+    except Exception as exc:  # noqa: BLE001 - scorecard must never block
+        logger.warning("Viral readiness scorecard unavailable (%s)", exc)
+        return {"score": None, "rating": "unknown", "error": str(exc)[:120]}
 
 
 def _detect_barrier(platform_health: Dict, video_features: List[Dict[str, float]]) -> tuple:
