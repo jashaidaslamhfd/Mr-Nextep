@@ -120,7 +120,19 @@ def select_meta_cut(
     fb_floor, _fb_ideal, fb_ceiling = duration_policy(FACEBOOK)
     # The Meta cut serves both networks, so it must satisfy the tighter of the
     # two ceilings and the higher of the two floors.
-    target = float(target_seconds if target_seconds is not None else ideal)
+    # META_TARGET_SECONDS lets the operator force a shorter Meta cut than the
+    # policy ideal. Measured Meta completion is 19-24% vs a 70%+ gate with a
+    # ~23s cut and 2.6-7.5s avg watch — a shorter cut raises completion% for
+    # free (completion = watch_time / total). Default to the policy ideal.
+    import os as _os
+    try:
+        _override = float(_os.environ.get("META_TARGET_SECONDS", "") or 0)
+    except ValueError:
+        _override = 0.0
+    target = float(
+        target_seconds if target_seconds is not None
+        else (_override if _override > 0 else ideal)
+    )
     limit = float(hard_ceiling if hard_ceiling is not None else min(ceiling, fb_ceiling))
     minimum = max(floor, fb_floor)
 
