@@ -292,7 +292,7 @@ class SKILLORPipeline:
             logger.warning("🤖 Strategy engine unavailable (%s); using defaults.", exc)
             return {}
 
-    def _enabled_platforms() -> list:
+    def _enabled_platforms(self) -> list:
         """Platforms this run will actually publish to.
 
         Gates that apply to shared assets (the single audio track, the hook
