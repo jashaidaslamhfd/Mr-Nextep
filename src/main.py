@@ -287,6 +287,22 @@ class SKILLORPipeline:
                     top.get("label"), int(round(top.get("share", 0) * 100)),
                 )
 
+            # CTR / retention steering: log what the dedicated models say so the
+            # operator sees exactly what to protect (these two gates decide
+            # whether the channel keeps being distributed).
+            intel = decision.get("intelligence", {})
+            for key, label in (("ctr_model", "CTR"), ("retention_model", "RETENTION")):
+                m = intel.get(key) or {}
+                if m.get("trained"):
+                    drivers = m.get("drivers") or []
+                    topd = drivers[0]["feature"] if drivers else "hook_score"
+                    logger.info(
+                        "🤖 %s model (R² %.2f): protect %s to keep %s from dropping.",
+                        label, m.get("r2_cv", 0), topd, label.lower(),
+                    )
+                for adv in (m.get("advice") or [])[:1]:
+                    logger.info("🤖 %s advice: %s", label, adv)
+
             return decision
         except Exception as exc:  # noqa: BLE001 - strategy must never block a run
             logger.warning("🤖 Strategy engine unavailable (%s); using defaults.", exc)

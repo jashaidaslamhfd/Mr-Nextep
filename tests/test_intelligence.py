@@ -12,6 +12,8 @@ from intelligence import (  # noqa: E402
     topic_segments,
     synthesize_intelligence,
     stacking_meta_learner,
+    train_ctr_model,
+    train_retention_model,
 )
 
 
@@ -91,6 +93,47 @@ class StackingTests(unittest.TestCase):
     def test_synthesize_includes_stacking(self):
         r = synthesize_intelligence(_feats(16))
         self.assertIn("stacking_meta", r)
+
+
+class CtrRetentionTests(unittest.TestCase):
+    def test_ctr_model_trains(self):
+        feats = _feats(16)
+        for i, f in enumerate(feats):
+            f["real_ctr"] = 2 + i * 0.3   # real CTR grows with features
+        r = train_ctr_model(feats)
+        self.assertTrue(r["trained"])
+        self.assertEqual(r["target"], "ctr")
+        self.assertIn("drivers", r)
+        self.assertIn("advice", r)
+
+    def test_ctr_model_falls_back_to_heuristic(self):
+        feats = _feats(16)  # no real_ctr -> heuristic target
+        r = train_ctr_model(feats)
+        self.assertTrue(r["trained"])
+        self.assertIn("target_source", r)
+        self.assertEqual(r["target_source"], "predicted_ctr")
+
+    def test_ctr_model_low_data(self):
+        r = train_ctr_model(_feats(3))
+        self.assertFalse(r["trained"])
+
+    def test_retention_model_trains(self):
+        feats = _feats(16)
+        for i, f in enumerate(feats):
+            f["real_retention"] = 0.3 + 0.01 * i
+        r = train_retention_model(feats)
+        self.assertTrue(r["trained"])
+        self.assertEqual(r["target"], "retention")
+        self.assertIn("advice", r)
+
+    def test_retention_model_low_data(self):
+        r = train_retention_model(_feats(3))
+        self.assertFalse(r["trained"])
+
+    def test_synthesize_includes_ctr_and_retention(self):
+        r = synthesize_intelligence(_feats(16))
+        self.assertIn("ctr_model", r)
+        self.assertIn("retention_model", r)
 
 
 class SynthesizeTests(unittest.TestCase):

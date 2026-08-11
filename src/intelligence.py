@@ -352,6 +352,170 @@ def stacking_meta_learner(video_features: List[Dict[str, float]],
 
 
 # --------------------------------------------------------------------------- #
+# 3c. Dedicated CTR & Retention models (so these two never silently drop)
+# --------------------------------------------------------------------------- #
+
+CTR_RETENTION_KEYS = [
+    "hook_score", "predicted_ctr", "seo_score", "duration_seconds",
+    "predicted_retention", "word_count",
+]
+
+
+def train_ctr_model(video_features: List[Dict[str, float]]) -> Dict[str, Any]:
+    """Train a dedicated CTR predictor on the channel's REAL click-through data.
+
+    The goal is to learn which controllable inputs (hook, title, thumbnail,
+    SEO, length) move real CTR on THIS channel, so future uploads can be
+    steered to keep CTR high instead of guessing. Uses real_ctr when present;
+    otherwise falls back to a calibrated prediction target and reports low
+    confidence so the pipeline knows it isn't a real CTR fit yet.
+    """
+    result: Dict[str, Any] = {
+        "trained": False, "target": "ctr", "n": 0,
+        "confidence": "low", "drivers": [], "advice": [],
+    }
+    if len(video_features) < MIN_MODEL_SAMPLES:
+        result["advice"] = ["Not enough video data yet to model CTR."]
+        return result
+
+    import numpy as np
+    real = np.array([v.get("real_ctr") or 0.0 for v in video_features])
+    has_real = int(np.count_nonzero(real > 0))
+    # Use real CTR where available; the rest of the pipeline keeps the
+    # heuristic 'predicted_ctr' for rows that never got a real reading.
+    if has_real >= MIN_MODEL_SAMPLES:
+        y = real
+        result["target_source"] = "real_ctr"
+        result["note"] = f"Trained on {has_real} real CTR readings."
+    else:
+        # Not enough real CTR yet: model the heuristic prediction and flag it.
+        y = np.array([v.get("predicted_ctr") or 0.0 for v in video_features], dtype=np.float64)
+        result["target_source"] = "predicted_ctr"
+        result["note"] = f"Only {has_real} real CTR readings — modeling heuristic CTR (low confidence)."
+
+    X = _features_matrix(video_features, CTR_RETENTION_KEYS)
+    if X.shape[0] < MIN_MODEL_SAMPLES or np.all(y == 0):
+        result["note"] = "Insufficient signal to model CTR."
+        return result
+    std = X.std(axis=0)
+    keep = np.where(std > 1e-6)[0]
+    if len(keep) == 0:
+        return result
+    X = X[:, keep]
+    active = [CTR_RETENTION_KEYS[i] for i in keep]
+
+    from sklearn.ensemble import RandomForestRegressor
+    from sklearn.metrics import r2_score
+    from sklearn.model_selection import KFold
+
+    model = RandomForestRegressor(n_estimators=120, random_state=42, min_samples_leaf=2)
+    nfolds = max(2, min(5, X.shape[0] // 2))
+    skf = KFold(n_splits=nfolds, shuffle=True, random_state=5)
+    oof = np.zeros_like(y)
+    for tr, te in skf.split(X):
+        m = RandomForestRegressor(n_estimators=120, random_state=42, min_samples_leaf=2)
+        m.fit(X[tr], y[tr])
+        oof[te] = m.predict(X[te])
+    r2 = r2_score(y, oof)
+    imp = model.fit(X, y).feature_importances_
+    drivers = sorted(
+        ({"feature": k, "importance": float(i)}
+         for k, i in zip(active, imp)), key=lambda x: x["importance"], reverse=True,
+    )[:6]
+    result.update({
+        "trained": True, "n": int(X.shape[0]), "r2_cv": round(float(r2), 4),
+        "drivers": drivers,
+        "confidence": _confidence(r2, X.shape[0]),
+        "predictions": [round(float(p), 2) for p in oof[:20]],
+    })
+
+    # Human-readable steering advice to keep CTR from dropping.
+    top = drivers[0]["feature"] if drivers else "hook_score"
+    label = {
+        "hook_score": "first-3-second hook",
+        "predicted_ctr": "title+thumbnail click signal",
+        "seo_score": "SEO/description",
+        "duration_seconds": "video length",
+        "predicted_retention": "retention promise",
+        "word_count": "script length",
+    }.get(top, top)
+    result["advice"] = [
+        f"CTR is most sensitive to {label} on this channel — optimise it before publish.",
+        "Raise hook + title specificity; trim length if it is a CTR drag.",
+    ]
+    return result
+
+
+def train_retention_model(video_features: List[Dict[str, float]]) -> Dict[str, Any]:
+    """Train a dedicated retention (averageViewPercentage) model.
+
+    Retention is the dominant ranking gate on every 2026 feed; if it drifts
+    down the channel stops being distributed. This model learns what drives
+    real completion and returns steering advice to keep it up.
+    """
+    result: Dict[str, Any] = {
+        "trained": False, "target": "retention", "n": 0,
+        "confidence": "low", "drivers": [], "advice": [],
+    }
+    if len(video_features) < MIN_MODEL_SAMPLES:
+        result["advice"] = ["Not enough video data yet to model retention."]
+        return result
+
+    import numpy as np
+    y = np.array([v.get("real_retention") or v.get("completion") or 0.0
+                  for v in video_features], dtype=np.float64)
+    if np.count_nonzero(y > 0) < MIN_MODEL_SAMPLES:
+        result["note"] = "Insufficient real retention data."
+        return result
+
+    X = _features_matrix(video_features, CTR_RETENTION_KEYS)
+    std = X.std(axis=0)
+    keep = np.where(std > 1e-6)[0]
+    if len(keep) == 0:
+        return result
+    X = X[:, keep]
+    active = [CTR_RETENTION_KEYS[i] for i in keep]
+
+    from sklearn.ensemble import RandomForestRegressor
+    from sklearn.metrics import r2_score
+    from sklearn.model_selection import KFold
+
+    nfolds = max(2, min(5, X.shape[0] // 2))
+    skf = KFold(n_splits=nfolds, shuffle=True, random_state=6)
+    oof = np.zeros_like(y)
+    for tr, te in skf.split(X):
+        m = RandomForestRegressor(n_estimators=120, random_state=42, min_samples_leaf=2)
+        m.fit(X[tr], y[tr])
+        oof[te] = m.predict(X[te])
+    r2 = r2_score(y, oof)
+    model = RandomForestRegressor(n_estimators=120, random_state=42, min_samples_leaf=2).fit(X, y)
+    drivers = sorted(
+        ({"feature": k, "importance": float(i)}
+         for k, i in zip(active, model.feature_importances_)),
+        key=lambda x: x["importance"], reverse=True,
+    )[:6]
+    result.update({
+        "trained": True, "n": int(X.shape[0]), "r2_cv": round(float(r2), 4),
+        "drivers": drivers, "confidence": _confidence(r2, X.shape[0]),
+        "predictions": [round(float(p), 4) for p in oof[:20]],
+    })
+    top = drivers[0]["feature"] if drivers else "hook_score"
+    label = {
+        "hook_score": "first-3-second hook",
+        "predicted_ctr": "title/thumbnail",
+        "seo_score": "SEO",
+        "duration_seconds": "video length",
+        "predicted_retention": "retention promise",
+        "word_count": "script length",
+    }.get(top, top)
+    result["advice"] = [
+        f"Retention is most sensitive to {label} — a drop there directly lowers completion and reach.",
+        "Shorten toward the platform ideal; keep the hook promise in the first 3s.",
+    ]
+    return result
+
+
+# --------------------------------------------------------------------------- #
 # 4. Recommendation synthesizer — turn all model outputs into one insight
 # --------------------------------------------------------------------------- #
 
@@ -363,6 +527,8 @@ def synthesize_intelligence(video_features: List[Dict[str, float]]) -> Dict[str,
     ensemble = ensemble_predict(video_features, target="views")
     comp_ensemble = ensemble_predict(video_features, target="completion")
     stacking = stacking_meta_learner(video_features, target="views")
+    ctr = train_ctr_model(video_features)
+    retention = train_retention_model(video_features)
     outliers = viral_outliers(video_features)
     segments = topic_segments(video_features)
 
@@ -397,6 +563,8 @@ def synthesize_intelligence(video_features: List[Dict[str, float]]) -> Dict[str,
         "views_ensemble": ensemble,
         "completion_ensemble": comp_ensemble,
         "stacking_meta": stacking,
+        "ctr_model": ctr,
+        "retention_model": retention,
         "viral_outliers": outliers,
         "topic_segments": segments,
         "top_levers": top_levers,

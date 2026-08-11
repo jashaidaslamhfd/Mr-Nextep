@@ -116,6 +116,11 @@ def _load_video_features() -> List[Dict[str, float]]:
         rows.append({
             "views": views,
             "completion": _completion_fraction(v.get("average_view_percentage")),
+            # REAL measured CTR (from YouTube Analytics, when available). This
+            # is what the ML should be trained on — not the heuristic estimate.
+            "real_ctr": _safe_float(v.get("actual_ctr")),
+            # REAL retention (%) as a fraction — the measured averageViewPercentage.
+            "real_retention": _completion_fraction(v.get("average_view_percentage")),
             "hook_score": _safe_float(v.get("hook_score")),
             "predicted_ctr": _safe_float(v.get("predicted_ctr")),
             "seo_score": _safe_float(v.get("seo_score")),
