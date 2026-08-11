@@ -1,39 +1,53 @@
 {
   "recommended_series": "dark_mystery",
   "topic_strategy": "dark_mystery_series",
-  "barrier": "volume",
-  "barrier_advice": "Retention healthy enough; increase cadence for reach.",
+  "barrier": "completion",
+  "barrier_advice": "facebook_reels is at 27% of its completion gate. Rebuild the first-3-seconds hook and shorten the cut toward the platform ideal before adding volume.",
   "pivot": false,
   "pivot_reason": null,
-  "best_slot": null,
-  "cadence": 3,
+  "best_slot": "20:00",
+  "cadence": 1,
   "quality_threshold": 60,
   "lever_analysis": {
-    "trained": false,
+    "trained": true,
     "lever_importance": [
       {
-        "lever": "hook_score",
-        "label": "hook (first-3s)",
-        "importance": 0.5
+        "lever": "duration_seconds",
+        "label": "video length",
+        "importance": 0.3433364441369063,
+        "share": 0.343
       },
       {
-        "lever": "predicted_ctr",
-        "label": "click-through / title+thumbnail",
-        "importance": 0.3
+        "lever": "predicted_retention",
+        "label": "predicted retention",
+        "importance": 0.28414111157112387,
+        "share": 0.284
       },
       {
         "lever": "seo_score",
         "label": "SEO / description+tags",
-        "importance": 0.2
+        "importance": 0.21557367545087813,
+        "share": 0.216
+      },
+      {
+        "lever": "predicted_ctr",
+        "label": "click-through / title+thumbnail",
+        "importance": 0.14815729278924467,
+        "share": 0.148
+      },
+      {
+        "lever": "hook_score",
+        "label": "hook (first-3s)",
+        "importance": 0.008791476051847021,
+        "share": 0.009
       }
     ],
-    "sample_size": 0,
-    "note": "Not enough samples to train; using neutral priorities."
+    "sample_size": 22
   },
   "series_weights": {
     "dark_mystery": 1.0,
-    "body_glitches": 1.0,
-    "trend": 1.0
+    "body_glitches": 0.8498842105263158,
+    "trend": 0.5740666666666667
   },
   "competitor_leads": [
     "Viral channels use avg 37 chars title length \u2014 keep yours 45-55 chars (US mobile optimal)",
@@ -51,5 +65,5 @@
     "interesting facts",
     "did you know"
   ],
-  "decided_at": "2026-08-10T21:27:43.116040+00:00"
+  "decided_at": "2026-08-11T05:16:01.550769+00:00"
 }
