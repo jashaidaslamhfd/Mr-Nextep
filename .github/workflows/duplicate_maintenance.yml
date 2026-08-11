@@ -1,0 +1,49 @@
+name: "SKILLOR - Duplicate Video Maintenance"
+
+on:
+  workflow_dispatch:
+    inputs:
+      apply:
+        description: "Actually delete duplicate videos (false = audit / dry-run only)"
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: skillor-dup-maintenance
+  cancel-in-progress: false
+
+jobs:
+  maintenance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+
+      - name: Audit duplicates (always, commits the report)
+        env:
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
+        run: python scripts/audit_duplicate_videos.py
+
+      - name: Delete duplicates (manual + apply=true only)
+        if: github.event_name == 'workflow_dispatch' && inputs.apply == true
+        env:
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
+        run: python scripts/delete_duplicate_batch.py --from-audit
+
+      - name: Commit audit + deletions ledger
+        if: always()
+        run: |
+          git add data/duplicate_audit.json data/deleted_duplicate_videos.txt
+          git diff --cached --quiet || (git -c user.name="skillor-bot" \
+            -c user.email="actions@github.com" commit -m "chore: duplicate audit/cleanup [skip ci]" \
+            && git push)
