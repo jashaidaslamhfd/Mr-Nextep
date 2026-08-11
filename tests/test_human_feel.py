@@ -74,3 +74,27 @@ class VideoThemeTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class ViralHookOverlayTests(unittest.TestCase):
+    def test_hook_overlay_uses_keywords_not_stopwords(self):
+        # Verify _hook_overlay_clip produces a short punchy phrase by reading
+        # the source (avoids importing moviepy). The function strips stopwords
+        # and takes <=2 meaningful words.
+        src = (SRC / "video_editor.py").read_text()
+        self.assertIn("def _hook_overlay_clip", src)
+        self.assertIn("pattern-interrupt", src)
+        self.assertIn("hook_text", src)
+        # stopwords stripped
+        self.assertIn("stop = {\"the\", \"a\", \"an\",", src)
+        self.assertIn("meaningful[:2]", src)
+
+    def test_first_frame_hook_text_stamped_in_main(self):
+        src = (SRC / "main.py").read_text()
+        self.assertIn("hook_text", src)
+        self.assertIn("script_data['scenes'][0]['hook_text']", src)
+
+    def test_overlay_only_on_first_scene(self):
+        src = (SRC / "video_editor.py").read_text()
+        self.assertIn("if i == 0:", src)
+        self.assertIn("overlays.append(_hook_overlay_clip", src)

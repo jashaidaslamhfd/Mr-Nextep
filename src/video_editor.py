@@ -329,6 +329,61 @@ def _word_by_word_clips(text: str, total_duration: float, color_theme: Dict = No
     return clips
 
 
+def _hook_overlay_clip(text: str, duration: float, color_theme: Dict = None) -> ImageClip:
+    """A big, bold pattern-interrupt hook line shown in the FIRST frame.
+
+    Viral Shorts win or lose in the first ~2 seconds. Beyond a strong hook
+    image, successful channels overlay a short, high-contrast text line that
+    mirrors the title's keyword — this is the "sound effect + overlay within
+    a second" pattern that stops the swipe, and it also aligns on-screen text
+    with the title keyword that YouTube's semantic (Gemini) layer now reads.
+    """
+    if color_theme is None:
+        color_theme = {'primary': (255, 255, 255), 'secondary': (255, 205, 40)}
+    # Short, punchy, upper-case. Use only the most important few words of the
+    # hook line so it is instantly scannable at thumbnail size.
+    words = [re.sub(r"[^A-Za-z0-9' ]", "", w) for w in text.split()]
+    stop = {"the", "a", "an", "of", "to", "is", "are", "it", "in", "your", "why", "you", "do", "does"}
+    meaningful = [w for w in words if w and w.lower() not in stop]
+    # keep the first meaningful word + one more for a 1-2 word hook line
+    phrase = " ".join(meaningful[:2]).upper() or "WHY?"
+    if not phrase:
+        phrase = "WHY?"
+
+    max_width = int(CANVAS_W * 0.9)
+    font_size = 110
+    dummy = Image.new("RGBA", (10, 10), (0, 0, 0, 0))
+    dummy_draw = ImageDraw.Draw(dummy)
+    while font_size > 60:
+        font = _get_caption_font(font_size)
+        if dummy_draw.textlength(phrase, font=font, stroke_width=6) <= max_width:
+            break
+        font_size -= 6
+
+    line_height = int(font_size * 1.15)
+    img_h = line_height + 24
+    bbox = dummy_draw.textbbox((0, 0), phrase, font=font, stroke_width=6)
+    canvas_w = min(max(bbox[2] - bbox[0], 1), max_width) + 60
+    canvas = Image.new("RGBA", (canvas_w, img_h), (0, 0, 0, 0))
+    draw = ImageDraw.Draw(canvas)
+
+    # dark translucent band behind the text for legibility on any frame
+    draw.rounded_rectangle([0, 0, canvas_w - 1, img_h - 1], radius=18,
+                           fill=(0, 0, 0, 150))
+
+    bbox2 = draw.textbbox((0, 0), phrase, font=font, stroke_width=6)
+    x = max((canvas_w - (bbox2[2] - bbox2[0])) / 2, 10)
+    y = 12
+    accent = color_theme.get('secondary', (255, 205, 40))
+    draw.text((x, y), phrase, font=font, fill=accent,
+              stroke_width=6, stroke_fill="black")
+
+    frame = np.array(canvas)
+    clip = ImageClip(frame).set_duration(duration)
+    # place hook line in the upper third (below the top chrome, above captions)
+    return clip.set_position(('center', int(CANVAS_H * 0.16)))
+
+
 # ============================================
 # 3. AUDIO PROCESSING (PRIORITY: MUSIC DUCKING)
 # ============================================
@@ -629,9 +684,21 @@ def build_video(image_paths, audio_segments, scenes, output_path="output/final_v
         # ✅ Priority: Word-by-word captions with highlighting
         word_clips = _word_by_word_clips(caption_text, duration, color_theme)
 
-        # Combine visual + captions
+        # ✅ Priority: First-frame hook TEXT overlay (pattern interrupt).
+        # Viral channels overlay a bold keyword line in frame one that mirrors
+        # the title — shown only on the very first scene so it never crowds the
+        # karaoke captions that follow. Uses the scene's 'hook_text' (set by
+        # main.py from the script hook) if present, else the caption.
+        overlays = []
+        if i == 0:
+            hook_src = (scenes[i].get('hook_text')
+                        or (scenes[i].get('caption') or ''))
+            if hook_src:
+                overlays.append(_hook_overlay_clip(hook_src, duration, color_theme))
+
+        # Combine visual + captions (+ optional hook overlay on frame one)
         combined = CompositeVideoClip(
-            [scene_visual] + word_clips,
+            [scene_visual] + word_clips + overlays,
             size=(CANVAS_W, CANVAS_H)
         ).set_duration(duration)
 

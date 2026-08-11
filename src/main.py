@@ -855,6 +855,16 @@ class SKILLORPipeline:
             # Phase 4: Build Video — master cut (YouTube)
             logger.info("\n🎬 PHASE 4: BUILD VIDEO (MASTER CUT)")
             try:
+                # Stamp a first-frame hook TEXT on scene 0 so the renderer can
+                # overlay a pattern-interrupt line aligned with the title's
+                # keyword (viral-channel tactic + Gemini keyword alignment).
+                if script_data.get('scenes'):
+                    hook_line = (
+                        script_data.get('hook')
+                        or script_data['scenes'][0].get('caption', '')
+                        or script_data.get('title', '')
+                    )
+                    script_data['scenes'][0]['hook_text'] = hook_line
                 final_video = build_video(
                     image_paths, audio_segments, script_data['scenes'], media_types=media_types
                 )
