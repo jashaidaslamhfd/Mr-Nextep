@@ -663,6 +663,26 @@ class SKILLORPipeline:
             except Exception as e:  # noqa: BLE001 - guard must never break the run silently
                 logger.warning(f"Duplicate guard skipped: {e}")
 
+            # Phase 1e: Platform-specific SEO guards (2026 algorithm per platform).
+            # Each ENABLED platform's metadata must comply with THAT platform's
+            # 2026 algorithm (YouTube search/rec, Facebook UTIS, IG forwardable
+            # payoff). Independent observers — no trust in the SEO self-score.
+            try:
+                from platform_seo_guards import run_platform_seo_guards
+                _enabled = self._enabled_platforms()
+                _seo_gate = run_platform_seo_guards(script_data, _enabled)
+                if not _seo_gate["overall"]:
+                    raise RuntimeError(
+                        "PLATFORM SEO GUARD BLOCKED: "
+                        + ", ".join(_seo_gate["failed"])
+                        + " metadata does not comply with its 2026 algorithm."
+                    )
+                logger.info("✅ Platform SEO guards passed: %s", _seo_gate["passed"])
+            except RuntimeError:
+                raise
+            except Exception as seo_err:  # noqa: BLE001 - guard must not silently pass
+                logger.warning(f"Platform SEO guard skipped ({seo_err}); continuing.")
+
             # Record which opening frame this video used, so the growth engine
             # can learn which frames survive the first three seconds. Without
             # this the classifier would have to re-derive the frame from the
