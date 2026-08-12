@@ -121,11 +121,23 @@ class DeepRepair2026:
             hook = generate_ctr_hook_line(topic)
             new_desc = self._build_yt_desc(new_title, topic, hook)
 
-            # Only repair if title is weak or bait present.
+            # Only repair if title is weak, bait present, or the 2026 platform
+            # SEO guard flags the current metadata as non-compliant.
+            try:
+                from platform_seo_guards import check_youtube_seo
+                _yt_seo = check_youtube_seo({
+                    "title": old_title, "description": old_desc,
+                    "tags": v.get("tags") or [], "hashtags": v.get("hashtags") or [],
+                    "hook": v.get("hook") or (v.get("topic") or ""),
+                })
+                seo_noncompliant = not _yt_seo["pass"]
+            except Exception:  # noqa: BLE001 - guard must never break repair
+                seo_noncompliant = False
             title_ok = validate_title(old_title or new_title)
             desc_has_bait = any(b in (old_desc or "").lower()
                                 for b in base.YOUTUBE_RULES["bait_words"])
-            needs = (not title_ok["ok"]) or desc_has_bait or (len(old_desc or "") < 120)
+            needs = (not title_ok["ok"]) or desc_has_bait or (len(old_desc or "") < 120) \
+                    or seo_noncompliant
             if not needs:
                 self.stats["youtube"]["skipped"] += 1
                 continue
@@ -133,6 +145,7 @@ class DeepRepair2026:
             result = {
                 "platform": "youtube", "video_id": vid, "old_title": old_title[:70],
                 "new_title": new_title, "needs": needs,
+                "seo_noncompliant": seo_noncompliant,
             }
             if not self.dry_run:
                 ok = self._apply_yt(vid, new_title, new_desc)
@@ -202,7 +215,19 @@ class DeepRepair2026:
             hook = generate_ctr_hook_line(topic)
             # FB caption: plain topic naming, UTIS-friendly, no #shorts.
             caption = self._build_fb_caption(topic, hook)
-            result = {"platform": "facebook", "reel_id": rid, "new_caption": caption[:120]}
+            # 2026 FB SEO guard: only treat as needing repair if the current
+            # caption is not UTIS-compliant (so already-good reels are skipped).
+            try:
+                from platform_seo_guards import check_facebook_seo
+                _fb_seo = check_facebook_seo({"facebook_caption": v.get("description") or caption})
+                fb_needs = not _fb_seo["pass"]
+            except Exception:  # noqa: BLE001
+                fb_needs = True
+            if not fb_needs and key in self.ledger and not self.force:
+                self.stats["facebook"]["skipped"] += 1
+                continue
+            result = {"platform": "facebook", "reel_id": rid, "new_caption": caption[:120],
+                      "seo_noncompliant": fb_needs}
             if not self.dry_run:
                 ok = self._apply_fb(rid, caption)
                 if ok:
@@ -297,13 +322,29 @@ class DeepRepair2026:
             # Resolve topic/title from history if the id maps to one; otherwise
             # fetch the caption live for a best-effort topic.
             topic = ""
+            v_cap = ""
             for v in self.history:
                 if str(self._ig_id(v)) == mid:
                     topic = v.get("topic") or v.get("youtube_title") or v.get("title") or ""
+                    v_cap = (v.get("instagram_caption")
+                             or v.get("description") or v.get("voiceover") or "")
                     break
+            if not v_cap:
+                v_cap = mid  # best-effort fallback token
             hook = generate_ctr_hook_line(topic or mid)
             caption = self._build_ig_caption(topic or "this body fact", hook)
-            result = {"platform": "instagram", "media_id": mid, "new_caption": caption[:120]}
+            # 2026 IG SEO guard: skip only genuinely-compliant reels.
+            try:
+                from platform_seo_guards import check_instagram_seo
+                _ig_seo = check_instagram_seo({"instagram_caption": v_cap})
+            except Exception:  # noqa: BLE001
+                _ig_seo = None
+            ig_needs = (_ig_seo is None) or (not _ig_seo["pass"])
+            if not ig_needs and key in self.ledger and not self.force:
+                self.stats["instagram"]["skipped"] += 1
+                continue
+            result = {"platform": "instagram", "media_id": mid, "new_caption": caption[:120],
+                      "seo_noncompliant": ig_needs}
             if not self.dry_run:
                 ok = self._apply_ig(mid, caption)
                 if ok:
