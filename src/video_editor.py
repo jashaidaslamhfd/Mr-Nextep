@@ -356,7 +356,9 @@ def _hook_overlay_clip(text: str, duration: float, color_theme: Dict = None) -> 
     dummy_draw = ImageDraw.Draw(dummy)
     while font_size > 60:
         font = _get_caption_font(font_size)
-        if dummy_draw.textlength(phrase, font=font, stroke_width=6) <= max_width:
+        # textlength() does NOT accept stroke_width; measure via textbbox.
+        bb = dummy_draw.textbbox((0, 0), phrase, font=font, stroke_width=6)
+        if (bb[2] - bb[0]) <= max_width:
             break
         font_size -= 6
 

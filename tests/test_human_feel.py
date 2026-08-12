@@ -98,3 +98,19 @@ class ViralHookOverlayTests(unittest.TestCase):
         src = (SRC / "video_editor.py").read_text()
         self.assertIn("if i == 0:", src)
         self.assertIn("overlays.append(_hook_overlay_clip", src)
+
+
+class HookOverlayPillowCompatTests(unittest.TestCase):
+    def test_hook_overlay_uses_textbbox_not_textlength_for_stroke(self):
+        """Pillow's textlength() rejects stroke_width (a real runtime crash).
+        The hook overlay must measure width via textbbox."""
+        src = (SRC / "video_editor.py").read_text()
+        # textbbox is used for the stroke-width measure in the overlay
+        self.assertIn("textbbox((0, 0), phrase, font=font, stroke_width=6)", src)
+        # no real call textlength( ... stroke_width= ...) (would crash Pillow 10+)
+        for line in src.splitlines():
+            code = line.lstrip()
+            if code.startswith("#"):
+                continue  # skip comments
+            if "textlength(" in code and "stroke_width" in code:
+                self.fail(f"textlength with stroke_width would crash Pillow: {code.strip()}")
