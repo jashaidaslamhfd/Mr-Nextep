@@ -124,10 +124,12 @@ def run_full_repair() -> dict:
     """
     Full platform repair — called from analytics_updater Stage 4
     Returns summary dict for logging.
-    Env FULL_REPAIR=0 can disable (default is enabled when FB token present)
+    DISABLED by default (FULL_REPAIR != true). All platforms were already
+    repaired once; re-editing metadata daily reads as spam/inauthentic churn on
+    2026 feeds, so this only runs when explicitly enabled.
     """
-    if os.environ.get("FULL_REPAIR", "true").lower() in ("false", "0", "no"):
-        logger.info("FULL_REPAIR disabled via env")
+    if os.environ.get("FULL_REPAIR", "false").lower() not in ("true", "1", "yes"):
+        logger.info("FULL_REPAIR disabled (default) — no auto metadata re-edit.")
         return {"disabled": True}
 
     if not _has_fb_token():

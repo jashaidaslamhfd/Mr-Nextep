@@ -210,15 +210,21 @@ if __name__ == "__main__":
     except Exception as exc:  # noqa: BLE001
         logger.error("Growth analysis failed: %s", exc)
 
-    # ---- Stage 4: Full platform repair (new 2026-07-31) ------------------
-    # Runs FB cover backfill + meta SEO repair + audits best-effort.
-    # This is what makes "one workflow run = all clean" possible without
-    # needing a new .github/workflows file (which App cannot push).
-    try:
-        repair_result = _run_full_platform_repair()
-        logger.info("Full repair result: %s", repair_result)
-    except Exception as exc:  # noqa: BLE001
-        logger.warning("Full repair stage failed: %s", exc)
+    # ---- Stage 4: Full platform repair (DISABLED by default) --------------
+    # Previously ran FB cover backfill + meta SEO repair + audits on every
+    # analytics run. That made the channel re-edit metadata daily, which the
+    # 2026 platforms can read as spam/inauthentic churn, and it's no longer
+    # needed because all platforms were already repaired once. Only run it
+    # deliberately by setting FULL_REPAIR=true.
+    if os.environ.get("FULL_REPAIR", "false").strip().lower() == "true":
+        try:
+            repair_result = _run_full_platform_repair()
+            logger.info("Full repair result: %s", repair_result)
+        except Exception as exc:  # noqa: BLE001
+            logger.warning("Full repair stage failed: %s", exc)
+    else:
+        logger.info("Full platform repair disabled (FULL_REPAIR != true) — "
+                    "daily metadata edits would read as spam on 2026 feeds.")
 
     # Return the actual exit_code so CI/CD properly registers failures
     sys.exit(exit_code)
