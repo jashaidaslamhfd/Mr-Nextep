@@ -297,6 +297,19 @@ def decide_from_state(*, platform_health: Optional[Dict] = None,
         logger.warning("Advanced intelligence unavailable (%s); using basic lever analysis.", exc)
         intelligence = {"error": str(exc)[:120]}
 
+    # ---- 5c. Reality calibration (high-score/bad-content detector) --------- #
+    # The channel's metrics showed heuristic scores can be NEGATIVELY
+    # correlated with real views (hook/ctr/seo/retention all DRIFTED). This
+    # flags which levers the pipeline must stop trusting, so it stops approving
+    # content reality rejects.
+    calibration = {}
+    try:
+        from calibration import calibrate
+        calibration = calibrate(_load_video_features() and _load_json(HISTORY_PATH, []))
+    except Exception as exc:  # noqa: BLE001 - calibration must never block
+        logger.warning("Calibration unavailable (%s)", exc)
+        calibration = {"error": str(exc)[:120]}
+
     return {
         "recommended_series": recommended_series,
         "topic_strategy": top_series,
@@ -309,6 +322,7 @@ def decide_from_state(*, platform_health: Optional[Dict] = None,
         "quality_threshold": quality_threshold,
         "lever_analysis": lever,
         "intelligence": intelligence,
+        "calibration": calibration,
         "viral_readiness": viral_readiness_report(),
         "series_weights": series_weights,
         "competitor_leads": competitor_recs[:5],

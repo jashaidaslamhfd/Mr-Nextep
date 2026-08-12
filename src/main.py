@@ -290,6 +290,21 @@ class SKILLORPipeline:
             # CTR / retention steering: log what the dedicated models say so the
             # operator sees exactly what to protect (these two gates decide
             # whether the channel keeps being distributed).
+            # Reality calibration: if heuristic scores don't predict real views,
+            # warn loudly so the operator knows the "good" scores are not real.
+            cal = decision.get("calibration", {})
+            if cal.get("calibrated"):
+                drifted = cal.get("drifted") or []
+                if drifted:
+                    logger.warning(
+                        "🤖⚠️ REALITY CALIBRATION: scores DRIFTED from reality: %s. "
+                        "High heuristic scores are NOT earning views — stop trusting "
+                        "them; base approval on real performance instead.",
+                        ", ".join(drifted),
+                    )
+                else:
+                    logger.info("🤖 Calibration: heuristic scores track real views (no drift).")
+
             intel = decision.get("intelligence", {})
             for key, label in (("ctr_model", "CTR"), ("retention_model", "RETENTION")):
                 m = intel.get(key) or {}
