@@ -1,0 +1,1357 @@
+{
+  "generated_at": "2026-08-12T20:16:16.615006+00:00",
+  "dry_run": false,
+  "stats": {
+    "youtube": {
+      "total": 109,
+      "repaired": 101,
+      "skipped": 0,
+      "errors": 8
+    },
+    "facebook": {
+      "total": 20,
+      "repaired": 20,
+      "skipped": 0,
+      "errors": 0
+    },
+    "instagram": {
+      "total": 30,
+      "repaired": 30,
+      "skipped": 0,
+      "errors": 0
+    }
+  },
+  "results": [
+    {
+      "platform": "youtube",
+      "video_id": "cGVDXd8HN4g",
+      "old_title": "Why Got Fired Matters",
+      "new_title": "Why Your WE GOT FIRED Animal \u2014 Why It Actually Happens \ud83e\udde0",
+      "needs": true,
+      "seo_noncompliant": true,
+      "error": "apply_failed"
+    },
+    {
+      "platform": "youtube",
+      "video_id": "FUgcHHnhLSM",
+      "old_title": "Time Compression \ud83e\udec0",
+      "new_title": "Why Your Hours Passed Minutes \u2014 What Your Brain Is Doing",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "L3idewWMmPU",
+      "old_title": "Spreading Yawns \ud83e\udec0",
+      "new_title": "Why Yawning Spreading Instantly Happens \u2014 The Real Reason",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "XCUNM30ET_8",
+      "old_title": "Muscle Cramp \ud83d\ude34",
+      "new_title": "Why Your Sudden Charley Horse \u2014 What Your Brain Is Doing",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "tyPk5Wt1Xqg",
+      "old_title": "Dizzy Standing \ud83e\udec0",
+      "new_title": "Why Feeling Lightheaded Right After Happens \u2014 The Surprisi",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "gDZNVADEakY",
+      "old_title": "Deja Vu \ud83e\udec0",
+      "new_title": "Why Your Lived Exact New Moment \u2014 The Science Behind It \ud83c\udf00",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "rOgA1rMVUtY",
+      "old_title": "What happens in the last seconds before you fall asleep?",
+      "new_title": "Why Fall Asleep Happens \u2014 The Science Behind It \ud83c\udf00",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "8843MFjllbw",
+      "old_title": "Why Your Body Does This: Memory Boost \ud83d\ude33",
+      "new_title": "Why Your Memory Boost \u2014 Why It Actually Happens \ud83e\ude9e",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "I9d3K0ng0MQ",
+      "old_title": "Why Your Body Does This: Dark Psychology \ud83d\ude33",
+      "new_title": "Why Your Dark Psychology \u2014 The Science Behind It \ud83c\udf19",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "e0F7AlF7Aj4",
+      "old_title": "Why Your Body Does This: Cat Alert Signs \ud83d\ude33",
+      "new_title": "Why Your Cat Alert Signs \u2014 Why It Actually Happens \ud83e\udec0",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "Jhqjx48cDSg",
+      "old_title": "Why Your Body Does This: Dreams \ud83d\ude33",
+      "new_title": "Why Your Dreams \u2014 What Your Brain Is Doing \ud83e\udde0",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "agWKyQDzqWw",
+      "old_title": "Why Your Body Does This: Yawn \ud83d\ude33",
+      "new_title": "Why Yawn Happens \u2014 A Hidden Body Signal \ud83c\udf00",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "lS4NreG-nn0",
+      "old_title": "Why Your Body Does This: Parallel Lives \ud83d\ude33",
+      "new_title": "Why Your Parallel Lives \u2014 What Your Brain Is Doing \ud83c\udf19",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "aucwZP-WUAQ",
+      "old_title": "Why Your Body Does This: Blush Uncontrollably \ud83d\ude33",
+      "new_title": "Why Your Blush Uncontrollably \u2014 What Your Brain Is Doing",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "HhI71V4T0Xs",
+      "old_title": "Why Your Body Does This: Rush Visual Effects \ud83d\ude33",
+      "new_title": "Why Your Rush Visual Effects \u2014 Why It Actually Happens \ud83e\udde0",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "SUX9h1oa5Mg",
+      "old_title": "Why Your Body Does This: Consciousness \ud83d\ude33",
+      "new_title": "Why Your Consciousness \u2014 The Surprising Truth \ud83d\udca5",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "Y-V-aZyNxO4",
+      "old_title": "Why Your Body Does This: Gut Feeling \ud83d\ude33",
+      "new_title": "Why Your Gut Feeling \u2014 Why It Actually Happens \u26a1",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "hMAs4US2R1o",
+      "old_title": "Why Your Body Does This: Eye Weird Facts \ud83d\ude33",
+      "new_title": "Why Your Eye Weird Facts \u2014 The Science Behind It \ud83e\udde0",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "VLa-7pVbmT8",
+      "old_title": "Why Your Body Does This: Brain Muscle \ud83d\ude33",
+      "new_title": "Why Your Brain Muscle \u2014 A Hidden Body Signal \ud83e\udd2f",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "eKD0RKCMUFM",
+      "old_title": "Why Your Body Does This: Forgetting Names \ud83d\ude33",
+      "new_title": "Why Forgetting Names Happens \u2014 The Science Behind It \ud83e\udd2f",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "KbNYV-0mX_4",
+      "old_title": "Why Your Body Does This: Baby Memory Lost \ud83d\ude33",
+      "new_title": "Why Your Baby Memory Lost \u2014 The Science Behind It \ud83e\udde0",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "XvG20Hrubxc",
+      "old_title": "Why Your Body Does This: Body Dark Secrets \ud83d\ude33",
+      "new_title": "Why Your Body Dark Secrets \u2014 The Surprising Truth \ud83d\ude31",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "Uh83XIdIPGQ",
+      "old_title": "Why Your Body Does This: Goosebumps \ud83d\ude33",
+      "new_title": "Why Your Goosebumps \u2014 What Your Brain Is Doing \ud83d\udd2c",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "WZ5FqCerN8g",
+      "old_title": "Why Your Body Does This: Memory Palace \ud83d\ude33",
+      "new_title": "Why Your Memory Palace \u2014 The Surprising Truth \ud83d\udca5",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "n9aii3sh6JE",
+      "old_title": "Why Your Body Does This: Brain Motor Skills \ud83d\ude33",
+      "new_title": "Why Your Brain Motor Skills \u2014 A Hidden Body Signal \ud83e\udd2f",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "o9RMmgJTx5c",
+      "old_title": "Why Your Body Does This: Deja Vu \ud83d\ude33",
+      "new_title": "Why Your Deja Vu \u2014 A Hidden Body Signal \ud83d\udca5",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "2XGwsR793Lw",
+      "old_title": "Why your body freezes when you're scared \ud83e\udde0",
+      "new_title": "Why Your Freezes When You're Scared \u2014 The Surprising Truth",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "p5UH6W2s12c",
+      "old_title": "Why does your body age faster after 35 \ud83d\ude42",
+      "new_title": "Why Your Body Age Faster After \u2014 Why It Actually Happens",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "ciVcOEOc80w",
+      "old_title": "Why your body heart rate spikes under stress \ud83d\udc93 #shorts",
+      "new_title": "Why Your Heart Rate Spikes Under \u2014 A Hidden Body Signal \ud83c\udf00",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "JUgUYsiGYpg",
+      "old_title": "Why You Forget Names Right Aft Explained in 60 Seconds \ud83e\udde0",
+      "new_title": "Why Your Forget Names Right Aft \u2014 The Real Reason \ud83e\udd2f",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "mYmKt3MpBrY",
+      "old_title": "After 35, Your Brain Does This Automatically #BrainHealth #MenOver35 #",
+      "new_title": "Why Your After 35, Your Brain \u2014 The Science Behind It \ud83e\udd2f",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "A79BYUVtpU8",
+      "old_title": "Why your brain starts shrinking \ud83e\udde0",
+      "new_title": "Why Your Brain Starts Shrinking \u2014 Why It Actually Happens",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "ug5r5qk4YKc",
+      "old_title": "Stop ignoring why you forget things! \ud83e\udde0 #brainhealth #shorts #science",
+      "new_title": "Why Your Stop Ignoring Why Forget \u2014 The Real Reason \u26a1",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "rNFUh_7U2-c",
+      "old_title": "Stop this to save your brain #brainfog #healthtips #shorts",
+      "new_title": "Why Your Stop This Save Your \u2014 What Your Brain Is Doing \ud83e\udda0",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "soWQwnALGsI",
+      "old_title": "Why your eye actually twitches \ud83d\udc40 #shorts #health",
+      "new_title": "Why Your Eye Actually Twitches #shorts \u2014 The Surprising Tr",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "vs3FF4OLQrM",
+      "old_title": "The Brain Hack hidding in your Dizziness \ud83e\udde0\ud83d\udcaa",
+      "new_title": "Why Your Brain Hack Hidding \u2014 The Real Reason \ud83d\ude31",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "F6d-1kuZHf8",
+      "old_title": "Why your heart skips a beat for no reason \ud83d\ude31\ud83d\udc94",
+      "new_title": "Why Your Heart Skips Beat No \u2014 A Hidden Body Signal \ud83d\ude31",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "agn5I1IZwBw",
+      "old_title": "Your body gets a lump sometimes \ud83d\udca1",
+      "new_title": "Why Your Gets Lump Sometimes \u2014 A Hidden Body Signal \ud83e\udec0",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "lPswBvpd2_U",
+      "old_title": "Why your emotions shift with seasons \ud83c\udf3b",
+      "new_title": "Why Your Emotions Shift With Seasons \u2014 What Your Brain Is",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "x5CzIZ_VlpM",
+      "old_title": "Why your belly always seems to rumble \ud83c\udf1f",
+      "new_title": "Why Your Belly Always Seems Rumble \u2014 The Science Behind It",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "9Oq1fOHwDnY",
+      "old_title": "Your baby forgets what they just read \ud83d\udcd6",
+      "new_title": "Why Your Baby Forgets What \u2014 Why It Actually Happens \ud83d\ude31",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "Wkytail7pQc",
+      "old_title": "Your baby's heart skips a beat suddenly \ud83d\udc96",
+      "new_title": "Why Your Baby's Heart Skips \u2014 Why It Actually Happens \ud83d\udca5",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "AvAgtFzJ478",
+      "old_title": "Attachment Science in Seconds",
+      "new_title": "Why Your Attachment Science Seconds \u2014 The Real Reason \ud83d\udc41\ufe0f",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "vdcWnnZq5Bk",
+      "old_title": "Music Boosts Baby Sleep",
+      "new_title": "Why Your Music Boosts Baby Sleep \u2014 The Real Reason \ud83c\udf19",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "hUTSBHxCKQY",
+      "old_title": "Your Heart\u2019s Hidden Brain: The Silent Sleepless Whisper",
+      "new_title": "Why Your Heart\u2019s Hidden Brain: \u2014 Why It Actually Happens",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "LVBRgSJhGjU",
+      "old_title": "Heart's Hidden Brain: The Silent Whisper",
+      "new_title": "Why Your Heart's Hidden Brain: Silent \u2014 The Science Behind",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "edqMEBHvR1E",
+      "old_title": "\ud83e\udec0 Lungs That Drown You From Inside",
+      "new_title": "Why Your Lungs That Drown From \u2014 The Real Reason \ud83c\udf00",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "Ecs8MwCbR58",
+      "old_title": "Goosebumps: The Dark Reflex You Can't Escape",
+      "new_title": "Why Your Goosebumps: Dark Reflex Can't \u2014 The Science Behin",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "SILtzSfuLWs",
+      "old_title": "\ud83e\udec0 \ud83e\udec0 Your Blood\u2019s Midnight War",
+      "new_title": "Why Your Blood\u2019s Midnight War \u2014 Why It Actually Happens \ud83d\ude31",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "qLPyO96m0OI",
+      "old_title": "The Heart's Secret Brain",
+      "new_title": "Why Your Heart's Secret Brain \u2014 The Real Reason \ud83d\ude31",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "PldSMIaQwzM",
+      "old_title": "\ud83e\udec0 \ud83e\udec0 The Nightly Brain Battle",
+      "new_title": "Why Your Nightly Brain Battle \u2014 The Surprising Truth \ud83c\udf19",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "enQtkaIgByI",
+      "old_title": "\ud83e\udec0 \ud83e\udec0 The Bone That Breaks Most in Fights",
+      "new_title": "Why Your Bone That Breaks \u2014 A Hidden Body Signal \ud83d\ude31",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "_C20nA1aPf4",
+      "old_title": "Why Your Body Does This: The Deadly Secret Inside \ud83d\ude33",
+      "new_title": "Why Your Deadly Secret Inside \u2014 The Surprising Truth \ud83c\udf00",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "I60cZ0cLd-Y",
+      "old_title": "Veins: The Dark Truth",
+      "new_title": "Why Your Veins: Dark Truth \u2014 The Real Reason \ud83e\udd2f",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "4H4otPb3sOw",
+      "old_title": "Why Your Body Does This: The Dark Heartbeat \ud83d\ude33",
+      "new_title": "Why Your Dark Heartbeat \u2014 What Your Brain Is Doing \ud83c\udf00",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "KFLQLzuFBtw",
+      "old_title": "Why Your Body Does This: Dark Circles \ud83d\ude33",
+      "new_title": "Why Your Dark Circles \u2014 The Surprising Truth \ud83e\udde0",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "S2l4wBWaSJA",
+      "old_title": "Why Your Body Does This: Fear Smells \ud83d\ude33",
+      "new_title": "Why Your Fear Smells \u2014 The Real Reason \ud83d\udc41\ufe0f",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "kq5xEAGb2Rc",
+      "old_title": "Why Your Body Does This: Heartbeat Secrets \ud83d\ude33",
+      "new_title": "Why Your Heartbeat Secrets \u2014 The Surprising Truth \ud83e\udde0",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "UxYCvncYg1A",
+      "old_title": "Why Your Body Does This: Bones Replaced \ud83d\ude33",
+      "new_title": "Why Your Bones Replaced \u2014 The Science Behind It \ud83e\udda0",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "sOr6elVnTKc",
+      "old_title": "The Truth About Your Body Twitches When You Sleep",
+      "new_title": "Why Your Truth About Your \u2014 A Hidden Body Signal \ud83d\udd2c",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "27hVE-JDIAk",
+      "old_title": "The Truth About Reason Your Pulse Changes When You Lie",
+      "new_title": "Why Your Truth About Reason \u2014 The Real Reason \ud83d\udca5",
+      "needs": true,
+      "seo_noncompliant": true,
+      "error": "apply_failed"
+    },
+    {
+      "platform": "youtube",
+      "video_id": "LolTuKR4HBk",
+      "old_title": "The Truth About Reason Your Heart Pounds in a Crowd \u2764\ufe0f",
+      "new_title": "Why Your Truth About Reason \u2014 The Real Reason \ud83c\udf00",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "cFi_gfDK_68",
+      "old_title": "Your Eyes Never Actually Stop Moving \ud83d\udc41\ufe0f",
+      "new_title": "Why Your Eyes Never Actually \u2014 A Hidden Body Signal \ud83e\udec0",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "s2Qh-Gv3_2Q",
+      "old_title": "Why Your Eyes See More Greens Than Any Other Color \ud83d\udc41\ufe0f",
+      "new_title": "Why Your Eyes See More Greens \u2014 Why It Actually Happens \ud83c\udf00",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "Lppqw0Jri30",
+      "old_title": "The Music Playing in Your Head \ud83e\udde0",
+      "new_title": "Why Your Music Playing Your \u2014 What Your Brain Is Doing \ud83e\udec0",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "nhLlWwqhJrA",
+      "old_title": "Your Body's Secret Timekeeping Trick",
+      "new_title": "Why Your 's Secret Timekeeping Trick \u2014 The Science Behind",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "7IfJ25s1zSo",
+      "old_title": "The Gut Brain Connection Explained",
+      "new_title": "Why Your Gut Brain Connection \u2014 What Your Brain Is Doing",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "aOSF9iJ4eV0",
+      "old_title": "Why You Get Hungry at the Exact Same Time Daily \ud83e\udec0",
+      "new_title": "Why Your Body Signal Behind \u2014 What Your Brain Is Doing \ud83c\udf19",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "h3e9jl39zR4",
+      "old_title": "Why Your Body Does This: Body Jerking As Fall \ud83d\ude33",
+      "new_title": "Why Your Body Jerking As Fall \u2014 A Hidden Body Signal \ud83e\udde0",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "bMkH0kI3V8Y",
+      "old_title": "Why Your Knees Crack Every Time You Move \ud83e\uddb5",
+      "new_title": "Why Your Knees Crack Every Time \u2014 The Real Reason \ud83d\udd2c",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "AbAXF8oHhp0",
+      "old_title": "Why Your Fingers Wrinkle in Water So Fast \ud83e\udec0",
+      "new_title": "Why Your Hands Wrinkling Water \u2014 The Real Reason \ud83e\udd2f",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "IjwfP0tcZH8",
+      "old_title": "Why Your Body Freezes When You're Scared \ud83e\udec0",
+      "new_title": "Why Your Freezes When You're Scared \u2014 The Surprising Truth",
+      "needs": true,
+      "seo_noncompliant": true,
+      "error": "apply_failed"
+    },
+    {
+      "platform": "youtube",
+      "video_id": "2uHI9kXSRLQ",
+      "old_title": "Why Your Heartbeat Sounds So Loud at Night \ud83d\udc42",
+      "new_title": "Why Your Heartbeat Sounds Loud At \u2014 The Science Behind It",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "_2JHzwLIE50",
+      "old_title": "Why Your Voice Is Deeper Every Morning \ud83e\udec0",
+      "new_title": "Why Your Voice Sounding Noticeably \u2014 The Science Behind It",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "BiyXoAJBq4g",
+      "old_title": "Why You Freeze Up When You're Terrified \ud83e\udec0",
+      "new_title": "Why Freeze Up When You're Happens \u2014 The Science Behind It",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "OuakWz2vLcs",
+      "old_title": "Why Deja Vu Feels So Real",
+      "new_title": "Why Your Deja Vu Feels \u2014 The Real Reason \ud83c\udf00",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "H7HDSb0yX5A",
+      "old_title": "Why You Can Hear Your Heartbeat at Night \ud83e\udec0",
+      "new_title": "Why Hear Your Heartbeat At Happens \u2014 The Real Reason \ud83d\udd2c",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "FUgcHHnhLSM",
+      "old_title": "Why Your Body Does This: Faster Or Slower Than \ud83d\ude33",
+      "new_title": "Why Your Faster Slower Than \u2014 What Your Brain Is Doing \ud83e\udda0",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "QZF0IHtnbIg",
+      "old_title": "Why You Feel a Lump in Your Throat When Sad \ud83e\udec0",
+      "new_title": "Why Feeling Lump Your Happens \u2014 The Surprising Truth \ud83e\udd2f",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "L3idewWMmPU",
+      "old_title": "Why Yawns Are Contagious \ud83e\udec0",
+      "new_title": "Why Your Yawns Contagious \u2014 The Real Reason \ud83e\udda0",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "u1eCpGU38PI",
+      "old_title": "Why Your Body Does This: Brain Freeze \ud83d\ude33",
+      "new_title": "Why Your Brain Freeze \u2014 The Surprising Truth \ud83c\udf19",
+      "needs": true,
+      "seo_noncompliant": true,
+      "error": "apply_failed"
+    },
+    {
+      "platform": "youtube",
+      "video_id": "1Z9bg95d3pY",
+      "old_title": "Why Your Body Does This: Gag Reflex \ud83d\ude33",
+      "new_title": "Why Your Gag Reflex \u2014 The Surprising Truth \ud83c\udf19",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "hTDfqIbjQXk",
+      "old_title": "Why Your Body Does This: Dry Mouth \ud83d\ude33",
+      "new_title": "Why Your Dry Mouth \u2014 Why It Actually Happens \ud83e\udec0",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "nM-1t8agPN8",
+      "old_title": "Why Your Body Does This: Nervous Shivers \ud83d\ude33",
+      "new_title": "Why Your Nervous Shivers \u2014 Why It Actually Happens \ud83e\udda0",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "qy9GhQJ8Gyc",
+      "old_title": "Why Your Body Does This: Brain Freeze \ud83d\ude33",
+      "new_title": "Why Your Brain Freeze \u2014 The Surprising Truth \ud83e\udec0",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "GRt5WedPBLo",
+      "old_title": "Why Your Body Does This: Doorway Effect \ud83d\ude33",
+      "new_title": "Why Your Doorway Effect \u2014 The Real Reason \ud83e\ude9e",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "XCUNM30ET_8",
+      "old_title": "Why Your Leg Cramps at Night Without Warning",
+      "new_title": "Why Hearing Your Heartbeat At Happens \u2014 The Real Reason \ud83d\ude31",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "ed031j4Pgy8",
+      "old_title": "Why a Song Gets Stuck in Your Head All Day \ud83e\udde0",
+      "new_title": "Why Having 5-second Song Loop Happens \u2014 Why It Actually Ha",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "QVLAgCpKa1M",
+      "old_title": "Why Your Ears Ring in Complete Silence \ud83d\udc42",
+      "new_title": "Why Your Ears Ringing Absolute \u2014 What Your Brain Is Doing",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "IgJc5YtvLeY",
+      "old_title": "Why Your Foot Falls Asleep and Goes Numb \ud83e\udec0",
+      "new_title": "Why Your Foot Falling Asleep \u2014 The Surprising Truth \ud83e\udd2f",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "NNVgyS0NF4U",
+      "old_title": "Why Brushing Back Teeth Makes You Gag \ud83e\udec0",
+      "new_title": "Why Brushing Back Teeth Triggering Happens \u2014 The Science B",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "tyPk5Wt1Xqg",
+      "old_title": "Why You Get Dizzy When You Stand Up Fast \ud83e\udec0",
+      "new_title": "Why Get Dizzy When Stand Happens \u2014 The Real Reason \ud83e\udde0",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "fnOuctDKhrw",
+      "old_title": "Why You See Spots After Bright Light \ud83e\udec0",
+      "new_title": "Why Seeing Glowing Spots After Happens \u2014 A Hidden Body Sig",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "xEFEjJBP--E",
+      "old_title": "Why Hot Coffee Kills Your Taste \ud83e\udec0",
+      "new_title": "Why Losing Taste Sensation After Happens \u2014 The Surprising",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "gDZNVADEakY",
+      "old_title": "Why Deja Vu Happens to Your Brain \ud83e\udec0",
+      "new_title": "Why Your Deja Vu Feels \u2014 The Real Reason \ud83e\udde0",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "pYnoyM6RWMY",
+      "old_title": "Why Your Body Does This: Cold Sweat \ud83d\ude33",
+      "new_title": "Why Your Cold Sweat \u2014 What Your Brain Is Doing \ud83e\ude9e",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "2dBMH64Fyms",
+      "old_title": "Why Your Body Does This: Cold Hands \ud83d\ude33",
+      "new_title": "Why Your Cold Hands \u2014 The Real Reason \ud83d\udc41\ufe0f",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "_hGrosRB02o",
+      "old_title": "Why Your Body Does This: Cold Tip Nose \ud83d\ude33",
+      "new_title": "Why Your Cold Tip Nose \u2014 What Your Brain Is Doing \ud83c\udf00",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "ZHdmd_YfxgM",
+      "old_title": "Why Your Body Freezes When Scared \ud83e\udec0",
+      "new_title": "Why Your Freezes When Scared \u2014 Why It Actually Happens \u26a1",
+      "needs": true,
+      "seo_noncompliant": true,
+      "error": "apply_failed"
+    },
+    {
+      "platform": "youtube",
+      "video_id": "OCBe2PMAnyY",
+      "old_title": "Why Your Body Shakes When Sleeping \ud83d\ude34",
+      "new_title": "Why Your Shakes When Sleeping \u2014 The Real Reason \ud83e\udda0",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "FimJdODHVvc",
+      "old_title": "What Happens To Your Body When You Sleep \ud83d\ude34",
+      "new_title": "Why Your Jerking As Fall Asleep \u2014 A Hidden Body Signal \ud83e\ude9e",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "taTQG0-zVgg",
+      "old_title": "Why Your Body Freezes When Scared \ud83e\udec0",
+      "new_title": "Why Your Freezes When Scared \u2014 Why It Actually Happens \ud83e\ude9e",
+      "needs": true,
+      "seo_noncompliant": true,
+      "error": "apply_failed"
+    },
+    {
+      "platform": "youtube",
+      "video_id": "rZSy22pplJc",
+      "old_title": "Why Your Body Freezes When Scared \ud83e\udec0",
+      "new_title": "Why Your Freezes When Scared \u2014 Why It Actually Happens \ud83d\ude31",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "gP1DPuhQ_3s",
+      "old_title": "Why Your Body Twitches Every Time \ud83e\udec0",
+      "new_title": "Why Your Twitches Every Time \u2014 The Surprising Truth \ud83c\udf00",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "gjpntlEBT-c",
+      "old_title": "Why Your Body Freezes When Scared \ud83e\udec0",
+      "new_title": "Why Your Freezes When Scared \u2014 Why It Actually Happens \ud83d\udca5",
+      "needs": true,
+      "seo_noncompliant": true,
+      "error": "apply_failed"
+    },
+    {
+      "platform": "youtube",
+      "video_id": "LIHZLv8a9ps",
+      "old_title": "Why Your Body Shakes When You Sleep \ud83d\ude34",
+      "new_title": "Why Your Knees Cracking When \u2014 The Real Reason \ud83d\udd2c",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "kLzNZVoP8Bo",
+      "old_title": "Why Your Body Twitches Every Time \ud83e\udec0",
+      "new_title": "Why Your Twitches Every Time \u2014 The Surprising Truth \ud83d\udc41\ufe0f",
+      "needs": true,
+      "seo_noncompliant": true,
+      "error": "apply_failed"
+    },
+    {
+      "platform": "youtube",
+      "video_id": "FPyokHKdhNk",
+      "old_title": "Why Your Body Freezes When You're Scared \ud83e\udec0",
+      "new_title": "Why Freezing When Scared Happens \u2014 Why It Actually Happens",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "youtube",
+      "video_id": "mWnKEZll6jA",
+      "old_title": "Why Your Body Shakes When You Sleep \ud83d\ude34",
+      "new_title": "Why Your Freezes When Feel Scared \u2014 The Real Reason \ud83e\ude9e",
+      "needs": true,
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "facebook",
+      "reel_id": "1044083038116002",
+      "new_caption": "Your yawning spreading instantly isn't random \u2014 here's the actual science. yawning spreading instantly from person to pe",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "facebook",
+      "reel_id": "1051855414448490",
+      "new_caption": "The real reason The Truth About Your \u2014 explained in under a minute. The Truth About Your Body Twitches When You Sleep Tr",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "facebook",
+      "reel_id": "3477770522430241",
+      "new_caption": "What Freezes When You're Scared really means (it's weirder than you think). Why Your Body Freezes When You're Scared \ud83e\udec0 y",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "facebook",
+      "reel_id": "1754294192265457",
+      "new_caption": "The real reason Have ever felt like \u2014 explained in under a minute. Have you ever felt like hours flew by Feeling like ti",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "facebook",
+      "reel_id": "27722335547405806",
+      "new_caption": "Your a feeling lump your isn't random \u2014 here's the actual science. a feeling of a lump in your throat when sad a feeling",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "facebook",
+      "reel_id": "2081125756163684",
+      "new_caption": "Your isn't random \u2014 here's the actual science. Everyday body science. \u2014 here's the simple science. Our bodies do strange",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "facebook",
+      "reel_id": "1241453812383979",
+      "new_caption": "Your You love sweet taste isn't random \u2014 here's the actual science. You love the sweet taste of cold ice Discover why yo",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "facebook",
+      "reel_id": "1722979402180192",
+      "new_caption": "Your isn't random \u2014 here's the actual science. Everyday body science. \u2014 here's the simple science. Our bodies do strange",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "facebook",
+      "reel_id": "1413329767314698",
+      "new_caption": "Your isn't random \u2014 here's the actual science. Everyday body science. \u2014 here's the simple science. Our bodies do strange",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "facebook",
+      "reel_id": "2583015618843182",
+      "new_caption": "Most people have no idea why Gag Reflex happens. Why Your Body Does This: Gag Reflex \ud83d\ude33 your body gag reflex \u2014 here's the",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "facebook",
+      "reel_id": "1523575096183415",
+      "new_caption": "What Have ever noticed your really means (it's weirder than you think). Have you ever noticed your mouth dry up Learn wh",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "facebook",
+      "reel_id": "1541306318009452",
+      "new_caption": "The real reason Doorway Effect \u2014 explained in under a minute. Why Your Body Does This: Doorway Effect \ud83d\ude33 your body doorwa",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "facebook",
+      "reel_id": "870075022564667",
+      "new_caption": "Your Muscle Cramp isn't random \u2014 here's the actual science. Muscle Cramp \ud83d\ude34 Muscle Cramp \u2014 here's the simple science. Our",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "facebook",
+      "reel_id": "1543194320583010",
+      "new_caption": "Your Song Earworm isn't random \u2014 here's the actual science. Song Earworm \ud83e\udde0 Song Earworm \u2014 here's the simple science. Our",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "facebook",
+      "reel_id": "2732800527099046",
+      "new_caption": "What your ears ringing absolute really means (it's weirder than you think). your ears ringing in absolute silence your e",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "facebook",
+      "reel_id": "2236092447213631",
+      "new_caption": "What Sleeping Foot really means (it's weirder than you think). Sleeping Foot \ud83e\udec0 Sleeping Foot \u2014 here's the simple science",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "facebook",
+      "reel_id": "1787303285967704",
+      "new_caption": "What brushing back teeth triggering really means (it's weirder than you think). brushing back teeth triggering a sudden ",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "facebook",
+      "reel_id": "2796503204059829",
+      "new_caption": "Your Shakes When Sleeping isn't random \u2014 here's the actual science. Why Your Body Shakes When Sleeping \ud83d\ude34 your body shake",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "facebook",
+      "reel_id": "1583829023133226",
+      "new_caption": "Your Freezes When Scared isn't random \u2014 here's the actual science. Why Your Body Freezes When Scared \ud83e\udec0 your body freezes",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "facebook",
+      "reel_id": "2219523898781644",
+      "new_caption": "Most people have no idea why Twitches Every Time happens. Why Your Body Twitches Every Time \ud83e\udec0 your body twitches every t",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "instagram",
+      "media_id": "17932288374122345",
+      "new_caption": "What 17932288374122345 really means (it's weirder than you think). this body fact this body fact \ud83e\udd2f The science: this bod",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "instagram",
+      "media_id": "18080252354690210",
+      "new_caption": "Your 18080252354690210 isn't random \u2014 here's the actual science. this body fact this body fact \ud83e\udd2f The science: this body ",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "instagram",
+      "media_id": "18029134769666573",
+      "new_caption": "What 18029134769666573 really means (it's weirder than you think). this body fact this body fact \ud83e\udd2f The science: this bod",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "instagram",
+      "media_id": "18137677459577895",
+      "new_caption": "What 18137677459577895 really means (it's weirder than you think). this body fact this body fact \ud83e\udd2f The science: this bod",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "instagram",
+      "media_id": "18612613474022611",
+      "new_caption": "What 18612613474022611 really means (it's weirder than you think). this body fact this body fact \ud83e\udd2f The science: this bod",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "instagram",
+      "media_id": "18114529840822982",
+      "new_caption": "The real reason 18114529840822982 \u2014 explained in under a minute. this body fact this body fact \ud83e\udd2f The science: this body ",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "instagram",
+      "media_id": "18156423490496365",
+      "new_caption": "Your 18156423490496365 isn't random \u2014 here's the actual science. this body fact this body fact \ud83e\udd2f The science: this body ",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "instagram",
+      "media_id": "18106270670273654",
+      "new_caption": "Most people have no idea why 18106270670273654 happens. this body fact this body fact \ud83e\udd2f The science: this body fact \u2014 an",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "instagram",
+      "media_id": "18106750781120830",
+      "new_caption": "The real reason 18106750781120830 \u2014 explained in under a minute. this body fact this body fact \ud83e\udd2f The science: this body ",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "instagram",
+      "media_id": "18154709416477168",
+      "new_caption": "What 18154709416477168 really means (it's weirder than you think). this body fact this body fact \ud83e\udd2f The science: this bod",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "instagram",
+      "media_id": "17910974838444227",
+      "new_caption": "Your 17910974838444227 isn't random \u2014 here's the actual science. this body fact this body fact \ud83e\udd2f The science: this body ",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "instagram",
+      "media_id": "17859956940680737",
+      "new_caption": "The real reason 17859956940680737 \u2014 explained in under a minute. this body fact this body fact \ud83e\udd2f The science: this body ",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "instagram",
+      "media_id": "17958833967189983",
+      "new_caption": "Your 17958833967189983 isn't random \u2014 here's the actual science. this body fact this body fact \ud83e\udd2f The science: this body ",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "instagram",
+      "media_id": "18175352608438214",
+      "new_caption": "Your 18175352608438214 isn't random \u2014 here's the actual science. this body fact this body fact \ud83e\udd2f The science: this body ",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "instagram",
+      "media_id": "18088727129373160",
+      "new_caption": "Most people have no idea why 18088727129373160 happens. this body fact this body fact \ud83e\udd2f The science: this body fact \u2014 an",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "instagram",
+      "media_id": "18121504340493589",
+      "new_caption": "What 18121504340493589 really means (it's weirder than you think). this body fact this body fact \ud83e\udd2f The science: this bod",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "instagram",
+      "media_id": "18071429744404417",
+      "new_caption": "What 18071429744404417 really means (it's weirder than you think). this body fact this body fact \ud83e\udd2f The science: this bod",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "instagram",
+      "media_id": "17922877575404932",
+      "new_caption": "The real reason 17922877575404932 \u2014 explained in under a minute. this body fact this body fact \ud83e\udd2f The science: this body ",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "instagram",
+      "media_id": "18069798800706226",
+      "new_caption": "What 18069798800706226 really means (it's weirder than you think). this body fact this body fact \ud83e\udd2f The science: this bod",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "instagram",
+      "media_id": "18201772657365544",
+      "new_caption": "Most people have no idea why 18201772657365544 happens. this body fact this body fact \ud83e\udd2f The science: this body fact \u2014 an",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "instagram",
+      "media_id": "18418327993146692",
+      "new_caption": "What 18418327993146692 really means (it's weirder than you think). this body fact this body fact \ud83e\udd2f The science: this bod",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "instagram",
+      "media_id": "18022095557886789",
+      "new_caption": "The real reason 18022095557886789 \u2014 explained in under a minute. this body fact this body fact \ud83e\udd2f The science: this body ",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "instagram",
+      "media_id": "18009592496946887",
+      "new_caption": "What 18009592496946887 really means (it's weirder than you think). this body fact this body fact \ud83e\udd2f The science: this bod",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "instagram",
+      "media_id": "18105670700521685",
+      "new_caption": "The real reason 18105670700521685 \u2014 explained in under a minute. this body fact this body fact \ud83e\udd2f The science: this body ",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "instagram",
+      "media_id": "18543842077076212",
+      "new_caption": "What 18543842077076212 really means (it's weirder than you think). this body fact this body fact \ud83e\udd2f The science: this bod",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "instagram",
+      "media_id": "18202408738367339",
+      "new_caption": "The real reason 18202408738367339 \u2014 explained in under a minute. this body fact this body fact \ud83e\udd2f The science: this body ",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "instagram",
+      "media_id": "18347411611221956",
+      "new_caption": "The real reason 18347411611221956 \u2014 explained in under a minute. this body fact this body fact \ud83e\udd2f The science: this body ",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "instagram",
+      "media_id": "18463627924119053",
+      "new_caption": "What 18463627924119053 really means (it's weirder than you think). this body fact this body fact \ud83e\udd2f The science: this bod",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "instagram",
+      "media_id": "17894064276573755",
+      "new_caption": "The real reason 17894064276573755 \u2014 explained in under a minute. this body fact this body fact \ud83e\udd2f The science: this body ",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "instagram",
+      "media_id": "18123739615779087",
+      "new_caption": "Your 18123739615779087 isn't random \u2014 here's the actual science. this body fact this body fact \ud83e\udd2f The science: this body ",
+      "seo_noncompliant": true,
+      "applied": true
+    }
+  ]
+}
