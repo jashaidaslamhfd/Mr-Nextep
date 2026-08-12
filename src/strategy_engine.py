@@ -538,6 +538,15 @@ class StrategyEngine:
             current_series=self._current_series,
         )
         self.state = decision
+        # Production requirement: 3 videos/day at US peak slots. The strategy
+        # engine may suggest 1-2 while retention is low, but the operator's
+        # consistency goal wins (override with DISABLE_CADENCE_3=true).
+        try:
+            from continuity import clamp_cadence_3
+            decision["cadence"] = clamp_cadence_3(decision.get("cadence", 3))
+            self.state = decision
+        except Exception:  # noqa: BLE001 - cadence clamp must never block
+            pass
         self.persist()
         return decision
 
