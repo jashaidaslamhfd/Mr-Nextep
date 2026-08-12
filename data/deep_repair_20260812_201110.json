@@ -1,0 +1,34 @@
+{
+  "generated_at": "2026-08-12T20:11:10.710435+00:00",
+  "dry_run": true,
+  "stats": {
+    "youtube": {
+      "total": 109,
+      "repaired": 1,
+      "skipped": 108,
+      "errors": 0
+    },
+    "facebook": {
+      "total": 20,
+      "repaired": 0,
+      "skipped": 20,
+      "errors": 0
+    },
+    "instagram": {
+      "total": 30,
+      "repaired": 0,
+      "skipped": 30,
+      "errors": 0
+    }
+  },
+  "results": [
+    {
+      "platform": "youtube",
+      "video_id": "cGVDXd8HN4g",
+      "old_title": "Why Got Fired Matters",
+      "new_title": "Why Your WE GOT FIRED Animal \u2014 Why It Actually Happens \u26a1",
+      "needs": true,
+      "applied": "(dry-run)"
+    }
+  ]
+}
