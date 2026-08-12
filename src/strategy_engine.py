@@ -42,6 +42,9 @@ DATA_DIR = ROOT / "data"
 
 # Paths (overridable via env for tests).
 STRATEGY_STATE_PATH = os.environ.get("STRATEGY_STATE_PATH", str(DATA_DIR / "strategy_state.json"))
+# Trained ML model state produced by scripts/train_ml.py. The pipeline reads
+# this instead of re-fitting every run, so decisions use the trained models.
+MODEL_STATE_PATH = os.environ.get("MODEL_STATE_PATH", str(DATA_DIR / "model_state.json"))
 GROWTH_STATE_PATH = os.environ.get("GROWTH_STATE_PATH", str(DATA_DIR / "growth_state.json"))
 HISTORY_PATH = os.environ.get("VIDEO_HISTORY_PATH", str(DATA_DIR / "video_history.json"))
 VIRAL_PATH = os.environ.get("VIRAL_INTEL_PATH", str(DATA_DIR / "viral_intelligence.json"))
@@ -538,6 +541,13 @@ class StrategyEngine:
             current_series=self._current_series,
         )
         self.state = decision
+        # Attach the TRAINED ML model state (from scripts/train_ml.py) so the
+        # decision uses the persisted trained models rather than re-fitting.
+        try:
+            decision["trained_model"] = _load_json(MODEL_STATE_PATH, {})
+            self.state = decision
+        except Exception:  # noqa: BLE001 - trained state is optional
+            pass
         # Production requirement: 3 videos/day at US peak slots. The strategy
         # engine may suggest 1-2 while retention is low, but the operator's
         # consistency goal wins (override with DISABLE_CADENCE_3=true).
