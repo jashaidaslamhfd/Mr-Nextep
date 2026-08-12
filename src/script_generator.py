@@ -91,8 +91,12 @@ from algorithm_policy import (  # noqa: E402  (config import, must precede use)
     script_word_budget as _policy_script_words,
 )
 
-MIN_SCENES = 6
-MAX_SCENES = 6
+# The prompt asks the LLM for EXACTLY eight scenes and the tests build 8-scene
+# scripts, so the validation ceiling MUST be 8. A stale change to 6 created two
+# contradictory gates (prompt said 8, validator rejected >6) that made every
+# run fail its own script gate.
+MIN_SCENES = 8
+MAX_SCENES = 8
 MIN_WORDS, MAX_WORDS = _policy_script_words()
 MAX_RETRIES = 3
 SCRIPT_POLICY_VERSION = "ALGO_POLICY_2026_07"

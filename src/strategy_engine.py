@@ -310,6 +310,27 @@ def decide_from_state(*, platform_health: Optional[Dict] = None,
         logger.warning("Calibration unavailable (%s)", exc)
         calibration = {"error": str(exc)[:120]}
 
+    # ---- 5d. Independent evaluation gate (real outcomes, not self-scores) -- #
+    # The pipeline scores itself with heuristics that can drift. This gate
+    # evaluates on REAL views/CTR/retention only, so the decision knows the
+    # channel's true performance and whether there's enough real signal to
+    # trust ML/calibration at all.
+    evaluation = {}
+    try:
+        from evaluator import evaluate_channel
+        evaluation = evaluate_channel()
+    except Exception as exc:  # noqa: BLE001 - evaluation must never block
+        logger.warning("Independent evaluation unavailable (%s)", exc)
+        evaluation = {"error": str(exc)[:120]}
+
+    signal_guard = {}
+    try:
+        from analytics_guards import require_real_signal, data_health
+        signal_guard = require_real_signal(block=False)
+        signal_guard["health"] = data_health()
+    except Exception as exc:  # noqa: BLE001 - guard must never block
+        signal_guard = {"error": str(exc)[:120]}
+
     return {
         "recommended_series": recommended_series,
         "topic_strategy": top_series,
@@ -323,6 +344,8 @@ def decide_from_state(*, platform_health: Optional[Dict] = None,
         "lever_analysis": lever,
         "intelligence": intelligence,
         "calibration": calibration,
+        "evaluation": evaluation,
+        "signal_guard": signal_guard,
         "viral_readiness": viral_readiness_report(),
         "series_weights": series_weights,
         "competitor_leads": competitor_recs[:5],

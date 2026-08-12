@@ -305,6 +305,28 @@ class SKILLORPipeline:
                 else:
                     logger.info("🤖 Calibration: heuristic scores track real views (no drift).")
 
+            # Independent evaluation gate — real outcomes, not self-scores.
+            ev = decision.get("evaluation", {})
+            if ev.get("independent"):
+                h = ev.get("data_health", {})
+                logger.info(
+                    "🤖 Independent evaluation: channel true-score %s/100, "
+                    "%s videos, real CTR readings %s — %s.",
+                    ev.get("channel_score"), h.get("n_videos"),
+                    h.get("n_with_real_ctr"), h.get("verdict"),
+                )
+
+            # Signal guard — can we trust decisions without real data?
+            guard = decision.get("signal_guard", {})
+            if guard.get("can_trust_scores") is False:
+                logger.warning(
+                    "🔴 SIGNAL GUARD: %s (%s real CTR / %s videos). Heuristic "
+                    "scores may be unreliable — fix analytics scope (yt-analytics"
+                    ".readonly) to collect real CTR before trusting predictions.",
+                    guard.get("action"), guard.get("health", {}).get("n_with_real_ctr"),
+                    guard.get("health", {}).get("n_videos_with_real_metrics"),
+                )
+
             intel = decision.get("intelligence", {})
             for key, label in (("ctr_model", "CTR"), ("retention_model", "RETENTION")):
                 m = intel.get(key) or {}
