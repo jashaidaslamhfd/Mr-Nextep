@@ -110,6 +110,13 @@ GROQ_MODEL_PRIMARY = os.environ.get("GROQ_MODEL", "llama-3.3-70b-versatile")
 GROQ_MODEL_FALLBACK = "llama-3.1-8b-instant"
 _model_downgraded = False
 
+# LLM resilience: Groq free tier is frequently rate-limited (429), which was
+# stalling script generation. When Groq fails or is rate-limited, fall back to
+# OpenRouter (a neutral router over many models) using OPENROUTER_API_KEY.
+OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions"
+OPENROUTER_MODEL = os.environ.get("OPENROUTER_MODEL", "meta-llama/llama-3.3-70b-instruct:free")
+OPENROUTER_TIMEOUT = 60
+
 # A fast, clear opening that fits inside the platform hook budget. All three
 # 2026 feeds decide within the first 2-3 seconds, so the ceiling is whatever
 # fits in that window at the measured speech rate — not a guessed word count.
@@ -815,6 +822,43 @@ def analyze_retention_potential(script_data: Dict) -> Dict:
 # 6. MAIN GENERATE FUNCTION
 # ============================================
 
+def _openrouter_generate(messages, temperature=None, max_tokens=None) -> Optional[str]:
+    """Call OpenRouter as a fallback LLM when Groq is rate-limited/down.
+
+    Returns the raw assistant text, or None on failure (never raises, so the
+    caller can keep trying Groq). OpenRouter routes to many models; we use the
+    configured OPENROUTER_MODEL (free Llama by default) so no extra cost.
+    """
+    key = os.environ.get("OPENROUTER_API_KEY")
+    if not key:
+        return None
+    try:
+        import requests as _req
+        payload = {"model": OPENROUTER_MODEL, "messages": messages}
+        if temperature is not None:
+            payload["temperature"] = temperature
+        if max_tokens is not None:
+            payload["max_tokens"] = max_tokens
+        resp = _req.post(
+            OPENROUTER_API_URL,
+            headers={
+                "Authorization": f"Bearer {key}",
+                "Content-Type": "application/json",
+                "HTTP-Referer": "https://github.com/jashaidaslamhfd/Mr-Nextep",
+            },
+            json=payload,
+            timeout=OPENROUTER_TIMEOUT,
+        )
+        if resp.status_code != 200:
+            logger.warning("OpenRouter fallback failed: HTTP %s", resp.status_code)
+            return None
+        data = resp.json()
+        return data["choices"][0]["message"]["content"]
+    except Exception as exc:  # noqa: BLE001 - fallback must never raise
+        logger.warning("OpenRouter fallback error: %s", exc)
+        return None
+
+
 def generate_script(
     topic: str, 
     custom_prompt: Optional[str] = None, 
@@ -873,16 +917,27 @@ def generate_script(
         try:
             logger.info(f"🔄 Generating script (Attempt {attempt}/{max_retries})")
             
-            # Call Groq API
-            completion = client.chat.completions.create(
-                messages=messages,
-                model=(GROQ_MODEL_FALLBACK if _model_downgraded else GROQ_MODEL_PRIMARY),
-                response_format={"type": "json_object"},
-                temperature=TEMPERATURE,
-                max_tokens=MAX_TOKENS
-            )
-            
-            raw_reply = completion.choices[0].message.content
+            # Call Groq API, falling back to OpenRouter on rate-limit/errors so
+            # a 429 (free-tier) can't stall the whole run.
+            raw_reply = None
+            try:
+                completion = client.chat.completions.create(
+                    messages=messages,
+                    model=(GROQ_MODEL_FALLBACK if _model_downgraded else GROQ_MODEL_PRIMARY),
+                    response_format={"type": "json_object"},
+                    temperature=TEMPERATURE,
+                    max_tokens=MAX_TOKENS
+                )
+                raw_reply = completion.choices[0].message.content
+            except Exception as groq_err:  # noqa: BLE001 - fallback on any Groq failure
+                logger.warning("Groq call failed (%s) — trying OpenRouter fallback...", groq_err)
+                raw_reply = _openrouter_generate(
+                    messages, temperature=TEMPERATURE, max_tokens=MAX_TOKENS
+                )
+                if raw_reply:
+                    logger.info("✅ OpenRouter fallback produced a script.")
+            if not raw_reply:
+                raise RuntimeError("All LLM providers failed (Groq + OpenRouter).")
             raw_reply = repair_mojibake(raw_reply)
             
             # Clean JSON

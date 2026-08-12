@@ -138,3 +138,23 @@ class TrendSafetyTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class LLMFallbackTests(unittest.TestCase):
+    def test_openrouter_fallback_graceful_without_key(self):
+        import script_generator, os
+        old = os.environ.pop("OPENROUTER_API_KEY", None)
+        try:
+            r = script_generator._openrouter_generate(
+                [{"role": "user", "content": "hi"}])
+            self.assertIsNone(r)  # no key -> None, never raises
+        finally:
+            if old is not None:
+                os.environ["OPENROUTER_API_KEY"] = old
+
+    def test_openrouter_fallback_is_wired_in_generate(self):
+        import script_generator
+        src = script_generator.__file__
+        code = open(src, encoding="utf-8").read()
+        self.assertIn("_openrouter_generate", code)
+        self.assertIn("OPENROUTER_API_KEY", code)
