@@ -91,8 +91,8 @@ from algorithm_policy import (  # noqa: E402  (config import, must precede use)
     script_word_budget as _policy_script_words,
 )
 
-MIN_SCENES = 8
-MAX_SCENES = 8
+MIN_SCENES = 6
+MAX_SCENES = 6
 MIN_WORDS, MAX_WORDS = _policy_script_words()
 MAX_RETRIES = 3
 SCRIPT_POLICY_VERSION = "ALGO_POLICY_2026_07"
