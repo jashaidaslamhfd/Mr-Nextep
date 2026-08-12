@@ -937,6 +937,41 @@ class SKILLORPipeline:
                     logger.warning("Master cut is outside the YouTube window: %s", verdict)
                 logger.info(f"✅ Video built and validated: {final_video} ({technical})")
                 logger.info(f"✅ Thumbnail built: {thumb_path}")
+
+                # 🔴 INDEPENDENT GATE PIPELINE — every subsystem's own guard must
+                # pass before upload. These guards ignore the pipeline's heuristic
+                # self-scores (which have drifted from reality) and check each
+                # stage with its own independent rules. If ANY fails, the video
+                # is NOT published.
+                try:
+                    from gates import run_gates
+                    _yt_floor, _yt_ideal, _yt_ceil = duration_policy(YOUTUBE)
+                    gate_ctx = {
+                        "script_data": script_data,
+                        "technical": technical,
+                        "policy": {"floor": _yt_floor, "ideal": _yt_ideal,
+                                   "ceil": _yt_ceil},
+                        "image_paths": image_paths,
+                        "media_types": media_types,
+                        "audio_segments": audio_segments,
+                        "required_scenes": len(script_data.get('scenes') or []),
+                    }
+                    gate_result = run_gates(gate_ctx)
+                    if not gate_result["overall"]:
+                        raise RuntimeError(
+                            "INDEPENDENT GATE BLOCKED the run: "
+                            + ", ".join(gate_result["failed_guards"])
+                            + " guard(s) failed. Fix before publishing."
+                        )
+                    logger.info(
+                        "✅ Independent gate pipeline: %d/%d guards passed.",
+                        gate_result["passed_count"], gate_result["total"],
+                    )
+                except RuntimeError:
+                    raise
+                except Exception as gate_err:  # noqa: BLE001 - a broken guard must not silently pass
+                    logger.error("🔴 Gate pipeline error: %s", gate_err)
+                    raise RuntimeError(f"Gate pipeline failed: {gate_err}")
             except Exception as e:
                 logger.error(f"Video build failed: {e}")
                 raise
