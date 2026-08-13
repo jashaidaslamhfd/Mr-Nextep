@@ -3,9 +3,15 @@ name: CI - guard tests on push
 # Every push must pass the test suite BEFORE a scheduled pipeline run can
 # break on it. If a commit would crash the daily pipeline, this fails loud
 # here instead of silently killing uploads at 19:00 Paris time.
+#
+# Pull requests are tested too. Without the pull_request trigger a PR showed
+# no checks at all, so a change could be reviewed and merged with nothing
+# verifying it — the exact gap this workflow exists to close.
 
 on:
   push:
+    branches: [main]
+  pull_request:
     branches: [main]
 
 permissions:
