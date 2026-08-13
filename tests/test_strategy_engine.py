@@ -64,7 +64,7 @@ class DecideCoreTests(unittest.TestCase):
         decision = decide_from_state(platform_health={}, video_features=[])
         self.assertIn(decision["recommended_series"], SUPPORTED_SERIES)
         self.assertIn(decision["topic_strategy"], SERIES_STRATEGY.values())
-        self.assertIn(decision["quality_threshold"], (60, 55, 65))
+        self.assertIn(decision["quality_threshold"], (60, 55, 65, 70))
 
     def test_series_weights_respect_learned_history(self):
         decision = decide_from_state(

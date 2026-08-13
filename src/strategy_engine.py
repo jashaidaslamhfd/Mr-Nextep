@@ -285,6 +285,19 @@ def decide_from_state(*, platform_health: Optional[Dict] = None,
         elif avg_comp > 0.6:
             quality_threshold = 55  # loosen a little to increase volume
 
+    # Calibration-aware quality gate: when the heuristic levers are DRIFTED
+    # (scores don't predict real views), raise the bar so the channel stops
+    # publishing content the audience rejects. When levers are trusted, the
+    # normal threshold applies.
+    try:
+        from calibration import calibrate
+        _cal = calibrate(_load_json(HISTORY_PATH, []))
+        if _cal.get("calibrated") and _cal.get("drifted"):
+            # Heuristics unreliable -> demand high quality before publishing.
+            quality_threshold = max(quality_threshold, 70)
+    except Exception:  # noqa: BLE001 - calibration must never break the gate
+        pass
+
     # ---- 5. ML lever analysis (which lever drives views) ------------------ #
     lever = ml_lever_analysis(video_features)
 
