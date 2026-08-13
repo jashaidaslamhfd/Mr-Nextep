@@ -44,7 +44,7 @@ import os
 import re
 from collections import defaultdict
 from datetime import datetime, timezone
-from statistics import mean
+from statistics import mean, median
 from typing import Dict, List, Optional, Tuple
 
 import pytz
@@ -83,6 +83,54 @@ LEARNING_RATE = 0.3
 # actually influences generation. One constant, used by both the report and
 # the consumers — see _best_of().
 WINNER_MARGIN = 0.10
+
+# ---------------------------------------------------------------------------
+# OUTLIER DEFENCE (added 2026-08-14)
+#
+# Two entries in this channel's own history were quietly inflating every
+# decision the learning loop makes:
+#
+#   averageViewPercentage = 293.6%  on a video with 195 views
+#   averageViewPercentage = 114.6%  on a video with   2 views
+#
+# Neither number is a bug in the API. Shorts replays count toward watch time,
+# so avgViewPercentage legitimately exceeds 100% on a looping video. The bug
+# was treating them as ordinary samples in an unweighted MEAN:
+#
+#   mean of all 22 videos  -> 0.937 x the gate  ("close but under, hold 2/day")
+#   median of all 22       -> 0.636 x the gate  (the honest picture)
+#   mean excluding the two -> 0.629 x the gate
+#
+# So the channel looked ~50% healthier than it was, which loosened cadence and
+# the quality gate — the two things that most need to stay tight while
+# retention is failing. Three guards, each cheap and each independent:
+#
+#   1. A completion rate measured on almost no traffic is noise. One viewer
+#      looping a 2-view video is not evidence about the format.
+#   2. A single exceptional video may not dominate the channel average.
+#   3. Channel-level health uses the MEDIAN, which does not care how extreme
+#      the tails are.
+# ---------------------------------------------------------------------------
+
+# Below this view count a video's completion rate is ignored for learning.
+# It still counts for reach reporting - it just cannot move a weight.
+MIN_VIEWS_FOR_TRUST = int(os.environ.get("MIN_VIEWS_FOR_TRUST", "25"))
+
+# Ceiling on one video's score, expressed as a multiple of the platform gate.
+# 2.0 = "twice as good as the bar" is as much credit as any single video gets.
+MAX_TRUSTED_SCORE = float(os.environ.get("MAX_TRUSTED_SCORE", "2.0"))
+
+
+def _robust_centre(values: List[float]) -> Optional[float]:
+    """Channel-level average that a couple of viral or dead videos cannot bend.
+
+    Uses the median. With 22 samples and two 100%+ outliers the mean read
+    0.937 and the median 0.636; the median is the number an operator would
+    recognise as describing their channel.
+    """
+    if not values:
+        return None
+    return float(median(values))
 
 
 # ---------------------------------------------------------------------------
@@ -225,13 +273,20 @@ def hook_frame(title_or_hook: str) -> str:
 # ---------------------------------------------------------------------------
 
 def _platform_score(record: Dict, platform: str) -> Optional[float]:
-    """How well one video did on one platform, as a 0..~2 ratio of the
+    """How well one video did on one platform, as a 0..2 ratio of the
     platform's own retention gate.
 
     1.0 means "exactly cleared the bar the feed uses to widen distribution".
     Using a RATIO instead of raw completion is what makes YouTube, Facebook
     and Instagram numbers comparable, and it automatically re-baselines if a
     platform's gate is updated in algorithm_policy.
+
+    Two guards (see MIN_VIEWS_FOR_TRUST / MAX_TRUSTED_SCORE):
+      * a completion rate measured on almost no traffic is discarded - a
+        2-view video reporting 114% retention is one looping viewer, not a
+        verdict on the format;
+      * the score is capped, so a single replay-heavy video cannot drag the
+        channel average up past the gate on its own.
     """
     data = record.get(platform) or {}
     if not isinstance(data, dict) or "error" in data:
@@ -239,13 +294,22 @@ def _platform_score(record: Dict, platform: str) -> Optional[float]:
     completion = data.get("completion")
     if completion is None:
         return None
+
+    views = data.get("views")
+    if views is not None:
+        try:
+            if float(views) < MIN_VIEWS_FOR_TRUST:
+                return None
+        except (TypeError, ValueError):
+            pass
+
     from platform_metrics import _clip_seconds
 
     seconds = _clip_seconds(record, platform)
     gate = retention_gate(platform, seconds)
     if gate <= 0:
         return None
-    return float(completion) / gate
+    return min(float(completion) / gate, MAX_TRUSTED_SCORE)
 
 
 def _combined_score(record: Dict) -> Optional[float]:
@@ -314,7 +378,14 @@ def _platform_health(records: List[Dict], platform: str) -> Dict:
         if score is not None:
             scores.append(score)
         if isinstance(data, dict):
-            if data.get("completion") is not None:
+            trusted_views = True
+            if data.get("views") is not None:
+                try:
+                    trusted_views = float(data["views"]) >= MIN_VIEWS_FOR_TRUST
+                except (TypeError, ValueError):
+                    trusted_views = True
+            # Completion only describes the format when enough people saw it.
+            if data.get("completion") is not None and trusted_views:
                 completions.append(float(data["completion"]))
             if data.get("views") is not None:
                 views.append(float(data["views"]))
@@ -338,8 +409,10 @@ def _platform_health(records: List[Dict], platform: str) -> Dict:
             ),
         }
 
-    avg_score = mean(scores)
-    avg_completion = mean(completions) if completions else None
+    # Median, not mean: see the OUTLIER DEFENCE note at the top of this module.
+    # Two replay-heavy videos were making a 0.64x channel read as 0.94x.
+    avg_score = _robust_centre(scores)
+    avg_completion = _robust_centre(completions) if completions else None
     critical = HEALTH_THRESHOLDS["critical_retention_ratio"]
 
     if avg_score >= 1.0:
@@ -490,7 +563,9 @@ def analyse(min_age_hours: Optional[int] = None) -> Dict:
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "sample_size": len(mature),
         "scored_videos": len(scored),
-        "channel_gate_ratio": round(mean(scored), 3) if scored else None,
+        # The headline retention index. Median so that a couple of replay-heavy
+        # or near-zero-view videos cannot make a failing channel look healthy.
+        "channel_gate_ratio": round(_robust_centre(scored), 3) if scored else None,
         "slot_weights": slot_weights,
         "topic_weights": topic_weights,
         "hook_weights": hook_weights,
@@ -561,7 +636,7 @@ def _recommend_cadence(scores: List[float], health: Dict) -> Tuple[int, str]:
             "while data accumulates to avoid teaching the feed that this format loses viewers."
         )
 
-    average = mean(scores)
+    average = _robust_centre(scores)
     critical = HEALTH_THRESHOLDS["critical_retention_ratio"]
     if average < critical:
         return clamp_cadence(1), (
@@ -601,7 +676,7 @@ def _build_alerts(health: Dict, slot_buckets: Dict, scores: List[float]) -> List
         elif info["status"] == "critical":
             alerts.append({"level": "error", "message": f"{info['label']}: {info['action']}"})
 
-    if scores and mean(scores) < HEALTH_THRESHOLDS["critical_retention_ratio"]:
+    if scores and _robust_centre(scores) < HEALTH_THRESHOLDS["critical_retention_ratio"]:
         alerts.append({
             "level": "error",
             "message": (

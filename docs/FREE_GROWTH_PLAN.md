@@ -14,10 +14,18 @@ Measured from committed channel state (`data/video_history.json`, `data/growth_s
 |---|---|---|---|
 | Videos published | 118 | — | volume is not the problem |
 | Total views (all time) | ~29,700 | — | median video: **156 views** |
-| YouTube avg view % | **47%** (median 32%) | ≥ 50% | 🟡 below gate |
+| YouTube completion (median) | **32%** | ≥ 50% | 🔴 0.63× the gate |
 | Facebook Reels completion | **19%** | ~72% | 🔴 critical |
 | Instagram Reels completion | **24%** | ~70% | 🔴 critical |
 | Instagram followers | 0–35 | — | no distribution base yet |
+
+> **Corrected 2026-08-14.** These numbers used to read "47% completion, 0.94× the
+> gate". That was wrong. Two entries in the channel's own history —
+> `averageViewPercentage = 293.6%` (a 195-view video whose replays counted) and
+> `114.6%` (a video with **two** views) — were averaged in unweighted, which
+> overstated the channel by ~50%. The learning loop now discards completion
+> measured on almost no traffic, caps any single video's score, and uses the
+> **median**. Honest retention index: **0.634** (was 0.937).
 
 **The one-line diagnosis:** the pipeline ships reliably, but **almost nobody
 finishes the videos**. Every 2026 feed (YT Shorts, FB Reels, IG Reels) decides
@@ -69,14 +77,48 @@ Two hard conclusions:
 | **Metrics loop un-blinded** (`src/platform_metrics.py`) | `data/platform_metrics.json` was `{}`, so every decision was made with **zero** evidence. Measured YouTube numbers already sat in `video_history.json` and were being thrown away. They are now recovered offline (no API call, no cost): **0 → 22 records**. This alone switched the ML from `trained: false, n=0` to `trained: true, n=22`, and the adaptive quality gate from 60 → **70**. |
 | **Barrier detection made honest** (`src/strategy_engine.py`) | A platform at 94% of its gate was labelled a *volume* problem ("increase cadence for reach"). Being under the gate is a *retention* problem. Also: a missing `gate_ratio` used to default to "perfectly healthy", so a critical platform read as fine. |
 | **Meta cut can finally get short** (`algorithm_policy.py`, `platform_cuts.py`) | The Meta floor was 18s and `META_TARGET_SECONDS=18` was pinned *at* that floor — the lever did nothing. Floor is now 12s, target **14s**, and the cut editor can drop the setup beat so `hook → payoff → loop` fits. |
+| **Outlier defence in the learning loop** (`src/growth_engine.py`) | The retention index — the number that sets cadence and the quality gate — was an unweighted mean. Two entries (293.6% on a 195-view video, 114.6% on a **2-view** video) overstated the channel by ~50%: it reported **0.937×** the gate when the honest figure is **0.634×**. Completion measured on almost no traffic is now discarded, any single video's score is capped, and channel health uses the **median**. |
 | **Analytics job fails loudly** (`.github/workflows/analytics.yml`) | It ended in `|| echo "::warning::"`, so an expired token produced a **green** run while learning was dead. |
 | **Fake repair reports removed** | `auto_repair_engine` / `us_audience_full_repair` invented numbers ("18 candidates found", 23 fake videos). They now report `implemented: false`. |
 
-Tests: **297 passed, 2 skipped** (23 new regression tests lock these in).
+Tests: **305 passed, 2 skipped** (31 new regression tests lock these in).
 
 ---
 
-## 4. Your action list — free, ranked by impact
+## 4. What CANNOT be built yet (and why I did not fake it)
+
+**Measured click-through rate does not exist for this channel.**
+
+`src/seo_analytics.py` already requests `impressions` and
+`impressionsClickThroughRate` from the YouTube Analytics API, with a
+self-healing retry that drops unsupported metrics. YouTube does not serve those
+two for this channel, so:
+
+| Field | Entries in `video_history.json` |
+|---|---|
+| `views` | 108 |
+| `average_view_percentage` | 22 |
+| `likes` / `comments` | 103 |
+| **`actual_ctr`** | **0** |
+| **`impressions`** | **0** |
+
+So a "real-CTR title ranker" is not buildable today. Building one anyway would
+mean ranking titles on `predicted_ctr` — a heuristic the lever analysis scored
+at **0.148**, and which an earlier audit measured as *negatively* correlated
+with real views — while calling it measured data. That is precisely the
+fabrication that was just removed from the repair stubs, so it was not built.
+
+`tests/test_retention_first.py::RealCtrIsUnavailableTests` documents this: the
+CTR request stays in the code so data can start arriving, and the test fails
+the moment real CTR appears — which is the signal that a measured-CTR ranker
+has become honest to build.
+
+**What to use instead, today:** length and hook. Those are the levers the data
+actually supports (`duration_seconds` 0.343), and both are free.
+
+---
+
+## 5. Your action list — free, ranked by impact
 
 ### 🔴 P0 — do this week
 
@@ -128,7 +170,7 @@ Tests: **297 passed, 2 skipped** (23 new regression tests lock these in).
 
 ---
 
-## 5. Honest expectation setting
+## 6. Honest expectation setting
 
 I am not going to pretend a code change produces millions of views. Here is the
 realistic ladder, based on your own numbers:
@@ -152,11 +194,11 @@ also the safer path.
 
 ---
 
-## 6. How to verify progress
+## 7. How to verify progress
 
 ```bash
 python scripts/growth_report.py --no-fetch   # verdict + per-platform gates
-python -m pytest tests/ -q                  # 297 tests
+python -m pytest tests/ -q                  # 305 tests
 ```
 
 Watch exactly three numbers in `docs/GROWTH_REPORT.md`:
