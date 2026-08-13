@@ -146,11 +146,32 @@ def select_meta_cut(
         # decide. Never mangle a video that is already minimal.
         return list(range(count))
 
-    protected = {0, 1, count - 2, count - 1}
-    keep = set(protected)
+    # STRUCTURAL BEATS
+    #
+    # hook (0), payoff (count-2) and loop-back (count-1) are the promise, the
+    # delivery and the replay trigger: dropping any of them leaves a Reel that
+    # either says nothing or never closes. They are never negotiable.
+    #
+    # The suspense/setup beat (1) used to be equally protected. That made the
+    # shortest possible Meta cut 4 x scene_duration, which on real scenes is
+    # 18-24s - so a 14s target was arithmetically unreachable and the "shorten
+    # the Meta cut" lever silently did nothing. Since completion = watch/length
+    # and this channel measures 2.6-7.5s of watch time against a ~70% gate,
+    # length is the only free variable we have. So the setup beat is now
+    # dropped ONLY when keeping it would put the cut over target: at 14s there
+    # is room for hook -> payoff -> loop, and a setup line is a luxury.
+    structural = {0, count - 2, count - 1}
+    setup_beat = 1 if 1 not in structural else None
+
+    keep = set(structural)
     kept_duration = sum(durations[i] for i in sorted(keep))
 
+    if setup_beat is not None and kept_duration + durations[setup_beat] <= target:
+        keep.add(setup_beat)
+        kept_duration += durations[setup_beat]
+
     # Middle scenes, best information first.
+    protected = keep | ({setup_beat} if setup_beat is not None else set())
     middle = [i for i in range(count) if i not in protected]
     middle.sort(key=lambda i: (-_scene_value(scenes[i].get("caption", "")), durations[i]))
 

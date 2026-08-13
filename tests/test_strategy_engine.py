@@ -45,12 +45,27 @@ class DecideCoreTests(unittest.TestCase):
         self.assertEqual(decision["cadence"], 1)  # quality over volume
 
     def test_healthy_volume_increases_cadence_to_3(self):
+        """Volume is only the barrier once the gate is actually CLEARED.
+
+        This used to assert that gate_ratio=0.9 was a volume problem. 0.9 means
+        90% of the required completion - i.e. still under the bar - and calling
+        that "healthy" is what let the channel publish 3x/day into a format the
+        feeds were already de-prioritising."""
         decision = decide_from_state(
-            platform_health={"youtube_shorts": {"gate": 0.5, "gate_ratio": 0.9}},
+            platform_health={"youtube_shorts": {"gate": 0.5, "gate_ratio": 1.1,
+                                                "status": "healthy"}},
             video_features=_features(avg_comp=0.6),
         )
         self.assertEqual(decision["barrier"], "volume")
         self.assertEqual(decision["cadence"], 3)
+
+    def test_just_under_the_gate_is_still_a_completion_problem(self):
+        decision = decide_from_state(
+            platform_health={"youtube_shorts": {"gate": 0.5, "gate_ratio": 0.9}},
+            video_features=_features(avg_comp=0.6),
+        )
+        self.assertEqual(decision["barrier"], "completion")
+        self.assertLessEqual(decision["cadence"], 2)
 
     def test_best_slot_is_the_highest_weight(self):
         decision = decide_from_state(

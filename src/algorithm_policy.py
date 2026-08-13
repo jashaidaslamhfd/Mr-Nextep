@@ -216,7 +216,20 @@ PLATFORM_POLICY: Dict[str, Dict] = {
         "label": "Facebook Reels",
         # FIXED 2026-07-31: FB ideal 27s -> 24s because IG data showed 2.6-7.5s avg vs 47s = 5-16%
         # completion vs 72% gate. Shorter cut = higher % automatically.
-        "duration": (18.0, 24.0, 28.0),
+        #
+        # FIXED 2026-08-13 (retention-first pass): 24s was still arithmetically
+        # unable to clear the gate on this channel. Measured Facebook Reels:
+        # 19% completion, 2.6-7.5s average watch. Completion is watch/length, so
+        # the length is the only term we control for free:
+        #     7.5s watch / 24s cut = 31%   (gate 72% -> fails)
+        #     7.5s watch / 16s cut = 47%
+        #     7.5s watch / 12s cut = 63%   (within reach of the gate)
+        # The old 18s FLOOR made anything shorter impossible, so the operator's
+        # META_TARGET_SECONDS=18 was already pinned at the minimum and could not
+        # help. Floor drops to 12s so the dual-cut editor can actually reach the
+        # length the data demands. Nothing here is a platform limit: Facebook
+        # Reels accept 3s+, this was purely our own policy choice.
+        "duration": (12.0, 16.0, 22.0),
         "hard_max": 90.0,
         "retention_gate": {"under_30s": 0.72, "over_30s": 0.60},
         "decision_seconds": 2.0,
@@ -240,7 +253,11 @@ PLATFORM_POLICY: Dict[str, Dict] = {
     },
     INSTAGRAM: {
         "label": "Instagram Reels",
-        "duration": (16.0, 23.0, 27.0),
+        # FIXED 2026-08-13 (retention-first pass): same arithmetic as Facebook.
+        # Measured Instagram Reels: 24% completion against a 70% gate. A 23s
+        # ideal cannot clear that on 2.6-7.5s of watch time, so the floor/ideal
+        # move down to lengths where the gate is reachable. IG allows 3s+.
+        "duration": (12.0, 15.0, 22.0),
         "hard_max": 180.0,
         # FIXED: IG ideal 26s -> 23s, gate 70%. Sends_per_reach 0% vs healthy 0.5%+ -> need
         # shorter cut + quotable payoff for DM shares.

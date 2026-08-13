@@ -320,11 +320,34 @@ class MetaCutTests(unittest.TestCase):
         self.assertLess(len(indices), len(scenes))
 
     def test_structural_beats_are_never_dropped(self):
-        """Hook, suspense, payoff and loop-back carry the whole arc. Losing
-        the payoff would turn the video into a broken promise."""
+        """Hook, payoff and loop-back carry the whole arc. Losing the payoff
+        would turn the video into a broken promise, and losing the loop-back
+        kills the replay that Meta rewards.
+
+        The setup beat (scene 2) is deliberately NOT in this list: protecting
+        four beats made the shortest possible cut 4 x scene_duration, which put
+        a 14s Meta target out of reach and quietly disabled the only free lever
+        this channel has on completion. It is kept whenever it fits the target
+        (see test_setup_beat_is_kept_when_it_fits)."""
         scenes, segments = self._scenes(), self._segments()
         indices = set(cuts.select_meta_cut(scenes, segments))
-        for required in (0, 1, len(scenes) - 2, len(scenes) - 1):
+        for required in (0, len(scenes) - 2, len(scenes) - 1):
+            self.assertIn(required, indices)
+
+    def test_setup_beat_is_kept_when_it_fits_the_target(self):
+        """With short scenes there is room for the setup line, so it stays."""
+        scenes, segments = self._scenes(8), self._segments(8, each=2.0)
+        indices = set(cuts.select_meta_cut(scenes, segments, target_seconds=12.0))
+        self.assertIn(1, indices)
+
+    def test_setup_beat_is_dropped_when_the_target_cannot_fit_it(self):
+        """hook -> payoff -> loop must still be reachable inside a short cut."""
+        scenes, segments = self._scenes(8), self._segments(8, each=4.5)
+        indices = set(cuts.select_meta_cut(scenes, segments, target_seconds=14.0))
+        seconds = sum(segments[i]["duration"] for i in indices)
+        self.assertNotIn(1, indices)
+        self.assertLessEqual(seconds, 14.0)
+        for required in (0, len(scenes) - 2, len(scenes) - 1):
             self.assertIn(required, indices)
 
     def test_scene_order_is_preserved(self):
@@ -947,6 +970,14 @@ class GrowthEngineTests(unittest.TestCase):
         self.tmp = tempfile.TemporaryDirectory()
         self.metrics_path = os.path.join(self.tmp.name, "metrics.json")
         self.state_path = os.path.join(self.tmp.name, "state.json")
+        # load_metrics() recovers measured YouTube numbers from video_history
+        # when the live store is missing them, so the history file has to be
+        # isolated too - otherwise "empty store" fixtures silently inherit the
+        # repo's real 22-video history and every assertion here becomes a lie.
+        self.history_path = os.path.join(self.tmp.name, "video_history.json")
+        with open(self.history_path, "w", encoding="utf-8") as handle:
+            json.dump([], handle)
+        os.environ["VIDEO_HISTORY_PATH"] = self.history_path
         os.environ["PLATFORM_METRICS_PATH"] = self.metrics_path
         os.environ["GROWTH_STATE_PATH"] = self.state_path
         import importlib
@@ -958,6 +989,7 @@ class GrowthEngineTests(unittest.TestCase):
 
     def tearDown(self):
         self.tmp.cleanup()
+        os.environ.pop("VIDEO_HISTORY_PATH", None)
         os.environ.pop("PLATFORM_METRICS_PATH", None)
         os.environ.pop("GROWTH_STATE_PATH", None)
 

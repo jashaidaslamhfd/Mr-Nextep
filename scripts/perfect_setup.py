@@ -79,11 +79,14 @@ def main():
     _log("")
 
     # 2. USA Repair Pack
-    _log("2/10 Generating USA Repair Pack (23 videos)...")
+    _log("2/10 USA Repair Pack...")
     try:
         from us_audience_full_repair import main as gen_repair
-        gen_repair()
-        _log("  ✅ USA Repair Pack generated: output/USA_Repair_2026_07_29/")
+        result = gen_repair() or {}
+        if result.get("implemented"):
+            _log(f"  ✅ USA Repair Pack generated: {result.get('total_repairs')} videos")
+        else:
+            _log(f"  ⏭️  SKIPPED (not implemented): {result.get('note')}")
     except Exception as e:
         _log(f"  ❌ Failed: {e}")
 
@@ -161,7 +164,13 @@ def main():
     try:
         from auto_repair_engine import run_auto_repair
         report = run_auto_repair(dry_run=True, limit=3)
-        _log(f"  ✅ Auto-repair dry: {report['candidates_found']} need repair, {report['repairs_generated']} generated, learned best={report['learned_patterns']['best_starter']}")
+        if report.get("implemented"):
+            _log(
+                f"  ✅ Auto-repair dry: {report['candidates_found']} need repair, "
+                f"{report['repairs_generated']} generated"
+            )
+        else:
+            _log(f"  ⏭️  SKIPPED (not implemented): {report.get('note')}")
     except Exception as e:
         _log(f"  ❌ Failed: {e}")
 

@@ -427,10 +427,128 @@ def collect(min_hours_old: int = 24, refresh_hours: int = 20) -> Dict:
     return {"stats": stats, "total_records": len(store)}
 
 
+def youtube_records_from_history(min_hours_old: int = 24) -> Dict:
+    """Rebuild YouTube metric records straight from video_history.json.
+
+    WHY THIS EXISTS
+    ---------------
+    `collect()` needs live API credentials. When they are absent - or when the
+    metrics store is wiped/rewritten by a bad state commit - PLATFORM_METRICS
+    becomes `{}` and every downstream consumer reports "no_data". The learning
+    loop then makes decisions with no evidence at all, even though
+    `data/video_history.json` already holds REAL measured numbers
+    (`views`, `average_view_percentage`, `actual_ctr`) that the analytics
+    workflow wrote there on an earlier successful run.
+
+    Throwing away metrics we already have is never the right failure mode, so
+    this reconstructs the YouTube side of the store offline, for free, with no
+    network call. Meta platforms cannot be reconstructed this way (their
+    insights are never mirrored into history), so they stay absent and honestly
+    report no_data.
+    """
+    history: List[Dict] = _load_json(VIDEO_HISTORY_PATH, [])
+    if not isinstance(history, list):
+        return {}
+
+    from algorithm_policy import YOUTUBE
+
+    now = datetime.now(timezone.utc)
+    rebuilt: Dict[str, Dict] = {}
+
+    for entry in history:
+        if not isinstance(entry, dict):
+            continue
+        fingerprint = entry.get("content_fingerprint")
+        posted_at = entry.get("posted_at")
+        percentage = entry.get("average_view_percentage")
+        if not fingerprint or not posted_at or percentage is None:
+            continue
+        try:
+            posted = datetime.fromisoformat(str(posted_at))
+            posted = posted if posted.tzinfo else posted.replace(tzinfo=timezone.utc)
+        except ValueError:
+            continue
+
+        age_hours = (now - posted).total_seconds() / 3600.0
+        if age_hours < min_hours_old:
+            continue
+
+        try:
+            completion = round(float(percentage) / 100.0, 4)
+        except (TypeError, ValueError):
+            continue
+
+        rebuilt[fingerprint] = {
+            "title": entry.get("title"),
+            "topic": entry.get("topic"),
+            "posted_at": posted_at,
+            "publish_at": entry.get("publish_at"),
+            "age_hours": round(age_hours, 1),
+            "hook_score": entry.get("hook_score"),
+            "seo_score": entry.get("seo_score"),
+            "duration_seconds": entry.get("duration_seconds"),
+            "meta_cut_seconds": entry.get("meta_cut_seconds"),
+            "fetched_at": entry.get("analytics_fetched_at"),
+            "source": "video_history_fallback",
+            YOUTUBE: {
+                "views": entry.get("views"),
+                "completion": completion,
+                "avg_view_seconds": entry.get("average_view_duration_sec"),
+                "ctr": entry.get("actual_ctr"),
+                "fetched_at": entry.get("analytics_fetched_at"),
+            },
+        }
+
+    return rebuilt
+
+
 def load_metrics() -> Dict:
-    """Read the merged store (used by growth_engine and the report)."""
+    """Read the merged store (used by growth_engine and the report).
+
+    The live store always wins. History-derived YouTube records only fill in
+    videos the store has no data for, so a real API fetch is never overwritten
+    by a reconstruction.
+    """
     data = _load_json(PLATFORM_METRICS_PATH, {})
-    return data if isinstance(data, dict) else {}
+    store = data if isinstance(data, dict) else {}
+
+    try:
+        fallback = youtube_records_from_history()
+    except Exception as exc:  # noqa: BLE001 - fallback must never break reads
+        logger.warning("YouTube history fallback unavailable: %s", exc)
+        return store
+
+    if not fallback:
+        return store
+
+    merged = dict(fallback)
+    filled = 0
+    for fingerprint, record in store.items():
+        if isinstance(record, dict) and fingerprint in merged:
+            # Keep the live record, but preserve reconstructed YouTube data if
+            # the live one never managed to read it.
+            base = dict(merged[fingerprint])
+            base.update(record)
+            from algorithm_policy import YOUTUBE
+
+            live_yt = record.get(YOUTUBE)
+            if not isinstance(live_yt, dict) or live_yt.get("completion") is None:
+                recovered = merged[fingerprint].get(YOUTUBE)
+                if isinstance(recovered, dict):
+                    base[YOUTUBE] = recovered
+                    filled += 1
+            merged[fingerprint] = base
+        else:
+            merged[fingerprint] = record
+
+    recovered_only = len([k for k in merged if k not in store])
+    if recovered_only or filled:
+        logger.info(
+            "Metrics store: %d live records, %d recovered from video_history, "
+            "%d live records back-filled with measured YouTube data.",
+            len(store), recovered_only, filled,
+        )
+    return merged
 
 
 if __name__ == "__main__":  # pragma: no cover - CLI entry point
