@@ -61,6 +61,32 @@ def _run_youtube_history_sync() -> dict:
     from seo_analytics import update_history_with_real_metrics
     result = update_history_with_real_metrics(min_hours_old=24)
     logger.info("YouTube history sync: %s", result)
+
+    # Stage 1b: feed the FREE viewer-preference model with real outcomes so it
+    # can learn which content features viewers actually like (self-improving).
+    try:
+        from viewer_preference import record_outcome, recalibrate
+        import json as _json
+        from pathlib import Path as _Path
+        _root = _Path(__file__).resolve().parents[1]
+        _vh = _root / "data" / "video_history.json"
+        if _vh.exists():
+            history = _json.load(open(_vh, encoding="utf-8"))
+            # record the most recent video with real retention if not already
+            for v in reversed(history):
+                ret = v.get("average_view_percentage") or 0
+                views = v.get("views") or 0
+                if ret > 0 and v.get("scenes") or v.get("voiceover"):
+                    try:
+                        record_outcome(v, float(ret), float(views))
+                    except Exception:
+                        pass
+                    break
+        cal = recalibrate()
+        if cal.get("calibrated"):
+            logger.info("Viewer-preference model recalibrated: %s", cal["weights"])
+    except Exception as exc:  # noqa: BLE001 - self-improvement must never break the loop
+        logger.warning("Viewer-preference self-improvement skipped: %s", exc)
     return result
 
 

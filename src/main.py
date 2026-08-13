@@ -975,6 +975,7 @@ class SKILLORPipeline:
                         "media_types": media_types,
                         "audio_segments": audio_segments,
                         "required_scenes": len(script_data.get('scenes') or []),
+                        "viewer_pref_threshold": 70,
                     }
                     gate_result = run_gates(gate_ctx)
                     if not gate_result["overall"]:

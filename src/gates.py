@@ -301,6 +301,17 @@ def run_gates(ctx: Dict[str, Any]) -> Dict[str, Any]:
     results.append(check_seo(sd))
     results.append(check_captions(sd))
 
+    # Viewer-preference guard — FREE, content-based "will people like this?"
+    # (complements the structural guards; blocks weak viewer-likability).
+    try:
+        from viewer_preference import viewer_preference_guard
+        _vp_threshold = ctx.get("viewer_pref_threshold", 70)
+        results.append(viewer_preference_guard(sd, threshold=_vp_threshold))
+    except Exception as exc:  # noqa: BLE001 - guard must never break the gate
+        results.append({"guard": "viewer_preference", "pass": True,
+                        "issues": [f"guard unavailable: {exc}"],
+                        "confidence": "low", "checked": []})
+
     # video quality uses probe metadata + policy
     results.append(check_video_quality(ctx.get("technical") or {}, ctx.get("policy") or {}))
 
