@@ -212,5 +212,109 @@ class StubsAreHonestTests(unittest.TestCase):
         self.assertEqual(result["videos"], [])
 
 
+class OutlierDefenceTests(unittest.TestCase):
+    """A couple of extreme videos must not decide the channel's strategy.
+
+    This channel's real history contained averageViewPercentage = 293.6% (a
+    195-view video whose replays counted) and 114.6% (a video with TWO views).
+    Averaged in unweighted, they made a 0.63x channel report as 0.94x - and the
+    retention index is what sets cadence and the quality gate.
+    """
+
+    def setUp(self):
+        import importlib
+
+        import growth_engine
+
+        self.ge = importlib.reload(growth_engine)
+
+    def _record(self, completion, views, seconds=36.0):
+        return {
+            "age_hours": 200,
+            "duration_seconds": seconds,
+            "meta_cut_seconds": 14.0,
+            policy.YOUTUBE: {"completion": completion, "views": views},
+        }
+
+    def test_completion_on_almost_no_views_is_ignored(self):
+        """114% retention on a 2-view video is one looping viewer."""
+        score = self.ge._platform_score(self._record(1.146, 2), policy.YOUTUBE)
+        self.assertIsNone(score)
+
+    def test_completion_with_real_traffic_is_kept(self):
+        score = self.ge._platform_score(self._record(0.35, 400), policy.YOUTUBE)
+        self.assertIsNotNone(score)
+        self.assertAlmostEqual(score, 0.35 / 0.5, places=3)
+
+    def test_one_video_cannot_score_unbounded(self):
+        """A replay-heavy video is good news, not a licence to skew the mean."""
+        score = self.ge._platform_score(self._record(2.936, 195), policy.YOUTUBE)
+        self.assertIsNotNone(score)
+        self.assertLessEqual(score, self.ge.MAX_TRUSTED_SCORE)
+
+    def test_channel_centre_is_robust_to_extremes(self):
+        failing = [0.6] * 20
+        self.assertAlmostEqual(self.ge._robust_centre(failing + [5.9, 2.3]), 0.6, places=3)
+
+    def test_two_outliers_cannot_inflate_a_failing_channel(self):
+        """The exact regression, with this channel's real numbers.
+
+        22 videos: 20 failing plus the 293.6% and 114.6% entries. The unweighted
+        mean read 0.937x the gate ("close but under - hold 2/day") while the
+        honest centre was 0.634x. The mean never crossed 1.0, which is why this
+        went unnoticed for weeks: it just quietly overstated the channel by
+        ~50%, and 0.937 vs 0.634 is the difference between comfortable and one
+        step from critical (0.6).
+        """
+        scores = [0.6] * 20 + [5.87, 2.29]
+        naive_mean = sum(scores) / len(scores)
+        robust = self.ge._robust_centre(scores)
+
+        self.assertGreater(
+            naive_mean, robust * 1.3,
+            "the old mean should be materially inflated by the two extremes",
+        )
+        self.assertLess(robust, 1.0, "the robust centre must still read as failing")
+        self.assertAlmostEqual(robust, 0.6, places=3)
+
+    def test_health_ignores_low_traffic_completion(self):
+        records = [self._record(0.30, 400) for _ in range(4)]
+        records.append(self._record(2.90, 2))  # dead video, huge percentage
+        health = self.ge._platform_health(records, policy.YOUTUBE)
+        self.assertEqual(health["samples"], 4)
+        self.assertAlmostEqual(health["avg_completion"], 0.30, places=2)
+        self.assertNotEqual(health["status"], "healthy")
+
+
+class RealCtrIsUnavailableTests(unittest.TestCase):
+    """Guard against building a feature on data this channel does not have.
+
+    `impressions` and `impressionsClickThroughRate` are requested by
+    seo_analytics.fetch_actual_performance, but YouTube does not serve them for
+    this channel, so 0 of 118 history entries carry a real CTR. Any "CTR-driven"
+    ranking would therefore be scoring on an estimate while claiming to use
+    measured data - exactly the kind of fabrication this repo removed from the
+    repair stubs. This test documents the constraint so the idea is not
+    reintroduced silently.
+    """
+
+    def test_ctr_metrics_are_still_requested_so_data_can_start_arriving(self):
+        source = (ROOT / "src" / "seo_analytics.py").read_text(encoding="utf-8")
+        self.assertIn("impressionsClickThroughRate", source)
+        self.assertIn("impressions", source)
+
+    def test_history_has_no_real_ctr_yet(self):
+        """If this ever fails, real CTR has started arriving - at that point a
+        measured-CTR title ranker becomes buildable. Until then, do not."""
+        history = json.loads((ROOT / "data" / "video_history.json").read_text(encoding="utf-8"))
+        with_ctr = [h for h in history
+                    if isinstance(h, dict) and h.get("actual_ctr") is not None]
+        self.assertEqual(
+            with_ctr, [],
+            "real CTR is now available - a measured-CTR ranker can replace "
+            "predicted_ctr, which the lever analysis scored at only 0.148",
+        )
+
+
 if __name__ == "__main__":
     unittest.main()
