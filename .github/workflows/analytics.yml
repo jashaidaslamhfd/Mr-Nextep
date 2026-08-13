@@ -49,9 +49,18 @@ jobs:
           IG_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
           FACEBOOK_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID }}
           INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
-        run: python src/analytics_updater.py || echo "::warning::analytics_updater had non-zero exit but data was collected"
+        # Deliberately NOT swallowing failures any more. This step used to end
+        # in `|| echo "::warning::..."`, so an expired token or a missing
+        # analytics scope produced a GREEN run while the learning loop was
+        # completely blind - the channel then made strategy decisions from stale
+        # or empty data for weeks without anyone being told. A learning job that
+        # cannot read metrics has failed, and must say so.
+        run: python src/analytics_updater.py
 
       - name: Update Facebook Reels metrics (best effort)
+        # Runs even when the YouTube learning step failed, so a Meta-side
+        # refresh is never lost to an unrelated YouTube auth problem.
+        if: always()
         env:
           FB_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
           FB_API_VERSION: "v23.0"

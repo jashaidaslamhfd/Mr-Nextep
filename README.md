@@ -38,10 +38,13 @@ Operator guide: [`GROWTH_SETUP.md`](GROWTH_SETUP.md)
 
 - The learning run happens **before** the day's first video, so each day's
   uploads use the previous day's lesson.
-- Cadence is **retention-gated**: if measured completion falls below 60% of the
-  platform gate the engine drops to 1 video/day, because volume on a
-  low-retention format teaches the feed to stop showing the channel (and is
-  what YouTube's inauthentic-content policy targets).
+- Cadence is **retention-gated, and the gate is enforced**: 3/day only when at
+  least two platforms clear their completion gates, 2/day while below gate,
+  1/day when a platform is critical. Volume on a low-retention format teaches
+  the feed to stop showing the channel (and is what YouTube's
+  inauthentic-content policy targets). `DISABLE_CADENCE_3=true` restores raw
+  operator control — not recommended while any platform is under its gate.
+  Current status and the free growth plan: [`docs/FREE_GROWTH_PLAN.md`](docs/FREE_GROWTH_PLAN.md).
 - Videos upload **private** with `publishAt`; YouTube flips them public at the
   slot, so there is a review window.
 

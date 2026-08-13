@@ -51,9 +51,33 @@ class ViewerPreferenceTests(unittest.TestCase):
         self.assertIn("pacing", f)
 
     def test_recalibrate_needs_labels(self):
-        # empty history -> not calibrated
-        r = recalibrate()
-        self.assertFalse(r["calibrated"])
+        """Empty history -> not calibrated.
+
+        This used to read the repo's real data/viewer_preference_history.json,
+        so the assertion silently depended on how many labels happened to be
+        committed: once the pipeline recorded 8+ of them the test failed for a
+        reason that had nothing to do with the code under test. Isolate it.
+        """
+        import importlib
+        import os
+        import tempfile
+
+        import viewer_preference
+
+        with tempfile.TemporaryDirectory() as tmp:
+            saved = os.environ.get("VIEWER_PREF_HISTORY")
+            os.environ["VIEWER_PREF_HISTORY"] = os.path.join(tmp, "history.json")
+            try:
+                module = importlib.reload(viewer_preference)
+                r = module.recalibrate()
+                self.assertFalse(r["calibrated"])
+                self.assertEqual(r["n_labels"], 0)
+            finally:
+                if saved is None:
+                    os.environ.pop("VIEWER_PREF_HISTORY", None)
+                else:
+                    os.environ["VIEWER_PREF_HISTORY"] = saved
+                importlib.reload(viewer_preference)
 
 
 if __name__ == "__main__":

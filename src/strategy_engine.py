@@ -387,10 +387,35 @@ def viral_readiness_report() -> Dict[str, Any]:
 def _detect_barrier(platform_health: Dict, video_features: List[Dict[str, float]]) -> tuple:
     """Pick the single binding constraint, in priority order."""
     # Completion barrier: any platform well under its gate.
+    #
+    # `gate_ratio` is the primary signal, but it is not always present (older
+    # growth_state files, or a health dict assembled by a different caller).
+    # Falling back to 1.0 in that case made a critical platform look perfectly
+    # healthy and handed the run a "push more volume" verdict - the single most
+    # expensive silent failure in this engine. So derive the ratio from
+    # avg_completion/gate when it is missing, and trust an explicit `status`
+    # label as a last resort.
+    _STATUS_RATIO = {"critical": 0.3, "below_gate": 0.8, "healthy": 1.2}
+
+    def _gate_ratio(health: Dict) -> float:
+        raw = health.get("gate_ratio")
+        if raw is not None:
+            return _safe_float(raw, 1.0)
+        completion = _safe_float(health.get("avg_completion"), 0.0)
+        gate = _safe_float(health.get("gate"), 0.0)
+        if completion > 0 and gate > 0:
+            return completion / gate
+        status = str(health.get("status") or "").strip().lower()
+        return _STATUS_RATIO.get(status, 1.0)
+
     completion_margin = None
     completion_platform = "platforms"
     for name, health in platform_health.items():
-        ratio = _safe_float(health.get("gate_ratio"), 1.0)
+        if not isinstance(health, dict):
+            continue
+        if str(health.get("status") or "").strip().lower() == "no_data":
+            continue
+        ratio = _gate_ratio(health)
         if completion_margin is None or ratio < completion_margin:
             completion_margin = ratio
             completion_platform = name
@@ -399,6 +424,18 @@ def _detect_barrier(platform_health: Dict, video_features: List[Dict[str, float]
             f"{completion_platform} is at {completion_margin:.0%} of its completion "
             "gate. Rebuild the first-3-seconds hook and shorten the cut toward the "
             "platform ideal before adding volume."
+        )
+
+    # Soft completion barrier: the platform is not in freefall, but it is still
+    # under the bar the feed uses to widen distribution. Calling this a "volume"
+    # problem (as this function used to) tells the operator to publish MORE of
+    # the thing that is currently losing viewers. Retention is the binding
+    # constraint right up until the gate is actually cleared.
+    if completion_margin is not None and completion_margin < 1.0:
+        return BARRIER_COMPLETION, (
+            f"{completion_platform} is at {completion_margin:.0%} of its completion "
+            "gate - close, but still under. Tighten the first 3 seconds and trim the "
+            "cut toward the platform floor; volume only pays once the gate is cleared."
         )
 
     # CTR barrier: predicted CTR is low across recent videos.
@@ -561,12 +598,18 @@ class StrategyEngine:
             self.state = decision
         except Exception:  # noqa: BLE001 - trained state is optional
             pass
-        # Production requirement: 3 videos/day at US peak slots. The strategy
-        # engine may suggest 1-2 while retention is low, but the operator's
-        # consistency goal wins (override with DISABLE_CADENCE_3=true).
+        # Consistency goal is 3 videos/day at US peak slots, but it has to be
+        # EARNED. This used to force 3 unconditionally, which threw away the
+        # retention-aware decision above and kept publishing 3x/day into
+        # platforms measured at 19-24% completion against a ~70% gate.
         try:
-            from continuity import clamp_cadence_3
-            decision["cadence"] = clamp_cadence_3(decision.get("cadence", 3))
+            from continuity import clamp_cadence_3, retention_cadence_ceiling
+            suggested = decision.get("cadence", 3)
+            ceiling, ceiling_reason = retention_cadence_ceiling(snap["platform_health"])
+            decision["cadence"] = clamp_cadence_3(suggested, snap["platform_health"])
+            decision["cadence_suggested"] = suggested
+            decision["cadence_ceiling"] = ceiling
+            decision["cadence_reason"] = ceiling_reason
             self.state = decision
         except Exception:  # noqa: BLE001 - cadence clamp must never block
             pass

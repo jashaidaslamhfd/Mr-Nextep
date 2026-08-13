@@ -129,9 +129,11 @@ jobs:
           META_CUT_ENABLED: "true"
           # Force a shorter Facebook/Instagram cut to lift completion. Measured
           # Meta completion was 19-24% vs a 70%+ gate on a ~23s cut (avg watch
-          # 2.6-7.5s). A shorter cut raises completion% for free. 18s is the
-          # data-backed target to clear the gate.
-          META_TARGET_SECONDS: "18"
+          # 2.6-7.5s). Completion = watch / length, so length is the free lever.
+          # 18 was previously pinned AT the policy floor and therefore did
+          # nothing; the floor is now 12s (see algorithm_policy.py) and 14s is
+          # the data-backed target: 7.5s / 14s = 54% vs 42% at 18s.
+          META_TARGET_SECONDS: "14"
           SPOKEN_CTA_MODE: "loop"
           REQUIRE_CLONED_VOICE: "false"
           MUSIC_VOLUME: "0.07"
