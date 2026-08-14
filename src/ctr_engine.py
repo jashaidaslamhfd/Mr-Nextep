@@ -20,6 +20,7 @@ Design rules:
 
 from __future__ import annotations
 
+import os
 import re
 
 # Power words that lift CTR in short-form 2026 feeds (curiosity + urgency).
@@ -32,6 +33,28 @@ POWER_WORDS = [
 # Emoji hooks — used sparingly (1 per title) to add visual contrast in the
 # feed, which measurably raises CTR. Kept minimal & on-topic.
 HOOK_EMOJIS = ["🧠", "⚡", "🫀", "👁️", "🌙", "🦠", "🔬", "😱", "🤯", "💥", "🪞", "🌀"]
+
+# 2026-08 retention-first pass: the channel's own data showed the one-emoji
+# machine template ("Why Your X 🫀" on 100+ videos) coinciding with template-
+# detection demotion. TITLE_EMOJI_OFF=true (the new default) strips ALL emoji
+# from repaired/new titles — a clean curiosity question outperforms the
+# template. The guarantee lives in strip_emoji() and is enforced at the end of
+# every exported title/hook, not only at generation time.
+EMOJI_RE = re.compile(
+    "[\U0001F000-\U0001FAFF\u2600-\u27BF\uFE0F\U0001F900-\U0001FA9F]"
+)
+
+
+def strip_emoji(text: str) -> str:
+    """Strip every emoji/grapheme from a title. Idempotent; whitespace cleaned."""
+    return re.sub(r"\s+", " ", EMOJI_RE.sub("", text)).strip().strip("-–—: ")
+
+
+def _emoji_off() -> bool:
+    """Operator switch (env or GitHub Actions env): true = no emoji ever."""
+    return os.environ.get("TITLE_EMOJI_OFF", "true").strip().lower() in (
+        "1", "true", "yes",
+    )
 
 BAIT_WORDS = [
     "subscribe", "like and subscribe", "smash that like", "hit the bell",
@@ -109,6 +132,31 @@ def _topic_short(topic: str) -> str:
     return subject.strip() or clean
 
 
+def _normalize_subject(subject: str) -> str:
+    """Make the subject fit the "Why Your X" noun frame.
+
+    Repairs the real-world inputs the repair engine feeds in:
+      'We Got Fired in Animal Hospital Anomaly' -> 'Animal Hospital Anomaly'
+      'Cold Hands Summer'                       -> 'Cold Hands'
+      'Yawning Spreading Instantly'             -> 'Yawning Spreading'
+    Keeps the most concrete noun phrase at the end (the keyword) and drops
+    stray all-caps verbs, season fillers and duplicated gerund tails.
+    """
+    words = subject.split()
+    drop_words = {
+        "summer", "winter", "autumn", "spring", "every", "day", "night",
+        "instantly", "suddenly", "automatically", "randomly",
+    }
+    kept = [w for w in words if w.lower() not in drop_words]
+    # strip a leading ALL-CAPS verb/phrase that leaked in ("WE GOT FIRED")
+    if kept and kept[0].isupper() and len(kept[0]) > 1 and kept[0].isalpha():
+        kept = kept[1:]
+    # collapse a duplicated tail: 'Yawning Spreading Spreading' -> 'Yawning Spreading'
+    if len(kept) >= 2 and kept[-1].lower() == kept[-2].lower():
+        kept = kept[:-1]
+    return " ".join(kept) or subject
+
+
 def _pick_head(subject: str) -> str:
     """Choose a readable, high-CTR opening phrase for a (already short) subject.
 
@@ -116,7 +164,7 @@ def _pick_head(subject: str) -> str:
     grammatical "Why X Happens" for verb/action subjects. Returns just the
     head (no payoff) — the caller appends the payoff suffix.
     """
-    core = subject
+    core = _normalize_subject(subject)
     first = (core.split() or [""])[0].lower()
 
     action_verbs = {
@@ -174,6 +222,7 @@ def generate_high_ctr_title(topic: str, *, platform: str = "youtube") -> str:
         r"^(why\s+your\s+|why\s+|your\s+|a\s+|an\s+|the\s+)",
         "", subject, flags=re.IGNORECASE,
     ).strip()
+    core = _normalize_subject(core)
     core = _title_case(core) if core else subject
 
     head = _pick_head(core)
@@ -185,6 +234,8 @@ def generate_high_ctr_title(topic: str, *, platform: str = "youtube") -> str:
     if len(title) + 3 <= max_chars:
         title += " " + random.choice(HOOK_EMOJIS)
     title = strip_bait(title)
+    if _emoji_off():
+        title = strip_emoji(title)
     # never exceed the mobile budget
     return title[:max_chars].strip()
 
@@ -214,7 +265,10 @@ def generate_ctr_hook_line(topic: str) -> str:
         f"What {subject} really means (it's weirder than you think).",
     ]
     seed = sum(ord(c) for c in subject) % len(hooks)
-    return strip_bait(hooks[seed])
+    hook = strip_bait(hooks[seed])
+    if _emoji_off():
+        hook = strip_emoji(hook)
+    return hook
 
 
 def validate_title(title: str, *, max_chars: int = 60) -> dict:
@@ -236,4 +290,7 @@ def validate_title(title: str, *, max_chars: int = 60) -> dict:
             result["ok"] = False
             result["issues"].append(f"engagement bait: {bait}")
             break
+    if _emoji_off() and EMOJI_RE.search(t):
+        result["ok"] = False
+        result["issues"].append("emoji present while TITLE_EMOJI_OFF is enabled")
     return result
