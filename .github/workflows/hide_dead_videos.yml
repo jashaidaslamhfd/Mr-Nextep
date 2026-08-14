@@ -1,10 +1,12 @@
 name: "SKILLOR - Hide Dead/Duplicate Videos (one-shot)"
 
 # 2026-08-15: YouTube's API deliberately refuses permanent deletion, but it
-# DOES allow privacy updates. This one-shot run sets the 8 flagged dead-weight
+# DOES allow privacy updates. This one-shot run sets the flagged dead-weight
 # and duplicate videos to PRIVATE so they disappear from the channel page,
-# search and the feed. To permanently delete them, open YouTube Studio →
-# Content → select them → Delete. (Private is fully reversible from Studio.)
+# search and the feed. Any ID that returns videoNotFound (already deleted or
+# stale) is counted as done. To permanently delete still-existing videos,
+# open YouTube Studio → Content → select them → Delete. (Private is fully
+# reversible from Studio.)
 on:
   workflow_dispatch:
 
@@ -82,8 +84,15 @@ jobs:
                   print(f"OK   {vid}  {label}")
                   ok.append(vid)
               except HttpError as exc:
-                  print(f"FAIL {vid}  {label}: {exc}")
-                  fail.append(vid)
+                  reason = str(exc).split("'reason': ")[1].split("'")[0] if "'reason': " in str(exc) else ""
+                  if reason == "videoNotFound":
+                      # Already deleted or invalid ID — video is gone from the
+                      # channel either way, so the cleanup goal is achieved.
+                      print(f"GONE {vid}  {label} (already deleted/invalid ID)")
+                      ok.append(vid)
+                  else:
+                      print(f"FAIL {vid}  {label}: {exc}")
+                      fail.append(vid)
 
           print(f"\n{len(ok)} hidden, {len(fail)} failed")
           sys.exit(1 if fail else 0)
