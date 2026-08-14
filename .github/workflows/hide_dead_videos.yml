@@ -24,7 +24,9 @@ jobs:
 
       - name: Install Google client
         shell: bash
-        run: sudo pip3 install -q google-api-python-client google-auth-oauthlib
+        run: |
+          python3 -m pip install -q --user google-api-python-client google-auth-oauthlib
+          echo "PYTHONPATH=$HOME/.local/lib/python3.11/site-packages" >> "$GITHUB_ENV"
 
       - name: Hide the 8 flagged videos
         shell: bash
