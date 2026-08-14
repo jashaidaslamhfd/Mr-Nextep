@@ -22,7 +22,7 @@ if not hasattr(Image, "ANTIALIAS"):
 
 from moviepy.editor import (
     ImageClip, VideoFileClip, ColorClip, CompositeVideoClip,
-    AudioFileClip, concatenate_videoclips, concatenate_audioclips,
+    AudioFileClip, AudioClip, concatenate_videoclips, concatenate_audioclips,
     CompositeAudioClip,
 )
 import moviepy.video.fx.all as vfx
@@ -713,7 +713,6 @@ def build_video(image_paths, audio_segments, scenes, output_path="output/final_v
         # black frames on later scenes. Motion is provided by Ken Burns instead.
 
         video_clips.append(combined)
-
         # Audio segment
         seg_audio = AudioFileClip(seg['path']).fx(
             afx.audio_fadein, AUDIO_EDGE_FADE
@@ -721,8 +720,39 @@ def build_video(image_paths, audio_segments, scenes, output_path="output/final_v
             afx.audio_fadeout, AUDIO_EDGE_FADE
         )
         audio_clips.append(seg_audio)
-
         t_cursor += duration
+        # 2026-08 humanization: uneven natural breath between scenes. A fixed
+        # identical gap after every scene is a machine tell; a seeded
+        # 0.25-0.85s beat (humanizer.breath_pause) sounds like one narrator
+        # reading with normal rhythm. Applied as a silent audio hold plus a
+        # still-beat video hold (no motion — like an editor's cut pause).
+        # Skipped after the last scene.
+        if i < len(scenes) - 1:
+            _gap = seg.get('gap_after')
+            if _gap in (None, ''):
+                try:
+                    from humanizer import breath_pause
+                    _gap = breath_pause(i, caption_text or "")
+                except Exception:  # noqa: BLE001 — gaps never block
+                    _gap = 0.0
+            _gap = float(_gap or 0.0)
+            if 0.15 <= _gap <= 1.5:
+                # moviepy 1.x (pinned in requirements.txt) ships AudioClip
+                # but not AudioArrayClip — a zero-valued getframe is the
+                # portable silent-clip constructor.
+                silent = AudioClip(lambda _t: 0.0, duration=_gap, fps=44100)
+                audio_clips.append(silent)
+                # still-beat visual hold: freeze the scene's final frame
+                # (re-using the already-composited clip, so size/style match
+                # the surrounding timeline exactly and no extra renders run).
+                try:
+                    video_clips.append(
+                        combined.copy().subclip(
+                            max(0.0, duration - 0.001), duration
+                        ).set_duration(_gap)
+                    )
+                except Exception:  # noqa: BLE001 — visual beat never blocks
+                    pass
 
     logger.info("Concatenating video clips...")
     final_video = concatenate_videoclips(video_clips, method="compose")

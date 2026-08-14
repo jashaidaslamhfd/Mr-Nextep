@@ -132,6 +132,23 @@ def opener(value: str, lite: bool = False) -> str:
 # Natural tempo jitter — human speech is never exactly on-beat.
 # --------------------------------------------------------------------------- #
 
+def breath_pause(index: int, caption: str) -> float:
+    """A natural between-scene pause (seconds) for the timeline builder.
+
+    Humans take uneven breaths between thoughts: some transitions are tight
+    (0.25s), some get a real beat (0.55s). A single fixed gap after every
+    scene is a machine tell; a seeded per-transition value sounds like one
+    person reading with normal rhythm. Kept small (<=0.55s) so the 24s master
+    cut's total budget stays inside the retention gate.
+    """
+    seed = seed_for(f"{caption}::{index}")
+    base = 0.25 + ((seed % 300) / 300.0) * 0.30  # 0.25 .. 0.55
+    # occasional longer beat (~1 in 5) — a narrator thinking for a second
+    if seed % 5 == 0:
+        base = min(0.85, base + 0.30)
+    return round(base, 2)
+
+
 def tempo_jitter(base_tempo: float, value: str, spread: float = 0.04) -> float:
     """Deterministic tiny variation around a base tempo (±spread).
 
