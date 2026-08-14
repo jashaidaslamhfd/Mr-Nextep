@@ -1,0 +1,86 @@
+name: "SKILLOR - Hide Dead/Duplicate Videos (one-shot)"
+
+# 2026-08-15: YouTube's API deliberately refuses permanent deletion, but it
+# DOES allow privacy updates. This one-shot run sets the 8 flagged dead-weight
+# and duplicate videos to PRIVATE so they disappear from the channel page,
+# search and the feed. To permanently delete them, open YouTube Studio →
+# Content → select them → Delete. (Private is fully reversible from Studio.)
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  hide:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Google client
+        shell: bash
+        run: sudo pip3 install -q google-api-python-client google-auth-oauthlib
+
+      - name: Hide the 8 flagged videos
+        shell: bash
+        env:
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
+        run: |
+          set -u
+          cat > /tmp/hide_videos.py <<'PYEOF'
+          import os, json, sys
+          import google.oauth2.credentials as _creds
+          from googleapiclient.discovery import build
+          from googleapiclient.errors import HttpError
+
+          cid = os.environ.get("GOOGLE_CLIENT_ID")
+          csec = os.environ.get("GOOGLE_CLIENT_SECRET")
+          token = os.environ.get("REFRESH_TOKEN")
+          if not all((cid, csec, token)):
+              print("::error::Google secrets missing (GOOGLE_CLIENT_ID/SECRET, REFRESH_TOKEN)")
+              sys.exit(1)
+
+          credentials = _creds.Credentials(
+              token,
+              client_id=cid,
+              client_secret=csec,
+              token_uri="https://oauth2.googleapis.com/token",
+          )
+          yt = build("youtube", "v3", credentials=credentials)
+
+          # Dead weight (3) + duplicates (5), from video_classification.json
+          videos = [
+              ("cGVDXd8HN4g", "Why Got Fired Matters"),
+              ("sOr6elVnTKc", "Body Twitches When You Sleep (Truth)"),
+              ("27hVE-JDIAk", "Pulse Changes When You Lie"),
+              ("u1eCpGU38PI", "Brain Freeze (dup, 139v)"),
+              ("ZHdmd_YfxgM", "Freezes When Scared (dup, 198v)"),
+              ("taTQG0-zVgg", "Freezes When Scared (dup, 663v)"),
+              ("gjpntlEBT-c", "Freezes When Scared (dup, 0v)"),
+              ("kLzNZVoP8Bo", "Twitches Every Time (dup, 0v)"),
+          ]
+
+          ok, fail = [], []
+          for vid, label in videos:
+              try:
+                  yt.videos().update(
+                      part="status",
+                      body={"id": vid, "status": {"privacyStatus": "private"}},
+                  ).execute()
+                  print(f"OK   {vid}  {label}")
+                  ok.append(vid)
+              except HttpError as exc:
+                  print(f"FAIL {vid}  {label}: {exc}")
+                  fail.append(vid)
+
+          print(f"\n{len(ok)} hidden, {len(fail)} failed")
+          sys.exit(1 if fail else 0)
+          PYEOF
+          python3 /tmp/hide_videos.py
