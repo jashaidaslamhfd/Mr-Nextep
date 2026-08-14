@@ -290,6 +290,15 @@ def build_facebook_caption(
     if closer.lower() not in " ".join(parts).lower():
         parts.append(closer)
 
+    # US-DISCOVERY (Instagram already gets this block below; Facebook Reels
+    # need the same American STEM/science cluster so both Meta surfaces lift
+    # US feed placement without competing with the topic tags for the cap).
+    try:
+        from hashtag_clusters import get_optimized_us_tags
+        tags = get_optimized_us_tags(script_data.get("topic", ""), tags)
+    except Exception as e:
+        logger.debug(f"Facebook caption US-tag error: {e}")
+
     hashtags = enforce_hashtag_limit(
         _meta_tags(tags),
         FACEBOOK,
