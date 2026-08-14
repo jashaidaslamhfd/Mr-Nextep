@@ -1,0 +1,15 @@
+[
+  {
+    "features": {
+      "hook_strength": 0.1,
+      "story_completeness": 0.0,
+      "pacing": 1.0,
+      "title_curiosity": 0.75,
+      "payoff_present": 0.0,
+      "bait_penalty": 0.0
+    },
+    "real_retention": 16.75,
+    "real_views": 78.0,
+    "recorded_at": "2026-08-14T10:27:32.510208+00:00"
+  }
+]
