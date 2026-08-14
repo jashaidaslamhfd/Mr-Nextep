@@ -110,6 +110,10 @@ jobs:
           TTS_ENGINE: "kokoro"
           KOKORO_LANG_CODE: "a"
           KOKORO_VOICE: "am_adam"
+          # 2026-08 humanization: rotate the narrator per topic so the channel
+          # does not sound like one frozen machine voice (5 male + 5 female EN
+          # voices, seeded per topic — same topic keeps its narrator).
+          VOICE_ROTATE: "auto"
           AI_HORDE_API_KEY: ${{ secrets.AI_HORDE_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           HF_API_KEY: ${{ secrets.HF_API_KEY }}

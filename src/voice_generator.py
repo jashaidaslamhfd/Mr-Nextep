@@ -78,6 +78,30 @@ CHATTERBOX_TEMPO = _env_float("CHATTERBOX_TEMPO", 0.96, 0.5, 2.0)
 KOKORO_LANG_CODE = os.environ.get("KOKORO_LANG_CODE", "a").strip() or "a"
 KOKORO_VOICE = os.environ.get("KOKORO_VOICE", "am_adam").strip() or "am_adam"
 
+# Humanizer is imported at the top so VOICE_ROTATE never fails silently on a
+# path/working-directory quirk — if humanizer ever becomes unavailable the
+# pipeline must see it at import time, not quietly pin every video to am_adam.
+from humanizer import pick as _h_pick
+
+# 2026-08 humanization pass: one frozen voice across 100+ videos is the single
+# loudest "this channel is a machine" signal. VOICE_ROTATE=auto (workflow
+# default) deterministically rotates among these natural EN voices by topic —
+# the same topic always keeps its voice (channel consistency), different
+# topics get different voices (human variety). Same seeding as humanizer.py so
+# it is reproducible run-to-run.
+VOICE_POOL = [
+    "am_adam", "am_michael", "am_liam", "am_puck", "am_alex",
+    "af_bella", "af_nova", "af_sky", "af_sarah", "af_heart",
+]
+
+
+def _rotated_voice(base_voice: str, topic: str) -> str:
+    """Resolve the per-video voice: explicit base wins; else rotate by topic."""
+    mode = (os.environ.get("VOICE_ROTATE") or "").strip().lower()
+    if not base_voice or mode in ("auto", "on", "true", "1"):
+        return _h_pick(VOICE_POOL, (topic or base_voice or "x") + "|voice")
+    return base_voice
+
 # Engine priority:
 #   'chatterbox' (default) = clone-first, Kokoro fallback  (GPU / self-hosted)
 #   'kokoro'               = skip Chatterbox entirely      (GitHub CPU runners)
@@ -478,7 +502,9 @@ def _synthesize(text: str, voice: str = "am_adam", speed: float = 1.0):
     narration_text = prepare_natural_narration(text)
 
     # Resolve fallback voice at call time so an explicit argument wins and an
-    # empty/`None` argument still lands on the env-configured voice.
+    # empty/`None` argument still lands on the env-configured voice. When
+    # VOICE_ROTATE=auto (default), the env voice is a pool member picked
+    # deterministically from the video topic — see _rotated_voice().
     voice = (voice or "").strip() or KOKORO_VOICE
 
     # ---- STEP 1: Chatterbox with the creator's voice reference ----
@@ -561,6 +587,7 @@ def generate_voice_segments(
     voice: str = None,           # only used if a segment falls back to Kokoro; None → KOKORO_VOICE env
     output_dir: str = "output/segments",
     speed: float = 1.0,      # only used if a segment falls back to Kokoro
+    topic: str = "",         # used by VOICE_ROTATE to pick a consistent voice per video
 ) -> List[Dict]:
     """
     Each scene gets clear, conversational narration via Chatterbox using the
@@ -590,7 +617,11 @@ def generate_voice_segments(
         # some lines slightly faster, some slightly slower, ~±1.5% around the
         # caller-supplied speed. A fixed global tempo on every scene is a tell.
         _scene_tempo = _scene_tempo_for(speed, i, caption)
-        audio, sr, engine = _synthesize(caption, voice, _scene_tempo)
+        # Per-video voice rotation (VOICE_ROTATE=auto, default in workflow):
+        # every video gets a consistent-but-varied narrator instead of one
+        # frozen voice channel-wide. Derived per-topic so it is stable.
+        _seg_voice = _rotated_voice(voice, topic or scene.get("topic", "")) if i == 0 else voice
+        audio, sr, engine = _synthesize(caption, _seg_voice, _scene_tempo)
 
         engine_counts[engine] = engine_counts.get(engine, 0) + 1
         path = os.path.join(output_dir, f"seg_{i}.wav")
