@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-13T18:40:15.439492+00:00",
+  "generated_at": "2026-08-14T21:52:33.930737+00:00",
   "n_training_samples": 22,
   "data_health": {
     "n_videos": 22,
@@ -14,7 +14,7 @@
     "target": "views",
     "n": 22,
     "r2_cv": -0.0778,
-    "mae_cv": 228.211,
+    "mae_cv": 228.189,
     "weights": {
       "random_forest": 0.153,
       "gradient_boosting": 0.153,
@@ -72,7 +72,7 @@
       619.96,
       328.51,
       340.63,
-      371.14,
+      370.66,
       417.24
     ]
   },
@@ -149,34 +149,34 @@
     "n": 22,
     "r2_cv": 0.1243,
     "meta_coefficients": {
-      "random_forest": 1.1836,
-      "gradient_boosting": -0.8249
+      "random_forest": 1.1828,
+      "gradient_boosting": -0.8247
     },
     "base_models": [
       "random_forest",
       "gradient_boosting"
     ],
     "predictions": [
-      348.3,
+      348.4,
       407.1,
-      433.28,
+      433.38,
       366.88,
-      413.88,
-      539.76,
-      304.11,
-      402.34,
-      264.25,
-      306.49,
-      306.44,
-      262.38,
-      477.55,
-      424.89,
-      644.3,
-      253.48,
-      437.14,
-      383.48,
-      347.54,
-      324.01
+      413.84,
+      539.75,
+      304.28,
+      402.44,
+      264.42,
+      306.51,
+      306.6,
+      262.46,
+      477.65,
+      424.97,
+      644.25,
+      253.5,
+      437.26,
+      383.62,
+      346.01,
+      324.11
     ],
     "confidence": "low"
   },
@@ -188,23 +188,23 @@
     "drivers": [
       {
         "feature": "predicted_ctr",
-        "importance": 0.673774255478709
+        "importance": 0.6678732059474903
       },
       {
         "feature": "seo_score",
-        "importance": 0.3051482277318887
-      },
-      {
-        "feature": "predicted_retention",
-        "importance": 0.0077297046026518134
+        "importance": 0.309217300252537
       },
       {
         "feature": "hook_score",
-        "importance": 0.00765920040092024
+        "importance": 0.009459158419392096
+      },
+      {
+        "feature": "predicted_retention",
+        "importance": 0.007746713118493886
       },
       {
         "feature": "duration_seconds",
-        "importance": 0.0056886117858302885
+        "importance": 0.00570362226208679
       }
     ],
     "advice": [
@@ -216,7 +216,7 @@
     "r2_cv": 0.8964,
     "predictions": [
       6.78,
-      7.0,
+      6.99,
       6.75,
       6.98,
       6.81,
@@ -245,36 +245,36 @@
     "drivers": [
       {
         "feature": "duration_seconds",
-        "importance": 0.7316712773335486
-      },
-      {
-        "feature": "seo_score",
-        "importance": 0.09845510185675511
+        "importance": 0.7316712773335479
       },
       {
         "feature": "predicted_ctr",
-        "importance": 0.09691511115362356
+        "importance": 0.09919959641168125
+      },
+      {
+        "feature": "seo_score",
+        "importance": 0.09617907837300688
       },
       {
         "feature": "predicted_retention",
-        "importance": 0.05942127643250901
+        "importance": 0.06014848193516331
       },
       {
         "feature": "hook_score",
-        "importance": 0.013537233223563674
+        "importance": 0.012801565946600662
       }
     ],
     "advice": [
       "Retention is most sensitive to video length \u2014 a drop there directly lowers completion and reach.",
       "Shorten toward the platform ideal; keep the hook promise in the first 3s."
     ],
-    "r2_cv": -0.322,
+    "r2_cv": -0.3207,
     "predictions": [
       0.3691,
       0.3233,
-      0.3495,
+      0.3481,
       0.3404,
-      0.4153,
+      0.4138,
       0.3273,
       0.3553,
       0.4001,
@@ -286,8 +286,8 @@
       0.3926,
       0.5947,
       0.3941,
-      0.4565,
-      0.5919,
+      0.4555,
+      0.589,
       0.3012,
       0.3159
     ]

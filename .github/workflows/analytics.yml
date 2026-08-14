@@ -36,7 +36,8 @@ jobs:
             'google-auth-httplib2>=0.2.0' \
             'numpy>=1.24.0' 'Pillow>=10.0.0' \
             'requests>=2.31.0' 'python-dotenv>=1.0.0' \
-            'pytz>=2024.1'
+            'pytz>=2024.1' \
+            'scikit-learn>=1.3.0'
 
       - name: Update real YouTube metrics
         env:
@@ -67,6 +68,18 @@ jobs:
           UPLOAD_STATE_PATH: data/upload_state.json
           FACEBOOK_ANALYTICS_PATH: data/facebook_analytics.json
         run: python scripts/update_facebook_analytics.py
+
+      - name: Train ML models on real channel data (auto-pilot)
+        # The learning loop wrote real metrics in the step above. Now the ML
+        # brain trains its VIEW/CTR/retention ensemble models, reality
+        # calibration and independent evaluator, and persists them so the
+        # strategy engine's next decision uses trained models — not empty
+        # heuristics. This is the step that makes the ML genuinely autonomous:
+        # every daily sync improves the next video's decisions.
+        if: always()
+        env:
+          VIDEO_HISTORY_PATH: data/video_history.json
+        run: python scripts/train_ml.py 2>&1 | tail -25 || true
 
       - name: Persist analytics state
         if: always()
