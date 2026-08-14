@@ -1037,11 +1037,20 @@ def upload_all(video_path, thumb_path, script_data, meta_video_path=None):
     if not youtube_success:
         raise RuntimeError("YouTube upload failed; Facebook/Instagram success cannot replace the primary upload")
 
+    # 2026-08-15: IG insights and IG repair were blocked because no platform
+    # media ids ever reached video_history.json. upload_state recorded the IG
+    # (and FB) ids, but upload_all did not surface them. Now the per-platform
+    # ids flow through so the history ledger — the single source repair and
+    # metrics scripts read — sees every platform.
+    _state = _load_upload_state()
+    _fp_state = _state.get(_content_fingerprint(script_data), {})
     return {
         "youtube_success": youtube_success,
         "youtube_video_id": yt_video_id,
         "facebook_success": facebook_success,
+        "facebook_video_id": _fp_state.get("facebook", {}).get("video_id"),
         "instagram_success": instagram_success,
+        "instagram_media_id": _fp_state.get("instagram", {}).get("media_id"),
         # The locked publishAt slot (None when scheduling is off) — main.py
         # persists it in video_history so future runs never claim it again.
         "publish_at": _RUN_PUBLISH_AT if YT_SCHEDULE_PUBLISH else None,

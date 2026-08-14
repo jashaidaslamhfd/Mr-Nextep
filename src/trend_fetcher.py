@@ -490,8 +490,12 @@ def get_trending_topic(
     strategy = os.environ.get("TOPIC_STRATEGY", "body_glitch_series").strip().lower()
     require_daily_trend = os.environ.get("REQUIRE_DAILY_TREND", "false").lower() == "true"
 
-    # Dynamic competitor viral hijacker & real-time search trends strategy
-    if strategy in ("competitor_hijack", "viral_hijack"):
+    # Dynamic competitor viral hijacker & real-time search trends strategy.
+    # 2026-08-15: YouTube's inauthentic-engagement policy makes hijacking a
+    # strike/demotion risk, so this is disabled by default and needs an
+    # explicit operator opt-in (COMPETITOR_HIJACK_ENABLED=true) to ever run.
+    _hijack_on = os.environ.get("COMPETITOR_HIJACK_ENABLED", "false").lower() == "true"
+    if strategy in ("competitor_hijack", "viral_hijack") and _hijack_on:
         from competitor_hijacker import get_hijacked_viral_topic
         chosen = get_hijacked_viral_topic(exclude)
         return chosen if return_metadata else str(chosen["topic"])

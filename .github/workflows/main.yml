@@ -146,7 +146,14 @@ jobs:
           REQUIRE_CLONED_VOICE: "false"
           MUSIC_VOLUME: "0.07"
           VIDEO_TOPIC: ${{ inputs.topic || '' }}
-          GROQ_MODEL: "llama-3.1-8b-instant"
+          # 2026-08-15: 8B hooks were the quality ceiling. 70B class writes
+          # noticeably stronger hooks/titles (2026 feeds rank hook quality
+          # hard); Groq free tier serves llama-3.1-70b-instruct.
+          GROQ_MODEL: "llama-3.1-70b-instruct"
+          # 2026-08-15: competitor hijacking (scraping rivals' comments/topics
+          # for copycat content) targets YouTube's inauthentic-engagement
+          # policy — a strike/demotion risk, never enabled in production.
+          COMPETITOR_HIJACK_ENABLED: "false"
           PYTHONUNBUFFERED: "1"
         run: |
           set -euo pipefail

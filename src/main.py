@@ -1087,6 +1087,12 @@ class SKILLORPipeline:
                 'facebook_success': upload_result.get('facebook_success', False),
                 'instagram_success': upload_result.get('instagram_success', False),
                 'youtube_video_id': upload_result.get('youtube_video_id'),
+                # 2026-08-15: platform ids now flow through upload_result
+                # (uploader surfaces them from upload_state), so the history
+                # ledger — the single source insights and repair scripts read
+                # — sees every platform including Instagram.
+                'facebook_video_id': upload_result.get('facebook_video_id'),
+                'instagram_media_id': upload_result.get('instagram_media_id'),
                 'seo_score': script_data.get('seo_score', {}).get('scores', {}).get('overall_seo_score'),
                 'predicted_ctr': script_data.get('ctr_prediction', {}).get('ctr_prediction'),
                 'hook_score': script_data.get('shorts_report', {}).get('hook_detail', {}).get('score'),
