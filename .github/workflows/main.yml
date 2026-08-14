@@ -156,6 +156,38 @@ jobs:
             fi
           done
 
+      - name: 2026 deep-repair all uploaded videos (metadata fix)
+        if: always()
+        shell: bash
+        env:
+          TITLE_EMOJI_OFF: "true"
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
+          FB_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
+          FB_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID }}
+          FB_UPLOAD_ENABLED: "true"
+          IG_UPLOAD_ENABLED: "true"
+          INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
+          PYTHONUNBUFFERED: "1"
+        run: |
+          set -uo pipefail
+          # YouTube: titles/descriptions/tags via API (no analytics scope needed)
+          if [ -n "${GOOGLE_CLIENT_ID:-}" ] && [ -n "${REFRESH_TOKEN:-}" ]; then
+            python scripts/deep_repair_2026.py --apply --youtube-only
+          else
+            echo "::warning::YouTube repair skipped: GOOGLE_CLIENT_ID/REFRESH_TOKEN secrets not set"
+          fi
+          # Facebook/Instagram: caption repairs via Graph API (token already
+          # has pages_manage_engagement/instagram_manage_insights etc.)
+          if [ -n "${FB_ACCESS_TOKEN:-}" ]; then
+            python scripts/deep_repair_2026.py --apply --facebook-only || true
+            python scripts/deep_repair_2026.py --apply --instagram-only || true
+          else
+            echo "::warning::Meta repair skipped: FACEBOOK_ACCESS_TOKEN secret not set"
+          fi
+
       - name: Persist durable channel state
         if: always()
         shell: bash

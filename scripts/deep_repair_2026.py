@@ -57,6 +57,27 @@ def load_history() -> list:
         return []
 
 
+def load_classification() -> dict:
+    """Operator decisions from data/video_classification.json (repair vs
+    delete vs keep-watch). Delete-flagged videos are never repaired — they
+    get removed instead — and keep-watch videos are deferred until the new
+    24s format's effect registers. Absent file -> empty dict (no constraint)."""
+    path = ROOT / "data" / "video_classification.json"
+    try:
+        with open(path, encoding="utf-8") as fh:
+            rows = json.load(fh)
+    except Exception:
+        return {}
+    if not isinstance(rows, list):
+        return {}
+    out = {}
+    for r in rows:
+        vid = r.get("youtube_video_id") or r.get("facebook_id")
+        if vid:
+            out[str(vid)] = r.get("decision", "")
+    return out
+
+
 def load_ledger() -> set:
     try:
         with open(LEDGER_PATH, encoding="utf-8") as fh:
@@ -84,6 +105,7 @@ class DeepRepair2026:
         self.force = force
         self.history = load_history()
         self.ledger = load_ledger()
+        self.classification = load_classification()
         self.results = []
         self.stats = {
             "youtube": {"total": 0, "repaired": 0, "skipped": 0, "errors": 0},
@@ -109,6 +131,10 @@ class DeepRepair2026:
                 break
             vid = self._yt_id(v)
             key = _vid_key("youtube", vid)
+            decision = self.classification.get(str(vid), "")
+            if decision == "delete":
+                self.stats["youtube"]["skipped"] += 1
+                continue  # delete-flagged videos are removed, never repaired
             if key in self.ledger and not self.force:
                 self.stats["youtube"]["skipped"] += 1
                 continue
@@ -165,6 +191,13 @@ class DeepRepair2026:
                     self.stats["youtube"]["repaired"],
                     self.stats["youtube"]["errors"],
                     self.stats["youtube"]["skipped"])
+        del_count = sum(1 for d in self.classification.values() if d == "delete")
+        if del_count:
+            logger.info(
+                "  %d delete-flagged videos were skipped (remove them via the "
+                "YouTube Studio bulk-actions panel — deletion list lives in "
+                "data/video_classification.json)", del_count,
+            )
 
     def _apply_yt(self, vid, title, desc) -> bool:
         try:
