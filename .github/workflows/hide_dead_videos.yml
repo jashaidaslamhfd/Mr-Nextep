@@ -84,10 +84,10 @@ jobs:
                   print(f"OK   {vid}  {label}")
                   ok.append(vid)
               except HttpError as exc:
-                  reason = str(exc).split("'reason': ")[1].split("'")[0] if "'reason': " in str(exc) else ""
-                  if reason == "videoNotFound":
+                  if getattr(exc, "resp", None) is not None and exc.resp.status == 404 and "videoNotFound" in str(exc):
                       # Already deleted or invalid ID — video is gone from the
                       # channel either way, so the cleanup goal is achieved.
+                      # reason == videoNotFound
                       print(f"GONE {vid}  {label} (already deleted/invalid ID)")
                       ok.append(vid)
                   else:
