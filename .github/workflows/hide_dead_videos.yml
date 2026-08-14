@@ -34,15 +34,13 @@ jobs:
           REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
         run: |
           set -u
-          cat > /tmp/hide_videos.py <<'PYEOF'
-          import os, json, sys
+          python3 - "$GOOGLE_CLIENT_ID" "$GOOGLE_CLIENT_SECRET" "$REFRESH_TOKEN" <<'PYEOF'
+          import os, sys
           import google.oauth2.credentials as _creds
           from googleapiclient.discovery import build
           from googleapiclient.errors import HttpError
 
-          cid = os.environ.get("GOOGLE_CLIENT_ID")
-          csec = os.environ.get("GOOGLE_CLIENT_SECRET")
-          token = os.environ.get("REFRESH_TOKEN")
+          cid, csec, token = sys.argv[1], sys.argv[2], sys.argv[3]
           if not all((cid, csec, token)):
               print("::error::Google secrets missing (GOOGLE_CLIENT_ID/SECRET, REFRESH_TOKEN)")
               sys.exit(1)
@@ -55,7 +53,7 @@ jobs:
           )
           yt = build("youtube", "v3", credentials=credentials)
 
-          # Dead weight (3) + duplicates (5), from video_classification.json
+          # Dead weight (3) + duplicates (5), from data/video_classification.json
           videos = [
               ("cGVDXd8HN4g", "Why Got Fired Matters"),
               ("sOr6elVnTKc", "Body Twitches When You Sleep (Truth)"),
@@ -83,4 +81,3 @@ jobs:
           print(f"\n{len(ok)} hidden, {len(fail)} failed")
           sys.exit(1 if fail else 0)
           PYEOF
-          python3 /tmp/hide_videos.py
