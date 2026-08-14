@@ -47,8 +47,13 @@ jobs:
               print("::error::Google secrets missing (GOOGLE_CLIENT_ID/SECRET, REFRESH_TOKEN)")
               sys.exit(1)
 
+          # The stored secret is the long-lived refresh token; pass it as
+          # refresh_token AND initial access token so google-auth has all
+          # four fields (token, refresh_token, client_id, client_secret)
+          # needed to mint a fresh access token.
           credentials = _creds.Credentials(
-              token,
+              token=None,
+              refresh_token=token,
               client_id=cid,
               client_secret=csec,
               token_uri="https://oauth2.googleapis.com/token",
