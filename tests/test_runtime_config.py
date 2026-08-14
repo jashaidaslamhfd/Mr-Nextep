@@ -158,15 +158,17 @@ def _arc_fixture():
         "title": "Why Sleep Helps Your Brain",
         "hook": "Your brain saves memories while sleeping.",
         "cta": "Follow for more science made simple.",
+        # UPDATED 2026-08-14: YT master ideal moved 33s -> 24s, so the valid
+        # ceiling is ~79 words at 2.62 w/s and non-hook scenes cap at 10 words.
         "scenes": [
             {"visual": "glowing brain during deep sleep", "caption": "Your brain saves memories while sleeping."},
-            {"visual": "memory signals moving through neurons", "caption": "But how does your brain choose which moments stay important after a long day?"},
-            {"visual": "student studying in a quiet room", "caption": "Without enough sleep, new information can feel clear now but disappear much sooner tomorrow."},
-            {"visual": "brain pathways strengthening overnight", "caption": "During deep sleep, your brain replays recent experiences and strengthens the connections worth keeping."},
-            {"visual": "calm sleeper with brain overlay", "caption": "It also links related ideas together, making recall easier when you need those details."},
-            {"visual": "memory pathway becoming brighter", "caption": "This process is why rest can help learning feel stable after a full day."},
-            {"visual": "organized notes beside sleeping person", "caption": "The memory is not perfect, but sleep gives your brain time to organize it."},
-            {"visual": "morning light over focused person", "caption": "So sleep quietly saves the memories your waking brain might otherwise lose completely tomorrow."},
+            {"visual": "memory signals moving through neurons", "caption": "How does it choose which moments stay?"},
+            {"visual": "student studying in a quiet room", "caption": "Without sleep, facts feel clear now but vanish tomorrow."},
+            {"visual": "brain pathways strengthening overnight", "caption": "Deep sleep replays the day and keeps what matters."},
+            {"visual": "calm sleeper with brain overlay", "caption": "It links ideas, making recall easier later."},
+            {"visual": "memory pathway becoming brighter", "caption": "That is why rest steadies your learning."},
+            {"visual": "organized notes beside sleeping person", "caption": "Sleep gives the brain time to organize."},
+            {"visual": "morning light over focused person", "caption": "Which is why your brain saves memories while sleeping."},
         ],
     }
 

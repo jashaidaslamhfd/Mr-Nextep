@@ -1,0 +1,22 @@
+{
+  "slots": [
+    {
+      "slot": "NY12:30",
+      "outcome": "published",
+      "topic": "topic a",
+      "at": "2026-08-14T19:03:16.881379+00:00"
+    },
+    {
+      "slot": "NY18:30",
+      "outcome": "published",
+      "topic": "topic b",
+      "at": "2026-08-14T19:03:16.881704+00:00"
+    },
+    {
+      "slot": "NY20:00",
+      "outcome": "guard_fail",
+      "topic": "topic c",
+      "at": "2026-08-14T19:03:16.881860+00:00"
+    }
+  ]
+}

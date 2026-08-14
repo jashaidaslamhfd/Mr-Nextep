@@ -566,15 +566,21 @@ class HookRetryFeedbackTests(unittest.TestCase):
     """
 
     def _script(self, hook: str) -> dict:
+        # UPDATED 2026-08-14: YT master ideal moved 33s -> 24s; scenes now cap
+        # at 10 words each and the whole script at ~79 words at 2.62 w/s.
         captions = [
+            # One caption trimmed 2026-08-14 so the fixture totals 79 words at
+            # the new 24s ceiling: with the weak 8-word hook the script must
+            # still pass the word gate and let the HOOK gate drive the retry
+            # feedback the test asserts on.
             hook,
-            "But why does this happen when you are tired at night?",
-            "Most people assume something serious is going wrong inside them.",
-            "Tired nerves leak tiny electrical signals into the small eyelid muscle.",
-            "Because that muscle is thin, each stray signal becomes a visible flutter.",
-            "It repeats in short bursts until the nerve finally settles back down.",
-            "Caffeine and lost sleep raise nerve excitability, so rest usually ends it.",
-            "So your twitching eyelid is just an overtired nerve resetting itself tonight.",
+            "Why does this happen when you are tired at night?",
+            "People assume something serious is going wrong inside them.",
+            "Tired nerves leak tiny signals into the eyelid muscle.",
+            "That thin muscle turns each stray signal into a visible flutter.",
+            "It repeats in short bursts until the nerve settles down.",
+            "Caffeine and lost sleep raise excitability, so rest usually ends it.",
+            "So your twitching eyelid is just an overtired nerve resetting tonight.",
         ]
         return {
             "title": "Why Your Eyelid Twitches",
@@ -751,15 +757,17 @@ class TrimmerAndValidatorAgreeTests(unittest.TestCase):
         must not reject on scene word count. These two run back to back on
         every single attempt, so any disagreement is an automatic outage."""
         sg = self.sg
+        # UPDATED 2026-08-14: YT master ideal moved 33s -> 24s; scenes now cap
+        # at 10 words each and the whole script at ~79 words at 2.62 w/s.
         captions = [
             "Your foot goes numb after sitting still",
-            "Why does the tingling start the second you finally stand up again?",
-            "Pressure on the nerve interrupts the signal it keeps sending your brain",
-            "The nerve is not damaged it is simply muted for a moment",
-            "Blood flow returns and the nerve fires every delayed message at once",
-            "That flood of signals is the pins and needles you feel",
-            "It fades within a minute once the nerve catches up completely",
-            "So the next time your foot goes numb you will know exactly why",
+            "Why does the tingling start when you stand up?",
+            "Pressure on the nerve interrupts its signal",
+            "The nerve is not damaged, only muted for a moment",
+            "Blood flow returns and fires every delayed message at once",
+            "That flood of signals is the pins and needles",
+            "It fades within a minute as the nerve catches up",
+            "So now you know exactly why your foot falls asleep",
         ]
         script = {
             "title": "Why Your Foot Falls Asleep",

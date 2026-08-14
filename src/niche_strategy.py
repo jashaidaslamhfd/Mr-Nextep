@@ -12,6 +12,7 @@ OPTIMIZED FOR: HIGH RETENTION + PSYCHOLOGICAL PACING
 
 import logging
 import random
+import os
 import re
 from typing import List, Dict, Optional
 
@@ -872,9 +873,26 @@ def _pick_topic_emoji(topic: str) -> str:
 
 
 def _make_seo_title(title: str, topic: str) -> str:
-    """Enhances title for SEO while keeping under 55 chars."""
+    """Enhances title for SEO while keeping under 55 chars.
+
+    RETENTION NOTE (2026-08-14): the single-emoji suffix was a 100+ video
+    machine template ("Why Your X 🫀") on this channel. 2026 inauthentic-
+    content ranking suppresses template output, and a uniform title frame
+    wrecks CTR novelty. ``TITLE_EMOJI_OFF=true`` (env) disables the emoji
+    suffix entirely so titles go out as clean curiosity questions. The
+    default is OFF (no emoji) because the data on this channel shows the
+    emoji template coincides with its template demotion period; operators
+    who still want the emoji can set ``TITLE_EMOJI_OFF=false``.
+    """
     title = repair_mojibake(title)
     clean_title = _EMOJI_PATTERN.sub('', title, count=1).strip()
+    _emoji_off = (os.environ.get("TITLE_EMOJI_OFF", "true").strip().lower()
+                  in ("true", "1", "yes", "on"))
+    if _emoji_off:
+        # Strip any emoji the LLM smuggled in as well — plain text titles
+        # perform and rank better on template-detection systems.
+        clean_title = _EMOJI_PATTERN.sub('', clean_title).strip()
+        return clean_title[:MAX_TITLE_LENGTH] if clean_title else topic[:MAX_TITLE_LENGTH]
 
     power_words = ["secret", "nobody", "never", "actually", "dark", "scary",
                    "real", "hidden", "warning", "shock", "fact", "truth"]

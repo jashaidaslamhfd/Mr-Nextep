@@ -1,6 +1,6 @@
 # SKILLOR growth report
 
-_Generated 2026-08-04 20:50 UTC · policy 2026.07-fix1 (verified 2026-07-31)_
+_Generated 2026-08-14 19:03 UTC · policy 2026.08-fix2 (verified 2026-08-14)_
 
 This file is produced by `scripts/growth_report.py`. It reads real
 numbers from all three platforms, compares each against that
@@ -36,13 +36,13 @@ No usable metrics yet. No metrics yet — publish and wait 24h, or connect this 
 ## The policy this is measured against
 
 ```
-SKILLOR algorithm policy 2026.07-fix1 (verified 2026-07-31)
+SKILLOR algorithm policy 2026.08-fix2 (verified 2026-08-14)
 
-- YouTube Shorts: 27-40s (ideal 33s), hook <= 2.8s, 3-4 hashtags, gate 50% AVP
-- Facebook Reels: 18-28s (ideal 24s), hook <= 2.5s, 2-3 hashtags, gate 72% AVP
-- Instagram Reels: 16-27s (ideal 23s), hook <= 2.3s, 3-5 hashtags, gate 70% AVP
+- YouTube Shorts: 18-30s (ideal 24s), hook <= 2.8s, 3-4 hashtags, gate 65% AVP
+- Facebook Reels: 12-22s (ideal 16s), hook <= 2.5s, 2-3 hashtags, gate 72% AVP
+- Instagram Reels: 12-22s (ideal 15s), hook <= 2.3s, 3-5 hashtags, gate 70% AVP
 
-Script budget: 67-105 words at 2.62 w/s (hook 4-6 words).
+Script budget: 45-79 words at 2.62 w/s (hook 4-6 words).
 Cadence ceiling: 3/day, >= 90 min apart.
 ```
 

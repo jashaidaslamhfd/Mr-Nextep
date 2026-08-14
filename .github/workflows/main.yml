@@ -103,6 +103,10 @@ jobs:
           CHANNEL_LANGUAGE: "en-US"
           CONTENT_SERIES: "dark_mystery"
           TOPIC_STRATEGY: "dark_mystery_series"
+          # 2026-08 retention-first pass: kill the emoji-title machine template
+          # ("Why Your X 🫀" on 100+ videos) that 2026 template-detection
+          # systems demote. Clean curiosity-question titles from here on.
+          TITLE_EMOJI_OFF: "true"
           TTS_ENGINE: "kokoro"
           KOKORO_LANG_CODE: "a"
           KOKORO_VOICE: "am_adam"

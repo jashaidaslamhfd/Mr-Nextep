@@ -167,6 +167,12 @@ NON-NEGOTIABLE QUALITY RULES:
 - Every scene must add new information. Do not repeat the hook or pad length.
 - Write for speech: short sentences, concrete words, smooth transitions.
 - Use a natural follow CTA only as metadata; do not force it into narration.
+- RETENTION FIRST: viewers decide in the first 2-3 seconds. The first sentence
+  must carry STAKES — name the weird moment AND why it matters to the viewer
+  ("Your calf locks up at 3am *because* the nerve is misfiring"), never a
+  flat greeting or label.
+- The LAST scene must flow straight into the first (loop-back), so a replay
+  feels intentional. Replays count as watch time.
 - Return valid JSON only—no Markdown and no commentary.
 """
 
