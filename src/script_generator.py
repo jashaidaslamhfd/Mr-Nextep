@@ -116,13 +116,31 @@ GROQ_MODEL_FALLBACK = os.environ.get("GROQ_MODEL_FALLBACK") or "openai/gpt-oss-2
 # candidates AFTER the probe confirms the account can reach them.
 _legacy_model_ids = ["llama-3.3-70b-versatile", "llama-3.1-8b-instant"]
 
+# Model ids that exist on Groq but are NOT chat-completion models (audio
+# transcription, prompt-guard classifiers). Script generation must skip them
+# — calling them returns 400 'does not support chat completions' and burns
+# a retry (Aug-15 outage #2).
+_NON_CHAT_MODEL_PATTERNS = (
+    "whisper", "prompt-guard", "compound", "distil-whisper",
+)
+
+
+def _is_chat_model(model_id: str) -> bool:
+    """Heuristic guard: Groq's /models endpoint lists non-chat models too;
+    chat completions against them fail with 400. We keep known chat-capable
+    ids and reject anything matching a non-chat pattern.
+    """
+    mid = model_id.lower()
+    return not any(pat in mid for pat in _NON_CHAT_MODEL_PATTERNS)
+
+
 def _groq_accessible_models(client) -> List[str]:
     """Return this account's live Groq model list (ids the key can call).
     Never raises: on probe failure we fall back to the configured ids and
     let per-call errors drive the chain instead.
     """
     try:
-        return [m.id for m in client.models.list().data]
+        return [m.id for m in client.models.list().data if _is_chat_model(m.id)]
     except Exception as exc:  # noqa: BLE001 - probe must never break the run
         logger.warning("Groq /models probe failed (%s) - using configured ids", exc)
         return []

@@ -747,7 +747,10 @@ def build_video(image_paths, audio_segments, scenes, output_path="output/final_v
                 # moviepy 1.x (pinned in requirements.txt) ships AudioClip
                 # but not AudioArrayClip — a zero-valued getframe is the
                 # portable silent-clip constructor.
-                silent = AudioClip(lambda _t: 0.0, duration=_gap, fps=44100)
+                def _silent(_t):
+                    _t = np.atleast_1d(np.asarray(_t))
+                    return np.zeros((len(_t), 2)) * 0.0
+                silent = AudioClip(_silent, duration=_gap, fps=44100)
                 audio_clips.append(silent)
                 # still-beat visual hold: freeze the scene's final frame
                 # (re-using the already-composited clip, so size/style match
