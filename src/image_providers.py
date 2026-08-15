@@ -180,9 +180,31 @@ def gen_deepai(prompt, seed, scene_text=None):
 #    just get lower queue priority, so this polls for up to ~90s before
 #    giving up and letting the next provider take over.)
 # ---------------------------------------------------------------------------
+_HORDE_ANON_KEY = "0000000000"
+
+# Run-scoped flag: a secret AI_HORDE_API_KEY that returns 401 InvalidAPIKey
+# (expired/typo'ed) is silently downgraded to the anonymous key once, instead
+# of failing every AI-Horde scene with the same spammy error for the whole
+# run. Detected InvalidAPIKey responses always fall back to anonymous.
+_horde_key_invalidated = [False]
+
+
 def gen_ai_horde(prompt, seed, scene_text=None):
+    import logging as _logging
+    _hplogger = _logging.getLogger("image_providers")
+    global _horde_key_invalidated
     text = (scene_text or prompt.replace("_", " "))[:1000]
-    headers = {"apikey": os.environ.get("AI_HORDE_API_KEY", "0000000000")}
+    headers = {"apikey": os.environ.get("AI_HORDE_API_KEY", _HORDE_ANON_KEY)}
+
+    def _horde_was_invalid(resp):
+        """Detect the 401 InvalidAPIKey response from an invalid secret key."""
+        if resp.status_code != 401:
+            return False
+        try:
+            payload = resp.json()
+        except Exception:
+            return False
+        return payload.get("rc") == "InvalidAPIKey" or "InvalidAPIKey" in payload.get("message", "")
 
     # Anonymous requests share a dynamic, demand-based max PIXEL-AREA cap,
     # expressed by AI Horde as "requests over NxN" (i.e. width*height must
@@ -230,6 +252,19 @@ def gen_ai_horde(prompt, seed, scene_text=None):
             # This size tier is over the current demand cap - shrink and retry.
             last_size_err = f"{width}x{height} rejected: {submit.text[:150]}"
             continue
+        if _horde_was_invalid(submit):
+            # 2026-08-15: the repo secret AI_HORDE_API_KEY is set but invalid
+            # (401 InvalidAPIKey - expired or typo). Retry this tier once with
+            # the anonymous key and keep going for the whole run.
+            if headers["apikey"] != _HORDE_ANON_KEY:
+                _hplogger.warning(
+                    "AI Horde: secret key invalid (%s) — retrying with "
+                    "anonymous key for the rest of this run", submit.text[:120],
+                )
+                headers = {"apikey": _HORDE_ANON_KEY}
+                _horde_key_invalidated[0] = True
+                continue
+            raise RuntimeError(f"AI Horde submit bad response: {submit.status_code} {submit.text[:150]}")
         if submit.status_code not in (200, 202):
             raise RuntimeError(f"AI Horde submit bad response: {submit.status_code} {submit.text[:150]}")
         break
