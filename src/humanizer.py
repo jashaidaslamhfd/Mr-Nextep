@@ -53,13 +53,35 @@ def pick_n(pool: list, value: str, n: int) -> list:
 # Visual style rotation — so scene images don't all share one identical look.
 # --------------------------------------------------------------------------- #
 
+# 2026-08-15 CHANNEL SIGNATURE — "Neon Cortex" (replaces the generic
+# cinematic styles that any channel on YouTube can produce). Fixed identity
+# anchors (midnight cobalt/violet palette, neural circuitry glow, noir
+# contrast) with per-video variation seeded by the topic, so the channel is
+# instantly recognizable and no two videos look identical.
 VISUAL_STYLES = [
-    "clean cinematic documentary lighting, realistic human detail, sharp focus, crisp high-resolution detail, natural color, professional camera quality",
-    "moody low-key cinematography, soft rim light, shallow depth of field, realistic detail, high dynamic range, editorial photo look",
-    "bright natural daylight, crisp realism, vivid color, documentary photography, tack-sharp detail, authentic candid feel",
-    "atmospheric twilight tones, gentle contrast, realistic texture, cinematic color grade, professional still photography",
-    "warm studio lighting, clean composition, realistic human form, sharp detail, natural skin tones, premium editorial quality",
-    "high-contrast noir styling, dramatic shadows, realistic detail, film grain, cinematic depth, striking single-subject focus",
+    # 1: midnight neural — the signature look
+    "midnight cobalt and deep violet palette, glowing neural circuitry lines "
+    "tracing anatomy, high-contrast noir mystery lighting, one strong key "
+    "light, dark cinematic documentary, hyper-detailed realistic rendering",
+    # 2: laboratory noir — the clinical discovery shot
+    "sterile midnight laboratory, cold teal scan-lines over anatomy, sharp "
+    "forensic clarity, dramatic single-beam lighting, film-noir documentary "
+    "still, hyper-detailed realistic detail",
+    # 3: living luminescence — the inside-the-body shot
+    "soft bioluminescent inner glow under dark indigo skin, translucent "
+    "tissue depth, ember-gold core highlights, cinematic macro realism, "
+    "premium documentary photography",
+    # 4: synapse storm — the brain/mind shot
+    "dark indigo-violet neural storm, synapse spark trails, electric teal "
+    "accents, high-contrast noir depth, hyper-detailed scientific rendering",
+    # 5: dawn revelation — the calm payoff shot
+    "soft dawn-grey window light meeting deep navy shadow, calm scientific "
+    "revelation atmosphere, clean premium editorial composition, tack-sharp "
+    "realistic detail",
+    # 6: specimen focus — the single-subject shot
+    "heavy noir shadow weight, one specimen in crisp forensic spotlight, "
+    "charcoal and steel palette, museum-of-nature stillness, hyper-detailed "
+    "cinematic realism",
 ]
 
 _VISUAL_TAIL = "vertical composition, no text, no watermark, not blurry, not dull"
