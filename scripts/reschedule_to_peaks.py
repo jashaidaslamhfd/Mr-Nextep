@@ -113,7 +113,9 @@ def main():
                     # uploads (400); fall back to an immediate public release.
                     r, err = _q("videos", {"part": "snippet,status"}, token,
                                 method="PUT",
-                                body={"id": vid, "status": {"privacyStatus": "public", "selfDeclaredMadeForKids": False}})
+                                body={"id": vid,
+                                      "snippet": {"title": title[:100]},
+                                      "status": {"privacyStatus": "public", "selfDeclaredMadeForKids": False}})
                 if err:
                     print(f"[fail] {vid}: {err}")
                 else:
