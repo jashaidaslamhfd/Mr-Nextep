@@ -7,10 +7,10 @@ name: "SKILLOR — Growth Loop (learn from all 3 platforms)"
 # pillars / hook frames actually retain viewers, and writes the decisions the
 # generation pipeline reads on its next run.
 #
-# Runs at 09:20 UTC (05:20 NY) — after the previous day's 20:00 NY publish has
-# had a full overnight to accumulate data, and before the first generation run
-# of the day at 14:40 UTC, so today's videos are produced using yesterday's
-# lesson rather than a day-old one.
+# Runs at 00:30 UTC (19:30 NY) — after the previous day's 21:30 NY publish has
+# had its first overnight hours to accumulate data, and before the first
+# generation run of the day at 01:30 UTC, so today's videos are produced using
+# yesterday's lesson rather than a day-old one.
 #
 # READ-ONLY against every platform. It cannot publish, edit or delete.
 
@@ -23,7 +23,7 @@ on:
         default: "24"
         type: string
   schedule:
-    - cron: "20 9 * * *"
+    - cron: "30 0 * * *"
 
 permissions:
   contents: write

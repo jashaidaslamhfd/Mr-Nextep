@@ -208,7 +208,7 @@ def main():
     _log("  ✅ Growth report: docs/GROWTH_REPORT.md with auto-repair section")
     _log("")
     _log("Daily automation (no manual audit):")
-    _log("  - 09:20 UTC: Analytics Learning workflow runs")
+    _log("  - 00:30 UTC: Analytics Learning workflow runs")
     _log("  - Fetches real views/CTR/retention")
     _log("  - Builds viral intelligence (if YOUTUBE_API_KEY set)")
     _log("  - Auto-repairs 2 worst videos with viral titles (if AUTO_REPAIR_APPLY=true)")
