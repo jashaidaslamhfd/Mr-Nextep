@@ -64,7 +64,11 @@ TARGET_MAX_SEC = _env_float("TARGET_MAX_SECONDS", _POLICY_MAX)
 # RETENTION OPTIMIZATIONS
 CAPTION_Y_FRACTION = 0.52
 WORD_MIN_DURATION = 0.12
-MUSIC_VOLUME = float(os.environ.get("MUSIC_VOLUME", "0.07"))
+# 2026-08-15: 7% made the music effectively inaudible on most playback
+# devices (users reported 'no background music at all'). 18% lands in the
+# professional Shorts band (15-20% of full scale after ducking): clearly
+# present, never competes with the narration. Override via MUSIC_VOLUME env.
+MUSIC_VOLUME = float(os.environ.get("MUSIC_VOLUME", "0.18"))
 MUSIC_SAMPLE_RATE = 24000
 MUSIC_DIR = "assets/music"
 
