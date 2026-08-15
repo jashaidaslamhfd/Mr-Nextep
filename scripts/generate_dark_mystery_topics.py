@@ -577,7 +577,7 @@ def build() -> list[dict]:
     final_wave = [
         ("Why the Brain Erases Pain", "Why a bad memory of pain fades faster than a good one", "psych"),
         ("Why We Fear Snakes More Than Cars", "Why your brain still runs an ancient threat list", "psych"),
-        ("Why a 'Funny' Video Is Science", "Why laughter is your brain's reset button", "psych"),
+        ("Why Laughter Resets Your Brain", "Why laughter is your brain's reset button", "psych"),
         ("Why You Talk to Your Dog", "Why your brain treats pets like people", "psych"),
         ("Why a Smell Brings Back a Memory", "Why scent is wired straight to memory", "perception"),
         ("Why Old Songs Make You Emotional", "Why music is glued to your memory", "memory"),

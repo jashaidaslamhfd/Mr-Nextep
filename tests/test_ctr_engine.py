@@ -78,6 +78,44 @@ class HookAndValidationTests(unittest.TestCase):
         good = validate_title("Why Your Hours Feel Like Minutes", max_chars=60)
         self.assertTrue(good["ok"])
 
+    def test_gibberish_head_is_rejected(self):
+        # 2026-08-15 title-quality fix: malformed topic inputs that reduce to
+        # junk subjects must never validate, even when a category word like
+        # "science"/"brain" appears in them.
+        for junk in [
+            "Why Your Funny Video Science — The Surprising Truth",
+            "Why Your Regression Mean Brain — The Real Reason",
+            "Why Get Funny Videos From Happens — The Real Reason",
+        ]:
+            result = validate_title(junk)
+            self.assertFalse(result["ok"], f"gibberish title passed: {junk}")
+            self.assertTrue(any("gibberish" in i for i in result["issues"]),
+                            f"expected gibberish guard issue: {result}")
+
+    def test_valid_titles_with_real_anchors_pass(self):
+        for title in [
+            "Why Your Cold Hands — The Real Reason",
+            "Why Your Brain Rewrites Bad Day — What Your Brain Is Doing",
+            "Why Your Body Jerks Sleep — Why It Actually Happens",
+        ]:
+            result = validate_title(title)
+            self.assertTrue(result["ok"],
+                            f"valid title rejected: {title} {result['issues']}")
+
+    def test_malformed_topic_falls_back_to_grammatical_title(self):
+        # A malformed topic must never surface as a "Why Your {junk}" title.
+        for junk_topic in [
+            "Funny Video Science",
+            "Regression Mean Brain",
+            "Why a 'Funny' Video Is Science",
+        ]:
+            title = generate_high_ctr_title(junk_topic).lower()
+            for junk in ("why your funny", "regression mean", "funny video",
+                         "why your regression"):
+                self.assertNotIn(junk, title)
+            # The fallback stays under the platform budget.
+            self.assertLessEqual(len(generate_high_ctr_title(junk_topic)), 58)
+
 
 if __name__ == "__main__":
     unittest.main()
