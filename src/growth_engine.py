@@ -753,3 +753,20 @@ def format_viral_loop_bridge(hook_text: str, ending_text: str) -> Dict[str, str]
         "audio_sfx_cue": "sub_bass_drop_1.2s",
         "visual_cut_frequency": 2.2
     }
+
+
+def generate_platform_engagement_hooks(topic: str, platform: str = "facebook") -> Dict[str, str]:
+    """Generates high-share debate prompts for Facebook and DM triggers for Instagram Reels."""
+    if platform.lower() == "facebook":
+        return {
+            "comment_sparker": f"Has this ever happened to you or someone in your family? Share your experience below 👇",
+            "headline_style": "bold_yellow_banner",
+            "share_cta": "Tag a friend who sleeps weirdly!"
+        }
+    elif platform.lower() == "instagram":
+        return {
+            "on_screen_prompt": "Send this to someone who does this 💀",
+            "save_trigger": "Save for when this happens to you tonight",
+            "aspect_ratio": "9:16_safe_center"
+        }
+    return {"algorithm_focus": "youtube_retention_loop"}
