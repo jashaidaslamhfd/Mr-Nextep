@@ -1,3 +1,9 @@
+import re
+
+def sanitize_shorts_title(raw_title: str) -> str:
+    cleaned = re.sub(r'^(Body\s*Glitch\s*#?\d+[:\s\-]*)', '', raw_title, flags=re.IGNORECASE).strip()
+    return cleaned if len(cleaned) >= 5 else raw_title
+
 import os
 import json
 import logging
