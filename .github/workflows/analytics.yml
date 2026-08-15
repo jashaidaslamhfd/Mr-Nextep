@@ -58,6 +58,20 @@ jobs:
         # cannot read metrics has failed, and must say so.
         run: python src/analytics_updater.py
 
+      - name: Backfill any channel uploads missing from history
+        if: always()
+        continue-on-error: true
+        env:
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
+        # 2026-08-15: the metrics step only REFRESHES entries already in
+        # video_history.json — failed pipeline runs (the Aug-14 Groq outage
+        # era) and any off-pipeline upload left real channel videos invisible
+        # to the ML brain. This backfill discovers the channel's own uploads
+        # playlist and adds anything missing before metrics/training run.
+        run: python scripts/backfill_channel_uploads.py
+
       - name: Update Facebook Reels metrics (best effort)
         # Runs even when the YouTube learning step failed, so a Meta-side
         # refresh is never lost to an unrelated YouTube auth problem.
