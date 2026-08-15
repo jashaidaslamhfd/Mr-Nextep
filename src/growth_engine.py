@@ -740,3 +740,16 @@ def get_preferred_hook_frame() -> Optional[str]:
 
 if __name__ == "__main__":  # pragma: no cover - CLI entry point
     print(json.dumps(analyse(), indent=2))
+
+
+def format_viral_loop_bridge(hook_text: str, ending_text: str) -> Dict[str, str]:
+    """Generates a seamless loop bridge connecting the final second to the opening hook."""
+    clean_hook = (hook_text or "").strip()
+    clean_ending = (ending_text or "").strip()
+    if clean_ending and not clean_ending.endswith(('.', '!', '?')):
+        clean_ending += '...'
+    return {
+        "seamless_bridge": f"{clean_ending} which is exactly why {clean_hook}",
+        "audio_sfx_cue": "sub_bass_drop_1.2s",
+        "visual_cut_frequency": 2.2
+    }
