@@ -4,7 +4,9 @@ on:
   workflow_dispatch:
   schedule:
     # Daily update; videos must be at least 24h old before querying metrics.
-    - cron: "20 9 * * *"
+    # 00:30 UTC also guarantees the learning loop finishes before the first
+    # generation slot of the day (01:30 UTC, 21:30 NY wind-down peak).
+    - cron: "30 0 * * *"
 
 permissions:
   contents: write
