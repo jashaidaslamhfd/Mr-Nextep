@@ -1427,7 +1427,7 @@
     },
     "real_retention": 0.0,
     "real_views": 0.0,
-    "recorded_at": "2026-08-15T19:49:08.660671+00:00"
+    "recorded_at": "2026-08-15T19:28:59.059794+00:00"
   },
   {
     "features": {
@@ -1440,7 +1440,7 @@
     },
     "real_retention": 0.0,
     "real_views": 0.0,
-    "recorded_at": "2026-08-15T19:49:34.719549+00:00"
+    "recorded_at": "2026-08-15T19:29:10.526739+00:00"
   },
   {
     "features": {
@@ -1453,6 +1453,84 @@
     },
     "real_retention": 0.0,
     "real_views": 0.0,
-    "recorded_at": "2026-08-15T19:49:36.094994+00:00"
+    "recorded_at": "2026-08-15T19:29:13.339077+00:00"
+  },
+  {
+    "features": {
+      "hook_strength": 0.1,
+      "story_completeness": 0.0,
+      "pacing": 1.0,
+      "title_curiosity": 1.0,
+      "payoff_present": 0.0,
+      "bait_penalty": 0.0
+    },
+    "real_retention": 0.0,
+    "real_views": 0.0,
+    "recorded_at": "2026-08-15T20:14:45.136758+00:00"
+  },
+  {
+    "features": {
+      "hook_strength": 0.1,
+      "story_completeness": 0.0,
+      "pacing": 1.0,
+      "title_curiosity": 1.0,
+      "payoff_present": 0.0,
+      "bait_penalty": 0.0
+    },
+    "real_retention": 0.0,
+    "real_views": 0.0,
+    "recorded_at": "2026-08-15T20:14:55.739705+00:00"
+  },
+  {
+    "features": {
+      "hook_strength": 0.1,
+      "story_completeness": 0.0,
+      "pacing": 1.0,
+      "title_curiosity": 1.0,
+      "payoff_present": 0.0,
+      "bait_penalty": 0.0
+    },
+    "real_retention": 0.0,
+    "real_views": 0.0,
+    "recorded_at": "2026-08-15T20:14:58.384124+00:00"
+  },
+  {
+    "features": {
+      "hook_strength": 0.1,
+      "story_completeness": 0.0,
+      "pacing": 1.0,
+      "title_curiosity": 1.0,
+      "payoff_present": 0.0,
+      "bait_penalty": 0.0
+    },
+    "real_retention": 0.0,
+    "real_views": 0.0,
+    "recorded_at": "2026-08-15T20:15:20.694546+00:00"
+  },
+  {
+    "features": {
+      "hook_strength": 0.1,
+      "story_completeness": 0.0,
+      "pacing": 1.0,
+      "title_curiosity": 1.0,
+      "payoff_present": 0.0,
+      "bait_penalty": 0.0
+    },
+    "real_retention": 0.0,
+    "real_views": 0.0,
+    "recorded_at": "2026-08-15T20:15:31.731671+00:00"
+  },
+  {
+    "features": {
+      "hook_strength": 0.1,
+      "story_completeness": 0.0,
+      "pacing": 1.0,
+      "title_curiosity": 1.0,
+      "payoff_present": 0.0,
+      "bait_penalty": 0.0
+    },
+    "real_retention": 0.0,
+    "real_views": 0.0,
+    "recorded_at": "2026-08-15T20:15:34.502814+00:00"
   }
 ]

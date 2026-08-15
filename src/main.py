@@ -457,9 +457,30 @@ class SKILLORPipeline:
             raise
 
     def generate_with_niche_strategy(self, topic: str = None) -> dict:
-        """Generate script with retry logic - uses trending topics if no topic provided"""
-        fixed_topic = topic
+        """Generate script with retry logic - uses trending topics if no topic provided.
+
+        2026-08-16: a quality-gate miss no longer burns the slot. The rejected
+        topic is enqueued and the VERY NEXT run picks it back up with a fresh
+        LLM output under the same strict gates (quality, spam, hook all
+        mandatory). Only when the queue is empty does a new trend topic get
+        fetched. Spam-flagged topics are NEVER retried — they retire.
+        """
         recent_topics = self._get_recent_topics()
+        # 2026-08-16 retry queue: honor a queued topic before pulling fresh
+        # trend research, but never override an explicitly fixed topic.
+        if topic is None:
+            queued = self._next_retry_topic(recent_topics)
+            if queued:
+                logger.info(
+                    "Retrying queued quality-gate topic (%d earlier attempts): %s",
+                    queued.get('attempts', 0), queued['topic'],
+                )
+                topic = queued['topic']
+                fixed_topic = topic
+            else:
+                fixed_topic = None
+        else:
+            fixed_topic = topic
         best_attempt = None
         last_error = None
 
@@ -556,26 +577,152 @@ class SKILLORPipeline:
                     hook, MIN_HOOK_SCORE,
                 )
                 return best_attempt['script_data']
-            # 2026-08-16: when both quality (retention) and hook miss their
-            # floors but the spam gate is clean and scores are non-trivial,
-            # one last lenient pass at a lower floor (quality 50, hook 50)
-            # keeps the daily slot alive. Spam stays absolute — a slot
-            # missed is recoverable; a spam flag is not.
-            quality = best_attempt.get('quality_score', 0)
-            if (best_attempt.get('spam_ok') and quality >= 50
-                    and best_attempt.get('hook_score', 0) >= 50):
-                logger.warning(
-                    "Lenient final-attempt accept: spam clean, quality "
-                    "%d/100 and hook %d/100 above the 50 floor — publishing.",
-                    quality, best_attempt.get('hook_score', 0),
-                )
-                return best_attempt['script_data']
+            # 2026-08-16: the slot-saving lenient floor (quality/hook 50) was
+            # REMOVED — a low-retention video hurts the channel's standing
+            # permanently, while a missed slot is recoverable via the quality
+            # retry queue (below). Strict gates stay strict.
             last_error = "best candidate rejected: " + ", ".join(failures)
 
+        # 2026-08-16: strict gates stay strict (retention protection), but a
+        # quality miss is now persisted for retry instead of raising — the
+        # next run re-opens the topic with a fresh script. Spam is absolute:
+        # spam-flagged topics retire immediately.
+        if best_attempt and best_attempt.get('spam_ok'):
+            reason = "best candidate rejected: " + ", ".join(failures) if failures else last_error
+            self._enqueue_retry_topic(
+                fixed_topic or "", str(reason),
+                attempt_count=best_attempt.get('attempts', MAX_SCRIPT_ATTEMPTS) + 1,
+            )
+            self._persist_last_failure(
+                "quality_retry", f"Queued for retry: {fixed_topic} — {reason}")
+            raise RuntimeError(
+                f"All {MAX_SCRIPT_ATTEMPTS} attempts failed strict gates — "
+                f"topic '{fixed_topic}' saved to the retry queue (next run "
+                f"retries it with a fresh script). Reason: {reason}"
+            )
         raise RuntimeError(
             f"All {MAX_SCRIPT_ATTEMPTS} script-generation attempts failed mandatory gates. "
             f"Last error: {last_error}"
         )
+
+    def _persist_last_failure(self, kind: str, message: str) -> None:
+        """Persist a failure note so post-failure diagnosis survives log expiry."""
+        try:
+            path = "data/pipeline_last_failure.json"
+            os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
+            with open(path, "w", encoding="utf-8") as fh:
+                json.dump({
+                    "failed_at": datetime.now(timezone.utc).isoformat(),
+                    "kind": kind,
+                    "reason": message,
+                }, fh, indent=2, ensure_ascii=False)
+        except OSError:
+            pass
+
+    # ------------------------------------------------------------------
+    # 2026-08-16 QUALITY RETRY QUEUE — never burn a slot on a quality miss
+    # ------------------------------------------------------------------
+    # Problem: when the strict quality gate rejects all attempts, the day's
+    # cron slot is lost (no video uploaded) and the topic disappears forever.
+    # A weaker lenient floor protects the slot but hurts retention.
+    # Solution: persist the rejected topic into a retry queue. The very next
+    # pipeline run (same day's second slot, or tomorrow's) re-opens the
+    # topic and gets a fresh LLM output — same topic, new script, full strict
+    # gates. Spam can never be retried (absolute). A topic that has lived
+    # in the queue for RETRY_MAX_DAYS days is retired (moved to
+    # data/quality_retry_dead.json) so stale topics never leak into
+    # a future video.
+    # ------------------------------------------------------------------
+    RETRY_QUEUE_PATH = os.environ.get(
+        "QUALITY_RETRY_QUEUE_PATH", "data/quality_retry_queue.json")
+    RETRY_MAX_DAYS = int(os.environ.get("QUALITY_RETRY_MAX_DAYS", "3"))
+    RETRY_MAX_ATTEMPTS = int(os.environ.get("QUALITY_RETRY_MAX_ATTEMPTS", "6"))
+
+    def _load_retry_queue(self) -> list:
+        try:
+            with open(self.RETRY_QUEUE_PATH, encoding="utf-8") as fh:
+                items = json.load(fh)
+            return items if isinstance(items, list) else []
+        except (OSError, json.JSONDecodeError):
+            return []
+
+    def _save_retry_queue(self, items: list) -> None:
+        try:
+            os.makedirs(os.path.dirname(self.RETRY_QUEUE_PATH) or ".", exist_ok=True)
+            with open(self.RETRY_QUEUE_PATH, "w", encoding="utf-8") as fh:
+                json.dump(items, fh, indent=2, ensure_ascii=False)
+        except OSError as exc:
+            logger.warning("Could not persist quality retry queue: %s", exc)
+
+    def _next_retry_topic(self, recent_topics: set) -> tuple:
+        """Pop the oldest, still-eligible queued topic (topic, attempts_used)."""
+        now = datetime.now(timezone.utc)
+        items = self._load_retry_queue()
+        eligible, stale, skipped = [], [], []
+        for item in items:
+            if item.get("topic") in recent_topics:
+                skipped.append(item)
+                continue
+            if item.get("attempts", 0) >= self.RETRY_MAX_ATTEMPTS:
+                stale.append(item)
+                continue
+            try:
+                first_fail = datetime.fromisoformat(item["failed_at"])
+                if first_fail.tzinfo is None:
+                    first_fail = first_fail.replace(tzinfo=timezone.utc)
+                if (now - first_fail).days >= self.RETRY_MAX_DAYS:
+                    stale.append(item)
+                    continue
+            except (KeyError, ValueError):
+                stale.append(item)
+                continue
+            eligible.append(item)
+        eligible.sort(key=lambda it: it.get("failed_at", ""))
+        # Persist: keep eligible (minus the one we'll take), drop the rest
+        if eligible:
+            chosen = eligible[0]
+            kept = [it for it in items if it is not chosen]
+        else:
+            chosen, kept = None, items
+        kept = [it for it in kept if it not in stale]
+        if stale:
+            try:
+                dead_path = "data/quality_retry_dead.json"
+                os.makedirs(os.path.dirname(dead_path) or ".", exist_ok=True)
+                try:
+                    with open(dead_path, encoding="utf-8") as fh:
+                        dead = json.load(fh)
+                    if not isinstance(dead, list):
+                        dead = []
+                except (OSError, json.JSONDecodeError):
+                    dead = []
+                dead.extend(stale)
+                with open(dead_path, "w", encoding="utf-8") as fh:
+                    json.dump(dead, fh, indent=2, ensure_ascii=False)
+            except OSError:
+                pass
+        if eligible:
+            self._save_retry_queue(kept)
+        return chosen
+
+    def _enqueue_retry_topic(self, topic: str, failure_reason: str,
+                             attempt_count: int) -> None:
+        items = self._load_retry_queue()
+        # De-duplicate: same topic already waiting stays at its original age
+        for it in items:
+            if it.get("topic") == topic:
+                it["attempts"] = max(it.get("attempts", 0), attempt_count)
+                it["last_failure"] = failure_reason
+                it["last_failed_at"] = datetime.now(timezone.utc).isoformat()
+                break
+        else:
+            items.append({
+                "topic": topic,
+                "attempts": attempt_count,
+                "reason": failure_reason,
+                "failed_at": datetime.now(timezone.utc).isoformat(),
+            })
+        self._save_retry_queue(items)
 
     def _generate_images_with_retry(self, script_data: dict) -> tuple:
         """Generate images with retry logic"""

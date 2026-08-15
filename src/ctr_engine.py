@@ -314,7 +314,7 @@ def _pick_head(subject: str) -> str:
     if has_junk or (not has_strong_anchor and not opens_as_verb
                     and not core.endswith("ing")):
         return f"Why {core} Happens" if tokens else f"Why This Happens"
-    if (is_action or opens_as_verb) and has_anchor and not has_strong_anchor:
+    if (is_action or opens_as_verb) and has_any_anchor and not has_strong_anchor:
         # "Why Your X" for a weakly-anchored subject still reads broken
         # ("Why Your Cold Hands"); prefer the Happens frame.
         return f"Why {core} Happens"
