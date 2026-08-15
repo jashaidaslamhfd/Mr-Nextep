@@ -151,3 +151,7 @@ data/           durable channel state (committed by skillor-bot)
   each track's license before monetizing.
 - Never commit `assets/voice_reference.wav` or any OAuth/token file
   (git-ignored). Rotate anything that has ever been pushed by accident.
+
+
+## Storage Optimization
+- Diagnostic dumps and audit logs are retained as 90-day GitHub Actions artifacts instead of inflating git repository history.
