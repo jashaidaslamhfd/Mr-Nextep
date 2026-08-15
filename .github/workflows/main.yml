@@ -107,6 +107,12 @@ jobs:
           # ("Why Your X 🫀" on 100+ videos) that 2026 template-detection
           # systems demote. Clean curiosity-question titles from here on.
           TITLE_EMOJI_OFF: "true"
+          # 2026-08-15 Trend-Spiker overlay: every run scans public trend
+          # feeds (Google Trends RSS + YouTube trending page, no keys). An
+          # on-brand demand spike confirmed by 2+ independent signals
+          # overrides this single slot's queue topic; otherwise the curated
+          # series queue is used as usual.
+          TREND_SPIKER_ENABLED: "true"
           TTS_ENGINE: "kokoro"
           KOKORO_LANG_CODE: "a"
           KOKORO_VOICE: "am_adam"
