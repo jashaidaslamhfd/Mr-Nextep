@@ -103,12 +103,53 @@ SCRIPT_POLICY_VERSION = "ALGO_POLICY_2026_07"
 TEMPERATURE = 0.65
 MAX_TOKENS = 1400
 
-# Groq model strategy: prefer the strongest general model; if Groq ever
-# retires/renames it, auto-downgrade to the known-good 8B instant model for
-# the rest of the run instead of burning all retries on dead calls.
-GROQ_MODEL_PRIMARY = os.environ.get("GROQ_MODEL", "llama-3.3-70b-versatile")
-GROQ_MODEL_FALLBACK = "llama-3.1-8b-instant"
-_model_downgraded = False
+# Groq model strategy (2026-08-15): the pipeline can no longer bet on any
+# single hard-coded model id. Groq retires/renames models without notice
+# (llama-3.3-70b-versatile began 404'ing for some accounts on 2026-08-14, and
+# llama-3.1-8b-instant / llama-3.1-70b-instruct no longer exist at all), so
+# we probe the account's live model list first and only call models the key
+# actually has access to. Env overrides remain supported; empty-string values
+# are treated as unset (fixes the old inline `get("GROQ_MODEL", ...)` bug).
+GROQ_MODEL_PRIMARY = os.environ.get("GROQ_MODEL") or "openai/gpt-oss-120b"
+GROQ_MODEL_FALLBACK = os.environ.get("GROQ_MODEL_FALLBACK") or "openai/gpt-oss-20b"
+# Older Llama ids this repo historically used; keep only as last-resort
+# candidates AFTER the probe confirms the account can reach them.
+_legacy_model_ids = ["llama-3.3-70b-versatile", "llama-3.1-8b-instant"]
+
+def _groq_accessible_models(client) -> List[str]:
+    """Return this account's live Groq model list (ids the key can call).
+    Never raises: on probe failure we fall back to the configured ids and
+    let per-call errors drive the chain instead.
+    """
+    try:
+        return [m.id for m in client.models.list().data]
+    except Exception as exc:  # noqa: BLE001 - probe must never break the run
+        logger.warning("Groq /models probe failed (%s) - using configured ids", exc)
+        return []
+
+
+def groq_model_chain() -> List[str]:
+    """Ordered Groq models to try for script generation.
+    Live probe first (only models the API key can actually reach), then the
+    configured primary/fallback, then the legacy ids still reachable.
+    """
+    chain = []
+    seen = set()
+    if Groq is not None:
+        try:
+            probe = _groq_accessible_models(Groq(api_key=os.environ.get("GROQ_API_KEY", "")))
+        except Exception:  # noqa: BLE001
+            probe = []
+        for mid in probe:
+            if mid not in seen:
+                chain.append(mid)
+                seen.add(mid)
+    for mid in [GROQ_MODEL_PRIMARY, GROQ_MODEL_FALLBACK] + _legacy_model_ids:
+        if mid and mid not in seen:
+            chain.append(mid)
+            seen.add(mid)
+    return chain
+
 
 # LLM resilience: Groq free tier is frequently rate-limited (429), which was
 # stalling script generation. When Groq fails or is rate-limited, fall back to
@@ -929,25 +970,46 @@ def generate_script(
     last_error = None
     best_script = None
     best_score = 0
-    
-    global _model_downgraded  # set in the BadRequestError handler below
+
+    # Model fallback chain (2026-08-15): never call a model id that returns
+    # 404 'does not exist'. Probe the account's live model list first, walk
+    # down the chain on any API-side failure, and only then try OpenRouter.
+    model_chain = groq_model_chain()
+    model_index = [0]
+
+    def _current_model() -> str:
+        return model_chain[min(model_index[0], len(model_chain) - 1)]
+
+    def _advance_model(exc) -> bool:
+        """Switch to the next model in the chain after an API-side failure."""
+        if model_index[0] < len(model_chain) - 1:
+            model_index[0] += 1
+            logger.warning(
+                "Groq model %s failed (%s) — falling back to %s",
+                model_chain[model_index[0] - 1], exc, model_chain[model_index[0]],
+            )
+            return True
+        return False
+
     for attempt in range(1, max_retries + 1):
         try:
-            logger.info(f"🔄 Generating script (Attempt {attempt}/{max_retries})")
-            
+            logger.info(f"🔄 Generating script (Attempt {attempt}/{max_retries}) via {_current_model()}")
+
             # Call Groq API, falling back to OpenRouter on rate-limit/errors so
             # a 429 (free-tier) can't stall the whole run.
             raw_reply = None
             try:
                 completion = client.chat.completions.create(
                     messages=messages,
-                    model=(GROQ_MODEL_FALLBACK if _model_downgraded else GROQ_MODEL_PRIMARY),
+                    model=_current_model(),
                     response_format={"type": "json_object"},
                     temperature=TEMPERATURE,
                     max_tokens=MAX_TOKENS
                 )
                 raw_reply = completion.choices[0].message.content
             except Exception as groq_err:  # noqa: BLE001 - fallback on any Groq failure
+                if _advance_model(groq_err):
+                    continue
                 logger.warning("Groq call failed (%s) — trying OpenRouter fallback...", groq_err)
                 raw_reply = _openrouter_generate(
                     messages, temperature=TEMPERATURE, max_tokens=MAX_TOKENS
@@ -955,7 +1017,7 @@ def generate_script(
                 if raw_reply:
                     logger.info("✅ OpenRouter fallback produced a script.")
             if not raw_reply:
-                raise RuntimeError("All LLM providers failed (Groq + OpenRouter).")
+                raise RuntimeError("All LLM providers failed (Groq chain + OpenRouter).")
             raw_reply = repair_mojibake(raw_reply)
             
             # Clean JSON
@@ -1050,11 +1112,10 @@ def generate_script(
         except BadRequestError as e:
             logger.error(f"❌ Groq API error: {e}")
             last_error = e
-            # Model retired/renamed on Groq? Downgrade once and keep going
-            # instead of failing every remaining attempt the same way.
-            if not _model_downgraded and ("model" in str(e).lower() or "decommission" in str(e).lower()):
-                _model_downgraded = True
-                logger.warning(f"Groq primary model rejected - switching to {GROQ_MODEL_FALLBACK} for the rest of this run")
+            # Model retired/renamed on Groq? Walk down the model chain and
+            # keep going instead of failing every remaining attempt the same
+            # way (404 'model does not exist' was the Aug-14 outage cause).
+            _advance_model(e)
             if attempt < max_retries:
                 wait_time = 2 ** attempt
                 logger.info(f"⏳ Waiting {wait_time}s before retry...")
