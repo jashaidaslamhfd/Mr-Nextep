@@ -658,7 +658,14 @@ def build_video(image_paths, audio_segments, scenes, output_path="output/final_v
         # Old 0.12 zoom was subtle. New 0.18 + stronger pan = pattern interrupt
         # that stops thumb in feed. Visual duration must match audio duration.
         if i == 0:
+            # FIXED 2026-08-15 (viral gap 5): completion 47% vs 50% gate — the
+            # punch must land INSIDE the first 3 s, not bleed across the whole
+            # scene. First beat shortened to 40% and gets the full kick-in
+            # zoom so the eye-catch finishes before second 3.
             zoom_extra += 0.18
+            first_beat_frac = 0.40
+        else:
+            first_beat_frac = 0.50
 
         # RETENTION: Alternate zoom direction every scene, but seed the start
         # phase from the caption so different videos don't all open with the
@@ -672,7 +679,7 @@ def build_video(image_paths, audio_segments, scenes, output_path="output/final_v
             scene_visual = _cover_video_clip(img_path, duration)
         else:
             # AI/static image: two motion beats make the scene feel alive.
-            first_duration = duration / 2.0
+            first_duration = duration * first_beat_frac
             second_duration = duration - first_duration
             first_beat = _ken_burns_clip(img_path, first_duration, direction, zoom_extra)
             second_direction = "out" if direction == "in" else "in"

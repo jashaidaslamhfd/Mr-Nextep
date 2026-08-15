@@ -284,6 +284,11 @@ STORY ARC:
    BAD (never do this): "Morning voice happens to everyone." / "Let's talk
    about throat lumps." — flat statements are swipe death (channel analytics:
    73.9% swipe-away on calm openers).
+   2026-08-15 FIRST-3-SECONDS fix (viral gap 5): the scene-1 VISUAL must show
+   the phenomenon ALREADY IN MOTION — not about to happen. A yawn video opens
+   ON the yawn, the freeze video opens ON the frozen body, never on a person
+   'about to yawn'. The viewer's first frame is the whole audition: if the
+   frame one eye-catch needs a second word of setup, the cut is dead.
 2. SUSPENSE — scene 2; show why the answer matters and open one honest question.
 3. PROBLEM — scene 3; state the relatable confusion or misconception.
 4. EXPLANATION — scenes 4–5; explain the mechanism in simple, connected steps.
@@ -291,7 +296,12 @@ STORY ARC:
 6. SOLUTION / PAYOFF — scene 7; give the clear science-based answer. Make it
    ONE concrete, quotable fact — the kind a viewer would repeat to a friend.
    Instagram's second-strongest ranking signal is how often a Reel gets sent
-   in a DM, and nobody forwards a vague summary.
+   in a DM, and nobody forwards a vague summary. 2026-08-15 SENDABLE-ENDING
+   fix: the scene-7 fact MUST be specific enough to send verbatim — include a
+   number, a contrast or a surprising mechanism (e.g. "Your brain literally
+   mutes your hearing for 20 milliseconds before you blink"). Vague summaries
+   like "your body is amazing" are auto-failures; imagine the viewer typing
+   the fact into a group chat — that sentence must survive the trip.
 7. LOOP-BACK — scene 8; close by restating the opening moment now that the
    viewer knows the answer, so the last line flows straight back into the
    first. A Short that loops cleanly earns replays, and replays count as
@@ -303,9 +313,11 @@ HARD FORMAT RULES:
 - Total spoken captions: {MIN_WORDS}–{MAX_WORDS} words.
 - Scene 1: {HOOK_MIN_WORDS}–{HOOK_MAX_WORDS} words. Scenes 2–8: {MIN_SCENE_WORDS}–{MAX_SCENE_WORDS} words each.
 - `hook` must match scene 1 caption exactly.
-- Scene 1 `visual`: a tight CLOSE-UP of a real human moment (mouth frowning at
-  a mirror, hand on a chest, wide-open sleepy eyes) — faces/body close-ups stop
-  the scroll; abstract wide shots don't.
+- Scene 1 `visual`: a tight CLOSE-UP of a real human moment ALREADY MID-ACTION
+  (mouth wide open mid-yawn, hand gripping a chest mid-cramp, eyes snapping
+  open mid-jolt) — faces/body close-ups caught in motion stop the scroll;
+  static poses or 'about to happen' setups don't. The first frame must read
+  instantly, no setup words needed.
 - Every scene must have a distinct 5–12 word visual description with no text, logos or UI.
 - Title: five to eight words that OPEN A CURIOSITY LOOP with a "Why/What happens
   when/Your …" frame — like a question the viewer suddenly NEEDS answered.

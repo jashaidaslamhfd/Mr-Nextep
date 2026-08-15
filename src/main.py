@@ -278,6 +278,44 @@ class SKILLORPipeline:
 
             if cadence:
                 logger.info("🤖 Recommended cadence: %s video(s)/day", cadence)
+                # 2026-08-15 viral gap 6 fix: the workflow schedules three
+                # daily cron runs, but the ML growth engine recommends cadence
+                # from real data (currently 2/day while retention stays under
+                # the healthy threshold). Without enforcement every run would
+                # upload anyway, teaching the feed the channel over-ships
+                # sub-gate videos. Count today's published videos across all
+                # three platforms; at or above cadence, skip gracefully.
+                _cad = int(float(str(cadence)))
+                if _cad > 0:
+                    try:
+                        _today = datetime.now(timezone.utc).date().isoformat()
+                        _uploaded_today = 0
+                        from uploader import _load_upload_state as _load_us
+                        _us = _load_us()
+                        if isinstance(_us, dict):
+                            for _pf in ("youtube", "facebook", "instagram"):
+                                _items = _us.get(_pf, {})
+                                if isinstance(_items, dict):
+                                    _items = _items.get("uploads", []) or []
+                                if isinstance(_items, list):
+                                    _uploaded_today += sum(
+                                        1 for _u in _items
+                                        if isinstance(_u, dict)
+                                        and (_u.get("uploaded_at") or "")[:10] == _today
+                                    )
+                        if _uploaded_today >= _cad:
+                            logger.info(
+                                "🤖 Cadence gate: %d/%d videos already published "
+                                "today — this scheduled run is SKIPPED to match "
+                                "the ML-recommended cadence.", _uploaded_today, _cad,
+                            )
+                            return {"success": True, "skipped": "cadence",
+                                    "uploaded_today": _uploaded_today}
+                    except Exception as _cad_exc:
+                        logger.warning(
+                            "🤖 Cadence gate could not be checked: %s — running anyway.",
+                            _cad_exc,
+                        )
 
             lever = decision.get("lever_analysis", {})
             if lever and lever.get("lever_importance"):
