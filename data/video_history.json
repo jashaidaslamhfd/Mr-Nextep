@@ -2376,5 +2376,28 @@
     "comments": 0,
     "duration_seconds": 30,
     "published_at": "2026-08-03T16:30:28Z"
+  },
+  {
+    "content_fingerprint": "5facc1e4cf2c99f9a75d82cfc051bed513b8cbc15f44bf7c7492de076ca5e0a6",
+    "title": "Why Your Voice Sounds 'Wrong' \u2014 The Surprising Truth",
+    "topic": "Why Your Voice Sounds 'Wrong' to You",
+    "trend_source": "dark_mystery_series",
+    "trend_url": null,
+    "voiceover": "Your voice sounds wrong each time. Ever wonder why it feels off when you speak? Most people think it's just a quirk. The key lies in the vocal tract's shape. A slight shift in tongue position changes sound. Normally, you unconsciously adjust to match your ears. But when you listen in a mirror, the brain misreads. So your voice sounds wrong because your brain mishears.",
+    "posted_at": "2026-08-15T08:18:02.026886+00:00",
+    "publish_at": "2026-08-15T16:30:00Z",
+    "facebook_success": true,
+    "instagram_success": true,
+    "youtube_video_id": "aoIDDc3gE78",
+    "facebook_video_id": "1724256778854471",
+    "instagram_media_id": "18086407637660091",
+    "seo_score": 88,
+    "predicted_ctr": 9.2,
+    "hook_score": 80,
+    "predicted_retention": 0.71,
+    "duration_seconds": 28.17,
+    "meta_cut_seconds": 12.12,
+    "ending_mode": "loop",
+    "hook_frame": "second_person"
   }
 ]
