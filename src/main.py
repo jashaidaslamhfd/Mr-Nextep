@@ -621,6 +621,23 @@ class SKILLORPipeline:
         logger.info("🚀 STARTING SKILLOR - TRENDING VIRAL PIPELINE")
         logger.info("=" * 60)
 
+        def _fail(reason):
+            # 2026-08-15: CI failure logs expire (410) within ~3 days, making
+            # failures invisible. Persist reason + traceback tail to data/ so
+            # diagnostics can read it straight from the repo.
+            data_log = os.path.join("data", "pipeline_last_failure.json")
+            try:
+                payload = {
+                    "failed_at": datetime.now(timezone.utc).isoformat(),
+                    "reason": reason,
+                    "traceback": "".join(traceback.format_exception(*sys.exc_info()))[-3000:],
+                }
+                os.makedirs("data", exist_ok=True)
+                with open(data_log, "w") as _f:
+                    json.dump(payload, _f, indent=2, default=str)
+            except Exception:
+                pass
+
         try:
             # Phase 0: Check posting interval. When scheduled publishing is
             # on, the one-video-per-slot lock in uploader.py already spaces
@@ -1198,6 +1215,7 @@ class SKILLORPipeline:
             logger.error(f"Error: {e}")
             logger.error(traceback.format_exc())
             logger.error("=" * 60)
+            _fail(str(e))
             raise
 
     def run_pipeline_with_continuity(self, topic: str = None, slot_label: str = None) -> dict:
