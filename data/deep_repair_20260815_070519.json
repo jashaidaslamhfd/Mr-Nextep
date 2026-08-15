@@ -1,0 +1,89 @@
+{
+  "generated_at": "2026-08-15T07:05:19.491976+00:00",
+  "dry_run": false,
+  "stats": {
+    "youtube": {
+      "total": 0,
+      "repaired": 0,
+      "skipped": 0,
+      "errors": 0
+    },
+    "facebook": {
+      "total": 0,
+      "repaired": 0,
+      "skipped": 0,
+      "errors": 0
+    },
+    "instagram": {
+      "total": 39,
+      "repaired": 7,
+      "skipped": 30,
+      "errors": 2
+    }
+  },
+  "results": [
+    {
+      "platform": "instagram",
+      "media_id": "17975366889082084",
+      "new_caption": "Most people have no idea why feeling lightheaded right after standing happens. feeling lightheaded right after standing ",
+      "seo_noncompliant": true,
+      "error": "apply_failed"
+    },
+    {
+      "platform": "instagram",
+      "media_id": "17918498754205458",
+      "new_caption": "The real reason lived exact new moment before \u2014 explained in under a minute. feeling like you've lived an exact new mome",
+      "seo_noncompliant": true,
+      "error": "apply_failed"
+    },
+    {
+      "platform": "instagram",
+      "media_id": "18082672187693334",
+      "new_caption": "The real reason 18082672187693334 \u2014 explained in under a minute. this body fact this body fact \ud83e\udd2f The science: this body ",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "instagram",
+      "media_id": "18118712482866944",
+      "new_caption": "Your 18118712482866944 isn't random \u2014 here's the actual science. this body fact this body fact \ud83e\udd2f The science: this body ",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "instagram",
+      "media_id": "18476842510106247",
+      "new_caption": "The real reason 18476842510106247 \u2014 explained in under a minute. this body fact this body fact \ud83e\udd2f The science: this body ",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "instagram",
+      "media_id": "18136990204609204",
+      "new_caption": "Your 18136990204609204 isn't random \u2014 here's the actual science. this body fact this body fact \ud83e\udd2f The science: this body ",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "instagram",
+      "media_id": "18612000703007720",
+      "new_caption": "Your 18612000703007720 isn't random \u2014 here's the actual science. this body fact this body fact \ud83e\udd2f The science: this body ",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "instagram",
+      "media_id": "18110845967003754",
+      "new_caption": "Most people have no idea why 18110845967003754 happens. this body fact this body fact \ud83e\udd2f The science: this body fact \u2014 an",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "instagram",
+      "media_id": "18152217850505717",
+      "new_caption": "Most people have no idea why 18152217850505717 happens. this body fact this body fact \ud83e\udd2f The science: this body fact \u2014 an",
+      "seo_noncompliant": true,
+      "applied": true
+    }
+  ]
+}
