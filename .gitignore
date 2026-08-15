@@ -88,3 +88,8 @@ pw-browsers/
 node_modules/
 package-lock.json
 
+
+
+# Audit and diagnostic dumps (avoid git bloat)
+data/*audit*
+data/*diag*
