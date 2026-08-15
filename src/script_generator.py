@@ -1166,6 +1166,15 @@ def generate_script(
                     problems.extend(retention['suggestions'][:2])
 
                 logger.warning("⚠️ Retrying with feedback: %s", "; ".join(problems[:3]))
+                # 2026-08-16 hook-quality escalation: if the current model
+                # keeps producing weak hooks, prompt feedback alone won't fix
+                # it — the writer is the bottleneck. Escalate to the next
+                # model in the quality chain (or OpenRouter when Groq is
+                # exhausted) so the retry gets a genuinely stronger opener
+                # instead of the same model repeating its weakness.
+                _advance_model(
+                    f"hook {hook_score}/100 or retention {score}/100 below floor"
+                )
                 messages.append({"role": "assistant", "content": raw_reply})
                 messages.append({"role": "user", "content": (
                     f"That script needs work: {'; '.join(problems[:4])}. "
