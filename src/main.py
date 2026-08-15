@@ -556,6 +556,20 @@ class SKILLORPipeline:
                     hook, MIN_HOOK_SCORE,
                 )
                 return best_attempt['script_data']
+            # 2026-08-16: when both quality (retention) and hook miss their
+            # floors but the spam gate is clean and scores are non-trivial,
+            # one last lenient pass at a lower floor (quality 50, hook 50)
+            # keeps the daily slot alive. Spam stays absolute — a slot
+            # missed is recoverable; a spam flag is not.
+            quality = best_attempt.get('quality_score', 0)
+            if (best_attempt.get('spam_ok') and quality >= 50
+                    and best_attempt.get('hook_score', 0) >= 50):
+                logger.warning(
+                    "Lenient final-attempt accept: spam clean, quality "
+                    "%d/100 and hook %d/100 above the 50 floor — publishing.",
+                    quality, best_attempt.get('hook_score', 0),
+                )
+                return best_attempt['script_data']
             last_error = "best candidate rejected: " + ", ".join(failures)
 
         raise RuntimeError(
