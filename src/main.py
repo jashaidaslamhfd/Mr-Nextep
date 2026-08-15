@@ -528,6 +528,19 @@ class SKILLORPipeline:
                 failures.append(f"hook={best_attempt.get('hook_score', 0)}/{MIN_HOOK_SCORE}")
             if not failures:
                 return best_attempt['script_data']
+            # 2026-08-15: under heavy Groq 429 storms every attempt can fail
+            # the strict hook gate while the best candidate is otherwise
+            # safe. Safety gates (quality, spam) stay absolute; the hook gate
+            # softens on the final attempt so a 60+/100 hook still ships
+            # instead of burning the day's upload slot.
+            hook = best_attempt.get('hook_score', 0)
+            if best_attempt.get('quality_approved') and best_attempt.get('spam_ok') and hook >= 60:
+                logger.warning(
+                    "Lenient final-attempt accept: quality approved, spam clean, "
+                    "hook %d/100 (below %d but above the 60 safety floor) — publishing.",
+                    hook, MIN_HOOK_SCORE,
+                )
+                return best_attempt['script_data']
             last_error = "best candidate rejected: " + ", ".join(failures)
 
         raise RuntimeError(

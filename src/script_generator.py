@@ -790,6 +790,20 @@ def _validate_script(script_data: Dict, lenient: bool = False) -> Tuple[bool, Li
                 )
                 logger.warning("Lenient repair (final attempt): synthesised CTA")
                 repaired += 1
+        # 2026-08-15: heavy Groq 429 storms + weak-model outputs produced
+        # non-trivial-but-publishable scripts ('Too few words', 'Scene 2
+        # missing question'). Subjective story-arc gates are already dropped
+        # in lenient mode; finish the job: treat the remaining structural
+        # nits as publishing warnings, not blockers. A shorter short with a
+        # strong topic beats an empty upload slot on a daily channel.
+        if lenient and issues:
+            kept = []
+            for msg in issues:
+                if msg.startswith('Too few words:') or 'Scene 2 (SUSPENSE)' in msg:
+                    logger.warning("Lenient accept (final attempt): %s", msg)
+                    continue
+                kept.append(msg)
+            issues = kept
         if len(script_data.get('scenes', [])) > MAX_SCENES:
             script_data['scenes'] = script_data['scenes'][:MAX_SCENES]
             script_data['voiceover'] = ' '.join(
