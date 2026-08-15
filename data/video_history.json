@@ -2399,5 +2399,28 @@
     "meta_cut_seconds": 12.12,
     "ending_mode": "loop",
     "hook_frame": "second_person"
+  },
+  {
+    "content_fingerprint": "175402ec16ccd18e07e9b89ca06b152d146928d86fbfbeab774164c715b454bf",
+    "title": "Why Your Freeze Under Pressure \u2014 The Real Reason",
+    "topic": "Why You Freeze Under Pressure",
+    "trend_source": "dark_mystery_series",
+    "trend_url": null,
+    "voiceover": "Your hand freezes mid\u2011lift. Why does this sudden lock feel like a freeze? People think nerves are just spooked, but it's more. When pressure rises, your sympathetic system triggers a grip. It releases calcium in muscle cells, locking contraction. Normally, calcium is cleared quickly to relax muscles. Your brain actually delays the release, causing a lock. Your hand freezes mid\u2011lift when pressure spikes.",
+    "posted_at": "2026-08-15T22:30:08.005624+00:00",
+    "publish_at": "2026-08-15T22:30:00Z",
+    "facebook_success": true,
+    "instagram_success": true,
+    "youtube_video_id": "Rrh9qUe8kcY",
+    "facebook_video_id": "917318354763348",
+    "instagram_media_id": "18144981415531883",
+    "seo_score": 88,
+    "predicted_ctr": 9.2,
+    "hook_score": 80,
+    "predicted_retention": 0.71,
+    "duration_seconds": 30.0,
+    "meta_cut_seconds": 12.9,
+    "ending_mode": "loop",
+    "hook_frame": "second_person"
   }
 ]
