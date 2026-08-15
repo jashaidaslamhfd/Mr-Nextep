@@ -477,18 +477,30 @@ def _stock_video_request(
         url,
         timeout=60,
     )
+    content = download.content
 
     if (
         download.status_code != 200
-        or len(download.content) < 100_000
+        or len(content) < 100_000
     ):
         raise RuntimeError(
             f"{source}: video download failed or was too small"
         )
 
+    # 2026-08-15: Pexels/Pixabay occasionally serve an HTML error/redirect
+    # page larger than the 100KB floor — accepted bytes were saved as .mp4
+    # and then MoviePy crashed at build time ("failed to read the first
+    # frame"). Verify the bytes are a real ISO-BMFF/MP4 container (ftyp or
+    # moov box) before accepting.
+    head = content[:64]
+    if not (b"ftyp" in head or b"moov" in head):
+        raise RuntimeError(
+            f"{source}: downloaded bytes are not a valid MP4 container"
+        )
+
     return (
         _save_bytes(
-            download.content,
+            content,
             index,
             ext="mp4",
         ),
