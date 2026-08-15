@@ -9,10 +9,12 @@ on:
         type: string
   schedule:
     # 3 videos/day for a US audience, auto-published at New York peaks:
-    # 12:30 / 18:30 / 20:00 America/New_York.
+    # 12:30 / 18:30 / 21:30 America/New_York (midday scroll + the two evening
+    # peaks; the late slot publishes at 21:30 NY, inside the 7-10 PM
+    # wind-down peak). Data: SocialPilot 301k videos + Hopper HQ 2026.
     - cron: "30 16 * * *"
     - cron: "30 22 * * *"
-    - cron: "0 0 * * *"
+    - cron: "30 1 * * *"
 
 permissions:
   contents: write
