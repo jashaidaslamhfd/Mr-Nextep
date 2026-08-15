@@ -109,6 +109,12 @@ def main():
                 r, err = _q("videos", {"part": "snippet,status"}, token,
                             method="PUT", body=body)
                 if err:
+                    # YouTube rejects a future publishAt on plain-private
+                    # uploads (400); fall back to an immediate public release.
+                    r, err = _q("videos", {"part": "snippet,status"}, token,
+                                method="PUT",
+                                body={"id": vid, "status": {"privacyStatus": "public", "selfDeclaredMadeForKids": False}})
+                if err:
                     print(f"[fail] {vid}: {err}")
                 else:
                     npub = r["snippet"].get("publishedAt")
