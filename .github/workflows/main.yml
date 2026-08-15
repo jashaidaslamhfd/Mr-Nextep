@@ -211,6 +211,21 @@ jobs:
           else
             echo "::warning::Meta repair skipped: FACEBOOK_ACCESS_TOKEN secret not set"
           fi
+      - name: Apply curated legacy-title repair plan
+        if: always()
+        shell: bash
+        env:
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
+          PYTHONUNBUFFERED: "1"
+        run: |
+          set -uo pipefail
+          if [ -n "${GOOGLE_CLIENT_ID:-}" ] && [ -n "${REFRESH_TOKEN:-}" ] && [ -f data/auto_repair_plan.json ]; then
+            python scripts/apply_repair_plan.py || echo "::warning::Repair plan apply failed (see logs)"
+          else
+            echo "::notice::No repair plan or YouTube secrets — plan step skipped"
+          fi
 
       - name: Persist durable channel state
         if: always()
