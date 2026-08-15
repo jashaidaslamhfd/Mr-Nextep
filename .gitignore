@@ -93,3 +93,8 @@ package-lock.json
 # Audit and diagnostic dumps (avoid git bloat)
 data/*audit*
 data/*diag*
+
+
+# Audit and diagnostic dumps (avoid git bloat)
+data/*audit*
+data/*diag*
