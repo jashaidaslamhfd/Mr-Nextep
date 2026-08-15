@@ -4,25 +4,19 @@
       "slot": "NY12:30",
       "outcome": "published",
       "topic": "topic a",
-      "at": "2026-08-15T07:59:41.386136+00:00"
+      "at": "2026-08-15T16:54:05.046861+00:00"
     },
     {
       "slot": "NY18:30",
       "outcome": "published",
       "topic": "topic b",
-      "at": "2026-08-15T07:59:41.386604+00:00"
+      "at": "2026-08-15T16:54:05.047373+00:00"
     },
     {
       "slot": "NY20:00",
       "outcome": "guard_fail",
       "topic": "topic c",
-      "at": "2026-08-15T07:59:41.386756+00:00"
-    },
-    {
-      "slot": "offpeak",
-      "outcome": "published",
-      "topic": "Why Your Voice Sounds 'Wrong' \u2014 The Surprising Truth",
-      "at": "2026-08-15T08:18:02.029181+00:00"
+      "at": "2026-08-15T16:54:05.047640+00:00"
     }
   ]
 }
