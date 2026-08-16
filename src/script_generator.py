@@ -1164,7 +1164,7 @@ def _openrouter_generate(messages, temperature=None, max_tokens=None) -> Optiona
                             return text2
                 except Exception:  # noqa: BLE001
                     pass
-        if resp.status_code == 404 or not _reply_has_json(text):
+        if resp.status_code == 404 or (resp.status_code == 200 and not _reply_has_json(text)):
             # 2026-08-17: rotate free models on two failure modes — the
             # configured slug was retired (404, verified 2026-08-17), OR the
             # active free model returned plain text instead of JSON
