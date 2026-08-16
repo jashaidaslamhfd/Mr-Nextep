@@ -554,14 +554,34 @@ def _stock_video_request(
             f"{source}: downloaded bytes are not a valid MP4 container"
         )
 
-    return (
-        _save_bytes(
-            content,
-            index,
-            ext="mp4",
-        ),
-        "video",
-    )
+    # 2026-08-17: same failure class as the Neuro-Somaa outage — Pexels/
+    # Pixabay sometimes serve TRUNCATED streams that pass the ftyp/moov
+    # header check. Probing at build time burned ~19 min of rendering per
+    # attempt before rejecting the scene. Probe right after the download so a
+    # bad URL simply fails this layer and the next candidate is tried.
+    path = _save_bytes(content, index, ext="mp4")
+    if not _probe_is_valid_video(path):
+        raise RuntimeError(
+            f"{source}: downloaded clip is truncated or container-corrupt "
+            f"(ffprobe failed) - next video candidate will be tried"
+        )
+    return (path, "video")
+
+
+def _probe_is_valid_video(path: str) -> bool:
+    """Fast ffprobe sanity check: readable stream with positive duration.
+    Catches truncated Pexels/Pixabay downloads that pass the ftyp/moov byte
+    check but are not actually decodable."""
+    try:
+        probe = subprocess.run(
+            ["ffprobe", "-v", "error", "-show_entries", "format=duration",
+             "-of", "csv=p=0", path],
+            capture_output=True, text=True, timeout=30,
+        )
+        dur = probe.stdout.strip()
+        return bool(dur) and float(dur) > 0.0
+    except Exception:  # noqa: BLE001 - probe must never break the download path
+        return False
 
 
 def _layer_pexels_video(index, scene_text, used_fallbacks: set):
