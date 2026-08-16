@@ -206,8 +206,13 @@ def groq_model_chain() -> List[str]:
 # LLM resilience: Groq free tier is frequently rate-limited (429), which was
 # stalling script generation. When Groq fails or is rate-limited, fall back to
 # OpenRouter (a neutral router over many models) using OPENROUTER_API_KEY.
+# 2026-08-17: meta-llama/llama-3.3-70b-instruct:free was retired from
+# OpenRouter (HTTP 404 on the pipeline's request). OpenRouter's live model
+# list is checked at run time; if the configured slug 404's we retry against
+# every remaining ":free" chat model once before giving up.
+_OPENROUTER_KNOWN_FREE = "nvidia/nemotron-3-ultra-550b-a55b:free"
 OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions"
-OPENROUTER_MODEL = os.environ.get("OPENROUTER_MODEL", "meta-llama/llama-3.3-70b-instruct:free")
+OPENROUTER_MODEL = os.environ.get("OPENROUTER_MODEL", "nvidia/nemotron-3-ultra-550b-a55b:free")
 OPENROUTER_TIMEOUT = 60
 
 # A fast, clear opening that fits inside the platform hook budget. All three
@@ -999,6 +1004,52 @@ def _openrouter_generate(messages, temperature=None, max_tokens=None) -> Optiona
             json=payload,
             timeout=OPENROUTER_TIMEOUT,
         )
+        if resp.status_code == 404:
+            # The configured slug was retired from OpenRouter (verified
+            # 2026-08-17). Refresh the live free-model list and retry each
+            # known-good candidate once so the pipeline survives provider
+            # churn without a code change.
+            key = os.environ.get("OPENROUTER_API_KEY")
+            _candidates = []
+            if key:
+                try:
+                    models = _req.get(
+                        "https://openrouter.ai/api/v1/models",
+                        headers={"Authorization": f"Bearer {key}"},
+                        timeout=15,
+                    )
+                    if models.status_code == 200:
+                        _candidates = [
+                            m["id"] for m in models.json().get("data", [])
+                            if m.get("id", "").endswith(":free")
+                            and m["id"] != OPENROUTER_MODEL
+                        ]
+                except Exception:  # noqa: BLE001
+                    _candidates = []
+            for mid in _candidates[:5]:
+                try:
+                    payload["model"] = mid
+                    r2 = _req.post(
+                        OPENROUTER_API_URL,
+                        headers={
+                            "Authorization": f"Bearer {key}",
+                            "Content-Type": "application/json",
+                            "HTTP-Referer": "https://github.com/jashaidaslamhfd/Mr-Nextep",
+                        },
+                        json=payload,
+                        timeout=OPENROUTER_TIMEOUT,
+                    )
+                    if r2.status_code == 200:
+                        logger.warning(
+                            "OpenRouter model %s retired; retried on %s (HTTP %s)",
+                            OPENROUTER_MODEL, mid, r2.status_code,
+                        )
+                        data = r2.json()
+                        return data["choices"][0]["message"]["content"]
+                except Exception:  # noqa: BLE001
+                    continue
+            logger.warning("OpenRouter fallback failed: HTTP %s (all refreshed models exhausted)", resp.status_code)
+            return None
         if resp.status_code != 200:
             logger.warning("OpenRouter fallback failed: HTTP %s", resp.status_code)
             return None
