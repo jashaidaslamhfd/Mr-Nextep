@@ -1122,6 +1122,48 @@ def _openrouter_generate(messages, temperature=None, max_tokens=None) -> Optiona
             json=payload,
             timeout=OPENROUTER_TIMEOUT,
         )
+        # 2026-08-17: several free models on OpenRouter ignore
+        # response_format and echo chain-of-thought text instead of JSON.
+        # One automatic re-ask with an explicit JSON-only instruction
+        # recovers most of those replies without code churn.
+        def _reply_has_json(text: str) -> bool:
+            return bool(text) and "{" in text
+        if resp.status_code == 200:
+            text = resp.json().get("choices", [{}])[0].get("message", {}).get("content", "")
+            if not _reply_has_json(text):
+                backup_msgs = [
+                    {"role": m["role"], "content": m["content"]}
+                    for m in messages
+                ]
+                backup_msgs[-1]["content"] += (
+                    "\n\nCRITICAL: Respond with ONLY a raw JSON object "
+                    "starting with '{' — no thinking, no markdown, "
+                    "no explanation."
+                )
+                payload2 = dict(payload, messages=backup_msgs)
+                try:
+                    r3 = _req.post(
+                        OPENROUTER_API_URL,
+                        headers={
+                            "Authorization": f"Bearer {key}",
+                            "Content-Type": "application/json",
+                            "HTTP-Referer": "https://github.com/jashaidaslamhfd/Mr-Nextep",
+                        },
+                        json=payload2,
+                        timeout=OPENROUTER_TIMEOUT,
+                    )
+                    if r3.status_code == 200:
+                        text2 = r3.json().get("choices", [{}])[0].get(
+                            "message", {}
+                        ).get("content", "")
+                        if _reply_has_json(text2):
+                            logger.warning(
+                                "OpenRouter re-ask recovered a JSON reply "
+                                "after plain-text echo"
+                            )
+                            return text2
+                except Exception:  # noqa: BLE001
+                    pass
         if resp.status_code == 404:
             # The configured slug was retired from OpenRouter (verified
             # 2026-08-17). Refresh the live free-model list and retry each
