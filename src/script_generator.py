@@ -994,6 +994,11 @@ def _openrouter_generate(messages, temperature=None, max_tokens=None) -> Optiona
             payload["temperature"] = temperature
         if max_tokens is not None:
             payload["max_tokens"] = max_tokens
+        # 2026-08-17: without this the fallback model (Nemotron) returned
+        # plain conversational text — the regex fallback then extracted
+        # nothing and every run died on validation. Mirrors the Groq
+        # response_format json_object used on the primary path.
+        payload["response_format"] = {"type": "json_object"}
         resp = _req.post(
             OPENROUTER_API_URL,
             headers={
