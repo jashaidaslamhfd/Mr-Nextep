@@ -4,7 +4,7 @@ import hashlib
 import threading
 import requests
 import logging
-
+import subprocess
 from image_providers import available_providers, RateLimitError
 from media_validator import validate_scene_image
 
@@ -32,6 +32,62 @@ def _save_bytes(content: bytes, index: int, ext: str = "jpg") -> str:
     with open(path, "wb") as f:
         f.write(content)
     return path
+
+
+# ---------------------------------------------------------------------------
+# 2026-08-17: AI image-to-video motion layer (gen.pollinations.ai / Seedance)
+# Pollen budget: each upgrade costs ~0.4 Pollen per scene (~0.10/s x 4s).
+# AI_VIDEO_SCENES caps how many scenes per video get the upgrade - the hook
+# scene always wins so the strongest moment always has real motion.
+# On any failure (key missing, quota exhausted, rate limit, timeout) the
+# pipeline keeps the unique AI image + Ken Burns motion - never blocks a run.
+# ---------------------------------------------------------------------------
+AI_VIDEO_SCENES = int(os.environ.get("AI_VIDEO_SCENES", "5"))
+
+
+def _layer_ai_video(index, scene_text, image_path, topic_seed=""):
+    """Upgrade an already-rendered unique scene image into a real motion clip.
+    Returns the new .mp4 path, or None if skipped/failed (original image wins)."""
+    try:
+        from image_providers import gen_pollinations_video
+    except Exception:
+        return None
+    try:
+        import urllib.parse
+        prompt = _build_prompt(scene_text, topic_seed=topic_seed or "")
+        content, ext = gen_pollinations_video(
+            prompt=urllib.parse.quote(prompt),
+            scene_text=scene_text or "",
+            image_path=image_path,
+        )
+        if not content or len(content) < 100_000:
+            return None
+        video_path = image_path.rsplit(".", 1)[0] + ".ai.mp4"
+        with open(video_path, "wb") as fh:
+            fh.write(content)
+        # ffprobe sanity gate - skip the clip if the render is corrupt instead
+        # of letting a bad frame break the MoviePy render later.
+        probe = subprocess.run(
+            ["ffprobe", "-v", "error", "-show_entries", "format=duration",
+             "-of", "default=noprint_wrappers=1:nokey=1", video_path],
+            capture_output=True, text=True, timeout=20,
+        )
+        if probe.returncode != 0:
+            os.remove(video_path)
+            return None
+        try:
+            dur = float(probe.stdout.strip())
+        except ValueError:
+            os.remove(video_path)
+            return None
+        if dur <= 0.5:
+            os.remove(video_path)
+            return None
+        logger.info("Scene %s: AI-image-to-video upgrade -> %s (%.1fs)", index, video_path, dur)
+        return video_path
+    except Exception as exc:
+        logger.warning("Scene %s: AI-video upgrade skipped (%s) - keeping unique image", index, exc)
+        return None
 
 
 def _build_prompt(scene_text: str, *, first_frame: bool = False, topic_seed: str = "") -> str:
@@ -687,7 +743,24 @@ def _generate_one(
                 name,
                 path,
             )
-
+            # 2026-08-17: AI-image-to-video upgrade for unique image scenes.
+            # Hook scene (index 1) is always upgraded; further scenes use the
+            # POLLINATIONS video budget only when POLLINATIONS_KEY is set and
+            # AI-video credits remain (quota exhaustion == None == image wins).
+            if media_type == "image" and os.environ.get("POLLINATIONS_KEY", ""):
+                is_hook = index == 1
+                if is_hook or index <= AI_VIDEO_SCENES:
+                    import urllib.parse as _urllib
+                    upgraded = _layer_ai_video(
+                        index, scene_text, path, topic_seed=topic_seed,
+                    )
+                    if upgraded:
+                        path, media_type = upgraded, "video"
+                        with open(path, "rb") as _file_handle:
+                            file_hash = hashlib.sha256(
+                                _file_handle.read()
+                            ).hexdigest()
+                        used_hashes.add(file_hash)
             return {
                 "index": index,
                 "path": path,

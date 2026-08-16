@@ -148,6 +148,11 @@ jobs:
           IG_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          # 2026-08-17: Pollinations key enables the AI image-to-video layer —
+          # each unique scene image becomes a real 4s Seedance 2.5 motion clip
+          # (true image-to-video: the rendered image is frame 1). Free Pollen
+          # starter credits from https://enter.pollinations.ai/keys.
+          POLLINATIONS_KEY: ${{ secrets.POLLINATIONS_KEY }}
           META_CUT_ENABLED: "true"
           # Force a shorter Facebook/Instagram cut to lift completion. Measured
           # Meta completion was 19-24% vs a 70%+ gate on a ~23s cut (avg watch
