@@ -110,8 +110,13 @@ MAX_TOKENS = 1400
 # we probe the account's live model list first and only call models the key
 # actually has access to. Env overrides remain supported; empty-string values
 # are treated as unset (fixes the old inline `get("GROQ_MODEL", ...)` bug).
-GROQ_MODEL_PRIMARY = os.environ.get("GROQ_MODEL") or "openai/gpt-oss-120b"
-GROQ_MODEL_FALLBACK = os.environ.get("GROQ_MODEL_FALLBACK") or "openai/gpt-oss-20b"
+# 2026-08-16: openai/gpt-oss-120b returns HTTP 400
+# `json_validate_failed` on the pipeline's structured-JSON prompt (verified in
+# run logs) — it is removed from the chain. Also, the free-tier daily token
+# pool (TPD) exhausts early every day, so the generator now skips
+# 429-exhausted models instead of burning retries on them.
+GROQ_MODEL_PRIMARY = os.environ.get("GROQ_MODEL") or "openai/gpt-oss-20b"
+GROQ_MODEL_FALLBACK = os.environ.get("GROQ_MODEL_FALLBACK") or "llama-3.3-70b-versatile"
 # Older Llama ids this repo historically used; keep only as last-resort
 # candidates AFTER the probe confirms the account can reach them.
 _legacy_model_ids = ["llama-3.3-70b-versatile", "llama-3.1-8b-instant"]
@@ -1065,15 +1070,67 @@ def generate_script(
     def _current_model() -> str:
         return model_chain[min(model_index[0], len(model_chain) - 1)]
 
+    # 2026-08-16: models whose daily token pool (TPD) is exhausted raise 429
+    # with error.code 'tokens'; re-calling them wastes the entire retry
+    # budget. Track them so the chain skips straight to a fresh model, and
+    # re-enable an exhausted model only after Groq's own retry_after window.
+    _exhausted_models = {}
+
+    def _extract_rate_info(exc) -> Tuple[float, str]:
+        """Parse (retry_after_seconds, error_code) from a Groq exception if
+        available. Returns (0.0, '') when nothing parseable."""
+        code, retry_after = '', 0.0
+        try:
+            body = json.loads(getattr(exc, 'body', '') or '{}')
+            err = body.get('error') or {}
+            code = err.get('code', '')
+            retry_after = float(getattr(exc, 'retry_after', 0.0) or 0.0)
+        except Exception:  # noqa: BLE001
+            pass
+        return retry_after, code
+
     def _advance_model(exc) -> bool:
-        """Switch to the next model in the chain after an API-side failure."""
-        if model_index[0] < len(model_chain) - 1:
-            model_index[0] += 1
+        """Switch to the next model in the chain after an API-side failure.
+
+        2026-08-16: 429+tokens errors mark the current model as TPD-exhausted
+        and skip it; json_validate_failed (400) drops the model entirely.
+        A small retry-after window (<40s) is slept before retrying the same
+        model — this covers transient burst limits without stalling the run.
+        """
+        retry_after, code = _extract_rate_info(exc)
+        current = _current_model()
+        if code in ('rate_limit_exceeded',) and 'tokens' in str(exc).lower():
+            _exhausted_models[current] = time.time() + retry_after
             logger.warning(
-                "Groq model %s failed (%s) — falling back to %s",
-                model_chain[model_index[0] - 1], exc, model_chain[model_index[0]],
+                "Groq model %s TPD-exhausted (%s) — skipping until %s",
+                current, exc, _exhausted_models[current],
+            )
+        if code == 'json_validate_failed':
+            _exhausted_models[current] = float('inf')
+            logger.warning(
+                "Groq model %s returns invalid JSON (json_validate_failed) "
+                "— removing from chain.", current,
+            )
+        # walk past any exhausted model
+        for _ in range(len(model_chain)):
+            if model_index[0] < len(model_chain) - 1:
+                model_index[0] += 1
+            if _exhausted_models.get(_current_model(), 0) > time.time():
+                continue
+            break
+        if _current_model() != current:
+            logger.warning(
+                "Groq model %s failed (%s) — moving to %s",
+                current, exc, _current_model(),
             )
             return True
+        # chain fully exhausted: sleep retry-after (capped 45s) then re-try
+        if 0.0 < retry_after <= 45.0:
+            logger.warning(
+                "All models 429 — sleeping %.0fs for burst limit to clear",
+                retry_after,
+            )
+            time.sleep(retry_after)
         return False
 
     for attempt in range(1, max_retries + 1):

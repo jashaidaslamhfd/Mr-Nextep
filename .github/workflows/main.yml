@@ -76,6 +76,7 @@ jobs:
         shell: bash
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
           GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
           REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
@@ -88,6 +89,7 @@ jobs:
           echo "Checking required secrets..."
           missing=0
           [ -z "${GROQ_API_KEY:-}" ] && { echo "::error::GROQ_API_KEY missing"; missing=1; }
+          [ -z "${OPENROUTER_API_KEY:-}" ] && { echo "::warning::OPENROUTER_API_KEY missing — no LLM backup when Groq TPD exhausts (add secret OPENROUTER_API_KEY)"; }
           for var in GOOGLE_CLIENT_ID GOOGLE_CLIENT_SECRET REFRESH_TOKEN; do
             [ -z "${!var:-}" ] && { echo "::error::$var missing"; missing=1; }
           done
@@ -100,6 +102,10 @@ jobs:
         shell: bash
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          # 2026-08-16: Groq free tier burns its daily token pool (TPD) early
+          # every day; OpenRouter is the backup LLM so a TPD-exhaustion can't
+          # kill the whole run. Only used when Groq fails — free models.
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           TREND_REGION: "US"
           YOUTUBE_REGION_CODE: "US"
           CHANNEL_LANGUAGE: "en-US"
