@@ -451,6 +451,40 @@ JSON ONLY:
 # 3. JSON CLEANING FUNCTION
 # ============================================
 
+def _balanced_json(text: str) -> Optional[str]:
+    """Find the longest balanced top-level {...} JSON object starting from
+    the FIRST '{' (greedy `.*` matching was hijacked by prompt echoes that
+    contain braces). Uses a brace-depth walk so nested objects stay intact."""
+    start = text.find('{')
+    if start < 0:
+        return None
+    depth, end = 0, -1
+    in_str, esc = False, False
+    for i in range(start, len(text)):
+        ch = text[i]
+        if esc:
+            esc = False
+            continue
+        if ch == '\\' and in_str:
+            esc = True
+            continue
+        if ch == '"':
+            in_str = not in_str
+            continue
+        if in_str:
+            continue
+        if ch == '{':
+            depth += 1
+        elif ch == '}':
+            depth -= 1
+            if depth == 0:
+                end = i + 1
+                break
+    if end < 0:
+        return None
+    return text[start:end]
+
+
 def _clean_json_response(raw_reply: str) -> Dict:
     """
     Cleans and extracts JSON from LLM response.
@@ -458,18 +492,77 @@ def _clean_json_response(raw_reply: str) -> Dict:
     """
     if not raw_reply:
         raise ValueError("Empty response from LLM")
-    
+
     # Remove markdown code blocks
     raw_reply = re.sub(r'```json\s*', '', raw_reply)
     raw_reply = re.sub(r'```\s*', '', raw_reply)
-    
-    # Try to find JSON object
-    json_match = re.search(r'\{.*\}', raw_reply, re.DOTALL)
-    if json_match:
-        json_str = json_match.group(0)
-    else:
-        json_str = raw_reply
-    
+
+    # Try to find JSON object (balanced-brace first, greedy regex after).
+    # 2026-08-17: some fallback models echo the user prompt back into the
+    # reply (prompt contains a JSON schema with braces). Walking all balanced
+    # top-level objects, parsing each, and keeping the candidate with the
+    # required script fields picks the real generated JSON over the echo.
+    json_str = _balanced_json(raw_reply)
+    if json_str is None:
+        json_match = re.search(r'\{.*\}', raw_reply, re.DOTALL)
+        json_str = json_match.group(0) if json_match else raw_reply
+
+    # Collect every balanced top-level object and every greedy match, parse
+    # each candidate, and keep the best script-shaped one.
+    _REQUIRED_FIELDS = ("title", "hook", "scenes", "cta")
+    def _score_candidate(s: str) -> Optional[Dict]:
+        try:
+            obj = json.loads(s)
+        except (json.JSONDecodeError, ValueError):
+            return None
+        if not isinstance(obj, dict) or not all(k in obj for k in _REQUIRED_FIELDS):
+            return None
+        return obj
+    candidates = []
+    seen_starts = set()
+    for start in range(len(raw_reply)):
+        if raw_reply[start] != '{' or start in seen_starts:
+            continue
+        # find balanced end from this start
+        depth, end = 0, -1
+        instr, esc = False, False
+        for i in range(start, len(raw_reply)):
+            ch = raw_reply[i]
+            if esc:
+                esc = False
+                continue
+            if ch == '\\' and instr:
+                esc = True
+                continue
+            if ch == '"':
+                instr = not instr
+                continue
+            if instr:
+                continue
+            if ch == '{':
+                depth += 1
+            elif ch == '}':
+                depth -= 1
+                if depth == 0:
+                    end = i + 1
+                    break
+        if end < 0:
+            continue
+        seg = raw_reply[start:end].strip()
+        candidates.append(seg)
+        seen_starts.add(start)
+    best = None
+    for seg in candidates:
+        obj = _score_candidate(seg)
+        if obj is None:
+            continue
+        n_scenes = len(obj.get("scenes") or [])
+        best_n = len((best or {}).get("scenes") or [])
+        if best is None or n_scenes > best_n:
+            best = obj
+    if best is not None:
+        return best
+
     # Clean common JSON issues
     json_str = json_str.strip()
     
