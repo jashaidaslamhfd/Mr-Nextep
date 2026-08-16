@@ -556,10 +556,26 @@ def _clean_json_response(raw_reply: str) -> Dict:
         obj = _score_candidate(seg)
         if obj is None:
             continue
-        n_scenes = len(obj.get("scenes") or [])
-        best_n = len((best or {}).get("scenes") or [])
-        if best is None or n_scenes > best_n:
+        scenes = obj.get("scenes") or []
+        # Scene schema examples in the prompt have placeholder text;
+        # require real captions (>=5 chars each) to distinguish generated
+        # JSON from echoed prompt schemas.
+        real_scenes = [
+            s for s in scenes
+            if isinstance(s, dict) and len(s.get("caption") or "") >= 5
+            and len(s.get("visual") or "") >= 5
+        ]
+        n = len(real_scenes)
+        best_n = len([
+            s for s in ((best or {}).get("scenes") or [])
+            if isinstance(s, dict) and len(s.get("caption") or "") >= 5
+            and len(s.get("visual") or "") >= 5
+        ])
+        if best is None or n > best_n:
             best = obj
+            if n >= MIN_SCENES:
+                # A complete script beats any partial candidate immediately.
+                break
     if best is not None:
         return best
 
@@ -590,25 +606,28 @@ def _clean_json_response(raw_reply: str) -> Dict:
         logger.warning(f"JSON parsing failed: {e}")
         logger.debug(f"Cleaned JSON: {json_str[:500]}...")
         
-        # Fallback: Try to extract with regex
+        # Fallback: Try to extract with regex, scanning the WHOLE reply
+        # (models that emit chain-of-thought keep the JSON fragment late in
+        # the text; the greedy regex above is often anchored to the prompt
+        # echo, so regex field extraction over the full reply catches it).
+        raw_reply_scan = raw_reply
         fallback = {}
         
-        # Extract title
-        title_match = re.search(r'"title"\s*:\s*"([^"]+)"', json_str)
-        if title_match:
-            fallback['title'] = title_match.group(1)
+        # Extract title (last occurrence wins — generated JSON sits after
+        # the echoed prompt schema).
+        title_matches = re.findall(r'"title"\s*:\s*"([^"]+)"', raw_reply_scan)
+        if title_matches:
+            fallback['title'] = title_matches[-1]
         
         # Extract hook
-        hook_match = re.search(r'"hook"\s*:\s*"([^"]+)"', json_str)
-        if hook_match:
-            fallback['hook'] = hook_match.group(1)
+        hook_matches = re.findall(r'"hook"\s*:\s*"([^"]+)"', raw_reply_scan)
+        if hook_matches:
+            fallback['hook'] = hook_matches[-1]
         
         # Extract scenes
-        scenes_match = re.search(r'"scenes"\s*:\s*\[(.*?)\]', json_str, re.DOTALL)
-        if scenes_match:
-            scenes_str = scenes_match.group(1)
+        scenes_matches = re.findall(r'"scenes"\s*:\s*\[(.*?)\]', raw_reply_scan, re.DOTALL)
+        for scenes_str in reversed(scenes_matches):
             scenes = []
-            # Find all scene objects
             scene_blocks = re.finditer(r'\{[^{}]*\}', scenes_str, re.DOTALL)
             for block in scene_blocks:
                 scene_str = block.group(0)
@@ -621,16 +640,17 @@ def _clean_json_response(raw_reply: str) -> Dict:
                     })
             if scenes:
                 fallback['scenes'] = scenes
+                break
         
         # Extract CTA
-        cta_match = re.search(r'"cta"\s*:\s*"([^"]+)"', json_str)
-        if cta_match:
-            fallback['cta'] = cta_match.group(1)
+        cta_matches = re.findall(r'"cta"\s*:\s*"([^"]+)"', raw_reply_scan)
+        if cta_matches:
+            fallback['cta'] = cta_matches[-1]
         
         # Extract description
-        desc_match = re.search(r'"description"\s*:\s*"([^"]+)"', json_str)
-        if desc_match:
-            fallback['description'] = desc_match.group(1)
+        desc_matches = re.findall(r'"description"\s*:\s*"([^"]+)"', raw_reply_scan)
+        if desc_matches:
+            fallback['description'] = desc_matches[-1]
         
         if fallback:
             logger.info("✅ Extracted data using regex fallback")
