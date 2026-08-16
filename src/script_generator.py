@@ -4,6 +4,7 @@ FULLY FIXED - JSON Cleaning + Native Tone + Retention Optimization
 """
 
 import os
+import sys
 import json
 import time
 import logging
@@ -1151,13 +1152,33 @@ def generate_script(
                 raw_reply = completion.choices[0].message.content
             except Exception as groq_err:  # noqa: BLE001 - fallback on any Groq failure
                 if _advance_model(groq_err):
-                    continue
-                logger.warning("Groq call failed (%s) — trying OpenRouter fallback...", groq_err)
-                raw_reply = _openrouter_generate(
-                    messages, temperature=TEMPERATURE, max_tokens=MAX_TOKENS
-                )
-                if raw_reply:
-                    logger.info("✅ OpenRouter fallback produced a script.")
+                    # 2026-08-16: a chain-advance on the LAST attempt would
+                    # silently burn the only untried model (the loop ends and
+                    # the newly advanced model never gets a call). On the
+                    # final attempt, generate via the OpenRouter backup LLM
+                    # and fall through to validation — never finish a run
+                    # without trying the backup.
+                    if attempt == max_retries:
+                        logger.warning(
+                            "Last attempt: chain advance exhausted — "
+                            "using OpenRouter backup directly."
+                        )
+                        raw_reply = _openrouter_generate(
+                            messages, temperature=TEMPERATURE, max_tokens=MAX_TOKENS
+                        )
+                        if raw_reply:
+                            logger.info("✅ OpenRouter fallback produced a script.")
+                        # NOTE: deliberately no `continue` — let execution
+                        # fall through to validation below.
+                    else:
+                        continue
+                else:
+                    logger.warning("Groq call failed (%s) — trying OpenRouter fallback...", groq_err)
+                    raw_reply = _openrouter_generate(
+                        messages, temperature=TEMPERATURE, max_tokens=MAX_TOKENS
+                    )
+                    if raw_reply:
+                        logger.info("✅ OpenRouter fallback produced a script.")
             if not raw_reply:
                 raise RuntimeError("All LLM providers failed (Groq chain + OpenRouter).")
             raw_reply = repair_mojibake(raw_reply)
