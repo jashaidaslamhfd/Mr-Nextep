@@ -203,3 +203,7 @@ data/           durable channel state (committed by skillor-bot)
 
 ## Storage Optimization
 - Diagnostic dumps and audit logs are retained as 90-day GitHub Actions artifacts instead of inflating git repository history.
+
+
+## Storage Optimization
+- Diagnostic dumps and audit logs are retained as 90-day GitHub Actions artifacts instead of inflating git repository history.
