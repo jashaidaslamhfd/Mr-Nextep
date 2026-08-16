@@ -1164,11 +1164,13 @@ def _openrouter_generate(messages, temperature=None, max_tokens=None) -> Optiona
                             return text2
                 except Exception:  # noqa: BLE001
                     pass
-        if resp.status_code == 404:
-            # The configured slug was retired from OpenRouter (verified
-            # 2026-08-17). Refresh the live free-model list and retry each
-            # known-good candidate once so the pipeline survives provider
-            # churn without a code change.
+        if resp.status_code == 404 or not _reply_has_json(text):
+            # 2026-08-17: rotate free models on two failure modes — the
+            # configured slug was retired (404, verified 2026-08-17), OR the
+            # active free model returned plain text instead of JSON
+            # (Nemotron's frequent echo behavior). Refresh the live free-
+            # model list and retry each candidate once, keeping the FIRST
+            # reply that actually contains JSON.
             key = os.environ.get("OPENROUTER_API_KEY")
             _candidates = []
             if key:
@@ -1200,12 +1202,16 @@ def _openrouter_generate(messages, temperature=None, max_tokens=None) -> Optiona
                         timeout=OPENROUTER_TIMEOUT,
                     )
                     if r2.status_code == 200:
+                        t2 = r2.json().get("choices", [{}])[0].get(
+                            "message", {}
+                        ).get("content", "")
                         logger.warning(
-                            "OpenRouter model %s retired; retried on %s (HTTP %s)",
-                            OPENROUTER_MODEL, mid, r2.status_code,
+                            "OpenRouter model %s rotated; retried on %s "
+                            "(reply has JSON: %s)",
+                            OPENROUTER_MODEL, mid, _reply_has_json(t2),
                         )
-                        data = r2.json()
-                        return data["choices"][0]["message"]["content"]
+                        if _reply_has_json(t2):
+                            return t2
                 except Exception:  # noqa: BLE001
                     continue
             logger.warning("OpenRouter fallback failed: HTTP %s (all refreshed models exhausted)", resp.status_code)
