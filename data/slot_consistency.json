@@ -4,25 +4,19 @@
       "slot": "NY12:30",
       "outcome": "published",
       "topic": "topic a",
-      "at": "2026-08-17T06:23:56.074756+00:00"
+      "at": "2026-08-17T16:53:33.994123+00:00"
     },
     {
       "slot": "NY18:30",
       "outcome": "published",
       "topic": "topic b",
-      "at": "2026-08-17T06:23:56.075360+00:00"
+      "at": "2026-08-17T16:53:33.994693+00:00"
     },
     {
       "slot": "NY20:00",
       "outcome": "guard_fail",
       "topic": "topic c",
-      "at": "2026-08-17T06:23:56.075646+00:00"
-    },
-    {
-      "slot": "offpeak",
-      "outcome": "published",
-      "topic": "Why Babies Grab Your Finger",
-      "at": "2026-08-17T06:51:20.283296+00:00"
+      "at": "2026-08-17T16:53:34.012706+00:00"
     }
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "failed_at": "2026-08-17T06:35:38.096571+00:00",
-  "reason": "INDEPENDENT GATE BLOCKED the run: seo, viewer_preference guard(s) failed. Fix before publishing.",
-  "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Mr-Nextep/Mr-Nextep/src/main.py\", line 1274, in run_pipeline\n    raise RuntimeError(\nRuntimeError: INDEPENDENT GATE BLOCKED the run: seo, viewer_preference guard(s) failed. Fix before publishing.\n"
+  "failed_at": "2026-08-17T16:58:36.379201+00:00",
+  "reason": "All 3 script-generation attempts failed mandatory gates. Last error: \u274c Script generation failed after 3 attempts. Last error: All LLM providers failed (Groq chain + OpenRouter).",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Mr-Nextep/Mr-Nextep/src/main.py\", line 883, in run_pipeline\n    script_data = self.generate_with_niche_strategy(topic)\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/Mr-Nextep/Mr-Nextep/src/main.py\", line 650, in generate_with_niche_strategy\n    raise RuntimeError(\nRuntimeError: All 3 script-generation attempts failed mandatory gates. Last error: \u274c Script generation failed after 3 attempts. Last error: All LLM providers failed (Groq chain + OpenRouter).\n"
 }
