@@ -2156,5 +2156,44 @@
     "real_retention": 0.0,
     "real_views": 0.0,
     "recorded_at": "2026-08-17T00:03:21.472837+00:00"
+  },
+  {
+    "features": {
+      "hook_strength": 0.1,
+      "story_completeness": 0.0,
+      "pacing": 1.0,
+      "title_curiosity": 0.75,
+      "payoff_present": 0.0,
+      "bait_penalty": 0.0
+    },
+    "real_retention": 0.0,
+    "real_views": 0.0,
+    "recorded_at": "2026-08-17T00:58:45.571308+00:00"
+  },
+  {
+    "features": {
+      "hook_strength": 0.1,
+      "story_completeness": 0.0,
+      "pacing": 1.0,
+      "title_curiosity": 0.75,
+      "payoff_present": 0.0,
+      "bait_penalty": 0.0
+    },
+    "real_retention": 0.0,
+    "real_views": 0.0,
+    "recorded_at": "2026-08-17T00:59:07.557412+00:00"
+  },
+  {
+    "features": {
+      "hook_strength": 0.1,
+      "story_completeness": 0.0,
+      "pacing": 1.0,
+      "title_curiosity": 0.75,
+      "payoff_present": 0.0,
+      "bait_penalty": 0.0
+    },
+    "real_retention": 0.0,
+    "real_views": 0.0,
+    "recorded_at": "2026-08-17T00:59:08.962669+00:00"
   }
 ]
