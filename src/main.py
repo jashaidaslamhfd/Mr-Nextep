@@ -426,8 +426,8 @@ class SKILLORPipeline:
 
             # Quality check (2026-08-17: an optional `lenient` flag is passed
             # for LLM-outage fallback — see generate_with_niche_strategy)
-            quality_result = self.quality_checker.check_script_quality(script_data, lenient=lenient_fallback)
-            if lenient_fallback and quality_result.get('approved'):
+            quality_result = self.quality_checker.check_script_quality(script_data, lenient=SKILLORPipeline.lenient_fallback)
+            if SKILLORPipeline.lenient_fallback and quality_result.get('approved'):
                 logger.warning(
                     "Fallback mode: relaxed quality floor — strict structural "
                     "checks passed but stylistic hooks were waived (premium "
