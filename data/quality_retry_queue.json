@@ -1,1 +1,8 @@
-[]
+[
+  {
+    "topic": "",
+    "attempts": 4,
+    "reason": "best candidate rejected: quality",
+    "failed_at": "2026-08-18T22:56:42.097871+00:00"
+  }
+]
