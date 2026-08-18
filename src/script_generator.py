@@ -1226,6 +1226,83 @@ def _openrouter_generate(messages, temperature=None, max_tokens=None) -> Optiona
         return None
 
 
+
+# 2026-08-17: Gemini 2.5 Flash (free tier) as the THIRD LLM fallback — when
+# both the Groq chain and OpenRouter are exhausted (global free-tier outage
+# window), the pipeline still tries Gemini before giving up.
+GEMINI_TEXT_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent"
+GEMINI_TIMEOUT = 60
+
+
+def _gemini_generate(messages, temperature=None, max_tokens=None) -> Optional[str]:
+    """Call Google Gemini 2.5 Flash (free) when Groq + OpenRouter both fail.
+
+    Returns the raw assistant text or None (never raises). The system prompt
+    and the JSON schema live in messages, so Gemini replies with the same
+    script JSON structure as the Groq path.
+    """
+    key = os.environ.get("GEMINI_API_KEY")
+    if not key:
+        return None
+    try:
+        import requests as _req
+
+        parts = []
+        for m in messages:
+            parts.append({"role": m["role"], "parts": [{"text": m["content"]}]})
+        payload = {"contents": parts}
+        if temperature is not None:
+            payload["generationConfig"] = {"temperature": temperature}
+            if max_tokens is not None:
+                payload["generationConfig"]["maxOutputTokens"] = max_tokens
+        resp = _req.post(
+            f"{GEMINI_TEXT_URL}?key={key}",
+            json=payload,
+            timeout=GEMINI_TIMEOUT,
+        )
+        if resp.status_code == 200:
+            text = ""
+            try:
+                for cand in resp.json().get("candidates", []) or []:
+                    for part in (cand.get("content") or {}).get("parts", []) or []:
+                        t = part.get("text")
+                        if t:
+                            text += t
+            except Exception:  # noqa: BLE001
+                text = ""
+            if "{" in text:
+                return text
+            # Plain-text echo: re-ask with an explicit JSON-only instruction
+            parts2 = []
+            for m in messages:
+                parts2.append({"role": m["role"], "parts": [{"text": m["content"]}]})
+            parts2[-1]["parts"][0]["text"] += (
+                "\n\nCRITICAL: Respond with ONLY a raw JSON object "
+                "starting with '{' — no thinking, no markdown, "
+                "no explanation."
+            )
+            r2 = _req.post(
+                f"{GEMINI_TEXT_URL}?key={key}",
+                json={"contents": parts2},
+                timeout=GEMINI_TIMEOUT,
+            )
+            if r2.status_code == 200:
+                for cand in r2.json().get("candidates", []) or []:
+                    for part in (cand.get("content") or {}).get("parts", []) or []:
+                        t = part.get("text")
+                        if t and "{" in t:
+                            logger.warning("Gemini re-ask recovered a JSON reply.")
+                            return t
+            logger.warning("Gemini fallback failed: HTTP %s", resp.status_code)
+            return None
+        logger.warning("Gemini fallback failed: HTTP %s", resp.status_code)
+        return None
+    except Exception as exc:  # noqa: BLE001 - fallback must never raise
+        logger.warning("Gemini fallback error: %s", exc)
+        return None
+
+
+
 def generate_script(
     topic: str, 
     custom_prompt: Optional[str] = None, 
@@ -1382,9 +1459,11 @@ def generate_script(
                         )
                         raw_reply = _openrouter_generate(
                             messages, temperature=TEMPERATURE, max_tokens=MAX_TOKENS
+                        ) or _gemini_generate(
+                            messages, temperature=TEMPERATURE, max_tokens=MAX_TOKENS
                         )
                         if raw_reply:
-                            logger.info("✅ OpenRouter fallback produced a script.")
+                            logger.info("✅ Third-provider fallback produced a script.")
                         # NOTE: deliberately no `continue` — let execution
                         # fall through to validation below.
                     else:
@@ -1393,11 +1472,13 @@ def generate_script(
                     logger.warning("Groq call failed (%s) — trying OpenRouter fallback...", groq_err)
                     raw_reply = _openrouter_generate(
                         messages, temperature=TEMPERATURE, max_tokens=MAX_TOKENS
+                    ) or _gemini_generate(
+                        messages, temperature=TEMPERATURE, max_tokens=MAX_TOKENS
                     )
                     if raw_reply:
-                        logger.info("✅ OpenRouter fallback produced a script.")
+                        logger.info("✅ Third-provider fallback produced a script.")
             if not raw_reply:
-                raise RuntimeError("All LLM providers failed (Groq chain + OpenRouter).")
+                raise RuntimeError("All LLM providers failed (Groq chain + OpenRouter + Gemini).")
             raw_reply = repair_mojibake(raw_reply)
             
             # Clean JSON
