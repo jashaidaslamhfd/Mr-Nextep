@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-08-19T22:58:10.957061+00:00",
+  "dry_run": false,
+  "stats": {
+    "youtube": {
+      "total": 112,
+      "repaired": 0,
+      "skipped": 111,
+      "errors": 1
+    },
+    "facebook": {
+      "total": 0,
+      "repaired": 0,
+      "skipped": 0,
+      "errors": 0
+    },
+    "instagram": {
+      "total": 0,
+      "repaired": 0,
+      "skipped": 0,
+      "errors": 0
+    }
+  },
+  "results": [
+    {
+      "platform": "youtube",
+      "video_id": "IjwfP0tcZH8",
+      "old_title": "Why Your Body Freezes When You're Scared \ud83e\udec0",
+      "new_title": "Why Your Body Freezes When You're Scared",
+      "needs": true,
+      "seo_noncompliant": true,
+      "error": "apply_failed"
+    }
+  ]
+}
