@@ -1,5 +1,5 @@
 {
-  "failed_at": "2026-08-19T02:53:45.886941+00:00",
-  "reason": "All 3 attempts failed strict gates \u2014 topic '' saved to the retry queue (next run retries it with a fresh script). Reason: best candidate rejected: quality",
-  "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Mr-Nextep/Mr-Nextep/src/main.py\", line 883, in run_pipeline\n    script_data = self.generate_with_niche_strategy(topic)\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/Mr-Nextep/Mr-Nextep/src/main.py\", line 645, in generate_with_niche_strategy\n    raise RuntimeError(\nRuntimeError: All 3 attempts failed strict gates \u2014 topic '' saved to the retry queue (next run retries it with a fresh script). Reason: best candidate rejected: quality\n"
+  "failed_at": "2026-08-19T17:39:48.692751+00:00",
+  "reason": "Hook failed: 75/80",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Mr-Nextep/Mr-Nextep/src/main.py\", line 1186, in run_pipeline\n    raise RuntimeError(f\"Hook failed: {hook_score}/{MIN_HOOK_SCORE}\")\nRuntimeError: Hook failed: 75/80\n"
 }
