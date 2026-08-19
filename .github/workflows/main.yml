@@ -62,6 +62,17 @@ jobs:
               sleep 15
             }
           done
+          # 2026-08-19: Chatterbox is now the PRIMARY engine (TTS_ENGINE=chatterbox).
+          # Its heavy deps live in requirements-optional.txt (lazy imports); a
+          # kokoro-only run never needed them, but the real-narrator path does.
+          if [ "${TTS_ENGINE:-chatterbox}" = "chatterbox" ] && [ -f requirements-optional.txt ]; then
+            for i in 1 2 3; do
+              python -m pip install -r requirements-optional.txt && break || {
+                echo "Optional-deps install retry $i"
+                sleep 15
+              }
+            done
+          fi
 
       - name: Run offline quality regression tests
         shell: bash
@@ -121,7 +132,11 @@ jobs:
           # overrides this single slot's queue topic; otherwise the curated
           # series queue is used as usual.
           TREND_SPIKER_ENABLED: "true"
-          TTS_ENGINE: "kokoro"
+          # 2026-08-19: real-narrator voice everywhere. Chatterbox is the primary
+          # engine (adult-only voice filter + -4.0st pitch deepening in
+          # voice_generator.py); Kokoro stays as the per-segment fallback when
+          # a Chatterbox call fails. This mirrors Neuro-Somaa's proven setup.
+          TTS_ENGINE: "chatterbox"
           KOKORO_LANG_CODE: "a"
           KOKORO_VOICE: "am_adam"
           # 2026-08 humanization: rotate the narrator per topic so the channel

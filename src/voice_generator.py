@@ -257,6 +257,59 @@ def _scene_tempo_for(base_speed: float, index: int, caption: str) -> float:
         return base_speed
 
 
+# 2026-08-19: ADULT-VOICE MATURING (ported from Neuro-Somaa). Chatterbox's
+# default narrator is a neutral synthetic voice; with the creator's approved
+# voice_reference.wav the pipeline deepens and matures the output so the
+# narrator always sounds like an ADULT professional:
+#   VOICE_MATURE_PITCH_SEMITONES = negative -> lower pitch (deeper voice)
+#   VOICE_MATURE_TEMPO           = slightly calmer delivery (authority)
+# When a usable clone reference exists, maturing is SKIPPED so the creator's
+# own voice is never altered.
+import numpy as _np
+VOICE_MATURE_PITCH_SEMITONES = _env_float(
+    "VOICE_MATURE_PITCH_SEMITONES", -4.0, -6.0, 0.0)
+VOICE_MATURE_TEMPO = _env_float("VOICE_MATURE_TEMPO", 0.92, 0.75, 1.05)
+VOICE_MATURE_ENABLED = os.environ.get(
+    "VOICE_MATURE_ENABLED", "true").lower() in ("1", "true", "yes", "on")
+
+def _mature_voice(audio, sr):
+    """Pitch-deepen + calm the synthetic default voice toward a mature adult
+    male narrator. Uses ffmpeg's asetrate+aresample (pitch shift) followed
+    by a gentle high-pass on mud and a limiter for broadcast-safe peaks.
+    Falls back to the unmodified audio if processing fails."""
+    if not VOICE_MATURE_ENABLED:
+        return audio
+    try:
+        import subprocess
+        import tempfile
+        import imageio_ffmpeg
+        ffmpeg_exe = imageio_ffmpeg.get_ffmpeg_exe()
+        with tempfile.TemporaryDirectory() as tmpdir:
+            in_path = os.path.join(tmpdir, "in.wav")
+            out_path = os.path.join(tmpdir, "out.wav")
+            sf.write(in_path, audio, sr)
+            result = subprocess.run(
+                [
+                    ffmpeg_exe, "-y", "-i", in_path, "-af",
+                    (f"asetrate={sr}*2^({VOICE_MATURE_PITCH_SEMITONES}/12),"
+                     f"aresample={sr},"
+                     f"atempo={VOICE_MATURE_TEMPO},"
+                     f"highpass=f=80,lowpass=f=14000,alimiter=limit=0.95"),
+                    out_path,
+                ],
+                capture_output=True, timeout=30,
+            )
+            if result.returncode != 0 or not os.path.exists(out_path):
+                logger.warning("Voice maturing failed, using unmodified audio: %s",
+                               result.stderr[:200])
+                return audio
+            matured, _ = sf.read(out_path, dtype="float32")
+            logger.info("Voice maturing APPLIED: pitch %.1f st, tempo %.2f", VOICE_MATURE_PITCH_SEMITONES, VOICE_MATURE_TEMPO)
+            return matured
+    except Exception as e:
+        logger.warning("Voice maturing failed (%s), using unmodified audio", e)
+        return audio
+
 def _apply_tempo(audio: np.ndarray, sr: int, tempo: float) -> np.ndarray:
     """Apply natural voice finishing plus pitch-preserving tempo adjustment.
 
@@ -519,6 +572,10 @@ def _synthesize(text: str, voice: str = "am_adam", speed: float = 1.0):
             try:
                 audio, sr = _synthesize_chatterbox(narration_text, attempt=attempt)
                 engine = "chatterbox_clone" if _voice_reference_ok() else "chatterbox_default"
+                # 2026-08-19: mature the synthetic default voice (skip when the
+                # creator's own reference is being used — never alter it).
+                if engine == "chatterbox_default":
+                    audio = _mature_voice(audio, sr)
                 logger.info(f"Chatterbox SUCCESS on attempt {attempt}/{CHATTERBOX_MAX_RETRIES} ({engine})")
                 return audio, sr, engine
             except Exception as e:

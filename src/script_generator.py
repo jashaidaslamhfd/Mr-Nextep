@@ -1230,7 +1230,7 @@ def _openrouter_generate(messages, temperature=None, max_tokens=None) -> Optiona
 # 2026-08-17: Gemini 2.5 Flash (free tier) as the THIRD LLM fallback — when
 # both the Groq chain and OpenRouter are exhausted (global free-tier outage
 # window), the pipeline still tries Gemini before giving up.
-GEMINI_TEXT_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent"
+GEMINI_TEXT_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent"
 GEMINI_TIMEOUT = 60
 
 

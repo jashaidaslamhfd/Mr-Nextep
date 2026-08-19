@@ -1183,7 +1183,28 @@ class SKILLORPipeline:
 
                 hook_score = shorts_report.get('hook_detail', {}).get('score', 0)
                 if hook_score < MIN_HOOK_SCORE:
-                    raise RuntimeError(f"Hook failed: {hook_score}/{MIN_HOOK_SCORE}")
+                    # 2026-08-19: a late-stage hook miss must NOT burn the slot.
+                    # Mirror Neuro-Somaa: queue the topic for a fresh script
+                    # (next run honours it via _next_retry_topic), then raise a
+                    # RECOVERABLE marker the continuity wrapper recognises so
+                    # it retries with a new topic within the SAME run.
+                    hook_topic = script_data.get('topic') or topic
+                    try:
+                        self._enqueue_retry_topic(
+                            hook_topic or "",
+                            f"hook {hook_score}/{MIN_HOOK_SCORE}",
+                            attempt_count=1,
+                        )
+                        self._persist_last_failure(
+                            "hook_retry",
+                            f"Queued for retry: {hook_topic} — hook {hook_score}/{MIN_HOOK_SCORE}",
+                        )
+                    except Exception as _e:  # queueing must never block logging
+                        logger.warning("Retry-queue enqueue failed: %s", _e)
+                    raise RuntimeError(
+                        f"HOOK MISS RECOVERABLE: hook {hook_score}/{MIN_HOOK_SCORE} — "
+                        f"topic queued, retry with fresh script (continuity loop)")
+                logger.info(f"✅ Hook score: {hook_score}/100")
                 
                 logger.info(f"✅ Hook score: {hook_score}/100")
                 
@@ -1443,8 +1464,11 @@ class SKILLORPipeline:
             should_retry_on_guard_failure, register_slot_attempt,
         )
 
+        # 2026-08-19: hook misses are now slotted into the same consistency
+        # loop as the other guard blocks — the topic is queued for a fresh
+        # script and the SAME peak slot gets refilled instead of missed.
         guard_phrases = ("INDEPENDENT GATE BLOCKED", "PLATFORM SEO GUARD BLOCKED",
-                         "DUPLICATE TITLE BLOCKED")
+                         "DUPLICATE TITLE BLOCKED", "HOOK MISS RECOVERABLE")
         attempt = 0
         last_err = None
         while True:
