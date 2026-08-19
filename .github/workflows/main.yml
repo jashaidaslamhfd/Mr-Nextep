@@ -109,6 +109,19 @@ jobs:
           fi
           exit "$missing"
 
+      - name: Refresh live US search-demand queue
+        continue-on-error: true
+        shell: bash
+        env:
+          PYTHONUNBUFFERED: "1"
+        run: |
+          set -euo pipefail
+          # Fill/refresh the demand queue from live YouTube US autocomplete
+          # BEFORE topic selection (trend_fetcher reads
+          # data/search_demand_queue_us.json when picking the next topic).
+          # Runs at most ~40 free HTTP calls; never fails the pipeline — a
+          # mining hiccup must never stop a video from being made.
+          python src/demand_refresh_us.py || true
       - name: Generate and upload Short
         shell: bash
         env:

@@ -436,6 +436,11 @@ def build_pinned_comment(script_data: Dict) -> str:
         topic,
     ).strip()
 
+    # 2026-08-19 (ported from Neuro-Somaa): expanded from 4 to 10 pinned-
+    # comment formulas. The pinned comment is the #1 place a viewer engages —
+    # replies = comment signal = feed boost. One question-only formula capped
+    # replies; the new set mixes reply-bait, debate, self-report and tease
+    # patterns used by the biggest US Shorts creators.
     templates = (
         f"Has this ever happened to you with {topic}? "
         "I read every reply.",
@@ -446,7 +451,25 @@ def build_pinned_comment(script_data: Dict) -> str:
         f"What part of {topic} still doesn't make sense? "
         "I'll cover it next.",
 
-        f"Which body question should I explain after {topic}?",
+        f"Which mystery should I explain after {topic}?",
+
+        f"Be honest — how many of you have experienced "
+        f"{topic}? The answers never stop surprising me.",
+
+        f"I still get chills writing about {topic}. "
+        "What part scared you the most?",
+
+        f"Unpopular opinion: {topic} is more common than you think. "
+        "Agree or disagree?",
+
+        f"Day 1 thinking about {topic}: curious. "
+        "Day 30: I can't look at it the same way. You?",
+
+        f"Some of you asked for a deeper dive on {topic} — "
+        "should I make a full part 2?",
+
+        f"The wildest message I got about {topic} said it "
+        "started after a long trip. Yours?",
     )
 
     comment = _pick(

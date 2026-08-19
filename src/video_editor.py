@@ -142,7 +142,8 @@ def _cover_fit(img_path: str, out_path: str, size=(CANVAS_W, CANVAS_H)):
     return out_path
 
 
-def _ken_burns_clip(img_path: str, duration: float, direction: str, zoom_extra: float = 0.0) -> CompositeVideoClip:
+def _ken_burns_clip(img_path: str, duration: float, direction: str, zoom_extra: float = 0.0,
+                  hook_snap: bool = False) -> CompositeVideoClip:
     """
     Centered zoom (in or out) + horizontal pan.
     Uses 1.25x overscan base image size to prevent black border leakage on edges.
@@ -205,7 +206,8 @@ def _is_important_word(word: str) -> bool:
     return word_clean in IMPORTANT_WORDS
 
 
-def _caption_clip(text: str, duration: float, is_important: bool = False, color_theme: Dict = None) -> ImageClip:
+def _caption_clip(text: str, duration: float, is_important: bool = False, color_theme: Dict = None,
+                    is_hook: bool = False) -> ImageClip:
     """
     Renders caption with RETENTION OPTIMIZATIONS:
     - Large, readable text
@@ -232,7 +234,7 @@ def _caption_clip(text: str, duration: float, is_important: bool = False, color_
         baseline = int(CANVAS_H * 0.75)
     available_height = max(int(CANVAS_H * 0.12), baseline - int(CANVAS_H * CAPTION_Y_FRACTION))
 
-    font_size = CAPTION_FONT_SIZE
+    font_size = int(CAPTION_FONT_SIZE * 1.25) if is_hook else CAPTION_FONT_SIZE
     dummy = Image.new("RGBA", (10, 10), (0, 0, 0, 0))
     dummy_draw = ImageDraw.Draw(dummy)
 
@@ -327,7 +329,7 @@ def _word_by_word_clips(text: str, total_duration: float, color_theme: Dict = No
     clips, cursor = [], 0.0
     for phrase, duration in zip(groups, durations):
         important = any(_is_important_word(w) for w in phrase.split())
-        clip = _caption_clip(phrase, duration, important, color_theme).set_start(cursor)
+        clip = _caption_clip(phrase, duration, important, color_theme, is_hook=(scene_index == 0)).set_start(cursor)
         clips.append(clip)
         cursor += duration
     return clips
@@ -685,10 +687,13 @@ def build_video(image_paths, audio_segments, scenes, output_path="output/final_v
             # AI/static image: two motion beats make the scene feel alive.
             first_duration = duration * first_beat_frac
             second_duration = duration - first_duration
-            first_beat = _ken_burns_clip(img_path, first_duration, direction, zoom_extra)
+            first_beat = _ken_burns_clip(img_path, first_duration, direction, zoom_extra, hook_snap=(i == 0))
             second_direction = "out" if direction == "in" else "in"
             second_beat = _ken_burns_clip(
-                img_path, second_duration, second_direction, zoom_extra + 0.04
+                img_path, second_duration, second_direction, zoom_extra + 0.04,
+                # second beat of the hook scene also gets the punch-in so the
+                # opening frame reads as a live camera move for its full first 3s.
+                hook_snap=(i == 0),
             )
             scene_visual = concatenate_videoclips(
                 [first_beat, second_beat], method="compose"

@@ -474,6 +474,40 @@ def _weighted_topic_choice(candidates: List[Dict]) -> Dict:
     return chosen
 
 
+
+SEARCH_DEMAND_QUEUE_PATH = Path("data/search_demand_queue_us.json")
+def load_search_demand_queue() -> list[dict]:
+    """Topics backed by REAL US YouTube search autocomplete demand.
+    2026-08-19 (ported from Neuro-Somaa): demand-backed picks are the
+    strongest organic growth signal — users actively type these queries, so
+    Shorts surface in search + suggested. Missing/corrupt file simply yields
+    an empty queue; topic selection degrades gracefully.
+    """
+    try:
+        with SEARCH_DEMAND_QUEUE_PATH.open(encoding="utf-8") as file_handle:
+            payload = json.load(file_handle)
+    except (OSError, json.JSONDecodeError):
+        return []
+    items = payload.get("topics") if isinstance(payload, dict) else payload
+    if not isinstance(items, list):
+        return []
+    result = []
+    for item in items:
+        if not isinstance(item, dict):
+            continue
+        topic = (item.get("angle") or item.get("topic") or "").strip()
+        if not topic:
+            continue
+        result.append({
+            "topic": topic,
+            "source": "us_search_demand",
+            "base_phenomenon": item.get("topic"),
+            "question_phrase": item.get("question_phrase"),
+            "angle": item.get("angle"),
+            "demand_note": item.get("demand_note"),
+        })
+    return result
+
 def get_trending_topic(
     exclude: Optional[List[str]] = None,
     *,
@@ -487,6 +521,48 @@ def get_trending_topic(
     never force unrelated news or workplace drama into a science channel.
     Set ``REQUIRE_DAILY_TREND=true`` only for a deliberate live-trend campaign.
     """
+    # 2026-08-19 (ported from Neuro-Somaa): proven-demand queue picks first —
+    # a query with REAL US search intent beats a blind catalogue guess.
+    # Used-up entries are filtered by the same history/exclude mechanism.
+    # Demand queries get their own stricter-duplicate policy: block only
+    # near-identical phenomena, never a loose word overlap (a dark-mystery
+    # niche will always reuse words like "mystery/unsolved/creepy" — the
+    # phenomenon, not the vocabulary, must be what repeats).
+    try:
+        _demand = load_search_demand_queue()
+        if _demand:
+            _exclude_lower = {str(t).strip().lower() for t in (exclude or []) if t}
+            def _demand_is_used(topic: str) -> bool:
+                if topic.strip().lower() in _exclude_lower:
+                    return True
+                if _near_duplicate_of_recent(topic, exclude or []):
+                    return True
+                for published in (exclude or []):
+                    p_words = _topic_words(published)
+                    d_words = _topic_words(topic)
+                    content = {w for w in d_words if len(w) > 3}
+                    if not content:
+                        continue
+                    shared = content & p_words
+                    if shared and len(shared) / len(content) >= 0.75:
+                        return True
+                return False
+            _fresh_demand = [e for e in _demand if not _demand_is_used(e["topic"])]
+            if _fresh_demand:
+                chosen = _fresh_demand[0]
+                chosen_rec = {
+                    "topic": chosen["topic"],
+                    "source": "us_search_demand",
+                    "angle": chosen.get("angle"),
+                    "question_phrase": chosen.get("question_phrase"),
+                    "demand_note": chosen.get("demand_note"),
+                }
+                logger.info(
+                    "🔎 Demand queue: picking REAL-search-demand topic "
+                    "(%d left after this pick)", len(_fresh_demand) - 1)
+                return chosen_rec if return_metadata else chosen_rec["topic"]
+    except Exception as _demand_err:  # noqa: BLE001 - demand must never block the pipeline
+        logger.warning("Demand queue skipped (%s) — falling back to strategy picks", _demand_err)
     strategy = os.environ.get("TOPIC_STRATEGY", "body_glitch_series").strip().lower()
     require_daily_trend = os.environ.get("REQUIRE_DAILY_TREND", "false").lower() == "true"
 
