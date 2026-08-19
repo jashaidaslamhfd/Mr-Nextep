@@ -169,11 +169,17 @@ def _winner_subjects(limit: int = 6) -> list[str]:
 def _catalogue_subjects(limit: int = 4) -> list[str]:
     """Evergreen catalogue subjects as broad seeds (fresh queries outside the
     winner circle). Cheap to compute; failures degrade to []."""
+    # 2026-08-19: Mr-Nextep is a DARK MYSTERY channel — seed from its own
+    # 500-topic catalogue, not the FR body-glitch one inherited upstream.
     try:
-        from trend_fetcher import get_body_glitch_topics
-        pool = get_body_glitch_topics()
+        from trend_fetcher import get_dark_mystery_topics
+        pool = get_dark_mystery_topics()
     except Exception:
-        return []
+        try:
+            from trend_fetcher import get_body_glitch_topics
+            pool = get_body_glitch_topics()
+        except Exception:
+            return []
     try:
         from video_history import load_history  # history shapes vary; best-effort
         history = load_history()
@@ -273,7 +279,7 @@ def _subject_to_record(topic: str, queries: list[str], *, index: int) -> dict:
     trend_fetcher's ``load_search_demand_queue`` consumers key on (it falls
     back to ``topic`` when absent, which silently degrades the question shape
     shipped to the script generator). The angle is now built as a complete
-    US "Pourquoi … ?" question, matching the catalogue's own shape.
+    US "Why … ?" question, matching the dark-mystery catalogue's own shape.
     """
     notes = "; ".join(f"autocomplete: '{q}'" for q in queries)
     title = topic[0].upper() + topic[1:]
@@ -293,11 +299,19 @@ def _subject_to_record(topic: str, queries: list[str], *, index: int) -> dict:
     # If nothing declarative is left, fall back to the nominal phrase
     if not core or len(core.split()) < 2:
         core = topic if not topic.lower().startswith("pourquoi ") else topic[8:].strip()
-    angle = f"Pourquoi {core} ?"
+    # 2026-08-19: US English channel — angle ships as "Why <phenomenon>?"
+    # (the Pourquoi prefix survives in `topic` from catalogue seeds only
+    # if the seed itself carries it; angle is always English).
+    core_en = core if not core.lower().startswith("pourquoi ") else core[8:].strip()
+    # 2026-08-19: skip any seed that still carries non-English content
+    # (a French catalogue entry upstream) — demand records must be US English.
+    if re.search(r"[À-ſ]{2}|les genoux|qui craquent|pourquoi le", core_en, re.I):
+        return {}
+    angle = f"Why {core_en} ?"
     # Thumbnail hook phrase: the question itself, title-cased, ≤ 60 chars,
     # always ending in '?' so the paint layer renders a complete US
     # question on the thumbnail (same doctrine as the catalogue shape).
-    thumbnail_text = f"Pourquoi {core} ?" if not core.lower().startswith("pourquoi ") else f"{core} ?"
+    thumbnail_text = f"Why {core_en} ?"
     if thumbnail_text.endswith("? ?"):
         thumbnail_text = f"{core} ?"
     if len(thumbnail_text) > 60:
@@ -308,7 +322,7 @@ def _subject_to_record(topic: str, queries: list[str], *, index: int) -> dict:
         "series_title": title if len(title) <= 60 else title[:57] + "...",
         "topic": topic,
         "nominal_phrase": topic,
-        "question_phrase": f"pourquoi {core}",
+        "question_phrase": f"why {core_en}",
         "angle": angle,
         "thumbnail_text": thumbnail_text,
         "demand_note": notes,
@@ -369,8 +383,10 @@ def refresh_demand_queue() -> bool:
             continue
         api_calls += used or 1
         if queries:
-            records.append(_subject_to_record(subj, queries,
-                                              index=len(records) + 1))
+            _rec = _subject_to_record(subj, queries,
+                                      index=len(records) + 1)
+            if _rec and _rec.get("angle"):
+                records.append(_rec)
         time.sleep(MIN_CALL_SPACING)
 
     if not records:
