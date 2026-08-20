@@ -181,6 +181,11 @@ jobs:
           # (true image-to-video: the rendered image is frame 1). Free Pollen
           # starter credits from https://enter.pollinations.ai/keys.
           POLLINATIONS_KEY: ${{ secrets.POLLINATIONS_KEY }}
+          # 2026-08-21: stock B-roll quality floor. Clips below this width are
+          # rejected (they blur on the 1080x1920 canvas); landscape files are
+          # also rejected so the 9:16 crop keeps the full width.
+          MIN_STOCK_CLIP_WIDTH: "720"
+          MIN_IMAGE_STRICT: "true"
           META_CUT_ENABLED: "true"
           # Force a shorter Facebook/Instagram cut to lift completion. Measured
           # Meta completion was 19-24% vs a 70%+ gate on a ~23s cut (avg watch

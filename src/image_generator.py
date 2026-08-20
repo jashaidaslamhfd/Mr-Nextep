@@ -501,13 +501,23 @@ def _stock_video_request(
 
         for hit in response.json().get("hits", []):
             variants = hit.get("videos", {})
-            chosen = (
-                variants.get("large")
-                or variants.get("medium")
-                or variants.get("small")
-            )
-
-            if chosen and chosen.get("url"):
+            # 2026-08-21: the Pixabay video endpoint has NO orientation
+            # filter (API limitation), so every variant must be checked
+            # individually: portrait shape + resolution floor only.
+            # small=640x360 variants blur when stretched to 1080x1920,
+            # so large/medium are preferred.
+            chosen = None
+            for variant_key in ("large", "medium", "small"):
+                var = variants.get(variant_key)
+                if not var or not var.get("url"):
+                    continue
+                if (
+                    var.get("width", 0) < var.get("height", 0)
+                    and var.get("width", 0) >= min_clip_w
+                ):
+                    chosen = var
+                    break
+            if chosen:
                 urls.append(chosen["url"])
 
     else:
@@ -517,7 +527,7 @@ def _stock_video_request(
 
     if not urls:
         raise RuntimeError(
-            f"{source}: no usable B-roll video for '{query}'"
+            f"{source}: no portrait B-roll clip >= {min_clip_w}px wide for '{query}'"
         )
 
     with _fallback_lock:
@@ -642,7 +652,33 @@ def _generate_one(
 ):
     scene_text = _scene_text(scene)
 
+    # 2026-08-21 ORDER FLIP (owner request: "Pexels/Pixabay se video bnao,
+    # professional clips primary; AI generator fallback" - parity with
+    # Neuro-Somaa repo). Real filmed B-roll has genuine camera motion and
+    # physics that no AI render fully matches, so it reads as HUMAN-made to
+    # US Shorts viewers. AI image generation (unique per scene + Seedance
+    # motion clips when POLLINATIONS_KEY is set) stays as the robust
+    # fallback when stock searches come up empty, followed by the
+    # never-fail local/procedural floors.
     layers = [
+        # --- PRIMARY: professional stock clips (real footage) ---
+        (
+            "Pexels-video-first",
+            lambda: _layer_pexels_video(
+                index,
+                scene_text,
+                used_fallbacks,
+            ),
+        ),
+        (
+            "Pixabay-video-second",
+            lambda: _layer_pixabay_video(
+                index,
+                scene_text,
+                used_fallbacks,
+            ),
+        ),
+        # --- FALLBACK: AI image generation (unique per scene) ---
         (
             "Other-AI-image",
             lambda: _layer_ai_providers(
@@ -669,29 +705,7 @@ def _generate_one(
                 topic_seed=topic_seed,
             ),
         ),
-        (
-            "Pexels-video-first",
-            lambda: _layer_pexels_video(
-                index,
-                scene_text,
-                used_fallbacks,
-            ),
-        ),
-        (
-            "Pixabay-video-second",
-            lambda: _layer_pixabay_video(
-                index,
-                scene_text,
-                used_fallbacks,
-            ),
-        ),
-        (
-            "Local-fallback-pool",
-            lambda: _layer_local_pool(
-                index,
-                used_fallbacks,
-            ),
-        ),
+        # REAL stock photos (photographic, no motion) - below clips+AI-art.
         (
             "Pexels-image",
             lambda: _layer2_pexels_live(
@@ -705,6 +719,13 @@ def _generate_one(
             lambda: _layer3_pixabay_live(
                 index,
                 scene_text,
+                used_fallbacks,
+            ),
+        ),
+        (
+            "Local-fallback-pool",
+            lambda: _layer_local_pool(
+                index,
                 used_fallbacks,
             ),
         ),
