@@ -347,7 +347,8 @@ def _caption_clip(text: str, duration: float, is_important: bool = False, color_
     return txt.set_position(('center', CAPTION_Y_FRACTION), relative=True)
 
 
-def _word_by_word_clips(text: str, total_duration: float, color_theme: Dict = None):
+def _word_by_word_clips(text: str, total_duration: float, color_theme: Dict = None,
+                        scene_index: int = 0):
     """Show short, punchy 1-2 word phrases instead of dense multi-word blocks.
 
     Timing is punctuation/word-length weighted. This is still lightweight and
@@ -756,7 +757,8 @@ def build_video(image_paths, audio_segments, scenes, output_path="output/final_v
             ).set_duration(duration)
 
         # ✅ Priority: Word-by-word captions with highlighting
-        word_clips = _word_by_word_clips(caption_text, duration, color_theme)
+        word_clips = _word_by_word_clips(caption_text, duration, color_theme,
+                                         scene_index=i)
 
         # ✅ Priority: First-frame hook TEXT overlay (pattern interrupt).
         # Viral channels overlay a bold keyword line in frame one that mirrors
