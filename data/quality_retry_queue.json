@@ -1,14 +1,14 @@
 [
   {
-    "topic": "",
-    "attempts": 4,
-    "reason": "best candidate rejected: quality, hook=75/80",
-    "failed_at": "2026-08-20T17:08:18.941876+00:00"
-  },
-  {
     "topic": "why your knees crack",
     "attempts": 4,
     "reason": "best candidate rejected: quality",
     "failed_at": "2026-08-20T20:57:37.937865+00:00"
+  },
+  {
+    "topic": "",
+    "attempts": 4,
+    "reason": "best candidate rejected: quality",
+    "failed_at": "2026-08-20T21:19:24.457818+00:00"
   }
 ]
