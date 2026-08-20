@@ -2,7 +2,7 @@
   {
     "topic": "",
     "attempts": 4,
-    "reason": "best candidate rejected: quality",
-    "failed_at": "2026-08-20T02:55:40.725277+00:00"
+    "reason": "best candidate rejected: quality, hook=75/80",
+    "failed_at": "2026-08-20T17:08:18.941876+00:00"
   }
 ]
