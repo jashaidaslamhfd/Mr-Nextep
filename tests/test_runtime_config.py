@@ -733,3 +733,50 @@ class FacebookTitleVerificationTests(unittest.TestCase):
         # the old shape trusted the absence of an error key
         self.assertNotIn('note("reel titles", "ok" if "error" not in res',
                          self.source)
+
+
+# ---------------------------------------------------------------------------
+# 2026-08-21 US viewer-experience regression tests
+# ---------------------------------------------------------------------------
+
+class TestSceneCutSFX(unittest.TestCase):
+    """Scene-cut pop SFX must exist, be short, quiet, and toggleable."""
+
+    def test_sfx_defaults_enabled_and_soft(self):
+        src = (ROOT / "src" / "video_editor.py").read_text()
+        self.assertIn('SCENE_CUT_SFX", "true"', src)
+        self.assertIn('SCENE_CUT_SFX_VOLUME", "0.08"', src)
+        self.assertIn("SFX_MAX_FREQ = 440.0", src)
+        # SFX at 8% must stay under ducked music (18%) and far under voice
+        self.assertLess(0.08, 0.18)
+
+    def test_sfx_mixed_at_scene_boundaries(self):
+        src = (ROOT / "src" / "video_editor.py").read_text()
+        self.assertIn("_make_pop_sfx().set_start(_t)", src)
+        self.assertIn("voice_audio.duration - 0.1", src)
+
+    def test_sfx_toggle_via_env(self):
+        src = (ROOT / "src" / "video_editor.py").read_text()
+        self.assertIn("if SFX_ENABLED:", src)
+
+
+class TestViralBGMTier(unittest.TestCase):
+    """Unique AI-generated BGM tier must exist with a hard fallback."""
+
+    def test_music_generator_exists_with_us_prompt(self):
+        gen = (ROOT / "src" / "music_generator.py").read_text()
+        self.assertIn("generate_sad_music", gen)
+        self.assertIn("pick_track", gen)
+        self.assertIn("MR_VIRAL_BGM", gen)
+        self.assertIn("instrumental only, no vocals", gen)
+
+    def test_video_editor_wires_viral_tier_first(self):
+        src = (ROOT / "src" / "video_editor.py").read_text()
+        self.assertIn("from music_generator import pick_track", src)
+        self.assertIn("Using AI-generated viral BGM", src)
+        self.assertIn("using legacy tiers", src)
+
+    def test_workflow_env_has_keys(self):
+        wf = (ROOT / ".github" / "workflows" / "main.yml").read_text()
+        self.assertIn("MODELSLAB_API_KEY: ${{ secrets.MODELSLAB_API_KEY }}", wf)
+        self.assertIn('MR_VIRAL_BGM: "true"', wf)

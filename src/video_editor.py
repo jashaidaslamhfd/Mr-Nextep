@@ -77,6 +77,32 @@ MUSIC_VOLUME = float(os.environ.get("MUSIC_VOLUME", "0.18"))
 MUSIC_SAMPLE_RATE = 24000
 MUSIC_DIR = "assets/music"
 
+# 2026-08-21 US viewer-experience fix: subtle pop SFX at every scene cut
+# (the docstring always promised 'Pop SFX on scene cuts' but nothing was
+# actually implemented). A short soft blip at each scene boundary is a
+# standard US Shorts retention cue - it punctuates cuts like a human
+# editor and keeps a scrolling viewer's attention without ever competing
+# with the narration (mixed at 8% of full scale, 80 ms, fading edges).
+SFX_ENABLED = os.environ.get("SCENE_CUT_SFX", "true").strip().lower() in (
+    "true", "1", "yes", "on",
+)
+SFX_VOLUME = float(os.environ.get("SCENE_CUT_SFX_VOLUME", "0.08"))
+SFX_MAX_FREQ = 440.0   # upper edge of the blip sweep - pleasant, not sharp
+
+
+def _make_pop_sfx(sr: int = MUSIC_SAMPLE_RATE, freq: float = SFX_MAX_FREQ,
+                  dur: float = 0.08, volume: float = SFX_VOLUME) -> AudioClip:
+    """One broadcast-safe pop blip (sine sweep + quick decay)."""
+    n = max(int(sr * dur), 1)
+    t = np.linspace(0, dur, n, endpoint=False)
+    sweep = freq * (1.0 - (t / dur) ** 2)          # 440 Hz down to ~0
+    wave = np.sin(2.0 * np.pi * np.cumsum(sweep) / sr)
+    env = np.exp(-6.0 * t / max(dur, 1e-9))        # fast natural decay
+    samples = (wave * env * volume).astype(np.float32)
+    clip = AudioClip(lambda tt: np.interp(tt, t, samples),
+                     duration=dur, fps=sr)
+    return clip.set_duration(dur)
+
 # CAPTION STYLING
 CAPTION_FONT_PATH = os.environ.get("CAPTION_FONT_PATH", "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf")
 CAPTION_FONT_SIZE = 72
@@ -105,10 +131,14 @@ def _get_caption_font(font_size: int):
     return ImageFont.load_default()
 
 # ✅ NEW: Priority improvements (safe additions)
-IMPORTANT_WORDS = ['dangerous', 'secret', 'never', 'shocking', 'impossible', 
+# 2026-08-21: extended with US power words that hold viewers (banned,
+# illegal, free, money, dark) - kept lowercase-ASCII-matched in _is_important_word.
+IMPORTANT_WORDS = ['dangerous', 'secret', 'never', 'shocking', 'impossible',
                    'truth', 'hidden', 'actually', 'why', 'what', 'how',
                    'when', 'always', 'every', 'mind', 'brain', 'heart',
-                   'real', 'finally', 'explained', 'proven']
+                   'real', 'finally', 'explained', 'proven', 'banned',
+                   'illegal', 'free', 'money', 'dark', 'scary', 'insane',
+                   'bizarre', 'unknown', 'mystery', 'warning', 'shock']
 
 # Color themes
 COLOR_THEMES = [
@@ -551,6 +581,24 @@ def _get_music_track(duration: float, output_dir: str) -> str:
     2. Environment-configured track
     3. Random licensed track from assets/music
     """
+    # 2026-08-21 US viewer-experience fix: unique AI-generated viral dark-
+    # mystery BGM per video (matches the script topic, no stock repetition,
+    # no Content ID). Full failure is swallowed - a music drop must never
+    # stop a video, so any exception simply falls through to legacy tiers.
+    if os.environ.get("MR_VIRAL_BGM", "true").strip().lower() in (
+        "true", "1", "yes", "on",
+    ):
+        try:
+            from music_generator import pick_track
+            gen = pick_track(
+                theme=os.environ.get("VIDEO_TOPIC", "").strip(),
+                target_duration=duration,
+            )
+            if gen:
+                logger.info("Using AI-generated viral BGM: %s", gen)
+                return gen
+        except Exception as exc:  # noqa: BLE001 - never block on music
+            logger.warning("Viral BGM tier failed (%s) - using legacy tiers", exc)
     configured_track = os.environ.get("MUSIC_TRACK", "").strip()
     supported_extensions = (".wav", ".mp3", ".m4a", ".ogg", ".aac", ".flac")
 
@@ -837,8 +885,23 @@ def build_video(image_paths, audio_segments, scenes, output_path="output/final_v
 
     ducked_music = music_clip.fl(_apply_ducking)
 
+    # 2026-08-21: subtle pop at every scene boundary (except the very start)
+    # - never on top of the narration's first word of a new scene because the
+    # blip is mixed under the voice at -22 dB below ducked music; it reads as
+    # an editorial beat, not a glitch.
+    sfx_clips = []
+    if SFX_ENABLED:
+        try:
+            _t = 0.0
+            for seg in audio_segments:
+                _t += max(seg.get("duration", 0.0), 0.6)
+                if 0.0 < _t < voice_audio.duration - 0.1:
+                    sfx_clips.append(_make_pop_sfx().set_start(_t))
+        except Exception as exc:  # noqa: BLE001 - SFX never blocks a run
+            logger.warning("Scene-cut SFX skipped (%s)", exc)
+
     logger.info("Mixing voice + ducked background music...")
-    final_audio = CompositeAudioClip([ducked_music, voice_audio])
+    final_audio = CompositeAudioClip([ducked_music, voice_audio] + sfx_clips)
     final_video = final_video.set_audio(final_audio)
 
     # ---- Strict Shorts duration gate ----

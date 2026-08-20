@@ -197,6 +197,12 @@ jobs:
           SPOKEN_CTA_MODE: "loop"
           REQUIRE_CLONED_VOICE: "false"
           MUSIC_VOLUME: "0.18"
+          MODELSLAB_API_KEY: ${{ secrets.MODELSLAB_API_KEY }}
+          # 2026-08-21: unique AI-generated viral dark-mystery BGM per video
+          # (music_generator.py via ModelsLab). Same fix that lifted Neuro-Somaa's
+          # flat music. Falls back to synth/asset tracks on any failure — never
+          # blocks a run. Disable with MR_VIRAL_BGM=false.
+          MR_VIRAL_BGM: "true"
           VIDEO_TOPIC: ${{ inputs.topic || '' }}
           # 2026-08-15: 8B hooks were the quality ceiling. 70B+ class writes
           # noticeably stronger hooks/titles (2026 feeds rank hook quality
