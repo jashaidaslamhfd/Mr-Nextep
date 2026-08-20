@@ -38,8 +38,13 @@ CANVAS_W, CANVAS_H = 1080, 1920
 # 10 ms prevents clicks without creating audible gaps between separately
 # generated cloned-voice scenes.
 AUDIO_EDGE_FADE = 0.01
-ZOOM_AMOUNT = 0.18
-PAN_PX = 50
+# 2026-08-20 PROFESSIONAL MOTION (owner: "pics zoom unprofessionally"):
+# Old 0.18 base + 0.18 hook extra = 36% zooms that read huge and jerky on
+# phone screens. New range is deliberate and hard-capped like a real editor:
+# gentle base, S-curve easing so motion starts/ends softly, subtle pan.
+ZOOM_AMOUNT = 0.06
+ZOOM_MAX = 0.12          # absolute ceiling on any single motion beat
+PAN_PX = 25
 # Render targets follow the platform policy rather than a local constant, so
 # changing the strategy in one file updates the writer, the renderer and the
 # validator together. Env vars still win for one-off experiments.
@@ -142,28 +147,37 @@ def _cover_fit(img_path: str, out_path: str, size=(CANVAS_W, CANVAS_H)):
     return out_path
 
 
+def _ease_in_out(frac: float) -> float:
+    """Smooth S-curve so the motion starts and ends gently — the #1 cue
+    separating 'professional cinematic' from 'amateur flat zoom'."""
+    f = max(0.0, min(1.0, frac))
+    return f * f * (3 - 2 * f)
+
+
 def _ken_burns_clip(img_path: str, duration: float, direction: str, zoom_extra: float = 0.0,
                   hook_snap: bool = False) -> CompositeVideoClip:
-    """
-    Centered zoom (in or out) + horizontal pan.
-    Uses 1.25x overscan base image size to prevent black border leakage on edges.
-    """
+    """Professional Ken Burns beat: HARD-CAPPED eased zoom + gentle pan.
+    1.25x overscan base image prevents black border leakage on edges.
+    Hook snap (scene 1): punch-in finishes inside the first ~2.4s so the
+    retention-critical first 3 seconds read as a live camera move."""
     overscan_w, overscan_h = int(CANVAS_W * 1.25), int(CANVAS_H * 1.25)
     prepped = img_path.replace(".png", "_fit.png").replace(".jpg", "_fit.jpg")
     _cover_fit(img_path, prepped, size=(overscan_w, overscan_h))
 
-    zoom_amount = ZOOM_AMOUNT + zoom_extra
+    # Cap every beat — big jerky zooms are now structurally impossible
+    # even when extras stack (hook scene: 0.06 base + 0.12 extra capped).
+    zoom_amount = min(ZOOM_MAX, ZOOM_AMOUNT + zoom_extra)
     zoom_start, zoom_end = (1.0, 1.0 + zoom_amount) if direction == "in" else (1.0 + zoom_amount, 1.0)
     pan_dir = 1 if direction == "in" else -1
 
     base_clip = ImageClip(prepped).set_duration(duration)
 
     def scale_fn(t):
-        frac = min(t / duration, 1.0) if duration > 0 else 0
+        frac = _ease_in_out(min(t / duration, 1.0)) if duration > 0 else 0
         return zoom_start + (zoom_end - zoom_start) * frac
 
     def pos_fn(t):
-        frac = min(t / duration, 1.0) if duration > 0 else 0
+        frac = _ease_in_out(min(t / duration, 1.0)) if duration > 0 else 0
         s = scale_fn(t)
         w, h = overscan_w * s, overscan_h * s
         dx = pan_dir * PAN_PX * (frac - 0.5) * 2
@@ -655,20 +669,14 @@ def build_video(image_paths, audio_segments, scenes, output_path="output/final_v
         # ✅ Priority: Check if caption has important words
         caption_text = scenes[i].get('caption', seg.get('caption', ''))
         has_important = any(_is_important_word(w) for w in caption_text.split())
-        
         # ✅ Priority: Dynamic zoom for important words
-        zoom_extra = 0.08 if has_important else 0.0
-        
-        # ✅ Priority: First scene special (stronger hook zoom)
-        # FIXED 2026-07-31: Channel avg watch 10-14s, hook decides in first 2-3s.
-        # Old 0.12 zoom was subtle. New 0.18 + stronger pan = pattern interrupt
-        # that stops thumb in feed. Visual duration must match audio duration.
+        zoom_extra = 0.06 if has_important else 0.0
+        # ✅ Priority: First scene special (controlled hook punch)
+        # FIXED 2026-08-20: 0.18+0.18 = 36% zooms looked huge/jerky on phones.
+        # The hook now uses a CAPPED 0.12 beat that lands inside the first
+        # ~2.4s — pattern interrupt that stops the thumb, but professional.
         if i == 0:
-            # FIXED 2026-08-15 (viral gap 5): completion 47% vs 50% gate — the
-            # punch must land INSIDE the first 3 s, not bleed across the whole
-            # scene. First beat shortened to 40% and gets the full kick-in
-            # zoom so the eye-catch finishes before second 3.
-            zoom_extra += 0.18
+            zoom_extra += 0.12
             first_beat_frac = 0.40
         else:
             first_beat_frac = 0.50
