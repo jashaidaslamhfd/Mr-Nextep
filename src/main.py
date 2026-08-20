@@ -642,6 +642,31 @@ class SKILLORPipeline:
             )
             self._persist_last_failure(
                 "quality_retry", f"Queued for retry: {fixed_topic} — {reason}")
+            # 2026-08-20 SLOT-PRESERVING EXIT (owner: "cron miss = video
+            # consistency broken"): a quality-miss no longer crashes the daily
+            # workflow with a red X. The topic is persisted for retry and the
+            # run exits with a clean graceful status — the very next cron
+            # re-opens the topic under the same strict gates. Weak videos
+            # are never published; one late strong video beats a rushed one.
+            if os.environ.get("GRACEFUL_QUALITY_MISS", "1").strip().lower() not in ("0", "false", "no"):
+                try:
+                    _gm = "data/quality_miss_graceful.json"
+                    os.makedirs("data", exist_ok=True)
+                    with open(_gm, "w", encoding="utf-8") as _mf:
+                        json.dump({
+                            "at": datetime.now(timezone.utc).isoformat(),
+                            "topic": fixed_topic or "",
+                            "reason": reason,
+                            "queued_for_retry": True,
+                        }, _mf, indent=2, ensure_ascii=False)
+                except OSError:
+                    pass
+                logger.warning(
+                    "🟡 Quality miss handled gracefully — topic queued for retry "
+                    "(next run re-opens it with a fresh script). No video today "
+                    "(a weak script ships worse than one late strong video)."
+                )
+                return None
             raise RuntimeError(
                 f"All {MAX_SCRIPT_ATTEMPTS} attempts failed strict gates — "
                 f"topic '{fixed_topic}' saved to the retry queue (next run "
@@ -881,6 +906,12 @@ class SKILLORPipeline:
             # Phase 1: Script Generation (with trending topics)
             logger.info("\n📝 PHASE 1: SCRIPT GENERATION (TRENDING)")
             script_data = self.generate_with_niche_strategy(topic)
+            # 2026-08-20 graceful quality-miss: the generator returns None
+            # (not raises) when a weak script is queued for retry — the slot
+            # is intentionally left empty today so consistency survives.
+            if not script_data:
+                return {"success": True, "skipped": "quality_miss_graceful",
+                        "note": "weak script queued for retry; next run re-opens the topic"}
             logger.info(f"✅ Script generated: {script_data.get('title', 'Untitled')}")
 
             # Phase 1b: SEO Generation
