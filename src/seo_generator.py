@@ -513,6 +513,17 @@ def generate_seo_package(topic: str, script_data: Dict) -> Dict:
     category = get_topic_category(topic)
     tags = generate_upload_tags(topic, category)
     title_options = generate_title_options(topic, script_data)
+    # 2026-08-21 CTR booster: LLM-generated viral title angles (novelty)
+    # layered on top of the rule-based frames. Full failure is swallowed -
+    # the rule-based list still ships every candidate needed.
+    try:
+        from ctr_titles import get_ctr_title_options
+        ctr_options = get_ctr_title_options(topic, script_data.get("title") or topic)
+        # De-dup against rule-based candidates while keeping ctr options first.
+        base_keys = {o.lower() for o in title_options}
+        title_options = [o for o in ctr_options if o.lower() not in base_keys] + title_options
+    except Exception as exc:  # noqa: BLE001 - advisory layer
+        logger.warning("CTR title layer skipped (%s)", exc)
     # Score every candidate and pick the best-scoring one instead of
     # always taking title_options[0] - the score was previously computed
     # only for logging and never actually influenced which title got

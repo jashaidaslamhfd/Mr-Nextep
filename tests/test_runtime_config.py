@@ -228,6 +228,67 @@ class FacebookSafetyTests(unittest.TestCase):
         self.assertIn("follow", lowered)
 
 
+
+
+class CtrTitlesTests(unittest.TestCase):
+    """2026-08-21: CTR booster regression tests (src/ctr_titles.py)."""
+
+    def _mods(self):
+        import ctr_titles as ct
+        return ct
+
+    def test_rule_pattern_grammar(self):
+        ct = self._mods()
+        pats = ct._rule_patterns("why your knees crack")
+        self.assertTrue(any("Knees Cracking" in p for p in pats), pats)
+        for p in pats:
+            self.assertNotIn(" Is Is ", p)
+
+    def test_rule_pattern_empty_topic(self):
+        ct = self._mods()
+        self.assertEqual(ct._rule_patterns(""), [])
+
+    def test_ctr_titles_respects_toggle_off(self):
+        ct = self._mods()
+        old = os.environ.get("CTR_TITLES")
+        try:
+            os.environ["CTR_TITLES"] = "false"
+            self.assertEqual(ct.get_ctr_title_options("why your knees crack", "t"), [])
+        finally:
+            if old is None:
+                os.environ.pop("CTR_TITLES", None)
+            else:
+                os.environ["CTR_TITLES"] = old
+
+    def test_ctr_titles_rule_patterns_under_length(self):
+        import re as _re
+        ct = self._mods()
+        emoji_re = _re.compile(r"[\U0001F300-\U0001FAFF\u2600-\u27BF\uFE0F]+")
+        for topic in ("why your knees crack", "why the heart beats faster at night"):
+            for opt in ct.get_ctr_title_options(topic, topic.title()):
+                self.assertLessEqual(len(opt), 55)
+                self.assertTrue(opt[0].isupper() or opt[0].isdigit())
+                self.assertIsNone(emoji_re.search(opt), opt)
+
+    def test_ctr_titles_llm_failure_degrades_gracefully(self):
+        from unittest.mock import patch
+        ct = self._mods()
+        with patch.object(ct, "_llm_patterns", side_effect=RuntimeError("down")):
+            opts = ct.get_ctr_title_options("why your knees crack", "t")
+        self.assertGreater(len(opts), 0)
+
+    def test_seo_package_includes_ctr_options(self):
+        from unittest.mock import patch
+        import seo_generator as sg
+        import ctr_titles as ct
+        script = {"title": "Why Your Knees Crack", "hook": "h", "summary": "s",
+                  "scenes": [{"caption": "c1"}]}
+        with patch.object(ct, "_llm_patterns",
+                          return_value=["This Is Why Your Knees Cracking"]):
+            pkg = sg.generate_seo_package("why your knees crack", script)
+        titles = pkg["title_options"]
+        self.assertGreater(len(titles), 0)
+        self.assertEqual(titles[0], "This Is Why Your Knees Cracking")
 if __name__ == "__main__":
     unittest.main()
 
