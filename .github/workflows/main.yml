@@ -7,6 +7,11 @@ on:
         description: "Optional video topic (empty = next Body Glitch episode)"
         required: false
         type: string
+      dry_run:
+        description: "Dry run: generate the video but skip all uploads"
+        required: false
+        type: boolean
+        default: false
   schedule:
     # 3 videos/day for a US audience, auto-published at New York peaks:
     # 12:30 / 18:30 / 21:30 America/New_York (midday scroll + the two evening
@@ -204,6 +209,10 @@ jobs:
           # blocks a run. Disable with MR_VIRAL_BGM=false.
           MR_VIRAL_BGM: "true"
           VIDEO_TOPIC: ${{ inputs.topic || '' }}
+          # Manual dry-run support: generate the full video but never publish.
+          # On a dry run the uploader skips YouTube/Facebook/Instagram and the
+          # final MP4 stays in the runner workspace for inspection.
+          DRY_RUN: ${{ inputs.dry_run == true && 'true' || 'false' }}
           # 2026-08-15: 8B hooks were the quality ceiling. 70B+ class writes
           # noticeably stronger hooks/titles (2026 feeds rank hook quality
           # hard). Groq's GPT-OSS 120B is the strongest free-tier model and
