@@ -181,6 +181,24 @@ class LLMFallbackTests(unittest.TestCase):
         self.assertIn("openai/gpt-oss-20b", chain)
         self.assertNotIn("llama-3.1-70b-versatile", chain)
 
+    def test_provider_bait_is_sanitized_before_us_gate(self):
+        import main
+
+        script = {
+            "hook": "Why does your brain do this?",
+            "description": "A simple explanation. Share this with a friend!",
+            "evidence_summary": "A social response can be learned.",
+            "cta": "Comment below if this happened to you.",
+            "scenes": [
+                {"caption": "Why does your brain do this?", "visual": "Brain close-up"},
+                {"caption": "The response is automatic. Comment below.", "visual": "Hands exchanging a gift"},
+            ],
+        }
+        cleaned = main._sanitize_generated_content(script)
+        self.assertNotIn("Share this", cleaned["description"])
+        self.assertNotIn("Comment below", cleaned["voiceover"])
+        self.assertEqual(cleaned["hook"], cleaned["scenes"][0]["caption"])
+
     def test_gemini_fallback_discovers_live_model_and_requests_json(self):
         import os
         import script_generator

@@ -51,6 +51,7 @@ try:
         MIN_HOOK_SCORE as _POLICY_MIN_HOOK_SCORE,
         contains_bait, duration_policy, env_float, env_int,
         hook_enforcement_seconds, retention_gate, shared_hook_seconds,
+        strip_bait,
     )
     from platform_cuts import apply_cut, cut_summary, fits_platform, select_meta_cut
     from us_content_gate import evaluate as evaluate_us_content
@@ -78,6 +79,40 @@ MAX_HOOK_SECONDS = env_float("MAX_HOOK_SECONDS", 0.0) or None
 # Tracked repository state is durable across Actions runs; generated media
 # remains in output/ and is intentionally not committed.
 VIDEO_HISTORY_PATH = os.environ.get("VIDEO_HISTORY_PATH", "data/video_history.json")
+
+
+def _sanitize_generated_content(script_data: dict) -> dict:
+    """Remove provider-inserted engagement bait before quality and US gates.
+
+    This is a narrow hygiene pass, not an approval bypass: non-empty cleaned
+    text is retained, empty required fields are left untouched so the normal
+    validators still reject them, and the US content gate runs immediately
+    afterward. The pass also keeps voiceover and hook synchronized with the
+    narration actually rendered.
+    """
+    for field in ("title", "hook", "description", "evidence_summary", "cta"):
+        value = script_data.get(field)
+        if isinstance(value, str):
+            cleaned = strip_bait(value)
+            if cleaned:
+                script_data[field] = cleaned
+    scenes = script_data.get("scenes") or []
+    for scene in scenes:
+        if not isinstance(scene, dict):
+            continue
+        caption = scene.get("caption")
+        if isinstance(caption, str):
+            cleaned = strip_bait(caption)
+            if cleaned:
+                scene["caption"] = cleaned
+    if scenes and isinstance(scenes[0], dict) and scenes[0].get("caption"):
+        script_data["hook"] = scenes[0]["caption"]
+        script_data["voiceover"] = " ".join(
+            str(scene.get("caption", "")).strip()
+            for scene in scenes
+            if isinstance(scene, dict) and scene.get("caption")
+        )
+    return script_data
 # Cross-video image/clip hash ledger. Without this, image_generator.py only
 # dedupes scenes WITHIN a single video (used_hashes/used_fallbacks are fresh
 # sets per run) — the exact same fallback image or stock clip could then
@@ -428,6 +463,11 @@ class SKILLORPipeline:
             if not script_data:
                 raise ValueError("Script generation returned empty data")
 
+            # Providers occasionally add a share/comment CTA despite the prompt.
+            # Remove only those bait sentences before quality scoring; the
+            # fail-closed US gate still evaluates the resulting script.
+            script_data = _sanitize_generated_content(script_data)
+
             # Medical accuracy check
             med_check = validate_script_for_medical_accuracy(script_data)
             if not med_check.get('valid', False):
@@ -467,14 +507,18 @@ class SKILLORPipeline:
                 'review_required': True,
             }
 
-            # The LLM prompt is not a fact-checker. If it omitted sources,
-            # enrich the draft from PubMed rather than accepting a fabricated
-            # citation. Human review still verifies that the source supports
-            # the exact wording before any US-platform upload.
-            if (
-                not script_data.get('sources')
-                and os.environ.get('AUTO_SOURCE_RESEARCH', 'true').lower() in {'1', 'true', 'yes'}
-            ):
+            # The LLM prompt is not a fact-checker. If it omitted sources, or
+            # supplied a dead commercial URL, enrich the draft from PubMed rather
+            # than accepting a fabricated/unreachable citation. Human review
+            # still verifies that the source supports the exact wording before
+            # any US-platform upload.
+            source_research_enabled = os.environ.get(
+                'AUTO_SOURCE_RESEARCH', 'true'
+            ).lower() in {'1', 'true', 'yes'}
+            verify_sources_enabled = os.environ.get(
+                'VERIFY_CONTENT_SOURCES', 'true'
+            ).lower() in {'1', 'true', 'yes'}
+            if not script_data.get('sources') and source_research_enabled:
                 discovered_sources = discover_pubmed_sources(topic, max_results=3)
                 if discovered_sources:
                     script_data['sources'] = discovered_sources
@@ -483,11 +527,27 @@ class SKILLORPipeline:
                 else:
                     logger.warning("No PubMed source found for topic %s; keeping draft blocked", topic)
 
-            if (
-                script_data.get('sources')
-                and os.environ.get('VERIFY_CONTENT_SOURCES', 'true').lower() in {'1', 'true', 'yes'}
-            ):
+            if script_data.get('sources') and verify_sources_enabled:
                 verification = verify_source_urls(script_data['sources'])
+                if any(not item.get('ok') for item in verification) and source_research_enabled:
+                    # A model-supplied source can be valid-looking but dead. Do
+                    # not disable the gate; replace it with reachable PubMed
+                    # records and re-verify. If research fails, retain the bad
+                    # verification so the gate blocks the item visibly.
+                    replacement = discover_pubmed_sources(topic, max_results=3)
+                    replacement_verification = verify_source_urls(replacement)
+                    verified_replacement = [
+                        source for source, item in zip(replacement, replacement_verification)
+                        if item.get('ok')
+                    ]
+                    if verified_replacement:
+                        script_data['sources'] = verified_replacement
+                        script_data['source_discovery'] = 'pubmed_after_unreachable_source'
+                        verification = verify_source_urls(verified_replacement)
+                        logger.info(
+                            "Replaced unreachable provider citation(s) with %d verified PubMed source(s)",
+                            len(verified_replacement),
+                        )
                 script_data['source_verification'] = verification
                 if any(not item.get('ok') for item in verification):
                     logger.warning("One or more evidence URLs could not be reached; keeping the item draft-only")
