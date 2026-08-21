@@ -13,11 +13,13 @@ on:
         type: boolean
         default: false
   schedule:
-    # 3 videos/day for a US audience, auto-published at New York peaks:
-    # 12:30 / 18:30 / 21:30 America/New_York (midday scroll + the two evening
-    # peaks; the late slot publishes at 21:30 NY, inside the 7-10 PM
-    # wind-down peak). Data: SocialPilot 301k videos + Hopper HQ 2026.
-    - cron: "30 16 * * *"
+    # 2 videos/day for a US audience, auto-published at New York peaks:
+    # 18:30 / 21:30 America/New_York (the two evening peaks; the late slot
+    # publishes at 21:30 NY, inside the 7-10 PM wind-down peak).
+    # Crons are in UTC: 18:30 EDT = 22:30 UTC; 21:30 EDT = 01:30 UTC.
+    # (Previously 3/day; reduced 2026-08-21 per owner: 2 quality videos at
+    # peak slots beats 3 spread thin - better retention, same daily reach.)
+    # Data: SocialPilot 301k videos + Hopper HQ 2026.
     - cron: "30 22 * * *"
     - cron: "30 1 * * *"
 
