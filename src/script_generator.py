@@ -1268,16 +1268,54 @@ def _openrouter_generate(messages, temperature=None, max_tokens=None) -> Optiona
 # 2026-08-17: Gemini 2.5 Flash (free tier) as the THIRD LLM fallback — when
 # both the Groq chain and OpenRouter are exhausted (global free-tier outage
 # window), the pipeline still tries Gemini before giving up.
-GEMINI_TEXT_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent"
+GEMINI_API_ROOT = "https://generativelanguage.googleapis.com/v1beta"
 GEMINI_TIMEOUT = 60
+# Gemini retires model IDs on a schedule. Keep a current stable preference, but
+# discover the account's live generateContent models before calling it.
+GEMINI_MODEL = os.environ.get("GEMINI_MODEL") or "gemini-2.5-flash-lite"
+_GEMINI_MODEL_PREFERENCES = (
+    GEMINI_MODEL,
+    "gemini-3.5-flash-lite",
+    "gemini-3.6-flash",
+    "gemini-2.5-flash-lite",
+    "gemini-2.5-flash",
+)
+
+
+def _gemini_model_candidates(_req, key: str) -> List[str]:
+    """Return live Gemini generateContent model IDs in stable preference order."""
+    live = []
+    try:
+        response = _req.get(
+            f"{GEMINI_API_ROOT}/models",
+            params={"key": key, "pageSize": 100},
+            timeout=15,
+        )
+        if response.status_code == 200:
+            for item in response.json().get("models", []) or []:
+                name = str(item.get("name", ""))
+                methods = item.get("supportedGenerationMethods", []) or []
+                if name.startswith("models/"):
+                    name = name.split("/", 1)[1]
+                if name and "generateContent" in methods and "embedding" not in name:
+                    live.append(name)
+    except Exception as exc:  # noqa: BLE001 - discovery must never block fallback
+        logger.warning("Gemini model discovery failed: %s", exc)
+    candidates = []
+    for model in list(_GEMINI_MODEL_PREFERENCES) + live:
+        if model and model not in candidates:
+            if not live or model in live:
+                candidates.append(model)
+    return candidates or list(_GEMINI_MODEL_PREFERENCES)
 
 
 def _gemini_generate(messages, temperature=None, max_tokens=None) -> Optional[str]:
-    """Call Google Gemini 2.5 Flash (free) when Groq + OpenRouter both fail.
+    """Call a live Gemini generateContent model when Groq + OpenRouter fail.
 
-    Returns the raw assistant text or None (never raises). The system prompt
-    and the JSON schema live in messages, so Gemini replies with the same
-    script JSON structure as the Groq path.
+    Gemini 2.0 Flash-Lite was shut down and returned HTTP 404 in production.
+    This fallback discovers current account-accessible models, separates the
+    system instruction from user contents, requests JSON, and tries the next
+    live model on an endpoint/model error. It never raises to the caller.
     """
     key = os.environ.get("GEMINI_API_KEY")
     if not key:
@@ -1285,55 +1323,54 @@ def _gemini_generate(messages, temperature=None, max_tokens=None) -> Optional[st
     try:
         import requests as _req
 
-        parts = []
+        system_text = "\n\n".join(
+            str(m.get("content", "")) for m in messages if m.get("role") == "system"
+        ).strip()
+        contents = []
         for m in messages:
-            parts.append({"role": m["role"], "parts": [{"text": m["content"]}]})
-        payload = {"contents": parts}
+            role = m.get("role")
+            if role == "system":
+                continue
+            contents.append({
+                "role": "model" if role == "assistant" else "user",
+                "parts": [{"text": str(m.get("content", ""))}],
+            })
+        if not contents:
+            return None
+        generation_config = {"responseMimeType": "application/json"}
         if temperature is not None:
-            payload["generationConfig"] = {"temperature": temperature}
-            if max_tokens is not None:
-                payload["generationConfig"]["maxOutputTokens"] = max_tokens
-        resp = _req.post(
-            f"{GEMINI_TEXT_URL}?key={key}",
-            json=payload,
-            timeout=GEMINI_TIMEOUT,
-        )
-        if resp.status_code == 200:
+            generation_config["temperature"] = temperature
+        if max_tokens is not None:
+            generation_config["maxOutputTokens"] = max_tokens
+        payload = {
+            "contents": contents,
+            "generationConfig": generation_config,
+        }
+        if system_text:
+            payload["systemInstruction"] = {"parts": [{"text": system_text}]}
+
+        for model in _gemini_model_candidates(_req, key):
+            url = f"{GEMINI_API_ROOT}/models/{model}:generateContent"
+            try:
+                resp = _req.post(url, params={"key": key}, json=payload, timeout=GEMINI_TIMEOUT)
+            except Exception as exc:  # noqa: BLE001
+                logger.warning("Gemini model %s request failed: %s", model, exc)
+                continue
+            if resp.status_code != 200:
+                logger.warning("Gemini model %s fallback failed: HTTP %s", model, resp.status_code)
+                continue
             text = ""
             try:
                 for cand in resp.json().get("candidates", []) or []:
                     for part in (cand.get("content") or {}).get("parts", []) or []:
-                        t = part.get("text")
-                        if t:
-                            text += t
-            except Exception:  # noqa: BLE001
-                text = ""
+                        text += str(part.get("text") or "")
+            except Exception as exc:  # noqa: BLE001
+                logger.warning("Gemini model %s response parse failed: %s", model, exc)
+                continue
             if "{" in text:
+                logger.info("Gemini fallback generated JSON with %s", model)
                 return text
-            # Plain-text echo: re-ask with an explicit JSON-only instruction
-            parts2 = []
-            for m in messages:
-                parts2.append({"role": m["role"], "parts": [{"text": m["content"]}]})
-            parts2[-1]["parts"][0]["text"] += (
-                "\n\nCRITICAL: Respond with ONLY a raw JSON object "
-                "starting with '{' — no thinking, no markdown, "
-                "no explanation."
-            )
-            r2 = _req.post(
-                f"{GEMINI_TEXT_URL}?key={key}",
-                json={"contents": parts2},
-                timeout=GEMINI_TIMEOUT,
-            )
-            if r2.status_code == 200:
-                for cand in r2.json().get("candidates", []) or []:
-                    for part in (cand.get("content") or {}).get("parts", []) or []:
-                        t = part.get("text")
-                        if t and "{" in t:
-                            logger.warning("Gemini re-ask recovered a JSON reply.")
-                            return t
-            logger.warning("Gemini fallback failed: HTTP %s", resp.status_code)
-            return None
-        logger.warning("Gemini fallback failed: HTTP %s", resp.status_code)
+            logger.warning("Gemini model %s returned no JSON; trying next model", model)
         return None
     except Exception as exc:  # noqa: BLE001 - fallback must never raise
         logger.warning("Gemini fallback error: %s", exc)
