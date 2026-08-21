@@ -221,8 +221,8 @@ jobs:
           # the account's live /models list is probed at runtime so a retired
           # id (e.g. llama-3.1-70b-instruct, 404'd Aug 14) can never stall
           # the whole run again.
-          GROQ_MODEL: "openai/gpt-oss-120b"
-          GROQ_MODEL_FALLBACK: "openai/gpt-oss-20b"
+          GROQ_MODEL: "openai/gpt-oss-20b"
+          GROQ_MODEL_FALLBACK: "llama-3.1-8b-instant"
           # 2026-08-15: competitor hijacking (scraping rivals' comments/topics
           # for copycat content) targets YouTube's inauthentic-engagement
           # policy — a strike/demotion risk, never enabled in production.
