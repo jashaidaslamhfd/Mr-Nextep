@@ -1473,7 +1473,25 @@ def generate_script(
                 )
                 raw_reply = completion.choices[0].message.content
             except Exception as groq_err:  # noqa: BLE001 - fallback on any Groq failure
-                if _advance_model(groq_err):
+                # Some currently live Groq models reject response_format=json_object
+                # even though they can follow the JSON-only prompt. Retry once in
+                # plain completion mode and let _clean_json_response enforce the
+                # contract locally before rotating providers.
+                if "json_validate_failed" in str(groq_err).lower():
+                    try:
+                        logger.warning("Groq structured JSON mode rejected; retrying plain JSON prompt")
+                        compatibility_completion = client.chat.completions.create(
+                            messages=messages,
+                            model=_current_model(),
+                            temperature=TEMPERATURE,
+                            max_tokens=MAX_TOKENS,
+                        )
+                        raw_reply = compatibility_completion.choices[0].message.content
+                    except Exception as compatibility_err:  # noqa: BLE001
+                        logger.warning("Groq plain JSON compatibility retry failed: %s", compatibility_err)
+                if raw_reply:
+                    pass
+                elif _advance_model(groq_err):
                     # 2026-08-16: a chain-advance on the LAST attempt would
                     # silently burn the only untried model (the loop ends and
                     # the newly advanced model never gets a call). On the
