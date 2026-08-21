@@ -103,6 +103,11 @@ def _sanitize_generated_content(script_data: dict) -> dict:
             cleaned = re.sub(r"\s{2,}", " ", cleaned).strip()
             if cleaned:
                 script_data[field] = cleaned
+            elif field == "cta":
+                # A bait-only CTA must never fall back to the unsafe original.
+                script_data[field] = "Follow for more body science."
+            else:
+                script_data[field] = ""
     scenes = script_data.get("scenes") or []
     for scene in scenes:
         if not isinstance(scene, dict):
@@ -113,8 +118,7 @@ def _sanitize_generated_content(script_data: dict) -> dict:
             for pattern in BAIT_PATTERNS:
                 cleaned = re.sub(pattern, "", cleaned, flags=re.IGNORECASE)
             cleaned = re.sub(r"\s{2,}", " ", cleaned).strip()
-            if cleaned:
-                scene["caption"] = cleaned
+            scene["caption"] = cleaned
     if scenes and isinstance(scenes[0], dict) and scenes[0].get("caption"):
         script_data["hook"] = scenes[0]["caption"]
         script_data["voiceover"] = " ".join(
@@ -568,22 +572,11 @@ class SKILLORPipeline:
             # first provider pass, so run the same narrow scrub immediately
             # before the fail-closed gate as well.
             script_data = _sanitize_generated_content(script_data)
-            _residual_subscribe_fields = []
-            for _field in ("title", "hook", "voiceover", "description", "cta", "evidence_summary"):
-                if "subscribe" in str(script_data.get(_field, "")).lower():
-                    _residual_subscribe_fields.append(
-                        f"{_field}={str(script_data.get(_field, ''))[:240]!r}"
-                    )
-            for _idx, _scene in enumerate(script_data.get("scenes") or [], 1):
-                if "subscribe" in str((_scene or {}).get("caption", "")).lower():
-                    _residual_subscribe_fields.append(
-                        f"scene_{_idx}={str((_scene or {}).get('caption', ''))[:240]!r}"
-                    )
-            if _residual_subscribe_fields:
-                logger.warning(
-                    "Residual subscribe before US gate: %s",
-                    " | ".join(_residual_subscribe_fields),
-                )
+            if any(
+                not isinstance(scene, dict) or not str(scene.get("caption", "")).strip()
+                for scene in (script_data.get("scenes") or [])
+            ):
+                raise ValueError("Bait sanitation removed an entire scene caption; keeping the item draft-only")
             us_gate = evaluate_us_content(script_data, self.video_history)
             script_data['us_content_gate'] = us_gate
             if us_gate.get('issues'):
