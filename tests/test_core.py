@@ -32,7 +32,7 @@ class ScriptPolicyTests(unittest.TestCase):
                 {"visual": "calm sleeper with brain overlay", "caption": "It links ideas, making recall easier later."},
                 {"visual": "memory pathway becoming brighter", "caption": "That is why rest steadies your learning."},
                 {"visual": "organized notes beside sleeping person", "caption": "Sleep gives the brain time to organize."},
-                {"visual": "morning light over focused person", "caption": "Which is why your brain saves memories while sleeping."},
+                {"visual": "morning light over focused person", "caption": "Which is why your brain saves memories while sleeping daily."},
             ],
         })
 
@@ -44,8 +44,8 @@ class ScriptPolicyTests(unittest.TestCase):
         valid, issues = validate_script(self.script)
         self.assertTrue(valid, issues)
         words = len(self.script["voiceover"].split())
-        self.assertGreaterEqual(words, 55)
-        self.assertLessEqual(words, 79)
+        self.assertGreaterEqual(words, 62)
+        self.assertLessEqual(words, 118)
         self.assertEqual(len(self.script["scenes"]), 8)
 
     def test_hook_passes_natural_hook_gate(self):

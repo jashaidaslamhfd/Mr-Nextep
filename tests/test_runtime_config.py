@@ -168,7 +168,7 @@ def _arc_fixture():
             {"visual": "calm sleeper with brain overlay", "caption": "It links ideas, making recall easier later."},
             {"visual": "memory pathway becoming brighter", "caption": "That is why rest steadies your learning."},
             {"visual": "organized notes beside sleeping person", "caption": "Sleep gives the brain time to organize."},
-            {"visual": "morning light over focused person", "caption": "Which is why your brain saves memories while sleeping."},
+            {"visual": "morning light over focused person", "caption": "Which is why your brain saves memories while sleeping daily."},
         ],
     }
 
