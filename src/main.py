@@ -568,6 +568,22 @@ class SKILLORPipeline:
             # first provider pass, so run the same narrow scrub immediately
             # before the fail-closed gate as well.
             script_data = _sanitize_generated_content(script_data)
+            _residual_subscribe_fields = []
+            for _field in ("title", "hook", "voiceover", "description", "cta", "evidence_summary"):
+                if "subscribe" in str(script_data.get(_field, "")).lower():
+                    _residual_subscribe_fields.append(
+                        f"{_field}={str(script_data.get(_field, ''))[:240]!r}"
+                    )
+            for _idx, _scene in enumerate(script_data.get("scenes") or [], 1):
+                if "subscribe" in str((_scene or {}).get("caption", "")).lower():
+                    _residual_subscribe_fields.append(
+                        f"scene_{_idx}={str((_scene or {}).get('caption', ''))[:240]!r}"
+                    )
+            if _residual_subscribe_fields:
+                logger.warning(
+                    "Residual subscribe before US gate: %s",
+                    " | ".join(_residual_subscribe_fields),
+                )
             us_gate = evaluate_us_content(script_data, self.video_history)
             script_data['us_content_gate'] = us_gate
             if us_gate.get('issues'):
