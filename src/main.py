@@ -8,6 +8,7 @@ from datetime import datetime, timezone
 import time
 import traceback
 import hashlib
+import re
 
 # Add current directory to path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__)))
@@ -49,7 +50,7 @@ try:
     from algorithm_policy import (
         FACEBOOK, INSTAGRAM, YOUTUBE,
         MIN_HOOK_SCORE as _POLICY_MIN_HOOK_SCORE,
-        contains_bait, duration_policy, env_float, env_int,
+        BAIT_PATTERNS, contains_bait, duration_policy, env_float, env_int,
         hook_enforcement_seconds, retention_gate, shared_hook_seconds,
         strip_bait,
     )
@@ -94,6 +95,12 @@ def _sanitize_generated_content(script_data: dict) -> dict:
         value = script_data.get(field)
         if isinstance(value, str):
             cleaned = strip_bait(value)
+            # A provider can omit sentence punctuation, leaving an inline bait
+            # phrase that sentence filtering cannot remove. Scrub only the
+            # exact configured patterns; the US gate remains the final check.
+            for pattern in BAIT_PATTERNS:
+                cleaned = re.sub(pattern, "", cleaned, flags=re.IGNORECASE)
+            cleaned = re.sub(r"\s{2,}", " ", cleaned).strip()
             if cleaned:
                 script_data[field] = cleaned
     scenes = script_data.get("scenes") or []
@@ -103,6 +110,9 @@ def _sanitize_generated_content(script_data: dict) -> dict:
         caption = scene.get("caption")
         if isinstance(caption, str):
             cleaned = strip_bait(caption)
+            for pattern in BAIT_PATTERNS:
+                cleaned = re.sub(pattern, "", cleaned, flags=re.IGNORECASE)
+            cleaned = re.sub(r"\s{2,}", " ", cleaned).strip()
             if cleaned:
                 scene["caption"] = cleaned
     if scenes and isinstance(scenes[0], dict) and scenes[0].get("caption"):
