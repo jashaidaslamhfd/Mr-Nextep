@@ -120,7 +120,7 @@ GROQ_MODEL_PRIMARY = os.environ.get("GROQ_MODEL") or "llama-3.1-8b-instant"
 GROQ_MODEL_FALLBACK = os.environ.get("GROQ_MODEL_FALLBACK") or "llama3-70b-8192"
 # Older Llama ids this repo historically used; keep only as last-resort
 # candidates AFTER the probe confirms the account can reach them.
-_legacy_model_ids = ["llama-3.3-70b-versatile", "llama-3.1-8b-instant"]
+_legacy_model_ids = ["llama3-70b-8192", "llama3-8b-8192"]
 
 # Model ids that exist on Groq but are NOT chat-completion models (audio
 # transcription, prompt-guard classifiers). Script generation must skip them
