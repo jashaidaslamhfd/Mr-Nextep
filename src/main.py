@@ -564,6 +564,10 @@ class SKILLORPipeline:
 
             # Require an auditable source record, anti-bait language,
             # originality, and explicit human review before any public upload.
+            # Disclaimers and enrichment can mutate description/CTA after the
+            # first provider pass, so run the same narrow scrub immediately
+            # before the fail-closed gate as well.
+            script_data = _sanitize_generated_content(script_data)
             us_gate = evaluate_us_content(script_data, self.video_history)
             script_data['us_content_gate'] = us_gate
             if us_gate.get('issues'):
