@@ -8,7 +8,7 @@ from pathlib import Path
 SRC = Path(__file__).resolve().parents[1] / "src"
 sys.path.insert(0, str(SRC))
 
-from gates import (  # noqa: E402
+from gates import (  # noqa: E502
     check_script, check_hook, check_seo, check_captions,
     check_video_quality, check_video_generation, check_voice, run_gates,
 )
@@ -48,10 +48,10 @@ class IndependentGuardTests(unittest.TestCase):
 
     def test_video_quality_checks_canvas_duration(self):
         ok = check_video_quality({"width": 1080, "height": 1920, "duration": 33},
-                                 {"floor": 27, "ceil": 40})
+                                 {"floor": 27, "ceil": 50})
         self.assertTrue(ok["pass"])
         bad = check_video_quality({"width": 720, "height": 1280, "duration": 60},
-                                  {"floor": 27, "ceil": 40})
+                                  {"floor": 27, "ceil": 50})
         self.assertFalse(bad["pass"])
 
     def test_video_generation_needs_real_files(self):
@@ -93,7 +93,7 @@ class IndependentGuardTests(unittest.TestCase):
             "script_data": {"scenes": [], "title": "", "hook": "",
                             "description": "", "voiceover": "", "tags": [], "hashtags": []},
             "technical": {"width": 720, "height": 1280, "duration": 60},
-            "policy": {"floor": 27, "ceil": 40},
+            "policy": {"floor": 27, "ceil": 50},
             "image_paths": [], "media_types": [], "audio_segments": [],
             "required_scenes": 8,
         }
