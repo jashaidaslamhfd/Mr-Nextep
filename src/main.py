@@ -671,6 +671,12 @@ class SKILLORPipeline:
 
                 SKILLORPipeline.lenient_fallback = (FALLBACK_LENIENT_MODE and primary_exhausted and attempt == MAX_SCRIPT_ATTEMPTS)
                 result = self._generate_and_check_once(current_topic)
+                if result.get('script_data', {}).get('provider_used') in {'openrouter', 'gemini'}:
+                    primary_exhausted = True
+                    logger.info(
+                        "Provider exhaustion confirmed by %s output; final retry may use the explicit lenient outage floor.",
+                        result['script_data'].get('provider_used'),
+                    )
                 if not fixed_topic:
                     generated = result['script_data']
                     generated['trend_source'] = trend_record.get('source')

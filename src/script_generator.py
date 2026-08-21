@@ -1430,6 +1430,7 @@ def generate_script(
     last_error = None
     best_script = None
     best_score = 0
+    provider_used = "groq"
 
     # Model fallback chain (2026-08-15): never call a model id that returns
     # 404 'does not exist'. Probe the account's live model list first, walk
@@ -1554,9 +1555,15 @@ def generate_script(
                         )
                         raw_reply = _openrouter_generate(
                             messages, temperature=TEMPERATURE, max_tokens=MAX_TOKENS
-                        ) or _gemini_generate(
-                            messages, temperature=TEMPERATURE, max_tokens=MAX_TOKENS
                         )
+                        if raw_reply:
+                            provider_used = "openrouter"
+                        else:
+                            raw_reply = _gemini_generate(
+                                messages, temperature=TEMPERATURE, max_tokens=MAX_TOKENS
+                            )
+                            if raw_reply:
+                                provider_used = "gemini"
                         if raw_reply:
                             logger.info("✅ Third-provider fallback produced a script.")
                         # NOTE: deliberately no `continue` — let execution
@@ -1567,9 +1574,15 @@ def generate_script(
                     logger.warning("Groq call failed (%s) — trying OpenRouter fallback...", groq_err)
                     raw_reply = _openrouter_generate(
                         messages, temperature=TEMPERATURE, max_tokens=MAX_TOKENS
-                    ) or _gemini_generate(
-                        messages, temperature=TEMPERATURE, max_tokens=MAX_TOKENS
                     )
+                    if raw_reply:
+                        provider_used = "openrouter"
+                    else:
+                        raw_reply = _gemini_generate(
+                            messages, temperature=TEMPERATURE, max_tokens=MAX_TOKENS
+                        )
+                        if raw_reply:
+                            provider_used = "gemini"
                     if raw_reply:
                         logger.info("✅ Third-provider fallback produced a script.")
             if not raw_reply:
@@ -1586,6 +1599,7 @@ def generate_script(
             script_data['topic'] = topic
             script_data['generated_at'] = time.time()
             script_data['attempt'] = attempt
+            script_data['provider_used'] = provider_used
             
             # Validate
             is_valid, issues = _validate_script(script_data, lenient=(attempt == max_retries))
