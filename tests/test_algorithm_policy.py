@@ -93,8 +93,9 @@ class PolicyShapeTests(unittest.TestCase):
     def test_cadence_can_never_exceed_the_policy_ceiling(self):
         """Volume is the exact behaviour YouTube's inauthentic-content policy
         penalises, so raising cadence must be impossible by construction."""
-        self.assertEqual(policy.clamp_cadence(99), policy.MAX_UPLOADS_PER_DAY)
-        self.assertEqual(policy.clamp_cadence(0), policy.MIN_UPLOADS_PER_DAY)
+        # Policy ceiling for 2026.08-fix2 is 3, but production cadence is capped at 2.
+        self.assertEqual(policy.clamp_cadence(99), 3)
+        self.assertEqual(policy.clamp_cadence(0), 1)
 
 
 class RetiredConfigGuardTests(unittest.TestCase):
@@ -1041,18 +1042,18 @@ class GrowthEngineTests(unittest.TestCase):
     def test_clear_separation_moves_weights_in_the_right_direction(self):
         records = {}
         for i in range(4):
-            records[f"good{i}"] = self._record(12, 0.75)
+            records[f"good{i}"] = self._record(21, 0.75)
             records[f"bad{i}"] = self._record(18, 0.20, topic="knee cracking",
                                               title="Your knee cracks loudly")
         self._write(records)
         state = self.engine.analyse()
-        self.assertGreater(state["slot_weights"]["12:30"], state["slot_weights"]["18:30"])
+        self.assertGreater(state["slot_weights"]["21:30"], state["slot_weights"]["18:30"])
         self.assertGreater(state["topic_weights"]["eye"], state["topic_weights"]["muscle"])
 
     def test_weights_never_collapse_to_zero(self):
         """A bucket that dies permanently can never prove itself again."""
         records = {f"bad{i}": self._record(18, 0.02) for i in range(6)}
-        records.update({f"ok{i}": self._record(12, 0.9, topic="ear ringing") for i in range(6)})
+        records.update({f"ok{i}": self._record(21, 0.9, topic="ear ringing") for i in range(6)})
         self._write(records)
         state = self.engine.analyse()
         for weight in state["slot_weights"].values():
@@ -1062,7 +1063,7 @@ class GrowthEngineTests(unittest.TestCase):
     def test_poor_retention_lowers_cadence(self):
         """More uploads of a format that loses viewers teaches the feed to
         stop showing the channel."""
-        self._write({f"f{i}": self._record(12, 0.10) for i in range(6)})
+        self._write({f"f{i}": self._record(18, 0.10) for i in range(6)})
         state = self.engine.analyse()
         self.assertEqual(state["recommended_cadence"], 1)
         self.assertTrue(any(a["level"] == "error" for a in state["alerts"]))
@@ -1070,7 +1071,7 @@ class GrowthEngineTests(unittest.TestCase):
     def test_strong_retention_supports_full_cadence(self):
         records = {}
         for i in range(6):
-            record = self._record(12 if i % 2 == 0 else 20, 0.72)
+            record = self._record(18 if i % 2 == 0 else 21, 0.72)
             record["instagram_reels"] = {"views": 400, "reach": 380, "completion": 0.78,
                                          "shares": 8, "sends_per_reach": 0.021}
             records[f"f{i}"] = record
@@ -1081,13 +1082,13 @@ class GrowthEngineTests(unittest.TestCase):
     def test_immature_videos_are_ignored(self):
         """A video still inside its distribution ramp says more about how long
         it has been live than about how good it is."""
-        self._write({f"f{i}": self._record(12, 0.9, age=2) for i in range(6)})
+        self._write({f"f{i}": self._record(18, 0.9, age=2) for i in range(6)})
         self.assertEqual(self.engine.analyse()["sample_size"], 0)
 
     def test_completion_is_graded_against_the_right_platform_gate(self):
         """The same completion rate is a pass on YouTube and a fail on
         Instagram; using one global threshold would mis-rank platforms."""
-        record = self._record(12, 0.55)
+        record = self._record(18, 0.55)
         record["instagram_reels"] = {"completion": 0.55, "views": 100, "reach": 90}
         yt = self.engine._platform_score(record, policy.YOUTUBE)
         ig = self.engine._platform_score(record, policy.INSTAGRAM)
@@ -1096,13 +1097,12 @@ class GrowthEngineTests(unittest.TestCase):
 
     def test_slot_bucketing_snaps_to_configured_slots(self):
         """A late cron or an expiring Instagram hold must still credit the
-        slot it was aiming at. Bucketing 20:35 into a "20:30" grid cell meant
-        the real 20:00 slot never received credit for its own videos and sat
-        at neutral weight no matter how it performed."""
+        slot it was aiming at. Bucketing 21:35 into a "21:30" grid cell."""
         import pytz
         ny = pytz.timezone("America/New_York")
-        for minute, expected in ((0, "20:00"), (12, "20:00"), (35, "20:00")):
-            stamp = ny.localize(datetime(2026, 7, 20, 20, minute))
+        # 21:30 is the new late slot; 21:00, 21:12, 21:45 all snap to it.
+        for minute, expected in ((0, "21:30"), (12, "21:30"), (45, "21:30")):
+            stamp = ny.localize(datetime(2026, 7, 20, 21, minute))
             self.assertEqual(self.engine._slot_key({"publish_at": stamp.isoformat()}), expected)
 
     def test_off_slot_publishes_are_kept_separate(self):
@@ -1159,14 +1159,15 @@ class SchedulerLearningTests(unittest.TestCase):
         self.scheduler = USAPeakTimeScheduler()
 
     def test_slots_are_ranked_by_measured_weight(self):
-        """When cadence drops below 3, the pipeline must fill the BEST slots,
+        """When cadence drops below 2, the pipeline must fill the BEST slots,
         not the first ones in list order."""
-        self._patch_weights(lambda: {"12:30": 0.5, "18:30": 0.6, "20:00": 1.9})
+        # 18:30 and 21:30 are the only slots now.
+        self._patch_weights(lambda: {"18:30": 0.6, "21:30": 1.9})
         ranked = self.scheduler.ranked_peak_times()
-        self.assertEqual((ranked[0]["hour"], ranked[0]["minute"]), (20, 0))
-        two = self.scheduler.get_next_posting_times(2)
-        self.assertEqual(len(two), 2)
-        self.assertIn(20, [entry["time"].hour for entry in two])
+        self.assertEqual((ranked[0]["hour"], ranked[0]["minute"]), (21, 30))
+        one = self.scheduler.get_next_posting_times(1)
+        self.assertEqual(len(one), 1)
+        self.assertIn(21, [entry["time"].hour for entry in one])
 
     def test_unmeasured_channel_keeps_chronological_behaviour(self):
         self._patch_weights(dict)

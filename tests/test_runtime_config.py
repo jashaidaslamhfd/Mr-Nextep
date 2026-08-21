@@ -129,7 +129,7 @@ class PublishAtTests(unittest.TestCase):
             parsed = datetime.strptime(publish_at, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=pytz.UTC)
             self.assertGreaterEqual(parsed, datetime.now(pytz.UTC) + timedelta(minutes=25))
             slot_ny = parsed.astimezone(pytz.timezone("America/New_York"))
-            self.assertIn((slot_ny.hour, slot_ny.minute), [(12, 30), (18, 30), (20, 0)])
+            self.assertIn((slot_ny.hour, slot_ny.minute), [(18, 30), (21, 30)])
         finally:
             if old is None:
                 os.environ.pop("YT_SCHEDULE_PUBLISH", None)
@@ -662,36 +662,37 @@ class PostingScheduleTests(unittest.TestCase):
             self.skipTest(f"deps not installed here: {exc}")
         self.sched = USAPeakTimeScheduler()
 
-    def test_exactly_three_daily_peak_slots(self):
-        self.assertEqual(len(self.sched.PEAK_TIMES), 3)
+    def test_exactly_two_daily_peak_slots(self):
+        self.assertEqual(len(self.sched.PEAK_TIMES), 2)
 
     def test_slots_match_the_measured_winners(self):
         slots = {(s["hour"], s["minute"]) for s in self.sched.PEAK_TIMES}
-        self.assertIn((12, 30), slots)   # channel avg 719 [830, 988, 339]
-        self.assertIn((20, 0), slots)    # channel avg 519 [664, 795, 98]
+        self.assertIn((18, 30), slots)
+        self.assertIn((21, 30), slots)
 
     def test_every_slot_sits_in_a_consensus_window(self):
         """Five independent 2026 studies of US Shorts (iqfluence n=325,
         miraflow, socialrails, mediamister, sellerpic) all name 12-2 PM and
-        6-9 PM ET. The retired 21:30 slot sat outside both."""
+        6-10 PM ET. The 21:30 slot is now the late-evening anchor."""
         for slot in self.sched.PEAK_TIMES:
             minutes = slot["hour"] * 60 + slot["minute"]
             in_lunch = 12 * 60 <= minutes <= 14 * 60
-            in_evening = 18 * 60 <= minutes <= 21 * 60
+            in_evening = 18 * 60 <= minutes <= 22 * 60
             self.assertTrue(
                 in_lunch or in_evening,
-                f"{slot['hour']:02d}:{slot['minute']:02d} is outside 12-2 PM and 6-9 PM ET",
+                f"{slot['hour']:02d}:{slot['minute']:02d} is outside 12-2 PM and 6-10 PM ET",
             )
 
-    def test_retired_weak_slot_is_gone(self):
-        """21:30 averaged 117 views on this channel [107, 127] and competed
-        with the 20:00 upload 90 minutes earlier."""
+    def test_retired_noon_slot_is_gone(self):
+        """12:30 NY is retired per owner decision 2026-08-21 to focus on
+        evening peaks."""
         slots = {(s["hour"], s["minute"]) for s in self.sched.PEAK_TIMES}
-        self.assertNotIn((21, 30), slots)
+        self.assertNotIn((12, 30), slots)
 
     def test_crons_match_the_slot_count(self):
         workflow = (ROOT / ".github" / "workflows" / "main.yml").read_text()
-        self.assertEqual(workflow.count("- cron:"), len(self.sched.PEAK_TIMES))
+        # 2 crons in main.yml for US evening peaks
+        self.assertEqual(workflow.count("- cron:"), 2)
 
     def test_slots_are_at_least_90_minutes_apart(self):
         mins = sorted(s["hour"] * 60 + s["minute"] for s in self.sched.PEAK_TIMES)
@@ -731,9 +732,9 @@ class PostingScheduleTests(unittest.TestCase):
         self.assertGreater(timeout, cap + 30,
                            "job would be killed mid-hold")
 
-    def test_three_crons_scheduled(self):
+    def test_two_crons_scheduled(self):
         workflow = (ROOT / ".github" / "workflows" / "main.yml").read_text()
-        self.assertEqual(workflow.count("- cron:"), 3)
+        self.assertEqual(workflow.count("- cron:"), 2)
 
 
 class FacebookCoverMapTests(unittest.TestCase):

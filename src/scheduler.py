@@ -40,9 +40,8 @@ class USAPeakTimeScheduler:
     # the only nearby datapoint and is too thin to trust either way, so the
     # slot is chosen on consensus and will be re-checked once it has data.
     PEAK_TIMES = [
-        {'hour': 12, 'minute': 30, 'zone': 'EST', 'name': 'Lunch Time'},     # 12:30 PM ET
         {'hour': 18, 'minute': 30, 'zone': 'EST', 'name': 'Early Evening'},  # 6:30 PM ET
-        {'hour': 20, 'minute': 0, 'zone': 'EST', 'name': 'Evening Prime'},   # 8:00 PM ET
+        {'hour': 21, 'minute': 30, 'zone': 'EST', 'name': 'Late Evening'},   # 9:30 PM ET
     ]
     
     # Timezone mapping
