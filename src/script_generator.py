@@ -107,7 +107,7 @@ MAX_TOKENS = 1400
 # Groq model strategy (2026-08-15): the pipeline can no longer bet on any
 # single hard-coded model id. Groq retires/renames models without notice
 # (llama-3.3-70b-versatile began 404'ing for some accounts on 2026-08-14, and
-# llama-3.1-8b-instant / llama-3.1-70b-instruct no longer exist at all), so
+# llama-3.3-70b-specdec / llama-3.1-70b-instruct no longer exist at all), so
 # we probe the account's live model list first and only call models the key
 # actually has access to. Env overrides remain supported; empty-string values
 # are treated as unset (fixes the old inline `get("GROQ_MODEL", ...)` bug).
@@ -116,11 +116,11 @@ MAX_TOKENS = 1400
 # run logs) — it is removed from the chain. Also, the free-tier daily token
 # pool (TPD) exhausts early every day, so the generator now skips
 # 429-exhausted models instead of burning retries on them.
-GROQ_MODEL_PRIMARY = os.environ.get("GROQ_MODEL") or "llama-3.1-8b-instant"
-GROQ_MODEL_FALLBACK = os.environ.get("GROQ_MODEL_FALLBACK") or "llama-3.1-70b-versatile"
+GROQ_MODEL_PRIMARY = os.environ.get("GROQ_MODEL") or "llama-3.3-70b-specdec"
+GROQ_MODEL_FALLBACK = os.environ.get("GROQ_MODEL_FALLBACK") or "llama-3.3-70b-versatile"
 # Older Llama ids this repo historically used; keep only as last-resort
 # candidates AFTER the probe confirms the account can reach them.
-_legacy_model_ids = ["llama-3.1-70b-versatile", "llama-3.1-8b-instant"]
+_legacy_model_ids = ["llama-3.3-70b-versatile", "llama-3.3-70b-specdec"]
 
 # Model ids that exist on Groq but are NOT chat-completion models (audio
 # transcription, prompt-guard classifiers). Script generation must skip them
