@@ -1,5 +1,5 @@
 {
-  "failed_at": "2026-08-21T11:17:39.690868+00:00",
-  "reason": "All 3 script-generation attempts failed mandatory gates. Last error: \u274c Script generation failed after 3 attempts. Last error: All LLM providers failed (Groq chain + OpenRouter + Gemini).",
-  "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Mr-Nextep/Mr-Nextep/src/main.py\", line 908, in run_pipeline\n    script_data = self.generate_with_niche_strategy(topic)\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/Mr-Nextep/Mr-Nextep/src/main.py\", line 675, in generate_with_niche_strategy\n    raise RuntimeError(\nRuntimeError: All 3 script-generation attempts failed mandatory gates. Last error: \u274c Script generation failed after 3 attempts. Last error: All LLM providers failed (Groq chain + OpenRouter + Gemini).\n"
+  "failed_at": "2026-08-21T11:24:16.828333+00:00",
+  "kind": "quality_retry",
+  "reason": "Queued for retry: None — best candidate rejected: quality, hook=75/80"
 }
