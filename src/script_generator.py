@@ -137,6 +137,16 @@ def _is_chat_model(model_id: str) -> bool:
     return not any(pat in mid for pat in _NON_CHAT_MODEL_PATTERNS)
 
 
+_REASONING_MODEL_PATTERNS = ("gpt-oss", "qwen", "deepseek-r1", "minimax")
+
+
+def _reasoning_request_kwargs(model_id: str) -> Dict[str, str]:
+    """Return reasoning-only request fields without sending them to Llama/Gemma."""
+    if any(pattern in model_id.lower() for pattern in _REASONING_MODEL_PATTERNS):
+        return {"reasoning_format": "hidden"}
+    return {}
+
+
 def _groq_accessible_models(client) -> List[str]:
     """Return this account's live Groq model list (ids the key can call).
     Never raises: on probe failure we fall back to the configured ids and
@@ -1468,7 +1478,7 @@ def generate_script(
                     messages=messages,
                     model=_current_model(),
                     response_format={"type": "json_object"},
-                    reasoning_format="hidden",
+                    **_reasoning_request_kwargs(_current_model()),
                     temperature=TEMPERATURE,
                     max_tokens=MAX_TOKENS
                 )
@@ -1484,7 +1494,7 @@ def generate_script(
                         compatibility_completion = client.chat.completions.create(
                             messages=messages,
                             model=_current_model(),
-                            reasoning_format="hidden",
+                            **_reasoning_request_kwargs(_current_model()),
                             temperature=TEMPERATURE,
                             max_tokens=MAX_TOKENS,
                         )

@@ -230,7 +230,7 @@ jobs:
           # the whole run again.
           # The code probes Groq's live model list and filters for supported
           # chat/JSON models. Do not pin a decommissioned fallback here.
-          GROQ_MODEL: "openai/gpt-oss-20b"
+          GROQ_MODEL: "llama-3.3-70b-versatile"
           GROQ_MODEL_FALLBACK: ""
           # Zero-touch safe mode: low-risk evidence-backed items publish
           # automatically; medium/high-risk items remain draft-only.
