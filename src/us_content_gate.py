@@ -156,7 +156,10 @@ def evaluate(script: Dict[str, Any], history: List[Dict[str, Any]] | None = None
     bait = _has_pattern(lowered, BAIT_PATTERNS)
     fear = _has_pattern(lowered, FEAR_BAIT_PATTERNS)
     if bait:
-        issues.append(f"Engagement-bait language detected ({len(bait)} pattern(s))")
+        issues.append(
+            f"Engagement-bait language detected ({len(bait)} pattern(s)): "
+            + ", ".join(bait[:3])
+        )
     if fear:
         issues.append(f"Fear/clickbait language detected ({len(fear)} pattern(s))")
 
