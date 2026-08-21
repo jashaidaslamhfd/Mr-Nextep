@@ -1,6 +1,6 @@
 {
-  "at": "2026-08-20T21:19:24.458312+00:00",
+  "at": "2026-08-21T02:50:51.533173+00:00",
   "topic": "",
-  "reason": "best candidate rejected: quality",
+  "reason": "best candidate rejected: quality, hook=75/80",
   "queued_for_retry": true
 }
