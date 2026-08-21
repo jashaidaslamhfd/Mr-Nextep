@@ -116,8 +116,8 @@ MAX_TOKENS = 1400
 # run logs) — it is removed from the chain. Also, the free-tier daily token
 # pool (TPD) exhausts early every day, so the generator now skips
 # 429-exhausted models instead of burning retries on them.
-GROQ_MODEL_PRIMARY = os.environ.get("GROQ_MODEL") or "openai/gpt-oss-20b"
-GROQ_MODEL_FALLBACK = os.environ.get("GROQ_MODEL_FALLBACK") or "llama-3.3-70b-versatile"
+GROQ_MODEL_PRIMARY = os.environ.get("GROQ_MODEL") or "llama-3.1-8b-instant"
+GROQ_MODEL_FALLBACK = os.environ.get("GROQ_MODEL_FALLBACK") or "llama3-70b-8192"
 # Older Llama ids this repo historically used; keep only as last-resort
 # candidates AFTER the probe confirms the account can reach them.
 _legacy_model_ids = ["llama-3.3-70b-versatile", "llama-3.1-8b-instant"]
