@@ -1468,6 +1468,7 @@ def generate_script(
                     messages=messages,
                     model=_current_model(),
                     response_format={"type": "json_object"},
+                    reasoning_format="hidden",
                     temperature=TEMPERATURE,
                     max_tokens=MAX_TOKENS
                 )
@@ -1483,6 +1484,7 @@ def generate_script(
                         compatibility_completion = client.chat.completions.create(
                             messages=messages,
                             model=_current_model(),
+                            reasoning_format="hidden",
                             temperature=TEMPERATURE,
                             max_tokens=MAX_TOKENS,
                         )
