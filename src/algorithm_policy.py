@@ -192,7 +192,7 @@ PLATFORM_POLICY: Dict[str, Dict] = {
         # gate. Shorts under 30s with 50%+ AVP are pushed widest; shorter is
         # the single highest-leverage free change in the data (lever importance
         # 0.343, the top of every lever).
-        "duration": (18.0, 24.0, 30.0),
+        "duration": (25.0, 35.0, 45.0),
         "hard_max": 60.0,
         # FIXED 2026-08-14: see duration note above — 33s ideal made the gate
         # arithmetically unreachable on this channel's measured watch time.
