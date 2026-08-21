@@ -162,3 +162,21 @@ class LLMFallbackTests(unittest.TestCase):
         code = open(src, encoding="utf-8").read()
         self.assertIn("_openrouter_generate", code)
         self.assertIn("OPENROUTER_API_KEY", code)
+
+    def test_groq_chain_filters_stale_ids_after_live_probe(self):
+        import script_generator
+        from unittest.mock import patch
+
+        class FakeGroq:
+            def __init__(self, **kwargs):
+                pass
+
+        live = ["openai/gpt-oss-20b", "openai/gpt-oss-120b"]
+        with (patch.object(script_generator, "Groq", FakeGroq),
+              patch.object(script_generator, "_groq_accessible_models", return_value=live),
+              patch.object(script_generator, "GROQ_MODEL_PRIMARY", "openai/gpt-oss-20b"),
+              patch.object(script_generator, "GROQ_MODEL_FALLBACK", "llama-3.1-70b-versatile")):
+            chain = script_generator.groq_model_chain()
+
+        self.assertIn("openai/gpt-oss-20b", chain)
+        self.assertNotIn("llama-3.1-70b-versatile", chain)

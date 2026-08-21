@@ -419,7 +419,15 @@ def _stock_video_request(
     source: str,
     used_fallbacks: set,
 ):
-    """Download licensed stock B-roll video."""
+    """Download licensed stock B-roll video.
+
+    The width floor is local to this function so every provider path uses the
+    same validated setting and cannot fail with an undefined-name error.
+    """
+    try:
+        min_clip_w = max(320, int(os.environ.get("MIN_STOCK_CLIP_WIDTH", "640")))
+    except (TypeError, ValueError):
+        min_clip_w = 640
     # Pexels and Pixabay fail on long descriptive sentences. We need 1-3 simple keywords.
     # We'll take the first 2 meaningful words longer than 3 chars to form a robust stock query.
     raw_text = (scene_text or "human body science").strip()
@@ -791,7 +799,6 @@ def _generate_one(
             if media_type == "image" and os.environ.get("POLLINATIONS_KEY", ""):
                 is_hook = index == 1
                 if is_hook or index <= AI_VIDEO_SCENES:
-                    import urllib.parse as _urllib
                     upgraded = _layer_ai_video(
                         index, scene_text, path, topic_seed=topic_seed,
                     )

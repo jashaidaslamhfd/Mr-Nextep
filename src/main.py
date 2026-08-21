@@ -53,6 +53,8 @@ try:
         hook_enforcement_seconds, retention_gate, shared_hook_seconds,
     )
     from platform_cuts import apply_cut, cut_summary, fits_platform, select_meta_cut
+    from us_content_gate import evaluate as evaluate_us_content
+    from source_research import discover_pubmed_sources, verify_source_urls
 except ImportError as e:
     logger.error(f"Failed to import modules: {e}")
     logger.error("Make sure all required modules are in the same directory")
@@ -365,6 +367,14 @@ class SKILLORPipeline:
                     guard.get("action"), guard.get("health", {}).get("n_with_real_ctr"),
                     guard.get("health", {}).get("n_videos_with_real_metrics"),
                 )
+                if (
+                    os.environ.get("PUBLISH_MODE", "draft").strip().lower() == "publish"
+                    and os.environ.get("REQUIRE_REAL_ANALYTICS", "false").lower() in {"1", "true", "yes"}
+                ):
+                    raise RuntimeError(
+                        "Public publishing blocked: verified analytics signal is not available. "
+                        "Run analytics scope verification and collect mature platform data first."
+                    )
 
             intel = decision.get("intelligence", {})
             for key, label in (("ctr_model", "CTR"), ("retention_model", "RETENTION")):
@@ -448,6 +458,54 @@ class SKILLORPipeline:
             script_data['quality_scores'] = quality_result.get('scores', {})
             script_data['spam_risk'] = spam_result.get('spam_risk_level', 'UNKNOWN')
             script_data['tags'] = tags
+            script_data['synthetic_media'] = True
+            script_data['containsSyntheticMedia'] = True
+            script_data['ai_disclosure'] = {
+                'youtube_altered_content': True,
+                'visuals': 'AI-generated or provider-generated scene assets',
+                'voice': os.environ.get('TTS_ENGINE', 'unknown'),
+                'review_required': True,
+            }
+
+            # The LLM prompt is not a fact-checker. If it omitted sources,
+            # enrich the draft from PubMed rather than accepting a fabricated
+            # citation. Human review still verifies that the source supports
+            # the exact wording before any US-platform upload.
+            if (
+                not script_data.get('sources')
+                and os.environ.get('AUTO_SOURCE_RESEARCH', 'true').lower() in {'1', 'true', 'yes'}
+            ):
+                discovered_sources = discover_pubmed_sources(topic, max_results=3)
+                if discovered_sources:
+                    script_data['sources'] = discovered_sources
+                    script_data['source_discovery'] = 'pubmed'
+                    logger.info("Added %d PubMed source(s) for topic %s", len(discovered_sources), topic)
+                else:
+                    logger.warning("No PubMed source found for topic %s; keeping draft blocked", topic)
+
+            if (
+                script_data.get('sources')
+                and os.environ.get('VERIFY_CONTENT_SOURCES', 'true').lower() in {'1', 'true', 'yes'}
+            ):
+                verification = verify_source_urls(script_data['sources'])
+                script_data['source_verification'] = verification
+                if any(not item.get('ok') for item in verification):
+                    logger.warning("One or more evidence URLs could not be reached; keeping the item draft-only")
+
+            # Require an auditable source record, anti-bait language,
+            # originality, and explicit human review before any public upload.
+            us_gate = evaluate_us_content(script_data, self.video_history)
+            script_data['us_content_gate'] = us_gate
+            if us_gate.get('issues'):
+                raise ValueError(
+                    "US content gate blocked unsafe content: "
+                    + "; ".join(str(reason) for reason in us_gate['issues'][:6])
+                )
+            if not us_gate.get('approved', False):
+                logger.warning(
+                    "US content gate: draft-only until a reviewer records approval "
+                    "and PUBLISH_MODE=publish is explicitly enabled."
+                )
 
             # Check if script has scenes
             if not script_data.get('scenes') or len(script_data['scenes']) < 3:
@@ -1028,6 +1086,20 @@ class SKILLORPipeline:
                 if title_options:
                     ab_variants = generate_ab_variants(script_data, title_options)
                     script_data['ab_variants'] = ab_variants
+                    recommended = ab_variants.get('recommended') or {}
+                    experiment_material = "|".join([
+                        str(script_data.get('topic', '')),
+                        str(script_data.get('hook', '')),
+                        str(script_data.get('slot_label', '')),
+                    ])
+                    script_data['experiment'] = {
+                        'id': hashlib.sha256(experiment_material.encode('utf-8')).hexdigest()[:16],
+                        'design': 'predicted_title_description_variant',
+                        'selected_title': script_data.get('title'),
+                        'recommended_variant': recommended,
+                        'candidate_count': len(ab_variants.get('variants') or []),
+                        'requires_real_metrics': True,
+                    }
                 insights = get_historical_insights()
                 if insights.get('insights'):
                     script_data['historical_insights'] = insights
@@ -1400,16 +1472,63 @@ class SKILLORPipeline:
             except Exception as e:
                 logger.warning(f"Thumbnail scoring failed: {e}")
 
-            # Phase 5: Upload
-            logger.info("\n📤 PHASE 5: UPLOAD")
-            try:
-                upload_result = upload_all(
-                    final_video, thumb_path, script_data, meta_video_path=meta_video
+            # Phase 5: Upload or private review artifact. Public publishing is
+            # opt-in and requires both an explicit mode and a passing human-review
+            # record. Draft mode still renders the full asset for inspection.
+            logger.info("\n📤 PHASE 5: UPLOAD / REVIEW")
+            publish_mode = os.environ.get("PUBLISH_MODE", "draft").strip().lower()
+            gate_passed = bool(script_data.get("us_content_gate", {}).get("approved"))
+            if publish_mode != "publish" or not gate_passed:
+                os.makedirs("output", exist_ok=True)
+                draft_manifest = {
+                    "created_at": datetime.now(timezone.utc).isoformat(),
+                    "mode": "draft",
+                    "publish_mode": publish_mode,
+                    "review_required": not gate_passed,
+                    "script": script_data,
+                    "video_path": final_video,
+                    "thumbnail_path": thumb_path,
+                    "meta_video_path": meta_video,
+                }
+                with open("output/draft_manifest.json", "w", encoding="utf-8") as handle:
+                    json.dump(draft_manifest, handle, indent=2, ensure_ascii=False)
+                upload_result = {
+                    "draft_only": True,
+                    "youtube_success": False,
+                    "facebook_success": False,
+                    "instagram_success": False,
+                    "review_manifest": "output/draft_manifest.json",
+                }
+                logger.warning(
+                    "DRAFT ONLY: no public platform API called (PUBLISH_MODE=%s, gate_passed=%s)",
+                    publish_mode, gate_passed,
                 )
-                logger.info(f"✅ Upload result: {upload_result}")
-            except Exception as e:
-                logger.error(f"Upload failed: {e}")
-                raise
+            else:
+                try:
+                    upload_result = upload_all(
+                        final_video, thumb_path, script_data, meta_video_path=meta_video
+                    )
+                    logger.info(f"✅ Upload result: {upload_result}")
+                except Exception as e:
+                    logger.error(f"Upload failed: {e}")
+                    raise
+
+            # Persist enough provenance to audit rights and reproducibility
+            # without committing binary assets or private provider responses.
+            script_data['asset_provenance'] = {
+                'scene_count': len(image_paths),
+                'media_types': list(media_types),
+                'asset_files': [
+                    {
+                        'path': os.path.basename(str(path)),
+                        'sha256': hashlib.sha256(open(path, 'rb').read()).hexdigest()
+                        if path and os.path.exists(path) else None,
+                    }
+                    for path in image_paths
+                ],
+                'audio_segments': len(audio_segments),
+                'music_track': os.environ.get('MUSIC_TRACK', ''),
+            }
 
             # Save history
             content_fingerprint = hashlib.sha256(
@@ -1450,6 +1569,14 @@ class SKILLORPipeline:
                 'meta_cut_seconds': script_data.get('meta_cut_seconds'),
                 'ending_mode': script_data.get('ending_mode', 'cta'),
                 'hook_frame': script_data.get('hook_frame'),
+                'sources': script_data.get('sources', [])[:3],
+                'source_verification': script_data.get('source_verification', [])[:3],
+                'source_discovery': script_data.get('source_discovery'),
+                'ai_disclosure': script_data.get('ai_disclosure', {}),
+                'us_content_gate': script_data.get('us_content_gate', {}),
+                'asset_provenance': script_data.get('asset_provenance', {}),
+                'experiment': script_data.get('experiment', {}),
+                'ab_variants': script_data.get('ab_variants', {}),
             })
 
             elapsed = time.time() - start_time

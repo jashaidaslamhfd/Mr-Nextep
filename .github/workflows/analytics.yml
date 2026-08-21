@@ -12,6 +12,8 @@ permissions:
   contents: write
 
 concurrency:
+  # Shared with the publishing workflow so both jobs cannot rewrite data/
+  # concurrently and lose fresh metrics or upload state.
   group: skillor-channel-state
   cancel-in-progress: false
 
@@ -41,6 +43,15 @@ jobs:
             'pytz>=2024.1' \
             'scikit-learn>=1.3.0'
 
+      - name: Backfill any channel uploads missing from history
+        env:
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
+        # Discover channel uploads before refreshing metrics so off-pipeline or
+        # previously missed videos become eligible for learning immediately.
+        run: python scripts/backfill_channel_uploads.py
+
       - name: Update real YouTube metrics
         env:
           VIDEO_HISTORY_PATH: data/video_history.json
@@ -59,20 +70,6 @@ jobs:
         # or empty data for weeks without anyone being told. A learning job that
         # cannot read metrics has failed, and must say so.
         run: python src/analytics_updater.py
-
-      - name: Backfill any channel uploads missing from history
-        if: always()
-        continue-on-error: true
-        env:
-          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
-          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
-          REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
-        # 2026-08-15: the metrics step only REFRESHES entries already in
-        # video_history.json — failed pipeline runs (the Aug-14 Groq outage
-        # era) and any off-pipeline upload left real channel videos invisible
-        # to the ML brain. This backfill discovers the channel's own uploads
-        # playlist and adds anything missing before metrics/training run.
-        run: python scripts/backfill_channel_uploads.py
 
       - name: Update Facebook Reels metrics (best effort)
         # Runs even when the YouTube learning step failed, so a Meta-side
@@ -103,13 +100,24 @@ jobs:
           set -euo pipefail
           git config user.name "skillor-bot"
           git config user.email "skillor-bot@users.noreply.github.com"
-          # Reset any merge conflicts, force checkout clean data files from remote
-          git checkout -- data/ 2>/dev/null || true
-          git pull --rebase origin main 2>/dev/null || git reset --hard origin/main -- data/ 2>/dev/null || true
+          # IMPORTANT: do not reset data/ here. The analytics stages just wrote
+          # fresh metrics, growth state, and model state. Resetting the folder
+          # before staging silently discarded the learning loop's output and
+          # produced green runs with stale or empty state.
           git add data/
           if git diff --cached --quiet; then
             echo "No analytics changes to persist."
             exit 0
           fi
           git commit -m "chore: update SKILLOR analytics [skip ci]"
-          git push origin main || echo "::warning::push failed, will retry next run"
+          # The publishing and analytics workflows share the same concurrency
+          # group, but keep a bounded retry for a manual run or another writer.
+          for attempt in 1 2 3; do
+            if git pull --rebase --autostash origin main && git push origin HEAD:main; then
+              exit 0
+            fi
+            echo "::warning::analytics state push attempt ${attempt} failed"
+            sleep $((attempt * 5))
+          done
+          echo "::error::Could not persist fresh analytics state after 3 attempts"
+          exit 1

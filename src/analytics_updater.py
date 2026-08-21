@@ -46,9 +46,11 @@ REQUIRED (each degrades gracefully if absent):
 Usage:
     python src/analytics_updater.py
 """
+import json
 import logging
 import os
 import sys
+from datetime import datetime, timezone
 
 sys.path.insert(0, os.path.dirname(__file__))
 
@@ -176,6 +178,8 @@ def _run_full_platform_repair() -> dict:
 
 if __name__ == "__main__":
     exit_code = 0
+    cross_platform_result = {}
+    growth_state = {}
 
     # ---- Stage 1: YouTube history (the original responsibility) ----------
     yt_result = {}
@@ -226,15 +230,19 @@ if __name__ == "__main__":
     # its own, and a YouTube permission problem should not blind the channel
     # to Instagram as well.
     try:
-        _run_cross_platform_collection()
+        cross_platform_result = _run_cross_platform_collection()
     except Exception as exc:  # noqa: BLE001
         logger.error("Cross-platform metric collection failed: %s", exc)
+        cross_platform_result = {"failed": True, "error": str(exc)[:240]}
+        exit_code = 1
 
     try:
-        state = _run_growth_analysis()
-        _write_report(state)
+        growth_state = _run_growth_analysis()
+        _write_report(growth_state)
     except Exception as exc:  # noqa: BLE001
         logger.error("Growth analysis failed: %s", exc)
+        growth_state = {"failed": True, "error": str(exc)[:240]}
+        exit_code = 1
 
     # ---- Stage 4: Full platform repair (DISABLED by default) --------------
     # Previously ran FB cover backfill + meta SEO repair + audits on every
@@ -251,6 +259,24 @@ if __name__ == "__main__":
     else:
         logger.info("Full platform repair disabled (FULL_REPAIR != true) — "
                     "daily metadata edits would read as spam on 2026 feeds.")
+
+    # Durable freshness manifest: the next run and the operator can distinguish
+    # a successful no-op from a failed/stale analytics cycle.
+    try:
+        root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+        manifest_path = os.path.join(root, "data", "analytics_run.json")
+        os.makedirs(os.path.dirname(manifest_path), exist_ok=True)
+        with open(manifest_path, "w", encoding="utf-8") as handle:
+            json.dump({
+                "generated_at": datetime.now(timezone.utc).isoformat(),
+                "exit_code": exit_code,
+                "youtube": yt_result,
+                "cross_platform": cross_platform_result,
+                "growth": growth_state,
+            }, handle, indent=2, ensure_ascii=False)
+        logger.info("Wrote analytics freshness manifest: %s", manifest_path)
+    except Exception as exc:  # noqa: BLE001 - manifest must not hide the real exit code
+        logger.warning("Could not write analytics freshness manifest: %s", exc)
 
     # Return the actual exit_code so CI/CD properly registers failures
     sys.exit(exit_code)

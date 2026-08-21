@@ -13,47 +13,29 @@ class USAPeakTimeScheduler:
     """
     
     # USA peak times for short-form video engagement (America/New_York).
-    #
-    # Set 2026-07-27 from TWO sources that agree:
-    #
-    # 1. THIS CHANNEL'S OWN DATA (mature videos, >=2 days old, current views)
-    #      12:30  n=3  avg 719   [830, 988, 339]   <- best slot on the channel
-    #      20:00  n=3  avg 519   [664, 795, 98]    <- second best
-    #      06:00  n=3  avg 308   [133, 139, 652]   <- one outlier carries it
-    #      21:00+ n=2  avg 117   [107, 127]        <- weakest evening band
-    #      14:00  n=2  avg  95   [103, 87]
-    #      17:58  n=1      77
-    #
-    # 2. INDUSTRY CONSENSUS for US Shorts, five independent 2026 sources
-    #    (iqfluence 325-campaign study, miraflow, socialrails, mediamister,
-    #    sellerpic). Every one of them lands on the same two windows:
-    #      12–2 PM ET   and   6–9 PM ET
-    #
-    # 21:30 was RETIRED. It sits outside the 6-9 PM window in all five
-    # sources, this channel's own 21:00 band is its weakest evening data
-    # (107, 127), and being only 90 minutes after the 20:00 slot it competes
-    # with the strongest upload of the day for the same evening audience.
-    #
-    # Replaced with 18:30 — inside the 6-9 PM consensus core, 5.5h clear of
-    # lunch and 1.5h before prime, so the three uploads no longer overlap.
-    # This is a deliberate experiment: the 17:58 sample (77 views, n=1) is
-    # the only nearby datapoint and is too thin to trust either way, so the
-    # slot is chosen on consensus and will be re-checked once it has data.
+    # These are the channel's experiment slots, not universal platform laws:
+    # 12:30 PM ET is the measured lunch/discovery candidate, while 6:30 PM
+    # and 8:00 PM ET cover the evening commute and prime-time windows. The
+    # uploader uses this IANA timezone, so EST/EDT changes are handled by
+    # pytz rather than by hard-coded UTC arithmetic. Learned weights may rank
+    # the slots, but cannot invent an off-policy slot without an explicit
+    # experiment configuration.
     PEAK_TIMES = [
-        {'hour': 18, 'minute': 30, 'zone': 'EST', 'name': 'Early Evening'},  # 6:30 PM ET
-        {'hour': 21, 'minute': 30, 'zone': 'EST', 'name': 'Late Evening'},   # 9:30 PM ET
+        {'hour': 12, 'minute': 30, 'zone': 'ET', 'name': 'Lunch Discovery'},  # 12:30 PM ET
+        {'hour': 18, 'minute': 30, 'zone': 'ET', 'name': 'Early Evening'},     # 6:30 PM ET
+        {'hour': 20, 'minute': 0, 'zone': 'ET', 'name': 'Prime Time'},          # 8:00 PM ET
     ]
     
-    # Timezone mapping
+    # IANA zones keep the policy correct across EST/EDT daylight-saving changes.
     TIMEZONE_MAP = {
-        'EST': 'America/New_York',
-        'CST': 'America/Chicago',
-        'MST': 'America/Denver',
-        'PST': 'America/Los_Angeles',
+        'ET': 'America/New_York',
+        'CT': 'America/Chicago',
+        'MT': 'America/Denver',
+        'PT': 'America/Los_Angeles',
     }
     
     def __init__(self):
-        self.est_tz = pytz.timezone(self.TIMEZONE_MAP['EST'])
+        self.est_tz = pytz.timezone(self.TIMEZONE_MAP['ET'])
         self.utc_tz = pytz.UTC
     
     @staticmethod

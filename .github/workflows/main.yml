@@ -13,21 +13,23 @@ on:
         type: boolean
         default: false
   schedule:
-    # 2 videos/day for a US audience, auto-published at New York peaks:
-    # 18:30 / 21:30 America/New_York (the two evening peaks; the late slot
-    # publishes at 21:30 NY, inside the 7-10 PM wind-down peak).
-    # Crons are in UTC: 18:30 EDT = 22:30 UTC; 21:30 EDT = 01:30 UTC.
-    # (Previously 3/day; reduced 2026-08-21 per owner: 2 quality videos at
-    # peak slots beats 3 spread thin - better retention, same daily reach.)
-    # Data: SocialPilot 301k videos + Hopper HQ 2026.
-    - cron: "30 22 * * *"
-    - cron: "30 1 * * *"
+    # Three daily generation opportunities. The uploader selects the next
+    # America/New_York slot from scheduler.PEAK_TIMES and writes a DST-aware
+    # YouTube publishAt timestamp; these UTC triggers only provide coverage.
+    # 16:30, 21:30 and 03:00 UTC cover the ET lunch/evening windows in both
+    # EDT and EST without pretending that a fixed UTC cron is local time.
+    # The 03:00 trigger also remains after the 02:30 UTC analytics run.
+    - cron: "30 16 * * *"
+    - cron: "30 21 * * *"
+    - cron: "0 3 * * *"
 
 permissions:
   contents: write
 
 concurrency:
-  group: skillor-pipeline
+  # Shared with analytics.yml so publication and learning runs never mutate
+  # data/ concurrently or overwrite each other's state.
+  group: skillor-channel-state
   cancel-in-progress: false
 
 jobs:
@@ -102,6 +104,8 @@ jobs:
           FACEBOOK_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID }}
           FACEBOOK_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
           INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
+          IG_UPLOAD_ENABLED: "true"
         run: |
           set -euo pipefail
           echo "Checking required secrets..."
@@ -113,6 +117,9 @@ jobs:
           done
           if [ "${FB_UPLOAD_ENABLED,,}" = "true" ]; then
             [ -z "$FACEBOOK_PAGE_ID" ] || [ -z "$FACEBOOK_ACCESS_TOKEN" ] && { echo "::error::FB secrets missing"; missing=1; }
+          fi
+          if [ "${IG_UPLOAD_ENABLED,,}" = "true" ]; then
+            [ -z "$INSTAGRAM_USER_ID" ] || [ -z "$IG_ACCESS_TOKEN" ] && { echo "::error::Instagram secrets missing"; missing=1; }
           fi
           exit "$missing"
 
@@ -221,8 +228,20 @@ jobs:
           # the account's live /models list is probed at runtime so a retired
           # id (e.g. llama-3.1-70b-instruct, 404'd Aug 14) can never stall
           # the whole run again.
+          # The code probes Groq's live model list and filters for supported
+          # chat/JSON models. Do not pin a decommissioned fallback here.
           GROQ_MODEL: "openai/gpt-oss-20b"
-          GROQ_MODEL_FALLBACK: "llama-3.1-8b-instant"
+          GROQ_MODEL_FALLBACK: ""
+          # Zero-touch safe mode: low-risk evidence-backed items publish
+          # automatically; medium/high-risk items remain draft-only.
+          PUBLISH_MODE: "publish"
+          REQUIRE_HUMAN_REVIEW: "1"
+          HUMAN_REVIEW_APPROVED_AT: ${{ secrets.HUMAN_REVIEW_APPROVED_AT }}
+          AUTO_SOURCE_RESEARCH: "true"
+          VERIFY_CONTENT_SOURCES: "true"
+          REQUIRE_CONTENT_SOURCES: "true"
+          AUTO_PUBLISH_LOW_RISK: "true"
+          REQUIRE_REAL_ANALYTICS: "false"
           # 2026-08-15: competitor hijacking (scraping rivals' comments/topics
           # for copycat content) targets YouTube's inauthentic-engagement
           # policy — a strike/demotion risk, never enabled in production.

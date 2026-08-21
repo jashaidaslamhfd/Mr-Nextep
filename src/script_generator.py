@@ -4,7 +4,6 @@ FULLY FIXED - JSON Cleaning + Native Tone + Retention Optimization
 """
 
 import os
-import sys
 import json
 import time
 import logging
@@ -117,11 +116,9 @@ MAX_TOKENS = 1400
 # pool (TPD) exhausts early every day, so the generator now skips
 # 429-exhausted models instead of burning retries on them.
 GROQ_MODEL_PRIMARY = os.environ.get("GROQ_MODEL") or "llama-3.1-8b-instant"
-GROQ_MODEL_FALLBACK = os.environ.get("GROQ_MODEL_FALLBACK") or "llama-3.1-70b-versatile"
-# Older Llama ids this repo historically used; keep only as last-resort
-# candidates AFTER the probe confirms the account can reach them.
-_legacy_model_ids = ["llama-3.1-70b-versatile", "llama-3.1-8b-instant"]
-
+# Empty by default: live model discovery supplies current fallbacks. A stale
+# fallback ID is worse than a clean OpenRouter/Gemini failover.
+GROQ_MODEL_FALLBACK = os.environ.get("GROQ_MODEL_FALLBACK") or ""
 # Model ids that exist on Groq but are NOT chat-completion models (audio
 # transcription, prompt-guard classifiers). Script generation must skip them
 # — calling them returns 400 'does not support chat completions' and burns
@@ -177,29 +174,44 @@ def _quality_model(mid: str) -> bool:
 
 
 def groq_model_chain() -> List[str]:
-    """Ordered Groq models to try for script generation.
-    Configured primary/fallback first, then live-probed models the key can
-    reach that pass the quality allowlist, then the legacy ids.
+    """Return only live, chat-capable, quality-allowlisted model IDs.
+
+    A configured fallback is a preference, not proof that the model still
+    exists. Groq deprecates model IDs and account access changes over time.
+    When the live probe succeeds, stale IDs are excluded before the first
+    generation request. If the probe itself is unavailable, configured IDs
+    remain as a degraded fallback and the request-level errors still advance
+    through the chain.
     """
-    chain = []
+    preferred = [GROQ_MODEL_PRIMARY, GROQ_MODEL_FALLBACK]
     seen = set()
-    for mid in [GROQ_MODEL_PRIMARY, GROQ_MODEL_FALLBACK] + _legacy_model_ids:
-        if mid and mid not in seen:
-            chain.append(mid)
-            seen.add(mid)
+    chain = []
+    live_models = []
     if Groq is not None:
         try:
-            probe = [
-                m for m in
-                _groq_accessible_models(Groq(api_key=os.environ.get("GROQ_API_KEY", "")))
-                if _quality_model(m)
-            ]
+            live_models = _groq_accessible_models(
+                Groq(api_key=os.environ.get("GROQ_API_KEY", ""))
+            )
         except Exception:  # noqa: BLE001
-            probe = []
-        for mid in probe:
-            if mid not in seen:
-                chain.append(mid)
-                seen.add(mid)
+            live_models = []
+
+    if live_models:
+        live_set = set(live_models)
+        preferred = [mid for mid in preferred if mid in live_set]
+
+    candidates = preferred + [mid for mid in live_models if _quality_model(mid)]
+    for mid in candidates:
+        if mid and mid not in seen and _is_chat_model(mid) and _quality_model(mid):
+            chain.append(mid)
+            seen.add(mid)
+
+    # A valid key should expose at least one candidate. Keep a clear error
+    # rather than allowing _current_model() to fail with IndexError.
+    if not chain:
+        raise RuntimeError(
+            "Groq account exposes no supported chat model; refresh the model list "
+            "or configure a current GROQ_MODEL."
+        )
     return chain
 
 
@@ -425,6 +437,15 @@ HARD FORMAT RULES:
 - `thumbnail_text`: 2–4 clear words that complement—not repeat—the title.
 - `cta`: one brief, natural follow/subscribe prompt. It is metadata, not narration.
 - `description`: one accurate sentence summarising the real payoff.
+- `evidence_summary`: one sentence stating the factual mechanism without hype.
+- `sources`: one to three source objects with `title`, `url`, and `accessed_at`.
+  Use authoritative sources such as government, university, medical society, or
+  peer-reviewed research. Never invent a URL; if no source is available, set
+  `sources` to [] and the publish gate will keep the video in draft.
+- `risk_level`: one of `low`, `medium`, or `high`. Symptoms, diseases,
+  treatment, diagnosis, cure, emergency, or medication claims are at least
+  `medium`; high-risk claims require human review.
+- `disclaimer_required`: true for medium/high-risk claims.
 
 JSON ONLY:
 {{
@@ -442,7 +463,13 @@ JSON ONLY:
     {{"visual": "...", "caption": "..."}}
   ],
   "cta": "...",
-  "description": "..."
+  "description": "...",
+  "evidence_summary": "...",
+  "sources": [
+    {{"title": "...", "url": "https://...", "accessed_at": "YYYY-MM-DD"}}
+  ],
+  "risk_level": "low",
+  "disclaimer_required": false
 }}
 """
 
@@ -905,9 +932,10 @@ def _validate_script(script_data: Dict, lenient: bool = False) -> Tuple[bool, Li
             #   * > MAX_SCENES  -> trim the tail to the policy limit (extra
             #     scenes are never spoken past the budget window)
             if 'cta' in required_fields and not script_data.get('cta'):
-                tail = script_data['scenes'][-1]['caption'] if script_data.get('scenes') else topic
+                topic_text = str(script_data.get('topic') or '').strip()
+                tail = script_data['scenes'][-1]['caption'] if script_data.get('scenes') else topic_text
                 script_data['cta'] = (
-                    f"Follow for more {topic.lower() if topic else 'mind-blowing'} "
+                    f"Follow for more {topic_text.lower() if topic_text else 'mind-blowing'} "
                     "facts — your brain will thank you."
                     if not tail else
                     f"{tail} Follow for more — subscribe and your next video finds you."
