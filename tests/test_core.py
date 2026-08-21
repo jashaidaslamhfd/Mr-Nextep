@@ -181,6 +181,23 @@ class LLMFallbackTests(unittest.TestCase):
         self.assertIn("openai/gpt-oss-20b", chain)
         self.assertNotIn("llama-3.1-70b-versatile", chain)
 
+    def test_lenient_quality_fallback_has_reachable_but_lower_floor(self):
+        from unittest.mock import patch
+        from quality_checker import QualityChecker
+
+        with patch("quality_checker._validate_script", return_value=(True, [])), \
+             patch("quality_checker.analyze_retention_potential", return_value={"retention_score": 55}):
+            result = QualityChecker(approval_threshold=60).check_script_quality({"title": "fixture"}, lenient=True)
+        self.assertTrue(result["approved"])
+        self.assertLess(result["scores"]["overall_quality"], 60)
+
+    def test_lenient_quality_fallback_still_rejects_malformed_script(self):
+        from quality_checker import QualityChecker
+
+        result = QualityChecker(approval_threshold=60).check_script_quality({}, lenient=True)
+        self.assertFalse(result["approved"])
+        self.assertLessEqual(result["scores"]["overall_quality"], 40)
+
     def test_provider_bait_is_sanitized_before_us_gate(self):
         import main
 
