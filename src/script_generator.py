@@ -117,10 +117,10 @@ MAX_TOKENS = 1400
 # pool (TPD) exhausts early every day, so the generator now skips
 # 429-exhausted models instead of burning retries on them.
 GROQ_MODEL_PRIMARY = os.environ.get("GROQ_MODEL") or "llama-3.1-8b-instant"
-GROQ_MODEL_FALLBACK = os.environ.get("GROQ_MODEL_FALLBACK") or "llama3-70b-8192"
+GROQ_MODEL_FALLBACK = os.environ.get("GROQ_MODEL_FALLBACK") or "llama-3.1-70b-versatile"
 # Older Llama ids this repo historically used; keep only as last-resort
 # candidates AFTER the probe confirms the account can reach them.
-_legacy_model_ids = ["llama3-70b-8192", "llama3-8b-8192"]
+_legacy_model_ids = ["llama-3.1-70b-versatile", "llama-3.1-8b-instant"]
 
 # Model ids that exist on Groq but are NOT chat-completion models (audio
 # transcription, prompt-guard classifiers). Script generation must skip them
