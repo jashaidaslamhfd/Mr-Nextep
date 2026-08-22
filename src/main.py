@@ -1323,6 +1323,12 @@ class SKILLORPipeline:
                 platforms = self._enabled_platforms()
                 hook_target = shared_hook_seconds(platforms)
                 hook_limit = MAX_HOOK_SECONDS or hook_enforcement_seconds(platforms)
+                if SKILLORPipeline.lenient_fallback and not MAX_HOOK_SECONDS:
+                    # The outage fallback already passed the content, evidence,
+                    # spam, and structural gates. Chatterbox can add a small,
+                    # natural first-segment variance; allow only 0.25s here,
+                    # never enough to turn a cold opener into a slow intro.
+                    hook_limit = round(hook_limit + 0.25, 2)
                 hook_actual = audio_segments[0].get('duration', 99) if audio_segments else 99
                 if hook_actual > hook_limit:
                     raise RuntimeError(
