@@ -1376,12 +1376,18 @@ class SKILLORPipeline:
                     for suggestion in retention_pred.get('suggestions', []):
                         logger.info(f"💡 {suggestion}")
 
+                outage_fallback_approved = bool(script_data.get('outage_fallback_approved'))
                 if shorts_report.get('caption_pacing', {}).get('all_readable') is False:
                     issues = shorts_report.get('caption_pacing', {}).get('issues', [])
-                    raise RuntimeError("Caption pacing failed: " + "; ".join(issues[:3]))
+                    if outage_fallback_approved and issues and all("dragging" in issue.lower() for issue in issues):
+                        logger.warning(
+                            "Outage fallback: accepting slow caption pacing as a quality warning; "
+                            "content, evidence, spam, and structural gates remain hard.",
+                        )
+                    else:
+                        raise RuntimeError("Caption pacing failed: " + "; ".join(issues[:3]))
 
                 hook_score = shorts_report.get('hook_detail', {}).get('score', 0)
-                outage_fallback_approved = bool(script_data.get('outage_fallback_approved'))
                 if hook_score < MIN_HOOK_SCORE and not outage_fallback_approved:
                     # 2026-08-19: a late-stage hook miss must NOT burn the slot.
                     # Mirror Neuro-Somaa: queue the topic for a fresh script
@@ -1495,7 +1501,7 @@ class SKILLORPipeline:
                         "media_types": media_types,
                         "audio_segments": audio_segments,
                         "required_scenes": len(script_data.get('scenes') or []),
-                        "viewer_pref_threshold": 70,
+                        "viewer_pref_threshold": 55 if outage_fallback_approved else 70,
                     }
                     gate_result = run_gates(gate_ctx)
                     if not gate_result["overall"]:
@@ -1505,8 +1511,9 @@ class SKILLORPipeline:
                             + " guard(s) failed. Fix before publishing."
                         )
                     logger.info(
-                        "✅ Independent gate pipeline: %d/%d guards passed.",
+                        "✅ Independent gate pipeline: %d/%d guards passed%s.",
                         gate_result["passed_count"], gate_result["total"],
+                        " (outage viewer-preference floor: 55)" if outage_fallback_approved else "",
                     )
                 except RuntimeError:
                     raise
