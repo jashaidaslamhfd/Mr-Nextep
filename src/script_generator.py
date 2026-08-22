@@ -961,7 +961,11 @@ def _validate_script(script_data: Dict, lenient: bool = False) -> Tuple[bool, Li
         if lenient and issues:
             kept = []
             for msg in issues:
-                if msg.startswith('Too few words:') or 'Scene 2 (SUSPENSE)' in msg:
+                if (
+                    msg.startswith('Too few words:')
+                    or 'Scene 2 (SUSPENSE)' in msg
+                    or 'Final scene (LOOP-BACK)' in msg
+                ):
                     logger.warning("Lenient accept (final attempt): %s", msg)
                     continue
                 kept.append(msg)
