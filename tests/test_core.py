@@ -162,3 +162,107 @@ class LLMFallbackTests(unittest.TestCase):
         code = open(src, encoding="utf-8").read()
         self.assertIn("_openrouter_generate", code)
         self.assertIn("OPENROUTER_API_KEY", code)
+
+    def test_groq_chain_filters_stale_ids_after_live_probe(self):
+        import script_generator
+        from unittest.mock import patch
+
+        class FakeGroq:
+            def __init__(self, **kwargs):
+                pass
+
+        live = ["openai/gpt-oss-20b", "openai/gpt-oss-120b"]
+        with (patch.object(script_generator, "Groq", FakeGroq),
+              patch.object(script_generator, "_groq_accessible_models", return_value=live),
+              patch.object(script_generator, "GROQ_MODEL_PRIMARY", "openai/gpt-oss-20b"),
+              patch.object(script_generator, "GROQ_MODEL_FALLBACK", "llama-3.1-70b-versatile")):
+            chain = script_generator.groq_model_chain()
+
+        self.assertIn("openai/gpt-oss-20b", chain)
+        self.assertNotIn("llama-3.1-70b-versatile", chain)
+
+    def test_lenient_quality_fallback_has_reachable_but_lower_floor(self):
+        from unittest.mock import patch
+        from quality_checker import QualityChecker
+
+        with patch("quality_checker._validate_script", return_value=(True, [])), \
+             patch("quality_checker.analyze_retention_potential", return_value={"retention_score": 55}):
+            result = QualityChecker(approval_threshold=60).check_script_quality({"title": "fixture"}, lenient=True)
+        self.assertTrue(result["approved"])
+        self.assertLess(result["scores"]["overall_quality"], 60)
+
+    def test_lenient_quality_fallback_still_rejects_malformed_script(self):
+        from quality_checker import QualityChecker
+
+        result = QualityChecker(approval_threshold=60).check_script_quality({}, lenient=True)
+        self.assertFalse(result["approved"])
+        self.assertLessEqual(result["scores"]["overall_quality"], 40)
+
+    def test_provider_bait_is_sanitized_before_us_gate(self):
+        import main
+
+        script = {
+            "hook": "Why does your brain do this?",
+            "description": "A simple explanation. Share this with a friend!",
+            "evidence_summary": "A social response can be learned.",
+            "cta": "Comment below if this happened to you.",
+            "scenes": [
+                {"caption": "Why does your brain do this?", "visual": "Brain close-up"},
+                {"caption": "The response is automatic. Comment below.", "visual": "Hands exchanging a gift"},
+            ],
+        }
+        cleaned = main._sanitize_generated_content(script)
+        self.assertNotIn("Share this", cleaned["description"])
+        self.assertNotIn("Comment below", cleaned["voiceover"])
+        self.assertEqual(cleaned["hook"], cleaned["scenes"][0]["caption"])
+
+    def test_gemini_fallback_discovers_live_model_and_requests_json(self):
+        import os
+        import script_generator
+        from unittest.mock import patch
+
+        class FakeResponse:
+            def __init__(self, status_code, payload):
+                self.status_code = status_code
+                self._payload = payload
+
+            def json(self):
+                return self._payload
+
+        live_payload = {
+            "models": [
+                {
+                    "name": "models/gemini-2.5-flash-lite",
+                    "supportedGenerationMethods": ["generateContent"],
+                },
+                {
+                    "name": "models/text-embedding-005",
+                    "supportedGenerationMethods": ["embedContent"],
+                },
+            ]
+        }
+        script_payload = {
+            "candidates": [{"content": {"parts": [{"text": '{"title":"Why Your Body Twitches","hook":"Why does your body twitch?","scenes":[],"cta":"Follow for more."}'}]}}]
+        }
+        old_key = os.environ.get("GEMINI_API_KEY")
+        os.environ["GEMINI_API_KEY"] = "test-key"
+        try:
+            with (patch("requests.get", return_value=FakeResponse(200, live_payload)) as get,
+                  patch("requests.post", return_value=FakeResponse(200, script_payload)) as post):
+                result = script_generator._gemini_generate(
+                    [{"role": "system", "content": "JSON only"},
+                     {"role": "user", "content": "Make a script"}],
+                    temperature=0.2,
+                    max_tokens=100,
+                )
+            self.assertIn("Why Your Body Twitches", result)
+            self.assertNotIn("gemini-2.0-flash-lite", post.call_args.args[0])
+            payload = post.call_args.kwargs["json"]
+            self.assertEqual(payload["generationConfig"]["responseMimeType"], "application/json")
+            self.assertIn("systemInstruction", payload)
+            get.assert_called_once()
+        finally:
+            if old_key is None:
+                os.environ.pop("GEMINI_API_KEY", None)
+            else:
+                os.environ["GEMINI_API_KEY"] = old_key

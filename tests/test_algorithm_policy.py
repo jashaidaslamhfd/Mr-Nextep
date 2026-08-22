@@ -1042,12 +1042,12 @@ class GrowthEngineTests(unittest.TestCase):
     def test_clear_separation_moves_weights_in_the_right_direction(self):
         records = {}
         for i in range(4):
-            records[f"good{i}"] = self._record(21, 0.75)
+            records[f"good{i}"] = self._record(20, 0.75)
             records[f"bad{i}"] = self._record(18, 0.20, topic="knee cracking",
                                               title="Your knee cracks loudly")
         self._write(records)
         state = self.engine.analyse()
-        self.assertGreater(state["slot_weights"]["21:30"], state["slot_weights"]["18:30"])
+        self.assertGreater(state["slot_weights"]["20:00"], state["slot_weights"]["18:30"])
         self.assertGreater(state["topic_weights"]["eye"], state["topic_weights"]["muscle"])
 
     def test_weights_never_collapse_to_zero(self):
@@ -1097,12 +1097,12 @@ class GrowthEngineTests(unittest.TestCase):
 
     def test_slot_bucketing_snaps_to_configured_slots(self):
         """A late cron or an expiring Instagram hold must still credit the
-        slot it was aiming at. Bucketing 21:35 into a "21:30" grid cell."""
+        slot it was aiming at. Bucketing 20:05 into the 20:00 grid cell."""
         import pytz
         ny = pytz.timezone("America/New_York")
-        # 21:30 is the new late slot; 21:00, 21:12, 21:45 all snap to it.
-        for minute, expected in ((0, "21:30"), (12, "21:30"), (45, "21:30")):
-            stamp = ny.localize(datetime(2026, 7, 20, 21, minute))
+        # 20:00 is the prime slot; nearby times snap to its configured bucket.
+        for minute, expected in ((0, "20:00"), (12, "20:00"), (45, "20:00")):
+            stamp = ny.localize(datetime(2026, 7, 20, 20, minute))
             self.assertEqual(self.engine._slot_key({"publish_at": stamp.isoformat()}), expected)
 
     def test_off_slot_publishes_are_kept_separate(self):
@@ -1161,13 +1161,13 @@ class SchedulerLearningTests(unittest.TestCase):
     def test_slots_are_ranked_by_measured_weight(self):
         """When cadence drops below 2, the pipeline must fill the BEST slots,
         not the first ones in list order."""
-        # 18:30 and 21:30 are the only slots now.
-        self._patch_weights(lambda: {"18:30": 0.6, "21:30": 1.9})
+        # 18:30 and 20:00 are the evening slots; 20:00 wins this fixture.
+        self._patch_weights(lambda: {"12:30": 1.0, "18:30": 0.6, "20:00": 1.9})
         ranked = self.scheduler.ranked_peak_times()
-        self.assertEqual((ranked[0]["hour"], ranked[0]["minute"]), (21, 30))
+        self.assertEqual((ranked[0]["hour"], ranked[0]["minute"]), (20, 0))
         one = self.scheduler.get_next_posting_times(1)
         self.assertEqual(len(one), 1)
-        self.assertIn(21, [entry["time"].hour for entry in one])
+        self.assertIn(20, [entry["time"].hour for entry in one])
 
     def test_unmeasured_channel_keeps_chronological_behaviour(self):
         self._patch_weights(dict)
@@ -1323,6 +1323,17 @@ class DeploymentWiringTests(unittest.TestCase):
         analytics = (ROOT / ".github" / "workflows" / "analytics.yml").read_text()
         self.assertIn("git add data/", analytics)
         self.assertIn("git push", analytics)
+        self.assertNotIn("git checkout -- data/", analytics,
+                         "persistence must not reset freshly generated state")
+        self.assertNotIn("git reset --hard origin/main -- data/", analytics,
+                         "persistence must not discard generated state")
+
+    def test_learning_and_publishing_share_state_concurrency_group(self):
+        analytics = (ROOT / ".github" / "workflows" / "analytics.yml").read_text()
+        publishing = (ROOT / ".github" / "workflows" / "main.yml").read_text()
+        analytics_group = re.search(r"group:\s*([^\s]+)", analytics).group(1)
+        publishing_group = re.search(r"group:\s*([^\s]+)", publishing).group(1)
+        self.assertEqual(analytics_group, publishing_group)
 
     def test_a_failed_stage_cannot_block_the_others(self):
         """A YouTube permission problem must not also blind the channel to

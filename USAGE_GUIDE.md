@@ -41,10 +41,17 @@ Optional heavy extras (voice cloning on GPU, screenshot fallback):
 > ```
 > The backup is written to `~/.skillor/` (git-ignored), **never** into the repo.
 
-Key US-audience settings already defaulted in `env.example`:
-`CONTENT_SERIES=body_glitches`, `TTS_ENGINE=kokoro`, `KOKORO_LANG_CODE=a`,
-`KOKORO_VOICE=am_adam`, `YT_PRIVACY_STATUS=private`, `YT_SCHEDULE_PUBLISH=true`,
-`QUALITY_APPROVAL_THRESHOLD=60`, `YT_MADE_FOR_KIDS=false`.
+Key US-audience settings already defaulted in `env.example` include American
+English-compatible voice settings, `YT_PRIVACY_STATUS=private`, and
+`YT_SCHEDULE_PUBLISH=true`. New safety defaults are `PUBLISH_MODE=draft`,
+`REQUIRE_HUMAN_REVIEW=true`, and `REQUIRE_CONTENT_SOURCES=true`. The pipeline
+writes `output/draft_manifest.json` for review and refuses public APIs unless
+`PUBLISH_MODE=publish` and `HUMAN_REVIEW_APPROVED_AT` are both present.
+
+Do not use a hard-coded legacy Groq model as a fallback. `src/script_generator.py`
+probes the live provider model list and rejects stale/decommissioned IDs. Keep
+`GROQ_MODEL` current and leave `GROQ_MODEL_FALLBACK` empty unless it has been
+verified against the account’s live model list.
 
 ## 3. Run the pipeline
 
@@ -62,18 +69,20 @@ BATCH_MODE=true BATCH_COUNT=3 python src/main.py
 ```
 
 In production this runs on **GitHub Actions** (`.github/workflows/main.yml`),
-3×/day, gated to the New York hours `04|11|18` so DST skips don't double-post.
+3×/day. The UTC triggers provide coverage, while the uploader computes the
+actual publication time with the IANA `America/New_York` timezone so EST/EDT
+changes do not change the intended local slot.
 
 ## 4. Publishing schedule (America/New_York)
 
-| Generation run | Auto-publishes (`publishAt`) |
+| Canonical US/Eastern slot | Purpose |
 |---|---|
-| 04:30 NY | 06:00 NY |
-| 11:00 NY | 12:30 NY |
-| 18:30 NY | 20:00 NY |
+| 12:30 PM ET | Lunch/discovery experiment |
+| 6:30 PM ET | Early-evening experiment |
+| 8:00 PM ET | Prime-time experiment |
 
 Videos upload **private** with a `publishAt` timestamp; YouTube itself flips
-them public at the slot (peak slots used: 12:30 / 20:00 / 21:30 NY). You can
+them public at the selected local slot (12:30 PM / 6:30 PM / 8:00 PM ET). You can
 review or delete during the private window. `ENFORCE_POSTING_GAP=true` refuses
 runs closer than 2 h to the last post.
 

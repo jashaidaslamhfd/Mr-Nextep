@@ -99,8 +99,17 @@ def _make_pop_sfx(sr: int = MUSIC_SAMPLE_RATE, freq: float = SFX_MAX_FREQ,
     wave = np.sin(2.0 * np.pi * np.cumsum(sweep) / sr)
     env = np.exp(-6.0 * t / max(dur, 1e-9))        # fast natural decay
     samples = (wave * env * volume).astype(np.float32)
-    clip = AudioClip(lambda tt: np.interp(tt, t, samples),
-                     duration=dur, fps=sr)
+    def _frame(tt):
+        arr = np.asarray(tt)
+        values = np.interp(arr, t, samples)
+        if arr.ndim == 0:
+            # MoviePy uses the scalar probe to infer nchannels.
+            value = float(values)
+            return np.array([value, value], dtype=np.float32)
+        # CompositeAudioClip expects (samples, channels) for vectorized audio.
+        return np.column_stack((values, values)).astype(np.float32)
+
+    clip = AudioClip(_frame, duration=dur, fps=sr)
     return clip.set_duration(dur)
 
 # CAPTION STYLING
@@ -815,12 +824,14 @@ def build_video(image_paths, audio_segments, scenes, output_path="output/final_v
                 # but not AudioArrayClip — a zero-valued getframe is the
                 # portable silent-clip constructor.
                 def _silent(_t):
-                    _t = np.atleast_1d(np.asarray(_t))
-                    # moviepy's get_frame expects (channels, samples) for audio if t is an array,
-                    # but actually for AudioClip it usually expects (samples, channels).
-                    # The error "operands could not be broadcast together with shapes (1999,2) (1999,1999)"
-                    # suggests a mismatch in how the silent frame is being generated vs used.
-                    return np.zeros((len(_t), 2))
+                    # MoviePy probes an AudioClip with scalar t=0 during
+                    # construction to infer nchannels. Returning (1, 2) there
+                    # incorrectly declares one channel and later broadcasts a
+                    # vectorized silent frame into an (N, N) matrix.
+                    _arr = np.asarray(_t)
+                    if _arr.ndim == 0:
+                        return np.zeros(2, dtype=float)
+                    return np.zeros((len(_arr), 2), dtype=float)
                 silent = AudioClip(_silent, duration=_gap)
                 silent.fps = 44100
                 audio_clips.append(silent)
@@ -884,10 +895,17 @@ def build_video(image_paths, audio_segments, scenes, output_path="output/final_v
             len(duck_env) - 1,
         )
         gain = duck_env[indices] * MUSIC_VOLUME
-        # Broadcast gain across channels if the audio frame is 2-D
-        # (stereo) while gain is 1-D.
+        # MoviePy normally returns audio as (samples, channels), but some
+        # reader/effect combinations return (channels, samples). Choose the
+        # matching axis explicitly; blindly using gain[:, None] turns a
+        # channel-first (2, N) frame into the observed (N, N) matrix.
+        frame = np.asarray(frame)
         if frame.ndim == 2 and gain.ndim == 1:
-            gain = gain[:, np.newaxis]
+            sample_count = len(t_arr)
+            if frame.shape[0] == sample_count:
+                gain = gain[:, np.newaxis]
+            elif frame.shape[1] == sample_count:
+                gain = gain[np.newaxis, :]
         return gain * frame
 
     ducked_music = music_clip.fl(_apply_ducking)

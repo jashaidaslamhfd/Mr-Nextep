@@ -169,6 +169,24 @@ def _payoff_fact(script_data: Dict) -> str:
     return ""
 
 
+def _evidence_footer(script_data: Dict, platform: str) -> str:
+    """Render auditable source metadata without turning captions into spam."""
+    sources = script_data.get("sources") or []
+    links = []
+    for source in sources[:2]:
+        if isinstance(source, dict) and source.get("url"):
+            title = _clean(source.get("title") or "Source", 80)
+            links.append(f"{title}: {source['url']}")
+    parts = []
+    if links and platform == YOUTUBE:
+        parts.append("Sources: " + " | ".join(links))
+    if script_data.get("disclaimer_required"):
+        parts.append("Educational information only — not medical advice.")
+    if script_data.get("synthetic_media") or script_data.get("containsSyntheticMedia"):
+        parts.append("AI-generated visual/audio elements are disclosed in the upload.")
+    return " ".join(parts)
+
+
 def _hook_and_summary(script_data: Dict) -> tuple[str, str]:
     hook = _clean(script_data.get("hook"), 180)
 
@@ -240,6 +258,10 @@ def build_youtube_description(
         YOUTUBE,
     )
 
+    evidence = _evidence_footer(script_data, YOUTUBE)
+    if evidence:
+        parts.append(evidence)
+
     if hashtags:
         parts.append(" ".join(hashtags))
 
@@ -303,6 +325,10 @@ def build_facebook_caption(
         _meta_tags(tags),
         FACEBOOK,
     )
+
+    evidence = _evidence_footer(script_data, FACEBOOK)
+    if evidence:
+        parts.append(evidence)
 
     if hashtags:
         parts.append(" ".join(hashtags))

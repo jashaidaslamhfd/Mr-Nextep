@@ -4,7 +4,6 @@ FULLY FIXED - JSON Cleaning + Native Tone + Retention Optimization
 """
 
 import os
-import sys
 import json
 import time
 import logging
@@ -117,11 +116,9 @@ MAX_TOKENS = 1400
 # pool (TPD) exhausts early every day, so the generator now skips
 # 429-exhausted models instead of burning retries on them.
 GROQ_MODEL_PRIMARY = os.environ.get("GROQ_MODEL") or "llama-3.1-8b-instant"
-GROQ_MODEL_FALLBACK = os.environ.get("GROQ_MODEL_FALLBACK") or "llama-3.1-70b-versatile"
-# Older Llama ids this repo historically used; keep only as last-resort
-# candidates AFTER the probe confirms the account can reach them.
-_legacy_model_ids = ["llama-3.1-70b-versatile", "llama-3.1-8b-instant"]
-
+# Empty by default: live model discovery supplies current fallbacks. A stale
+# fallback ID is worse than a clean OpenRouter/Gemini failover.
+GROQ_MODEL_FALLBACK = os.environ.get("GROQ_MODEL_FALLBACK") or ""
 # Model ids that exist on Groq but are NOT chat-completion models (audio
 # transcription, prompt-guard classifiers). Script generation must skip them
 # — calling them returns 400 'does not support chat completions' and burns
@@ -138,6 +135,16 @@ def _is_chat_model(model_id: str) -> bool:
     """
     mid = model_id.lower()
     return not any(pat in mid for pat in _NON_CHAT_MODEL_PATTERNS)
+
+
+_REASONING_MODEL_PATTERNS = ("gpt-oss", "qwen", "deepseek-r1", "minimax")
+
+
+def _reasoning_request_kwargs(model_id: str) -> Dict[str, str]:
+    """Return reasoning-only request fields without sending them to Llama/Gemma."""
+    if any(pattern in model_id.lower() for pattern in _REASONING_MODEL_PATTERNS):
+        return {"reasoning_format": "hidden"}
+    return {}
 
 
 def _groq_accessible_models(client) -> List[str]:
@@ -177,29 +184,44 @@ def _quality_model(mid: str) -> bool:
 
 
 def groq_model_chain() -> List[str]:
-    """Ordered Groq models to try for script generation.
-    Configured primary/fallback first, then live-probed models the key can
-    reach that pass the quality allowlist, then the legacy ids.
+    """Return only live, chat-capable, quality-allowlisted model IDs.
+
+    A configured fallback is a preference, not proof that the model still
+    exists. Groq deprecates model IDs and account access changes over time.
+    When the live probe succeeds, stale IDs are excluded before the first
+    generation request. If the probe itself is unavailable, configured IDs
+    remain as a degraded fallback and the request-level errors still advance
+    through the chain.
     """
-    chain = []
+    preferred = [GROQ_MODEL_PRIMARY, GROQ_MODEL_FALLBACK]
     seen = set()
-    for mid in [GROQ_MODEL_PRIMARY, GROQ_MODEL_FALLBACK] + _legacy_model_ids:
-        if mid and mid not in seen:
-            chain.append(mid)
-            seen.add(mid)
+    chain = []
+    live_models = []
     if Groq is not None:
         try:
-            probe = [
-                m for m in
-                _groq_accessible_models(Groq(api_key=os.environ.get("GROQ_API_KEY", "")))
-                if _quality_model(m)
-            ]
+            live_models = _groq_accessible_models(
+                Groq(api_key=os.environ.get("GROQ_API_KEY", ""))
+            )
         except Exception:  # noqa: BLE001
-            probe = []
-        for mid in probe:
-            if mid not in seen:
-                chain.append(mid)
-                seen.add(mid)
+            live_models = []
+
+    if live_models:
+        live_set = set(live_models)
+        preferred = [mid for mid in preferred if mid in live_set]
+
+    candidates = preferred + [mid for mid in live_models if _quality_model(mid)]
+    for mid in candidates:
+        if mid and mid not in seen and _is_chat_model(mid) and _quality_model(mid):
+            chain.append(mid)
+            seen.add(mid)
+
+    # A valid key should expose at least one candidate. Keep a clear error
+    # rather than allowing _current_model() to fail with IndexError.
+    if not chain:
+        raise RuntimeError(
+            "Groq account exposes no supported chat model; refresh the model list "
+            "or configure a current GROQ_MODEL."
+        )
     return chain
 
 
@@ -425,6 +447,15 @@ HARD FORMAT RULES:
 - `thumbnail_text`: 2–4 clear words that complement—not repeat—the title.
 - `cta`: one brief, natural follow/subscribe prompt. It is metadata, not narration.
 - `description`: one accurate sentence summarising the real payoff.
+- `evidence_summary`: one sentence stating the factual mechanism without hype.
+- `sources`: one to three source objects with `title`, `url`, and `accessed_at`.
+  Use authoritative sources such as government, university, medical society, or
+  peer-reviewed research. Never invent a URL; if no source is available, set
+  `sources` to [] and the publish gate will keep the video in draft.
+- `risk_level`: one of `low`, `medium`, or `high`. Symptoms, diseases,
+  treatment, diagnosis, cure, emergency, or medication claims are at least
+  `medium`; high-risk claims require human review.
+- `disclaimer_required`: true for medium/high-risk claims.
 
 JSON ONLY:
 {{
@@ -442,7 +473,13 @@ JSON ONLY:
     {{"visual": "...", "caption": "..."}}
   ],
   "cta": "...",
-  "description": "..."
+  "description": "...",
+  "evidence_summary": "...",
+  "sources": [
+    {{"title": "...", "url": "https://...", "accessed_at": "YYYY-MM-DD"}}
+  ],
+  "risk_level": "low",
+  "disclaimer_required": false
 }}
 """
 
@@ -905,9 +942,10 @@ def _validate_script(script_data: Dict, lenient: bool = False) -> Tuple[bool, Li
             #   * > MAX_SCENES  -> trim the tail to the policy limit (extra
             #     scenes are never spoken past the budget window)
             if 'cta' in required_fields and not script_data.get('cta'):
-                tail = script_data['scenes'][-1]['caption'] if script_data.get('scenes') else topic
+                topic_text = str(script_data.get('topic') or '').strip()
+                tail = script_data['scenes'][-1]['caption'] if script_data.get('scenes') else topic_text
                 script_data['cta'] = (
-                    f"Follow for more {topic.lower() if topic else 'mind-blowing'} "
+                    f"Follow for more {topic_text.lower() if topic_text else 'mind-blowing'} "
                     "facts — your brain will thank you."
                     if not tail else
                     f"{tail} Follow for more — subscribe and your next video finds you."
@@ -923,7 +961,11 @@ def _validate_script(script_data: Dict, lenient: bool = False) -> Tuple[bool, Li
         if lenient and issues:
             kept = []
             for msg in issues:
-                if msg.startswith('Too few words:') or 'Scene 2 (SUSPENSE)' in msg:
+                if (
+                    msg.startswith('Too few words:')
+                    or 'Scene 2 (SUSPENSE)' in msg
+                    or 'Final scene (LOOP-BACK)' in msg
+                ):
                     logger.warning("Lenient accept (final attempt): %s", msg)
                     continue
                 kept.append(msg)
@@ -1230,16 +1272,54 @@ def _openrouter_generate(messages, temperature=None, max_tokens=None) -> Optiona
 # 2026-08-17: Gemini 2.5 Flash (free tier) as the THIRD LLM fallback — when
 # both the Groq chain and OpenRouter are exhausted (global free-tier outage
 # window), the pipeline still tries Gemini before giving up.
-GEMINI_TEXT_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent"
+GEMINI_API_ROOT = "https://generativelanguage.googleapis.com/v1beta"
 GEMINI_TIMEOUT = 60
+# Gemini retires model IDs on a schedule. Keep a current stable preference, but
+# discover the account's live generateContent models before calling it.
+GEMINI_MODEL = os.environ.get("GEMINI_MODEL") or "gemini-2.5-flash-lite"
+_GEMINI_MODEL_PREFERENCES = (
+    GEMINI_MODEL,
+    "gemini-3.5-flash-lite",
+    "gemini-3.6-flash",
+    "gemini-2.5-flash-lite",
+    "gemini-2.5-flash",
+)
+
+
+def _gemini_model_candidates(_req, key: str) -> List[str]:
+    """Return live Gemini generateContent model IDs in stable preference order."""
+    live = []
+    try:
+        response = _req.get(
+            f"{GEMINI_API_ROOT}/models",
+            params={"key": key, "pageSize": 100},
+            timeout=15,
+        )
+        if response.status_code == 200:
+            for item in response.json().get("models", []) or []:
+                name = str(item.get("name", ""))
+                methods = item.get("supportedGenerationMethods", []) or []
+                if name.startswith("models/"):
+                    name = name.split("/", 1)[1]
+                if name and "generateContent" in methods and "embedding" not in name:
+                    live.append(name)
+    except Exception as exc:  # noqa: BLE001 - discovery must never block fallback
+        logger.warning("Gemini model discovery failed: %s", exc)
+    candidates = []
+    for model in list(_GEMINI_MODEL_PREFERENCES) + live:
+        if model and model not in candidates:
+            if not live or model in live:
+                candidates.append(model)
+    return candidates or list(_GEMINI_MODEL_PREFERENCES)
 
 
 def _gemini_generate(messages, temperature=None, max_tokens=None) -> Optional[str]:
-    """Call Google Gemini 2.5 Flash (free) when Groq + OpenRouter both fail.
+    """Call a live Gemini generateContent model when Groq + OpenRouter fail.
 
-    Returns the raw assistant text or None (never raises). The system prompt
-    and the JSON schema live in messages, so Gemini replies with the same
-    script JSON structure as the Groq path.
+    Gemini 2.0 Flash-Lite was shut down and returned HTTP 404 in production.
+    This fallback discovers current account-accessible models, separates the
+    system instruction from user contents, requests JSON, and tries the next
+    live model on an endpoint/model error. It never raises to the caller.
     """
     key = os.environ.get("GEMINI_API_KEY")
     if not key:
@@ -1247,55 +1327,54 @@ def _gemini_generate(messages, temperature=None, max_tokens=None) -> Optional[st
     try:
         import requests as _req
 
-        parts = []
+        system_text = "\n\n".join(
+            str(m.get("content", "")) for m in messages if m.get("role") == "system"
+        ).strip()
+        contents = []
         for m in messages:
-            parts.append({"role": m["role"], "parts": [{"text": m["content"]}]})
-        payload = {"contents": parts}
+            role = m.get("role")
+            if role == "system":
+                continue
+            contents.append({
+                "role": "model" if role == "assistant" else "user",
+                "parts": [{"text": str(m.get("content", ""))}],
+            })
+        if not contents:
+            return None
+        generation_config = {"responseMimeType": "application/json"}
         if temperature is not None:
-            payload["generationConfig"] = {"temperature": temperature}
-            if max_tokens is not None:
-                payload["generationConfig"]["maxOutputTokens"] = max_tokens
-        resp = _req.post(
-            f"{GEMINI_TEXT_URL}?key={key}",
-            json=payload,
-            timeout=GEMINI_TIMEOUT,
-        )
-        if resp.status_code == 200:
+            generation_config["temperature"] = temperature
+        if max_tokens is not None:
+            generation_config["maxOutputTokens"] = max_tokens
+        payload = {
+            "contents": contents,
+            "generationConfig": generation_config,
+        }
+        if system_text:
+            payload["systemInstruction"] = {"parts": [{"text": system_text}]}
+
+        for model in _gemini_model_candidates(_req, key):
+            url = f"{GEMINI_API_ROOT}/models/{model}:generateContent"
+            try:
+                resp = _req.post(url, params={"key": key}, json=payload, timeout=GEMINI_TIMEOUT)
+            except Exception as exc:  # noqa: BLE001
+                logger.warning("Gemini model %s request failed: %s", model, exc)
+                continue
+            if resp.status_code != 200:
+                logger.warning("Gemini model %s fallback failed: HTTP %s", model, resp.status_code)
+                continue
             text = ""
             try:
                 for cand in resp.json().get("candidates", []) or []:
                     for part in (cand.get("content") or {}).get("parts", []) or []:
-                        t = part.get("text")
-                        if t:
-                            text += t
-            except Exception:  # noqa: BLE001
-                text = ""
+                        text += str(part.get("text") or "")
+            except Exception as exc:  # noqa: BLE001
+                logger.warning("Gemini model %s response parse failed: %s", model, exc)
+                continue
             if "{" in text:
+                logger.info("Gemini fallback generated JSON with %s", model)
                 return text
-            # Plain-text echo: re-ask with an explicit JSON-only instruction
-            parts2 = []
-            for m in messages:
-                parts2.append({"role": m["role"], "parts": [{"text": m["content"]}]})
-            parts2[-1]["parts"][0]["text"] += (
-                "\n\nCRITICAL: Respond with ONLY a raw JSON object "
-                "starting with '{' — no thinking, no markdown, "
-                "no explanation."
-            )
-            r2 = _req.post(
-                f"{GEMINI_TEXT_URL}?key={key}",
-                json={"contents": parts2},
-                timeout=GEMINI_TIMEOUT,
-            )
-            if r2.status_code == 200:
-                for cand in r2.json().get("candidates", []) or []:
-                    for part in (cand.get("content") or {}).get("parts", []) or []:
-                        t = part.get("text")
-                        if t and "{" in t:
-                            logger.warning("Gemini re-ask recovered a JSON reply.")
-                            return t
-            logger.warning("Gemini fallback failed: HTTP %s", resp.status_code)
-            return None
-        logger.warning("Gemini fallback failed: HTTP %s", resp.status_code)
+            logger.warning("Gemini model %s returned no JSON; trying next model", model)
         return None
     except Exception as exc:  # noqa: BLE001 - fallback must never raise
         logger.warning("Gemini fallback error: %s", exc)
@@ -1355,6 +1434,7 @@ def generate_script(
     last_error = None
     best_script = None
     best_score = 0
+    provider_used = "groq"
 
     # Model fallback chain (2026-08-15): never call a model id that returns
     # 404 'does not exist'. Probe the account's live model list first, walk
@@ -1440,12 +1520,32 @@ def generate_script(
                     messages=messages,
                     model=_current_model(),
                     response_format={"type": "json_object"},
+                    **_reasoning_request_kwargs(_current_model()),
                     temperature=TEMPERATURE,
                     max_tokens=MAX_TOKENS
                 )
                 raw_reply = completion.choices[0].message.content
             except Exception as groq_err:  # noqa: BLE001 - fallback on any Groq failure
-                if _advance_model(groq_err):
+                # Some currently live Groq models reject response_format=json_object
+                # even though they can follow the JSON-only prompt. Retry once in
+                # plain completion mode and let _clean_json_response enforce the
+                # contract locally before rotating providers.
+                if "json_validate_failed" in str(groq_err).lower():
+                    try:
+                        logger.warning("Groq structured JSON mode rejected; retrying plain JSON prompt")
+                        compatibility_completion = client.chat.completions.create(
+                            messages=messages,
+                            model=_current_model(),
+                            **_reasoning_request_kwargs(_current_model()),
+                            temperature=TEMPERATURE,
+                            max_tokens=MAX_TOKENS,
+                        )
+                        raw_reply = compatibility_completion.choices[0].message.content
+                    except Exception as compatibility_err:  # noqa: BLE001
+                        logger.warning("Groq plain JSON compatibility retry failed: %s", compatibility_err)
+                if raw_reply:
+                    pass
+                elif _advance_model(groq_err):
                     # 2026-08-16: a chain-advance on the LAST attempt would
                     # silently burn the only untried model (the loop ends and
                     # the newly advanced model never gets a call). On the
@@ -1459,9 +1559,15 @@ def generate_script(
                         )
                         raw_reply = _openrouter_generate(
                             messages, temperature=TEMPERATURE, max_tokens=MAX_TOKENS
-                        ) or _gemini_generate(
-                            messages, temperature=TEMPERATURE, max_tokens=MAX_TOKENS
                         )
+                        if raw_reply:
+                            provider_used = "openrouter"
+                        else:
+                            raw_reply = _gemini_generate(
+                                messages, temperature=TEMPERATURE, max_tokens=MAX_TOKENS
+                            )
+                            if raw_reply:
+                                provider_used = "gemini"
                         if raw_reply:
                             logger.info("✅ Third-provider fallback produced a script.")
                         # NOTE: deliberately no `continue` — let execution
@@ -1472,9 +1578,15 @@ def generate_script(
                     logger.warning("Groq call failed (%s) — trying OpenRouter fallback...", groq_err)
                     raw_reply = _openrouter_generate(
                         messages, temperature=TEMPERATURE, max_tokens=MAX_TOKENS
-                    ) or _gemini_generate(
-                        messages, temperature=TEMPERATURE, max_tokens=MAX_TOKENS
                     )
+                    if raw_reply:
+                        provider_used = "openrouter"
+                    else:
+                        raw_reply = _gemini_generate(
+                            messages, temperature=TEMPERATURE, max_tokens=MAX_TOKENS
+                        )
+                        if raw_reply:
+                            provider_used = "gemini"
                     if raw_reply:
                         logger.info("✅ Third-provider fallback produced a script.")
             if not raw_reply:
@@ -1491,6 +1603,7 @@ def generate_script(
             script_data['topic'] = topic
             script_data['generated_at'] = time.time()
             script_data['attempt'] = attempt
+            script_data['provider_used'] = provider_used
             
             # Validate
             is_valid, issues = _validate_script(script_data, lenient=(attempt == max_retries))

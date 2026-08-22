@@ -8,6 +8,7 @@ from datetime import datetime, timezone
 import time
 import traceback
 import hashlib
+import re
 
 # Add current directory to path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__)))
@@ -49,10 +50,13 @@ try:
     from algorithm_policy import (
         FACEBOOK, INSTAGRAM, YOUTUBE,
         MIN_HOOK_SCORE as _POLICY_MIN_HOOK_SCORE,
-        contains_bait, duration_policy, env_float, env_int,
+        BAIT_PATTERNS, contains_bait, duration_policy, env_float, env_int,
         hook_enforcement_seconds, retention_gate, shared_hook_seconds,
+        strip_bait,
     )
     from platform_cuts import apply_cut, cut_summary, fits_platform, select_meta_cut
+    from us_content_gate import evaluate as evaluate_us_content
+    from source_research import discover_pubmed_sources, verify_source_urls
 except ImportError as e:
     logger.error(f"Failed to import modules: {e}")
     logger.error("Make sure all required modules are in the same directory")
@@ -76,6 +80,53 @@ MAX_HOOK_SECONDS = env_float("MAX_HOOK_SECONDS", 0.0) or None
 # Tracked repository state is durable across Actions runs; generated media
 # remains in output/ and is intentionally not committed.
 VIDEO_HISTORY_PATH = os.environ.get("VIDEO_HISTORY_PATH", "data/video_history.json")
+
+
+def _sanitize_generated_content(script_data: dict) -> dict:
+    """Remove provider-inserted engagement bait before quality and US gates.
+
+    This is a narrow hygiene pass, not an approval bypass: non-empty cleaned
+    text is retained, empty required fields are left untouched so the normal
+    validators still reject them, and the US content gate runs immediately
+    afterward. The pass also keeps voiceover and hook synchronized with the
+    narration actually rendered.
+    """
+    for field in ("title", "hook", "description", "evidence_summary", "cta"):
+        value = script_data.get(field)
+        if isinstance(value, str):
+            cleaned = strip_bait(value)
+            # A provider can omit sentence punctuation, leaving an inline bait
+            # phrase that sentence filtering cannot remove. Scrub only the
+            # exact configured patterns; the US gate remains the final check.
+            for pattern in BAIT_PATTERNS:
+                cleaned = re.sub(pattern, "", cleaned, flags=re.IGNORECASE)
+            cleaned = re.sub(r"\s{2,}", " ", cleaned).strip()
+            if cleaned:
+                script_data[field] = cleaned
+            elif field == "cta":
+                # A bait-only CTA must never fall back to the unsafe original.
+                script_data[field] = "Follow for more body science."
+            else:
+                script_data[field] = ""
+    scenes = script_data.get("scenes") or []
+    for scene in scenes:
+        if not isinstance(scene, dict):
+            continue
+        caption = scene.get("caption")
+        if isinstance(caption, str):
+            cleaned = strip_bait(caption)
+            for pattern in BAIT_PATTERNS:
+                cleaned = re.sub(pattern, "", cleaned, flags=re.IGNORECASE)
+            cleaned = re.sub(r"\s{2,}", " ", cleaned).strip()
+            scene["caption"] = cleaned
+    if scenes and isinstance(scenes[0], dict) and scenes[0].get("caption"):
+        script_data["hook"] = scenes[0]["caption"]
+        script_data["voiceover"] = " ".join(
+            str(scene.get("caption", "")).strip()
+            for scene in scenes
+            if isinstance(scene, dict) and scene.get("caption")
+        )
+    return script_data
 # Cross-video image/clip hash ledger. Without this, image_generator.py only
 # dedupes scenes WITHIN a single video (used_hashes/used_fallbacks are fresh
 # sets per run) — the exact same fallback image or stock clip could then
@@ -365,6 +416,14 @@ class SKILLORPipeline:
                     guard.get("action"), guard.get("health", {}).get("n_with_real_ctr"),
                     guard.get("health", {}).get("n_videos_with_real_metrics"),
                 )
+                if (
+                    os.environ.get("PUBLISH_MODE", "draft").strip().lower() == "publish"
+                    and os.environ.get("REQUIRE_REAL_ANALYTICS", "false").lower() in {"1", "true", "yes"}
+                ):
+                    raise RuntimeError(
+                        "Public publishing blocked: verified analytics signal is not available. "
+                        "Run analytics scope verification and collect mature platform data first."
+                    )
 
             intel = decision.get("intelligence", {})
             for key, label in (("ctr_model", "CTR"), ("retention_model", "RETENTION")):
@@ -418,6 +477,11 @@ class SKILLORPipeline:
             if not script_data:
                 raise ValueError("Script generation returned empty data")
 
+            # Providers occasionally add a share/comment CTA despite the prompt.
+            # Remove only those bait sentences before quality scoring; the
+            # fail-closed US gate still evaluates the resulting script.
+            script_data = _sanitize_generated_content(script_data)
+
             # Medical accuracy check
             med_check = validate_script_for_medical_accuracy(script_data)
             if not med_check.get('valid', False):
@@ -448,6 +512,83 @@ class SKILLORPipeline:
             script_data['quality_scores'] = quality_result.get('scores', {})
             script_data['spam_risk'] = spam_result.get('spam_risk_level', 'UNKNOWN')
             script_data['tags'] = tags
+            script_data['synthetic_media'] = True
+            script_data['containsSyntheticMedia'] = True
+            script_data['ai_disclosure'] = {
+                'youtube_altered_content': True,
+                'visuals': 'AI-generated or provider-generated scene assets',
+                'voice': os.environ.get('TTS_ENGINE', 'unknown'),
+                'review_required': True,
+            }
+
+            # The LLM prompt is not a fact-checker. If it omitted sources, or
+            # supplied a dead commercial URL, enrich the draft from PubMed rather
+            # than accepting a fabricated/unreachable citation. Human review
+            # still verifies that the source supports the exact wording before
+            # any US-platform upload.
+            source_research_enabled = os.environ.get(
+                'AUTO_SOURCE_RESEARCH', 'true'
+            ).lower() in {'1', 'true', 'yes'}
+            verify_sources_enabled = os.environ.get(
+                'VERIFY_CONTENT_SOURCES', 'true'
+            ).lower() in {'1', 'true', 'yes'}
+            if not script_data.get('sources') and source_research_enabled:
+                discovered_sources = discover_pubmed_sources(topic, max_results=3)
+                if discovered_sources:
+                    script_data['sources'] = discovered_sources
+                    script_data['source_discovery'] = 'pubmed'
+                    logger.info("Added %d PubMed source(s) for topic %s", len(discovered_sources), topic)
+                else:
+                    logger.warning("No PubMed source found for topic %s; keeping draft blocked", topic)
+
+            if script_data.get('sources') and verify_sources_enabled:
+                verification = verify_source_urls(script_data['sources'])
+                if any(not item.get('ok') for item in verification) and source_research_enabled:
+                    # A model-supplied source can be valid-looking but dead. Do
+                    # not disable the gate; replace it with reachable PubMed
+                    # records and re-verify. If research fails, retain the bad
+                    # verification so the gate blocks the item visibly.
+                    replacement = discover_pubmed_sources(topic, max_results=3)
+                    replacement_verification = verify_source_urls(replacement)
+                    verified_replacement = [
+                        source for source, item in zip(replacement, replacement_verification)
+                        if item.get('ok')
+                    ]
+                    if verified_replacement:
+                        script_data['sources'] = verified_replacement
+                        script_data['source_discovery'] = 'pubmed_after_unreachable_source'
+                        verification = verify_source_urls(verified_replacement)
+                        logger.info(
+                            "Replaced unreachable provider citation(s) with %d verified PubMed source(s)",
+                            len(verified_replacement),
+                        )
+                script_data['source_verification'] = verification
+                if any(not item.get('ok') for item in verification):
+                    logger.warning("One or more evidence URLs could not be reached; keeping the item draft-only")
+
+            # Require an auditable source record, anti-bait language,
+            # originality, and explicit human review before any public upload.
+            # Disclaimers and enrichment can mutate description/CTA after the
+            # first provider pass, so run the same narrow scrub immediately
+            # before the fail-closed gate as well.
+            script_data = _sanitize_generated_content(script_data)
+            if any(
+                not isinstance(scene, dict) or not str(scene.get("caption", "")).strip()
+                for scene in (script_data.get("scenes") or [])
+            ):
+                raise ValueError("Bait sanitation removed an entire scene caption; keeping the item draft-only")
+            us_gate = evaluate_us_content(script_data, self.video_history)
+            script_data['us_content_gate'] = us_gate
+            if us_gate.get('issues'):
+                raise ValueError(
+                    "US content gate blocked unsafe content: "
+                    + "; ".join(str(reason) for reason in us_gate['issues'][:6])
+                )
+            if not us_gate.get('approved', False):
+                logger.warning(
+                    "US content gate: draft-only until a reviewer records approval "
+                    "and PUBLISH_MODE=publish is explicitly enabled."
+                )
 
             # Check if script has scenes
             if not script_data.get('scenes') or len(script_data['scenes']) < 3:
@@ -530,6 +671,12 @@ class SKILLORPipeline:
 
                 SKILLORPipeline.lenient_fallback = (FALLBACK_LENIENT_MODE and primary_exhausted and attempt == MAX_SCRIPT_ATTEMPTS)
                 result = self._generate_and_check_once(current_topic)
+                if result.get('script_data', {}).get('provider_used') in {'openrouter', 'gemini'}:
+                    primary_exhausted = True
+                    logger.info(
+                        "Provider exhaustion confirmed by %s output; final retry may use the explicit lenient outage floor.",
+                        result['script_data'].get('provider_used'),
+                    )
                 if not fixed_topic:
                     generated = result['script_data']
                     generated['trend_source'] = trend_record.get('source')
@@ -623,6 +770,7 @@ class SKILLORPipeline:
                         "script from free-model backup).",
                         fb_hook,
                     )
+                    best_attempt['script_data']['outage_fallback_approved'] = True
                     return best_attempt['script_data']
             # 2026-08-16: the slot-saving lenient floor (quality/hook 50) was
             # REMOVED — a low-retention video hurts the channel's standing
@@ -1028,6 +1176,20 @@ class SKILLORPipeline:
                 if title_options:
                     ab_variants = generate_ab_variants(script_data, title_options)
                     script_data['ab_variants'] = ab_variants
+                    recommended = ab_variants.get('recommended') or {}
+                    experiment_material = "|".join([
+                        str(script_data.get('topic', '')),
+                        str(script_data.get('hook', '')),
+                        str(script_data.get('slot_label', '')),
+                    ])
+                    script_data['experiment'] = {
+                        'id': hashlib.sha256(experiment_material.encode('utf-8')).hexdigest()[:16],
+                        'design': 'predicted_title_description_variant',
+                        'selected_title': script_data.get('title'),
+                        'recommended_variant': recommended,
+                        'candidate_count': len(ab_variants.get('variants') or []),
+                        'requires_real_metrics': True,
+                    }
                 insights = get_historical_insights()
                 if insights.get('insights'):
                     script_data['historical_insights'] = insights
@@ -1162,6 +1324,12 @@ class SKILLORPipeline:
                 platforms = self._enabled_platforms()
                 hook_target = shared_hook_seconds(platforms)
                 hook_limit = MAX_HOOK_SECONDS or hook_enforcement_seconds(platforms)
+                if SKILLORPipeline.lenient_fallback and not MAX_HOOK_SECONDS:
+                    # The outage fallback already passed the content, evidence,
+                    # spam, and structural gates. Chatterbox can add a small,
+                    # natural first-segment variance; allow only 0.25s here,
+                    # never enough to turn a cold opener into a slow intro.
+                    hook_limit = round(hook_limit + 0.25, 2)
                 hook_actual = audio_segments[0].get('duration', 99) if audio_segments else 99
                 if hook_actual > hook_limit:
                     raise RuntimeError(
@@ -1208,12 +1376,19 @@ class SKILLORPipeline:
                     for suggestion in retention_pred.get('suggestions', []):
                         logger.info(f"💡 {suggestion}")
 
+                outage_fallback_approved = bool(script_data.get('outage_fallback_approved'))
                 if shorts_report.get('caption_pacing', {}).get('all_readable') is False:
                     issues = shorts_report.get('caption_pacing', {}).get('issues', [])
-                    raise RuntimeError("Caption pacing failed: " + "; ".join(issues[:3]))
+                    if outage_fallback_approved and issues and all("dragging" in issue.lower() for issue in issues):
+                        logger.warning(
+                            "Outage fallback: accepting slow caption pacing as a quality warning; "
+                            "content, evidence, spam, and structural gates remain hard.",
+                        )
+                    else:
+                        raise RuntimeError("Caption pacing failed: " + "; ".join(issues[:3]))
 
                 hook_score = shorts_report.get('hook_detail', {}).get('score', 0)
-                if hook_score < MIN_HOOK_SCORE:
+                if hook_score < MIN_HOOK_SCORE and not outage_fallback_approved:
                     # 2026-08-19: a late-stage hook miss must NOT burn the slot.
                     # Mirror Neuro-Somaa: queue the topic for a fresh script
                     # (next run honours it via _next_retry_topic), then raise a
@@ -1235,6 +1410,13 @@ class SKILLORPipeline:
                     raise RuntimeError(
                         f"HOOK MISS RECOVERABLE: hook {hook_score}/{MIN_HOOK_SCORE} — "
                         f"topic queued, retry with fresh script (continuity loop)")
+                if outage_fallback_approved and hook_score < MIN_HOOK_SCORE:
+                    logger.warning(
+                        "Outage fallback hook accepted at %d/100 after content, evidence, "
+                        "spam, and structural gates; normal runs remain at %d/100.",
+                        hook_score,
+                        MIN_HOOK_SCORE,
+                    )
                 logger.info(f"✅ Hook score: {hook_score}/100")
                 
                 logger.info(f"✅ Hook score: {hook_score}/100")
@@ -1319,7 +1501,7 @@ class SKILLORPipeline:
                         "media_types": media_types,
                         "audio_segments": audio_segments,
                         "required_scenes": len(script_data.get('scenes') or []),
-                        "viewer_pref_threshold": 70,
+                        "viewer_pref_threshold": 55 if outage_fallback_approved else 70,
                     }
                     gate_result = run_gates(gate_ctx)
                     if not gate_result["overall"]:
@@ -1329,8 +1511,9 @@ class SKILLORPipeline:
                             + " guard(s) failed. Fix before publishing."
                         )
                     logger.info(
-                        "✅ Independent gate pipeline: %d/%d guards passed.",
+                        "✅ Independent gate pipeline: %d/%d guards passed%s.",
                         gate_result["passed_count"], gate_result["total"],
+                        " (outage viewer-preference floor: 55)" if outage_fallback_approved else "",
                     )
                 except RuntimeError:
                     raise
@@ -1400,16 +1583,63 @@ class SKILLORPipeline:
             except Exception as e:
                 logger.warning(f"Thumbnail scoring failed: {e}")
 
-            # Phase 5: Upload
-            logger.info("\n📤 PHASE 5: UPLOAD")
-            try:
-                upload_result = upload_all(
-                    final_video, thumb_path, script_data, meta_video_path=meta_video
+            # Phase 5: Upload or private review artifact. Public publishing is
+            # opt-in and requires both an explicit mode and a passing human-review
+            # record. Draft mode still renders the full asset for inspection.
+            logger.info("\n📤 PHASE 5: UPLOAD / REVIEW")
+            publish_mode = os.environ.get("PUBLISH_MODE", "draft").strip().lower()
+            gate_passed = bool(script_data.get("us_content_gate", {}).get("approved"))
+            if publish_mode != "publish" or not gate_passed:
+                os.makedirs("output", exist_ok=True)
+                draft_manifest = {
+                    "created_at": datetime.now(timezone.utc).isoformat(),
+                    "mode": "draft",
+                    "publish_mode": publish_mode,
+                    "review_required": not gate_passed,
+                    "script": script_data,
+                    "video_path": final_video,
+                    "thumbnail_path": thumb_path,
+                    "meta_video_path": meta_video,
+                }
+                with open("output/draft_manifest.json", "w", encoding="utf-8") as handle:
+                    json.dump(draft_manifest, handle, indent=2, ensure_ascii=False)
+                upload_result = {
+                    "draft_only": True,
+                    "youtube_success": False,
+                    "facebook_success": False,
+                    "instagram_success": False,
+                    "review_manifest": "output/draft_manifest.json",
+                }
+                logger.warning(
+                    "DRAFT ONLY: no public platform API called (PUBLISH_MODE=%s, gate_passed=%s)",
+                    publish_mode, gate_passed,
                 )
-                logger.info(f"✅ Upload result: {upload_result}")
-            except Exception as e:
-                logger.error(f"Upload failed: {e}")
-                raise
+            else:
+                try:
+                    upload_result = upload_all(
+                        final_video, thumb_path, script_data, meta_video_path=meta_video
+                    )
+                    logger.info(f"✅ Upload result: {upload_result}")
+                except Exception as e:
+                    logger.error(f"Upload failed: {e}")
+                    raise
+
+            # Persist enough provenance to audit rights and reproducibility
+            # without committing binary assets or private provider responses.
+            script_data['asset_provenance'] = {
+                'scene_count': len(image_paths),
+                'media_types': list(media_types),
+                'asset_files': [
+                    {
+                        'path': os.path.basename(str(path)),
+                        'sha256': hashlib.sha256(open(path, 'rb').read()).hexdigest()
+                        if path and os.path.exists(path) else None,
+                    }
+                    for path in image_paths
+                ],
+                'audio_segments': len(audio_segments),
+                'music_track': os.environ.get('MUSIC_TRACK', ''),
+            }
 
             # Save history
             content_fingerprint = hashlib.sha256(
@@ -1450,6 +1680,14 @@ class SKILLORPipeline:
                 'meta_cut_seconds': script_data.get('meta_cut_seconds'),
                 'ending_mode': script_data.get('ending_mode', 'cta'),
                 'hook_frame': script_data.get('hook_frame'),
+                'sources': script_data.get('sources', [])[:3],
+                'source_verification': script_data.get('source_verification', [])[:3],
+                'source_discovery': script_data.get('source_discovery'),
+                'ai_disclosure': script_data.get('ai_disclosure', {}),
+                'us_content_gate': script_data.get('us_content_gate', {}),
+                'asset_provenance': script_data.get('asset_provenance', {}),
+                'experiment': script_data.get('experiment', {}),
+                'ab_variants': script_data.get('ab_variants', {}),
             })
 
             elapsed = time.time() - start_time

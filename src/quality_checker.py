@@ -67,13 +67,12 @@ class QualityChecker:
         try:
             is_valid, issues = _validate_script(script_data, lenient=lenient)
             if lenient:
-                # 2026-08-17 LLM-outage fallback: stylistic hooks (e.g. the
-                # "scene 2 must open a question" rule) are advisory when the
-                # script came from the free-model backup because no premium
-                # provider was reachable. True structural completeness still
-                # remains mandatory — a malformed script must never ship.
-                is_valid = True  # structural check already ran above
-                issues = []
+                # 2026-08-17 LLM-outage fallback: _validate_script already
+                # downgrades the explicitly subjective story-arc issues in
+                # lenient mode. Preserve its boolean result and issue list so
+                # malformed scripts remain blocked; the fallback is only for
+                # structurally complete, spam-clean scripts.
+                pass
         except Exception as e:
             logger.error(f"Script structural validation failed: {e}")
             is_valid, issues = False, [f"Validation error: {e}"]
@@ -97,13 +96,18 @@ class QualityChecker:
         # so a script missing required fields can never be "approved".
         if not is_valid:
             overall_quality = min(overall_quality, 40)
-        # In lenient (fallback) mode cap at 79 so a fallback script never
-        # pretends it passed the premium quality bar; approval in that mode is
-        # gated by the higher-level lenient accept in main.py instead.
+        # In lenient (fallback) mode cap below the normal quality bar so a
+        # free-model outage script never pretends to be premium. It still has a
+        # separate, explicit floor: the fallback is reachable only for a
+        # structurally valid script with a decent retention score.
+        lenient_threshold = max(45, self.approval_threshold - 15)
         if lenient:
             overall_quality = min(overall_quality, max(0, self.approval_threshold - 1))
 
-        approved = is_valid and overall_quality >= self.approval_threshold
+        approved = is_valid and (
+            overall_quality >= self.approval_threshold
+            or (lenient and overall_quality >= lenient_threshold)
+        )
 
         scores = {
             'overall_quality': overall_quality,

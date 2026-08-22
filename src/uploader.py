@@ -1008,6 +1008,21 @@ def upload_all(video_path, thumb_path, script_data, meta_video_path=None):
     logger.info(f"YouTube privacy status = {YT_PRIVACY_STATUS}")
     logger.info(f"SEO tags for this video: {tags}")
 
+    publish_mode = os.environ.get("PUBLISH_MODE", "draft").strip().lower()
+    gate = script_data.get("us_content_gate") or {}
+    if publish_mode != "publish" or not gate.get("approved", False):
+        logger.warning(
+            "DRAFT ONLY: uploader refused public APIs (PUBLISH_MODE=%s, gate_passed=%s)",
+            publish_mode, bool(gate.get("approved", False)),
+        )
+        return {
+            "youtube_success": False,
+            "facebook_success": False,
+            "instagram_success": False,
+            "draft_only": True,
+            "review_required": not bool(gate.get("approved", False)),
+        }
+
     if DRY_RUN:
         youtube_description = _build_youtube_description(script_data, tags)
         facebook_description = _build_facebook_description(script_data, tags)
