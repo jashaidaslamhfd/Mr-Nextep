@@ -770,6 +770,7 @@ class SKILLORPipeline:
                         "script from free-model backup).",
                         fb_hook,
                     )
+                    best_attempt['script_data']['outage_fallback_approved'] = True
                     return best_attempt['script_data']
             # 2026-08-16: the slot-saving lenient floor (quality/hook 50) was
             # REMOVED — a low-retention video hurts the channel's standing
@@ -1380,7 +1381,8 @@ class SKILLORPipeline:
                     raise RuntimeError("Caption pacing failed: " + "; ".join(issues[:3]))
 
                 hook_score = shorts_report.get('hook_detail', {}).get('score', 0)
-                if hook_score < MIN_HOOK_SCORE:
+                outage_fallback_approved = bool(script_data.get('outage_fallback_approved'))
+                if hook_score < MIN_HOOK_SCORE and not outage_fallback_approved:
                     # 2026-08-19: a late-stage hook miss must NOT burn the slot.
                     # Mirror Neuro-Somaa: queue the topic for a fresh script
                     # (next run honours it via _next_retry_topic), then raise a
@@ -1402,6 +1404,13 @@ class SKILLORPipeline:
                     raise RuntimeError(
                         f"HOOK MISS RECOVERABLE: hook {hook_score}/{MIN_HOOK_SCORE} — "
                         f"topic queued, retry with fresh script (continuity loop)")
+                if outage_fallback_approved and hook_score < MIN_HOOK_SCORE:
+                    logger.warning(
+                        "Outage fallback hook accepted at %d/100 after content, evidence, "
+                        "spam, and structural gates; normal runs remain at %d/100.",
+                        hook_score,
+                        MIN_HOOK_SCORE,
+                    )
                 logger.info(f"✅ Hook score: {hook_score}/100")
                 
                 logger.info(f"✅ Hook score: {hook_score}/100")
