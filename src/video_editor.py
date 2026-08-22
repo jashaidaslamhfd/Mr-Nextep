@@ -815,12 +815,14 @@ def build_video(image_paths, audio_segments, scenes, output_path="output/final_v
                 # but not AudioArrayClip — a zero-valued getframe is the
                 # portable silent-clip constructor.
                 def _silent(_t):
-                    _t = np.atleast_1d(np.asarray(_t))
-                    # moviepy's get_frame expects (channels, samples) for audio if t is an array,
-                    # but actually for AudioClip it usually expects (samples, channels).
-                    # The error "operands could not be broadcast together with shapes (1999,2) (1999,1999)"
-                    # suggests a mismatch in how the silent frame is being generated vs used.
-                    return np.zeros((len(_t), 2))
+                    # MoviePy probes an AudioClip with scalar t=0 during
+                    # construction to infer nchannels. Returning (1, 2) there
+                    # incorrectly declares one channel and later broadcasts a
+                    # vectorized silent frame into an (N, N) matrix.
+                    _arr = np.asarray(_t)
+                    if _arr.ndim == 0:
+                        return np.zeros(2, dtype=float)
+                    return np.zeros((len(_arr), 2), dtype=float)
                 silent = AudioClip(_silent, duration=_gap)
                 silent.fps = 44100
                 audio_clips.append(silent)
