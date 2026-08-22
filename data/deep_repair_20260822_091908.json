@@ -1,0 +1,54 @@
+{
+  "generated_at": "2026-08-22T09:19:08.047562+00:00",
+  "dry_run": false,
+  "stats": {
+    "youtube": {
+      "total": 0,
+      "repaired": 0,
+      "skipped": 0,
+      "errors": 0
+    },
+    "facebook": {
+      "total": 0,
+      "repaired": 0,
+      "skipped": 0,
+      "errors": 0
+    },
+    "instagram": {
+      "total": 45,
+      "repaired": 2,
+      "skipped": 41,
+      "errors": 2
+    }
+  },
+  "results": [
+    {
+      "platform": "instagram",
+      "media_id": "17975366889082084",
+      "new_caption": "Most people have no idea why feeling lightheaded right after standing happens. feeling lightheaded right after standing ",
+      "seo_noncompliant": true,
+      "error": "apply_failed"
+    },
+    {
+      "platform": "instagram",
+      "media_id": "17918498754205458",
+      "new_caption": "The real reason lived exact new moment before \u2014 explained in under a minute. feeling like you've lived an exact new mome",
+      "seo_noncompliant": true,
+      "error": "apply_failed"
+    },
+    {
+      "platform": "instagram",
+      "media_id": "18054323540561224",
+      "new_caption": "Your Why reciprocity trigger ? isn't random \u2014 here's the actual science. Why the reciprocity trigger ? reciprocity trigg",
+      "seo_noncompliant": true,
+      "applied": true
+    },
+    {
+      "platform": "instagram",
+      "media_id": "17909289900282284",
+      "new_caption": "What r fingers wrinkle water really means (it's weirder than you think). Why do your fingers wrinkle in water? do your f",
+      "seo_noncompliant": true,
+      "applied": true
+    }
+  ]
+}
