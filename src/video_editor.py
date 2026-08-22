@@ -99,8 +99,17 @@ def _make_pop_sfx(sr: int = MUSIC_SAMPLE_RATE, freq: float = SFX_MAX_FREQ,
     wave = np.sin(2.0 * np.pi * np.cumsum(sweep) / sr)
     env = np.exp(-6.0 * t / max(dur, 1e-9))        # fast natural decay
     samples = (wave * env * volume).astype(np.float32)
-    clip = AudioClip(lambda tt: np.interp(tt, t, samples),
-                     duration=dur, fps=sr)
+    def _frame(tt):
+        arr = np.asarray(tt)
+        values = np.interp(arr, t, samples)
+        if arr.ndim == 0:
+            # MoviePy uses the scalar probe to infer nchannels.
+            value = float(values)
+            return np.array([value, value], dtype=np.float32)
+        # CompositeAudioClip expects (samples, channels) for vectorized audio.
+        return np.column_stack((values, values)).astype(np.float32)
+
+    clip = AudioClip(_frame, duration=dur, fps=sr)
     return clip.set_duration(dur)
 
 # CAPTION STYLING
