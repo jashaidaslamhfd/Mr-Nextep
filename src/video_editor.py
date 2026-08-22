@@ -886,10 +886,17 @@ def build_video(image_paths, audio_segments, scenes, output_path="output/final_v
             len(duck_env) - 1,
         )
         gain = duck_env[indices] * MUSIC_VOLUME
-        # Broadcast gain across channels if the audio frame is 2-D
-        # (stereo) while gain is 1-D.
+        # MoviePy normally returns audio as (samples, channels), but some
+        # reader/effect combinations return (channels, samples). Choose the
+        # matching axis explicitly; blindly using gain[:, None] turns a
+        # channel-first (2, N) frame into the observed (N, N) matrix.
+        frame = np.asarray(frame)
         if frame.ndim == 2 and gain.ndim == 1:
-            gain = gain[:, np.newaxis]
+            sample_count = len(t_arr)
+            if frame.shape[0] == sample_count:
+                gain = gain[:, np.newaxis]
+            elif frame.shape[1] == sample_count:
+                gain = gain[np.newaxis, :]
         return gain * frame
 
     ducked_music = music_clip.fl(_apply_ducking)
