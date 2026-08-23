@@ -1,83 +1,80 @@
 {
-  "generated_at": "2026-08-04T10:39:05.082270+00:00",  "sample_size": 113,
-  "scored_videos": 33,
-  "channel_gate_ratio": 0.661,
+  "generated_at": "2026-08-23T02:12:52.066434+00:00",
+  "sample_size": 119,
+  "scored_videos": 21,
+  "channel_gate_ratio": 0.567,
   "slot_weights": {
     "01:00": 1.0,
-    "12:30": 0.839,
-    "20:00": 1.274,
-    "03:30": 1.0,
+    "12:30": 0.93,
+    "20:00": 1.165,
     "00:00": 1.0,
     "15:30": 1.0,
-    "21:00": 1.0,
     "14:30": 1.0,
-    "18:30": 1.0,
-    "04:30": 1.0,
-    "21:30": 0.764,
+    "21:30": 0.827,
     "05:00": 1.0,
-    "11:00": 1.0
+    "11:00": 1.0,
+    "18:30": 1.0,
+    "16:30": 1.0
   },
   "topic_weights": {
-    "other": 1.45,
+    "other": 1.217,
     "breath": 1.0,
-    "muscle": 0.743,
-    "brain": 0.649,    "ear": 0.803,
-    "gut": 1.0
+    "muscle": 0.935,
+    "ear": 0.9,
+    "brain": 0.782
   },
   "hook_weights": {
-    "statement": 1.135,
-    "unknown": 0.843,
-    "why": 0.726
+    "statement": 1.078,
+    "why": 0.798,
+    "unknown": 0.899
   },
   "slot_samples": {
-    "01:00": 2,
-    "12:30": 9,
-    "20:00": 7,
-    "03:30": 1,
+    "01:00": 1,
+    "12:30": 6,
+    "20:00": 4,
     "00:00": 1,
     "15:30": 1,
-    "21:00": 1,
-    "14:30": 2,
-    "18:30": 2,
-    "04:30": 1,
+    "14:30": 1,
     "21:30": 3,
-    "05:00": 2,
-    "11:00": 1
+    "05:00": 1,
+    "11:00": 1,
+    "18:30": 1,
+    "16:30": 1
   },
   "topic_samples": {
-    "other": 11,
+    "other": 10,
     "breath": 1,
-    "muscle": 4,
-    "brain": 9,
-    "ear": 7,
-    "gut": 1
+    "muscle": 3,
+    "ear": 4,
+    "brain": 3
   },
   "hook_samples": {
-    "statement": 19,
-    "unknown": 11,
-    "why": 3
+    "statement": 17,
+    "why": 3,
+    "unknown": 1
   },
   "platform_health": {
     "youtube_shorts": {
       "platform": "youtube_shorts",
       "label": "YouTube Shorts",
       "status": "below_gate",
-      "samples": 22,
+      "samples": 20,
       "gate": 0.5,
-      "avg_completion": 0.4715,
-      "gate_ratio": 0.937,
-      "avg_views": 320.9,
-      "action": "Averaging 47% against a 50% bar. Shorten the cut toward 27s and tighten the first 3 seconds — the gap is retention, not reach."
+      "avg_completion": 0.3185,
+      "gate_ratio": 0.605,
+      "avg_views": 329.0,
+      "action": "Averaging 32% against a 50% bar. Shorten the cut toward 25s and tighten the first 3 seconds — the gap is retention, not reach."
     },
     "facebook_reels": {
       "platform": "facebook_reels",
       "label": "Facebook Reels",
       "status": "critical",
-      "samples": 19,
+      "samples": 4,
       "gate": 0.72,
-      "avg_completion": 0.1937,
-      "gate_ratio": 0.269,
-      "avg_views": 61.1,      "action": "Only 19% of a 72% bar. The format itself is losing viewers early: rebuild the hook (visual payoff in frame one, promise in under 3 seconds) before changing anything else."
+      "avg_completion": 0.377,
+      "gate_ratio": 0.524,
+      "avg_views": 38.7,
+      "action": "Only 38% of a 72% bar. The format itself is losing viewers early: rebuild the hook (visual payoff in frame one, promise in under 3 seconds) before changing anything else."
     },
     "instagram_reels": {
       "platform": "instagram_reels",
@@ -85,36 +82,40 @@
       "status": "critical",
       "samples": 9,
       "gate": 0.7,
-      "avg_completion": 0.2357,
-      "gate_ratio": 0.337,
-      "avg_views": 89.1,
-      "action": "Only 24% of a 70% bar. The format itself is losing viewers early: rebuild the hook (visual payoff in frame one, promise in under 3 seconds) before changing anything else."
+      "avg_completion": 0.2783,
+      "gate_ratio": 0.398,
+      "avg_views": 92.5,
+      "action": "Only 28% of a 70% bar. The format itself is losing viewers early: rebuild the hook (visual payoff in frame one, promise in under 3 seconds) before changing anything else."
     }
   },
   "instagram_sends": {
-    "avg_sends_per_reach": 0.0007,
-    "samples": 9,
+    "avg_sends_per_reach": 0.00063,
+    "samples": 10,
     "healthy": false,
     "action": "Almost nobody DMs these Reels. Sends are Instagram's strongest non-follower signal: end on one surprising, quotable fact a viewer would send to a specific friend, not a generic wrap-up line."
   },
-  "recommended_cadence": 2,
-  "cadence_reason": "Retention is 66% of the bar — close but under. Two uploads a day at the channel's two best-measured slots concentrates the quality budget where it converts.",
+  "recommended_cadence": 1,
+  "cadence_reason": "Average retention is 57% of the required bar. More uploads of a format that loses viewers early just teaches the feed to stop showing the channel. Ship one strong video a day until retention clears the gate.",
   "alerts": [
     {
       "level": "error",
-      "message": "Facebook Reels: Only 19% of a 72% bar. The format itself is losing viewers early: rebuild the hook (visual payoff in frame one, promise in under 3 seconds) before changing anything else."
+      "message": "Facebook Reels: Only 38% of a 72% bar. The format itself is losing viewers early: rebuild the hook (visual payoff in frame one, promise in under 3 seconds) before changing anything else."
     },
     {
       "level": "error",
-      "message": "Instagram Reels: Only 24% of a 70% bar. The format itself is losing viewers early: rebuild the hook (visual payoff in frame one, promise in under 3 seconds) before changing anything else."
+      "message": "Instagram Reels: Only 28% of a 70% bar. The format itself is losing viewers early: rebuild the hook (visual payoff in frame one, promise in under 3 seconds) before changing anything else."
+    },
+    {
+      "level": "error",
+      "message": "Channel-wide retention is far below every platform's gate. Stop tuning SEO and posting times — those only matter after the video holds viewers."
     },
     {
       "level": "warn",
-      "message": "Slot 12:30 NY is under-performing across 9 videos — its weight has been reduced automatically."
+      "message": "Slot 12:30 NY is under-performing across 6 videos — its weight has been reduced automatically."
     },
     {
       "level": "warn",
-      "message": "Slot 20:00 NY is under-performing across 7 videos — its weight has been reduced automatically."
+      "message": "Slot 20:00 NY is under-performing across 4 videos — its weight has been reduced automatically."
     },
     {
       "level": "warn",
@@ -129,5 +130,5 @@
   "best_topics": [
     "other"
   ],
-  "best_hook_frame": "statement"
+  "best_hook_frame": null
 }
