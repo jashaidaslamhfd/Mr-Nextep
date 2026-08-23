@@ -130,7 +130,7 @@ class PublishAtTests(unittest.TestCase):
             parsed = datetime.strptime(publish_at, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=pytz.UTC)
             self.assertGreaterEqual(parsed, datetime.now(pytz.UTC) + timedelta(minutes=25))
             slot_ny = parsed.astimezone(pytz.timezone("America/New_York"))
-            self.assertIn((slot_ny.hour, slot_ny.minute), [(12, 30), (18, 30), (20, 0)])
+            self.assertEqual((slot_ny.hour, slot_ny.minute), (12, 30))
         finally:
             if old is None:
                 os.environ.pop("YT_SCHEDULE_PUBLISH", None)
@@ -662,14 +662,12 @@ class FacebookCoverMatchTests(unittest.TestCase):
 
 
 class PostingScheduleTests(unittest.TestCase):
-    """Three videos a day at US peaks, on all three platforms.
+    """One daily video at the owner’s YouTube Studio heatmap-aligned slot.
 
-    YouTube uses status.publishAt and Facebook uses scheduled_publish_time,
-    but the Instagram Graph API has NO scheduling parameter on media_publish
-    — so every Reel went live the moment generation finished (~10:38 / 18:08
-    / 19:38 NY), never at a peak. This channel's own 15 videos show 12:00 NY
-    averaging 833 views and 20:00 averaging 730, against 50-79 for the
-    06:00-09:00 band."""
+    YouTube uses status.publishAt and the Meta paths share the same canonical
+    America/New_York slot where platform APIs allow it. The owner’s heatmap
+    shows the strongest audience band from 6:00–11:00 PM local GMT+5, mapping
+    to 12:30 PM ET during EDT."""
 
     def setUp(self):
         try:
@@ -678,12 +676,12 @@ class PostingScheduleTests(unittest.TestCase):
             self.skipTest(f"deps not installed here: {exc}")
         self.sched = USAPeakTimeScheduler()
 
-    def test_exactly_three_daily_peak_slots(self):
-        self.assertEqual(len(self.sched.PEAK_TIMES), 3)
+    def test_exactly_one_daily_heatmap_peak_slot(self):
+        self.assertEqual(len(self.sched.PEAK_TIMES), 1)
 
-    def test_slots_match_the_canonical_us_policy(self):
+    def test_slot_matches_the_youtube_studio_heatmap_policy(self):
         slots = {(s["hour"], s["minute"]) for s in self.sched.PEAK_TIMES}
-        self.assertEqual(slots, {(12, 30), (18, 30), (20, 0)})
+        self.assertEqual(slots, {(12, 30)})
 
     def test_every_slot_sits_in_a_consensus_window(self):
         """All canonical slots remain inside the lunch or evening ET windows.
@@ -697,13 +695,13 @@ class PostingScheduleTests(unittest.TestCase):
                 f"{slot['hour']:02d}:{slot['minute']:02d} is outside 12-2 PM and 6-10 PM ET",
             )
 
-    def test_late_slot_is_inside_prime_window(self):
+    def test_heatmap_slot_is_inside_lunch_window(self):
         slots = {(s["hour"], s["minute"]) for s in self.sched.PEAK_TIMES}
-        self.assertIn((20, 0), slots)
+        self.assertIn((12, 30), slots)
 
-    def test_crons_cover_the_slot_count(self):
+    def test_crons_have_one_daily_trigger(self):
         workflow = (ROOT / ".github" / "workflows" / "main.yml").read_text()
-        self.assertEqual(workflow.count("- cron:"), 3)
+        self.assertEqual(workflow.count("- cron:"), 1)
 
     def test_slots_are_at_least_90_minutes_apart(self):
         mins = sorted(s["hour"] * 60 + s["minute"] for s in self.sched.PEAK_TIMES)
@@ -743,9 +741,9 @@ class PostingScheduleTests(unittest.TestCase):
         self.assertGreater(timeout, cap + 30,
                            "job would be killed mid-hold")
 
-    def test_three_crons_scheduled(self):
+    def test_one_daily_cron_scheduled(self):
         workflow = (ROOT / ".github" / "workflows" / "main.yml").read_text()
-        self.assertEqual(workflow.count("- cron:"), 3)
+        self.assertEqual(workflow.count("- cron:"), 1)
 
 
 class FacebookCoverMapTests(unittest.TestCase):

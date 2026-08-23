@@ -1,17 +1,16 @@
 """Continuity & slot-consistency layer.
 
-The guards are strict by design: they block a video that isn't good enough to
-publish. But a blocked video must not become a MISSED slot — the channel needs
-3 uploads a day at US peak times to stay consistent (consistency is one of the
-strongest 2026 growth signals). This module reconciles those two goals:
+    The guards are strict by design: they block a video that isn't good enough to
+    publish. A blocked video must be retried safely, but while retention is below
+    gate the channel should publish only one strong video per day. This module
+    reconciles those goals with the owner’s heatmap-calibrated US slot:
 
   1. Guard failure is treated as RETRYABLE, not fatal: the pipeline regenerates
      with a NEW topic and re-runs the guards. A bad topic never kills the day.
-  2. Every US peak slot is tracked so a slot is only "missed" after a bounded
-     number of genuinely distinct generation attempts.
-  3. Cadence is clamped to 3/day for the production schedule (the strategy
-     engine may suggest lower while retention is low, but the operator's
-     "3 US-peak videos a day" requirement wins unless overridden).
+      2. The configured US peak slot is tracked so it is only "missed" after a
+         bounded number of genuinely distinct generation attempts.
+      3. Cadence is clamped conservatively while retention is low; one strong
+         daily upload is preferred over volume until the completion gates clear.
 
 The pipeline calls `should_retry_on_guard_failure()` to decide, and
 `register_slot_attempt()` / `slot_consistency_status()` to track slots.
@@ -34,8 +33,10 @@ DATA = ROOT / "data"
 # Guard failures are retryable with a new topic up to this many attempts.
 MAX_GUARD_RETRIES = int(os.environ.get("MAX_GUARD_RETRIES", "3"))
 
-# US peak slot windows (America/New_York hour) — matches main.yml cron.
-US_PEAK_HOURS = [12, 18, 20]
+# The current production slot is the YouTube Studio heatmap-calibrated
+# 12:30 PM America/New_York window; keep the validator hour-based for backwards
+# compatibility with historical slot records.
+US_PEAK_HOURS = [12]
 
 
 def _state_path() -> Path:
@@ -70,7 +71,7 @@ def _ny_now():
 
 
 def is_us_peak_slot(ny_hour: int) -> bool:
-    """Is this New-York hour one of the 3 production peak slots?"""
+    """Is this New-York hour the configured production peak slot?"""
     return ny_hour in US_PEAK_HOURS
 
 

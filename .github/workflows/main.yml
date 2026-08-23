@@ -13,15 +13,11 @@ on:
         type: boolean
         default: false
   schedule:
-    # Three daily generation opportunities. The uploader selects the next
-    # America/New_York slot from scheduler.PEAK_TIMES and writes a DST-aware
-    # YouTube publishAt timestamp; these UTC triggers only provide coverage.
-    # 16:30, 21:30 and 03:00 UTC cover the ET lunch/evening windows in both
-    # EDT and EST without pretending that a fixed UTC cron is local time.
-    # The 03:00 trigger also remains after the 02:30 UTC analytics run.
-    - cron: "30 16 * * *"
-    - cron: "30 21 * * *"
-    - cron: "0 3 * * *"
+    # One daily production trigger. The uploader converts the canonical
+    # 12:30 PM America/New_York slot to a DST-aware YouTube publishAt value.
+    # 15:30 UTC provides lead time before 12:30 PM ET in EDT and remains safely
+    # ahead of the same local slot in EST.
+    - cron: "30 15 * * *"
 
 permissions:
   contents: write
@@ -147,8 +143,12 @@ jobs:
           TREND_REGION: "US"
           YOUTUBE_REGION_CODE: "US"
           CHANNEL_LANGUAGE: "en-US"
-          CONTENT_SERIES: "dark_mystery"
-          TOPIC_STRATEGY: "dark_mystery_series"
+          # YouTube Studio winners are everyday body phenomena (brain freeze,
+          # cold hands, taste sensation, cold nose, knee cracking). Start the
+          # next learning cycle in this proven, low-risk family; the strategy
+          # engine may still pivot later when mature completion data earns it.
+          CONTENT_SERIES: "body_glitches"
+          TOPIC_STRATEGY: "body_glitch_series"
           # 2026-08 retention-first pass: kill the emoji-title machine template
           # ("Why Your X 🫀" on 100+ videos) that 2026 template-detection
           # systems demote. Clean curiosity-question titles from here on.
