@@ -1954,5 +1954,77 @@
       "unsupported": null,
       "fetched_at": "2026-08-23T02:12:41.428606+00:00"
     }
+  },
+  "run-32550895519-4wVFe_NLBLc": {
+    "title": "Why the Reciprocity Trigger",
+    "topic": "Why the reciprocity trigger ?",
+    "posted_at": "2026-08-22T04:27:35Z",
+    "publish_at": "2026-08-22T16:30:00Z",
+    "age_hours": 32.8,
+    "hook_score": 75,
+    "seo_score": null,
+    "duration_seconds": null,
+    "meta_cut_seconds": null,
+    "fetched_at": "2026-08-23T13:14:36.281680+00:00",
+    "youtube_shorts": {
+      "pending": "No analytics rows yet - data can take 24-48h to populate after upload."
+    },
+    "facebook_reels": {
+      "views": 80,
+      "completion": 0.3036,
+      "avg_watch_seconds": 4.86,
+      "fetched_at": "2026-08-23T13:14:38.705859+00:00"
+    },
+    "instagram_reels": {
+      "views": 15,
+      "reach": 14,
+      "completion": 0.158,
+      "avg_watch_seconds": 2.37,
+      "shares": 0,
+      "saves": 0,
+      "likes": 0,
+      "comments": 0,
+      "sends_per_reach": 0.0,
+      "saves_per_reach": 0.0,
+      "likes_per_reach": 0.0,
+      "unsupported": null,
+      "fetched_at": "2026-08-23T13:14:42.464709+00:00"
+    }
+  },
+  "7c59b5346d12b3caaacac53b1b5dcb4966a221784e04163eb7bd93807a61f450": {
+    "title": "This Is Why Your Fingers Wrinkle",
+    "topic": "Why do your fingers wrinkle in water?",
+    "posted_at": "2026-08-22T09:19:00.024321+00:00",
+    "publish_at": "2026-08-22T22:30:00Z",
+    "age_hours": 27.9,
+    "hook_score": 100,
+    "seo_score": 88,
+    "duration_seconds": 42.77,
+    "meta_cut_seconds": 12.18,
+    "fetched_at": "2026-08-23T13:14:36.281680+00:00",
+    "youtube_shorts": {
+      "pending": "No analytics rows yet - data can take 24-48h to populate after upload."
+    },
+    "facebook_reels": {
+      "views": 248,
+      "completion": 0.3178,
+      "avg_watch_seconds": 3.87,
+      "fetched_at": "2026-08-23T13:14:43.974094+00:00"
+    },
+    "instagram_reels": {
+      "views": 123,
+      "reach": 102,
+      "completion": 0.4576,
+      "avg_watch_seconds": 5.57,
+      "shares": 0,
+      "saves": 0,
+      "likes": 0,
+      "comments": 0,
+      "sends_per_reach": 0.0,
+      "saves_per_reach": 0.0,
+      "likes_per_reach": 0.0,
+      "unsupported": null,
+      "fetched_at": "2026-08-23T13:14:47.474228+00:00"
+    }
   }
 }
