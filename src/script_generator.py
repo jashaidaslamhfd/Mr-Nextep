@@ -409,6 +409,12 @@ STORY ARC:
    ON the yawn, the freeze video opens ON the frozen body, never on a person
    'about to yawn'. The viewer's first frame is the whole audition: if the
    frame one eye-catch needs a second word of setup, the cut is dead.
+   YouTube Studio calibration (owner screenshot, last 28 days): 69.1% of
+   viewers swipe away and only 30.9% stay to watch. Therefore the first spoken
+   line must deliver a concrete contradiction or mechanism immediately; do not
+   begin with a greeting, channel name, generic 'did you know', or delayed
+   question. Scene 1 must be understandable with sound muted and its spoken
+   hook must finish within 2.8 seconds.
 2. SUSPENSE — scene 2; show why the answer matters and open one honest question.
 3. PROBLEM — scene 3; state the relatable confusion or misconception.
 4. EXPLANATION — scenes 4–5; explain the mechanism in simple, connected steps.

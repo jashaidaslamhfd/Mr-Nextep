@@ -1158,18 +1158,18 @@ class SchedulerLearningTests(unittest.TestCase):
         self.scheduler_cls = USAPeakTimeScheduler
         self.scheduler = USAPeakTimeScheduler()
 
-    def test_slots_are_ranked_by_measured_weight(self):
-        """When cadence drops below 2, the pipeline must fill the BEST slots,
-        not the first ones in list order."""
-        # 18:30 and 20:00 are the evening slots; 20:00 wins this fixture.
-        self._patch_weights(lambda: {"12:30": 1.0, "18:30": 0.6, "20:00": 1.9})
+    def test_heatmap_slot_remains_the_only_routine_slot(self):
+        """The audience heatmap policy must not be displaced by learned
+        weights or by retired evening-slot experiments."""
+        self._patch_weights(lambda: {"12:30": 1.0, "18:30": 1.9, "20:00": 2.5})
         ranked = self.scheduler.ranked_peak_times()
-        self.assertEqual((ranked[0]["hour"], ranked[0]["minute"]), (20, 0))
+        self.assertEqual([(p["hour"], p["minute"]) for p in ranked], [(12, 30)])
         one = self.scheduler.get_next_posting_times(1)
         self.assertEqual(len(one), 1)
-        self.assertIn(20, [entry["time"].hour for entry in one])
+        self.assertEqual(one[0]["time"].hour, 12)
+        self.assertEqual(one[0]["time"].minute, 30)
 
-    def test_unmeasured_channel_keeps_chronological_behaviour(self):
+    def test_unmeasured_channel_keeps_heatmap_slot(self):
         self._patch_weights(dict)
         ranked = self.scheduler.ranked_peak_times()
         self.assertEqual(

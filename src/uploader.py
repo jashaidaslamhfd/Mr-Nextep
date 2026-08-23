@@ -50,23 +50,20 @@ if YT_PRIVACY_STATUS not in {"private", "unlisted", "public"}:
 # thinking. Implemented for real now:
 #   YT_SCHEDULE_PUBLISH=true  →  upload as private with a publishAt timestamp
 #   YouTube then flips it to public automatically at the next US peak slot
-#   (12:30 / 18:30 / 20:00 America/New_York — kept in sync with
-#   scheduler.USAPeakTimeScheduler.PEAK_TIMES and the workflow cron table).
+#   (12:30 America/New_York — calibrated from the owner’s YouTube Studio
+#   heatmap and kept in sync with scheduler.USAPeakTimeScheduler and workflow).
 # ---------------------------------------------------------------------------
 YT_SCHEDULE_PUBLISH = os.environ.get("YT_SCHEDULE_PUBLISH", "false").lower() == "true"
 _PUBLISH_TZ = pytz.timezone("America/New_York")
 
-# DATA-DRIVEN (2026-07-26, 87-video time-vs-views analysis):
-#   12:30 lunch  → avg 231 views (fresh ≤21d avg 252) — channel's best slot
-#   18:30 early  → commute/wind-down slot, paired with the 20:40 UTC cron
-#   20:00 prime  → avg 261 views (n=11) — proven evening winner
-#   16:30        → RETIRED: fresh median only 53, work-end crowd never came
+# DATA-DRIVEN (2026-08-23, owner-provided YouTube Studio heatmap):
+#   6:00–11:00 PM GMT+5 is the strongest audience band, mapping to the
+#   12:30 PM America/New_York release slot during EDT. Keep one daily upload
+#   while the channel's 69.1% swipe-away rate and sub-gate completion persist.
 #
-# Sourced from the scheduler rather than re-typed, because these three slots
-# also drive Instagram's wait-for-slot logic and the workflow cron table. The
-# duplicated literal list had already drifted once (it still said 21:30 after
-# the scheduler moved to 18:30), which silently sends the YouTube publishAt
-# and the Instagram publish to two different clocks.
+# Sourced from the scheduler rather than re-typed, because the same slot drives
+# YouTube publishAt and the Meta wait/stagger logic. This prevents platform
+# clocks from drifting apart.
 def _peak_publish_slots() -> list:
     """(hour, minute) New York slots, single-sourced from the scheduler."""
     try:
@@ -76,7 +73,7 @@ def _peak_publish_slots() -> list:
             return sorted(slots)
     except Exception:  # noqa: BLE001 — scheduling must never block an upload
         logger.warning("Peak slot lookup failed; using the built-in fallback slots.")
-    return [(12, 30), (18, 30), (20, 0)]
+    return [(12, 30)]
 
 
 _PUBLISH_SLOTS = _peak_publish_slots()  # (hour, minute) New York time

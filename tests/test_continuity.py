@@ -76,9 +76,10 @@ class ContinuityTests(unittest.TestCase):
         finally:
             os.environ.pop("DISABLE_CADENCE_3", None)
 
-    def test_us_peak_slots(self):
-        for h in (12, 18, 20):
-            self.assertTrue(is_us_peak_slot(h))
+    def test_us_peak_slot(self):
+        self.assertTrue(is_us_peak_slot(12))
+        self.assertFalse(is_us_peak_slot(18))
+        self.assertFalse(is_us_peak_slot(20))
         self.assertFalse(is_us_peak_slot(9))
 
     def test_slot_status(self):

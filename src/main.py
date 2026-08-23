@@ -330,11 +330,10 @@ class SKILLORPipeline:
 
             if cadence:
                 logger.info("🤖 Recommended cadence: %s video(s)/day", cadence)
-                # 2026-08-15 viral gap 6 fix: the workflow schedules three
-                # daily cron runs, but the ML growth engine recommends cadence
-                # from real data (currently 2/day while retention stays under
-                # the healthy threshold). Without enforcement every run would
-                # upload anyway, teaching the feed the channel over-ships
+                # Retention-first policy: production now has one daily
+                # heatmap-aligned trigger, and the ML growth engine also keeps
+                # cadence at one while retention is below the healthy threshold.
+                # Without enforcement, repeated dispatches could over-ship
                 # sub-gate videos. Count today's published videos across all
                 # three platforms; at or above cadence, skip gracefully.
                 _cad = int(float(str(cadence)))

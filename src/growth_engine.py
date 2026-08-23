@@ -159,14 +159,21 @@ def _clamp(value: float, low: float = WEIGHT_FLOOR, high: float = WEIGHT_CEILING
     return round(max(low, min(float(value), high)), 3)
 
 
+# Historical buckets stay available for analytics even after a production slot
+# is retired. They must not be returned by the live scheduler; they only prevent
+# old 18:30/20:00 videos from becoming unclassifiable when measuring trends.
+_HISTORICAL_ANALYTICS_SLOTS = ("18:30", "20:00")
+
+
 def _configured_slots() -> List[str]:
-    """The publish slots the scheduler actually targets, as "HH:MM" strings."""
+    """Active scheduler slots plus legacy buckets used only for analytics."""
     try:
         from scheduler import USAPeakTimeScheduler
-        return [f"{p['hour']:02d}:{p['minute']:02d}"
-                for p in USAPeakTimeScheduler.PEAK_TIMES]
+        active = [f"{p['hour']:02d}:{p['minute']:02d}"
+                  for p in USAPeakTimeScheduler.PEAK_TIMES]
+        return list(dict.fromkeys(active + list(_HISTORICAL_ANALYTICS_SLOTS)))
     except Exception:  # noqa: BLE001 - learning must not depend on the scheduler
-        return []
+        return list(_HISTORICAL_ANALYTICS_SLOTS)
 
 
 # How far a publish time may drift from its intended slot and still count as

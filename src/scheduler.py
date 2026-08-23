@@ -12,18 +12,15 @@ class USAPeakTimeScheduler:
     Tuned for general adult short-form video audience behavior.
     """
     
-    # USA peak times for short-form video engagement (America/New_York).
-    # These are the channel's experiment slots, not universal platform laws:
-    # 12:30 PM ET is the measured lunch/discovery candidate, while 6:30 PM
-    # and 8:00 PM ET cover the evening commute and prime-time windows. The
-    # uploader uses this IANA timezone, so EST/EDT changes are handled by
-    # pytz rather than by hard-coded UTC arithmetic. Learned weights may rank
-    # the slots, but cannot invent an off-policy slot without an explicit
-    # experiment configuration.
+    # Single daily YouTube slot calibrated from the owner's Studio heatmap.
+    # The strongest viewer band is 6:00–11:00 PM in the owner's GMT+5 local
+    # time. During EDT, 12:30 PM America/New_York equals 9:30 PM GMT+5; during
+    # EST it equals 10:30 PM GMT+5. One slot is intentional while retention is
+    # below gate: timing cannot compensate for a high swipe-away rate.
+    # The uploader uses this IANA timezone, so EST/EDT changes are handled by
+    # pytz rather than hard-coded UTC arithmetic.
     PEAK_TIMES = [
-        {'hour': 12, 'minute': 30, 'zone': 'ET', 'name': 'Lunch Discovery'},  # 12:30 PM ET
-        {'hour': 18, 'minute': 30, 'zone': 'ET', 'name': 'Early Evening'},     # 6:30 PM ET
-        {'hour': 20, 'minute': 0, 'zone': 'ET', 'name': 'Prime Time'},          # 8:00 PM ET
+        {'hour': 12, 'minute': 30, 'zone': 'ET', 'name': 'YouTube Studio Heatmap'},  # 12:30 PM ET
     ]
     
     # IANA zones keep the policy correct across EST/EDT daylight-saving changes.
@@ -55,11 +52,9 @@ class USAPeakTimeScheduler:
     def ranked_peak_times(self) -> List[Dict]:
         """Peak slots ordered by measured performance, best first.
 
-        Before this, slots were used in the order they happened to be written
-        in the list, so when the pipeline ran fewer than three videos in a day
-        it filled the FIRST slots rather than the BEST ones. On a channel
-        whose own data spans a 6x spread between slots, that is a large amount
-        of reach given away by list ordering.
+        The production policy currently contains one heatmap-calibrated daily
+        slot. Learned weights may still annotate it, but cannot move routine
+        production into an unverified off-peak window.
 
         Weights come from data/growth_state.json and default to 1.0, so an
         unmeasured slot keeps its natural position instead of being buried.
@@ -210,33 +205,19 @@ class USAPeakTimeScheduler:
         Suggest optimal posting schedule based on engagement patterns.
 
         For this niche (dark/mystery body-science facts, general adult
-        audience):
-        - Early morning: commute/coffee scrolling
-        - Lunch: work-break browsing
-        - Evening: wind-down scrolling before bed
+        audience), the owner’s current Studio heatmap shows the strongest
+        audience presence from 6:00–11:00 PM local GMT+5, mapped to the
+        12:30 PM ET production slot during EDT. Keep one daily upload until
+        retention improves.
         """
         recommendations = [
             {
                 'slot': 1,
                 'time': '12:30 PM ET',
-                'audience': 'Lunch break browsers',
-                'expected_engagement': 'Best measured slot — avg 719 views (830/988/339)',
-                'reason': 'Inside the 12-2 PM window all five 2026 US-Shorts studies agree on'
-            },
-            {
-                'slot': 2,
-                'time': '6:30 PM ET',
-                'audience': 'Commute / post-work scroll',
-                'expected_engagement': 'New slot — replaces the retired 21:30 experiment',
-                'reason': 'Start of the 6-9 PM consensus window; 1.5h clear of prime so it '
-                          'does not compete with the strongest upload'
-            },
-            {
-                'slot': 3,
-                'time': '8:00 PM ET',
-                'audience': 'Evening prime-time scrolling',
-                'expected_engagement': 'Proven — avg 519 views (664/795)',
-                'reason': 'Peak of the 6-9 PM window, widest relaxed audience'
+                'audience': 'Owner heatmap: 6:00–11:00 PM local GMT+5',
+                'expected_engagement': 'Primary daily test slot from YouTube Studio audience presence',
+                'reason': '12:30 PM ET maps to approximately 9:30 PM GMT+5 during EDT; '
+                          'the scheduler remains DST-aware'
             }
         ]
         return recommendations
