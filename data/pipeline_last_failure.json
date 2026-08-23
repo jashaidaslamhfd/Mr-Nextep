@@ -1,5 +1,5 @@
 {
-  "failed_at": "2026-08-23T11:18:33.138451+00:00",
-  "reason": "Narration too long: 51.6s (maximum before regeneration: 50.4s). YouTube grades a 35s Short on 50% completion \u2014 a longer video has to hold viewers for longer to clear the same bar.",
-  "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Mr-Nextep/Mr-Nextep/src/main.py\", line 1298, in run_pipeline\n    raise RuntimeError(\nRuntimeError: Narration too long: 51.6s (maximum before regeneration: 50.4s). YouTube grades a 35s Short on 50% completion \u2014 a longer video has to hold viewers for longer to clear the same bar.\n"
+  "failed_at": "2026-08-23T22:51:32.111711+00:00",
+  "reason": "INDEPENDENT GATE BLOCKED the run: seo, viewer_preference, video_quality guard(s) failed. Fix before publishing.",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Mr-Nextep/Mr-Nextep/src/main.py\", line 1536, in run_pipeline\n    raise RuntimeError(\nRuntimeError: INDEPENDENT GATE BLOCKED the run: seo, viewer_preference, video_quality guard(s) failed. Fix before publishing.\n"
 }
