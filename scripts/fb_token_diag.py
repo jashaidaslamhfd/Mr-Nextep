@@ -111,8 +111,8 @@ def main() -> int:
         print(f"  Reel: {reel_id}")
         probes_ok = 0
         for metric in ("total_video_views", "total_video_avg_time_watched",
-                       "post_impressions"):
-            s2, r2 = call(f"{reel_id}/insights", {"metric": metric})
+                       "post_video_avg_time_watched"):
+            s2, r2 = call(f"{reel_id}/video_insights", {"metric": metric})
             ok = s2 < 400 and "error" not in r2
             msg = "OK" if ok else str(r2.get("error", {}).get("message", f"HTTP {s2}"))[:140]
             print(f"  {metric:32} {'✅' if ok else '❌'} {msg}")
@@ -124,11 +124,11 @@ def main() -> int:
     print("VERDICT")
     print("=" * 58)
     if not has_read_insights:
-        print("❌ 'read_insights' permission TOKEN PAR GRANTED NAHI hai.")
-        print("   Isliye system 'insights_unavailable' likh raha hai — code sahi hai.")
-        print("   Fix: developers.facebook.com → Graph API Explorer → apna app select →")
-        print("        permission add karo (read_insights + pages_read_engagement) →")
-        print("        naya Page Access Token banao → FACEBOOK_ACCESS_TOKEN update karo.")
+        print("❌ Effective token ko 'read_insights' permission nahi mil rahi.")
+        print("   Settings mein grant hone ke bawajood Page token ko refresh/reissue karein.")
+        print("   Video Insights ke liye Page access token, ANALYZE task, read_insights,")
+        print("   aur current API ke mutabiq pages_manage_engagement verify karein.")
+        print("   Naya Page Access Token banao aur GitHub secret update karo.")
     elif is_page_token:
         print("✅ Token Page-token hai AUR read_insights granted hai.")
         print("   Agar phir bhi insights nahi aa rahe to masla token ka nahi —")

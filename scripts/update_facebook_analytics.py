@@ -1,8 +1,9 @@
 """Best-effort Facebook Reels analytics updater.
 
 Reads completed Reel IDs from data/upload_state.json and writes metrics to
- data/facebook_analytics.json. Missing/expired Meta permissions are logged and
-never make the scheduled analytics workflow fail.
+ data/facebook_analytics.json. Uses Meta's current ``/video_insights`` edge
+for Reels; missing/expired Meta permissions are logged and never make the
+scheduled analytics workflow fail.
 """
 from __future__ import annotations
 
@@ -24,15 +25,19 @@ OUTPUT_PATH = Path(os.environ.get("FACEBOOK_ANALYTICS_PATH", "data/facebook_anal
 API_VERSION = os.environ.get("FB_API_VERSION", "v23.0")
 TOKEN = os.environ.get("FB_ACCESS_TOKEN")
 
-# Meta can change availability by account/API version; query independently so
-# one unsupported metric does not discard the metrics that still work.
+# Query independently so one unsupported metric does not discard the metrics
+# that still work. These are the current Video Insights/Reels fields; the old
+# /{video-id}/insights edge and post_impressions fields produced a misleading
+# permission warning even when the Page token had the required grants.
 METRICS = (
     "total_video_views",
     "total_video_avg_time_watched",
     "total_video_view_total_time",
-    "post_impressions",
-    "post_reactions_by_type_total",
+    "total_video_impressions",
+    "total_video_impressions_unique",
+    "post_video_avg_time_watched",
 )
+INSIGHTS_EDGE = "video_insights"
 
 
 def _load_json(path: Path, default: Any) -> Any:
@@ -60,7 +65,7 @@ def fetch(video_id: str) -> dict:
     errors = []
     unavailable = None
     for metric in METRICS:
-        url = f"https://graph.facebook.com/{API_VERSION}/{video_id}/insights"
+        url = f"https://graph.facebook.com/{API_VERSION}/{video_id}/{INSIGHTS_EDGE}"
         try:
             response = requests.get(
                 url,
@@ -70,12 +75,20 @@ def fetch(video_id: str) -> dict:
             data = response.json()
             if response.status_code >= 400 or "error" in data:
                 msg = str(data.get("error", {}).get("message", response.status_code))
-                # A missing read_insights grant (or a deprecated Reels
-                # insights endpoint) fails EVERY metric identically — stop
-                # hammering after the first one instead of writing 5 warnings.
-                if "read_insights permission missing" in msg or "nonexisting field" in msg:
-                    unavailable = ("insights_unavailable: grant `read_insights` and "
-                                   "`pages_read_engagement` to the page token")
+                # A genuine permission/token failure fails every metric
+                # identically. Stop hammering after the first one, but name the
+                # effective requirement rather than claiming the UI toggle is
+                # definitely absent. A granted permission must also be present
+                # on the Page token used by this workflow and the caller must
+                # have ANALYZE access to the Page.
+                error = data.get("error", {}) if isinstance(data, dict) else {}
+                code = error.get("code")
+                if code in {10, 190, 200, 283} or "permission" in msg.lower():
+                    unavailable = (
+                        "insights_unavailable: verify the effective Page access token "
+                        "has `read_insights` and `pages_manage_engagement` and that "
+                        "its user can perform ANALYZE on this Page"
+                    )
                     break
                 errors.append(f"{metric}: {msg}")
                 continue
