@@ -4,19 +4,25 @@
       "slot": "NY12:30",
       "outcome": "published",
       "topic": "topic a",
-      "at": "2026-08-23T10:30:33.547941+00:00"
+      "at": "2026-08-23T14:32:09.261050+00:00"
     },
     {
       "slot": "NY18:30",
       "outcome": "published",
       "topic": "topic b",
-      "at": "2026-08-23T10:30:33.548454+00:00"
+      "at": "2026-08-23T14:32:09.261392+00:00"
     },
     {
       "slot": "NY20:00",
       "outcome": "guard_fail",
       "topic": "topic c",
-      "at": "2026-08-23T10:30:33.548729+00:00"
+      "at": "2026-08-23T14:32:09.261577+00:00"
+    },
+    {
+      "slot": "offpeak",
+      "outcome": "published",
+      "topic": "What Really Happens When Your Reciprocity",
+      "at": "2026-08-23T14:52:18.877599+00:00"
     }
   ]
 }
