@@ -769,9 +769,10 @@ def _build_instagram_caption(script_data, tags):
         logger.warning("Instagram caption builder unavailable (%s); using legacy.", exc)
         caption = _build_facebook_description(script_data, tags)
 
-    pointer = "More body science on YouTube @MrNextep"
-    room = max(0, 2200 - len(pointer) - 2)
-    return caption[:room].rstrip() + "\n\n" + pointer
+    # Keep the Instagram caption native. The Reel's own topic, payoff, and
+    # in-app profile path should carry discovery; an off-platform YouTube
+    # pointer consumes caption attention and can weaken native distribution.
+    return caption[:2200].rstrip()
 
 
 def _already_uploaded_to_instagram(script_data) -> bool:

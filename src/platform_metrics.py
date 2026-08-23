@@ -403,16 +403,20 @@ def collect(min_hours_old: int = 24, refresh_hours: int = 20) -> Dict:
                 stats["errors"].setdefault(YOUTUBE, result["error"])
 
         platform_state = upload_state.get(fingerprint, {})
-        fb_id = (platform_state.get("facebook") or {}).get("video_id")
+        # Prefer the durable history receipt, then fall back to upload_state.
+        # Older runs persisted platform IDs only in upload_state, while newer
+        # runs mirror them into history; accepting both prevents successful
+        # Meta uploads from vanishing from analytics after a state rewrite.
+        fb_id = entry.get("facebook_video_id") or (platform_state.get("facebook") or {}).get("video_id")
         if fb_id and meta_token:
-            result = fetch_facebook(fb_id, _clip_seconds(record, FACEBOOK), meta_token)
+            result = fetch_facebook(str(fb_id), _clip_seconds(record, FACEBOOK), meta_token)
             record[FACEBOOK] = result
             if "error" in result:
                 stats["errors"].setdefault(FACEBOOK, result.get("detail") or result["error"])
 
-        ig_id = (platform_state.get("instagram") or {}).get("media_id")
+        ig_id = entry.get("instagram_media_id") or (platform_state.get("instagram") or {}).get("media_id")
         if ig_id and meta_token:
-            result = fetch_instagram(ig_id, _clip_seconds(record, INSTAGRAM), meta_token)
+            result = fetch_instagram(str(ig_id), _clip_seconds(record, INSTAGRAM), meta_token)
             record[INSTAGRAM] = result
             if "error" in result:
                 stats["errors"].setdefault(INSTAGRAM, str(result.get("detail") or result["error"]))
