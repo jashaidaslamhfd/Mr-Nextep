@@ -33,6 +33,32 @@ DATA = ROOT / "data"
 # Guard failures are retryable with a new topic up to this many attempts.
 MAX_GUARD_RETRIES = int(os.environ.get("MAX_GUARD_RETRIES", "3"))
 
+# These failures happen before the upload phase. They are safe to regenerate
+# in the same run because no public platform request has started yet. Upload
+# failures are deliberately absent: a platform may have accepted a partial
+# upload, so blindly rerunning could create a duplicate.
+PRE_UPLOAD_RETRY_MARKERS = (
+    "Narration too long",
+    "Hook takes ",
+    "Caption pacing is too fast",
+    "Caption pacing failed",
+    "INDEPENDENT GATE BLOCKED",
+    "PLATFORM SEO GUARD BLOCKED",
+    "DUPLICATE TITLE BLOCKED",
+    "HOOK MISS RECOVERABLE",
+)
+
+
+def is_retryable_pre_upload_failure(message: str) -> bool:
+    """Return True only for known failures that occur before public upload.
+
+    This classifier intentionally fails closed. Unknown exceptions, provider
+    errors, and upload errors are not retried by the continuity wrapper because
+    they may leave a partial external-side effect.
+    """
+    text = str(message or "")
+    return any(marker in text for marker in PRE_UPLOAD_RETRY_MARKERS)
+
 # The current production slot is the YouTube Studio heatmap-calibrated
 # 12:30 PM America/New_York window; keep the validator hour-based for backwards
 # compatibility with historical slot records.

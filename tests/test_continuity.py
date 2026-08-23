@@ -3,11 +3,13 @@ import os
 import sys
 import unittest
 from pathlib import Path
+from unittest.mock import Mock, patch
 
 SRC = Path(__file__).resolve().parents[1] / "src"
 sys.path.insert(0, str(SRC))
 
 from continuity import (  # noqa: E402
+    is_retryable_pre_upload_failure,
     should_retry_on_guard_failure,
     clamp_cadence_3,
     is_us_peak_slot,
@@ -21,6 +23,40 @@ class ContinuityTests(unittest.TestCase):
         self.assertTrue(should_retry_on_guard_failure(1))
         self.assertTrue(should_retry_on_guard_failure(2))
         self.assertFalse(should_retry_on_guard_failure(3))  # bounded
+
+    def test_known_pre_upload_failures_are_safe_to_regenerate(self):
+        for message in (
+            "Narration too long: 51.6s",
+            "Hook takes 3.1s against a 2.3s target",
+            "Caption pacing is too fast; regenerate the script and voice together",
+            "INDEPENDENT GATE BLOCKED the run",
+        ):
+            with self.subTest(message=message):
+                self.assertTrue(is_retryable_pre_upload_failure(message))
+
+    def test_unknown_and_upload_failures_are_not_retried(self):
+        for message in (
+            "Upload failed: Facebook returned HTTP 500",
+            "Instagram media_publish partially completed",
+            "Narration provider unavailable",
+        ):
+            with self.subTest(message=message):
+                self.assertFalse(is_retryable_pre_upload_failure(message))
+
+    def test_narration_failure_retries_before_upload(self):
+        from main import SKILLORPipeline
+
+        pipeline = SKILLORPipeline.__new__(SKILLORPipeline)
+        pipeline.run_pipeline = Mock(side_effect=[
+            RuntimeError("Narration too long: 51.6s"),
+            {"success": True, "title": "Compliant Short"},
+        ])
+        with patch("main.time.sleep"), patch("continuity.register_slot_attempt") as register:
+            result = pipeline.run_pipeline_with_continuity(slot_label="NY12:30")
+
+        self.assertTrue(result["success"])
+        self.assertEqual(pipeline.run_pipeline.call_count, 2)
+        register.assert_called_once_with("NY12:30", "published", "Compliant Short")
 
     def test_cadence_reaches_3_only_when_retention_earns_it(self):
         """Two healthy platforms = the 3/day production cadence is earned."""
