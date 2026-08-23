@@ -1,5 +1,5 @@
 {
-  "failed_at": "2026-08-22T02:41:18.483890+00:00",
-  "reason": "All 3 script-generation attempts failed mandatory gates. Last error: \u274c Script generation failed after 3 attempts. Last error: All LLM providers failed (Groq chain + OpenRouter + Gemini).",
-  "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Mr-Nextep/Mr-Nextep/src/main.py\", line 908, in run_pipeline\n    script_data = self.generate_with_niche_strategy(topic)\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/Mr-Nextep/Mr-Nextep/src/main.py\", line 675, in generate_with_niche_strategy\n    raise RuntimeError(\nRuntimeError: All 3 script-generation attempts failed mandatory gates. Last error: \u274c Script generation failed after 3 attempts. Last error: All LLM providers failed (Groq chain + OpenRouter + Gemini).\n"
+  "failed_at": "2026-08-23T11:18:33.138451+00:00",
+  "reason": "Narration too long: 51.6s (maximum before regeneration: 50.4s). YouTube grades a 35s Short on 50% completion \u2014 a longer video has to hold viewers for longer to clear the same bar.",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Mr-Nextep/Mr-Nextep/src/main.py\", line 1298, in run_pipeline\n    raise RuntimeError(\nRuntimeError: Narration too long: 51.6s (maximum before regeneration: 50.4s). YouTube grades a 35s Short on 50% completion \u2014 a longer video has to hold viewers for longer to clear the same bar.\n"
 }
