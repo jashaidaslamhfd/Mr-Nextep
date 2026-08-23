@@ -1724,19 +1724,21 @@ class SKILLORPipeline:
         (bounded by continuity.MAX_GUARD_RETRIES) before giving up, and we
         register the slot outcome so consistency is visible.
 
-        Returns the successful run dict, or a 'missed' dict if every retry
-        failed (so the caller/workflow can decide next steps instead of a hard
-        crash).
+        Returns the successful run dict, or a 'missed' dict if every safe
+        pre-upload retry fails. Unknown and upload-side errors still raise so a
+        possible external side effect is never silently repeated.
         """
         from continuity import (
-            should_retry_on_guard_failure, register_slot_attempt,
+            is_retryable_pre_upload_failure,
+            should_retry_on_guard_failure,
+            register_slot_attempt,
         )
 
         # 2026-08-19: hook misses are now slotted into the same consistency
         # loop as the other guard blocks — the topic is queued for a fresh
-        # script and the SAME peak slot gets refilled instead of missed.
-        guard_phrases = ("INDEPENDENT GATE BLOCKED", "PLATFORM SEO GUARD BLOCKED",
-                         "DUPLICATE TITLE BLOCKED", "HOOK MISS RECOVERABLE")
+        # script and the SAME peak slot gets refilled instead of missed. The
+        # same safe loop also handles overlong narration and caption pacing,
+        # which are known to fail before any public upload begins.
         attempt = 0
         last_err = None
         while True:
@@ -1755,13 +1757,12 @@ class SKILLORPipeline:
                 return result
             except RuntimeError as exc:
                 msg = str(exc)
-                is_guard = any(p in msg for p in guard_phrases)
-                if not is_guard:
-                    raise  # real pipeline error, not a guard block
+                if not is_retryable_pre_upload_failure(msg):
+                    raise  # unknown or upload-side error; fail closed
                 last_err = exc
                 logger.warning(
-                    "🔄 Guard blocked attempt %d (%s). Retrying with a new topic "
-                    "to preserve slot consistency...", attempt, msg[:120],
+                    "🔄 Pre-upload quality failure on attempt %d (%s). Regenerating "
+                    "before any public upload...", attempt, msg[:160],
                 )
                 if not should_retry_on_guard_failure(attempt):
                     break
@@ -1832,10 +1833,14 @@ def main():
             else:
                 result = pipeline.run_pipeline_with_continuity(slot_label=slot_label)
                 if result.get("missed"):
-                    logger.warning("Slot missed after guard retries — see continuity log.")
-                    # exit 0 so a guard block never hard-crashes the workflow;
-                    # the slot-consistency state shows the gap instead.
-                    sys.exit(0)
+                    logger.warning("Slot missed after safe pre-upload retries — see continuity log.")
+                    # Production can ask the workflow shell to retry the whole
+                    # job. The default remains graceful for local/manual runs,
+                    # while production never silently finishes without an upload.
+                    fail_on_missed = os.environ.get(
+                        "FAIL_ON_MISSED_SLOT", "false"
+                    ).strip().lower() in {"1", "true", "yes"}
+                    sys.exit(1 if fail_on_missed else 0)
 
     except KeyboardInterrupt:
         logger.info("Pipeline interrupted by user")

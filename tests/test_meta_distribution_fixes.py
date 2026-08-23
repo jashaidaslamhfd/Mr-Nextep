@@ -154,6 +154,10 @@ class MetaWorkflowContractTests(unittest.TestCase):
         self.assertIn('FB_STAGGER_MINUTES: "360"', text)
         self.assertIn('IG_WAIT_FOR_SLOT: "true"', text)
         self.assertIn('IG_MAX_WAIT_MINUTES: "150"', text)
+        self.assertIn('MAX_GUARD_RETRIES: "5"', text)
+        self.assertIn('for attempt in 1 2 3 4 5; do', text)
+        self.assertIn('echo "=== Attempt $attempt / 5 ==="', text)
+        self.assertIn('FAIL_ON_MISSED_SLOT: "true"', text)
 
 
 if __name__ == "__main__":

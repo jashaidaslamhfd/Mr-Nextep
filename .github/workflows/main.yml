@@ -216,6 +216,12 @@ jobs:
           # the data-backed target: 7.5s / 14s = 54% vs 42% at 18s.
           META_TARGET_SECONDS: "14"
           SPOKEN_CTA_MODE: "loop"
+          # Regenerate safe pre-upload failures in the same scheduled run;
+          # upload-side failures remain fail-closed to prevent duplicates.
+          MAX_GUARD_RETRIES: "5"
+          # A completely missed safe slot must trigger the outer job retry;
+          # local/manual runs keep the graceful default.
+          FAIL_ON_MISSED_SLOT: "true"
           REQUIRE_CLONED_VOICE: "false"
           MUSIC_VOLUME: "0.18"
           MODELSLAB_API_KEY: ${{ secrets.MODELSLAB_API_KEY }}
@@ -256,12 +262,14 @@ jobs:
           PYTHONUNBUFFERED: "1"
         run: |
           set -euo pipefail
-          for attempt in 1 2 3; do
-            echo "=== Attempt $attempt / 3 ==="
+          # Retry the whole generation job after safe pre-upload misses;
+          # upload-side safeguards remain fail-closed inside the pipeline.
+          for attempt in 1 2 3 4 5; do
+            echo "=== Attempt $attempt / 5 ==="
             if python src/main.py; then break
             else
               rc=$?; echo "::warning::Failed code $rc"
-              if [ "$attempt" -eq 3 ]; then exit "$rc"; fi
+              if [ "$attempt" -eq 5 ]; then exit "$rc"; fi
               sleep $((attempt * 60))
             fi
           done
