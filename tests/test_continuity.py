@@ -1,6 +1,8 @@
 """Offline tests for the continuity / slot-consistency layer."""
+import json
 import os
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 from unittest.mock import Mock, patch
@@ -57,6 +59,17 @@ class ContinuityTests(unittest.TestCase):
         self.assertTrue(result["success"])
         self.assertEqual(pipeline.run_pipeline.call_count, 2)
         register.assert_called_once_with("NY12:30", "published", "Compliant Short")
+
+    def test_next_topic_override_is_consumed_once(self):
+        from main import _consume_next_topic_override
+
+        with tempfile.TemporaryDirectory() as tmp:
+            override = Path(tmp) / "next_topic_override.json"
+            override.write_text(json.dumps({"topic": "the reciprocity trigger"}), encoding="utf-8")
+            with patch("main.NEXT_TOPIC_OVERRIDE_PATH", str(override)):
+                self.assertEqual(_consume_next_topic_override(), "the reciprocity trigger")
+                self.assertFalse(override.exists())
+                self.assertIsNone(_consume_next_topic_override())
 
     def test_cadence_reaches_3_only_when_retention_earns_it(self):
         """Two healthy platforms = the 3/day production cadence is earned."""

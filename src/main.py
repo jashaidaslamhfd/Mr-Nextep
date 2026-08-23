@@ -80,6 +80,35 @@ MAX_HOOK_SECONDS = env_float("MAX_HOOK_SECONDS", 0.0) or None
 # Tracked repository state is durable across Actions runs; generated media
 # remains in output/ and is intentionally not committed.
 VIDEO_HISTORY_PATH = os.environ.get("VIDEO_HISTORY_PATH", "data/video_history.json")
+NEXT_TOPIC_OVERRIDE_PATH = os.environ.get(
+    "NEXT_TOPIC_OVERRIDE_PATH", "data/next_topic_override.json"
+)
+
+
+def _consume_next_topic_override() -> str | None:
+    """Read and remove a one-run topic override, if one is present.
+
+    The file is deliberately consumed before generation and the workflow's
+    always-run state persistence commits that deletion. An explicit
+    ``VIDEO_TOPIC`` input still takes precedence, so a manual run cannot
+    accidentally consume the scheduled override.
+    """
+    try:
+        with open(NEXT_TOPIC_OVERRIDE_PATH, encoding="utf-8") as handle:
+            payload = json.load(handle)
+        topic = payload.get("topic") if isinstance(payload, dict) else payload
+        topic = str(topic or "").strip()
+        if not topic:
+            logger.warning("Ignoring empty next-topic override")
+            return None
+        os.remove(NEXT_TOPIC_OVERRIDE_PATH)
+        logger.info("Consumed one-run topic override: %s", topic)
+        return topic
+    except FileNotFoundError:
+        return None
+    except (OSError, json.JSONDecodeError, TypeError, ValueError) as exc:
+        logger.warning("Ignoring invalid next-topic override: %s", exc)
+        return None
 
 
 def _sanitize_generated_content(script_data: dict) -> dict:
@@ -1811,7 +1840,7 @@ def main():
     """Main entry point"""
     try:
         pipeline = SKILLORPipeline()
-        topic = os.environ.get("VIDEO_TOPIC")
+        topic = os.environ.get("VIDEO_TOPIC") or _consume_next_topic_override()
 
         # Label the current US peak slot so continuity can track consistency.
         try:
