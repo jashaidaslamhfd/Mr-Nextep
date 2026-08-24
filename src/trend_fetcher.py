@@ -514,17 +514,33 @@ def load_search_demand_queue() -> list[dict]:
 # ---------------------------------------------------------------------------
 # Autocomplete shows what people ACTUALLY type into Google. Unlike Daily Trends
 # (celebrity/sports), these are genuine body-science questions from US users.
+# Sub-niche aligned autocomplete prefixes — these match the 3 sub-niches
+# and return REAL US user searches for body science content.
 _AUTOCOMPLETE_PREFIXES = [
-    "why does my body",
-    "why does my brain",
-    "why do i feel",
-    "what happens when your body",
-    "how does your body",
-    "why is my",
-    "why do your muscles",
-    "what causes your",
-    "can your body",
-    "is it normal to",
+    # 3AM Body Mysteries
+    "what happens to your body at 3am",
+    "why does my body feel weird at night",
+    "what does your body do while you sleep",
+    "why do i wake up at 3am every night",
+    # Body Sounds Decoded
+    "why does my stomach make noise",
+    "why do my joints crack",
+    "what does it mean when your ear pops",
+    "why does my body make weird sounds",
+    # Your Body vs [X]
+    "what happens inside your body after coffee",
+    "what happens when you eat spicy food",
+    "what happens to your brain when you scroll",
+    "what happens to your body without sleep",
+    # General body science
+    "why does my body ache",
+    "why does my brain feel foggy",
+    "what happens when your body is stressed",
+    "why does my body twitch at night",
+    "is it normal to hear your heartbeat",
+    "what happens to your body when you're scared",
+    "why does my body feel heavy",
+    "what does your body do when you're cold",
 ]
 
 

@@ -884,6 +884,9 @@ def _normalize_scenes(script_data: Dict) -> Dict:
     if normalized:
         script_data['hook'] = normalized[0]['caption']
 
+
+
+
     return script_data
 
 
@@ -1466,6 +1469,16 @@ def generate_script(
         SCRIPT_POLICY_VERSION, MIN_SCENES, MIN_WORDS, MAX_WORDS,
     )
 
+    # Sub-niche selection: pick a unique angle instead of generic "body facts"
+    sub_niche_ctx = None
+    try:
+        from sub_niche import get_sub_niche_for_script
+        sub_niche_ctx = get_sub_niche_for_script()
+        if not topic or topic.strip() in ('', 'random', 'auto'):
+            topic = sub_niche_ctx['topic']
+    except ImportError:
+        pass
+
     # Check API key
     api_key = os.environ.get("GROQ_API_KEY")
     if not api_key:
@@ -1478,7 +1491,20 @@ def generate_script(
     client = Groq(api_key=api_key)
     
     # Prepare prompt
+    # Sub-niche style injection
+    sub_niche_suffix = ""
+    if sub_niche_ctx:
+        sub_niche_suffix = f"""
+
+SUB-NICHE: {sub_niche_ctx['name']}
+WRITE FROM THIS ANGLE: {sub_niche_ctx['topic']}
+VISUAL STYLE: {sub_niche_ctx['visual_style']}
+The viewer should feel like they're discovering something about their body RIGHT NOW.
+Write as if they are ALREADY experiencing this. No generic intros."""
+
     prompt = custom_prompt or _default_prompt(topic)
+    if sub_niche_suffix:
+        prompt += sub_niche_suffix
     messages = [
         {"role": "system", "content": _get_system_prompt()},
         {"role": "user", "content": prompt}
@@ -1690,13 +1716,14 @@ def generate_script(
                     best_score = combined
 
                 if score >= 80 and hook_score >= _MIN_HOOK_SCORE:
+                    best_script = script_data
                     logger.info(
                         "✅ Strong script — hook %s/100, retention %s/100, %d scenes, %d words",
                         hook_score, score, len(script_data['scenes']),
                         len(script_data['voiceover'].split()),
                     )
-                    return script_data
-
+                    break
+                
                 problems = []
                 if hook_score < _MIN_HOOK_SCORE:
                     problems.append(
@@ -1781,6 +1808,14 @@ def generate_script(
                 logger.info(f"⏳ Waiting {wait_time}s before retry...")
                 time.sleep(wait_time)
     
+    # Attach sub-niche context to best_script for downstream modules
+    if best_script and sub_niche_ctx:
+        best_script['sub_niche'] = sub_niche_ctx.get('sub_niche', '')
+        best_script['sub_niche_name'] = sub_niche_ctx.get('name', '')
+        best_script['visual_style'] = sub_niche_ctx.get('visual_style', '')
+        best_script['yt_search_terms'] = sub_niche_ctx.get('yt_search_terms', [])
+        best_script['ig_discovery'] = sub_niche_ctx.get('ig_discovery', [])
+
     # If we have a best script, return it
     if best_script:
         logger.warning(f"⚠️ Using best available script (Score: {best_score}/100)")
