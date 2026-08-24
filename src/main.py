@@ -83,6 +83,34 @@ VIDEO_HISTORY_PATH = os.environ.get("VIDEO_HISTORY_PATH", "data/video_history.js
 NEXT_TOPIC_OVERRIDE_PATH = os.environ.get(
     "NEXT_TOPIC_OVERRIDE_PATH", "data/next_topic_override.json"
 )
+PIPELINE_CHECKPOINT_PATH = os.environ.get(
+    "PIPELINE_CHECKPOINT_PATH", "data/pipeline_checkpoint.json"
+)
+
+
+def _write_pipeline_checkpoint(stage: str, status: str, **extra) -> None:
+    """Persist the last active pipeline stage for timeout diagnosis.
+
+    This is operational telemetry only. It never contains tokens, provider
+    responses, generated media, or platform credentials. Atomic replacement
+    keeps a runner interruption from leaving a half-written checkpoint.
+    """
+    try:
+        payload = {
+            "stage": str(stage or "unknown"),
+            "status": str(status or "unknown"),
+            "updated_at": datetime.now(timezone.utc).isoformat(),
+            "run_id": os.environ.get("GITHUB_RUN_ID"),
+        }
+        payload.update({key: value for key, value in extra.items() if value is not None})
+        path = PIPELINE_CHECKPOINT_PATH
+        os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
+        tmp_path = f"{path}.tmp"
+        with open(tmp_path, "w", encoding="utf-8") as handle:
+            json.dump(payload, handle, indent=2, ensure_ascii=False, default=str)
+        os.replace(tmp_path, path)
+    except Exception as exc:  # noqa: BLE001 - diagnostics must never block production
+        logger.warning("Could not persist pipeline checkpoint: %s", exc)
 
 
 def _consume_next_topic_override() -> str | None:
@@ -1026,9 +1054,25 @@ class SKILLORPipeline:
     def run_pipeline(self, topic: str = None) -> dict:
         """Main pipeline execution"""
         start_time = time.time()
+        current_stage = "startup"
+        _write_pipeline_checkpoint(current_stage, "started")
         logger.info("=" * 60)
         logger.info("🚀 STARTING SKILLOR - TRENDING VIRAL PIPELINE")
         logger.info("=" * 60)
+
+        def _start_stage(name: str):
+            nonlocal current_stage
+            current_stage = name
+            _write_pipeline_checkpoint(name, "started", elapsed_seconds=round(time.time() - start_time, 2))
+            logger.info("⏱️ STAGE START: %s", name)
+
+        def _complete_stage(name: str = None):
+            _write_pipeline_checkpoint(
+                name or current_stage,
+                "completed",
+                elapsed_seconds=round(time.time() - start_time, 2),
+            )
+            logger.info("⏱️ STAGE COMPLETE: %s", name or current_stage)
 
         def _fail(reason):
             # 2026-08-15: CI failure logs expire (410) within ~3 days, making
@@ -1039,11 +1083,18 @@ class SKILLORPipeline:
                 payload = {
                     "failed_at": datetime.now(timezone.utc).isoformat(),
                     "reason": reason,
+                    "stage": current_stage,
                     "traceback": "".join(traceback.format_exception(*sys.exc_info()))[-3000:],
                 }
                 os.makedirs("data", exist_ok=True)
                 with open(data_log, "w") as _f:
                     json.dump(payload, _f, indent=2, default=str)
+                _write_pipeline_checkpoint(
+                    current_stage,
+                    "failed",
+                    reason=str(reason)[:500],
+                    elapsed_seconds=round(time.time() - start_time, 2),
+                )
             except Exception:
                 pass
 
@@ -1077,20 +1128,26 @@ class SKILLORPipeline:
 
             # Phase 0b: Autonomous strategy — let the ML/DS engine decide the
             # series, quality gate and cadence for THIS run before we generate.
+            _start_stage("strategy_decision")
             self._apply_strategy_decision()
+            _complete_stage()
 
             # Phase 1: Script Generation (with trending topics)
+            _start_stage("script_generation")
             logger.info("\n📝 PHASE 1: SCRIPT GENERATION (TRENDING)")
             script_data = self.generate_with_niche_strategy(topic)
             # 2026-08-20 graceful quality-miss: the generator returns None
             # (not raises) when a weak script is queued for retry — the slot
             # is intentionally left empty today so consistency survives.
             if not script_data:
+                _complete_stage()
                 return {"success": True, "skipped": "quality_miss_graceful",
                         "note": "weak script queued for retry; next run re-opens the topic"}
             logger.info(f"✅ Script generated: {script_data.get('title', 'Untitled')}")
+            _complete_stage()
 
             # Phase 1b: SEO Generation
+            _start_stage("seo_and_metadata")
             logger.info("\n🔍 PHASE 1b: SEO GENERATION")
             try:
                 seo_topic = script_data.get('topic', topic)
@@ -1181,6 +1238,8 @@ class SKILLORPipeline:
             except Exception as seo_err:  # noqa: BLE001 - guard must not silently pass
                 logger.warning(f"Platform SEO guard skipped ({seo_err}); continuing.")
 
+            _complete_stage()
+
             # Record which opening frame this video used, so the growth engine
             # can learn which frames survive the first three seconds. Without
             # this the classifier would have to re-derive the frame from the
@@ -1225,6 +1284,7 @@ class SKILLORPipeline:
                 logger.warning(f"CTR prediction failed: {e}")
 
             # Phase 2: Image Generation
+            _start_stage("image_generation")
             logger.info("\n🎨 PHASE 2: IMAGE GENERATION")
             image_paths, image_sources, media_types = self._generate_images_with_retry(script_data)
             logger.info(f"✅ Generated {len(image_paths)} scene visuals: {dict(Counter(media_types))}")
@@ -1240,6 +1300,7 @@ class SKILLORPipeline:
 
             if fallback_ratio > FALLBACK_ABORT_RATIO:
                 raise RuntimeError(f"Quality gate failed: {fallback_ratio:.1%} fallbacks")
+            _complete_stage()
 
             # Phase 2b: Ending mode — loop-back (default) or a short spoken CTA
             #
@@ -1295,6 +1356,7 @@ class SKILLORPipeline:
                 )
 
             # Phase 3: Voice Generation
+            _start_stage("voice_generation")
             logger.info("\n🔊 PHASE 3: VOICE GENERATION")
             try:
                 # Voice/lang are env-driven now (KOKORO_VOICE / KOKORO_LANG_CODE
@@ -1370,11 +1432,13 @@ class SKILLORPipeline:
                     "Hook lands in %.2fs (target %.1fs, limit %.2fs).",
                     hook_actual, hook_target, hook_limit,
                 )
+                _complete_stage()
             except Exception as e:
                 logger.error(f"Voice generation failed: {e}")
                 raise
 
             # Phase 3b: Shorts Enhancements
+            _start_stage("shorts_enhancements")
             logger.info("\n📝 PHASE 3b: SHORTS ENHANCEMENTS")
             try:
                 shorts_report = build_shorts_report(
@@ -1446,9 +1510,7 @@ class SKILLORPipeline:
                         MIN_HOOK_SCORE,
                     )
                 logger.info(f"✅ Hook score: {hook_score}/100")
-                
-                logger.info(f"✅ Hook score: {hook_score}/100")
-                
+                _complete_stage()
             except Exception as e:
                 logger.error(f"Shorts publishing checks failed: {e}")
                 raise
@@ -1464,6 +1526,7 @@ class SKILLORPipeline:
                 logger.warning(f"SRT generation failed: {e}")
 
             # Phase 4: Build Video — master cut (YouTube)
+            _start_stage("master_render_and_gates")
             logger.info("\n🎬 PHASE 4: BUILD VIDEO (MASTER CUT)")
             try:
                 # Stamp a first-frame hook TEXT on scene 0 so the renderer can
@@ -1543,6 +1606,7 @@ class SKILLORPipeline:
                         gate_result["passed_count"], gate_result["total"],
                         " (outage viewer-preference floor: 55)" if outage_fallback_approved else "",
                     )
+                    _complete_stage()
                 except RuntimeError:
                     raise
                 except Exception as gate_err:  # noqa: BLE001 - a broken guard must not silently pass
@@ -1553,6 +1617,7 @@ class SKILLORPipeline:
                 raise
 
             # Phase 4b: Meta cut (Facebook + Instagram)
+            _start_stage("meta_cut")
             #
             # Facebook widens distribution around ~72% watch-through and
             # Instagram decides in the first seconds; both sit well below
@@ -1601,6 +1666,7 @@ class SKILLORPipeline:
                     meta_video = final_video
                     meta_cut_seconds = script_data.get('duration_seconds')
             script_data['meta_cut_seconds'] = meta_cut_seconds
+            _complete_stage()
 
             # Thumbnail SEO Score
             try:
@@ -1614,6 +1680,7 @@ class SKILLORPipeline:
             # Phase 5: Upload or private review artifact. Public publishing is
             # opt-in and requires both an explicit mode and a passing human-review
             # record. Draft mode still renders the full asset for inspection.
+            _start_stage("platform_upload")
             logger.info("\n📤 PHASE 5: UPLOAD / REVIEW")
             publish_mode = os.environ.get("PUBLISH_MODE", "draft").strip().lower()
             gate_passed = bool(script_data.get("us_content_gate", {}).get("approved"))
@@ -1651,6 +1718,7 @@ class SKILLORPipeline:
                 except Exception as e:
                     logger.error(f"Upload failed: {e}")
                     raise
+            _complete_stage()
 
             # Persist enough provenance to audit rights and reproducibility
             # without committing binary assets or private provider responses.
@@ -1669,6 +1737,7 @@ class SKILLORPipeline:
                 'music_track': os.environ.get('MUSIC_TRACK', ''),
             }
 
+            _start_stage("history_persistence")
             # Save history
             content_fingerprint = hashlib.sha256(
                 "|".join(
@@ -1718,6 +1787,8 @@ class SKILLORPipeline:
                 'ab_variants': script_data.get('ab_variants', {}),
             })
 
+            _complete_stage()
+            _write_pipeline_checkpoint("pipeline", "completed", elapsed_seconds=round(time.time() - start_time, 2))
             elapsed = time.time() - start_time
             logger.info("=" * 60)
             logger.info(f"✅ PIPELINE COMPLETE in {elapsed:.1f}s")
