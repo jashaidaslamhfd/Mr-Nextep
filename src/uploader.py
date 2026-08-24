@@ -411,10 +411,9 @@ def _upload_youtube(video_path, thumb_path, script_data, tags):
     # that may legitimately omit Location; googleapiclient handles that response
     # in HttpRequest.next_chunk(). The started-state receipt remains fail-closed:
     # an uncertain request is never retried as a fresh upload by another run.
-    yt_http = AuthorizedHttp(
-        creds,
-        http=httplib2.Http(timeout=YT_HTTP_TIMEOUT, follow_redirects=False),
-    )
+    yt_transport = httplib2.Http(timeout=YT_HTTP_TIMEOUT)
+    yt_transport.follow_redirects = False
+    yt_http = AuthorizedHttp(creds, http=yt_transport)
     yt = build('youtube', 'v3', http=yt_http, cache_discovery=False)
 
     body = {
