@@ -11,16 +11,18 @@ class USAPeakTimeScheduler:
     Intelligent scheduler for posting at USA peak times.
     Tuned for general adult short-form video audience behavior.
     """
-    
-    # Single daily YouTube slot calibrated from the owner's Studio heatmap.
-    # The strongest viewer band is 6:00–11:00 PM in the owner's GMT+5 local
-    # time. During EDT, 12:30 PM America/New_York equals 9:30 PM GMT+5; during
-    # EST it equals 10:30 PM GMT+5. One slot is intentional while retention is
-    # below gate: timing cannot compensate for a high swipe-away rate.
-    # The uploader uses this IANA timezone, so EST/EDT changes are handled by
-    # pytz rather than hard-coded UTC arithmetic.
+    # 2026-08-25: Recalibrated from owner's YouTube Studio heatmap.
+    #   Heatmap (PKT → ET conversion):
+    #     12:00 AM – 4:00 AM PKT = 2:00 PM – 6:00 PM ET ← BRIGHTEST (peak)
+    #     6:00 PM – 10:00 PM PKT = 8:00 AM – 12:00 PM ET ← secondary
+    #     7:00 AM – 3:00 PM PKT = 9:00 PM – 5:00 AM ET ← dead zone
+    #
+    #   YouTube Shorts algorithm test batch fires within ~30 min of publish.
+    #   Publishing at 1:30 PM ET puts that first push right at the 2:00 PM
+    #   start of the afternoon peak — maximum US eyeballs. The old 12:30 PM
+    #   slot missed the peak by 1.5 hours.
     PEAK_TIMES = [
-        {'hour': 12, 'minute': 30, 'zone': 'ET', 'name': 'YouTube Studio Heatmap'},  # 12:30 PM ET
+        {'hour': 13, 'minute': 30, 'zone': 'ET', 'name': 'US Afternoon Peak'},  # 1:30 PM ET
     ]
     
     # IANA zones keep the policy correct across EST/EDT daylight-saving changes.

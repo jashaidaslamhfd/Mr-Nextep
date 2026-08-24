@@ -18,11 +18,11 @@ on:
         type: string
         default: ""
   schedule:
-    # One daily production trigger. Start well before the canonical 12:30 PM
-    # America/New_York release so long TTS/rendering can finish before the
-    # Instagram container wait and Facebook evening stagger. The scheduler
-    # still converts the publishAt value with DST-aware New York time.
-    - cron: "0 10 * * *"
+    # 2026-08-25: Heatmap-aligned schedule. Pipeline triggers at 2:00 PM
+    # PKT (= 9:00 AM UTC = 4:00 AM ET) so TTS/rendering finishes well before
+    # the 1:30 PM ET (= 17:30 UTC) publish slot. The publishAt is DST-aware
+    # (scheduler). Pipeline has ~8h buffer to finish.
+    - cron: "0 9 * * *"
 
 permissions:
   actions: read
@@ -220,12 +220,12 @@ jobs:
           FB_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
           FB_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID }}
           FB_UPLOAD_ENABLED: "true"
-          # Meta timing: YouTube/Instagram launch at 12:30 PM ET; Facebook
-          # publishes in the measured evening test window at 6:30 PM ET.
+          # Meta timing: all platforms publish at 1:30 PM ET (US afternoon peak
+          # from YouTube Studio heatmap). Facebook stagger is minimal.
           FB_STAGGER_MINUTES: "5"
           IG_UPLOAD_ENABLED: "true"
           # media_publish has no scheduling parameter; hold the ready container
-          # until the shared 12:30 PM ET slot when it is within the safe cap.
+          # until the shared 1:30 PM ET slot when it is within the safe cap.
           IG_WAIT_FOR_SLOT: "true"
           IG_MAX_WAIT_MINUTES: "150"
           INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}

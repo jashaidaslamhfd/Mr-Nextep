@@ -1161,12 +1161,12 @@ class SchedulerLearningTests(unittest.TestCase):
     def test_heatmap_slot_remains_the_only_routine_slot(self):
         """The audience heatmap policy must not be displaced by learned
         weights or by retired evening-slot experiments."""
-        self._patch_weights(lambda: {"12:30": 1.0, "18:30": 1.9, "20:00": 2.5})
+        self._patch_weights(lambda: {"12:30": 1.0, "13:30": 1.0, "18:30": 1.9, "20:00": 2.5})
         ranked = self.scheduler.ranked_peak_times()
-        self.assertEqual([(p["hour"], p["minute"]) for p in ranked], [(12, 30)])
+        self.assertEqual([(p["hour"], p["minute"]) for p in ranked], [(13, 30)])
         one = self.scheduler.get_next_posting_times(1)
         self.assertEqual(len(one), 1)
-        self.assertEqual(one[0]["time"].hour, 12)
+        self.assertEqual(one[0]["time"].hour, 13)
         self.assertEqual(one[0]["time"].minute, 30)
 
     def test_unmeasured_channel_keeps_heatmap_slot(self):

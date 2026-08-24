@@ -3,10 +3,11 @@ name: "MrNextep - YouTube Analytics Learning"
 on:
   workflow_dispatch:
   schedule:
-    # Daily update; videos must be at least 24h old before querying metrics.
-    # 00:30 UTC also guarantees the learning loop finishes before the first
-    # generation slot of the day (01:30 UTC, 21:30 NY wind-down peak).
-    - cron: "30 0 * * *"
+    # 2026-08-25: Heatmap-aligned. Run analytics at 1:00 PM PKT (= 8:00 AM
+    # UTC = 3:00 AM ET) — after videos published at 1:30 PM ET previous day
+    # have had 19h+ of data. Also runs before the next generation slot (9:00
+    # UTC = 2:00 PM PKT) so fresh metrics feed into the next pipeline.
+    - cron: "0 8 * * *"
 
 permissions:
   contents: write

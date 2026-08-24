@@ -72,10 +72,11 @@ if YT_PRIVACY_STATUS not in {"private", "unlisted", "public"}:
 YT_SCHEDULE_PUBLISH = os.environ.get("YT_SCHEDULE_PUBLISH", "false").lower() == "true"
 _PUBLISH_TZ = pytz.timezone("America/New_York")
 
-# DATA-DRIVEN (2026-08-23, owner-provided YouTube Studio heatmap):
-#   6:00–11:00 PM GMT+5 is the strongest audience band, mapping to the
-#   12:30 PM America/New_York release slot during EDT. Keep one daily upload
-#   while the channel's 69.1% swipe-away rate and sub-gate completion persist.
+# DATA-DRIVEN (2026-08-25, owner-provided YouTube Studio heatmap):
+#   Heatmap peak: 12:00 AM – 4:00 AM PKT = 2:00 – 6:00 PM ET (BRIGHTEST).
+#   Publish at 1:30 PM ET → Shorts algorithm test batch fires at ~2:00 PM
+#   ET, right when the US afternoon peak begins. Previous 12:30 PM ET slot
+#   missed the peak by 1.5 hours.
 #
 # Sourced from the scheduler rather than re-typed, because the same slot drives
 # YouTube publishAt and the Meta wait/stagger logic. This prevents platform
@@ -89,7 +90,7 @@ def _peak_publish_slots() -> list:
             return sorted(slots)
     except Exception:  # noqa: BLE001 — scheduling must never block an upload
         logger.warning("Peak slot lookup failed; using the built-in fallback slots.")
-    return [(12, 30)]
+    return [(13, 30)]
 
 
 _PUBLISH_SLOTS = _peak_publish_slots()  # (hour, minute) New York time
