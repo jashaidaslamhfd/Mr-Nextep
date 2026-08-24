@@ -130,7 +130,7 @@ class PublishAtTests(unittest.TestCase):
             parsed = datetime.strptime(publish_at, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=pytz.UTC)
             self.assertGreaterEqual(parsed, datetime.now(pytz.UTC) + timedelta(minutes=25))
             slot_ny = parsed.astimezone(pytz.timezone("America/New_York"))
-            self.assertEqual((slot_ny.hour, slot_ny.minute), (13, 30))
+            self.assertEqual((slot_ny.hour, slot_ny.minute), (19, 0))
         finally:
             if old is None:
                 os.environ.pop("YT_SCHEDULE_PUBLISH", None)
@@ -681,23 +681,22 @@ class PostingScheduleTests(unittest.TestCase):
 
     def test_slot_matches_the_youtube_studio_heatmap_policy(self):
         slots = {(s["hour"], s["minute"]) for s in self.sched.PEAK_TIMES}
-        self.assertEqual(slots, {(13, 30)})
+        self.assertEqual(slots, {(19, 0)})
 
     def test_every_slot_sits_in_a_consensus_window(self):
         """All canonical slots remain inside the lunch or evening ET windows.
         The values are channel experiments, not universal platform laws."""
         for slot in self.sched.PEAK_TIMES:
             minutes = slot["hour"] * 60 + slot["minute"]
-            in_lunch = 12 * 60 <= minutes <= 14 * 60
             in_evening = 18 * 60 <= minutes <= 22 * 60
             self.assertTrue(
-                in_lunch or in_evening,
+                in_evening,
                 f"{slot['hour']:02d}:{slot['minute']:02d} is outside 12-2 PM and 6-10 PM ET",
             )
 
     def test_heatmap_slot_is_inside_lunch_window(self):
         slots = {(s["hour"], s["minute"]) for s in self.sched.PEAK_TIMES}
-        self.assertIn((13, 30), slots)
+        self.assertIn((19, 0), slots)
 
     def test_crons_have_one_daily_trigger(self):
         workflow = (ROOT / ".github" / "workflows" / "main.yml").read_text()
