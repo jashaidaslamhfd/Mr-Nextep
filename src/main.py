@@ -57,6 +57,23 @@ try:
     from platform_cuts import apply_cut, cut_summary, fits_platform, select_meta_cut
     from us_content_gate import evaluate as evaluate_us_content
     from source_research import discover_pubmed_sources, verify_source_urls
+    # Enhanced modules (optional, best-effort)
+    try:
+        from voice_enhanced import generate_enhanced_voice
+        HAS_ENHANCED_VOICE = True
+    except ImportError:
+        HAS_ENHANCED_VOICE = False
+    try:
+        from audio_reactive import compute_scene_cuts, generate_cut_map
+        HAS_AUDIO_REACTIVE = True
+    except ImportError:
+        HAS_AUDIO_REACTIVE = False
+    try:
+        from thumbnail_enhanced import generate_thumbnail_variants as gen_enhanced_thumbs
+        HAS_ENHANCED_THUMBS = True
+    except ImportError:
+        HAS_ENHANCED_THUMBS = False
+
 except ImportError as e:
     logger.error(f"Failed to import modules: {e}")
     logger.error("Make sure all required modules are in the same directory")
@@ -1369,14 +1386,41 @@ class NextepPipeline:
                     _voice_speed = tempo_jitter(1.0, script_data.get('topic') or script_data.get('title', ''))
                 except Exception:  # noqa: BLE001 - jitter must never block
                     _voice_speed = 1.0
-                audio_segments = generate_voice_segments(
-                    script_data['scenes'],
-                    voice=os.environ.get("KOKORO_VOICE") or None,
-                    speed=_voice_speed,
-                    topic=script_data.get('topic') or script_data.get('title', '')
-                )
+                # Prefer Edge Neural TTS (free, natural) over Kokoro (robotic)
+                if HAS_ENHANCED_VOICE:
+                    try:
+                        audio_segments = generate_enhanced_voice(
+                            script_data['scenes'], output_dir="output/voice",
+                            topic=script_data.get('topic') or script_data.get('title', ''),
+                            video_id=script_data.get('video_id', ''),
+                        )
+                        logger.info(f"✅ Edge Neural TTS: {len(audio_segments)} segments")
+                    except Exception as edge_err:
+                        logger.warning(f"Edge TTS failed, falling back to Kokoro: {edge_err}")
+                        audio_segments = generate_voice_segments(
+                            script_data['scenes'],
+                            voice=os.environ.get("KOKORO_VOICE") or None,
+                            speed=_voice_speed,
+                            topic=script_data.get('topic') or script_data.get('title', '')
+                        )
+                else:
+                    audio_segments = generate_voice_segments(
+                        script_data['scenes'],
+                        voice=os.environ.get("KOKORO_VOICE") or None,
+                        speed=_voice_speed,
+                        topic=script_data.get('topic') or script_data.get('title', '')
+                    )
                 logger.info(f"✅ Generated {len(audio_segments)} audio segments")
                 narration_seconds = sum(float(seg.get("duration", 0)) for seg in audio_segments)
+                # Audio-reactive analysis for pattern interrupt timing
+                if HAS_AUDIO_REACTIVE:
+                    try:
+                        all_cuts = compute_scene_cuts(audio_segments, script_data['scenes'])
+                        cut_map = generate_cut_map(all_cuts)
+                        script_data["audio_cut_map"] = cut_map
+                        logger.info(f"🎵 Audio cuts: {cut_map['total_cuts']} across {len(all_cuts)} scenes")
+                    except Exception as ar_err:
+                        logger.warning(f"Audio-reactive analysis failed: {ar_err}")
                 # The master cut's ceiling comes from algorithm_policy, which
                 # derives it from YouTube's retention gate rather than from a
                 # hand-picked number. video_editor may still make a small
@@ -1542,8 +1586,23 @@ class NextepPipeline:
                 final_video = build_video(
                     image_paths, audio_segments, script_data['scenes'], media_types=media_types
                 )
-                thumb_text = script_data.get('thumbnail_text') or script_data['title']
-                thumb_path = generate_thumbnail(
+                # Enhanced thumbnails with gradients, glow, A/B variants
+                if HAS_ENHANCED_THUMBS:
+                    try:
+                        thumb_variants = gen_enhanced_thumbs(
+                            bg_image=generated.get('scene_image_paths', [None])[0] if generated.get('scene_image_paths') else None,
+                            text=script_data.get('thumbnail_text', script_data['title']),
+                            output_dir="output/thumbnails",
+                            category=script_data.get('topic') or script_data.get('topic_category', 'Body'),
+                        )
+                        thumb_path = thumb_variants[0]["path"] if thumb_variants else ""
+                        script_data["thumbnail_variants"] = thumb_variants
+                    except Exception as et_err:
+                        logger.warning(f"Enhanced thumbnails failed: {et_err}")
+                        thumb_path = ""
+                if not thumb_path:
+                    thumb_text = script_data.get('thumbnail_text') or script_data['title']
+                    thumb_path = generate_thumbnail(
                     image_paths[0], thumb_text,
                     category=script_data.get('category', 'Body')
                 )
