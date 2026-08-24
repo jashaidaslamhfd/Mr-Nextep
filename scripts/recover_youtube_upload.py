@@ -87,7 +87,7 @@ def _append_history(history_path: Path, fingerprint: str, script_data: dict, rec
             "title": script_data["title"],
             "topic": script_data["topic"],
             "posted_at": datetime.now(timezone.utc).isoformat(),
-            "publish_at": record.get("publish_at"),
+            "publish_at": record.get("publish_at") or uploader._RUN_PUBLISH_AT,
             "youtube_video_id": record.get("youtube_video_id"),
             "facebook_video_id": record.get("facebook", {}).get("video_id"),
             "instagram_media_id": record.get("instagram", {}).get("media_id"),
@@ -169,6 +169,7 @@ def recover(args: argparse.Namespace) -> str:
         latest[platform] = partial[platform]
     latest["status"] = "completed"
     latest["youtube_video_id"] = str(video_id)
+    latest["publish_at"] = uploader._RUN_PUBLISH_AT
     latest["recovered_at"] = datetime.now(timezone.utc).isoformat()
     _save_json(state_path, {**_load_json(state_path, {}), fingerprint: latest})
     _append_history(history_path, fingerprint, script_data, latest)
