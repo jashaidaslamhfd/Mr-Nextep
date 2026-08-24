@@ -4,25 +4,19 @@
       "slot": "NY12:30",
       "outcome": "published",
       "topic": "topic a",
-      "at": "2026-08-24T10:26:07.241305+00:00"
+      "at": "2026-08-24T11:02:08.256884+00:00"
     },
     {
       "slot": "NY18:30",
       "outcome": "published",
       "topic": "topic b",
-      "at": "2026-08-24T10:26:07.241627+00:00"
+      "at": "2026-08-24T11:02:08.257239+00:00"
     },
     {
       "slot": "NY20:00",
       "outcome": "guard_fail",
       "topic": "topic c",
-      "at": "2026-08-24T10:26:07.242032+00:00"
-    },
-    {
-      "slot": "offpeak",
-      "outcome": "guard_fail",
-      "topic": "Hook takes 3.79s against a 2.3s target (hard limit 3.35s). Every 2026 feed decid",
-      "at": "2026-08-24T10:53:51.989179+00:00"
+      "at": "2026-08-24T11:02:08.257501+00:00"
     }
   ]
 }

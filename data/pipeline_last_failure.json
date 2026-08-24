@@ -1,6 +1,6 @@
 {
-  "failed_at": "2026-08-24T10:53:51.987748+00:00",
-  "reason": "Hook takes 3.79s against a 2.3s target (hard limit 3.35s). Every 2026 feed decides whether to keep showing a video inside the first 2-3 seconds, so a slow opening caps distribution before any other signal is measured.",
-  "stage": "voice_generation",
-  "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Mr-Nextep/Mr-Nextep/src/main.py\", line 1425, in run_pipeline\n    raise RuntimeError(\nRuntimeError: Hook takes 3.79s against a 2.3s target (hard limit 3.35s). Every 2026 feed decides whether to keep showing a video inside the first 2-3 seconds, so a slow opening caps distribution before any other signal is measured.\n"
+  "failed_at": "2026-08-24T11:32:02.925161+00:00",
+  "reason": "YouTube upload failed; Facebook/Instagram success cannot replace the primary upload",
+  "stage": "platform_upload",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Mr-Nextep/Mr-Nextep/src/main.py\", line 1714, in run_pipeline\n    upload_result = upload_all(\n                    ^^^^^^^^^^^\n  File \"/home/runner/work/Mr-Nextep/Mr-Nextep/src/uploader.py\", line 1066, in upload_all\n    raise RuntimeError(\"YouTube upload failed; Facebook/Instagram success cannot replace the primary upload\")\nRuntimeError: YouTube upload failed; Facebook/Instagram success cannot replace the primary upload\n"
 }

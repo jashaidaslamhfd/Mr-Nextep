@@ -1,8 +1,8 @@
 {
-  "stage": "voice_generation",
+  "stage": "platform_upload",
   "status": "failed",
-  "updated_at": "2026-08-24T10:53:51.988809+00:00",
-  "run_id": "32716391084",
-  "reason": "Hook takes 3.79s against a 2.3s target (hard limit 3.35s). Every 2026 feed decides whether to keep showing a video inside the first 2-3 seconds, so a slow opening caps distribution before any other signal is measured.",
-  "elapsed_seconds": 786.43
+  "updated_at": "2026-08-24T11:32:02.925956+00:00",
+  "run_id": "32719218883",
+  "reason": "YouTube upload failed; Facebook/Instagram success cannot replace the primary upload",
+  "elapsed_seconds": 1176.27
 }

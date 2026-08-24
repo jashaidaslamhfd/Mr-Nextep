@@ -1,0 +1,47 @@
+{
+  "generated_at": "2026-08-24T11:32:39.332169+00:00",
+  "dry_run": false,
+  "stats": {
+    "youtube": {
+      "total": 0,
+      "repaired": 0,
+      "skipped": 0,
+      "errors": 0
+    },
+    "facebook": {
+      "total": 0,
+      "repaired": 0,
+      "skipped": 0,
+      "errors": 0
+    },
+    "instagram": {
+      "total": 46,
+      "repaired": 1,
+      "skipped": 43,
+      "errors": 2
+    }
+  },
+  "results": [
+    {
+      "platform": "instagram",
+      "media_id": "17975366889082084",
+      "new_caption": "Most people have no idea why feeling lightheaded right after standing happens. feeling lightheaded right after standing ",
+      "seo_noncompliant": true,
+      "error": "apply_failed"
+    },
+    {
+      "platform": "instagram",
+      "media_id": "17918498754205458",
+      "new_caption": "The real reason lived exact new moment before \u2014 explained in under a minute. feeling like you've lived an exact new mome",
+      "seo_noncompliant": true,
+      "error": "apply_failed"
+    },
+    {
+      "platform": "instagram",
+      "media_id": "18046126670606373",
+      "new_caption": "The real reason 18046126670606373 \u2014 explained in under a minute. this body fact this body fact \ud83e\udd2f The science: this body ",
+      "seo_noncompliant": true,
+      "applied": true
+    }
+  ]
+}
