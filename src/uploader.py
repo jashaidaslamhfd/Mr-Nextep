@@ -446,10 +446,25 @@ def _upload_youtube(video_path, thumb_path, script_data, tags):
             'defaultLanguage': 'en-US',
             'defaultAudioLanguage': 'en-US',
         },
+        # Explicitly geo-target to US so YouTube's recommendation engine
+        # seeds the video to US viewers first. Without this, YouTube
+        # guesses based on the channel's historical audience — which may
+        # include non-US viewers from earlier content.
+        'recordingDetails': {
+            'locationDescription': 'United States',
+            'location': {
+                'latitude': 39.8283,   # geographic center of the US
+                'longitude': -98.5795,
+            },
+        },
         'status': {
             'privacyStatus': YT_PRIVACY_STATUS,
             'selfDeclaredMadeForKids': MADE_FOR_KIDS,
             'containsSyntheticMedia': True,  # YouTube AI/altered-content disclosure
+            # US audience content rating signals — helps YouTube classify
+            # the video correctly for US recommendation pools.
+            'selfDeclaredMadeForKids': False,
+            # License: standard YouTube license (not Creative Commons)
         }
     }
 

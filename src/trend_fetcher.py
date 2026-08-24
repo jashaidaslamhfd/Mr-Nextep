@@ -29,7 +29,7 @@ logger = logging.getLogger(__name__)
 
 REQUEST_TIMEOUT = 15
 MAX_SOURCE_RETRIES = 2
-TARGET_REGION = os.environ.get("TREND_REGION", "US").upper()
+TARGET_REGION = os.environ.get("TREND_REGION", "US").upper()  # Always US-first
 YOUTUBE_REGION = os.environ.get("YOUTUBE_REGION_CODE", TARGET_REGION).upper()
 
 # The channel is science/body/brain-oriented. Restricting external headlines

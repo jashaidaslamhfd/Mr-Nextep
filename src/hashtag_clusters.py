@@ -19,7 +19,17 @@ HASHTAG_CLUSTERS = {
     # not prove US audience fit; the account and caption language already do.
     "us_discovery": [
         "usscience", "americanbiology", "healthscience", "scienceexplained",
-        "stemeducation"
+        "stemeducation", "usascience", "learnscience", "factsforyou",
+    ],
+    # US Instagram Reels trending tags (2026)
+    "us_reels_trending": [
+        "reelsusa", "reelscience", "reelsbody", "reels2026",
+        "explorepage", "viralreels", "reelsviral",
+    ],
+    # US YouTube Shorts trending tags
+    "us_shorts_trending": [
+        "shorts", "ytshorts", "youtubeshorts", "shortsfeed",
+        "scienceexplained", "bodyscience", "didyouknow",
     ],
     "mystery_dark": [
         "unsolved", "darkscience", "mysterious", "scaryfacts",
@@ -61,8 +71,14 @@ def get_optimized_us_tags(topic: str, base_tags: list) -> list:
     if any(w in topic_l for w in ["dark", "mystery", "creepy", "scary"]):
         add_many(HASHTAG_CLUSTERS["mystery_dark"])
 
-    # 2. Add a small science-specific US cluster after topic anchors.
+    # 2. Add US discovery + trending clusters after topic anchors.
+    # Use rotation to avoid identical hashtag sets (algorithm demotes).
     add_many(HASHTAG_CLUSTERS["us_discovery"][:2])
+    # Platform-specific trending tags (max 2 per platform to stay focused)
+    if any(w in topic_l for w in ["body", "muscle", "heart", "nerve"]):
+        add_many(HASHTAG_CLUSTERS["us_reels_trending"][:2])
+    if any(w in topic_l for w in ["brain", "memory", "sleep", "ear"]):
+        add_many(HASHTAG_CLUSTERS["us_shorts_trending"][:2])
 
     # 3. The list is already cleaned and priority ordered.
     clean = final_tags

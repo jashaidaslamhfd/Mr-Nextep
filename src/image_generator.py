@@ -298,7 +298,14 @@ def _stock_photo_request(
 ):
     raw_text = (scene_text or "human body science").strip()
     words = [w for w in raw_text.replace(",", "").replace(".", "").split() if len(w) > 3]
-    query = " ".join(words[:2]) if words else "human body"
+    raw_query = " ".join(words[:2]) if words else "human body"
+    # US-audience context: prepend medical/anatomy prefix so stock photos
+    # return US-relevant imagery (hospitals, labs, models) not foreign contexts.
+    medical_prefixes = ["medical", "anatomy", "clinical", "science"]
+    if not any(p in raw_query.lower() for p in medical_prefixes):
+        query = f"{medical_prefixes[0]} {raw_query}"
+    else:
+        query = raw_query
 
     if source == "pexels":
         key = os.environ.get("PEXELS_API_KEY")
@@ -432,7 +439,14 @@ def _stock_video_request(
     # We'll take the first 2 meaningful words longer than 3 chars to form a robust stock query.
     raw_text = (scene_text or "human body science").strip()
     words = [w for w in raw_text.replace(",", "").replace(".", "").split() if len(w) > 3]
-    query = " ".join(words[:2]) if words else "human body"
+    raw_query = " ".join(words[:2]) if words else "human body"
+    # US-audience context: prepend medical/anatomy prefix so stock photos
+    # return US-relevant imagery (hospitals, labs, models) not foreign contexts.
+    medical_prefixes = ["medical", "anatomy", "clinical", "science"]
+    if not any(p in raw_query.lower() for p in medical_prefixes):
+        query = f"{medical_prefixes[0]} {raw_query}"
+    else:
+        query = raw_query
     
     if source == "pexels":
         key = os.environ.get("PEXELS_API_KEY")

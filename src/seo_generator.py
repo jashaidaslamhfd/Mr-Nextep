@@ -91,11 +91,13 @@ _TITLE_STOP_WORDS = {
 
 
 # HIGH-VOLUME TAGS BY CATEGORY
+# US-specific high-volume tags — these are tags that US viewers actively
+# search for on YouTube/Instagram. Body-science niche tags first.
 _HIGH_VOLUME_TAGS = {
-    "Brain": ["neuroscience", "brainfacts", "mindblowing", "psychology", "brainpower", "cognitivescience"],
-    "Body": ["humanbody", "anatomy", "healthfacts", "biology", "physiology", "bodysecrets"],
-    "Mystery": ["mystery", "unsolved", "creepyfacts", "paranormal", "weirdfacts", "conspiracy"],
-    "Health": ["healthtips", "wellness", "medicalfacts", "science", "healthyliving", "nutrition"],
+    "Brain": ["brainfacts", "neuroscience", "brainhealth", "psychologyfacts", "mindblowing", "cognitivescience"],
+    "Body": ["humanbody", "anatomy", "bodyfacts", "bodyglitches", "healthfacts", "physiology"],
+    "Mystery": ["mystery", "unsolved", "creepyfacts", "darkscience", "weirdfacts", "strangebuttrue"],
+    "Health": ["healthtips", "wellness", "medicalfacts", "healthhacks", "healthyliving", "prevention"],
 }
 
 # TRENDING TAGS (YouTube Shorts specific)

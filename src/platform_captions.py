@@ -34,6 +34,9 @@ _YT_CLOSERS = (
     "Follow for short, accurate science with no hype.",
     "Follow along for the everyday biology nobody explains.",
     "Subscribe for more of what your body does and why.",
+    # US-audience specific closers
+    "New body science Short daily — subscribe to stay curious.",
+    "One body mystery explained. Subscribe — new Short every day.",
 )
 
 _META_CLOSERS = (
