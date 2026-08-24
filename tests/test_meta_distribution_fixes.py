@@ -179,6 +179,30 @@ class YouTubeUploadTransportTests(unittest.TestCase):
         self.assertIn("resumable protocol uses HTTP 308", source)
 
 
+class PartialYouTubeRecoveryTests(unittest.TestCase):
+    def test_recovery_metadata_matches_partial_meta_receipt(self):
+        import hashlib
+        import importlib.util
+
+        script_path = ROOT / "scripts" / "recover_youtube_upload.py"
+        spec = importlib.util.spec_from_file_location("recover_youtube_upload", script_path)
+        recovery = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(recovery)
+        material = "|".join(
+            value.strip().lower()
+            for value in (
+                recovery.DEFAULT_TOPIC,
+                recovery.DEFAULT_TITLE,
+                recovery.DEFAULT_VOICEOVER,
+                recovery.DEFAULT_HOOK,
+            )
+        )
+        self.assertEqual(hashlib.sha256(material.encode()).hexdigest(), recovery.FINGERPRINT)
+        self.assertIn("_upload_youtube", script_path.read_text(encoding="utf-8"))
+        self.assertNotIn("_upload_facebook_reels", script_path.read_text(encoding="utf-8"))
+        self.assertNotIn("_upload_instagram_reel", script_path.read_text(encoding="utf-8"))
+
+
 class MetaWorkflowContractTests(unittest.TestCase):
     def test_production_workflow_sets_native_meta_windows(self):
         workflow = Path(__file__).parents[1] / ".github" / "workflows" / "main.yml"
@@ -196,6 +220,10 @@ class MetaWorkflowContractTests(unittest.TestCase):
         self.assertIn('PIPELINE_CHECKPOINT_PATH: "data/pipeline_checkpoint.json"', text)
         self.assertIn('Upload-stage failure has unknown external completion state', text)
         self.assertIn('FAIL_ON_MISSED_SLOT: "true"', text)
+        self.assertIn('recover_run_id:', text)
+        self.assertIn('Recover missing YouTube upload from a partial run', text)
+        self.assertIn('github.token', text)
+        self.assertIn('actions: read', text)
 
 
 if __name__ == "__main__":

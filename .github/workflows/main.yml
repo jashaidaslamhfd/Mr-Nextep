@@ -12,6 +12,11 @@ on:
         required: false
         type: boolean
         default: false
+      recover_run_id:
+        description: "Optional failed run ID: recover only its missing YouTube upload"
+        required: false
+        type: string
+        default: ""
   schedule:
     # One daily production trigger. Start well before the canonical 12:30 PM
     # America/New_York release so long TTS/rendering can finish before the
@@ -20,6 +25,7 @@ on:
     - cron: "0 10 * * *"
 
 permissions:
+  actions: read
   contents: write
 
 concurrency:
@@ -119,7 +125,35 @@ jobs:
           fi
           exit "$missing"
 
+      - name: Recover missing YouTube upload from a partial run
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.recover_run_id != '' }}
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
+          YT_PRIVACY_STATUS: "private"
+          YT_SCHEDULE_PUBLISH: "true"
+          YT_HTTP_TIMEOUT: "300"
+          YT_UPLOAD_ENABLED: "true"
+          PYTHONUNBUFFERED: "1"
+        run: |
+          set -euo pipefail
+          run_id="${{ inputs.recover_run_id }}"
+          artifact_dir="/tmp/recovery-${run_id}"
+          rm -rf "$artifact_dir"
+          mkdir -p "$artifact_dir"
+          gh run download "$run_id" --repo "${{ github.repository }}" \
+            --name "skillor-run-${run_id}" --dir "$artifact_dir"
+          python scripts/recover_youtube_upload.py \
+            --artifact-dir "$artifact_dir" \
+            --expected-run-id "$run_id"
+          cp "$artifact_dir/data/upload_state.json" data/upload_state.json
+          cp "$artifact_dir/data/video_history.json" data/video_history.json
+
       - name: Refresh live US search-demand queue
+        if: ${{ github.event_name != 'workflow_dispatch' || inputs.recover_run_id == '' }}
         continue-on-error: true
         shell: bash
         env:
@@ -133,6 +167,7 @@ jobs:
           # mining hiccup must never stop a video from being made.
           python src/demand_refresh_us.py || true
       - name: Generate and upload Short
+        if: ${{ github.event_name != 'workflow_dispatch' || inputs.recover_run_id == '' }}
         shell: bash
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
