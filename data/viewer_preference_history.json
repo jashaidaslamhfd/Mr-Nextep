@@ -1389,5 +1389,83 @@
     "real_retention": 0.0,
     "real_views": 0.0,
     "recorded_at": "2026-08-24T16:02:08.855153+00:00"
+  },
+  {
+    "features": {
+      "hook_strength": 0.1,
+      "story_completeness": 0.0,
+      "pacing": 1.0,
+      "title_curiosity": 0.75,
+      "payoff_present": 0.0,
+      "bait_penalty": 0.0
+    },
+    "real_retention": 0.0,
+    "real_views": 0.0,
+    "recorded_at": "2026-08-24T16:56:45.019098+00:00"
+  },
+  {
+    "features": {
+      "hook_strength": 0.1,
+      "story_completeness": 0.0,
+      "pacing": 1.0,
+      "title_curiosity": 0.75,
+      "payoff_present": 0.0,
+      "bait_penalty": 0.0
+    },
+    "real_retention": 0.0,
+    "real_views": 0.0,
+    "recorded_at": "2026-08-24T16:57:12.134517+00:00"
+  },
+  {
+    "features": {
+      "hook_strength": 0.1,
+      "story_completeness": 0.0,
+      "pacing": 1.0,
+      "title_curiosity": 0.75,
+      "payoff_present": 0.0,
+      "bait_penalty": 0.0
+    },
+    "real_retention": 0.0,
+    "real_views": 0.0,
+    "recorded_at": "2026-08-24T16:57:14.021666+00:00"
+  },
+  {
+    "features": {
+      "hook_strength": 0.1,
+      "story_completeness": 0.0,
+      "pacing": 1.0,
+      "title_curiosity": 0.75,
+      "payoff_present": 0.0,
+      "bait_penalty": 0.0
+    },
+    "real_retention": 0.0,
+    "real_views": 0.0,
+    "recorded_at": "2026-08-24T16:59:13.257438+00:00"
+  },
+  {
+    "features": {
+      "hook_strength": 0.1,
+      "story_completeness": 0.0,
+      "pacing": 1.0,
+      "title_curiosity": 0.75,
+      "payoff_present": 0.0,
+      "bait_penalty": 0.0
+    },
+    "real_retention": 0.0,
+    "real_views": 0.0,
+    "recorded_at": "2026-08-24T16:59:39.260709+00:00"
+  },
+  {
+    "features": {
+      "hook_strength": 0.1,
+      "story_completeness": 0.0,
+      "pacing": 1.0,
+      "title_curiosity": 0.75,
+      "payoff_present": 0.0,
+      "bait_penalty": 0.0
+    },
+    "real_retention": 0.0,
+    "real_views": 0.0,
+    "recorded_at": "2026-08-24T16:59:41.215211+00:00"
   }
 ]

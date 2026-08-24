@@ -420,6 +420,70 @@ DARK_TOPICS = [
     "Why Your Brain Fills In Silences in Conversation",
     "The Reason You Can Balance on One Foot With Your Eyes Closed",
     
+    # ── 🩺 Pain & Signals (UNTAPPED — 0 videos, competitor avg 410K views) ──
+    "Why Your Head Hurts When You Eat Ice Cream Too Fast",
+    "The Hidden Cause of Your Random Sharp Chest Pain",
+    "Why Your Back Hurts After Sitting All Day",
+    "Your Body Warning Signals You Have Been Ignoring",
+    "Why Old Injuries Hurt When the Weather Changes",
+    "The Real Reason Your Joints Crack and Pop",
+    "Why Your Stomach Hurts When You Are Anxious",
+    "Why Your Muscles Feel Sore 2 Days After Exercise",
+    "Why Your Neck Hurts After Sleeping Wrong",
+    "The Hidden Reason Behind Your Random Headaches",
+    "Why Your Feet Ache After Standing All Day",
+    "What That Sharp Pain in Your Side Actually Means",
+    "Why Your Wrist Hurts When You Type Too Much",
+    "The Warning Pain in Your Lower Back You Ignore",
+    "Why Your Jaw Hurts When You Wake Up",
+    "What Happens When Your Nerve Gets Pinched",
+    "Why Your Shoulder Pops When You Lift Your Arm",
+    "The Real Reason Your Legs Cramp at Night",
+    "Why Your Heel Hurts When You First Stand Up",
+    "What That Tingling in Your Hands Really Means",
+    "Why Your Hip Pops When You Walk Upstairs",
+    "The Pain Signal Your Body Sends Before a Headache",
+    "Why Your Eye Hurts When You Look at Screens Too Long",
+    "What Happens When You Ignore Back Pain Too Long",
+    "Why Your Knees Ache When It Rains",
+    "The Reason Your Muscles Spasm After a Workout",
+    "Why Your Skin Hurts When You Have the Flu",
+    "What That Sharp Stabbing Pain in Your Foot Means",
+    "Why Your Body Sends Random Pains That Vanish",
+    "The Hidden Link Between Stress and Body Pain",
+
+    # ── 👁️ Sensory Phenomena (LOW competition — 6 videos, competitor avg 520K) ──
+    "Why Your Ears Ring in Absolute Silence",
+    "Why Your Foot Falls Asleep and Feels Like Static",
+    "Why You See Glowing Spots After Looking at Bright Light",
+    "Your Hands Wrinkling in Water Is Not What You Think",
+    "Why Your Nose Runs When You Cry or Eat Hot Food",
+    "Phantom Phone Vibrations — Your Body's Strangest Illusion",
+    "Why You Lose Taste Sensation After Burning Your Tongue",
+    "Why Your Voice Sounds Different in Recordings",
+    "The Strange Reason Your Eyes See Afterimages",
+    "Why Food Tastes Different When You Have a Cold",
+    "Why You Hear Your Own Voice Differently Than Others Do",
+    "The Reason You Smell Something That Isn't There",
+    "Why Your Skin Crawls When Someone Touches You Unexpectedly",
+    "Why You Can Feel Someone Staring at You",
+    "The Reason Cold Water Feels colder Than Cold Air",
+    "Why Your Brain Creates Phantom Sounds at Night",
+    "Why You See Faces in Random Objects",
+    "The Hidden Reason Music Gives You Goosebumps",
+    "Why Your Eyes Water When You Eat Spicy Food",
+    "The Science Behind Feeling a Lump That Isn't There",
+    "Why You Hear a Loud Bang When Falling Asleep",
+    "Why Colors Look Different Under Different Lights",
+    "The Reason You Can't Smell Your Own Cologne",
+    "Why Your Tongue Feels Weird After Eating Pineapple",
+    "Why You See Floaters Drifting Across Your Vision",
+    "The Reason You Feel a Phantom Vibration in Your Pocket",
+    "Why Your Eyes Dilate When You See Something You Like",
+    "The Strange Reason You Taste Metal in Your Mouth",
+    "Why Your Nose Runs When It's Cold Outside",
+    "The Science Behind Numbness in Your Fingers",
+
     # ── Dark Mystery & Medical Curiosities (Added August 2026) ──
     "Why you see a 'demon' during Sleep Paralysis",
     "Why your face distorts in the mirror (Troxler's Effect)",
@@ -612,6 +676,16 @@ CATEGORY_TAGS = {
         "bodyawareness", "bodymystery", "yourbody", "physiology",
         "humananatomy", "bodyscience", "healthfacts",
     ],
+    "Pain": [
+        "bodysignals", "painscience", "bodywarning", "healthalert",
+        "jointpain", "musclepain", "backpain", "headache",
+        "chronicpain", "bodyhurts", "nervepain", "bodypain",
+    ],
+    "Sensory": [
+        "sensoryscience", "visionfacts", "hearingfacts", "touchsense",
+        "phantomvibration", "earsringing", "tastesmell", "bodysenses",
+        "sensoryglitch", "weirdsenses", "braintricks", "sensoryfacts",
+    ],
     "Mystery": [
         "mysteryscience", "weirdfacts", "creepyfacts", "unknownfacts",
         "darkscience", "bodysecrets", "themoreyouknow", "mindblowing",
@@ -748,11 +822,17 @@ def get_topic_category(topic: str) -> str:
     brain_keywords = ['brain', 'mind', 'sleep', 'nerve', 'psych', 'memory', 'thought', 'conscious']
     body_keywords = ['heart', 'blood', 'lung', 'kidney', 'bone', 'organ', 'muscle', 'vein', 'artery']
     mystery_keywords = ['scary', 'secret', 'dark', 'mystery', 'hidden', 'unknown', 'creepy', 'weird']
+    pain_keywords = ['pain', 'hurts', 'ache', 'sore', 'hurt', 'cramp', 'spasm', 'tingling', 'stiff', 'pins']
+    sensory_keywords = ['ears ring', 'ringing', 'taste', 'smell', 'vision', 'floaters', 'afterimage', 'phantom', 'numbness', 'wrinkle', 'goosebump']
 
     def _has_word(words):
         return any(re.search(r'\b' + re.escape(w), topic_lower) for w in words)
 
-    if _has_word(brain_keywords):
+    if _has_word(pain_keywords):
+        return "Pain"
+    elif _has_word(sensory_keywords):
+        return "Sensory"
+    elif _has_word(brain_keywords):
         return "Brain"
     elif _has_word(mystery_keywords):
         return "Mystery"
