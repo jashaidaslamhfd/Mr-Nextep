@@ -32,6 +32,10 @@ try:
 except ImportError:
     requests = None
 from seo_generator import generate_description
+try:
+    from revival import get_next_end_screens
+except ImportError:
+    get_next_end_screens = None
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
@@ -553,6 +557,37 @@ def _upload_youtube(video_path, thumb_path, script_data, tags):
                     logger.warning(
                         f"Seed comment post failed (needs youtube.force-ssl scope on REFRESH_TOKEN): {comment_error}"
                     )
+
+            # --- End screen injection: add old-video cards to drive views
+            # to dead-but-worthy uploads. Best-effort only.
+            if get_next_end_screens:
+                try:
+                    topic = script_data.get('topic_category',
+                                            script_data.get('topic', 'other'))
+                    end_screens = get_next_end_screens(topic)
+                    if end_screens:
+                        end_elements = []
+                        for i, es in enumerate(end_screens):
+                            end_elements.append({
+                                'type': 'endScreenElement',
+                                'endScreenElementType': 'video',
+                                'videoId': es['video_id'],
+                            })
+                        yt.videos().update(
+                            part='endScreen',
+                            body={
+                                'id': yt_video_id,
+                                'endScreen': {
+                                    'items': end_elements,
+                                },
+                            },
+                        ).execute()
+                        logger.info(
+                            "End screens added: %s",
+                            [e['title'] for e in end_screens],
+                        )
+                except Exception as es_error:
+                    logger.warning(f"End screen injection failed: {es_error}")
             break
 
         except HttpError as e:

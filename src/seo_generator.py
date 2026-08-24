@@ -28,6 +28,11 @@ import random
 from typing import Dict, List
 
 from niche_strategy import generate_seo_tags, get_topic_category, make_seo_title
+try:
+    from revival import get_cross_links, build_cross_link_text
+except ImportError:
+    get_cross_links = None
+    build_cross_link_text = lambda x: ''
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
@@ -326,6 +331,18 @@ def generate_description(script_data: Dict, tags: List[str]) -> str:
     hashtags = " ".join(f"#{tag}" for tag in clean_tags[:4])
     if hashtags:
         parts.append(hashtags)
+    # --- Revival cross-links: drive views to dead-but-worthy old videos
+    if get_cross_links and build_cross_link_text:
+        try:
+            topic = script_data.get('topic_category',
+                                    script_data.get('topic', 'other'))
+            cross_links = get_cross_links(topic)
+            cross_link_text = build_cross_link_text(cross_links)
+            if cross_link_text:
+                parts.append(cross_link_text)
+        except Exception:
+            pass  # cross-links are best-effort only
+
     return "\n\n".join(parts)[:DESCRIPTION_MAX_LEN]
 
 

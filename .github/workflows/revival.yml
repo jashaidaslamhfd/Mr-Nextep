@@ -1,0 +1,86 @@
+name: "♻️ Revival — Old Video Revival"
+
+on:
+  schedule:
+    # Runs once daily at 12:00 UTC = 5:00 PM PKT — between analytics
+    # and the next generation cycle, so the end-screen pool and cross-link
+    # pool are fresh when the pipeline picks up the new video.
+    - cron: "0 12 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  revival-cycle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Python deps
+        run: pip install pytz requests 2>/dev/null || pip install pytz requests
+
+      - name: Run revival cycle
+        env:
+          FB_ACCESS_TOKEN: ${{ secrets.FB_ACCESS_TOKEN }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+        run: python3 -c "
+          import sys; sys.path.insert(0, '.')
+          from src.revival import run_revival_cycle
+          import json
+          result = run_revival_cycle()
+          print(json.dumps(result, indent=2, default=str))
+          "
+
+      - name: Reshare IG stories (if queued)
+        if: success()
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+        run: python3 -c "
+          import sys, json; sys.path.insert(0, '.')
+          from src.revival_reshare import reshare_ig_to_stories
+          from src.revival import _load_json, REVIVAL_STATE_PATH
+          state = _load_json(REVIVAL_STATE_PATH, {})
+          stories = state.get('stories_reshared_today', [])
+          from datetime import datetime, timezone
+          today = datetime.now(timezone.utc).strftime('%Y-%m-%d')
+          stories = [s for s in stories if s.get('date') == today]
+          results = []
+          for s in stories:
+              ok = reshare_ig_to_stories(s['reel_id'], '$IG_ACCESS_TOKEN')
+              results.append({'reel_id': s['reel_id'], 'success': ok})
+          print(json.dumps(results, indent=2))
+          "
+
+      - name: Reshare FB stories (if queued)
+        if: success()
+        env:
+          FB_ACCESS_TOKEN: ${{ secrets.FB_ACCESS_TOKEN }}
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+        run: python3 -c "
+          import sys, json; sys.path.insert(0, '.')
+          from src.revival_reshare import reshare_fb_to_stories
+          from src.revival import _load_json, REVIVAL_STATE_PATH
+          state = _load_json(REVIVAL_STATE_PATH, {})
+          stories = state.get('stories_reshared_today', [])
+          from datetime import datetime, timezone
+          today = datetime.now(timezone.utc).strftime('%Y-%m-%d')
+          stories = [s for s in stories if s.get('date') == today]
+          results = []
+          for s in stories:
+              ok = reshare_fb_to_stories(s['reel_id'], '$FB_ACCESS_TOKEN')
+              results.append({'reel_id': s['reel_id'], 'success': ok})
+          print(json.dumps(results, indent=2))
+          "
+
+      - name: Commit state changes
+        if: success()
+        run: |
+          git config user.name "Revival Bot"
+          git config user.email "bot@nextep.ai"
+          git add data/revival_state.json data/revival_queue.json || true
+          git diff --cached --quiet || git commit -m "chore: update revival state [skip ci]" && git push
