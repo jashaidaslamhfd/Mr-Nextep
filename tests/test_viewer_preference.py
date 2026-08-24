@@ -8,7 +8,6 @@ sys.path.insert(0, str(SRC))
 
 from viewer_preference import (  # noqa: E402
     score_viewer_preference, viewer_preference_guard, extract_features,
-    recalibrate,
 )
 
 

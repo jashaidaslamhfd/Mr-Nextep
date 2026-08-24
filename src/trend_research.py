@@ -70,7 +70,7 @@ def fetch_trending_topics(limit: int = 15, timeout: int = 10) -> list:
     'no trends available right now' and fall back gracefully, not as an
     error worth crashing the pipeline over.
     """
-    headers = {"User-Agent": "SKILLOR-trend-research/1.0 (content research bot)"}
+    headers = {"User-Agent": "Nextep-trend-research/1.0 (content research bot)"}
     collected = []
 
     for url in REDDIT_SOURCES:

@@ -194,10 +194,10 @@ MEDIA_HASH_HISTORY_PATH = os.environ.get("MEDIA_HASH_HISTORY_PATH", "data/media_
 MAX_MEDIA_HASH_HISTORY = int(os.environ.get("MAX_MEDIA_HASH_HISTORY", "20000"))
 
 
-class SKILLORPipeline:
+class NextepPipeline:
     def __init__(self):
         """Initialize pipeline with all components"""
-        logger.info("Initializing SKILLOR Pipeline...")
+        logger.info("Initializing Nextep Pipeline...")
 
         try:
             self.quality_checker = QualityChecker()
@@ -546,8 +546,8 @@ class SKILLORPipeline:
 
             # Quality check (2026-08-17: an optional `lenient` flag is passed
             # for LLM-outage fallback — see generate_with_niche_strategy)
-            quality_result = self.quality_checker.check_script_quality(script_data, lenient=SKILLORPipeline.lenient_fallback)
-            if SKILLORPipeline.lenient_fallback and quality_result.get('approved'):
+            quality_result = self.quality_checker.check_script_quality(script_data, lenient=NextepPipeline.lenient_fallback)
+            if NextepPipeline.lenient_fallback and quality_result.get('approved'):
                 logger.warning(
                     "Fallback mode: relaxed quality floor — strict structural "
                     "checks passed but stylistic hooks were waived (premium "
@@ -725,7 +725,7 @@ class SKILLORPipeline:
 
                 logger.info(f"Attempt {attempt}/{MAX_SCRIPT_ATTEMPTS} for topic: {current_topic}")
 
-                SKILLORPipeline.lenient_fallback = (FALLBACK_LENIENT_MODE and primary_exhausted and attempt == MAX_SCRIPT_ATTEMPTS)
+                NextepPipeline.lenient_fallback = (FALLBACK_LENIENT_MODE and primary_exhausted and attempt == MAX_SCRIPT_ATTEMPTS)
                 result = self._generate_and_check_once(current_topic)
                 if result.get('script_data', {}).get('provider_used') in {'openrouter', 'gemini'}:
                     primary_exhausted = True
@@ -813,11 +813,11 @@ class SKILLORPipeline:
             # structurally complete and spam-clean it ships at a relaxed hook
             # floor — a decent Short beats a missed slot during an outage.
             if FALLBACK_LENIENT_MODE and primary_exhausted and best_attempt.get('spam_ok'):
-                SKILLORPipeline.lenient_fallback = True
+                NextepPipeline.lenient_fallback = True
                 fallback_result = self.quality_checker.check_script_quality(
                     best_attempt['script_data'], lenient=True
                 )
-                SKILLORPipeline.lenient_fallback = False
+                NextepPipeline.lenient_fallback = False
                 fb_hook = best_attempt.get('hook_score', 0)
                 if fallback_result.get('approved') and fb_hook >= 45:
                     logger.warning(
@@ -1057,7 +1057,7 @@ class SKILLORPipeline:
         current_stage = "startup"
         _write_pipeline_checkpoint(current_stage, "started")
         logger.info("=" * 60)
-        logger.info("🚀 STARTING SKILLOR - TRENDING VIRAL PIPELINE")
+        logger.info("🚀 STARTING MRNEXTEP - TRENDING VIRAL PIPELINE")
         logger.info("=" * 60)
 
         def _start_stage(name: str):
@@ -1414,7 +1414,7 @@ class SKILLORPipeline:
                 platforms = self._enabled_platforms()
                 hook_target = shared_hook_seconds(platforms)
                 hook_limit = MAX_HOOK_SECONDS or hook_enforcement_seconds(platforms)
-                if SKILLORPipeline.lenient_fallback and not MAX_HOOK_SECONDS:
+                if NextepPipeline.lenient_fallback and not MAX_HOOK_SECONDS:
                     # The outage fallback already passed the content, evidence,
                     # spam, and structural gates. Chatterbox can add a small,
                     # natural first-segment variance; allow only 0.25s here,
@@ -1910,7 +1910,7 @@ class SKILLORPipeline:
 def main():
     """Main entry point"""
     try:
-        pipeline = SKILLORPipeline()
+        pipeline = NextepPipeline()
         topic = os.environ.get("VIDEO_TOPIC") or _consume_next_topic_override()
 
         # Label the current US peak slot so continuity can track consistency.
@@ -1948,6 +1948,9 @@ def main():
         logger.error(f"Pipeline failed: {e}")
         sys.exit(1)
 
+
+# Backward-compatible alias — old code may `from main import SKILLORPipeline`
+SKILLORPipeline = NextepPipeline
 
 if __name__ == "__main__":
     main()

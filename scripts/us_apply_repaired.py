@@ -56,7 +56,7 @@ def main():
     args = parser.parse_args()
 
     print("=" * 70)
-    print("SKILLOR METADATA REPAIR SWEEP")
+    print("MrNextep METADATA REPAIR SWEEP")
     print("=" * 70)
     print(f"Mode: {'APPLY (writes to YouTube)' if args.apply else 'DRY-RUN (read-only)'}")
     print(f"Thumbnails: {args.thumbnails} | Limit: {args.limit or 'ALL'}")

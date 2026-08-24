@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 ╔══════════════════════════════════════════════════════════════════════════════╗
-║  SKILLOR ML BRAIN — Multi-Platform Viral Growth Engine v2.0               ║
+║  MrNextep ML BRAIN — Multi-Platform Viral Growth Engine v2.0               ║
 ║  ────────────────────────────────────────────────────────────────────────  ║
 ║  Trained on real channel data. Learns:                                    ║
 ║    • Which topics go viral (regression + classification)                  ║
@@ -35,7 +35,7 @@ logger = logging.getLogger(__name__)
 # ---------------------------------------------------------------------------
 # Paths
 # ---------------------------------------------------------------------------
-DATA_DIR = Path(os.environ.get("SKILLOR_DATA_DIR", "data"))
+DATA_DIR = Path(os.environ.get("MrNextep_DATA_DIR", "data"))
 VIDEO_HISTORY = DATA_DIR / "video_history.json"
 PLATFORM_METRICS = DATA_DIR / "platform_metrics.json"
 GROWTH_STATE = DATA_DIR / "growth_state.json"
@@ -756,7 +756,7 @@ def generate_viral_report(brain: MLBrain) -> str:
 
     report = []
     report.append("=" * 72)
-    report.append("  🧬 SKILLOR ML BRAIN — Viral Growth Intelligence Report")
+    report.append("  🧬 MrNextep ML BRAIN — Viral Growth Intelligence Report")
     report.append("=" * 72)
     report.append(f"  Generated: {strategy['generated_at'][:19].replace('T', ' ')}")
     report.append(f"  Training Samples: {strategy['n_samples']} videos")
@@ -816,7 +816,7 @@ def main():
     if "--serve" in sys.argv:
         # Interactive mode
         brain.load() or brain.train()
-        print("\n🧬 SKILLOR ML Brain — Interactive Mode")
+        print("\n🧬 MrNextep ML Brain — Interactive Mode")
         print("   Type a topic to score it, or 'report' for full report, 'quit' to exit.\n")
         while True:
             try:

@@ -1,6 +1,6 @@
-# SKILLOR — last run kyun fail hua (aur kya fix kiya)
+# MrNextep — last run kyun fail hua (aur kya fix kiya)
 
-**Failed run:** [30625527563](https://github.com/jashaidaslamhfd/SKILLOR/actions/runs/30625527563) — "SKILLOR - YouTube Shorts Automation (US)", 31 July 2026, 7m53s
+**Failed run:** [30625527563](https://github.com/jashaidaslamhfd/MrNextep/actions/runs/30625527563) — "MrNextep - YouTube Shorts Automation (US)", 31 July 2026, 7m53s
 **Final error:**
 
 ```

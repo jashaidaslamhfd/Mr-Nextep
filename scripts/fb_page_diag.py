@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""One-shot Facebook Page diagnostic for the SKILLOR FB presence (read-only).
+"""One-shot Facebook Page diagnostic for the MrNextep FB presence (read-only).
 
 Answers: "is the FB side actually working, and how big is it?"
 

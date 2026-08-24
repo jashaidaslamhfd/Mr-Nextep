@@ -4,7 +4,7 @@ src/seo_analytics.py
 Second wave of the PRD "AI SEO Generator" section - the subset that needs
 NO external API/keys (no Google Trends, no YouTube Analytics, no
 competitor-channel access). Everything here is either a heuristic model
-over data SKILLOR already produces, or a PIL/numpy analysis of the actual
+over data MrNextep already produces, or a PIL/numpy analysis of the actual
 thumbnail file already on disk.
 
 Honest scope note up front, since it matters for how much to trust this:

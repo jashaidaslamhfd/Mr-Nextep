@@ -1,5 +1,5 @@
 """
-Script Generator Module for SKILLOR Pipeline
+Script Generator Module for Nextep Pipeline
 FULLY FIXED - JSON Cleaning + Native Tone + Retention Optimization
 """
 

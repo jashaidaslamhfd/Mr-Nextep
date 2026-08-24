@@ -465,7 +465,7 @@ class DeepRepair2026:
 
 
 def main() -> int:
-    ap = argparse.ArgumentParser(description="SKILLOR deep repair 2026 (all platforms)")
+    ap = argparse.ArgumentParser(description="MrNextep deep repair 2026 (all platforms)")
     ap.add_argument("--apply", action="store_true", help="apply repairs (default is dry-run)")
     ap.add_argument("--force", action="store_true", help="ignore the repair ledger")
     ap.add_argument("--limit", type=int, default=0, help="max per platform (0=all)")
@@ -475,7 +475,7 @@ def main() -> int:
     args = ap.parse_args()
 
     engine = DeepRepair2026(dry_run=not args.apply, force=args.force)
-    logger.info("🧬 SKILLOR Deep Repair 2026")
+    logger.info("🧬 MrNextep Deep Repair 2026")
     logger.info("   Videos loaded: %d | Mode: %s | Force: %s",
                 len(engine.history), "APPLY" if args.apply else "DRY RUN", args.force)
     if args.limit:

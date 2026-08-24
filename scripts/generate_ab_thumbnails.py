@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-SKILLOR Thumbnail A/B Testing Engine
+MrNextep Thumbnail A/B Testing Engine
 -------------------------------------
 Generates 3-5 thumbnail variants per video with different:
 - Text placement (top/middle/bottom)

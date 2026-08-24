@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""One-shot SEO / algorithm diagnostic for the SKILLOR US channel (READ-ONLY).
+"""One-shot SEO / algorithm diagnostic for the MrNextep US channel (READ-ONLY).
 
 Answers ONE question: "why is the algorithm not picking the channel up?"
 

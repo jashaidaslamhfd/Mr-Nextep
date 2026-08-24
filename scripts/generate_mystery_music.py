@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate SUSPENSEFUL, MYSTERY-style ambient music for SKILLOR (US Science).
+"""Generate SUSPENSEFUL, MYSTERY-style ambient music for MrNextep (US Science).
 
 Optimized for: High-retention mystery/science shorts.
 Logic: 100% original synthesis using numpy. No external samples.
@@ -167,7 +167,7 @@ def build_cosmic_mystery():
     master(pads + shimmer + bells, "cosmic_mystery.wav")
 
 if __name__ == "__main__":
-    print("🛸 Generating MYSTERY Science Music for SKILLOR...")
+    print("🛸 Generating MYSTERY Science Music for MrNextep...")
     build_brain_tension()
     build_cosmic_mystery()
     print("\n✅ DONE: Mystery beds ready in assets/music/")

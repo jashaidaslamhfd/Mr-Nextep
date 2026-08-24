@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""One-shot YouTube metadata repair for SKILLOR (US).
+"""One-shot YouTube metadata repair for MrNextep (US).
 
 Heals the metadata of videos published BEFORE the 2026-07-23 content fixes:
 - 2-3 word label titles ("Throat Lump 🫀") → universal curiosity titles

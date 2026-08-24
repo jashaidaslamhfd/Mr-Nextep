@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""One-shot thumbnail upload for SKILLOR (US).
+"""One-shot thumbnail upload for MrNextep (US).
 
 Uploads every assets/thumbnails_us/<video_id>.jpg to YouTube via
 thumbnails.set (media upload). Images were pre-rendered locally and

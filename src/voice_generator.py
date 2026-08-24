@@ -265,7 +265,6 @@ def _scene_tempo_for(base_speed: float, index: int, caption: str) -> float:
 #   VOICE_MATURE_TEMPO           = slightly calmer delivery (authority)
 # When a usable clone reference exists, maturing is SKIPPED so the creator's
 # own voice is never altered.
-import numpy as _np
 VOICE_MATURE_PITCH_SEMITONES = _env_float(
     "VOICE_MATURE_PITCH_SEMITONES", -4.0, -6.0, 0.0)
 VOICE_MATURE_TEMPO = _env_float("VOICE_MATURE_TEMPO", 0.92, 0.75, 1.05)

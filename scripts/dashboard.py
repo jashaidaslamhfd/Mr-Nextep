@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-SKILLOR Analytics Dashboard
+MrNextep Analytics Dashboard
 ----------------------------
-Streamlit dashboard for the Mr. Nextep / SKILLOR channel.
+Streamlit dashboard for the Mr. Nextep / MrNextep channel.
 Reads data/*.json files and displays a comprehensive operator view.
 
 Run:  streamlit run scripts/dashboard.py
@@ -24,13 +24,13 @@ import plotly.express as px
 # Config
 # ---------------------------------------------------------------------------
 st.set_page_config(
-    page_title="SKILLOR Dashboard",
+    page_title="MrNextep Dashboard",
     page_icon="🧬",
     layout="wide",
     initial_sidebar_state="expanded",
 )
 
-DATA_DIR = Path(os.environ.get("SKILLOR_DATA_DIR", "data"))
+DATA_DIR = Path(os.environ.get("MrNextep_DATA_DIR", "data"))
 
 # ---------------------------------------------------------------------------
 # Helpers
@@ -83,7 +83,7 @@ fb_analytics = load_json(DATA_DIR / "facebook_analytics.json")
 # Sidebar
 # ---------------------------------------------------------------------------
 
-st.sidebar.title("🧬 SKILLOR Dashboard")
+st.sidebar.title("🧬 MrNextep Dashboard")
 st.sidebar.caption("Mr. Nextep — Body Science Shorts")
 
 st.sidebar.markdown("---")
@@ -127,7 +127,7 @@ st.sidebar.caption(f"Policy: {growth_state.get('_policy_version', '?')}")
 # Main Content
 # ---------------------------------------------------------------------------
 
-st.title("🧬 SKILLOR — Mr. Nextep Analytics")
+st.title("🧬 MrNextep — Mr. Nextep Analytics")
 
 # ---- Row 1: Platform Health Cards ----
 st.subheader("Platform Health")
@@ -308,5 +308,5 @@ with st.expander("🔧 Raw Growth State (debug)"):
 
 # Footer
 st.markdown("---")
-st.caption(f"SKILLOR Dashboard • Generated at {datetime.now(timezone.utc).isoformat()[:19]}Z")
+st.caption(f"MrNextep Dashboard • Generated at {datetime.now(timezone.utc).isoformat()[:19]}Z")
 st.caption("Refresh the page to load latest data after a pipeline run commits new state files.")

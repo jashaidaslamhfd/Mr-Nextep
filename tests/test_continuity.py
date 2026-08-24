@@ -46,9 +46,9 @@ class ContinuityTests(unittest.TestCase):
                 self.assertFalse(is_retryable_pre_upload_failure(message))
 
     def test_narration_failure_retries_before_upload(self):
-        from main import SKILLORPipeline
+        from main import NextepPipeline
 
-        pipeline = SKILLORPipeline.__new__(SKILLORPipeline)
+        pipeline = NextepPipeline.__new__(NextepPipeline)
         pipeline.run_pipeline = Mock(side_effect=[
             RuntimeError("Narration too long: 51.6s"),
             {"success": True, "title": "Compliant Short"},

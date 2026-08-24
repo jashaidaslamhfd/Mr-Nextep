@@ -63,7 +63,7 @@ def main():
         dry = True
 
     _log("="*70)
-    _log("SKILLOR PERFECT SETUP — One-Time Repo Perfection")
+    _log("MrNextep PERFECT SETUP — One-Time Repo Perfection")
     _log("="*70)
     _log(f"Mode: {'DRY (no writes)' if dry else 'APPLY (will write to YT/FB)'} | Limit: {args.limit or 'ALL'}")
     _log("")

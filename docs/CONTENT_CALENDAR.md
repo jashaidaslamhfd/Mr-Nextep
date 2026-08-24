@@ -1,4 +1,4 @@
-# 📅 30-Day Content Calendar — Mr Nextep / SKILLOR
+# 📅 30-Day Content Calendar — Mr Nextep / MrNextep
 
 _Generated 2026-07-30T11:48:54.368270+00:00 — 15 days planned, 15 candidates scored, 46 recent topics excluded_
 

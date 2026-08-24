@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""One-shot Facebook Page tune-up for the SKILLOR FB presence (Mr. Nextep).
+"""One-shot Facebook Page tune-up for the MrNextep FB presence (Mr. Nextep).
 
 The automated Reels pipeline already posts clean, Facebook-native captions
 (since 2026-07-22).  This script fixes what came BEFORE that and finishes

@@ -1,4 +1,4 @@
-"""Reliable, best-effort topic research for the SKILLOR Shorts pipeline.
+"""Reliable, best-effort topic research for the MrNextep Shorts pipeline.
 
 This module deliberately uses documented APIs where credentials are available:
 * Google Trends daily RSS feed (public, no key)
@@ -99,7 +99,7 @@ PROVEN_TOPIC_POOL = [
 ]
 
 REDDIT_SUBREDDITS = ("science", "technology", "space", "todayilearned")
-USER_AGENT = "SKILLOR/1.1 (automated topic research; contact: channel-owner)"
+USER_AGENT = "Nextep/1.1 (automated topic research; contact: channel-owner)"
 BODY_GLITCH_CATALOGUE_PATH = Path("data/body_glitch_topics.json")
 DARK_MYSTERY_CATALOGUE_PATH = Path("data/dark_mystery_topics.json")
 

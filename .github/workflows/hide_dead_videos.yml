@@ -1,4 +1,4 @@
-name: "SKILLOR - Hide Dead/Duplicate Videos (one-shot)"
+name: "MrNextep - Hide Dead/Duplicate Videos (one-shot)"
 
 # 2026-08-15: YouTube's API deliberately refuses permanent deletion, but it
 # DOES allow privacy updates. This one-shot run sets the flagged dead-weight

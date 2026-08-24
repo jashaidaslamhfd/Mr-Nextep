@@ -72,7 +72,7 @@ def _platform_block(info: dict) -> list:
 def build_report(state: dict) -> str:
     generated = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     lines = [
-        "# SKILLOR growth report",
+        "# MrNextep growth report",
         "",
         f"_Generated {generated} · policy {policy.POLICY_VERSION} "
         f"(verified {policy.LAST_VERIFIED})_",
@@ -196,7 +196,7 @@ def build_report(state: dict) -> str:
 
 def print_console(state: dict) -> None:
     print("=" * 68)
-    print(f"SKILLOR GROWTH REPORT · policy {policy.POLICY_VERSION}")
+    print(f"MrNextep GROWTH REPORT · policy {policy.POLICY_VERSION}")
     print("=" * 68)
     sample = state.get("sample_size", 0)
     print(f"Mature videos measured : {sample}")

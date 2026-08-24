@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-SKILLOR CHANNEL BACKFILL — Pull ALL videos from YouTube + Facebook + Instagram
+MrNextep CHANNEL BACKFILL — Pull ALL videos from YouTube + Facebook + Instagram
 ─────────────────────────────────────────────────────────────────────────────
 Problem: video_history.json has 23 entries but NONE have youtube_id/facebook_id.
          Real channel has 70+ videos that were never tracked.
@@ -47,7 +47,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # ── Paths ────────────────────────────────────────────────────────
-DATA_DIR = Path(os.environ.get("SKILLOR_DATA_DIR", "data"))
+DATA_DIR = Path(os.environ.get("MrNextep_DATA_DIR", "data"))
 VIDEO_HISTORY_PATH = DATA_DIR / "video_history.json"
 PLATFORM_METRICS_PATH = DATA_DIR / "platform_metrics.json"
 UPLOAD_STATE_PATH = DATA_DIR / "upload_state.json"
@@ -756,7 +756,7 @@ def main():
     retrain = "--retrain" in sys.argv
 
     mode = "DRY RUN" if dry_run else "APPLY"
-    print(f"\n🔧 SKILLOR CHANNEL BACKFILL — {mode}")
+    print(f"\n🔧 MrNextep CHANNEL BACKFILL — {mode}")
     print(f"   {'=' * 45}\n")
 
     start = time.time()

@@ -766,7 +766,7 @@ def generate_platform_engagement_hooks(topic: str, platform: str = "facebook") -
     """Generates high-share debate prompts for Facebook and DM triggers for Instagram Reels."""
     if platform.lower() == "facebook":
         return {
-            "comment_sparker": f"Has this ever happened to you or someone in your family? Share your experience below 👇",
+            "comment_sparker": "Has this ever happened to you or someone in your family? Share your experience below 👇",
             "headline_style": "bold_yellow_banner",
             "share_cta": "Tag a friend who sleeps weirdly!"
         }

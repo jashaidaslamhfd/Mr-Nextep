@@ -1,4 +1,4 @@
-# SKILLOR — Free Growth Plan (YouTube + Facebook + Instagram)
+# MrNextep — Free Growth Plan (YouTube + Facebook + Instagram)
 
 **Goal:** scale all three platforms toward millions of views.
 **Constraint:** zero paid services. Every lever below is free.

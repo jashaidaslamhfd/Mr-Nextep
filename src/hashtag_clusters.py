@@ -1,7 +1,9 @@
 """
-US-Specific Hashtag Clusters for SKILLOR (Science/Body Science).
+US-Specific Hashtag Clusters for MrNextep (Science/Body Science).
 Targets high-retention US audiences on Instagram and YouTube.
 """
+
+import re
 
 HASHTAG_CLUSTERS = {
     "body_mysteries": [
@@ -39,7 +41,6 @@ def get_optimized_us_tags(topic: str, base_tags: list) -> list:
     final_tags = []
     seen = set()
     for raw in list(base_tags or []):
-        import re
         tag = re.sub(r'[^a-z0-9]', '', str(raw).lower())
         if tag and tag not in seen:
             seen.add(tag)
@@ -47,7 +48,6 @@ def get_optimized_us_tags(topic: str, base_tags: list) -> list:
 
     def add_many(values):
         for raw in values:
-            import re
             tag = re.sub(r'[^a-z0-9]', '', str(raw).lower())
             if tag and tag not in seen:
                 seen.add(tag)

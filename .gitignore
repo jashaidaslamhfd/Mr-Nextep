@@ -1,5 +1,5 @@
 # ===========================
-# SKILLOR — .gitignore
+# MrNextep — .gitignore
 # ===========================
 
 # ---- Environment & Secrets ----
@@ -88,78 +88,6 @@ pw-browsers/
 node_modules/
 package-lock.json
 
-
-
-# Audit and diagnostic dumps (avoid git bloat)
-data/*audit*
-data/*diag*
-
-
-# Audit and diagnostic dumps (avoid git bloat)
-data/*audit*
-data/*diag*
-
-
-# Audit and diagnostic dumps (avoid git bloat)
-data/*audit*
-data/*diag*
-
-
-# Audit and diagnostic dumps (avoid git bloat)
-data/*audit*
-data/*diag*
-
-
-# Audit and diagnostic dumps (avoid git bloat)
-data/*audit*
-data/*diag*
-
-
-# Audit and diagnostic dumps (avoid git bloat)
-data/*audit*
-data/*diag*
-
-
-# Audit and diagnostic dumps (avoid git bloat)
-data/*audit*
-data/*diag*
-
-
-# Audit and diagnostic dumps (avoid git bloat)
-data/*audit*
-data/*diag*
-
-
-# Audit and diagnostic dumps (avoid git bloat)
-data/*audit*
-data/*diag*
-
-
-# Audit and diagnostic dumps (avoid git bloat)
-data/*audit*
-data/*diag*
-
-
-# Audit and diagnostic dumps (avoid git bloat)
-data/*audit*
-data/*diag*
-
-
-# Audit and diagnostic dumps (avoid git bloat)
-data/*audit*
-data/*diag*
-
-
-# Audit and diagnostic dumps (avoid git bloat)
-data/*audit*
-data/*diag*
-
-
-# Audit and diagnostic dumps (avoid git bloat)
-data/*audit*
-data/*diag*
-
-
-# Audit and diagnostic dumps (avoid git bloat)
+# ---- Audit and diagnostic dumps (avoid git bloat) ----
 data/*audit*
 data/*diag*

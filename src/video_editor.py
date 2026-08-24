@@ -715,7 +715,7 @@ def build_video(image_paths, audio_segments, scenes, output_path="output/final_v
     _seed_txt = " ".join(str(scenes[i].get("caption", "")) for i in range(min(2, len(scenes))))
     _acc_idx = abs(hash(_seed_txt)) % len(_accents)
     color_theme = {'primary': (255, 255, 255), 'secondary': _accents[_acc_idx], 'bg': (18, 20, 28)}
-    logger.info(f"Using SKILLOR theme with accent #{_acc_idx}: {color_theme['secondary']}")
+    logger.info(f"Using Nextep theme with accent #{_acc_idx}: {color_theme['secondary']}")
 
     video_clips = []
     audio_clips = []

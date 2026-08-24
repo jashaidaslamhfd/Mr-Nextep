@@ -89,7 +89,7 @@ def main() -> int:
 
     plan = {
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
-        "policy": "Verified by SKILLOR CTR guard. Apply via SEO Repair workflow (apply mode).",
+        "policy": "Verified by MrNextep CTR guard. Apply via SEO Repair workflow (apply mode).",
         "repairs": repairs,
     }
     print(f"plan: {len(repairs)} repairs")

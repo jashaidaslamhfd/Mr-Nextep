@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 ╔══════════════════════════════════════════════════════════════════════════════╗
-║  SKILLOR NICHE INTELLIGENCE — Competitor + Demand + Sub-Niche Engine      ║
+║  MrNextep NICHE INTELLIGENCE — Competitor + Demand + Sub-Niche Engine      ║
 ║  ───────────────────────────────────────────────────────────────────────  ║
 ║  1. Competitor Analysis — Top body-science channels, viral videos        ║
 ║  2. Sub-Niche Discovery — High-demand topics within body science         ║
@@ -25,7 +25,7 @@ import numpy as np
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)
 
-DATA_DIR = Path(os.environ.get("SKILLOR_DATA_DIR", "data"))
+DATA_DIR = Path(os.environ.get("MrNextep_DATA_DIR", "data"))
 NICHE_INTEL_PATH = DATA_DIR / "niche_intelligence.json"
 
 YT_API_KEY = os.environ.get("YOUTUBE_API_KEY", "")
@@ -577,7 +577,7 @@ class NicheIntelligence:
         plan = self.generate_attack_plan()
         
         print("\n" + "=" * 70)
-        print("  ⚔️  SKILLOR BATTLE PLAN — Sub-Niche Attack Strategy")
+        print("  ⚔️  MrNextep BATTLE PLAN — Sub-Niche Attack Strategy")
         print("=" * 70)
         
         for i, target in enumerate(plan.get("priority_targets", [])[:3]):
@@ -734,7 +734,7 @@ class CompetitorMLFeed:
 
 def main():
     print("\n" + "=" * 70)
-    print("  🧬 SKILLOR NICHE INTELLIGENCE — Competitor + Demand Engine")
+    print("  🧬 MrNextep NICHE INTELLIGENCE — Competitor + Demand Engine")
     print("=" * 70)
     
     intel = NicheIntelligence()

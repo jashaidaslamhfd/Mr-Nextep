@@ -13,7 +13,7 @@ User ne confirm kiya:
    ```
    Agar abhi bhi NO dikhe to token 1-2 min propagate hone ka wait karo.
 
-2. **Actions → SKILLOR - YouTube Analytics Learning → Run workflow (manual)**
+2. **Actions → MrNextep - YouTube Analytics Learning → Run workflow (manual)**
    - Pehle 403 tha, ab 2026-07-31 fix ke baad exit 0 hoga aur ye step kabhi fail nahi hoga
    - Is mein 2 stages hain:
      - Stage 1: data/video_history.json mein real views/avg_view_percentage populate hoga (24h+ old videos ke liye)

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 ╔══════════════════════════════════════════════════════════════════════════════╗
-║  SKILLOR 2026 SEO REPAIR ENGINE — All Platforms, Modern Algorithm         ║
+║  MrNextep 2026 SEO REPAIR ENGINE — All Platforms, Modern Algorithm         ║
 ║  ───────────────────────────────────────────────────────────────────────  ║
 ║  Reads ALL 118 videos, rewrites metadata for 2026 YouTube/FB/IG rules:   ║
 ║                                                                          ║
@@ -47,7 +47,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # ── Paths ────────────────────────────────────────────────────────
-DATA_DIR = Path(os.environ.get("SKILLOR_DATA_DIR", "data"))
+DATA_DIR = Path(os.environ.get("MrNextep_DATA_DIR", "data"))
 VIDEO_HISTORY = DATA_DIR / "video_history.json"
 REPAIR_LOG = DATA_DIR / "seo_repair_20260804.json"
 THUMBNAILS_DONE = DATA_DIR / "thumbnails_done.json"
@@ -752,7 +752,7 @@ def main():
     engine = SEO2026RepairEngine(dry_run=dry_run)
     engine.load_videos()
 
-    logger.info("🧬 SKILLOR 2026 SEO REPAIR ENGINE")
+    logger.info("🧬 MrNextep 2026 SEO REPAIR ENGINE")
     logger.info("   Videos loaded: %d", len(engine.history))
     logger.info("   Mode: %s", "DRY RUN" if dry_run else "APPLY")
     if limit:

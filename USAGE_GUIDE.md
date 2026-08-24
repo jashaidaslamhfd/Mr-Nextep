@@ -1,4 +1,4 @@
-# SKILLOR — Usage Guide (US Body-Science Shorts)
+# MrNextep — Usage Guide (US Body-Science Shorts)
 
 Fully automated body-science YouTube Shorts pipeline. Generates a hook-driven
 script (Groq/Llama) → AI images (multi-provider fallback) → US-English voice →
@@ -158,7 +158,7 @@ Durable channel state lives in `data/` (committed by the bot):
 
 1. `README.md` (overview + secret table) · 2. `GROWTH_SETUP.md` (growth/data
    checklist) · 3. `AUTOMATION_REQUIREMENTS.md` · 4. logs in `output/` ·
-   5. <https://github.com/jashaidaslamhfd/SKILLOR/issues>
+   5. <https://github.com/jashaidaslamhfd/MrNextep/issues>
 
 ---
 

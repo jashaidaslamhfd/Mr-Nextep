@@ -1,5 +1,5 @@
 """
-Quality Checker Module for SKILLOR Pipeline
+Quality Checker Module for Nextep Pipeline
 --------------------------------------------
 Validates a generated script for structural completeness and
 retention potential BEFORE it proceeds to image/voice/video

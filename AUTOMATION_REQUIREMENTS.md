@@ -1,4 +1,4 @@
-# Product Requirements Document — SKILLOR YouTube/Shorts Automation System
+# Product Requirements Document — MrNextep YouTube/Shorts Automation System
 **Version:** 1.0 | **Date:** July 2026 | **Owner:** [Your Name] | **Dev:** [Developer Name]
 
 ## 0. Current Stack (as of existing repo)

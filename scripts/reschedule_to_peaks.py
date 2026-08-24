@@ -44,7 +44,7 @@ def _q(path, params, token, method="GET", body=None):
 
 
 def utc_minutes(ts_iso):
-    from datetime import datetime, timezone
+    from datetime import datetime
     dt = datetime.fromisoformat(ts_iso.replace("Z", "+00:00"))
     return dt.hour * 60 + dt.minute
 

@@ -1,6 +1,6 @@
-# SKILLOR update-only files
+# MrNextep update-only files
 
-Copy/extract these files into the root of your existing `SKILLOR` repository, preserving folders. Existing files in `src/`, `.github/workflows/main.yml`, and `env.example` should be overwritten. The following are new folders/files:
+Copy/extract these files into the root of your existing `MrNextep` repository, preserving folders. Existing files in `src/`, `.github/workflows/main.yml`, and `env.example` should be overwritten. The following are new folders/files:
 
 - `.github/workflows/analytics.yml`
 - `data/video_history.json`
@@ -11,7 +11,7 @@ After copying:
 
 ```bash
 git add .
-git commit -m "Upgrade SKILLOR production automation"
+git commit -m "Upgrade MrNextep production automation"
 git push origin main
 ```
 

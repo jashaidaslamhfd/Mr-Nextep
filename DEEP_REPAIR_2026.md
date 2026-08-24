@@ -97,5 +97,5 @@ python scripts/deep_repair_2026.py --limit 5
 python scripts/deep_repair_2026.py --apply
 ```
 
-**Or from GitHub:** Actions → "SKILLOR - Deep Repair 2026" → Run workflow →
+**Or from GitHub:** Actions → "MrNextep - Deep Repair 2026" → Run workflow →
 set **apply** to `true`.

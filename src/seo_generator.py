@@ -1,7 +1,7 @@
 """
 src/seo_generator.py
 
-PRD "AI SEO Generator" feature, adapted to SKILLOR's dark-facts Shorts niche.
+PRD "AI SEO Generator" feature, adapted to Nextep's dark-facts Shorts niche.
 Pure post-processing on top of an already-generated script_data dict — no
 extra LLM calls, so it's free and instant to run for every video.
 

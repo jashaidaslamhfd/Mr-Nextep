@@ -192,7 +192,6 @@ _horde_key_invalidated = [False]
 def gen_ai_horde(prompt, seed, scene_text=None):
     import logging as _logging
     _hplogger = _logging.getLogger("image_providers")
-    global _horde_key_invalidated
     text = (scene_text or prompt.replace("_", " "))[:1000]
     headers = {"apikey": os.environ.get("AI_HORDE_API_KEY", _HORDE_ANON_KEY)}
 

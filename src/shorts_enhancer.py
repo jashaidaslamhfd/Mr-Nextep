@@ -1,7 +1,7 @@
 """
 src/shorts_enhancer.py
 
-PRD "Shorts Generator" feature. SKILLOR already produces Shorts-only videos
+PRD "Shorts Generator" feature. MrNextep already produces Shorts-only videos
 (video_editor.py hardcodes a 1080x1920 canvas and 40-55s target), so the
 "convert a long video into Shorts" part of the PRD doesn't apply here.
 What DOES apply and add value on top of the existing pipeline:

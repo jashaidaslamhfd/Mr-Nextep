@@ -1,5 +1,5 @@
 """
-SKILLOR — Automated YouTube Shorts pipeline (US audience)
+MrNextep — Automated YouTube Shorts pipeline (US audience)
 ==========================================================
 
 Generates body-science Shorts end-to-end and auto-publishes at US peak times:
@@ -9,8 +9,8 @@ Public API
 ----------
 Main pipeline entry point::
 
-    from src import SKILLORPipeline
-    pipeline = SKILLORPipeline()
+    from src import NextepPipeline
+    pipeline = NextepPipeline()
     pipeline.run_pipeline(topic="Why Your Brain Lies to You")
 
 Granular access still works::
@@ -24,7 +24,7 @@ __author__ = "jashaidaslamhfd"
 
 # ---------------------------------------------------------------------------
 # Lazy public API. Previously __all__ was declared with NO imports and NO
-# __getattr__, so `from src import SKILLORPipeline` (and everything else in
+# __getattr__, so `from src import NextepPipeline` (and everything else in
 # __all__) raised AttributeError — the advertised API was 100% broken.
 # This mapping keeps imports lazy (no heavy torch/moviepy cost on plain
 # `import src`) while making every documented name actually resolvable.
@@ -32,7 +32,7 @@ __author__ = "jashaidaslamhfd"
 
 _LAZY_EXPORTS = {
     # Pipeline
-    "SKILLORPipeline": "src.main",
+    "NextepPipeline": "src.main",
     # Script
     "generate_script": "src.script_generator",
     # Image

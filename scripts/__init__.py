@@ -1,5 +1,5 @@
 """
-SKILLOR — Standalone utility scripts
+MrNextep — Standalone utility scripts
 ======================================
 
 These scripts are meant to be run directly from the command line,

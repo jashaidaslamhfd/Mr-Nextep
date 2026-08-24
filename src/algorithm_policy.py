@@ -646,7 +646,7 @@ HEALTH_THRESHOLDS = {
 def summary() -> str:
     """One-screen human summary — printed by scripts/growth_report.py."""
     lines = [
-        f"SKILLOR algorithm policy {POLICY_VERSION} (verified {LAST_VERIFIED})",
+        f"Nextep algorithm policy {POLICY_VERSION} (verified {LAST_VERIFIED})",
         "",
     ]
     for platform in PLATFORMS:

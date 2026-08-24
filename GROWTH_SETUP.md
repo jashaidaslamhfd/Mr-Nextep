@@ -1,4 +1,4 @@
-# Growth Setup — Mr. Nextep / SKILLOR
+# Growth Setup — Mr. Nextep / MrNextep
 
 This is the operator's guide: what the system now does on its own, the three
 access grants it needs from you, and how to read what it tells you.
@@ -48,7 +48,7 @@ can work around it.
 
 1. Open <https://console.developers.google.com/apis/api/youtubeanalytics.googleapis.com/overview?project=559439687452>
 2. Click **Enable**, wait ~2 minutes for it to propagate.
-3. Run Actions → **SKILLOR - YouTube Analytics Learning**.
+3. Run Actions → **MrNextep - YouTube Analytics Learning**.
 
 ### B. Regenerate the Meta page token with insights permissions
 
@@ -66,7 +66,7 @@ why per-Reel Facebook data is unavailable.
 
 > Instagram insights use the same token. `INSTAGRAM_USER_ID` is already set.
 
-**How to check it worked:** run Actions → **SKILLOR - YouTube Analytics
+**How to check it worked:** run Actions → **MrNextep - YouTube Analytics
 Learning** manually. Every platform should move from ⚪ `no_data` to a real
 status, and the run commits an updated `docs/GROWTH_REPORT.md`.
 

@@ -1,4 +1,4 @@
-# SKILLOR Algorithm Playbook — YouTube · Facebook · Instagram (2026)
+# MrNextep Algorithm Playbook — YouTube · Facebook · Instagram (2026)
 
 > **Honest framing first.** Nobody outside Google and Meta can read the ranking
 > model. What *is* knowable: statements from platform staff, documented product

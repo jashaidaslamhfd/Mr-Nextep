@@ -1,4 +1,4 @@
-# SKILLOR Shorts Reliability Patch
+# MrNextep Shorts Reliability Patch
 
 ## Replaced/changed
 - `src/script_generator.py` — 90–115 words and 6–8 scenes.

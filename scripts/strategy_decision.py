@@ -25,7 +25,7 @@ sys.path.insert(0, str(SRC))
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="SKILLOR autonomous strategy decision")
+    parser = argparse.ArgumentParser(description="MrNextep autonomous strategy decision")
     parser.add_argument("--report", action="store_true", help="human-friendly output")
     parser.add_argument("--reset", action="store_true", help="clear the decision file")
     args = parser.parse_args()

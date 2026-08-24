@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Read-only METADATA audit of EVERY video on the SKILLOR US channel
+"""Read-only METADATA audit of EVERY video on the MrNextep US channel
 (MrNextep — English-language channel, so the expected standard is ENGLISH:
 any French residue is the fault here).
 
@@ -258,7 +258,7 @@ def main() -> int:
 
     out = {
         "date": dt.date.today().isoformat(),
-        "channel": "SKILLOR US (MrNextep)",
+        "channel": "MrNextep US (MrNextep)",
         "channel_video_count": total_uploads,
         "videos_scanned": len(report),
         "videos_clean": len(clean),

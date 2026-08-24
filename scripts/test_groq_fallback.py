@@ -11,12 +11,11 @@ Run: python3 scripts/test_groq_fallback.py
 """
 import json
 import sys
-import time
 from unittest import mock
 
 sys.path.insert(0, "src")
 
-from script_generator import generate_script, _openrouter_generate
+from script_generator import _openrouter_generate
 
 # --- 1. Fake Groq client that reproduces the exact live failures ---
 
@@ -34,27 +33,6 @@ class FakeGroqClient:
     - gpt-oss-20b raises 429 TPD exhaustion with retry_after=3s
     - llama-3.3-70b-versatile also 429 TPD with retry_after=2s
     """
-
-    def __init__(self):
-        self.call_log = []
-
-    def _fake_err(self, model, status, code, retry_after):
-        body = json.dumps({"error": {"message": f"HTTP {status} sim",
-                                     "type": "invalid_request_error",
-                                     "code": code}})
-        if status == 429:
-            body = json.dumps({"error": {"message": f"Rate limit TPD tokens sim",
-                                         "type": "tokens",
-                                         "code": code}})
-
-        class Exc(Exception):
-            pass
-
-        exc = Exc(body)
-        exc.status_code = status
-        exc.retry_after = retry_after
-        exc.body = body
-        return exc
 
     class _Completions:
         def __init__(self, parent):

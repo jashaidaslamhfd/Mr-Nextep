@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""One-shot CHANNEL-level audit + branding repair for SKILLOR FR.
+"""One-shot CHANNEL-level audit + branding repair for MrNextep FR.
 
 Checks the things the YouTube algorithm looks at ABOVE single videos:
 - channel description (niche clarity + keywords)
@@ -20,7 +20,7 @@ logging.basicConfig(level=logging.INFO, format="%(levelname)s - %(message)s")
 logger = logging.getLogger("channel_audit")
 
 NEW_DESCRIPTION = (
-    "SKILLOR — la science de votre corps expliquée simplement.\n\n"
+    "MrNextep — la science de votre corps expliquée simplement.\n\n"
     "Chaque jour, 3 nouveaux Shorts sur les phénomènes étranges du corps humain :\n"
     "pourquoi vos genoux craquent, pourquoi le temps semble accélérer en vieillissant, "
     "ce que le stress fait à votre cerveau, pourquoi vous entendez votre cœur battre la nuit.\n\n"

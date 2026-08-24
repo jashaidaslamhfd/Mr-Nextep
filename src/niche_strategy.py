@@ -1,5 +1,5 @@
 """
-Niche Strategy Module for SKILLOR Pipeline
+Niche Strategy Module for Nextep Pipeline
 OPTIMIZED FOR: HIGH RETENTION + PSYCHOLOGICAL PACING
 
 2026 UPDATE:

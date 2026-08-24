@@ -18,7 +18,6 @@ the LLM layer entirely (rule-based only, pre-change behaviour).
 """
 
 import os
-import random
 import re
 
 try:
@@ -26,8 +25,6 @@ try:
     _HAS_REQUESTS = True
 except ImportError:  # pragma: no cover - requests is a core dep
     _HAS_REQUESTS = False
-
-from seo_generator import _five_word_title  # shared word-boundary clipping
 
 CTR_TITLES_OFF = os.environ.get("CTR_TITLES", "true").strip().lower() in (
     "false", "0", "no", "off",

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-SKILLOR JSON → SQLite Migration
+MrNextep JSON → SQLite Migration
 --------------------------------
 One-shot migration from flat JSON files to a single SQLite database.
 Run once, then switch the pipeline to read from SQLite.
@@ -10,7 +10,7 @@ Usage:
     python scripts/migrate_to_sqlite.py --apply   # actually migrate
 
 After migration:
-    DB_PATH = os.environ.get("SKILLOR_DB_PATH", "data/skillor.db")
+    DB_PATH = os.environ.get("MrNextep_DB_PATH", "data/skillor.db")
 """
 
 import json
@@ -21,8 +21,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict
 
-DATA_DIR = Path(os.environ.get("SKILLOR_DATA_DIR", "data"))
-DB_PATH = Path(os.environ.get("SKILLOR_DB_PATH", "data/skillor.db"))
+DATA_DIR = Path(os.environ.get("MrNextep_DATA_DIR", "data"))
+DB_PATH = Path(os.environ.get("MrNextep_DB_PATH", "data/skillor.db"))
 
 
 def connect() -> sqlite3.Connection:
@@ -305,7 +305,7 @@ def main():
     dry_run = "--apply" not in sys.argv
     mode = "DRY RUN" if dry_run else "APPLY"
 
-    print(f"\n🔧 SKILLOR JSON → SQLite Migration ({mode})")
+    print(f"\n🔧 MrNextep JSON → SQLite Migration ({mode})")
     print(f"   Source: {DATA_DIR}")
     print(f"   Target: {DB_PATH}")
     print()

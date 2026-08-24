@@ -1,4 +1,4 @@
-# SKILLOR / Mr-Nextep — Expert Code Audit & Fix Report
+# MrNextep / Mr-Nextep — Expert Code Audit & Fix Report
 
 **Date:** 2026-08-11
 **Auditor:** Arena Agent (expert code review pass)
@@ -118,7 +118,7 @@ behavior here to avoid scope creep / risk; happy to do any of them on request.
    correlation; `ml_brain.py` fits predictors but discards predictions. Either
    wire these into the weighting or delete them for clarity.
 3. **Branding inconsistency** — README / ISSUES_FOUND reference the old
-   `SKILLOR` / `jashaidaslamhfd/SKILLOR` name while the repo is `Mr-Nextep`.
+   `MrNextep` / `jashaidaslamhfd/MrNextep` name while the repo is `Mr-Nextep`.
    Update docs for a consistent public identity.
 4. **`requirements.txt` version hygiene** — some pins are upper-bounded for
    historical reasons (e.g. `moviepy<2.0`); consider a future migration to

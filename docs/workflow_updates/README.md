@@ -115,7 +115,7 @@ git apply docs/workflow_updates/ci.yml.patch
 
 ## Verifying
 
-1. **Actions → SKILLOR - YouTube Analytics Learning → Run workflow.** It
+1. **Actions → MrNextep - YouTube Analytics Learning → Run workflow.** It
    should finish green and commit `docs/GROWTH_REPORT.md`. Any ⚪ `no_data`
    platform names its own missing permission — see
    [`../../GROWTH_SETUP.md`](../../GROWTH_SETUP.md) §2.

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Read-only AUDIT of the SKILLOR Facebook Page ("Mr. Nextep").
+"""Read-only AUDIT of the MrNextep Facebook Page ("Mr. Nextep").
 
 Checks EVERYTHING the Meta algorithm + monetization review look at:
 

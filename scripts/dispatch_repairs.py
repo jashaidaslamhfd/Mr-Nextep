@@ -3,7 +3,7 @@ import requests
 import time
 
 TOKEN = os.environ.get("GITHUB_TOKEN") or os.environ.get("GITHUB_PAT")
-REPO = "jashaidaslamhfd/SKILLOR"
+REPO = "jashaidaslamhfd/MrNextep"
 
 headers = {
     "Authorization": f"token {TOKEN}",
@@ -12,7 +12,7 @@ headers = {
 
 # 1. Workflow IDs and paths
 # Metadata Repair (one-shot) -> id: 319159909, path: .github/workflows/metadata_repair.yml
-# SKILLOR - Meta (FB/IG) Strong SEO Repair -> id: 324252141, path: .github/workflows/meta_seo_repair.yml
+# MrNextep - Meta (FB/IG) Strong SEO Repair -> id: 324252141, path: .github/workflows/meta_seo_repair.yml
 # US SEO Sweep (descriptions + hashtags) -> id: 321290764, path: .github/workflows/us_seo_sweep.yml
 # FB Cover Backfill (match by full caption) -> id: 321344439, path: .github/workflows/fb_cover_backfill.yml
 
@@ -28,7 +28,7 @@ dispatches = [
         "inputs": {"apply": True, "limit": "0"}
     },
     {
-        "name": "SKILLOR - Meta (FB/IG) Strong SEO Repair",
+        "name": "MrNextep - Meta (FB/IG) Strong SEO Repair",
         "id": 324252141,
         "inputs": {"apply": True, "limit": "0"} # meta_seo_repair expects string "0" for input limit
     },
@@ -55,7 +55,7 @@ def trigger_workflow(dispatch):
 
 if __name__ == "__main__":
     print("=" * 70)
-    print("SKILLOR REMOTE METADATA REPAIR DISPATCH")
+    print("MrNextep REMOTE METADATA REPAIR DISPATCH")
     print("=" * 70)
     for dispatch in dispatches:
         trigger_workflow(dispatch)
