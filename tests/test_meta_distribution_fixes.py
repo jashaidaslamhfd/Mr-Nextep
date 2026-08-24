@@ -170,6 +170,15 @@ class PipelineCheckpointTests(unittest.TestCase):
             self.assertFalse((Path(str(checkpoint) + ".tmp")).exists())
 
 
+class YouTubeUploadTransportTests(unittest.TestCase):
+    def test_resumable_transport_handles_308_without_httplib_redirects(self):
+        source = Path(uploader.__file__).read_text(encoding="utf-8")
+        self.assertIn("YT_HTTP_TIMEOUT", source)
+        self.assertIn("AuthorizedHttp", source)
+        self.assertIn("follow_redirects=False", source)
+        self.assertIn("resumable protocol uses HTTP 308", source)
+
+
 class MetaWorkflowContractTests(unittest.TestCase):
     def test_production_workflow_sets_native_meta_windows(self):
         workflow = Path(__file__).parents[1] / ".github" / "workflows" / "main.yml"
