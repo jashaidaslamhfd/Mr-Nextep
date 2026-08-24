@@ -3384,5 +3384,23 @@
         "predicted_ctr": 9.5
       }
     }
+  },
+  {
+    "content_fingerprint": "1db197dd85cafe1436777479b4c249f20b0bc9ddd4c78c22c9cfa21579868d5b",
+    "title": "Your Nightmare Fuel: Vampire Squid's Glowing Goo",
+    "topic": "the vampire squid",
+    "posted_at": "2026-08-24T12:34:47.039061+00:00",
+    "publish_at": null,
+    "youtube_video_id": "0dr9yNd8BKI",
+    "facebook_video_id": "902051795928581",
+    "instagram_media_id": "18046126670606373",
+    "facebook_success": true,
+    "instagram_success": true,
+    "duration_seconds": 41.03,
+    "meta_cut_seconds": 14.0,
+    "ending_mode": "loop",
+    "sources": [],
+    "source_verification": [],
+    "recovered_from_partial_run": true
   }
 ]
