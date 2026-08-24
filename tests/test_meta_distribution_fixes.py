@@ -175,7 +175,7 @@ class YouTubeUploadTransportTests(unittest.TestCase):
         source = Path(uploader.__file__).read_text(encoding="utf-8")
         self.assertIn("YT_HTTP_TIMEOUT", source)
         self.assertIn("AuthorizedHttp", source)
-        self.assertIn("follow_redirects=False", source)
+        self.assertIn("yt_transport.follow_redirects = False", source)
         self.assertIn("resumable protocol uses HTTP 308", source)
 
 
