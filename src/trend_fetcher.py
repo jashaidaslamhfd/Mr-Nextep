@@ -508,6 +508,118 @@ def load_search_demand_queue() -> list[dict]:
         })
     return result
 
+
+# ---------------------------------------------------------------------------
+# Google Autocomplete — real US search intent (no API key)
+# ---------------------------------------------------------------------------
+# Autocomplete shows what people ACTUALLY type into Google. Unlike Daily Trends
+# (celebrity/sports), these are genuine body-science questions from US users.
+_AUTOCOMPLETE_PREFIXES = [
+    "why does my body",
+    "why does my brain",
+    "why do i feel",
+    "what happens when your body",
+    "how does your body",
+    "why is my",
+    "why do your muscles",
+    "what causes your",
+    "can your body",
+    "is it normal to",
+]
+
+
+def get_autocomplete_topics() -> List[Dict]:
+    """Fetch body-science topics from Google Autocomplete (US).
+
+    These are REAL queries that US users are typing into Google.
+    Free, no API key, high signal for content planning.
+    """
+    topics: List[Dict] = []
+    seen = set()
+
+    for prefix in _AUTOCOMPLETE_PREFIXES:
+        try:
+            response = _request(
+                "GET",
+                "https://suggestqueries.google.com/complete/search",
+                source="Google Autocomplete",
+                params={"client": "firefox", "q": prefix, "hl": "en-US"},
+            )
+            if response is None:
+                continue
+            data = response.json()
+            suggestions = data[1] if len(data) > 1 else []
+            for suggestion in suggestions:
+                clean = _clean_topic(suggestion)
+                if clean and clean.lower() not in seen and _is_relevant(clean):
+                    seen.add(clean.lower())
+                    topics.append(_topic_record(
+                        clean, "google_autocomplete",
+                        source_url=f"https://www.google.com/search?q={clean.replace(' ', '+')}",
+                    ))
+        except Exception as exc:
+            logger.warning("Autocomplete fetch failed for '%s': %s", prefix, exc)
+
+    logger.info("Google Autocomplete: %d relevant body-science topics.", len(topics))
+    return _deduplicate(topics)
+
+
+# ---------------------------------------------------------------------------
+# YouTube RSS feeds — trending science content, no API key needed
+# ---------------------------------------------------------------------------
+# Top science/health channels on YouTube. Their RSS feeds show what's getting
+# views in our niche RIGHT NOW. This is competitor intelligence for free.
+# Verified channel IDs for YouTube RSS (no API key needed).
+# Body/medical/science channels whose topics overlap our niche.
+_YOUTUBE_RSS_CHANNELS = [
+    ("UCsXVk37bltHxD1rDPwtNM8Q", "Kurzgesagt"),           # science animations
+    ("UC6107grRI4m0o2-eGOXnsnA", "Veritasium"),            # science explained
+    ("UCgaoinfnQ2XAsy3hF3lGpBQ", "SmarterEveryDay"),      # science experiments
+    ("UCfMKKPcpOIqt2Vun6Td_8gQ", "MinutePhysics"),        # quick science
+    ("UCYO_jab_esuFRV4b17AJtAw", "3Blue1Brown"),          # math/brain
+    ("UC5u1jKWCOYq5KKo7EeeIsAg", "Chubbyemu"),            # medical cases
+    ("UCDpK5FRvmLU6AJ5IlnFiOOA", "Zack D. Films"),        # body facts shorts
+    ("UCpIh0BbOvyygH8rI1NQAB2A", "AsapSCIENCE"),           # body/health science
+    ("UC04_QQeTZhtC4vH3ZVfGh6g", "Doctor Mike"),           # medical + health
+]
+
+
+def get_youtube_rss_topics() -> List[Dict]:
+    """Fetch trending body/science topics from YouTube RSS feeds.
+
+    No API key needed. Shows what science channels are publishing today.
+    """
+    import xml.etree.ElementTree as ET
+
+    topics: List[Dict] = []
+    ns = {'atom': 'http://www.w3.org/2005/Atom'}
+
+    for ch_id, ch_name in _YOUTUBE_RSS_CHANNELS:
+        try:
+            response = _request(
+                "GET",
+                f"https://www.youtube.com/feeds/videos.xml?channel_id={ch_id}",
+                source=f"YouTube RSS ({ch_name})",
+            )
+            if response is None:
+                continue
+            root = ET.fromstring(response.content)
+            for entry in root.findall('.//atom:entry', ns):
+                title_el = entry.find('atom:title', ns)
+                title = _clean_topic(title_el.text if title_el is not None else "")
+                if title and _is_relevant(title):
+                    topics.append(_topic_record(
+                        title, f"youtube_rss_{ch_name}",
+                        channel=ch_name,
+                        source_url=f"https://www.youtube.com/channel/{ch_id}",
+                    ))
+        except Exception as exc:
+            logger.warning("YouTube RSS failed for %s: %s", ch_name, exc)
+
+    logger.info("YouTube RSS: %d relevant topics from %d channels.",
+                len(topics), len(_YOUTUBE_RSS_CHANNELS))
+    return _deduplicate(topics)
+
 def get_trending_topic(
     exclude: Optional[List[str]] = None,
     *,
@@ -606,9 +718,17 @@ def get_trending_topic(
         return chosen if return_metadata else str(chosen["topic"])
 
     records: List[Dict] = []
-    records.extend(get_google_trends_topics())
-    records.extend(get_youtube_trending_topics())
-    records.extend(get_reddit_trending_topics())
+    records.extend(get_google_trends_topics())      # Daily trends RSS
+    records.extend(get_autocomplete_topics())        # Real US search intent
+    records.extend(get_youtube_rss_topics())         # Science channel RSS
+    try:
+        records.extend(get_youtube_trending_topics())  # YouTube Data API (needs key)
+    except Exception:
+        pass
+    try:
+        records.extend(get_reddit_trending_topics())   # Reddit (needs credentials)
+    except Exception:
+        pass
     real_topics = _deduplicate(records, exclude)
     proven_topics = _deduplicate(get_proven_topics(), exclude)
     real_topics = [t for t in real_topics
