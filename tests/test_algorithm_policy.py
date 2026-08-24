@@ -94,7 +94,7 @@ class PolicyShapeTests(unittest.TestCase):
         """Volume is the exact behaviour YouTube's inauthentic-content policy
         penalises, so raising cadence must be impossible by construction."""
         # Policy ceiling for 2026.08-fix2 is 3, but production cadence is capped at 2.
-        self.assertEqual(policy.clamp_cadence(99), 3)
+        self.assertEqual(policy.clamp_cadence(99), 2)
         self.assertEqual(policy.clamp_cadence(0), 1)
 
 

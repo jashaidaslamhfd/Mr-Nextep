@@ -55,6 +55,7 @@ from algorithm_policy import (
     PLATFORMS,
     YOUTUBE,
     clamp_cadence,
+    retention_cadence_cap,
     duration_policy,
     get_policy,
     retention_gate,
@@ -267,6 +268,10 @@ def hook_frame(title_or_hook: str) -> str:
     if not text:
         return "unknown"
     if text.startswith("why"):
+        # "Why" openers ask a question but don't stop the scroll — the viewer
+        # already knows the answer or doesn't care enough to wait. Data shows
+        # "why" hooks score 0.855 weight vs 1.0+ for statements. Classify as
+        # "why" but with a penalty flag for the growth engine.
         return "why"
     if text.startswith(("what happens", "what your", "what")):
         return "what"
@@ -532,6 +537,14 @@ def analyse(min_age_hours: Optional[int] = None) -> Dict:
     scored = [s for s in (_combined_score(r) for r in mature) if s is not None]
 
     cadence, cadence_reason = _recommend_cadence(scored, health)
+    # Hard override: when retention is below 80% of the gate, cap to 1/day
+    # regardless of the recommendation engine. This prevents overproduction
+    # during the recovery period where more videos = more suppression.
+    cap = retention_cadence_cap(_robust_centre(scored) if scored else None)
+    if cap < cadence:
+        cadence = clamp_cadence(cap)
+        cadence_reason = (f"Retention-based hard cap: channel median is below 80% "
+                         f"of the platform gate. Forced to {cadence}/day until retention recovers.")
     alerts = _build_alerts(health, slot_buckets, scored)
     ig_shares = _instagram_share_health(mature)
     if ig_shares and not ig_shares["healthy"]:
@@ -642,9 +655,10 @@ def _recommend_cadence(scores: List[float], health: Dict) -> Tuple[int, str]:
         # retention 27-44% vs 50% gate (critical/below_gate). Shipping 3 low-retention
         # videos/day teaches the feed to stop showing the channel. Hold 2/day while
         # data accumulates, drop to 1 if critical.
-        return clamp_cadence(2), (
-            "Not enough mature videos to judge yet — holding a conservative 2/day "
-            "while data accumulates to avoid teaching the feed that this format loses viewers."
+        return clamp_cadence(1), (
+            "Not enough mature videos to judge yet — holding a conservative 1/day "
+            "while data accumulates. Channel retention is unproven; extra uploads "
+            "of an unvalidated format risk teaching the feed to deprioritise."
         )
 
     average = _robust_centre(scores)

@@ -230,6 +230,17 @@ if __name__ == "__main__":
     # its own, and a YouTube permission problem should not blind the channel
     # to Instagram as well.
     try:
+        # --- YouTube Analytics refresh (real CTR + views) ---
+        try:
+            from seo_analytics import update_analytics_from_youtube
+            yt_analytics = update_analytics_from_youtube(min_hours_old=24)
+            if yt_analytics.get("updated", 0):
+                logger.info("YouTube Analytics: %d videos updated with real metrics", yt_analytics["updated"])
+            elif yt_analytics.get("api_disabled"):
+                logger.warning("YouTube Analytics API is not enabled for this project")
+        except Exception as exc:
+            logger.warning("YouTube Analytics update failed: %s", exc)
+
         cross_platform_result = _run_cross_platform_collection()
     except Exception as exc:  # noqa: BLE001
         logger.error("Cross-platform metric collection failed: %s", exc)

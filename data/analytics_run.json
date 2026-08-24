@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-24T19:46:46.264524+00:00",
+  "generated_at": "2026-08-24T20:09:25.163374+00:00",
   "exit_code": 0,
   "youtube": {
     "updated": 0,
@@ -16,7 +16,7 @@
     "total_records": 0
   },
   "growth": {
-    "generated_at": "2026-08-24T19:46:46.254682+00:00",
+    "generated_at": "2026-08-24T20:09:25.153896+00:00",
     "sample_size": 0,
     "scored_videos": 0,
     "channel_gate_ratio": null,
@@ -32,7 +32,7 @@
         "label": "YouTube Shorts",
         "status": "no_data",
         "samples": 0,
-        "gate": 0.5,
+        "gate": 0.65,
         "blocking_error": null,
         "action": "No metrics yet — publish and wait 24h, or connect this platform's analytics."
       },
@@ -56,8 +56,8 @@
       }
     },
     "instagram_sends": null,
-    "recommended_cadence": 2,
-    "cadence_reason": "Not enough mature videos to judge yet — holding a conservative 2/day while data accumulates to avoid teaching the feed that this format loses viewers.",
+    "recommended_cadence": 1,
+    "cadence_reason": "Not enough mature videos to judge yet — holding a conservative 1/day while data accumulates. Channel retention is unproven; extra uploads of an unvalidated format risk teaching the feed to deprioritise.",
     "alerts": [],
     "best_slot": null,
     "best_topics": [],

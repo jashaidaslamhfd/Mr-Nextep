@@ -207,7 +207,7 @@ class MetaWorkflowContractTests(unittest.TestCase):
     def test_production_workflow_sets_native_meta_windows(self):
         workflow = Path(__file__).parents[1] / ".github" / "workflows" / "main.yml"
         text = workflow.read_text(encoding="utf-8")
-        self.assertIn('FB_STAGGER_MINUTES: "360"', text)
+        self.assertIn('FB_STAGGER_MINUTES: "5"', text)
         self.assertIn('IG_WAIT_FOR_SLOT: "true"', text)
         self.assertIn('IG_MAX_WAIT_MINUTES: "150"', text)
         self.assertIn('MAX_GUARD_RETRIES: "2"', text)

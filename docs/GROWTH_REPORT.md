@@ -1,6 +1,6 @@
 # MrNextep growth report
 
-_Generated 2026-08-24 19:46 UTC · policy 2026.08-fix2 (verified 2026-08-14)_
+_Generated 2026-08-24 20:09 UTC · policy 2026.08-fix2 (verified 2026-08-14)_
 
 This file is produced by `scripts/growth_report.py`. It reads real
 numbers from all three platforms, compares each against that
@@ -38,12 +38,12 @@ No usable metrics yet. No metrics yet — publish and wait 24h, or connect this 
 ```
 Nextep algorithm policy 2026.08-fix2 (verified 2026-08-14)
 
-- YouTube Shorts: 25-45s (ideal 35s), hook <= 2.8s, 3-4 hashtags, gate 50% AVP
-- Facebook Reels: 12-22s (ideal 16s), hook <= 2.5s, 2-3 hashtags, gate 72% AVP
+- YouTube Shorts: 22-38s (ideal 28s), hook <= 2.8s, 3-4 hashtags, gate 65% AVP
+- Facebook Reels: 10-22s (ideal 14s), hook <= 2.5s, 2-3 hashtags, gate 72% AVP
 - Instagram Reels: 12-22s (ideal 15s), hook <= 2.3s, 3-5 hashtags, gate 70% AVP
 
-Script budget: 62-118 words at 2.62 w/s (hook 4-6 words).
-Cadence ceiling: 3/day, >= 90 min apart.
+Script budget: 55-100 words at 2.62 w/s (hook 4-6 words).
+Cadence ceiling: 2/day, >= 90 min apart.
 ```
 
 Platform ranking behaviour changes every few months. Re-verify the

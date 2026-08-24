@@ -222,6 +222,16 @@ def score_hook_detailed(hook: str) -> Dict:
                    'note': 'Starts on the subject, not on a greeting or "in this video".'})
     score += 10 if not cold else -40
 
+    # --- "Why" opener penalty (5pt) ----------------------------------------
+    # "Why" questions perform measurably worse than concrete statements on
+    # this channel (growth_engine hook_weights: why=0.855 vs statement=1.037).
+    # They are not cold opens, but they are the second-weakest opener type.
+    why_opener = hook_l.startswith("why ")
+    checks.append({'name': 'not_why_question', 'passed': not why_opener,
+                   'note': 'Avoids "Why" openers — statements outperform questions.'})
+    if why_opener:
+        score -= 5
+
     # --- Not vague authority (heavy penalty) -------------------------------
     vague = bool(_VAGUE_RE.search(hook_l))
     checks.append({'name': 'no_empty_claim', 'passed': not vague,

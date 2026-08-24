@@ -222,7 +222,7 @@ jobs:
           FB_UPLOAD_ENABLED: "true"
           # Meta timing: YouTube/Instagram launch at 12:30 PM ET; Facebook
           # publishes in the measured evening test window at 6:30 PM ET.
-          FB_STAGGER_MINUTES: "360"
+          FB_STAGGER_MINUTES: "5"
           IG_UPLOAD_ENABLED: "true"
           # media_publish has no scheduling parameter; hold the ready container
           # until the shared 12:30 PM ET slot when it is within the safe cap.

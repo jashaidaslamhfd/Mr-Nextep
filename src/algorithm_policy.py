@@ -192,7 +192,7 @@ PLATFORM_POLICY: Dict[str, Dict] = {
         # gate. Shorts under 30s with 50%+ AVP are pushed widest; shorter is
         # the single highest-leverage free change in the data (lever importance
         # 0.343, the top of every lever).
-        "duration": (25.0, 35.0, 45.0),
+        "duration": (22.0, 28.0, 38.0),
         "hard_max": 60.0,
         # FIXED 2026-08-14: see duration note above — 33s ideal made the gate
         # arithmetically unreachable on this channel's measured watch time.
@@ -236,7 +236,7 @@ PLATFORM_POLICY: Dict[str, Dict] = {
         # help. Floor drops to 12s so the dual-cut editor can actually reach the
         # length the data demands. Nothing here is a platform limit: Facebook
         # Reels accept 3s+, this was purely our own policy choice.
-        "duration": (12.0, 16.0, 22.0),
+        "duration": (10.0, 14.0, 22.0),
         "hard_max": 90.0,
         "retention_gate": {"under_30s": 0.72, "over_30s": 0.60},
         "decision_seconds": 2.0,
@@ -588,13 +588,27 @@ def enforce_hashtag_limit(hashtags: List[str], platform: str) -> List[str]:
 # inauthentic-content policy makes "more uploads" an actively risky lever for
 # a faceless channel. The pipeline therefore never posts more than this, and
 # the growth engine is allowed to recommend LESS (see src/growth_engine.py).
-MAX_UPLOADS_PER_DAY = 3
+MAX_UPLOADS_PER_DAY = 2
 MIN_UPLOADS_PER_DAY = 1
 MIN_MINUTES_BETWEEN_PUBLISHES = 90
 
 
 def clamp_cadence(per_day: int) -> int:
     return max(MIN_UPLOADS_PER_DAY, min(int(per_day), MAX_UPLOADS_PER_DAY))
+
+
+def retention_cadence_cap(channel_gate_ratio: float | None) -> int:
+    """Hard cap: when channel retention is below the platform gate, force
+    cadence to 1/day regardless of what the growth engine suggests.
+    Published data (2026-08-24): channel median retention 36% vs 50-65% gate
+    means every additional upload teaches the feed to stop showing the channel.
+    Only raising cadence is gated; lowering is always allowed by clamp_cadence.
+    Returns the MAX allowed cadence (no cap) when data is healthy.
+    """
+    if channel_gate_ratio is None or channel_gate_ratio < 0.80:
+        return 1
+    return MAX_UPLOADS_PER_DAY
+
 
 
 # ---------------------------------------------------------------------------
