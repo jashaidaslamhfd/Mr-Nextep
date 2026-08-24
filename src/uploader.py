@@ -406,10 +406,15 @@ def _upload_youtube(video_path, thumb_path, script_data, tags):
     )
     # googleapiclient's default httplib2 transport has no useful wall-clock
     # bound for a stalled socket. Use an explicitly timed transport for every
-    # YouTube request, while keeping the resumable upload and the started-state
-    # receipt: a timed-out request remains unknown and must never be retried as
-    # a fresh upload by another run.
-    yt_http = AuthorizedHttp(creds, http=httplib2.Http(timeout=YT_HTTP_TIMEOUT))
+    # YouTube request. Disable httplib2's redirect handling because YouTube's
+    # resumable protocol uses HTTP 308 as an in-band "continue upload" response
+    # that may legitimately omit Location; googleapiclient handles that response
+    # in HttpRequest.next_chunk(). The started-state receipt remains fail-closed:
+    # an uncertain request is never retried as a fresh upload by another run.
+    yt_http = AuthorizedHttp(
+        creds,
+        http=httplib2.Http(timeout=YT_HTTP_TIMEOUT, follow_redirects=False),
+    )
     yt = build('youtube', 'v3', http=yt_http, cache_discovery=False)
 
     body = {
