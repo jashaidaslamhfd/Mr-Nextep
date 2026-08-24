@@ -122,6 +122,14 @@ def _run_growth_analysis() -> dict:
         level = logging.ERROR if alert.get("level") == "error" else logging.WARNING
         logger.log(level, "ALERT: %s", alert.get("message"))
 
+    # Stage 3c: calibrate viral optimizer from real performance data
+    # Best-effort: never changes exit_code
+    try:
+        calibration_result = _run_viral_calibration()
+        logger.info("Viral calibration: %s", calibration_result.get('status', 'unknown'))
+    except Exception as exc:
+        logger.warning("Viral calibration skipped: %s", exc)
+
     # Stage 3b: Autonomous strategy decision — after learning from real
     # metrics, re-decide which series / quality gate / cadence the NEXT run
     # should use and persist it for main.py to consume. Best-effort.
@@ -139,6 +147,15 @@ def _run_growth_analysis() -> dict:
     except Exception as exc:  # noqa: BLE001 - strategy must never break learning
         logger.warning("Strategy decision failed (non-fatal): %s", exc)
     return state
+
+
+def _run_viral_calibration() -> dict:
+    """Stage 3c: calibrate viral optimizer from real video performance data."""
+    try:
+        from viral_calibrator import calibrate
+        return calibrate()
+    except Exception as exc:
+        return {"status": "error", "error": str(exc)}
 
 
 def _write_report(state: dict) -> None:

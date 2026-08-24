@@ -34,6 +34,12 @@ from typing import Dict, List, Optional, Tuple
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
+try:
+    from viral_calibrator import get_learned_weights, get_weight_for_feature
+    HAS_CALIBRATOR = True
+except ImportError:
+    HAS_CALIBRATOR = False
+
 # ---------------------------------------------------------------------------
 # Paths
 # ---------------------------------------------------------------------------
@@ -60,8 +66,30 @@ MAX_REWRITE_ATTEMPTS = 3        # how many times to retry a script
 #   ear:       0.970
 #   brain:     0.879  (worst — avoid brain topics until proven)
 
-TOPIC_WEIGHTS = {'muscle': 1.08, 'ear': 0.97, 'brain': 0.88, 'other': 1.05}
-HOOK_WEIGHTS = {'statement': 1.04, 'why': 0.86, 'question': 0.92, 'unknown': 0.96}
+# DEFAULT weights — used ONLY when calibrator has no data yet.
+# After calibration, these are REPLACED by real learned weights.
+_DEFAULT_TOPIC_WEIGHTS = {'muscle': 1.08, 'ear': 0.97, 'brain': 0.88, 'other': 1.05}
+_DEFAULT_HOOK_WEIGHTS = {'statement': 1.04, 'why': 0.86, 'question': 0.92, 'unknown': 0.96}
+
+
+def _get_topic_weight(topic: str) -> float:
+    """Get topic weight — learned from real data if calibrator has run."""
+    if HAS_CALIBRATOR:
+        key = f"topic_{topic}"
+        w = get_weight_for_feature(key)
+        if w != 1.0:  # calibrator returned a learned weight
+            return w
+    return _DEFAULT_TOPIC_WEIGHTS.get(topic, 1.05)
+
+
+def _get_hook_weight(hook_type: str) -> float:
+    """Get hook weight — learned from real data if calibrator has run."""
+    if HAS_CALIBRATOR:
+        key = f"hook_is_{hook_type}"
+        w = get_weight_for_feature(key)
+        if w != 1.0:
+            return w
+    return _DEFAULT_HOOK_WEIGHTS.get(hook_type, 0.96)
 
 # ---------------------------------------------------------------------------
 # Retention predictors — empirical weights from channel analytics
