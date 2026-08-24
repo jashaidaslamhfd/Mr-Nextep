@@ -154,7 +154,10 @@ def fetch_youtube(video_id: str) -> Dict:
     except ImportError as exc:  # pragma: no cover
         return {"error": f"seo_analytics unavailable: {exc}"}
 
-    raw = fetch_actual_performance(video_id)
+    try:
+        raw = fetch_actual_performance(video_id)
+    except (ImportError, ModuleNotFoundError) as exc:
+        return {"error": f"google client unavailable: {exc}"}
     if "error" in raw:
         return {"error": raw["error"]}
     if "note" in raw and raw.get("views") is None:

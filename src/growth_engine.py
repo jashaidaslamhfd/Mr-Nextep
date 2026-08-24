@@ -47,7 +47,6 @@ from datetime import datetime, timezone
 from statistics import mean, median
 from typing import Dict, List, Optional, Tuple
 
-import pytz
 
 from algorithm_policy import (
     FACEBOOK,
@@ -67,7 +66,7 @@ logger = logging.getLogger(__name__)
 GROWTH_STATE_PATH = os.environ.get("GROWTH_STATE_PATH", "data/growth_state.json")
 VIDEO_HISTORY_PATH = os.environ.get("VIDEO_HISTORY_PATH", "data/video_history.json")
 
-NY = pytz.timezone("America/New_York")
+# pytz loaded lazily to avoid hard dependency
 
 # Weight bounds. 0.35 keeps an under-performing option alive with a real (if
 # small) chance to recover; 2.0 stops one lucky video from monopolising the
@@ -208,7 +207,12 @@ def _slot_key(record: Dict) -> Optional[str]:
     except ValueError:
         return None
 
-    local = parsed.astimezone(NY)
+    try:
+        import pytz
+        _ny = pytz.timezone("America/New_York")
+    except ImportError:
+        _ny = timezone.utc
+    local = parsed.astimezone(_ny)
     minutes = local.hour * 60 + local.minute
 
     best, best_gap = None, None

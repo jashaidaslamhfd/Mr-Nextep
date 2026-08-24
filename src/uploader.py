@@ -10,14 +10,27 @@ import logging
 import time
 import hashlib
 from datetime import datetime, timedelta
-import pytz
-import google.oauth2.credentials
-import httplib2
-from google_auth_httplib2 import AuthorizedHttp
-from googleapiclient.discovery import build
-from googleapiclient.http import MediaFileUpload
-from googleapiclient.errors import HttpError
-import requests
+try:
+    import pytz
+except ImportError:
+    pytz = None
+try:
+    import google.oauth2.credentials
+    import httplib2
+    from google_auth_httplib2 import AuthorizedHttp
+    from googleapiclient.discovery import build
+    from googleapiclient.http import MediaFileUpload
+    from googleapiclient.errors import HttpError
+except (ImportError, ModuleNotFoundError):
+    google = None
+    build = None
+    MediaFileUpload = None
+    HttpError = Exception
+    AuthorizedHttp = None
+try:
+    import requests
+except ImportError:
+    requests = None
 from seo_generator import generate_description
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')

@@ -91,3 +91,13 @@ package-lock.json
 # ---- Audit and diagnostic dumps (avoid git bloat) ----
 data/*audit*
 data/*diag*
+
+# ---- Repair dump files (timestamped JSON, never needed in git) ----
+data/deep_repair_*.json
+data/deep_repair_*.md
+
+# ---- Duplicate thumbnail sets ----
+assets/thumbnails_us/set1_done/
+
+# ---- Stale patches ----
+*.patch
