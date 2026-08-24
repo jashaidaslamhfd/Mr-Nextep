@@ -1,37 +1,34 @@
 {
-  "generated_at": "2026-08-23T13:15:21.011095+00:00",
+  "generated_at": "2026-08-24T02:11:02.893117+00:00",
   "sample_size": 119,
-  "scored_videos": 21,
+  "scored_videos": 19,
   "channel_gate_ratio": 0.567,
   "slot_weights": {
-    "01:00": 1.0,
-    "12:30": 0.975,
-    "20:00": 1.111,
+    "20:00": 1.092,
+    "12:30": 0.988,
     "00:00": 1.0,
     "15:30": 1.0,
     "14:30": 1.0,
-    "21:30": 0.857,
+    "21:30": 0.879,
     "05:00": 1.0,
     "11:00": 1.0,
     "18:30": 1.0,
     "16:30": 1.0
   },
   "topic_weights": {
-    "other": 1.103,
-    "breath": 1.0,
-    "muscle": 1.03,
-    "ear": 0.947,
-    "brain": 0.847
+    "muscle": 1.076,
+    "other": 1.047,
+    "ear": 0.97,
+    "brain": 0.879
   },
   "hook_weights": {
-    "statement": 1.05,
-    "why": 0.833,
-    "unknown": 0.935
+    "statement": 1.037,
+    "why": 0.855,
+    "unknown": 0.958
   },
   "slot_samples": {
-    "01:00": 1,
-    "12:30": 6,
     "20:00": 4,
+    "12:30": 5,
     "00:00": 1,
     "15:30": 1,
     "14:30": 1,
@@ -42,14 +39,13 @@
     "16:30": 1
   },
   "topic_samples": {
-    "other": 10,
-    "breath": 1,
     "muscle": 3,
+    "other": 9,
     "ear": 4,
     "brain": 3
   },
   "hook_samples": {
-    "statement": 17,
+    "statement": 15,
     "why": 3,
     "unknown": 1
   },
@@ -58,11 +54,11 @@
       "platform": "youtube_shorts",
       "label": "YouTube Shorts",
       "status": "below_gate",
-      "samples": 20,
+      "samples": 18,
       "gate": 0.5,
       "avg_completion": 0.3185,
       "gate_ratio": 0.605,
-      "avg_views": 329.0,
+      "avg_views": 301.9,
       "action": "Averaging 32% against a 50% bar. Shorten the cut toward 25s and tighten the first 3 seconds — the gap is retention, not reach."
     },
     "facebook_reels": {
@@ -111,11 +107,11 @@
     },
     {
       "level": "warn",
-      "message": "Slot 12:30 NY is under-performing across 6 videos — its weight has been reduced automatically."
+      "message": "Slot 20:00 NY is under-performing across 4 videos — its weight has been reduced automatically."
     },
     {
       "level": "warn",
-      "message": "Slot 20:00 NY is under-performing across 4 videos — its weight has been reduced automatically."
+      "message": "Slot 12:30 NY is under-performing across 5 videos — its weight has been reduced automatically."
     },
     {
       "level": "warn",
@@ -126,9 +122,7 @@
       "message": "Almost nobody DMs these Reels. Sends are Instagram's strongest non-follower signal: end on one surprising, quotable fact a viewer would send to a specific friend, not a generic wrap-up line."
     }
   ],
-  "best_slot": "20:00",
-  "best_topics": [
-    "other"
-  ],
+  "best_slot": null,
+  "best_topics": [],
   "best_hook_frame": null
 }
