@@ -1,6 +1,6 @@
 {
-  "source": "YouTube US autocomplete (suggestqueries, hl=en gl=us) mined 2026-08-19",
-  "mined_at": "2026-08-19T22:52:51.098109+00:00",
+  "source": "YouTube US autocomplete (suggestqueries, hl=en gl=us) mined 2026-08-24",
+  "mined_at": "2026-08-24T10:27:22.510871+00:00",
   "topics": [
     {
       "series_number": "DEM-1",
@@ -12,7 +12,7 @@
       "thumbnail_text": "Why the reciprocity trigger ?",
       "demand_note": "autocomplete: 'reciprocity of liking rule'; autocomplete: 'the law of reciprocity'; autocomplete: 'the power of reciprocity'",
       "pillar": "reflexes_du_corps",
-      "mined_at": "2026-08-19T22:52:38.108605+00:00"
+      "mined_at": "2026-08-24T10:27:08.349258+00:00"
     },
     {
       "series_number": "DEM-2",
@@ -22,9 +22,9 @@
       "question_phrase": "why tapeworm in the brain",
       "angle": "Why tapeworm in the brain ?",
       "thumbnail_text": "Why tapeworm in the brain ?",
-      "demand_note": "autocomplete: 'tapeworm in the brain'; autocomplete: 'tapeworm eggs in brain'; autocomplete: 'how to get rid of a tapeworm'; autocomplete: 'worms in the brain'",
+      "demand_note": "autocomplete: 'tapeworm in the brain'; autocomplete: 'tapeworm eggs in brain'; autocomplete: 'how to get rid of a tapeworm'; autocomplete: 'how to get rid of a tapeworm in humans'",
       "pillar": "reflexes_du_corps",
-      "mined_at": "2026-08-19T22:52:40.232411+00:00"
+      "mined_at": "2026-08-24T10:27:10.641973+00:00"
     },
     {
       "series_number": "DEM-3",
@@ -36,7 +36,7 @@
       "thumbnail_text": "Why the vampire squid ?",
       "demand_note": "autocomplete: 'the vampire squid'; autocomplete: 'the vampire squid from hell'; autocomplete: 'the vampire squid octonauts'; autocomplete: 'the octopus lady vampire squid'",
       "pillar": "reflexes_du_corps",
-      "mined_at": "2026-08-19T22:52:46.597535+00:00"
+      "mined_at": "2026-08-24T10:27:17.556806+00:00"
     },
     {
       "series_number": "DEM-4",
@@ -46,9 +46,9 @@
       "question_phrase": "why unsolved mysteries",
       "angle": "Why unsolved mysteries ?",
       "thumbnail_text": "Why unsolved mysteries ?",
-      "demand_note": "autocomplete: 'unsolved mysteries tupac shakur'; autocomplete: 'unsolved mysteries theme'; autocomplete: 'unsolved mysteries theme song'; autocomplete: 'unsolved mysteries intro'",
+      "demand_note": "autocomplete: 'unsolved mysteries theories'; autocomplete: 'unsolved mysteries being solved'; autocomplete: 'unsolved mysteries tupac shakur'; autocomplete: 'unsolved mysteries tupac'",
       "pillar": "reflexes_du_corps",
-      "mined_at": "2026-08-19T22:52:50.747910+00:00"
+      "mined_at": "2026-08-24T10:27:22.160699+00:00"
     }
   ]
 }

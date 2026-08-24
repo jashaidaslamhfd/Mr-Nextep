@@ -1,5 +1,6 @@
 {
-  "failed_at": "2026-08-23T22:51:32.111711+00:00",
-  "reason": "INDEPENDENT GATE BLOCKED the run: seo, viewer_preference, video_quality guard(s) failed. Fix before publishing.",
-  "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Mr-Nextep/Mr-Nextep/src/main.py\", line 1536, in run_pipeline\n    raise RuntimeError(\nRuntimeError: INDEPENDENT GATE BLOCKED the run: seo, viewer_preference, video_quality guard(s) failed. Fix before publishing.\n"
+  "failed_at": "2026-08-24T10:53:51.987748+00:00",
+  "reason": "Hook takes 3.79s against a 2.3s target (hard limit 3.35s). Every 2026 feed decides whether to keep showing a video inside the first 2-3 seconds, so a slow opening caps distribution before any other signal is measured.",
+  "stage": "voice_generation",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Mr-Nextep/Mr-Nextep/src/main.py\", line 1425, in run_pipeline\n    raise RuntimeError(\nRuntimeError: Hook takes 3.79s against a 2.3s target (hard limit 3.35s). Every 2026 feed decides whether to keep showing a video inside the first 2-3 seconds, so a slow opening caps distribution before any other signal is measured.\n"
 }
