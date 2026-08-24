@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import os
 import sys
 import tempfile
 import unittest
@@ -147,6 +148,28 @@ class MetaFacebookSchedulingTests(unittest.TestCase):
         self.assertEqual(finish_payload["video_state"], "SCHEDULED")
 
 
+class PipelineCheckpointTests(unittest.TestCase):
+    def test_checkpoint_is_atomic_and_contains_no_secret_values(self):
+        import main
+
+        with tempfile.TemporaryDirectory() as tmp:
+            checkpoint = Path(tmp) / "pipeline_checkpoint.json"
+            with patch.object(main, "PIPELINE_CHECKPOINT_PATH", str(checkpoint)), \
+                 patch.dict(os.environ, {"GITHUB_RUN_ID": "run-123", "REFRESH_TOKEN": "should-not-appear"}, clear=False):
+                main._write_pipeline_checkpoint(
+                    "image_generation", "started", elapsed_seconds=12.5,
+                    reason="provider timeout",
+                )
+
+            payload = json.loads(checkpoint.read_text(encoding="utf-8"))
+            self.assertEqual(payload["stage"], "image_generation")
+            self.assertEqual(payload["status"], "started")
+            self.assertEqual(payload["run_id"], "run-123")
+            self.assertEqual(payload["reason"], "provider timeout")
+            self.assertNotIn("REFRESH_TOKEN", checkpoint.read_text(encoding="utf-8"))
+            self.assertFalse((Path(str(checkpoint) + ".tmp")).exists())
+
+
 class MetaWorkflowContractTests(unittest.TestCase):
     def test_production_workflow_sets_native_meta_windows(self):
         workflow = Path(__file__).parents[1] / ".github" / "workflows" / "main.yml"
@@ -154,9 +177,15 @@ class MetaWorkflowContractTests(unittest.TestCase):
         self.assertIn('FB_STAGGER_MINUTES: "360"', text)
         self.assertIn('IG_WAIT_FOR_SLOT: "true"', text)
         self.assertIn('IG_MAX_WAIT_MINUTES: "150"', text)
-        self.assertIn('MAX_GUARD_RETRIES: "5"', text)
+        self.assertIn('MAX_GUARD_RETRIES: "2"', text)
         self.assertIn('for attempt in 1 2 3 4 5; do', text)
-        self.assertIn('echo "=== Attempt $attempt / 5 ==="', text)
+        self.assertIn('PIPELINE_ATTEMPT_TIMEOUT_MINUTES: "35"', text)
+        self.assertIn('timeout --signal=TERM --kill-after=30s', text)
+        self.assertIn('AI_VIDEO_SCENES: "1"', text)
+        self.assertIn('AI_HORDE_MAX_WAIT: "60"', text)
+        self.assertIn('POLLINATIONS_VIDEO_TIMEOUT: "45"', text)
+        self.assertIn('PIPELINE_CHECKPOINT_PATH: "data/pipeline_checkpoint.json"', text)
+        self.assertIn('Upload-stage failure has unknown external completion state', text)
         self.assertIn('FAIL_ON_MISSED_SLOT: "true"', text)
 
 

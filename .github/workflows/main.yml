@@ -202,6 +202,16 @@ jobs:
           # (true image-to-video: the rendered image is frame 1). Free Pollen
           # starter credits from https://enter.pollinations.ai/keys.
           POLLINATIONS_KEY: ${{ secrets.POLLINATIONS_KEY }}
+          # Production latency budget: motion is reserved for the hook, while
+          # the normal image/provider fallback chain remains available for all
+          # other scenes. A provider that does not finish quickly yields to the
+          # next provider instead of consuming the whole Actions job.
+          AI_VIDEO_SCENES: "1"
+          POLLINATIONS_VIDEO_TIMEOUT: "45"
+          AI_HORDE_MAX_WAIT: "60"
+          YT_HTTP_TIMEOUT: "300"
+          PIPELINE_ATTEMPT_TIMEOUT_MINUTES: "35"
+          PIPELINE_CHECKPOINT_PATH: "data/pipeline_checkpoint.json"
           # 2026-08-21: stock B-roll quality floor. Clips below this width are
           # rejected (they blur on the 1080x1920 canvas); landscape files are
           # also rejected so the 9:16 crop keeps the full width.
@@ -217,8 +227,10 @@ jobs:
           META_TARGET_SECONDS: "14"
           SPOKEN_CTA_MODE: "loop"
           # Regenerate safe pre-upload failures in the same scheduled run;
-          # upload-side failures remain fail-closed to prevent duplicates.
-          MAX_GUARD_RETRIES: "5"
+          # upload-side failures remain fail-closed to prevent duplicates. Two
+          # in-process retries avoid multiplying expensive renders inside each
+          # bounded workflow attempt.
+          MAX_GUARD_RETRIES: "2"
           # A completely missed safe slot must trigger the outer job retry;
           # local/manual runs keep the graceful default.
           FAIL_ON_MISSED_SLOT: "true"
@@ -262,17 +274,39 @@ jobs:
           PYTHONUNBUFFERED: "1"
         run: |
           set -euo pipefail
-          # Retry the whole generation job after safe pre-upload misses;
-          # upload-side safeguards remain fail-closed inside the pipeline.
+          # The old five unbounded shell calls could each enter five costly
+          # continuity attempts and consume the GitHub 3h20m job maximum. Each
+          # process now has a hard budget; its checkpoint remains available for
+          # diagnosis, and an upload-stage timeout is never blindly retried.
+          max_minutes="${PIPELINE_ATTEMPT_TIMEOUT_MINUTES:-35}"
           for attempt in 1 2 3 4 5; do
-            echo "=== Attempt $attempt / 5 ==="
-            if python src/main.py; then break
-            else
-              rc=$?; echo "::warning::Failed code $rc"
-              if [ "$attempt" -eq 5 ]; then exit "$rc"; fi
-              sleep $((attempt * 60))
+            echo "=== Attempt $attempt / 5 (budget ${max_minutes}m) ==="
+            set +e
+            timeout --signal=TERM --kill-after=30s "${max_minutes}m" python src/main.py
+            status=$?
+            set -e
+            if [ "$status" -eq 0 ]; then
+              echo "Pipeline completed successfully on attempt $attempt"
+              exit 0
+            fi
+            echo "::warning::Pipeline attempt $attempt failed with status $status"
+            checkpoint_stage=""
+            checkpoint_status=""
+            if [ -s data/pipeline_checkpoint.json ]; then
+              checkpoint_stage="$(python -c 'import json; print(json.load(open("data/pipeline_checkpoint.json")).get("stage", ""))' 2>/dev/null || true)"
+              checkpoint_status="$(python -c 'import json; print(json.load(open("data/pipeline_checkpoint.json")).get("status", ""))' 2>/dev/null || true)"
+            fi
+            echo "Last checkpoint: stage=${checkpoint_stage:-unknown}, status=${checkpoint_status:-unknown}"
+            if [ "$checkpoint_stage" = "platform_upload" ] || [ "$checkpoint_stage" = "youtube_upload" ] || [ "$checkpoint_stage" = "facebook_upload" ] || [ "$checkpoint_stage" = "instagram_upload" ]; then
+              echo "::error::Upload-stage failure has unknown external completion state; stopping to prevent duplicate publication"
+              exit "$status"
+            fi
+            if [ "$attempt" -lt 5 ]; then
+              sleep $((attempt * 30))
             fi
           done
+          echo "::error::All bounded pre-upload pipeline attempts failed"
+          exit 1
 
       - name: 2026 deep-repair all uploaded videos (metadata fix)
         if: always()

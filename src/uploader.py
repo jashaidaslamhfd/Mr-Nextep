@@ -12,6 +12,8 @@ import hashlib
 from datetime import datetime, timedelta
 import pytz
 import google.oauth2.credentials
+import httplib2
+from google_auth_httplib2 import AuthorizedHttp
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaFileUpload
 from googleapiclient.errors import HttpError
@@ -23,6 +25,7 @@ logger = logging.getLogger(__name__)
 
 MAX_RETRIES = 3
 RETRY_DELAY = 5
+YT_HTTP_TIMEOUT = int(os.environ.get("YT_HTTP_TIMEOUT", "300"))
 FB_API_VERSION = os.environ.get("FB_API_VERSION", "v23.0").strip()
 DRY_RUN = os.environ.get("DRY_RUN", "false").lower() == "true"
 
@@ -401,7 +404,13 @@ def _upload_youtube(video_path, thumb_path, script_data, tags):
             "https://www.googleapis.com/auth/youtube.force-ssl",
         ],
     )
-    yt = build('youtube', 'v3', credentials=creds)
+    # googleapiclient's default httplib2 transport has no useful wall-clock
+    # bound for a stalled socket. Use an explicitly timed transport for every
+    # YouTube request, while keeping the resumable upload and the started-state
+    # receipt: a timed-out request remains unknown and must never be retried as
+    # a fresh upload by another run.
+    yt_http = AuthorizedHttp(creds, http=httplib2.Http(timeout=YT_HTTP_TIMEOUT))
+    yt = build('youtube', 'v3', http=yt_http, cache_discovery=False)
 
     body = {
         'snippet': {
