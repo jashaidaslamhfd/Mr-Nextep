@@ -613,15 +613,30 @@ def _recommend_cadence(scores: List[float], health: Dict) -> Tuple[int, str]:
     inauthentic-content policy penalises, so extra uploads are only earned by
     proving the current ones clear their retention gates.
     """
+    # FIXED 2026-08-24: CRITICAL SAFETY — channel retention is far below every
+    # platform gate. Until the hook + length fix proves itself, ship ONE strong
+    # video per day, not three weak ones. Three low-retention videos/day teaches
+    # the feed to suppress the channel permanently.
+    if scores:
+        channel_avg = _robust_centre(scores)
+        if channel_avg is not None and channel_avg < 0.70:
+            return clamp_cadence(1), (
+                f"Channel retention is {channel_avg:.0%} — well below every "
+                "platform gate. One upload/day until retention clears 70% of "
+                "the bar. Fix the hook (first 2 seconds) and video length "
+                "(14-20s) before scaling."
+            )
+
     if len(scores) < HEALTH_THRESHOLDS["min_samples_per_slot"]:
         # FIXED 2026-07-31: Was 3/day on no_data — this channel's own metrics show
         # retention 27-44% vs 50% gate (critical/below_gate). Shipping 3 low-retention
         # videos/day teaches the feed to stop showing the channel. Hold 2/day while
         # data accumulates, drop to 1 if critical.
         return clamp_cadence(1), (
-            "Not enough mature videos to judge yet — holding a conservative 1/day "
-            "while data accumulates. Channel retention is unproven; extra uploads "
-            "of an unvalidated format risk teaching the feed to deprioritise."
+            "Not enough mature videos to judge yet — holding a strict 1/day "
+            "until retention proves the format. Channel average is below gate; "
+            "extra uploads of an unvalidated format teach the feed to suppress. "
+            "Fix the hook and video length FIRST, then scale."
         )
 
     average = _robust_centre(scores)

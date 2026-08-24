@@ -768,10 +768,10 @@ class NextepPipeline:
             if not failures:
                 return best_attempt['script_data']
             hook = best_attempt.get('hook_score', 0)
-            if best_attempt.get('quality_approved') and best_attempt.get('spam_ok') and hook >= 55:
+            if best_attempt.get('quality_approved') and best_attempt.get('spam_ok') and hook >= 70:
                 logger.warning(
                     "Lenient final-attempt accept: quality approved, spam clean, "
-                    "hook %d/100 (below %d but above the 55 safety floor) — publishing.",
+                    "hook %d/100 (below %d but above the 70 safety floor) — publishing.",
                     hook, MIN_HOOK_SCORE,
                 )
                 return best_attempt['script_data']
@@ -782,7 +782,7 @@ class NextepPipeline:
                 )
                 NextepPipeline.lenient_fallback = False
                 fb_hook = best_attempt.get('hook_score', 0)
-                if fallback_result.get('approved') and fb_hook >= 45:
+                if fallback_result.get('approved') and fb_hook >= 65:
                     logger.warning(
                         "LLM-outage fallback accept: structurally complete, spam clean, "
                         "hook %d/100 — publishing (premium providers were down; "

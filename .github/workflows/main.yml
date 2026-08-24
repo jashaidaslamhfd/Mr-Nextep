@@ -75,13 +75,14 @@ jobs:
           # 2026-08-19: Chatterbox is now the PRIMARY engine (TTS_ENGINE=chatterbox).
           # Its heavy deps live in requirements-optional.txt (lazy imports); a
           # kokoro-only run never needed them, but the real-narrator path does.
-          if [ "${TTS_ENGINE:-chatterbox}" = "chatterbox" ] && [ -f requirements-optional.txt ]; then
+          # Always try to install optional deps for voice quality
+          if [ -f requirements-optional.txt ]; then
             for i in 1 2 3; do
               python -m pip install -r requirements-optional.txt && break || {
-                echo "Optional-deps install retry $i"
+                echo "Optional-deps install retry $i (attempt $i/3)"
                 sleep 15
               }
-            done
+            done || echo "::warning::Optional deps install failed - voice quality may be reduced"
           fi
 
       - name: Run offline quality regression tests

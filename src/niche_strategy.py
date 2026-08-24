@@ -650,34 +650,34 @@ CTAS = [
 # ============================================
 CATEGORY_TAGS = {
     "Brain": [
-        "neuroscience", "brainfacts", "psychologyfacts", "mindblown",
-        "brainscience", "humanbrain", "nervoussystem", "mentalhacks",
-        "brainhealth", "neuroplasticity", "cognition", "memory",
+        "neuroscience", "brainfacts", "brainhealth", "neuroplasticity",
+        "humanbrain", "nervoussystem", "brainfunction", "cognition",
+        "memoryloss", "brainpower", "neurons", "brainscience",
     ],
     "Body": [
-        "humanbody", "bodyfacts", "anatomy", "bodyparts", "humanfacts",
-        "bodyawareness", "bodymystery", "yourbody", "physiology",
-        "humananatomy", "bodyscience", "healthfacts",
+        "humanbody", "bodyfacts", "anatomy", "bodymystery",
+        "bodyexplained", "physiology", "humananatomy", "bodyscience",
+        "yourbody", "bodyscience101", "howitworks", "bodymechanics",
     ],
     "Pain": [
-        "bodysignals", "painscience", "bodywarning", "healthalert",
-        "jointpain", "musclepain", "backpain", "headache",
-        "chronicpain", "bodyhurts", "nervepain", "bodypain",
+        "bodysignals", "painscience", "musclecramps", "chronicpain",
+        "nervepain", "bodywarning", "healthalert", "painexplained",
+        "whyithurts", "bodypain", "musclepain", "jointpain",
     ],
     "Sensory": [
-        "sensoryscience", "visionfacts", "hearingfacts", "touchsense",
-        "phantomvibration", "earsringing", "tastesmell", "bodysenses",
-        "sensoryglitch", "weirdsenses", "braintricks", "sensoryfacts",
+        "sensoryscience", "hearingfacts", "earsringing", "visionfacts",
+        "phantomvibration", "sensoryglitch", "weirdsenses", "bodysenses",
+        "tinnitus", "sensesexplained", "hearingloss", "bodytricks",
     ],
     "Mystery": [
-        "mysteryscience", "weirdfacts", "creepyfacts", "unknownfacts",
-        "darkscience", "bodysecrets", "themoreyouknow", "mindblowing",
-        "scaryfacts", "unexplained", "paranormal",
+        "bodymystery", "weirdfacts", "bodysecrets", "unexplained",
+        "darkscience", "mindblowing", "humanbodyfacts", "scienceexplained",
+        "unknownfacts", "themoreyouknow", "bodyglitches", "braintricks",
     ],
     "Health": [
-        "healthfacts", "bodyhacks", "sciencefacts", "healthscience",
-        "medicalmystery", "humanhealth", "wellness", "healthtips",
-        "wellnessjourney", "healthyliving",
+        "healthfacts", "healthexplained", "healthscience", "medicalfacts",
+        "humanhealth", "wellness", "healthtips", "sciencehealth",
+        "bodyscience", "healthmystery", "anatomyfacts", "bodyhealth",
     ],
 }
 
@@ -685,9 +685,10 @@ CATEGORY_TAGS = {
 # 7. BASE TAGS
 # ============================================
 BASE_TAGS = [
-    "darkfacts", "facts", "shorts", "youtubeshorts", "science",
-    "didyouknow", "mindblowing", "funfacts", "scaryfacts", "viral",
-    "mystery", "unknown", "creepy", "interesting", "education",
+    "darkfacts", "bodyscience", "humananatomy", "sciencefacts",
+    "didyouknow", "bodymystery", "healthfacts", "medicalfacts",
+    "biologyfacts", "science", "mystery", "humanbody",
+    "scienceexplained", "health", "anatomy",
 ]
 
 # ============================================
