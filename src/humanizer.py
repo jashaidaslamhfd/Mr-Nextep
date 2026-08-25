@@ -53,11 +53,6 @@ def pick_n(pool: list, value: str, n: int) -> list:
 # Visual style rotation — so scene images don't all share one identical look.
 # --------------------------------------------------------------------------- #
 
-# 2026-08-15 CHANNEL SIGNATURE — "Neon Cortex" (replaces the generic
-# cinematic styles that any channel on YouTube can produce). Fixed identity
-# anchors (midnight cobalt/violet palette, neural circuitry glow, noir
-# contrast) with per-video variation seeded by the topic, so the channel is
-# instantly recognizable and no two videos look identical.
 VISUAL_STYLES = [
     # 1: midnight neural — the signature look
     "midnight cobalt and deep violet palette, glowing neural circuitry lines "

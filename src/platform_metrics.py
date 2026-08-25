@@ -65,12 +65,6 @@ IG_METRICS = (
     "views", "reach", "saved", "shares", "comments", "likes",
     "total_interactions", "ig_reels_avg_watch_time",
 )
-# FB_METRICS — for video_insights endpoint (Reels). LIVE VERIFIED 2026-08-04.
-# WORKING: total_video_views, total_video_avg_time_watched,
-#          total_video_impressions, total_video_impressions_unique,
-#          post_video_avg_time_watched
-# BROKEN:  post_impressions, post_impressions_unique,
-#          post_reactions_by_type_total, post_engaged_users
 FB_METRICS = (
     "total_video_views", "total_video_avg_time_watched",
     "total_video_impressions", "total_video_impressions_unique",

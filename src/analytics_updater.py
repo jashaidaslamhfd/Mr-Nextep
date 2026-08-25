@@ -220,13 +220,6 @@ if __name__ == "__main__":
         # Don't fail the workflow — let Meta collection run
         exit_code = 0
     elif yt_result.get("failed") and not yt_result.get("updated"):
-        # Every per-video error is caught and logged as a warning, so this
-        # script used to exit 0 while all 17 videos failed with invalid_scope
-        # — four consecutive green ticks over an empty history file. A broken
-        # feedback loop must be visible.
-        #
-        # BUT: "no data yet" for young videos is normal (24-48h delay).
-        # Only fail if there are REAL errors beyond just young videos.
         if yt_result.get("no_data_yet", 0) > 0 and yt_result.get("failed", 0) == 0:
             logger.info(
                 "All unscored videos are simply too young for analytics "
@@ -272,12 +265,6 @@ if __name__ == "__main__":
         growth_state = {"failed": True, "error": str(exc)[:240]}
         exit_code = 1
 
-    # ---- Stage 4: Full platform repair (DISABLED by default) --------------
-    # Previously ran FB cover backfill + meta SEO repair + audits on every
-    # analytics run. That made the channel re-edit metadata daily, which the
-    # 2026 platforms can read as spam/inauthentic churn, and it's no longer
-    # needed because all platforms were already repaired once. Only run it
-    # deliberately by setting FULL_REPAIR=true.
     if os.environ.get("FULL_REPAIR", "false").strip().lower() == "true":
         try:
             repair_result = _run_full_platform_repair()

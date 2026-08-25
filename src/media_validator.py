@@ -219,11 +219,6 @@ def probe_video(path: str) -> Dict:
             f"Wrong canvas {width}x{height}; expected "
             f"{_EXPECTED_CANVAS[0]}x{_EXPECTED_CANVAS[1]}"
         )
-    # Duration bounds come from algorithm_policy so the renderer, the writer
-    # and this gate can never disagree about what a valid Short is. The gate
-    # deliberately allows a wider band than the policy ideal: its job is to
-    # catch a BROKEN render (truncated file, runaway narration), not to
-    # second-guess an editorial choice that already passed the earlier checks.
     try:
         from algorithm_policy import YOUTUBE, duration_policy, env_float
         policy_floor, _ideal, policy_ceiling = duration_policy(YOUTUBE)

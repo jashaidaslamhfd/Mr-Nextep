@@ -7,11 +7,6 @@ import hashlib
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
-# Words that are expected to repeat across EVERY video in this niche (brand
-# hooks, body/science vocabulary, filler). Counting these toward similarity
-# would flag two genuinely different topics as "near-duplicate" just because
-# they're both Body Glitch explainers — the opposite of what we want. Only
-# the topic-specific vocabulary should drive the similarity score.
 _NICHE_STOPWORDS = {
     "the", "a", "an", "is", "are", "was", "were", "your", "you", "you're",
     "youre", "it", "its", "this", "that", "and", "or", "but", "to", "of",

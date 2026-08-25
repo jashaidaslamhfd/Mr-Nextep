@@ -39,12 +39,6 @@ from typing import Dict, Iterable, Tuple
 
 from algorithm_policy import FACEBOOK, INSTAGRAM, PLATFORMS, YOUTUBE
 
-# Fractions of the frame consumed by each platform's own interface.
-#   top    : status/label row
-#   bottom : caption block, handle, audio row, CTA button
-#   right  : vertical action-button column
-#   left   : small breathing room; no platform draws here, but text flush to
-#            the edge reads as an error on any device with rounded corners
 _PLATFORM_INSETS: Dict[str, Dict[str, float]] = {
     YOUTUBE: {"top": 0.06, "bottom": 0.18, "right": 0.13, "left": 0.04},
     # Instagram's caption block plus the audio ticker is the deepest of the

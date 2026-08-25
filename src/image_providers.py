@@ -33,13 +33,6 @@ import requests
 
 REQUEST_TIMEOUT = 30
 
-# Pollinations gets its own shorter timeout. Real-world log evidence: in this
-# environment Pollinations was timing out at the full 30s on 7-8 out of 9
-# scenes per video (both flux and turbo), meaning ~60s was being burned per
-# scene just waiting on a provider that was going to fail anyway before ever
-# reaching a provider that actually responds (Pexels). Failing faster here
-# doesn't change the eventual outcome when Pollinations is down/degraded -
-# it just gets to a working image sooner.
 POLLINATIONS_TIMEOUT = 15
 
 POLLINATIONS_URL = "https://image.pollinations.ai/prompt"
@@ -139,13 +132,6 @@ def gen_gemini(prompt, seed, scene_text=None):
     raise RuntimeError("Gemini response contained no image data")
 
 
-# ---------------------------------------------------------------------------
-# 5) DEEPAI text2img (needs DEEPAI_API_KEY, free tier). NOTE: the workflow
-#    and env.example were already passing DEEPAI_API_KEY through, but no
-#    function/registry entry ever existed to consume it - this was a
-#    completely dead env var. Wiring it up here actually uses that free
-#    provider slot instead of silently discarding it.
-# ---------------------------------------------------------------------------
 def gen_deepai(prompt, seed, scene_text=None):
     api_key = os.environ.get("DEEPAI_API_KEY")
     if not api_key:
@@ -169,17 +155,6 @@ def gen_deepai(prompt, seed, scene_text=None):
     return img_resp.content, "jpg"
 
 
-# ---------------------------------------------------------------------------
-# 6) AI HORDE (aihorde.net - genuinely free, no signup, no key required.
-#    Replaces Craiyon, which was confirmed to have NO official public API -
-#    the "craiyon.com/v3" endpoint below was always a reverse-engineered/
-#    unofficial route, which is exactly why it was 403ing on every single
-#    run from day one, not a temporary outage. AI Horde is a real,
-#    documented, community-run REST API (crowdsourced volunteer GPUs) that
-#    works anonymously via the public "0000000000" key - anonymous requests
-#    just get lower queue priority, so this polls for up to ~90s before
-#    giving up and letting the next provider take over.)
-# ---------------------------------------------------------------------------
 _HORDE_ANON_KEY = "0000000000"
 
 # Run-scoped flag: a secret AI_HORDE_API_KEY that returns 401 InvalidAPIKey
@@ -205,25 +180,6 @@ def gen_ai_horde(prompt, seed, scene_text=None):
             return False
         return payload.get("rc") == "InvalidAPIKey" or "InvalidAPIKey" in payload.get("message", "")
 
-    # Anonymous requests share a dynamic, demand-based max PIXEL-AREA cap,
-    # expressed by AI Horde as "requests over NxN" (i.e. width*height must
-    # stay under N*N). Observed caps in practice range ~576x576 (331,776px)
-    # up to ~669x669 (447,561px), and fluctuate run to run with load.
-    #
-    # HD tip: that cap applies to the *anonymous* "0000000000" key. A free
-    # AI Horde account (https://aihorde.net/register - no card, just an
-    # email) gets a real API key with a much higher priority + resolution
-    # allowance, and costs nothing. Set it as the AI_HORDE_API_KEY secret
-    # in your GitHub repo (Settings -> Secrets and variables -> Actions) and
-    # this function picks it up automatically (falls back to anonymous if
-    # unset) - that alone is usually enough to get the top (768x1344) tier
-    # below through consistently instead of falling back to the small ones.
-    #
-    # Try progressively smaller sizes - multiples of 64, as required by the
-    # underlying SD models - until one fits under whatever the current cap
-    # happens to be. The first two tiers are HD-ish (close to the final
-    # 1080x1920 Shorts canvas); the rest are the original small fallbacks
-    # for when demand is high and even a registered key gets capped.
     size_tiers = [(768, 1344), (640, 1152), (576, 1024), (448, 768), (384, 640), (320, 512)]
 
     submit = None
@@ -396,12 +352,6 @@ def gen_TEMPLATE(prompt, seed, scene_text=None):
     raise NotImplementedError("Ye sirf template hai — PROVIDER_REGISTRY mein register mat karo jab tak likha na ho")
 
 
-# ---------------------------------------------------------------------------
-# REGISTRY — fallback order yahan control hota hai (upar se neeche try hoga)
-# env_keys: [] matlab koi key nahi chahiye, warna un sab env vars ka set
-# hona zaroori hai warna wo provider automatically skip ho jata hai.
-# 50 tak yahan providers add kar sakte hain — bas ek line.
-# ---------------------------------------------------------------------------
 PROVIDER_REGISTRY = [
     {"name": "AI-Horde",           "env_keys": [],                       "generate": gen_ai_horde},
     {"name": "Pollinations-flux",  "env_keys": [],                       "generate": gen_pollinations_flux},
@@ -412,13 +362,6 @@ PROVIDER_REGISTRY = [
     {"name": "ModelsLab",          "env_keys": ["MODELSLAB_API_KEY"],    "generate": gen_modelslab},
     {"name": "Replicate",          "env_keys": ["REPLICATE_API_TOKEN"],  "generate": gen_replicate},
 
-    # --- Yahan neeche naye providers add karte jayein (up to 50) ---
-    # Big platforms jo isi TEMPLATE pattern se add ho sakte hain jaise jaise
-    # aap unki free/trial keys banate hain — README.md mein poori list hai:
-    # Stability AI, Leonardo AI, Segmind, Together AI, Fireworks AI,
-    # Cloudflare Workers AI, Ideogram, Getimg.ai, Playground AI, OpenAI
-    # DALL-E, Adobe Firefly, Microsoft Designer, NightCafe, Fal.ai, etc.
-    # {"name": "my_provider_9", "env_keys": ["MY_KEY"], "generate": gen_my_provider_9},
 ]
 
 
@@ -429,19 +372,6 @@ def available_providers():
               
 
 
-# ---------------------------------------------------------------------------
-# 12) POLLINATIONS - Seedance 2.5 AI video (needs POLLINATIONS_KEY secret)
-#    2026-08-17: human-feel upgrade for the US channel. AI images are unique
-#    but still static; this layer turns each unique scene image into a real
-#    4s 720p motion clip via gen.pollinations.ai (image-to-video: the rendered
-#    image becomes frame 1, so the clip matches the caption exactly).
-#    Key: free Pollinations key from https://enter.pollinations.ai/keys
-#    (~0.10 Pollen per video-second) stored as the POLLINATIONS_KEY secret.
-#    Without the key this layer is skipped - pipeline keeps falling back to
-#    the signature AI image + professional Ken Burns motion.
-#    Does NOT follow the (bytes, ext) image-provider signature - called
-#    directly by the AI-video upgrade step in image_generator.py.
-# ---------------------------------------------------------------------------
 POLLINATIONS_VIDEO_URL = "https://gen.pollinations.ai/video"
 POLLINATIONS_VIDEO_TIMEOUT = int(os.environ.get("POLLINATIONS_VIDEO_TIMEOUT", "90"))
 

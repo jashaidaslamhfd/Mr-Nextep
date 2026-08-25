@@ -32,12 +32,6 @@ MAX_SOURCE_RETRIES = 2
 TARGET_REGION = os.environ.get("TREND_REGION", "US").upper()  # Always US-first
 YOUTUBE_REGION = os.environ.get("YOUTUBE_REGION_CODE", TARGET_REGION).upper()
 
-# The channel is science/body/brain-oriented. Restricting external headlines
-# prevents unrelated politics, celebrity stories and sports results from being
-# turned into off-brand Shorts merely because they are trending.
-# Deliberately narrow science anchors. Broad words such as "animal", "human",
-# "history" and "nature" admitted entertainment headlines like "Why Got Fired
-# Matters" that did not give this channel a real explainable science topic.
 RELEVANCE_TERMS = (
     "brain", "body", "health", "medical", "medicine", "doctor", "science",
     "space", "nasa", "technology", "tech", "artificial intelligence", "robot",
@@ -509,13 +503,6 @@ def load_search_demand_queue() -> list[dict]:
     return result
 
 
-# ---------------------------------------------------------------------------
-# Google Autocomplete — real US search intent (no API key)
-# ---------------------------------------------------------------------------
-# Autocomplete shows what people ACTUALLY type into Google. Unlike Daily Trends
-# (celebrity/sports), these are genuine body-science questions from US users.
-# Sub-niche aligned autocomplete prefixes — these match the 3 sub-niches
-# and return REAL US user searches for body science content.
 _AUTOCOMPLETE_PREFIXES = [
     # 3AM Body Mysteries
     "what happens to your body at 3am",
@@ -580,13 +567,6 @@ def get_autocomplete_topics() -> List[Dict]:
     return _deduplicate(topics)
 
 
-# ---------------------------------------------------------------------------
-# YouTube RSS feeds — trending science content, no API key needed
-# ---------------------------------------------------------------------------
-# Top science/health channels on YouTube. Their RSS feeds show what's getting
-# views in our niche RIGHT NOW. This is competitor intelligence for free.
-# Verified channel IDs for YouTube RSS (no API key needed).
-# Body/medical/science channels whose topics overlap our niche.
 _YOUTUBE_RSS_CHANNELS = [
     ("UCsXVk37bltHxD1rDPwtNM8Q", "Kurzgesagt"),           # science animations
     ("UC6107grRI4m0o2-eGOXnsnA", "Veritasium"),            # science explained
@@ -649,13 +629,6 @@ def get_trending_topic(
     never force unrelated news or workplace drama into a science channel.
     Set ``REQUIRE_DAILY_TREND=true`` only for a deliberate live-trend campaign.
     """
-    # 2026-08-19 (ported from Neuro-Somaa): proven-demand queue picks first —
-    # a query with REAL US search intent beats a blind catalogue guess.
-    # Used-up entries are filtered by the same history/exclude mechanism.
-    # Demand queries get their own stricter-duplicate policy: block only
-    # near-identical phenomena, never a loose word overlap (a dark-mystery
-    # niche will always reuse words like "mystery/unsolved/creepy" — the
-    # phenomenon, not the vocabulary, must be what repeats).
     try:
         _demand = load_search_demand_queue()
         if _demand:

@@ -34,12 +34,6 @@ POWER_WORDS = [
 # feed, which measurably raises CTR. Kept minimal & on-topic.
 HOOK_EMOJIS = ["🧠", "⚡", "🫀", "👁️", "🌙", "🦠", "🔬", "😱", "🤯", "💥", "🪞", "🌀"]
 
-# 2026-08 retention-first pass: the channel's own data showed the one-emoji
-# machine template ("Why Your X 🫀" on 100+ videos) coinciding with template-
-# detection demotion. TITLE_EMOJI_OFF=true (the new default) strips ALL emoji
-# from repaired/new titles — a clean curiosity question outperforms the
-# template. The guarantee lives in strip_emoji() and is enforced at the end of
-# every exported title/hook, not only at generation time.
 EMOJI_RE = re.compile(
     "[\U0001F000-\U0001FAFF\u2600-\u27BF\uFE0F\U0001F900-\U0001FA9F]"
 )
@@ -122,11 +116,6 @@ def _topic_fallback_title(topic: str, limit: int = 8) -> str:
     always grammatical; a malformed topic never surfaces as a gibberish
     two-part title.
     """
-    # The original topic text is always grammatical, so the fallback keeps it
-    # intact (trimmed to the word budget) instead of rebuilding it from
-    # keywords. Only stray emoji are removed — never the words. Stripping the
-    # "why your / what happens when" frames here is what destroyed titles
-    # like "Why Your Brain Freezes When Falling Asleep" (2026-08-15 fix).
     clean = re.sub(r"[\U0001F000-\U0001FAFF\u2600-\u27BF]", "",
                    _clean(topic)).strip()
     if not clean:
@@ -191,11 +180,6 @@ def _topic_short(topic: str) -> str:
     clean = re.sub(r"\bvice versa\b", "", clean, flags=re.IGNORECASE).strip()
     clean = re.sub(r"\bfrom person to person\b", "", clean, flags=re.IGNORECASE).strip()
 
-    # Keep only meaningful words, cap at 5 so the subject stays clean &
-    # short. Body-science anchors are NEVER dropped (even stop-like ones such
-    # as "body"/"brain" which were lost in the old filter). A 2026-08-15
-    # quality fix: the subject must retain its concrete noun, e.g. "Body
-    # Jerks to Sleep" must not shrink to "Jerks Sleep".
     words = []
     for w in clean.split():
         if not w:
@@ -306,11 +290,6 @@ def _pick_head(subject: str) -> str:
     is_action = (first in action_verbs or first.endswith("ing")) and not has_any_anchor
     if any(core.lower().startswith(h) for h in noun_hint):
         is_action = False
-    # 2026-08-15 title-quality fix: never build "Why Your {garbage}". The
-    # "Why Your X" frame only stays grammatical when X anchors to a real
-    # biological subject with no malformed-marker junk; otherwise use the
-    # always-grammatical "Why X Happens" frame. Examples of subjects caught
-    # here: "Funny Video Science", "Regression Mean", "Atonia Fail".
     if has_junk or (not has_strong_anchor and not opens_as_verb
                     and not core.endswith("ing")):
         return f"Why {core} Happens" if tokens else "Why This Happens"

@@ -11,16 +11,6 @@ class USAPeakTimeScheduler:
     Intelligent scheduler for posting at USA peak times.
     Tuned for general adult short-form video audience behavior.
     """
-    # 2026-08-25: Recalibrated from owner's YouTube Studio heatmap.
-    #   Heatmap (PKT → ET conversion):
-    #     12:00 AM – 4:00 AM PKT = 2:00 PM – 6:00 PM ET ← BRIGHTEST (peak)
-    #     6:00 PM – 10:00 PM PKT = 8:00 AM – 12:00 PM ET ← secondary
-    #     7:00 AM – 3:00 PM PKT = 9:00 PM – 5:00 AM ET ← dead zone
-    #
-    #   YouTube Shorts algorithm test batch fires within ~30 min of publish.
-    #   Publishing at 1:30 PM ET puts that first push right at the 2:00 PM
-    #   start of the afternoon peak — maximum US eyeballs. The old 12:30 PM
-    #   slot missed the peak by 1.5 hours.
     PEAK_TIMES = [
         {'hour': 13, 'minute': 30, 'zone': 'ET', 'name': 'US Afternoon Peak'},  # 1:30 PM ET
     ]
@@ -61,12 +51,6 @@ class USAPeakTimeScheduler:
         Weights come from data/growth_state.json and default to 1.0, so an
         unmeasured slot keeps its natural position instead of being buried.
         """
-        # Called through the class, not `self`, so the method keeps working
-        # even when a caller (a test, a diagnostic) has swapped it for a bare
-        # function instead of a staticmethod — otherwise `self` is passed as a
-        # positional argument and every slot lookup dies with "takes 0
-        # positional arguments but 1 was given", silently downgrading the
-        # Instagram publish to "post now" and losing the peak slot.
         weights = type(self)._learned_slot_weights()
         annotated = []
         for peak in self.PEAK_TIMES:

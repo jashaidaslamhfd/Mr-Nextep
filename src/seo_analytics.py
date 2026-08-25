@@ -154,11 +154,6 @@ def score_thumbnail(thumb_path: str, title: str) -> Dict:
 # 3. Hashtag ranking (proxy discovery/competition, no real search-volume API)
 # ---------------------------------------------------------------------------
 
-# BASE_TAGS in niche_strategy.py are broad/generic -> high volume, high
-# competition. CATEGORY_TAGS are mid-specific -> medium/medium. Anything
-# else (topic-word tags) is the long-tail -> low volume, low competition,
-# highest relevance. This mirrors real tag-volume distributions without
-# needing live search-volume data.
 _BROAD_TAG_HINTS = {
     "darkfacts", "facts", "shorts", "youtubeshorts", "science",
     "didyouknow", "mindblowing", "funfacts", "scaryfacts", "viral",
@@ -313,19 +308,6 @@ def get_historical_insights(min_sample: int = 3) -> Dict:
     }
 
 
-# ---------------------------------------------------------------------------
-# 6. REAL YouTube Analytics fetch (needs OAuth creds - see uploader.py)
-#
-# Everything above this point is heuristic. This is the actual "system ab
-# blind nahi" piece: it calls the real YouTube Analytics API (v2) for one
-# video and returns real views / average-view-duration / real CTR.
-#
-# Reuses the SAME OAuth refresh-token creds uploader.py already uses for
-# the Data API upload - it just additionally needs the
-# `yt-analytics.readonly` scope to have been granted when that
-# REFRESH_TOKEN was issued. If it wasn't, this returns an 'error' instead
-# of raising, so a missing scope never crashes the pipeline.
-# ---------------------------------------------------------------------------
 
 def fetch_actual_performance(youtube_video_id: str, days_back: int = 30) -> Dict:
     """Pulls real lifetime-to-date performance for one video: views,
@@ -347,20 +329,6 @@ def fetch_actual_performance(youtube_video_id: str, days_back: int = 30) -> Dict
     if missing:
         return {"error": f"Missing credentials: {missing}"}
 
-    # Do NOT pass `scopes=` here. google-auth then sends a `scope` field on
-    # the refresh_token grant, and Google rejects any refresh that tries to
-    # narrow or alter the scopes a token was minted with — returning
-    # `invalid_scope: Bad Request` before a single metric is requested.
-    #
-    # This silently killed every analytics run: the workflow exited 0 (the
-    # errors are caught per-video and logged as warnings) while all 17 videos
-    # failed, so data/video_history.json never received a single real view
-    # count. Confirmed in the 2026-07-26 run log, which reports "success".
-    #
-    # scripts/seo_diag.py reads the same Analytics reports with the same
-    # REFRESH_TOKEN precisely because it posts a bare refresh grant with no
-    # scope field. The token already carries yt-analytics.readonly and the
-    # issued access token inherits it.
     creds = google.oauth2.credentials.Credentials(
         token=None, refresh_token=refresh_token,
         token_uri="https://oauth2.googleapis.com/token",
@@ -371,11 +339,6 @@ def fetch_actual_performance(youtube_video_id: str, days_back: int = 30) -> Dict
     end = _dt.date.today()
     start = end - _dt.timedelta(days=max(days_back, 1))
 
-    # Self-healing metric list. `impressions` and `impressionsClickThroughRate`
-    # are not served for every channel; requesting them unconditionally makes
-    # the API reject the WHOLE query with 400 "Unknown identifier", so a
-    # channel that merely cannot report CTR also loses views and retention.
-    # Drop the offending metric and retry instead of failing outright.
     import re as _re
 
     requested = [
@@ -404,11 +367,6 @@ def fetch_actual_performance(youtube_video_id: str, days_back: int = 30) -> Dict
                 dropped.append(bad)
                 logger.info("Metric '%s' unavailable on this channel -> retrying without it.", bad)
                 continue
-            # 403 here is almost always "YouTube Analytics API has not been
-            # used in project N before or it is disabled" — a Google Cloud
-            # console setting, NOT a code or token problem. FIXED 2026-07-31:
-            # Now returns exact console link from GROWTH_SETUP.md so operator
-            # can fix in 1 click instead of searching.
             if status == 403 and "has not been used in project" in raw:
                 logger.error(
                     "YouTube Analytics API DISABLED — fix: https://console.developers.google.com/"

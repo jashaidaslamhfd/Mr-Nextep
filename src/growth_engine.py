@@ -84,33 +84,6 @@ LEARNING_RATE = 0.3
 # the consumers — see _best_of().
 WINNER_MARGIN = 0.10
 
-# ---------------------------------------------------------------------------
-# OUTLIER DEFENCE (added 2026-08-14)
-#
-# Two entries in this channel's own history were quietly inflating every
-# decision the learning loop makes:
-#
-#   averageViewPercentage = 293.6%  on a video with 195 views
-#   averageViewPercentage = 114.6%  on a video with   2 views
-#
-# Neither number is a bug in the API. Shorts replays count toward watch time,
-# so avgViewPercentage legitimately exceeds 100% on a looping video. The bug
-# was treating them as ordinary samples in an unweighted MEAN:
-#
-#   mean of all 22 videos  -> 0.937 x the gate  ("close but under, hold 2/day")
-#   median of all 22       -> 0.636 x the gate  (the honest picture)
-#   mean excluding the two -> 0.629 x the gate
-#
-# So the channel looked ~50% healthier than it was, which loosened cadence and
-# the quality gate — the two things that most need to stay tight while
-# retention is failing. Three guards, each cheap and each independent:
-#
-#   1. A completion rate measured on almost no traffic is noise. One viewer
-#      looping a 2-view video is not evidence about the format.
-#   2. A single exceptional video may not dominate the channel average.
-#   3. Channel-level health uses the MEDIAN, which does not care how extreme
-#      the tails are.
-# ---------------------------------------------------------------------------
 
 # Below this view count a video's completion rate is ignored for learning.
 # It still counts for reach reporting - it just cannot move a weight.
@@ -176,11 +149,6 @@ def _configured_slots() -> List[str]:
         return list(_HISTORICAL_ANALYTICS_SLOTS)
 
 
-# How far a publish time may drift from its intended slot and still count as
-# that slot. GitHub cron routinely fires late, Instagram publishes when its
-# hold expires, and YouTube's publishAt lands on the minute — so a 45-minute
-# window comfortably absorbs real-world jitter while staying well inside the
-# 90-minute minimum gap between slots.
 _SLOT_MATCH_MINUTES = 45
 
 
@@ -601,11 +569,6 @@ def analyse(min_age_hours: Optional[int] = None) -> Dict:
         "recommended_cadence": cadence,
         "cadence_reason": cadence_reason,
         "alerts": alerts,
-        # "Best" is only reported when the data has actually separated the
-        # options. Before this guard, a channel where every bucket sat at the
-        # neutral 1.0 still printed a confident "best slot: 08:30" — a
-        # recommendation with no evidence behind it, which is worse than
-        # printing nothing because people act on it.
         "best_slot": _best_of(slot_weights),
         "best_topics": _best_of(topic_weights, count=3) or [],
         "best_hook_frame": _best_of(hook_weights),

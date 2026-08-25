@@ -75,11 +75,6 @@ _TITLE_STOP_WORDS = {
     "a", "an", "and", "are", "at", "does", "do", "for", "from", "helps",
     "how", "in", "is", "it", "make", "of", "on", "the", "this", "to", "what",
     "when", "why", "with", "your", "you",
-    # Bare verbs, gerunds and loose adjectives carry no search intent on their
-    # own. They were reaching live descriptions as trailing junk — published
-    # examples: "...neuroscience, having." and "...body science, sudden,
-    # charley." A viewer reads that as broken English and YouTube gets a
-    # keyword nobody searches.
     "having", "being", "getting", "doing", "going", "making", "taking",
     "feeling", "happens", "happening", "sudden", "suddenly", "really",
     "keeps", "without", "knowing",
@@ -222,13 +217,6 @@ def _normalise_tags(tags: List[str], limit: int = 3) -> List[str]:
     for raw in tags or []:
         tag = re.sub(r"[^A-Za-z0-9_ ]", "", str(raw).lstrip("#"))
         tag = re.sub(r"\s+", " ", tag).strip()
-        # Skip grammar/filler tokens. generate_upload_tags() already filters
-        # these for the YouTube tag field, but this helper feeds the
-        # DESCRIPTION, which had no filter — so live descriptions read
-        # "Learn the science behind brain facts, brain science, neuroscience,
-        # having." and "... human body, body science, sudden, charley."
-        # A trailing bare verb like "having" reads as broken English to the
-        # viewer and adds no search value.
         if not tag or tag.lower() in _TITLE_STOP_WORDS:
             continue
         if len(tag) < 3:
@@ -293,28 +281,11 @@ def generate_description(script_data: Dict, tags: List[str]) -> str:
     context_tags = _normalise_tags(tags, 4)
     if context_tags:
         readable = ", ".join(t.replace("_", " ") for t in context_tags)
-        # Vary the closing line. The identical sentence "Follow for clear
-        # science and brain facts explained simply." was on all 83 published
-        # videos — byte-for-byte. Identical boilerplate across an entire
-        # channel is a templated-content signal, and it also wastes the one
-        # line a viewer might actually read. Seeded by topic so a given video
-        # always renders the same text (idempotent for the repair sweep).
         import hashlib as _hashlib
         seed = int(_hashlib.sha256(readable.encode("utf-8")).hexdigest()[:8], 16)
         closing = _CONTEXT_CLOSERS[seed % len(_CONTEXT_CLOSERS)]
         parts.append(f"Learn the science behind {readable}. {closing}")
 
-    # #Shorts FIRST so YouTube categorises this correctly as a Short, then
-    # up to 3 topic hashtags (YouTube only surfaces the first 3 above the
-    # title, and ignores everything past 15). #Shorts is deduped against the
-    # topic tags so it never appears twice.
-    # A hashtag cannot contain a space. Multi-word tags such as "brain facts"
-    # were emitted verbatim as "#brain facts", which YouTube parses as the
-    # hashtag "#brain" followed by the loose word "facts" — so the intended
-    # tag never existed and the description ended in dangling words. Live
-    # examples on the channel: "#brain facts #brain science #neuroscience"
-    # and "#human body #body science #sudden".
-    # Words are joined into a single CamelCase-free token instead.
     def _as_hashtag(tag: str) -> str:
         # Capitalise only the first letter of each word. .title() lowercases
         # the rest, so an already-correct "BrainFacts" would degrade to
@@ -555,13 +526,6 @@ def generate_seo_package(topic: str, script_data: Dict) -> Dict:
         title_options = [o for o in ctr_options if o.lower() not in base_keys] + title_options
     except Exception as exc:  # noqa: BLE001 - advisory layer
         logger.warning("CTR title layer skipped (%s)", exc)
-    # Score every candidate and pick the best-scoring one instead of
-    # always taking title_options[0] - the score was previously computed
-    # only for logging and never actually influenced which title got
-    # used, so a weak title could ship even when a stronger option was
-    # sitting right there in the list.
-    # A named series must keep its branded episode title instead of letting a
-    # generic template erase the sequence number.
     chosen_title = script_data.get('series_title') or (
         max(title_options, key=_score_title) if title_options else script_data.get('title', 'Untitled')
     )

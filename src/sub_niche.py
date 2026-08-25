@@ -32,13 +32,6 @@ from typing import Dict, List, Optional, Tuple
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
-# ============================================================================
-# SUB-NICHE 1: "3AM Body Mysteries"
-# ============================================================================
-# Hook: "Your body does [weird thing] every night at 3AM — and you don't know"
-# Angle: Sleep science + circadian rhythm + body at rest
-# Why it works: Everyone sleeps, everyone is curious about what happens at night
-# Competition: LOW — very few channels focus on 3AM-specific phenomena
 
 _3AM_TOPICS = [
     # Sleep mechanics
@@ -97,13 +90,6 @@ _3AM_HOOKS = [
     "Between 2AM and 4AM, your body runs its most important process",
 ]
 
-# ============================================================================
-# SUB-NICHE 2: "Body Sounds Decoded"
-# ============================================================================
-# Hook: "That sound your [body part] makes — here's what it actually means"
-# Angle: Every body sound has a mechanical explanation
-# Why it works: Interactive — viewers will test sounds on themselves
-# Competition: VERY LOW — almost no channel focuses on body sounds
 
 _BODY_SOUNDS_TOPICS = [
     "That crack in your neck — it's not what you think",
@@ -161,13 +147,6 @@ _BODY_SOUNDS_HOOKS = [
     "Your body is louder than you think — here's proof",
 ]
 
-# ============================================================================
-# SUB-NICHE 3: "Your Body vs [X]"
-# ============================================================================
-# Hook: "What happens when [X] enters your body — second by second"
-# Angle: Timeline/story format — viewer watches the journey
-# Why it works: Narrative arc + specific + shareable (DM bait)
-# Competition: LOW — some channels do food, but nobody does "X vs body" systematically
 
 _BODY_VS_TOPICS = [
     "What happens to your body 1 minute after you drink coffee",

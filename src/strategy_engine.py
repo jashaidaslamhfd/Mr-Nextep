@@ -313,11 +313,6 @@ def decide_from_state(*, platform_health: Optional[Dict] = None,
         logger.warning("Advanced intelligence unavailable (%s); using basic lever analysis.", exc)
         intelligence = {"error": str(exc)[:120]}
 
-    # ---- 5c. Reality calibration (high-score/bad-content detector) --------- #
-    # The channel's metrics showed heuristic scores can be NEGATIVELY
-    # correlated with real views (hook/ctr/seo/retention all DRIFTED). This
-    # flags which levers the pipeline must stop trusting, so it stops approving
-    # content reality rejects.
     calibration = {}
     try:
         from calibration import calibrate
@@ -326,11 +321,6 @@ def decide_from_state(*, platform_health: Optional[Dict] = None,
         logger.warning("Calibration unavailable (%s)", exc)
         calibration = {"error": str(exc)[:120]}
 
-    # ---- 5d. Independent evaluation gate (real outcomes, not self-scores) -- #
-    # The pipeline scores itself with heuristics that can drift. This gate
-    # evaluates on REAL views/CTR/retention only, so the decision knows the
-    # channel's true performance and whether there's enough real signal to
-    # trust ML/calibration at all.
     evaluation = {}
     try:
         from evaluator import evaluate_channel
@@ -386,15 +376,6 @@ def viral_readiness_report() -> Dict[str, Any]:
 
 def _detect_barrier(platform_health: Dict, video_features: List[Dict[str, float]]) -> tuple:
     """Pick the single binding constraint, in priority order."""
-    # Completion barrier: any platform well under its gate.
-    #
-    # `gate_ratio` is the primary signal, but it is not always present (older
-    # growth_state files, or a health dict assembled by a different caller).
-    # Falling back to 1.0 in that case made a critical platform look perfectly
-    # healthy and handed the run a "push more volume" verdict - the single most
-    # expensive silent failure in this engine. So derive the ratio from
-    # avg_completion/gate when it is missing, and trust an explicit `status`
-    # label as a last resort.
     _STATUS_RATIO = {"critical": 0.3, "below_gate": 0.8, "healthy": 1.2}
 
     def _gate_ratio(health: Dict) -> float:
@@ -426,11 +407,6 @@ def _detect_barrier(platform_health: Dict, video_features: List[Dict[str, float]
             "platform ideal before adding volume."
         )
 
-    # Soft completion barrier: the platform is not in freefall, but it is still
-    # under the bar the feed uses to widen distribution. Calling this a "volume"
-    # problem (as this function used to) tells the operator to publish MORE of
-    # the thing that is currently losing viewers. Retention is the binding
-    # constraint right up until the gate is actually cleared.
     if completion_margin is not None and completion_margin < 1.0:
         return BARRIER_COMPLETION, (
             f"{completion_platform} is at {completion_margin:.0%} of its completion "

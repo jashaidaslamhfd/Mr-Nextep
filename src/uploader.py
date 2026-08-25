@@ -46,45 +46,15 @@ YT_HTTP_TIMEOUT = int(os.environ.get("YT_HTTP_TIMEOUT", "300"))
 FB_API_VERSION = os.environ.get("FB_API_VERSION", "v23.0").strip()
 DRY_RUN = os.environ.get("DRY_RUN", "false").lower() == "true"
 
-# ---------------------------------------------------------------------------
-# IMPORTANT: YouTube video uploads require OAuth 2.0 USER credentials, not a
-# service-account key. Credentials are read from THREE separate secrets/env
-# vars: GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, REFRESH_TOKEN.
-# ---------------------------------------------------------------------------
 
-# ---------------------------------------------------------------------------
-# YOUTUBE "MADE FOR KIDS" (COPPA)
-# This channel's content is dark/mystery body-science facts aimed at adults
-# (18+), so MADE_FOR_KIDS defaults to False. If your niche or audience
-# changes again, re-verify this setting - COPPA fines are no joke.
-# ---------------------------------------------------------------------------
 MADE_FOR_KIDS = os.environ.get("YT_MADE_FOR_KIDS", "false").lower() == "true"
 YT_PRIVACY_STATUS = os.environ.get("YT_PRIVACY_STATUS", "private").strip().lower()
 if YT_PRIVACY_STATUS not in {"private", "unlisted", "public"}:
     raise ValueError("YT_PRIVACY_STATUS must be private, unlisted, or public")
 
-# ---------------------------------------------------------------------------
-# SCHEDULED PUBLISHING (publishAt) — this env var existed in the workflow
-# for months but NO code read it, so every video published the moment the
-# run finished and the "PublishAt will handle" comments were wishful
-# thinking. Implemented for real now:
-#   YT_SCHEDULE_PUBLISH=true  →  upload as private with a publishAt timestamp
-#   YouTube then flips it to public automatically at the next US peak slot
-#   (12:30 America/New_York — calibrated from the owner’s YouTube Studio
-#   heatmap and kept in sync with scheduler.USAPeakTimeScheduler and workflow).
-# ---------------------------------------------------------------------------
 YT_SCHEDULE_PUBLISH = os.environ.get("YT_SCHEDULE_PUBLISH", "false").lower() == "true"
 _PUBLISH_TZ = pytz.timezone("America/New_York")
 
-# DATA-DRIVEN (2026-08-25, owner-provided YouTube Studio heatmap):
-#   Heatmap peak: 12:00 AM – 4:00 AM PKT = 2:00 – 6:00 PM ET (BRIGHTEST).
-#   Publish at 1:30 PM ET → Shorts algorithm test batch fires at ~2:00 PM
-#   ET, right when the US afternoon peak begins. Previous 12:30 PM ET slot
-#   missed the peak by 1.5 hours.
-#
-# Sourced from the scheduler rather than re-typed, because the same slot drives
-# YouTube publishAt and the Meta wait/stagger logic. This prevents platform
-# clocks from drifting apart.
 def _peak_publish_slots() -> list:
     """(hour, minute) New York slots, single-sourced from the scheduler."""
     try:
@@ -100,19 +70,6 @@ def _peak_publish_slots() -> list:
 _PUBLISH_SLOTS = _peak_publish_slots()  # (hour, minute) New York time
 _PUBLISH_MIN_LEAD_MINUTES = 30  # video must sit privately at least this long
 
-# ---------------------------------------------------------------------------
-# ONE VIDEO PER SLOT LOCK (ported from the FR channel fix, 2026-07-26)
-# The old clock-only picker let two adjacent runs grab the SAME NY slot —
-# both videos would then go public at the exact same minute, and the
-# ENFORCE_POSTING_GAP guard could silently skip the late-evening run. Now
-# every claim is re-checked against THREE sources before a slot is chosen:
-#   1. _CLAIMED_PUBLISH_ATS — claims made by this same process
-#   2. data/video_history.json — the publish_at ledger persisted via git
-#   3. the YouTube channel itself — private+publishAt videos already queued
-#      (best-effort: needs youtube.force-ssl; failure falls back to 1+2)
-# _RUN_PUBLISH_AT caches the result: one run = one video = one slot, so the
-# YT upload and the FB stagger always reference the SAME locked slot.
-# ---------------------------------------------------------------------------
 _CLAIMED_PUBLISH_ATS = []  # timezone-aware datetimes, this process only
 SLOT_CLAIM_TOLERANCE_SECONDS = 30 * 60  # slots are >=90 min apart; 30 is safe
 _SCHEDULE_LOOKAHEAD_DAYS = 3  # claims can push a late run into tomorrow
@@ -404,13 +361,6 @@ def _upload_youtube(video_path, thumb_path, script_data, tags):
     enhanced_title = title  # already selected/scored by generate_seo_package
     desc = _build_youtube_description(script_data, tags)
 
-    # NOTE: captions.insert (SRT upload) and commentThreads.insert (posting
-    # the pinned_comment from seo_generator) both need the broader
-    # youtube.force-ssl scope, not just youtube.upload. Listing it here
-    # doesn't grant it by itself - your REFRESH_TOKEN has to have actually
-    # been issued with consent for this scope, or those two calls below
-    # will fail with a 403 and get skipped (logged as a warning, not fatal -
-    # the video upload itself only needs youtube.upload and is unaffected).
     creds = google.oauth2.credentials.Credentials(
         token=None,
         refresh_token=refresh_token,
@@ -422,13 +372,6 @@ def _upload_youtube(video_path, thumb_path, script_data, tags):
             "https://www.googleapis.com/auth/youtube.force-ssl",
         ],
     )
-    # googleapiclient's default httplib2 transport has no useful wall-clock
-    # bound for a stalled socket. Use an explicitly timed transport for every
-    # YouTube request. Disable httplib2's redirect handling because YouTube's
-    # resumable protocol uses HTTP 308 as an in-band "continue upload" response
-    # that may legitimately omit Location; googleapiclient handles that response
-    # in HttpRequest.next_chunk(). The started-state receipt remains fail-closed:
-    # an uncertain request is never retried as a fresh upload by another run.
     yt_transport = httplib2.Http(timeout=YT_HTTP_TIMEOUT)
     yt_transport.follow_redirects = False
     yt_http = AuthorizedHttp(creds, http=yt_transport)
@@ -734,11 +677,6 @@ def _upload_facebook_reels(video_path, script_data, tags, thumb_path=None):
 
             # ---- Phase 3: finish/publish ----
             video_state = "PUBLISHED"
-            # Platform-native staggering: firing identical content at YouTube
-            # and Facebook at the same minute is both a spam-pattern and a
-            # waste — each platform's "new content boost" then competes with
-            # the other's. FB_STAGGER_MINUTES schedules the Reel that many
-            # minutes after the YouTube publishAt slot (or after now).
             stagger_minutes = int(os.environ.get("FB_STAGGER_MINUTES", "0") or "0")
             finish_payload = {
                 "upload_phase": "finish",
@@ -807,11 +745,6 @@ def _upload_facebook_reels(video_path, script_data, tags, thumb_path=None):
                 time.sleep(RETRY_DELAY * (2 ** (attempt - 1)))
             continue
 
-    # Mirror the Instagram path: mark this attempt FAILED instead of leaving
-    # it stuck at "started". A stale "started" record makes the next run raise
-    # RuntimeError ("unknown completion state") for this script and crash the
-    # whole pipeline — even though Facebook is an optional/best-effort platform.
-    # Only a genuine mid-upload crash should leave "started" behind.
     upload_state[fingerprint]["facebook"] = {
         "status": "failed",
         "failed_at": time.time(),
@@ -821,16 +754,6 @@ def _upload_facebook_reels(video_path, script_data, tags, thumb_path=None):
     return False
 
 
-# ---------------------------------------------------------------------------
-# INSTAGRAM REELS (Graph API, resumable upload)
-# The Page's linked IG Business account (@mrnextep) gets the same Short as a
-# native Reel, in the 4-phase flow verified working 2026-07-26:
-#   1. POST /{ig-user-id}/media (media_type=REELS, upload_type=resumable)
-#      -> container id + rupload uri   (permission smoke-test passed live)
-#   2. POST the mp4 binary to the rupload uri
-#   3. poll /{container-id}?fields=status_code until FINISHED
-#   4. POST /{ig-user-id}/media_publish?creation_id=<container>
-# ---------------------------------------------------------------------------
 
 def _build_instagram_caption(script_data, tags):
     """Instagram-native caption.
@@ -1009,21 +932,6 @@ def _upload_instagram_reel(video_path, script_data, tags):
             else:
                 raise RuntimeError("IG container processing timed out")
 
-            # ---- Phase 4: publish ----
-            # Hold the publish until the locked peak slot. YouTube uses
-            # status.publishAt and Facebook uses scheduled_publish_time, but
-            # the Instagram Graph API has NO scheduling parameter on
-            # media_publish — so before this, every Reel went live the moment
-            # generation finished (~10:45 / ~18:15 / ~19:45 NY), i.e. never at
-            # a peak. Measured on this channel's own 15 videos: 12:00 NY
-            # averaged 833 views and 20:00 averaged 730, while the 06:00-09:00
-            # band averaged 50-79. Publishing off-peak was giving away the
-            # single easiest gain.
-            #
-            # The container stays valid for ~24h, so waiting is safe. Capped
-            # by IG_MAX_WAIT_MINUTES so a runner is never held hostage; if the
-            # slot is further away than the cap, it publishes immediately
-            # rather than failing — a live Reel beats a lost one.
             _wait_for_instagram_slot()
 
             pub_resp = requests.post(
@@ -1136,11 +1044,6 @@ def upload_all(video_path, thumb_path, script_data, meta_video_path=None):
     if not youtube_success:
         raise RuntimeError("YouTube upload failed; Facebook/Instagram success cannot replace the primary upload")
 
-    # 2026-08-15: IG insights and IG repair were blocked because no platform
-    # media ids ever reached video_history.json. upload_state recorded the IG
-    # (and FB) ids, but upload_all did not surface them. Now the per-platform
-    # ids flow through so the history ledger — the single source repair and
-    # metrics scripts read — sees every platform.
     _state = _load_upload_state()
     _fp_state = _state.get(_content_fingerprint(script_data), {})
     return {

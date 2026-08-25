@@ -29,11 +29,6 @@ from typing import Dict, List, Optional, Tuple
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
-# ---------------------------------------------------------------------------
-# Voice pool — free Microsoft Edge Neural voices
-# ---------------------------------------------------------------------------
-# All 100% free, no API key, no rate limit for reasonable usage.
-# Each voice has a distinct personality for variety across videos.
 
 VOICE_POOL = [
     {

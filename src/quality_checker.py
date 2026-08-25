@@ -67,11 +67,6 @@ class QualityChecker:
         try:
             is_valid, issues = _validate_script(script_data, lenient=lenient)
             if lenient:
-                # 2026-08-17 LLM-outage fallback: _validate_script already
-                # downgrades the explicitly subjective story-arc issues in
-                # lenient mode. Preserve its boolean result and issue list so
-                # malformed scripts remain blocked; the fallback is only for
-                # structurally complete, spam-clean scripts.
                 pass
         except Exception as e:
             logger.error(f"Script structural validation failed: {e}")

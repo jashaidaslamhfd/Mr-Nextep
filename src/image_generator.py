@@ -34,14 +34,6 @@ def _save_bytes(content: bytes, index: int, ext: str = "jpg") -> str:
     return path
 
 
-# ---------------------------------------------------------------------------
-# 2026-08-17: AI image-to-video motion layer (gen.pollinations.ai / Seedance)
-# Pollen budget: each upgrade costs ~0.4 Pollen per scene (~0.10/s x 4s).
-# AI_VIDEO_SCENES caps how many scenes per video get the upgrade - the hook
-# scene always wins so the strongest moment always has real motion.
-# On any failure (key missing, quota exhausted, rate limit, timeout) the
-# pipeline keeps the unique AI image + Ken Burns motion - never blocks a run.
-# ---------------------------------------------------------------------------
 AI_VIDEO_SCENES = int(os.environ.get("AI_VIDEO_SCENES", "5"))
 
 
@@ -523,11 +515,6 @@ def _stock_video_request(
 
         for hit in response.json().get("hits", []):
             variants = hit.get("videos", {})
-            # 2026-08-21: the Pixabay video endpoint has NO orientation
-            # filter (API limitation), so every variant must be checked
-            # individually: portrait shape + resolution floor only.
-            # small=640x360 variants blur when stretched to 1080x1920,
-            # so large/medium are preferred.
             chosen = None
             for variant_key in ("large", "medium", "small"):
                 var = variants.get(variant_key)
@@ -575,22 +562,12 @@ def _stock_video_request(
             f"{source}: video download failed or was too small"
         )
 
-    # 2026-08-15: Pexels/Pixabay occasionally serve an HTML error/redirect
-    # page larger than the 100KB floor — accepted bytes were saved as .mp4
-    # and then MoviePy crashed at build time ("failed to read the first
-    # frame"). Verify the bytes are a real ISO-BMFF/MP4 container (ftyp or
-    # moov box) before accepting.
     head = content[:64]
     if not (b"ftyp" in head or b"moov" in head):
         raise RuntimeError(
             f"{source}: downloaded bytes are not a valid MP4 container"
         )
 
-    # 2026-08-17: same failure class as the Neuro-Somaa outage — Pexels/
-    # Pixabay sometimes serve TRUNCATED streams that pass the ftyp/moov
-    # header check. Probing at build time burned ~19 min of rendering per
-    # attempt before rejecting the scene. Probe right after the download so a
-    # bad URL simply fails this layer and the next candidate is tried.
     path = _save_bytes(content, index, ext="mp4")
     if not _probe_is_valid_video(path):
         raise RuntimeError(
@@ -674,14 +651,6 @@ def _generate_one(
 ):
     scene_text = _scene_text(scene)
 
-    # 2026-08-21 ORDER FLIP (owner request: "Pexels/Pixabay se video bnao,
-    # professional clips primary; AI generator fallback" - parity with
-    # Neuro-Somaa repo). Real filmed B-roll has genuine camera motion and
-    # physics that no AI render fully matches, so it reads as HUMAN-made to
-    # US Shorts viewers. AI image generation (unique per scene + Seedance
-    # motion clips when POLLINATIONS_KEY is set) stays as the robust
-    # fallback when stock searches come up empty, followed by the
-    # never-fail local/procedural floors.
     layers = [
         # --- PRIMARY: professional stock clips (real footage) ---
         (

@@ -58,6 +58,7 @@ try:
     from platform_cuts import apply_cut, cut_summary, fits_platform, select_meta_cut
     from us_content_gate import evaluate as evaluate_us_content
     from source_research import discover_pubmed_sources, verify_source_urls
+    from max_reach_optimizer import optimize_for_max_reach  # MAX REACH: master optimizer
     # Enhanced modules (optional, best-effort)
     try:
         from voice_enhanced import generate_enhanced_voice
@@ -89,11 +90,6 @@ FALLBACK_ABORT_RATIO = float(os.environ.get("FALLBACK_ABORT_RATIO", "0.5"))
 # A hardcoded number here, or in the workflow, drifts the moment the scorer
 # changes — which is exactly what happened to the old "85".
 MIN_HOOK_SCORE = env_int("MIN_HOOK_SCORE", _POLICY_MIN_HOOK_SCORE)
-# The hook budget is a RANKING constraint, not a stylistic one: every 2026
-# feed decides whether to keep showing a video within the first 2-3 seconds,
-# so an opening that takes 5 seconds to land its promise has already lost the
-# cohort it was testing on. Default comes from algorithm_policy (2.8s for
-# YouTube) and can still be overridden per-run for experiments.
 MAX_HOOK_SECONDS = env_float("MAX_HOOK_SECONDS", 0.0) or None
 # Tracked repository state is durable across Actions runs; generated media
 # remains in output/ and is intentionally not committed.
@@ -202,11 +198,6 @@ def _sanitize_generated_content(script_data: dict) -> dict:
             if isinstance(scene, dict) and scene.get("caption")
         )
     return script_data
-# Cross-video image/clip hash ledger. Without this, image_generator.py only
-# dedupes scenes WITHIN a single video (used_hashes/used_fallbacks are fresh
-# sets per run) — the exact same fallback image or stock clip could then
-# reappear in video #1 and video #200 with nothing to stop it. This file
-# persists every hash/URL ever used so reuse is blocked channel-wide.
 MEDIA_HASH_HISTORY_PATH = os.environ.get("MEDIA_HASH_HISTORY_PATH", "data/media_hash_history.json")
 # Cap on how many hashes/URLs we remember, so the ledger doesn't grow forever.
 MAX_MEDIA_HASH_HISTORY = int(os.environ.get("MAX_MEDIA_HASH_HISTORY", "20000"))
@@ -405,12 +396,6 @@ class NextepPipeline:
 
             if cadence:
                 logger.info("🤖 Recommended cadence: %s video(s)/day", cadence)
-                # Retention-first policy: production now has one daily
-                # heatmap-aligned trigger, and the ML growth engine also keeps
-                # cadence at one while retention is below the healthy threshold.
-                # Without enforcement, repeated dispatches could over-ship
-                # sub-gate videos. Count today's published videos across all
-                # three platforms; at or above cadence, skip gracefully.
                 _cad = int(float(str(cadence)))
                 if _cad > 0:
                     try:
@@ -451,11 +436,6 @@ class NextepPipeline:
                     top.get("label"), int(round(top.get("share", 0) * 100)),
                 )
 
-            # CTR / retention steering: log what the dedicated models say so the
-            # operator sees exactly what to protect (these two gates decide
-            # whether the channel keeps being distributed).
-            # Reality calibration: if heuristic scores don't predict real views,
-            # warn loudly so the operator knows the "good" scores are not real.
             cal = decision.get("calibration", {})
             if cal.get("calibrated"):
                 drifted = cal.get("drifted") or []
@@ -595,11 +575,6 @@ class NextepPipeline:
                 'review_required': True,
             }
 
-            # The LLM prompt is not a fact-checker. If it omitted sources, or
-            # supplied a dead commercial URL, enrich the draft from PubMed rather
-            # than accepting a fabricated/unreachable citation. Human review
-            # still verifies that the source supports the exact wording before
-            # any US-platform upload.
             source_research_enabled = os.environ.get(
                 'AUTO_SOURCE_RESEARCH', 'true'
             ).lower() in {'1', 'true', 'yes'}
@@ -640,11 +615,6 @@ class NextepPipeline:
                 if any(not item.get('ok') for item in verification):
                     logger.warning("One or more evidence URLs could not be reached; keeping the item draft-only")
 
-            # Require an auditable source record, anti-bait language,
-            # originality, and explicit human review before any public upload.
-            # Disclaimers and enrichment can mutate description/CTA after the
-            # first provider pass, so run the same narrow scrub immediately
-            # before the fail-closed gate as well.
             script_data = _sanitize_generated_content(script_data)
             if any(
                 not isinstance(scene, dict) or not str(scene.get("caption", "")).strip()
@@ -708,11 +678,6 @@ class NextepPipeline:
         best_attempt = None
         last_error = None
 
-        # 2026-08-17 LLM-outage fallback: when every premium provider is down
-        # (Groq 429 storm AND OpenRouter paid/strong slugs unreachable), the
-        # strict gates are kept on all normal attempts; only on the very last
-        # attempt, if a structurally complete fallback script exists, a relaxed
-        # floor lets a decent (not premium) Short ship instead of zero uploads.
         FALLBACK_LENIENT_MODE = os.environ.get("FALLBACK_LENIENT_MODE", "1") == "1"
         primary_exhausted = False
 
@@ -723,11 +688,6 @@ class NextepPipeline:
                     current_topic = fixed_topic
                     trend_record = {}
                 else:
-                    # 2026-08-15 Trend-Spiker overlay: a genuine, on-brand,
-                    # multi-feed demand spike can override this single slot.
-                    # TREND_SPIKER_ENABLED defaults to false - the curated
-                    # queue keeps the 500-topic consistency signal; the
-                    # overlay only fires when public feeds confirm real heat.
                     spike_record = get_trend_spike(recent_topics)
                     if spike_record:
                         trend_record = spike_record
@@ -788,11 +748,6 @@ class NextepPipeline:
             except Exception as e:
                 last_error = e
                 logger.error(f"Attempt {attempt} failed: {e}")
-                # 2026-08-17: mark the primary chain exhausted whenever an
-                # attempt died because every premium provider was unreachable
-                # (Groq 429 storm escalated to the OpenRouter backup, or the
-                # OpenRouter chain itself gave up). That is the signal for
-                # the final-attempt lenient fallback below.
                 msg = str(e)
                 if "OpenRouter" in msg or "HTTP 429" in msg or "providers failed" in msg:
                     primary_exhausted = True
@@ -811,11 +766,6 @@ class NextepPipeline:
                 failures.append(f"hook={best_attempt.get('hook_score', 0)}/{MIN_HOOK_SCORE}")
             if not failures:
                 return best_attempt['script_data']
-            # 2026-08-15: under heavy Groq 429 storms every attempt can fail
-            # the strict hook gate while the best candidate is otherwise
-            # safe. Safety gates (quality, spam) stay absolute; the hook gate
-            # softens on the final attempt so a 55+/100 hook still ships
-            # instead of burning the day's upload slot.
             hook = best_attempt.get('hook_score', 0)
             if best_attempt.get('quality_approved') and best_attempt.get('spam_ok') and hook >= 55:
                 logger.warning(
@@ -824,12 +774,6 @@ class NextepPipeline:
                     hook, MIN_HOOK_SCORE,
                 )
                 return best_attempt['script_data']
-            # 2026-08-17 LLM-outage fallback: when the primary chain was
-            # exhausted (every attempt failed because all premium providers
-            # were unreachable) the best candidate came from the free-model
-            # backup. Its stylistic hooks may be weaker, but if it is
-            # structurally complete and spam-clean it ships at a relaxed hook
-            # floor — a decent Short beats a missed slot during an outage.
             if FALLBACK_LENIENT_MODE and primary_exhausted and best_attempt.get('spam_ok'):
                 NextepPipeline.lenient_fallback = True
                 fallback_result = self.quality_checker.check_script_quality(
@@ -864,12 +808,6 @@ class NextepPipeline:
             )
             self._persist_last_failure(
                 "quality_retry", f"Queued for retry: {fixed_topic} — {reason}")
-            # 2026-08-20 SLOT-PRESERVING EXIT (owner: "cron miss = video
-            # consistency broken"): a quality-miss no longer crashes the daily
-            # workflow with a red X. The topic is persisted for retry and the
-            # run exits with a clean graceful status — the very next cron
-            # re-opens the topic under the same strict gates. Weak videos
-            # are never published; one late strong video beats a rushed one.
             if os.environ.get("GRACEFUL_QUALITY_MISS", "1").strip().lower() not in ("0", "false", "no"):
                 try:
                     _gm = "data/quality_miss_graceful.json"
@@ -913,20 +851,6 @@ class NextepPipeline:
         except OSError:
             pass
 
-    # ------------------------------------------------------------------
-    # 2026-08-16 QUALITY RETRY QUEUE — never burn a slot on a quality miss
-    # ------------------------------------------------------------------
-    # Problem: when the strict quality gate rejects all attempts, the day's
-    # cron slot is lost (no video uploaded) and the topic disappears forever.
-    # A weaker lenient floor protects the slot but hurts retention.
-    # Solution: persist the rejected topic into a retry queue. The very next
-    # pipeline run (same day's second slot, or tomorrow's) re-opens the
-    # topic and gets a fresh LLM output — same topic, new script, full strict
-    # gates. Spam can never be retried (absolute). A topic that has lived
-    # in the queue for RETRY_MAX_DAYS days is retired (moved to
-    # data/quality_retry_dead.json) so stale topics never leak into
-    # a future video.
-    # ------------------------------------------------------------------
     RETRY_QUEUE_PATH = os.environ.get(
         "QUALITY_RETRY_QUEUE_PATH", "data/quality_retry_queue.json")
     RETRY_MAX_DAYS = int(os.environ.get("QUALITY_RETRY_MAX_DAYS", "3"))
@@ -1117,11 +1041,6 @@ class NextepPipeline:
                 pass
 
         try:
-            # Phase 0: Check posting interval. When scheduled publishing is
-            # on, the one-video-per-slot lock in uploader.py already spaces
-            # publishes >=90 min apart via publishAt — the upload-TIME gap
-            # check here would only skip legitimate same-evening runs, so it
-            # stays active for instant-publish mode only.
             _scheduling_on = os.environ.get("YT_SCHEDULE_PUBLISH", "false").lower() == "true"
             if self.video_history and not _scheduling_on:
                 last_posted_at = self.video_history[-1].get('posted_at')
@@ -1129,11 +1048,6 @@ class NextepPipeline:
                     try:
                         last_dt = datetime.fromisoformat(last_posted_at)
                         if not self.scheduler.validate_posting_interval(last_dt):
-                            # Was a toothless warning before: a back-to-back
-                            # manual dispatch could hammer the channel with
-                            # uploads minutes apart despite our anti-spam
-                            # policy. ENFORCE_POSTING_GAP=true (default) now
-                            # SKIPS the run instead of just logging.
                             logger.warning("⚠️ Posting sooner than recommended 2h gap")
                             if os.environ.get("ENFORCE_POSTING_GAP", "true").lower() == "true":
                                 logger.warning(
@@ -1217,11 +1131,6 @@ class NextepPipeline:
             except Exception as e:  # noqa: BLE001 - title polish must not block
                 logger.warning(f"High-CTR title step skipped: {e}")
 
-            # Phase 1d: Duplicate-title guard. NEVER publish a title that
-            # already exists on this channel (published or scheduled) — a
-            # duplicate Short tanks retention AND is an inauthentic-content
-            # risk. If the final title is a duplicate, abort the run so the
-            # operator/system can pick a fresh topic rather than upload a copy.
             try:
                 _final_title = script_data.get('title', '') or ''
                 if self._is_duplicate_title(_final_title):
@@ -1258,11 +1167,6 @@ class NextepPipeline:
 
             _complete_stage()
 
-            # Record which opening frame this video used, so the growth engine
-            # can learn which frames survive the first three seconds. Without
-            # this the classifier would have to re-derive the frame from the
-            # published title later — and the title gets rewritten by SEO, so
-            # it would be classifying the wrong string.
             try:
                 from growth_engine import hook_frame
                 script_data['hook_frame'] = hook_frame(
@@ -1302,6 +1206,36 @@ class NextepPipeline:
                 logger.warning(f"CTR prediction failed: {e}")
 
             # Phase 2: Image Generation
+            # Phase 1f: MAX REACH OPTIMIZATION — master optimizer for views/subs/followers/earnings
+            _start_stage("max_reach_optimization")
+            logger.info("\n🚀 PHASE 1f: MAX REACH OPTIMIZATION")
+            try:
+                max_reach_result = optimize_for_max_reach(script_data)
+                script_data = max_reach_result.get('optimized_script', script_data)
+                script_data['max_reach'] = {
+                    'predicted_metrics': max_reach_result.get('predicted_metrics', {}),
+                    'platform_ctas': max_reach_result.get('platform_ctas', {}),
+                    'title_variants': max_reach_result.get('title_variants', []),
+                    'loop_back_score': max_reach_result.get('loop_back_score', 0),
+                    'improvements_applied': max_reach_result.get('improvements_applied', []),
+                    'earnings_estimate': max_reach_result.get('earnings_estimate', {}),
+                }
+                # Log optimization results
+                improvements = max_reach_result.get('improvements_applied', [])
+                if improvements:
+                    for imp in improvements:
+                        logger.info(f"  🔧 {imp}")
+                metrics = max_reach_result.get('predicted_metrics', {})
+                logger.info(f"  📊 Predicted retention: {metrics.get('retention', 0):.1%}")
+                logger.info(f"  📊 Predicted CTR: {metrics.get('ctr', 0):.1%}")
+                logger.info(f"  📊 Loop-back score: {max_reach_result.get('loop_back_score', 0):.2f}")
+                earnings = max_reach_result.get('earnings_estimate', {})
+                logger.info(f"  💰 Est. RPM: ${earnings.get('estimated_rpm_usd', 0):.3f}/1K views")
+                logger.info(f"  💰 Est. revenue/100K views: ${earnings.get('revenue_per_100k_views_usd', 0):.2f}")
+                _complete_stage()
+            except Exception as e:  # noqa: BLE001 - optimizer must never block production
+                logger.warning(f"Max reach optimization failed (continuing with original script): {e}")
+
             _start_stage("image_generation")
             logger.info("\n🎨 PHASE 2: IMAGE GENERATION")
             image_paths, image_sources, media_types = self._generate_images_with_retry(script_data)
@@ -1320,26 +1254,6 @@ class NextepPipeline:
                 raise RuntimeError(f"Quality gate failed: {fallback_ratio:.1%} fallbacks")
             _complete_stage()
 
-            # Phase 2b: Ending mode — loop-back (default) or a short spoken CTA
-            #
-            # WHY THE SPOKEN CTA IS OFF BY DEFAULT NOW
-            # A "follow for more" outro used to be appended as a real 9th
-            # scene, so every video spent 2-4 seconds of its runtime asking
-            # for something instead of delivering. On a 36-second Short those
-            # seconds are ~8% of the video, and they land exactly where the
-            # completion percentage is decided. All three 2026 ranking systems
-            # grade on completion (YouTube's watch-time-per-impression gate,
-            # Meta's watch-through), and Meta additionally demotes captions
-            # and audio that beg for engagement.
-            #
-            # Loop mode ends on the script's LOOP-BACK line instead, so the
-            # last frame flows back into the first. A clean loop earns replays,
-            # and replays count as watch time on every platform. The follow
-            # ask still exists — it just lives in the caption, where it costs
-            # zero seconds of retention.
-            #
-            # SPOKEN_CTA_MODE=cta restores the old behaviour with a hard 2s
-            # budget if the channel ever wants to test it again.
             cta_mode = os.environ.get("SPOKEN_CTA_MODE", "loop").strip().lower()
             cta_text = (script_data.get('cta') or '').strip()
 
@@ -1377,11 +1291,6 @@ class NextepPipeline:
             _start_stage("voice_generation")
             logger.info("\n🔊 PHASE 3: VOICE GENERATION")
             try:
-                # Voice/lang are env-driven now (KOKORO_VOICE / KOKORO_LANG_CODE
-                # / TTS_ENGINE). Previously hardcoded "am_adam" here overrode
-                # the workflow's voice config without anyone noticing.
-                # A tiny per-video tempo jitter (humanizer) stops every video
-                # being exactly on-beat, which is a machine tell.
                 try:
                     from humanizer import tempo_jitter
                     _voice_speed = tempo_jitter(1.0, script_data.get('topic') or script_data.get('title', ''))
@@ -1422,13 +1331,6 @@ class NextepPipeline:
                         logger.info(f"🎵 Audio cuts: {cut_map['total_cuts']} across {len(all_cuts)} scenes")
                     except Exception as ar_err:
                         logger.warning(f"Audio-reactive analysis failed: {ar_err}")
-                # The master cut's ceiling comes from algorithm_policy, which
-                # derives it from YouTube's retention gate rather than from a
-                # hand-picked number. video_editor may still make a small
-                # (<=12%) inaudible speed correction; anything beyond that
-                # gets regenerated, because rushed narration is exactly the
-                # "machine-made" quality the 2026 inauthentic-content policy
-                # penalises.
                 _yt_floor, _yt_ideal, target_max_seconds = duration_policy(YOUTUBE)
                 if narration_seconds > target_max_seconds * 1.12:
                     raise RuntimeError(
@@ -1449,13 +1351,6 @@ class NextepPipeline:
                 if os.environ.get("REQUIRE_CLONED_VOICE", "true").lower() == "true":
                     if engines != {"chatterbox_clone"}:
                         raise RuntimeError(f"Cloned voice required, got: {sorted(engines)}")
-                # Hook budget: the tightest ENABLED platform wins, because one
-                # audio track serves all of them and Instagram decides fastest
-                # (~2s). The enforcement threshold carries a delivery
-                # tolerance — the writer aims at the true budget, and the gate
-                # rejects genuinely slow openings rather than punishing a
-                # strong hook for a natural dramatic beat. Both numbers come
-                # from algorithm_policy so they can never drift apart again.
                 platforms = self._enabled_platforms()
                 hook_target = shared_hook_seconds(platforms)
                 hook_limit = MAX_HOOK_SECONDS or hook_enforcement_seconds(platforms)
@@ -1526,11 +1421,6 @@ class NextepPipeline:
 
                 hook_score = shorts_report.get('hook_detail', {}).get('score', 0)
                 if hook_score < MIN_HOOK_SCORE and not outage_fallback_approved:
-                    # 2026-08-19: a late-stage hook miss must NOT burn the slot.
-                    # Mirror Neuro-Somaa: queue the topic for a fresh script
-                    # (next run honours it via _next_retry_topic), then raise a
-                    # RECOVERABLE marker the continuity wrapper recognises so
-                    # it retries with a new topic within the SAME run.
                     hook_topic = script_data.get('topic') or topic
                     try:
                         self._enqueue_retry_topic(
@@ -1650,11 +1540,6 @@ class NextepPipeline:
                 logger.info(f"✅ Video built and validated: {final_video} ({technical})")
                 logger.info(f"✅ Thumbnail built: {thumb_path}")
 
-                # 🔴 INDEPENDENT GATE PIPELINE — every subsystem's own guard must
-                # pass before upload. These guards ignore the pipeline's heuristic
-                # self-scores (which have drifted from reality) and check each
-                # stage with its own independent rules. If ANY fails, the video
-                # is NOT published.
                 try:
                     from gates import run_gates
                     _yt_floor, _yt_ideal, _yt_ceil = duration_policy(YOUTUBE)
@@ -1693,17 +1578,6 @@ class NextepPipeline:
 
             # Phase 4b: Meta cut (Facebook + Instagram)
             _start_stage("meta_cut")
-            #
-            # Facebook widens distribution around ~72% watch-through and
-            # Instagram decides in the first seconds; both sit well below
-            # YouTube's window. Publishing the 36s master to Meta was asking a
-            # 27s-shaped audience to finish a 36s video, and this channel's own
-            # Instagram insights showed the result: 2.6-7.5s average watch time.
-            #
-            # The Meta cut reuses the SAME rendered scenes and audio, so it
-            # costs one extra encode and zero extra generation. If anything
-            # fails, Meta simply receives the master cut — a slightly-too-long
-            # Reel beats no Reel.
             meta_video = final_video
             meta_cut_seconds = script_data.get('duration_seconds')
             meta_platforms = [p for p in self._enabled_platforms() if p != YOUTUBE]
@@ -1842,12 +1716,6 @@ class NextepPipeline:
                 'predicted_ctr': script_data.get('ctr_prediction', {}).get('ctr_prediction'),
                 'hook_score': script_data.get('shorts_report', {}).get('hook_detail', {}).get('score'),
                 'predicted_retention': script_data.get('shorts_report', {}).get('retention_prediction', {}).get('predicted_avg_retention'),
-                # Real rendered lengths. platform_metrics divides each
-                # platform's average watch time by the length of the cut THAT
-                # platform actually received — without these two fields every
-                # completion rate would be computed against the wrong
-                # denominator and the learning loop would draw the wrong
-                # conclusion about which platform is working.
                 'duration_seconds': script_data.get('duration_seconds'),
                 'meta_cut_seconds': script_data.get('meta_cut_seconds'),
                 'ending_mode': script_data.get('ending_mode', 'cta'),
@@ -1860,6 +1728,8 @@ class NextepPipeline:
                 'asset_provenance': script_data.get('asset_provenance', {}),
                 'experiment': script_data.get('experiment', {}),
                 'ab_variants': script_data.get('ab_variants', {}),
+                # MAX REACH: optimization metrics for growth engine learning
+                'max_reach': script_data.get('max_reach', {}),
             })
 
             _complete_stage()
@@ -1909,11 +1779,6 @@ class NextepPipeline:
             register_slot_attempt,
         )
 
-        # 2026-08-19: hook misses are now slotted into the same consistency
-        # loop as the other guard blocks — the topic is queued for a fresh
-        # script and the SAME peak slot gets refilled instead of missed. The
-        # same safe loop also handles overlong narration and caption pacing,
-        # which are known to fail before any public upload begins.
         attempt = 0
         last_err = None
         while True:

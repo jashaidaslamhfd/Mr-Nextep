@@ -75,40 +75,9 @@ INSTAGRAM = "instagram_reels"
 PLATFORMS = (YOUTUBE, FACEBOOK, INSTAGRAM)
 
 
-# ---------------------------------------------------------------------------
-# SPEECH RATE
-# Measured on this channel's own Kokoro am_adam segments (data/video_history
-# voiceovers vs. rendered durations): 2.55-2.75 words/second including the
-# natural pauses the script inserts. 2.62 is the working midpoint and is what
-# the script word budget below is derived from — so the writer never has to
-# guess "how many words is 35 seconds".
-# ---------------------------------------------------------------------------
 WORDS_PER_SECOND = float(os.environ.get("SPEECH_WORDS_PER_SECOND", "2.62"))
 
 
-# ---------------------------------------------------------------------------
-# RETIRED CONFIGURATION GUARD
-#
-# The generation workflow used to pin the old strategy directly in YAML:
-#
-#     TARGET_MIN_SECONDS: "40"    TARGET_MAX_SECONDS: "55"
-#     MAX_HOOK_SECONDS:   "5.0"   MIN_HOOK_SCORE:     "85"
-#
-# Those numbers belong to a strategy this module replaced. Two problems if
-# they are still present in a deployment:
-#
-#   * they silently override the policy, so the code says 36s and the runner
-#     produces 55s — the exact class of drift this module exists to end;
-#   * MIN_HOOK_SCORE=85 was calibrated for the PREVIOUS hook scorer. Against
-#     the current one only ~3 in 21 of this channel's published hooks clear
-#     it, so nearly every run would exhaust its retries and skip the upload.
-#
-# A workflow file cannot always be updated in the same change as the code
-# (restricted tokens, protected paths, staged rollouts). So rather than trust
-# that they were removed, the code refuses these specific retired values and
-# says so loudly. Any OTHER value is honoured normally — deliberate
-# experiments still work, stale defaults do not.
-# ---------------------------------------------------------------------------
 _RETIRED_ENV_VALUES: Dict[str, Tuple[str, ...]] = {
     "TARGET_MIN_SECONDS": ("40", "40.0"),
     "TARGET_MAX_SECONDS": ("55", "55.0"),
@@ -158,41 +127,9 @@ def env_int(name: str, fallback: int) -> int:
         return int(fallback)
 
 
-# ---------------------------------------------------------------------------
-# PER-PLATFORM POLICY
-# ---------------------------------------------------------------------------
-# duration:        (floor, ideal, ceiling) seconds for THAT platform's cut
-# retention_gate:  average-view-percentage the cut has to clear to get pushed
-#                  wider; expressed as a function of its own length
-# decision_seconds: how long the viewer gives the video before deciding to
-#                  stay or swipe. 2026 consensus across all three platforms is
-#                  2-3 seconds. This is an observation about VIEWERS.
-# hook_seconds:    how long the opening SENTENCE may run. Deliberately longer
-#                  than decision_seconds, because the two are different
-#                  things: the viewer decides mid-sentence, based on the first
-#                  few words and the first frame — the sentence does not have
-#                  to be finished for the promise to land.
-#                  Conflating them was a real bug here: hook_seconds was set
-#                  to decision_seconds, which at the measured speech rate
-#                  allowed only FIVE words, and the caption trimmer then
-#                  chopped good openers into fragments like "Your calf locks
-#                  up in." A truncated hook fails the very moment it was
-#                  supposed to win.
-# hashtags:        (min, max) — more is not better on any of the three
-# caption:         first-line and total character budgets
-# spoken_cta:      whether an out-loud "follow me" is allowed in the audio
-# ---------------------------------------------------------------------------
 PLATFORM_POLICY: Dict[str, Dict] = {
     YOUTUBE: {
         "label": "YouTube Shorts",
-        # FIXED 2026-08-14 (million-views pass): measured channel watch time is
-        # 10-14s while the 33s ideal earned 27-38% completion against the 50%
-        # gate. Median completion 32% is why the feed starves this channel.
-        # Dropping the ideal to 24s lifts completion ~24% for the same watch
-        # time (12s/24s=50% vs 12/33=36%) while still clearing the sub-30s 65%
-        # gate. Shorts under 30s with 50%+ AVP are pushed widest; shorter is
-        # the single highest-leverage free change in the data (lever importance
-        # 0.343, the top of every lever).
         "duration": (22.0, 28.0, 38.0),
         "hard_max": 60.0,
         # FIXED 2026-08-14: see duration note above — 33s ideal made the gate
@@ -222,21 +159,6 @@ PLATFORM_POLICY: Dict[str, Dict] = {
     },
     FACEBOOK: {
         "label": "Facebook Reels",
-        # FIXED 2026-07-31: FB ideal 27s -> 24s because IG data showed 2.6-7.5s avg vs 47s = 5-16%
-        # completion vs 72% gate. Shorter cut = higher % automatically.
-        #
-        # FIXED 2026-08-14 (million-views pass): 24s was still arithmetically
-        # unable to clear the gate on this channel. Measured Facebook Reels:
-        # 19% completion, 2.6-7.5s average watch. Completion is watch/length, so
-        # the length is the only term we control for free:
-        #     7.5s watch / 24s cut = 31%   (gate 72% -> fails)
-        #     7.5s watch / 16s cut = 47%
-        #     7.5s watch / 12s cut = 63%   (within reach of the gate)
-        # The old 18s FLOOR made anything shorter impossible, so the operator's
-        # META_TARGET_SECONDS=18 was already pinned at the minimum and could not
-        # help. Floor drops to 12s so the dual-cut editor can actually reach the
-        # length the data demands. Nothing here is a platform limit: Facebook
-        # Reels accept 3s+, this was purely our own policy choice.
         "duration": (10.0, 14.0, 22.0),
         "hard_max": 90.0,
         "retention_gate": {"under_30s": 0.72, "over_30s": 0.60},
@@ -293,23 +215,6 @@ PLATFORM_POLICY: Dict[str, Dict] = {
 }
 
 
-# ---------------------------------------------------------------------------
-# ENGAGEMENT-BAIT VOCABULARY
-#
-# This is deliberately split, because the two families of platform do NOT
-# agree on what counts as bait — and treating them the same costs reach on
-# one side or a demotion on the other:
-#
-#   * Both:  demanding a like/comment/share/tag/save. YouTube's spam policy
-#            and Meta's engagement-bait demotion both target these.
-#   * Meta only: "subscribe". Meta reads a subscribe push as off-platform
-#            promotion, while on YouTube "subscribe for more" is ordinary,
-#            expected creator language that costs nothing.
-#
-# What is bait-free everywhere: a plain "Follow". That is the only ask the
-# channel makes in the audio, and since the spoken CTA was removed it is the
-# caption's job to carry it.
-# ---------------------------------------------------------------------------
 _UNIVERSAL_BAIT: Tuple[str, ...] = (
     r"\blike (this|if|and)\b",
     r"\bdouble tap\b",
@@ -433,12 +338,6 @@ def shared_hook_seconds(platforms: Optional[Iterable[str]] = None) -> float:
     return min(hook_seconds(p) for p in selected)
 
 
-# Natural speech is not metronomic: the opening line carries the most
-# deliberate delivery (a beat before the twist, emphasis on the subject), so
-# it consistently runs slower than the channel average. This tolerance keeps a
-# strong 5-word hook that lands in 2.4s instead of 2.0s, while still rejecting
-# the 4-5 second cold intros the gate exists to stop. It is applied to the
-# ENFORCEMENT threshold only — the writer still aims at the true budget.
 HOOK_DELIVERY_TOLERANCE = 1.35
 
 
@@ -633,13 +532,6 @@ def enforce_hashtag_limit(hashtags: List[str], platform: str) -> List[str]:
     return out
 
 
-# ---------------------------------------------------------------------------
-# Publishing cadence
-# ---------------------------------------------------------------------------
-# Consistency beats volume on all three platforms in 2026, and YouTube's
-# inauthentic-content policy makes "more uploads" an actively risky lever for
-# a faceless channel. The pipeline therefore never posts more than this, and
-# the growth engine is allowed to recommend LESS (see src/growth_engine.py).
 MAX_UPLOADS_PER_DAY = 2
 MIN_UPLOADS_PER_DAY = 1
 MIN_MINUTES_BETWEEN_PUBLISHES = 90
@@ -663,33 +555,6 @@ def retention_cadence_cap(channel_gate_ratio: float | None) -> int:
 
 
 
-# ---------------------------------------------------------------------------
-# Health thresholds used by the learning loop (src/growth_engine.py). These
-# are the numbers that turn "the algorithm wants retention" into an actual
-# if-statement somewhere.
-# ---------------------------------------------------------------------------
-# ---------------------------------------------------------------------------
-# HOOK GATE
-#
-# shorts_enhancer.score_hook_detailed awards:
-#     25  right spoken length (fits the hook budget)
-#     20  addresses the viewer ("you"/"your")
-#     25  names something concrete the viewer can picture
-#     20  opens a curiosity loop (explicit question OR implicit gap)
-#     10  not a cold open
-#     -35 vague authority   ·   veto (score 0) for fear-bait
-#
-# The gate is therefore not a taste value, it is a statement about which
-# checks are MANDATORY. 80 = every structural check must pass; the curiosity
-# loop is what separates a competent hook from a strong one, and the retry
-# loop spends its attempts chasing it.
-#
-# This lives here rather than in the workflow because the previous magic "85"
-# in main.yml was calibrated against a DIFFERENT scoring scale. When the
-# scorer was rewritten, that number silently became near-unreachable: only 3
-# of the channel's 21 published hooks would have cleared it, so most runs
-# would have failed their gates and skipped the upload entirely. A threshold
-# and the scale it is measured on must live together.
 MIN_HOOK_SCORE = 80
 # Above this the hook is strong enough that the retry loop stops early instead
 # of spending API calls trying to beat it.
@@ -734,6 +599,86 @@ def summary() -> str:
         f">= {MIN_MINUTES_BETWEEN_PUBLISHES} min apart.",
     ]
     return "\n".join(lines)
+
+
+
+# Engagement score weights — how much each signal contributes to a video's
+# total reach score. Higher = the algorithm pushes harder.
+ENGAGEMENT_SCORE_WEIGHTS = {
+    "retention": 0.30,       # watch time / completion (top YouTube signal)
+    "ctr": 0.20,             # click-through rate (impressions → views)
+    "shares": 0.20,          # shares/DMs (IG #2 signal, YT growing signal)
+    "loop_rate": 0.15,       # replay rate = free watch time
+    "comments": 0.10,        # comments weighted above likes (YouTube confirmed)
+    "saves": 0.05,           # saves (IG signal)
+}
+
+# Minimum engagement score to be considered "reach-ready" (0-100)
+REACH_READY_THRESHOLD = 72
+
+# Topics ranked by measured engagement (from growth_state analytics)
+# muscle and ear topics get highest completion; brain lowest
+TOPIC_ENGAGEMENT_RANKINGS = {
+    "muscle": 1.08,
+    "ear": 1.05,
+    "heart": 1.03,
+    "sleep": 1.02,
+    "skin": 1.01,
+    "eye": 1.00,
+    "nerve": 0.99,
+    "brain": 0.88,
+    "other": 0.95,
+}
+
+# Hook openers ranked by measured retention impact (from viral_optimizer calibration)
+HOOK_RETENTION_RANKINGS = {
+    "statement": 1.04,      # "Your muscle does X" — direct, no question mark
+    "contradiction": 1.12,  # "Your brain does X, but the opposite is true"
+    "mechanism": 1.10,      # "Here's how your nerve signal works"
+    "countdown": 1.08,      # "In exactly 3 seconds, your body will..."
+    "question": 0.92,       # "Why does your muscle do X?" (questions lower retention)
+    "cold_open": 0.60,      # "Hi, today we're talking about..." (penalty)
+}
+
+
+def engagement_score(metrics: Dict[str, float]) -> float:
+    """Compute a 0-100 reach score from predicted or actual metrics.
+
+    metrics keys: retention, ctr, shares, loop_rate, comments, saves
+    All values should be 0-1 fractions (except shares/comments which are rates).
+    """
+    score = 0.0
+
+    # Normalize each metric to 0-100 scale
+    retention = max(0, min(metrics.get("retention", 0), 1))
+    ctr = max(0, min(metrics.get("ctr", 0), 1))
+    shares = max(0, min(metrics.get("shares", 0) * 100, 1))  # 1% shares = 100
+    loop_rate = max(0, min(metrics.get("loop_rate", 0), 1))
+    comments = max(0, min(metrics.get("comments", 0) * 50, 1))  # 2% comments = 100
+    saves = max(0, min(metrics.get("saves", 0) * 100, 1))
+
+    for metric, value in [
+        ("retention", retention),
+        ("ctr", ctr),
+        ("shares", shares),
+        ("loop_rate", loop_rate),
+        ("comments", comments),
+        ("saves", saves),
+    ]:
+        weight = ENGAGEMENT_SCORE_WEIGHTS.get(metric, 0)
+        score += value * weight * 100
+
+    return round(min(score, 100), 1)
+
+
+def topic_reach_multiplier(topic: str) -> float:
+    """Multiplier on predicted reach based on topic performance history."""
+    return TOPIC_ENGAGEMENT_RANKINGS.get(topic, 0.95)
+
+
+def hook_reach_multiplier(hook_type: str) -> float:
+    """Multiplier on predicted reach based on hook style performance."""
+    return HOOK_RETENTION_RANKINGS.get(hook_type, 0.95)
 
 
 if __name__ == "__main__":  # pragma: no cover - manual inspection helper

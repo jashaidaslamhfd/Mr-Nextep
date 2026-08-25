@@ -37,6 +37,11 @@ _YT_CLOSERS = (
     # US-audience specific closers
     "New body science Short daily — subscribe to stay curious.",
     "One body mystery explained. Subscribe — new Short every day.",
+    # MAX REACH: high-conversion closers (subscribe + bell = notification boost)
+    "Subscribe and turn on notifications — your body has more secrets.",
+    "Hit subscribe — your body does things you've never noticed.",
+    "Follow for daily body science — your body is wilder than you think.",
+    "New body fact every day — subscribe to stay ahead.",
 )
 
 _META_CLOSERS = (
@@ -44,11 +49,11 @@ _META_CLOSERS = (
     "Follow for more everyday biology, explained simply.",
     "Follow along — one body mystery a day.",
     "Follow for daily science about the body you live in.",
-    # FIXED 2026-07-31: Added forwardable closers to boost sends_per_reach (IG #2 signal)
-    # Old closers were all generic follow asks. New ones include subtle curiosity that
-    # makes the Reel worth DM-ing without using bait words like \"share/tag/send\".
     "Follow — your body does weirder things than you think.",
     "More body quirks explained daily. Follow if yours surprises you too.",
+    "Your friend needs to see this — follow for more body science.",
+    "Send this to someone who needs to hear this.",
+    "Follow for daily body facts — your body does things you can't explain.",
 )
 
 
@@ -465,11 +470,6 @@ def build_pinned_comment(script_data: Dict) -> str:
         topic,
     ).strip()
 
-    # 2026-08-19 (ported from Neuro-Somaa): expanded from 4 to 10 pinned-
-    # comment formulas. The pinned comment is the #1 place a viewer engages —
-    # replies = comment signal = feed boost. One question-only formula capped
-    # replies; the new set mixes reply-bait, debate, self-report and tease
-    # patterns used by the biggest US Shorts creators.
     templates = (
         f"Has this ever happened to you with {topic}? "
         "I read every reply.",
@@ -499,6 +499,18 @@ def build_pinned_comment(script_data: Dict) -> str:
 
         f"The wildest message I got about {topic} said it "
         "started after a long trip. Yours?",
+
+        f"Hot take: {topic} is way more important than people realize. "
+        "Tell me I'm wrong.",
+
+        f"I bet 90%% of you didn't know this about {topic}. "
+        "Prove me wrong in the replies.",
+
+        f"If {topic} ever freaked you out, you're not alone. "
+        "Drop your story below.",
+
+        f"What's the wildest {topic} fact you know? "
+        "I'm collecting the best ones for a follow-up video.",
     )
 
     comment = _pick(

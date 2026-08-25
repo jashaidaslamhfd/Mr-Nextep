@@ -25,19 +25,6 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
-# ============================================
-# MOJIBAKE REPAIR
-# ============================================
-# Occasionally text arriving from the LLM response contains UTF-8 bytes
-# that got decoded with the wrong codec somewhere upstream (cp1252/latin-1
-# instead of UTF-8) - the classic symptom is an emoji like 🫀 turning into
-# the 4-character garble "ðŸ«€". This corrupted text no longer looks like an
-# emoji to any unicode-range regex (niche_strategy._EMOJI_PATTERN etc.), so
-# it survives emoji-stripping and can end up duplicated alongside a second,
-# correctly-encoded emoji added later. Repairing it here, right where LLM
-# text first enters the pipeline, fixes it once for every downstream field
-# (title, hook, captions, cta, description) instead of patching each
-# consumer separately.
 def _repair_mojibake_run(run: str) -> str:
     """Attempt to reverse a UTF-8-decoded-as-cp1252 mistake on one run of
     cp1252-encodable characters. Only accepted if the bytes actually decode
@@ -70,20 +57,6 @@ def repair_mojibake(text: str) -> str:
         out.append(_repair_mojibake_run(''.join(run)))
     return ''.join(out)
 
-# ============================================
-# CONSTANTS
-# ============================================
-# Length policy is NOT defined here any more. src/algorithm_policy.py owns the
-# per-platform duration windows and the measured speech rate, and the word
-# budgets below are derived from them — so changing the target length in one
-# place updates the writer, the renderer, the cuts and the tests together.
-#
-# The old hardcoded 80-120 words targeted a 40-55s Short. YouTube's 2026
-# Shorts ranking is watch-time-per-impression with a ~50% average-view-
-# percentage gate for 30-60s videos, and this channel's own Meta data showed
-# 2.6-7.5s average watch time against a 47s clip. A shorter master cut is the
-# single highest-leverage change available, so the budget now follows the
-# policy's 30-42s window instead of a number nobody re-checked.
 from algorithm_policy import (  # noqa: E402  (config import, must precede use)
     MIN_HOOK_SCORE as _MIN_HOOK_SCORE,
     hook_word_budget as _policy_hook_words,
@@ -103,18 +76,6 @@ SCRIPT_POLICY_VERSION = "ALGO_POLICY_2026_07"
 TEMPERATURE = 0.65
 MAX_TOKENS = 1400
 
-# Groq model strategy (2026-08-15): the pipeline can no longer bet on any
-# single hard-coded model id. Groq retires/renames models without notice
-# (llama-3.1-70b-versatile began 404'ing for some accounts on 2026-08-14, and
-# llama-3.1-8b-instant / llama-3.1-70b-instruct no longer exist at all), so
-# we probe the account's live model list first and only call models the key
-# actually has access to. Env overrides remain supported; empty-string values
-# are treated as unset (fixes the old inline `get("GROQ_MODEL", ...)` bug).
-# 2026-08-16: openai/gpt-oss-120b returns HTTP 400
-# `json_validate_failed` on the pipeline's structured-JSON prompt (verified in
-# run logs) — it is removed from the chain. Also, the free-tier daily token
-# pool (TPD) exhausts early every day, so the generator now skips
-# 429-exhausted models instead of burning retries on them.
 GROQ_MODEL_PRIMARY = os.environ.get("GROQ_MODEL") or "llama-3.1-8b-instant"
 # Empty by default: live model discovery supplies current fallbacks. A stale
 # fallback ID is worse than a clean OpenRouter/Gemini failover.
@@ -159,13 +120,6 @@ def _groq_accessible_models(client) -> List[str]:
         return []
 
 
-# 2026-08-15 quality allowlist: the live /models probe returns ~40 ids
-# including tiny regional models (allam-2-7b etc.) that follow the schema
-# poorly — walking through them wastes every retry on 429s and junk JSON,
-# which is exactly what broke the Aug-15 run (three attempts on allam-2-7b,
-# all three structurally invalid). The chain now keeps only chat models with
-# a proven track record on this pipeline; the configured primary/fallback
-# are always preferred first.
 _CHAT_MODEL_ALLOWLIST = (
     "gpt-oss-120b", "gpt-oss-20b",
     "llama-3.3-70b", "llama-3.1-8b",
@@ -225,13 +179,6 @@ def groq_model_chain() -> List[str]:
     return chain
 
 
-# LLM resilience: Groq free tier is frequently rate-limited (429), which was
-# stalling script generation. When Groq fails or is rate-limited, fall back to
-# OpenRouter (a neutral router over many models) using OPENROUTER_API_KEY.
-# 2026-08-17: meta-llama/llama-3.3-70b-instruct:free was retired from
-# OpenRouter (HTTP 404 on the pipeline's request). OpenRouter's live model
-# list is checked at run time; if the configured slug 404's we retry against
-# every remaining ":free" chat model once before giving up.
 _OPENROUTER_KNOWN_FREE = "nvidia/nemotron-3-ultra-550b-a55b:free"
 OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions"
 OPENROUTER_MODEL = os.environ.get("OPENROUTER_MODEL", "nvidia/nemotron-3-ultra-550b-a55b:free")
@@ -589,11 +536,6 @@ def _clean_json_response(raw_reply: str) -> Dict:
     raw_reply = re.sub(r'```json\s*', '', raw_reply)
     raw_reply = re.sub(r'```\s*', '', raw_reply)
 
-    # Try to find JSON object (balanced-brace first, greedy regex after).
-    # 2026-08-17: some fallback models echo the user prompt back into the
-    # reply (prompt contains a JSON schema with braces). Walking all balanced
-    # top-level objects, parsing each, and keeping the candidate with the
-    # required script fields picks the real generated JSON over the echo.
     json_str = _balanced_json(raw_reply)
     if json_str is None:
         json_match = re.search(r'\{.*\}', raw_reply, re.DOTALL)
@@ -678,12 +620,6 @@ def _clean_json_response(raw_reply: str) -> Dict:
     json_str = re.sub(r',\s*}', '}', json_str)
     json_str = re.sub(r',\s*]', ']', json_str)
     
-    # NOTE: We intentionally do NOT blanket-convert single quotes to double
-    # quotes here. Groq's response_format={"type": "json_object"} already
-    # guarantees valid double-quoted JSON, and the system prompt asks for
-    # natural contractions ("don't", "you're"), which contain apostrophes.
-    # Converting those apostrophes to '"' corrupts the JSON mid-string
-    # (this was the root cause of the "Expecting ',' delimiter" errors).
     
     # Remove control characters
     json_str = re.sub(r'[\x00-\x1f\x7f-\x9f]', '', json_str)
@@ -755,18 +691,6 @@ def _clean_json_response(raw_reply: str) -> Dict:
 # 4. SCRIPT VALIDATION & NORMALIZATION
 # ============================================
 
-# How many words over the limit a COMPLETE sentence may run before it is
-# worth breaking. Two words of overshoot costs ~0.8s; a fragment costs the
-# viewer's comprehension at the exact moment the feed is deciding.
-#
-# THIS NUMBER IS PART OF THE VALIDATION CONTRACT, not a private detail of the
-# trimmer. _trim_to_word_limit deliberately hands back a slightly-over
-# sentence rather than mutilating it, so _validate_script has to accept the
-# very same allowance. When it did not, the grace branch was unreachable by
-# construction: every caption the trimmer spared was then rejected by the
-# validator with "Scene N has 17 words (maximum 15)", the attempt was burned,
-# and after three of those the whole run exited 1 without uploading. Both
-# sides now read this constant.
 _OVERSHOOT_GRACE_WORDS = 2
 
 
@@ -866,11 +790,6 @@ def _normalize_scenes(script_data: Dict) -> Dict:
         limit = HOOK_MAX_WORDS if i == 0 else MAX_SCENE_WORDS
         scene['caption'] = _trim_to_word_limit(scene['caption'], limit)
 
-        # Models often omit terminal punctuation in JSON captions. Repair
-        # that harmless formatting here instead of spending an LLM retry.
-        # Strip any dangling clause punctuation first: appending to a caption
-        # that already ends in a comma produced "your foot tingles,." which
-        # then reached the SRT file and the burned-in captions.
         caption = scene['caption'].rstrip().rstrip(',;:—-').rstrip()
         if caption and caption[-1] not in '.!?…':
             caption += '.'
@@ -878,11 +797,6 @@ def _normalize_scenes(script_data: Dict) -> Dict:
     script_data['scenes'] = normalized
     script_data['voiceover'] = ' '.join(s['caption'] for s in normalized)
 
-    # Auto-fix: the scored hook must be the exact line viewers hear first.
-    # Rather than relying on the LLM to retype the hook identically to
-    # scene 1's caption (a common, easy mistake for smaller models), just
-    # force them to match - scene 1's caption is the source of truth since
-    # that's what's actually spoken.
     if normalized:
         script_data['hook'] = normalized[0]['caption']
 
@@ -925,16 +839,6 @@ def _validate_script(script_data: Dict, lenient: bool = False) -> Tuple[bool, Li
     elif word_count > MAX_WORDS:
         issues.append(f"Too many words: {word_count} (maximum {MAX_WORDS})")
     
-    # Check each scene
-    # (HOOK_MIN_WORDS/HOOK_MAX_WORDS/MAX_SCENE_WORDS are the same constants
-    # _normalize_scenes already auto-trims to, so a script that's been
-    # normalized should always pass this - this check is now mostly a
-    # safety net for anything normalization didn't catch.)
-    #
-    # The ceiling checked here must match what the trimmer is allowed to keep
-    # (see _OVERSHOOT_GRACE_WORDS). Checking the raw budget while the trimmer
-    # preserved a whole sentence two words over made those two paths disagree,
-    # and the disagreement — not the model — is what failed entire runs.
     hook_ceiling = effective_word_ceiling(HOOK_MAX_WORDS)
     scene_ceiling = effective_word_ceiling(MAX_SCENE_WORDS)
     for i, scene in enumerate(scenes):
@@ -962,15 +866,6 @@ def _validate_script(script_data: Dict, lenient: bool = False) -> Tuple[bool, Li
         if hook != first:
             issues.append("Hook must exactly match the first scene caption")
 
-    # ------------------------------------------------------------------
-    # STORY ARC ENFORCEMENT (2026 Shorts feed reality check)
-    # The prompt already demands Hook → Suspense → … → Payoff → Loop-back,
-    # but nothing enforced it — weak arcs shipped whenever the LLM got
-    # lazy. YouTube Shorts ranks on first-3s swipe survival + completion +
-    # replays: an open question in scene 2 and a closing loop that points
-    # back to the hook are the two cheapest retention levers we have.
-    # A script missing them is retried (quality gate), never shipped.
-    # ------------------------------------------------------------------
     if len(scenes) >= 3:
         suspense = scenes[1].get('caption', '')
         if '?' not in suspense:
@@ -989,16 +884,6 @@ def _validate_script(script_data: Dict, lenient: bool = False) -> Tuple[bool, Li
 
         repaired = 0
         if lenient and issues:
-            # Final-attempt safety valve (2026-08-15): an empty day on a daily
-            # channel is strictly worse for the algorithm than a small, safe,
-            # machine-applied repair. SUBJECTIVE story-arc gates are dropped
-            # as before; TRIVIALLY-FIXABLE structural issues are now repaired
-            # in place instead of failing the run:
-            #   * missing 'cta' -> synthesised from the last caption + subscribe
-            #     prompt (every short must end with a CTA; generating one here
-            #     is exactly what the LLM would have written anyway)
-            #   * > MAX_SCENES  -> trim the tail to the policy limit (extra
-            #     scenes are never spoken past the budget window)
             if 'cta' in required_fields and not script_data.get('cta'):
                 topic_text = str(script_data.get('topic') or '').strip()
                 tail = script_data['scenes'][-1]['caption'] if script_data.get('scenes') else topic_text
@@ -1010,12 +895,6 @@ def _validate_script(script_data: Dict, lenient: bool = False) -> Tuple[bool, Li
                 )
                 logger.warning("Lenient repair (final attempt): synthesised CTA")
                 repaired += 1
-        # 2026-08-15: heavy Groq 429 storms + weak-model outputs produced
-        # non-trivial-but-publishable scripts ('Too few words', 'Scene 2
-        # missing question'). Subjective story-arc gates are already dropped
-        # in lenient mode; finish the job: treat the remaining structural
-        # nits as publishing warnings, not blockers. A shorter short with a
-        # strong topic beats an empty upload slot on a daily channel.
         if lenient and issues:
             kept = []
             for msg in issues:
@@ -1124,13 +1003,6 @@ def analyze_retention_potential(script_data: Dict) -> Dict:
         else:
             suggestions.append(f"Hook should be {HOOK_MIN_WORDS}-{HOOK_MAX_WORDS} words for a fast, clear opening")
         
-        # Pattern interrupt / curiosity loop — the single biggest Shorts
-        # retention lever. A hook that opens a question or curiosity loop
-        # ("Why does your…", ending on "?", or a genuine curiosity phrase)
-        # keeps viewers past the first ~3s. Previously ANY punctuation earned
-        # the same credit, so flat openers scored identically to strong ones.
-        # Strong open-loop hooks now earn a larger bonus; merely-punctuated
-        # openers keep the original credit (no regression for passing scripts).
         if len(hook.split()) <= 9:
             hook_l = hook.lower().strip()
             opens_loop = (
@@ -1265,12 +1137,6 @@ def _openrouter_generate(messages, temperature=None, max_tokens=None) -> Optiona
                 except Exception:  # noqa: BLE001
                     pass
         if resp.status_code in (404, 429) or (resp.status_code == 200 and not _reply_has_json(text)):
-            # 2026-08-17: rotate free models on two failure modes — the
-            # configured slug was retired (404, verified 2026-08-17), OR the
-            # active free model returned plain text instead of JSON
-            # (Nemotron's frequent echo behavior). Refresh the live free-
-            # model list and retry each candidate once, keeping the FIRST
-            # reply that actually contains JSON.
             key = os.environ.get("OPENROUTER_API_KEY")
             _candidates = []
             if key:
@@ -1627,12 +1493,6 @@ Write as if they are ALREADY experiencing this. No generic intros."""
                 if raw_reply:
                     pass
                 elif _advance_model(groq_err):
-                    # 2026-08-16: a chain-advance on the LAST attempt would
-                    # silently burn the only untried model (the loop ends and
-                    # the newly advanced model never gets a call). On the
-                    # final attempt, generate via the OpenRouter backup LLM
-                    # and fall through to validation — never finish a run
-                    # without trying the backup.
                     if attempt == max_retries:
                         logger.warning(
                             "Last attempt: chain advance exhausted — "
@@ -1696,16 +1556,6 @@ Write as if they are ALREADY experiencing this. No generic intros."""
 
                 score = retention['retention_score']
 
-                # Score the hook HERE, inside the conversation loop.
-                #
-                # The hook gate lives in main.py, which calls this function
-                # fresh on every attempt — so a rejected hook produced a brand
-                # new conversation and the model was never told what was wrong
-                # with the last one. It could (and did) return an equally weak
-                # opener three times in a row, burn all three attempts, and
-                # skip the upload. Scoring it in here means the failure
-                # becomes corrective feedback in the SAME conversation, which
-                # is the only place the model can act on it.
                 hook_score, hook_fixes = _score_hook_for_feedback(script_data)
                 script_data['hook_score'] = hook_score
 
@@ -1737,12 +1587,6 @@ Write as if they are ALREADY experiencing this. No generic intros."""
                     problems.extend(retention['suggestions'][:2])
 
                 logger.warning("⚠️ Retrying with feedback: %s", "; ".join(problems[:3]))
-                # 2026-08-16 hook-quality escalation: if the current model
-                # keeps producing weak hooks, prompt feedback alone won't fix
-                # it — the writer is the bottleneck. Escalate to the next
-                # model in the quality chain (or OpenRouter when Groq is
-                # exhausted) so the retry gets a genuinely stronger opener
-                # instead of the same model repeating its weakness.
                 _advance_model(
                     f"hook {hook_score}/100 or retention {score}/100 below floor"
                 )

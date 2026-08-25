@@ -7,16 +7,6 @@ import numpy as np
 import soundfile as sf
 from PIL import Image, ImageDraw, ImageFont
 
-# ------------------------------------------------------------------------
-# Compatibility shim: moviepy 1.x (pinned in requirements.txt because 2.x
-# removed the `moviepy.editor` import path we rely on) still calls the old
-# Pillow constant `Image.ANTIALIAS` internally (moviepy/video/fx/resize.py)
-# when resizing clips (e.g. Ken Burns zoom effects). Pillow >=9.1 deprecated
-# it and Pillow 10 removed it entirely in favor of `Image.Resampling.LANCZOS`
-# (aliased as `Image.LANCZOS`). Re-adding the old name here — before moviepy
-# is imported — keeps moviepy 1.x working on modern Pillow without pinning
-# Pillow to an old, less secure version.
-# ------------------------------------------------------------------------
 if not hasattr(Image, "ANTIALIAS"):
     Image.ANTIALIAS = Image.LANCZOS
 
@@ -77,12 +67,6 @@ MUSIC_VOLUME = float(os.environ.get("MUSIC_VOLUME", "0.18"))
 MUSIC_SAMPLE_RATE = 24000
 MUSIC_DIR = "assets/music"
 
-# 2026-08-21 US viewer-experience fix: subtle pop SFX at every scene cut
-# (the docstring always promised 'Pop SFX on scene cuts' but nothing was
-# actually implemented). A short soft blip at each scene boundary is a
-# standard US Shorts retention cue - it punctuates cuts like a human
-# editor and keeps a scrolling viewer's attention without ever competing
-# with the narration (mixed at 8% of full scale, 80 ms, fading edges).
 SFX_ENABLED = os.environ.get("SCENE_CUT_SFX", "true").strip().lower() in (
     "true", "1", "yes", "on",
 )
@@ -272,12 +256,6 @@ def _caption_clip(text: str, duration: float, is_important: bool = False, color_
     if color_theme is None:
         color_theme = {'primary': (255, 255, 255), 'secondary': (255, 200, 50)}
     
-    # Caption block must fit between its anchor and the platform-safe
-    # baseline. The old ceiling of 0.90 allowed a tall block to run to 90% of
-    # the frame — well inside every platform's caption/CTA chrome, where the
-    # last line of the payoff would simply be covered up. safe_zones computes
-    # the worst case across all three platforms, so one render is safe
-    # everywhere.
     max_width = int(CANVAS_W * 0.82)
     try:
         from safe_zones import caption_baseline, safe_text_width
@@ -769,11 +747,6 @@ def build_video(image_paths, audio_segments, scenes, output_path="output/final_v
         word_clips = _word_by_word_clips(caption_text, duration, color_theme,
                                          scene_index=i)
 
-        # ✅ Priority: First-frame hook TEXT overlay (pattern interrupt).
-        # Viral channels overlay a bold keyword line in frame one that mirrors
-        # the title — shown only on the very first scene so it never crowds the
-        # karaoke captions that follow. Uses the scene's 'hook_text' (set by
-        # main.py from the script hook) if present, else the caption.
         overlays = []
         if i == 0:
             hook_src = (scenes[i].get('hook_text')
@@ -804,12 +777,6 @@ def build_video(image_paths, audio_segments, scenes, output_path="output/final_v
         )
         audio_clips.append(seg_audio)
         t_cursor += duration
-        # 2026-08 humanization: uneven natural breath between scenes. A fixed
-        # identical gap after every scene is a machine tell; a seeded
-        # 0.25-0.85s beat (humanizer.breath_pause) sounds like one narrator
-        # reading with normal rhythm. Applied as a silent audio hold plus a
-        # still-beat video hold (no motion — like an editor's cut pause).
-        # Skipped after the last scene.
         if i < len(scenes) - 1:
             _gap = seg.get('gap_after')
             if _gap in (None, ''):
@@ -869,11 +836,6 @@ def build_video(image_paths, audio_segments, scenes, output_path="output/final_v
         afx.audio_fadeout, 1.0
     )
 
-    # ✅ REAL Voice-Activity Music Ducking
-    # Pre-compute a gain envelope from the actual voice audio.  Where the
-    # narrator is speaking the music drops to DUCK_LEVEL (default 15% of
-    # MUSIC_VOLUME); during pauses it rises back to UNDUCK_LEVEL (100%).
-    # The envelope is smoothed with an 80 ms ramp to avoid audible clicks.
     logger.info("Building voice-activity ducking envelope...")
     duck_env = _build_ducking_envelope(audio_segments, voice_audio.duration)
     logger.info(
@@ -1011,11 +973,6 @@ def generate_thumbnail(image_path: str, title: str, output_path: str = "output/t
     }
 
     bg_color = CATEGORY_BG_COLORS.get(category, (0, 0, 0))
-    # Shorts thumbnails must match the video's 9:16 canvas (1080x1920).
-    # This used to render on a 1280x720 (16:9) canvas, which meant the
-    # source image - already vertical, framed for 9:16 - got aggressively
-    # cropped/zoomed to fill a landscape box, cutting off most of the
-    # subject and reading as an unprofessional, badly-cropped thumbnail.
     THUMB_W, THUMB_H = 1080, 1920
     canvas = Image.new("RGB", (THUMB_W, THUMB_H), bg_color)
     
@@ -1086,16 +1043,6 @@ def generate_thumbnail(image_path: str, title: str, output_path: str = "output/t
     words = (meaningful or all_words)[:4]
     title = " ".join(words)
 
-    # Word wrap inside the horizontal safe area.
-    #
-    # THUMB_W - 130 allowed text to run to x=1002 on a 1080px frame, i.e.
-    # straight under the like/comment/share column every platform draws down
-    # the right-hand side. Wrapping against the safe width instead keeps the
-    # final word readable rather than tucked behind a button.
-    # The stroke and the glow-outline pass both paint OUTSIDE the glyph box
-    # that textlength() measures (5px stroke + 3px outline offset per side),
-    # so the wrap budget has to reserve room for them or a line that measures
-    # as fitting still bleeds past the safe edge.
     _THUMB_STROKE_W = 5
     _THUMB_OUTLINE_OFFSET = 3
     _ink_margin = 2 * (_THUMB_STROKE_W + _THUMB_OUTLINE_OFFSET)
@@ -1128,14 +1075,6 @@ def generate_thumbnail(image_path: str, title: str, output_path: str = "output/t
     # ✅ Priority: Text color
     text_color = CATEGORY_TEXT_COLORS.get(category, (255, 255, 255))
 
-    # Place the text inside the platform-safe band instead of hard against the
-    # bottom edge.
-    #
-    # This previously started at THUMB_H - 60 - (lines * 82), i.e. 84-97% down
-    # the frame — entirely underneath every platform's caption block, handle
-    # row and CTA button. The thumbnail's whole job is to be legible in a feed
-    # at roughly 120x90 pixels, and it was being rendered where no viewer could
-    # read it on any of the three platforms.
     try:
         from safe_zones import thumbnail_text_band
         band_top, band_bottom = thumbnail_text_band(THUMB_W, THUMB_H)

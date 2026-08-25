@@ -9,22 +9,6 @@ from typing import List, Dict
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
-# ---------------------------------------------------------------------------
-# PRIMARY ENGINE: Chatterbox (Resemble AI, MIT license - safe for a
-# monetized channel).
-#
-# Why Chatterbox over Kokoro: Chatterbox can condition generation on the
-# creator's approved voice reference, whereas Kokoro is a generic fallback
-# voice. Its delivery controls let us keep narration clear and conversational
-# instead of giving every scene an artificial dramatic tone.
-#
-# Lazy-loaded on first use (not at import time) so a missing pip install or
-# a failed model download doesn't crash the whole pipeline before it even
-# starts - _get_chatterbox() catches that, and every call in this file
-# falls back to Kokoro per-segment if Chatterbox is unavailable or a
-# specific generation call fails. One bad Chatterbox call should never take
-# a whole video down.
-# ---------------------------------------------------------------------------
 _chatterbox_model = None
 _chatterbox_load_failed = False
 _chatterbox_load_error = None  # the real underlying exception, kept around so
@@ -32,14 +16,6 @@ _chatterbox_load_error = None  # the real underlying exception, kept around so
                                 # WHY, instead of just the first log line at
                                 # startup (which is easy to miss/lose in CI logs).
 
-# NATURAL YOUTUBE VOICE PROFILE
-#
-# Chatterbox's higher exaggeration values make delivery more theatrical and
-# can also make it feel faster. That is useful for character acting, but it
-# weakens speaker similarity for a creator's regular YouTube narration.
-# These defaults deliberately favour a calm, clear, conversational delivery:
-# natural energy, stable pronunciation and recognisable cloned identity.
-# Every value can be overridden in .env / GitHub Actions secrets.
 def _env_float(name: str, default: float, minimum: float, maximum: float) -> float:
     """Read a bounded float setting and fall back safely on bad input."""
     raw = os.environ.get(name, str(default))
@@ -63,18 +39,6 @@ CHATTERBOX_TEMPERATURE = _env_float("CHATTERBOX_TEMPERATURE", 0.60, 0.05, 1.5)
 # artificial. FFmpeg accepts 0.5–2.0 for one atempo filter.
 CHATTERBOX_TEMPO = _env_float("CHATTERBOX_TEMPO", 0.96, 0.5, 2.0)
 
-# ---------------------------------------------------------------------------
-# KOKORO FALLBACK ENGINE CONFIG — these env vars are honored NOW.
-# Previously KOKORO_LANG_CODE / KOKORO_VOICE / TTS_ENGINE were set in the
-# GitHub workflow (French voice ff_siwis for the FR experiment) but were
-# NEVER read by any code — the pipeline silently used hardcoded
-# lang_code='a' and voice='am_adam'. The wiring below makes the environment
-# the single source of truth.
-#
-# US AUDIENCE (current strategy): lang_code='a', voice='am_adam'
-# (American English male). Other examples: lang_code 'b' (British),
-# voices 'af_heart' (US female), 'bf_emma' (UK female).
-# ---------------------------------------------------------------------------
 KOKORO_LANG_CODE = os.environ.get("KOKORO_LANG_CODE", "a").strip() or "a"
 KOKORO_VOICE = os.environ.get("KOKORO_VOICE", "am_adam").strip() or "am_adam"
 
@@ -83,12 +47,6 @@ KOKORO_VOICE = os.environ.get("KOKORO_VOICE", "am_adam").strip() or "am_adam"
 # pipeline must see it at import time, not quietly pin every video to am_adam.
 from humanizer import pick as _h_pick
 
-# 2026-08 humanization pass: one frozen voice across 100+ videos is the single
-# loudest "this channel is a machine" signal. VOICE_ROTATE=auto (workflow
-# default) deterministically rotates among these natural EN voices by topic —
-# the same topic always keeps its voice (channel consistency), different
-# topics get different voices (human variety). Same seeding as humanizer.py so
-# it is reproducible run-to-run.
 VOICE_POOL = [
     "am_adam", "am_michael", "am_liam", "am_puck", "am_alex",
     "af_bella", "af_nova", "af_sky", "af_sarah", "af_heart",
@@ -110,11 +68,6 @@ if TTS_ENGINE not in {"chatterbox", "kokoro"}:
     logger.warning("Unknown TTS_ENGINE=%r; using 'chatterbox'", TTS_ENGINE)
     TTS_ENGINE = "chatterbox"
 
-# Number of times Chatterbox retries per segment before giving up and
-# falling back to Kokoro. Retries use the cloned voice reference every
-# time — if the reference is bad the first attempt will fail, and retrying
-# with the same bad reference won't help, so _synthesize_chatterbox()
-# detects that case and skips pointless retries.
 CHATTERBOX_MAX_RETRIES = 3
 
 # Seconds to wait between Chatterbox retry attempts. Gives transient
@@ -187,20 +140,6 @@ def _get_chatterbox():
         return _chatterbox_model
     try:
         import torch
-        # ------------------------------------------------------------------
-        # Known bug workaround (resemble-ai/chatterbox GitHub issue #198):
-        # in some environments perth.PerthImplicitWatermarker silently
-        # resolves to None (even though `import perth` succeeds and
-        # setuptools is present) - ChatterboxTTS.__init__ then does
-        # `self.watermarker = perth.PerthImplicitWatermarker()` and blows up
-        # with "TypeError: 'NoneType' object is not callable". Nobody in
-        # that issue thread found a root cause that reliably fixes it across
-        # environments, but the monkeypatch below (confirmed working by
-        # several people on the thread) sidesteps it entirely: if the real
-        # watermarker class is missing, swap in a harmless no-op before
-        # ChatterboxTTS ever touches it. This only skips audio watermarking
-        # - the actual voice cloning is completely unaffected.
-        # ------------------------------------------------------------------
         import perth
         if getattr(perth, "PerthImplicitWatermarker", None) is None:
             logger.warning(
@@ -257,14 +196,6 @@ def _scene_tempo_for(base_speed: float, index: int, caption: str) -> float:
         return base_speed
 
 
-# 2026-08-19: ADULT-VOICE MATURING (ported from Neuro-Somaa). Chatterbox's
-# default narrator is a neutral synthetic voice; with the creator's approved
-# voice_reference.wav the pipeline deepens and matures the output so the
-# narrator always sounds like an ADULT professional:
-#   VOICE_MATURE_PITCH_SEMITONES = negative -> lower pitch (deeper voice)
-#   VOICE_MATURE_TEMPO           = slightly calmer delivery (authority)
-# When a usable clone reference exists, maturing is SKIPPED so the creator's
-# own voice is never altered.
 VOICE_MATURE_PITCH_SEMITONES = _env_float(
     "VOICE_MATURE_PITCH_SEMITONES", -4.0, -6.0, 0.0)
 VOICE_MATURE_TEMPO = _env_float("VOICE_MATURE_TEMPO", 0.92, 0.75, 1.05)
@@ -428,11 +359,6 @@ def _synthesize_chatterbox(text: str, attempt: int = 1) -> tuple:
     return audio, model.sr
 
 
-# ---------------------------------------------------------------------------
-# FALLBACK ENGINE: Kokoro (Apache 2.0). No emotion control, but has no
-# install/download surprises and is fast on CPU - kept exactly as before so
-# a Chatterbox failure never takes the whole pipeline down with it.
-# ---------------------------------------------------------------------------
 _kokoro_tts = None
 _kokoro_load_failed = False
 
@@ -665,13 +591,6 @@ def generate_voice_segments(
         if not caption:
             caption = " "
 
-        # No try/except swallowing here — if _synthesize raises, the whole
-        # pipeline must abort. Silent 1.5s silence inserts are NOT acceptable;
-        # main.py's quality gate will catch the crash and log it properly.
-        # Per-scene micro tempo jitter (deterministic by scene index) makes
-        # narration sound like one person reading naturally, not a metronome:
-        # some lines slightly faster, some slightly slower, ~±1.5% around the
-        # caller-supplied speed. A fixed global tempo on every scene is a tell.
         _scene_tempo = _scene_tempo_for(speed, i, caption)
         # Per-video voice rotation (VOICE_ROTATE=auto, default in workflow):
         # every video gets a consistent-but-varied narrator instead of one

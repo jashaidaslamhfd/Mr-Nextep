@@ -118,12 +118,6 @@ def select_meta_cut(
 
     floor, ideal, ceiling = duration_policy(INSTAGRAM)
     fb_floor, _fb_ideal, fb_ceiling = duration_policy(FACEBOOK)
-    # The Meta cut serves both networks, so it must satisfy the tighter of the
-    # two ceilings and the higher of the two floors.
-    # META_TARGET_SECONDS lets the operator force a shorter Meta cut than the
-    # policy ideal. Measured Meta completion is 19-24% vs a 70%+ gate with a
-    # ~23s cut and 2.6-7.5s avg watch — a shorter cut raises completion% for
-    # free (completion = watch_time / total). Default to the policy ideal.
     import os as _os
     try:
         _override = float(_os.environ.get("META_TARGET_SECONDS", "") or 0)
@@ -146,20 +140,6 @@ def select_meta_cut(
         # decide. Never mangle a video that is already minimal.
         return list(range(count))
 
-    # STRUCTURAL BEATS
-    #
-    # hook (0), payoff (count-2) and loop-back (count-1) are the promise, the
-    # delivery and the replay trigger: dropping any of them leaves a Reel that
-    # either says nothing or never closes. They are never negotiable.
-    #
-    # The suspense/setup beat (1) used to be equally protected. That made the
-    # shortest possible Meta cut 4 x scene_duration, which on real scenes is
-    # 18-24s - so a 14s target was arithmetically unreachable and the "shorten
-    # the Meta cut" lever silently did nothing. Since completion = watch/length
-    # and this channel measures 2.6-7.5s of watch time against a ~70% gate,
-    # length is the only free variable we have. So the setup beat is now
-    # dropped ONLY when keeping it would put the cut over target: at 14s there
-    # is room for hook -> payoff -> loop, and a setup line is a luxury.
     structural = {0, count - 2, count - 1}
     setup_beat = 1 if 1 not in structural else None
 
@@ -175,14 +155,6 @@ def select_meta_cut(
     middle = [i for i in range(count) if i not in protected]
     middle.sort(key=lambda i: (-_scene_value(scenes[i].get("caption", "")), durations[i]))
 
-    # Fill toward the TARGET, not the ceiling.
-    #
-    # The first version of this filled greedily up to the hard ceiling, which
-    # produced 29.4s cuts against a 26s target — technically legal, but it
-    # gives away the entire point of cutting. Completion is a percentage, so
-    # every second added raises the number of seconds a viewer must watch to
-    # clear the same gate. A scene is only worth its runtime if it still fits
-    # the target; the ceiling is a limit, not a goal.
     for index in middle:
         if kept_duration + durations[index] <= target:
             keep.add(index)

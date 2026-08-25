@@ -47,24 +47,11 @@ DATA_DIR = os.path.join(os.path.dirname(__file__), '..', 'data')
 VIRAL_STATE_PATH = os.path.join(DATA_DIR, 'viral_optimizer_state.json')
 VIRAL_HISTORY_PATH = os.path.join(DATA_DIR, 'viral_score_history.json')
 
-# ---------------------------------------------------------------------------
-# Thresholds — what "viral-ready" means
-# ---------------------------------------------------------------------------
-VIRAL_SCORE_GATE = 80           # scripts below this get rewrite suggestions
+VIRAL_SCORE_GATE = 85           # raised from 80 — stricter = higher avg quality
 PREDICTED_RETENTION_GATE = 0.60 # below 60% predicted = needs work
-MAX_REWRITE_ATTEMPTS = 3        # how many times to retry a script
+MAX_REWRITE_ATTEMPTS = 4        # increased from 3 — more attempts to hit 85
+EARNINGS_RETENTION_BONUS = 0.10 # extra score for retention > 65% (higher RPM)
 
-# ---------------------------------------------------------------------------
-# Pattern weights — data-driven from growth_state
-# ---------------------------------------------------------------------------
-# From growth_state.hook_weights:
-#   statement: 1.037  (best — use direct statements)
-#   why:       0.855  (worst — avoid "Why" question openers)
-# From growth_state.topic_weights:
-#   muscle:    1.076  (best performing topic)
-#   other:     1.047
-#   ear:       0.970
-#   brain:     0.879  (worst — avoid brain topics until proven)
 
 # DEFAULT weights — used ONLY when calibrator has no data yet.
 # After calibration, these are REPLACED by real learned weights.
@@ -439,7 +426,11 @@ class ViralOptimizer:
             if hook_words & set(last.split()):
                 base += 0.03
 
-        return max(0.10, min(0.85, base))
+        # MAX REACH: earnings bonus — retention > 65% unlocks higher ad RPM
+        if base >= 0.65:
+            base += EARNINGS_RETENTION_BONUS
+
+        return max(0.10, min(0.95, base))
 
     def _predict_ctr(self, script: Dict) -> float:
         """Predict click-through rate on thumbnail/title (0-1)."""

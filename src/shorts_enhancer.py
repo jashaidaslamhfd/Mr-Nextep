@@ -29,12 +29,6 @@ from typing import Dict, List
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
-# Readable range for on-screen word-by-word captions. Below this, text
-# flashes by too fast to read; above this, it drags and viewers swipe away.
-# Captions are shown in short two-word chunks by video_editor, so viewers can
-# comfortably follow a natural cloned voice up to 4.0 words/sec. The previous
-# 3.5 limit rejected otherwise healthy 30-second videos for tiny rounding or
-# one-scene delivery variations (for example 3.52 words/sec).
 MIN_WORDS_PER_SEC = 1.5
 MAX_WORDS_PER_SEC = 4.0
 
@@ -134,11 +128,6 @@ _CONCRETE_RE = re.compile(
     re.IGNORECASE,
 )
 
-# Loops the viewer feels without a question mark. A hook can open a gap purely
-# through timing ("before you hear it", "the moment you stand up") or by
-# leaving a reference unresolved ("...before you hear IT"). Detecting only
-# why/how/what/? missed a whole class of strong hooks and pushed the writer
-# toward formulaic question openers — which is itself a templating risk.
 _IMPLICIT_LOOP_PATTERNS = (
     r"\b(before|until|right after|the moment|seconds? (before|after)|just as)\b",
     r"\b(but|yet|still)\b.*\b(does|do|happens|works|isn'?t|doesn'?t)\b",
@@ -239,13 +228,6 @@ def score_hook_detailed(hook: str) -> Dict:
     if vague:
         score -= 35
 
-    # --- No manipulative hype (disqualifying) ------------------------------
-    # This is not a deduction, it is a veto. Fear-bait phrasing on a
-    # body-science channel is an advertiser-friendliness and medical-
-    # misinformation risk, not merely a weak hook — and a "doctors don't want
-    # you to know" opener otherwise scores well on every other axis (it
-    # addresses the viewer, opens a loop, is a fine length), so a points
-    # penalty alone let it climb back into passing range.
     clickbait = any(x in hook_l for x in
                     ("doctors don't", "doctors won't", "won't believe",
                      "shocking secret", "100% real", "they don't want",
@@ -258,12 +240,6 @@ def score_hook_detailed(hook: str) -> Dict:
     return {'score': max(0, min(score, 100)), 'checks': checks}
 
 
-# Backward/alt-compatible alias: some callers import the shorter name
-# `score_hook` instead of `score_hook_detailed`. main.py calls this with
-# the *whole script_data dict* (not just the hook string) and expects a
-# 'suggestions' list in the result (used for hook_result.get('suggestions')),
-# so this wraps score_hook_detailed to accept either input shape and always
-# include 'suggestions' alongside the original 'checks' detail.
 def score_hook(hook_or_script_data) -> Dict:
     """Score a hook. Accepts either the hook string directly, or a
     script_data dict (uses its 'hook' field) - main.py passes the dict.
@@ -367,11 +343,6 @@ def autofix_too_fast_captions(scenes: List[Dict], audio_segments: List[Dict]) ->
 # concrete suggestions, same spirit as quality_checker's scoring)
 # ---------------------------------------------------------------------------
 
-# The ideal window is no longer hardcoded here. algorithm_policy owns it for
-# every platform, so a policy change updates the writer, the renderer and this
-# prediction together instead of leaving one of them optimising for a target
-# the others abandoned. (This module used to advertise 40-55s while the rest
-# of the pipeline had moved on.)
 from algorithm_policy import (  # noqa: E402
     YOUTUBE, duration_policy, retention_gate,
 )

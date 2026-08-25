@@ -508,11 +508,6 @@ DARK_TOPICS = [
 ]
 
 
-# -----------------------------------------------
-# Dynamic topic generation: when the static pool
-# runs low, call Groq LLM to generate fresh topics
-# so the channel never repeats.
-# -----------------------------------------------
 
 _DYNAMIC_TOPIC_CACHE: list = []  # filled on first shortfall
 
@@ -563,12 +558,6 @@ def _generate_dynamic_topics(count: int = 50) -> List[str]:
         return []
 
 
-# ============================================
-# 2. HOOK FORMULAS — HONEST, NO CLICKBAIT
-# YouTube 2026 penalizes: "Doctors don't want",
-# "You won't believe", "This is real", etc.
-# These hooks spark genuine curiosity instead.
-# ============================================
 HOOK_FORMULAS = [
     "This happens to your body every night... and you have no idea.",
     "Something in your body is happening without your permission.",
@@ -636,12 +625,6 @@ PAIN_POINTS = [
     "Question whether their body is working properly",
 ]
 
-# ============================================
-# 5. CTAS — NATURAL, NO ENGAGEMENT BAIT
-# YouTube 2026 penalizes: "like if", "comment 🤯",
-# "tag someone", "smash like", etc.
-# These sound like a real person ending a conversation.
-# ============================================
 CTAS = [
     "Follow for more facts like this.",
     "More science that surprises you — follow along.",
@@ -928,13 +911,6 @@ _TOPIC_EMOJI_MAP = [
     (['brain', 'mind', 'memory', 'thought'], '🧠'),
 ]
 
-# Was only [1F300-1FAFF, 2600-27BF, flags]. That misses common symbol-style
-# "emoji" outside those blocks - stars (2B50), arrows (2190-21FF, 2B00-2BFF),
-# geometric/media-control glyphs (25A0-25FF), and the variation-selector
-# (FE0F) that often trails a symbol. When the LLM occasionally ignores the
-# "no emojis" title rule and uses one of these, this pattern failed to strip
-# it before a new topic emoji was appended -> title ended up with two
-# emoji/symbols instead of one.
 _EMOJI_PATTERN = re.compile(
     r"[\U0001F300-\U0001FAFF\u2600-\u27BF\u2190-\u21FF\u2B00-\u2BFF"
     r"\u25A0-\u25FF\U0001F1E6-\U0001F1FF\uFE0F]+\s*"

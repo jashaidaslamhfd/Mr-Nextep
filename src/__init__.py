@@ -22,13 +22,6 @@ Granular access still works::
 __version__ = "1.1.0"
 __author__ = "jashaidaslamhfd"
 
-# ---------------------------------------------------------------------------
-# Lazy public API. Previously __all__ was declared with NO imports and NO
-# __getattr__, so `from src import NextepPipeline` (and everything else in
-# __all__) raised AttributeError — the advertised API was 100% broken.
-# This mapping keeps imports lazy (no heavy torch/moviepy cost on plain
-# `import src`) while making every documented name actually resolvable.
-# ---------------------------------------------------------------------------
 
 _LAZY_EXPORTS = {
     # Pipeline
