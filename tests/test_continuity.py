@@ -51,7 +51,8 @@ class ContinuityTests(unittest.TestCase):
         pipeline = NextepPipeline.__new__(NextepPipeline)
         pipeline.run_pipeline = Mock(side_effect=[
             RuntimeError("Narration too long: 51.6s"),
-            {"success": True, "title": "Compliant Short"},
+            {"success": True, "title": "Compliant Short",
+             "upload_result": {"youtube_success": True}},
         ])
         with patch("main.time.sleep"), patch("continuity.register_slot_attempt") as register:
             result = pipeline.run_pipeline_with_continuity(slot_label="NY12:30")
