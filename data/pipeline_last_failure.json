@@ -1,6 +1,6 @@
 {
-  "failed_at": "2026-08-24T11:32:02.925161+00:00",
-  "reason": "YouTube upload failed; Facebook/Instagram success cannot replace the primary upload",
-  "stage": "platform_upload",
-  "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Mr-Nextep/Mr-Nextep/src/main.py\", line 1714, in run_pipeline\n    upload_result = upload_all(\n                    ^^^^^^^^^^^\n  File \"/home/runner/work/Mr-Nextep/Mr-Nextep/src/uploader.py\", line 1066, in upload_all\n    raise RuntimeError(\"YouTube upload failed; Facebook/Instagram success cannot replace the primary upload\")\nRuntimeError: YouTube upload failed; Facebook/Instagram success cannot replace the primary upload\n"
+  "failed_at": "2026-08-25T11:12:59.005209+00:00",
+  "reason": "INDEPENDENT GATE BLOCKED the run: seo guard(s) failed. Fix before publishing.",
+  "stage": "master_render_and_gates",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Mr-Nextep/Mr-Nextep/src/main.py\", line 1658, in run_pipeline\n    raise RuntimeError(\nRuntimeError: INDEPENDENT GATE BLOCKED the run: seo guard(s) failed. Fix before publishing.\n"
 }
