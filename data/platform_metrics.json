@@ -4,12 +4,12 @@
     "topic": "WE GOT FIRED in Animal Hospital Anomaly..",
     "posted_at": "2026-07-18T16:12:57.165615+00:00",
     "publish_at": null,
-    "age_hours": 873.9,
+    "age_hours": 904.4,
     "hook_score": 70,
     "seo_score": 92,
     "duration_seconds": null,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00",
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00",
     "youtube_shorts": {
       "pending": "No analytics rows yet - data can take 24-48h to populate after upload."
     }
@@ -19,25 +19,20 @@
     "topic": "feeling like hours passed in minutes or vice versa",
     "posted_at": "2026-07-23T05:05:42.105502+00:00",
     "publish_at": null,
-    "age_hours": 765.1,
+    "age_hours": 795.5,
     "hook_score": 85,
     "seo_score": 73,
     "duration_seconds": null,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00",
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00",
     "youtube_shorts": {
-      "views": 2,
-      "completion": 0.0,
-      "avg_view_seconds": 0,
-      "impressions": null,
-      "ctr": null,
-      "fetched_at": "2026-08-24T02:08:56.370124+00:00"
+      "pending": "No analytics rows yet - data can take 24-48h to populate after upload."
     },
     "facebook_reels": {
       "views": 1,
-      "completion": 0.0583,
+      "completion": 0.0666,
       "avg_watch_seconds": 0.93,
-      "fetched_at": "2026-08-24T02:08:57.200789+00:00"
+      "fetched_at": "2026-08-25T08:36:51.010365+00:00"
     }
   },
   "fa2a1f444ac7309d9e2eabe862569d0c3506add9bf1c02a98dc5bc2c533ed28b": {
@@ -45,25 +40,25 @@
     "topic": "yawning spreading instantly from person to person",
     "posted_at": "2026-07-23T16:54:04.425464+00:00",
     "publish_at": null,
-    "age_hours": 753.2,
+    "age_hours": 783.7,
     "hook_score": 85,
     "seo_score": 75,
     "duration_seconds": null,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00",
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00",
     "youtube_shorts": {
       "views": 2,
       "completion": 0.0846,
       "avg_view_seconds": 3,
       "impressions": null,
       "ctr": null,
-      "fetched_at": "2026-08-24T02:08:57.963403+00:00"
+      "fetched_at": "2026-08-25T08:36:51.659246+00:00"
     },
     "facebook_reels": {
       "views": 1,
-      "completion": 0.0589,
+      "completion": 0.0674,
       "avg_watch_seconds": 0.94,
-      "fetched_at": "2026-08-24T02:08:58.542277+00:00"
+      "fetched_at": "2026-08-25T08:36:52.964724+00:00"
     }
   },
   "d53a7772221124002d96d6f3ae8da9b5d2c8085b3041880d949684fb362b5813": {
@@ -71,25 +66,25 @@
     "topic": "a sudden charley horse cramp in your calf at night",
     "posted_at": "2026-07-26T16:41:35.002240+00:00",
     "publish_at": "2026-07-27T00:00:00Z",
-    "age_hours": 681.5,
+    "age_hours": 711.9,
     "hook_score": 85,
     "seo_score": 73,
     "duration_seconds": null,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00",
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00",
     "youtube_shorts": {
       "views": 344,
       "completion": 0.3767,
       "avg_view_seconds": 16,
       "impressions": null,
       "ctr": null,
-      "fetched_at": "2026-08-24T02:08:59.337713+00:00"
+      "fetched_at": "2026-08-25T08:36:53.618881+00:00"
     },
     "facebook_reels": {
       "views": 4,
-      "completion": 0.0717,
+      "completion": 0.0819,
       "avg_watch_seconds": 1.15,
-      "fetched_at": "2026-08-24T02:08:59.906063+00:00"
+      "fetched_at": "2026-08-25T08:36:54.081867+00:00"
     },
     "instagram_reels": {
       "views": 114,
@@ -104,7 +99,7 @@
       "saves_per_reach": 0.0,
       "likes_per_reach": 0.00971,
       "unsupported": null,
-      "fetched_at": "2026-08-24T02:09:03.861276+00:00"
+      "fetched_at": "2026-08-25T08:36:57.475123+00:00"
     }
   },
   "4967b495a6fee83d69f6e411d1f8d32076461544216b06b3505ba6654e2307dc": {
@@ -112,25 +107,25 @@
     "topic": "feeling lightheaded right after standing up fast",
     "posted_at": "2026-07-28T00:00:09.953380+00:00",
     "publish_at": "2026-07-28T16:30:00Z",
-    "age_hours": 650.1,
+    "age_hours": 680.6,
     "hook_score": 85,
     "seo_score": 75,
     "duration_seconds": null,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00",
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00",
     "youtube_shorts": {
       "views": 564,
       "completion": 0.3203,
       "avg_view_seconds": 11,
       "impressions": null,
       "ctr": null,
-      "fetched_at": "2026-08-24T02:09:04.686058+00:00"
+      "fetched_at": "2026-08-25T08:36:58.202038+00:00"
     },
     "facebook_reels": {
       "views": null,
       "completion": null,
       "avg_watch_seconds": null,
-      "fetched_at": "2026-08-24T02:09:05.100847+00:00"
+      "fetched_at": "2026-08-25T08:36:58.598744+00:00"
     },
     "instagram_reels": {
       "error": "no_insights",
@@ -151,25 +146,25 @@
     "topic": "feeling like you've lived an exact new moment before",
     "posted_at": "2026-07-29T00:00:13.123150+00:00",
     "publish_at": "2026-07-29T16:30:00Z",
-    "age_hours": 626.1,
+    "age_hours": 656.6,
     "hook_score": 85,
     "seo_score": 70,
     "duration_seconds": null,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00",
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00",
     "youtube_shorts": {
       "views": 237,
       "completion": 0.2761,
       "avg_view_seconds": 10,
       "impressions": null,
       "ctr": null,
-      "fetched_at": "2026-08-24T02:09:07.053470+00:00"
+      "fetched_at": "2026-08-25T08:37:00.518882+00:00"
     },
     "facebook_reels": {
       "views": 1,
-      "completion": 0.0589,
+      "completion": 0.0674,
       "avg_watch_seconds": 0.94,
-      "fetched_at": "2026-08-24T02:09:07.438999+00:00"
+      "fetched_at": "2026-08-25T08:37:00.950896+00:00"
     },
     "instagram_reels": {
       "error": "no_insights",
@@ -190,653 +185,653 @@
     "topic": "What happens in the last seconds before you fall asleep?",
     "posted_at": "2026-06-12T21:24:48Z",
     "publish_at": null,
-    "age_hours": 1732.7,
+    "age_hours": 1763.2,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 52,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "8ba1da6a491dc381": {
     "title": null,
     "topic": "Why Your Body Does This: Memory Boost 😳",
     "posted_at": "2026-06-19T19:20:14Z",
     "publish_at": null,
-    "age_hours": 1566.8,
+    "age_hours": 1597.3,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 26,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "6bb0a0a2e3f5aaaa": {
     "title": null,
     "topic": "Why Your Body Does This: Dark Psychology 😳",
     "posted_at": "2026-06-19T20:27:22Z",
     "publish_at": null,
-    "age_hours": 1565.7,
+    "age_hours": 1596.2,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 33,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "c8b90af227ca4511": {
     "title": null,
     "topic": "Why Your Body Does This: Cat Alert Signs 😳",
     "posted_at": "2026-06-20T08:42:10Z",
     "publish_at": null,
-    "age_hours": 1553.4,
+    "age_hours": 1583.9,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 32,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "b456114e37c5e509": {
     "title": null,
     "topic": "Why Your Body Does This: Dreams 😳",
     "posted_at": "2026-06-20T18:13:12Z",
     "publish_at": null,
-    "age_hours": 1543.9,
+    "age_hours": 1574.4,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 28,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "9947e32f6ea469b3": {
     "title": null,
     "topic": "Why Your Body Does This: Yawn 😳",
     "posted_at": "2026-06-20T19:03:05Z",
     "publish_at": null,
-    "age_hours": 1543.1,
+    "age_hours": 1573.6,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 20,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "17f49176abc99384": {
     "title": null,
     "topic": "Why Your Body Does This: Parallel Lives 😳",
     "posted_at": "2026-06-21T14:50:09Z",
     "publish_at": null,
-    "age_hours": 1523.3,
+    "age_hours": 1553.8,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 44,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "7ce1a6002f0866e5": {
     "title": null,
     "topic": "Why Your Body Does This: Blush Uncontrollably 😳",
     "posted_at": "2026-06-21T16:31:33Z",
     "publish_at": null,
-    "age_hours": 1521.6,
+    "age_hours": 1552.1,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 40,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "df8ef1471e18b5f8": {
     "title": null,
     "topic": "Why Your Body Does This: Rush Visual Effects 😳",
     "posted_at": "2026-06-21T19:11:17Z",
     "publish_at": null,
-    "age_hours": 1519.0,
+    "age_hours": 1549.4,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 38,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "d7ffa821cae57a0e": {
     "title": null,
     "topic": "Why Your Body Does This: Consciousness 😳",
     "posted_at": "2026-06-21T20:27:35Z",
     "publish_at": null,
-    "age_hours": 1517.7,
+    "age_hours": 1548.2,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 47,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "d2f1f8df50398ae8": {
     "title": null,
     "topic": "Why Your Body Does This: Gut Feeling 😳",
     "posted_at": "2026-06-21T22:48:51Z",
     "publish_at": null,
-    "age_hours": 1515.3,
+    "age_hours": 1545.8,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 55,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "c99f3ae46591a4a0": {
     "title": null,
     "topic": "Why Your Body Does This: Eye Weird Facts 😳",
     "posted_at": "2026-06-22T12:05:33Z",
     "publish_at": null,
-    "age_hours": 1502.1,
+    "age_hours": 1532.5,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 42,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "9bd06dc3dabd8de1": {
     "title": null,
     "topic": "Why Your Body Does This: Brain Muscle 😳",
     "posted_at": "2026-06-22T16:23:01Z",
     "publish_at": null,
-    "age_hours": 1497.8,
+    "age_hours": 1528.2,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 37,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "c9417350660919d6": {
     "title": null,
     "topic": "Why Your Body Does This: Forgetting Names 😳",
     "posted_at": "2026-06-22T21:59:45Z",
     "publish_at": null,
-    "age_hours": 1492.2,
+    "age_hours": 1522.6,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 41,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "48e0df3d0269a751": {
     "title": null,
     "topic": "Why Your Body Does This: Baby Memory Lost 😳",
     "posted_at": "2026-06-22T23:14:17Z",
     "publish_at": null,
-    "age_hours": 1490.9,
+    "age_hours": 1521.4,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 41,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "dff2cc7a8b57db41": {
     "title": null,
     "topic": "Why Your Body Does This: Body Dark Secrets 😳",
     "posted_at": "2026-06-23T04:02:29Z",
     "publish_at": null,
-    "age_hours": 1486.1,
+    "age_hours": 1516.6,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 43,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "26999c87f0905316": {
     "title": null,
     "topic": "Why Your Body Does This: Goosebumps 😳",
     "posted_at": "2026-06-23T10:53:56Z",
     "publish_at": null,
-    "age_hours": 1479.2,
+    "age_hours": 1509.7,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 41,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "f931860ab08bdffb": {
     "title": null,
     "topic": "Why Your Body Does This: Memory Palace 😳",
     "posted_at": "2026-06-23T18:49:23Z",
     "publish_at": null,
-    "age_hours": 1471.3,
+    "age_hours": 1501.8,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 38,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "2b87fd8477b7970b": {
     "title": null,
     "topic": "Why Your Body Does This: Brain Motor Skills 😳",
     "posted_at": "2026-06-23T21:15:01Z",
     "publish_at": null,
-    "age_hours": 1468.9,
+    "age_hours": 1499.4,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 39,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "899d98ab4570c5dc": {
     "title": null,
     "topic": "Why Your Body Does This: Deja Vu 😳",
     "posted_at": "2026-06-23T22:55:13Z",
     "publish_at": null,
-    "age_hours": 1467.2,
+    "age_hours": 1497.7,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 40,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "7a107a6572a9d473": {
     "title": null,
     "topic": "Why your body freezes when you're scared 🧠",
     "posted_at": "2026-06-24T01:59:08Z",
     "publish_at": null,
-    "age_hours": 1464.2,
+    "age_hours": 1494.6,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 44,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "03cb5f3d90c6ba0c": {
     "title": null,
     "topic": "Why does your body age faster after 35 🙂",
     "posted_at": "2026-06-24T07:06:31Z",
     "publish_at": null,
-    "age_hours": 1459.0,
+    "age_hours": 1489.5,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 54,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "1bd60bc969ce3004": {
     "title": null,
     "topic": "Why your body heart rate spikes under stress 💓 #shorts",
     "posted_at": "2026-06-24T10:35:15Z",
     "publish_at": null,
-    "age_hours": 1455.6,
+    "age_hours": 1486.0,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 44,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "196a31c3dce7f24e": {
     "title": null,
     "topic": "Why You Forget Names Right Aft Explained in 60 Seconds 🧠",
     "posted_at": "2026-06-25T19:27:58Z",
     "publish_at": null,
-    "age_hours": 1422.7,
+    "age_hours": 1453.1,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 39,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "ed45cbc1165bcc08": {
     "title": null,
     "topic": "After 35, Your Brain Does This Automatically #BrainHealth #MenOver35 #Tips",
     "posted_at": "2026-06-26T03:54:53Z",
     "publish_at": null,
-    "age_hours": 1414.2,
+    "age_hours": 1444.7,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 38,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "6755370804eaa6f5": {
     "title": null,
     "topic": "Why your brain starts shrinking 🧠",
     "posted_at": "2026-06-26T05:33:15Z",
     "publish_at": null,
-    "age_hours": 1412.6,
+    "age_hours": 1443.1,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 46,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "a56619295793ec2b": {
     "title": null,
     "topic": "Stop ignoring why you forget things! 🧠 #brainhealth #shorts #science",
     "posted_at": "2026-06-26T10:37:50Z",
     "publish_at": null,
-    "age_hours": 1407.5,
+    "age_hours": 1438.0,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 35,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "76ca31ab6e84d811": {
     "title": null,
     "topic": "Stop this to save your brain #brainfog #healthtips #shorts",
     "posted_at": "2026-06-26T18:19:47Z",
     "publish_at": null,
-    "age_hours": 1399.8,
+    "age_hours": 1430.3,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 39,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "1bf67f798d4cb5d1": {
     "title": null,
     "topic": "Why your eye actually twitches 👀 #shorts #health",
     "posted_at": "2026-06-26T21:17:09Z",
     "publish_at": null,
-    "age_hours": 1396.9,
+    "age_hours": 1427.3,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 37,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "52e204d14232f1f2": {
     "title": null,
     "topic": "The Brain Hack hidding in your Dizziness 🧠💪",
     "posted_at": "2026-06-27T08:17:41Z",
     "publish_at": null,
-    "age_hours": 1385.9,
+    "age_hours": 1416.3,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 36,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "092f4e59e2ebaa07": {
     "title": null,
     "topic": "Why your heart skips a beat for no reason 😱💔",
     "posted_at": "2026-06-27T16:03:10Z",
     "publish_at": null,
-    "age_hours": 1378.1,
+    "age_hours": 1408.6,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 39,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "9eabdc305c90eb48": {
     "title": null,
     "topic": "Your body gets a lump sometimes 💡",
     "posted_at": "2026-06-27T19:55:15Z",
     "publish_at": null,
-    "age_hours": 1374.2,
+    "age_hours": 1404.7,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 42,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "144f02b63ea77514": {
     "title": null,
     "topic": "Why your emotions shift with seasons 🌻",
     "posted_at": "2026-06-28T02:45:30Z",
     "publish_at": null,
-    "age_hours": 1367.4,
+    "age_hours": 1397.9,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 42,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "bf1c965f360db269": {
     "title": null,
     "topic": "Why your belly always seems to rumble 🌟",
     "posted_at": "2026-06-28T05:53:26Z",
     "publish_at": null,
-    "age_hours": 1364.3,
+    "age_hours": 1394.7,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 42,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "51f2f714af829d1c": {
     "title": null,
     "topic": "Your baby forgets what they just read 📖",
     "posted_at": "2026-06-28T20:46:44Z",
     "publish_at": null,
-    "age_hours": 1349.4,
+    "age_hours": 1379.8,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 42,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "a479b5ab2b7410f9": {
     "title": null,
     "topic": "Your baby's heart skips a beat suddenly 💖",
     "posted_at": "2026-06-28T21:01:44Z",
     "publish_at": null,
-    "age_hours": 1349.1,
+    "age_hours": 1379.6,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 37,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "dd80af37e59e73c4": {
     "title": null,
     "topic": "Attachment Science in Seconds",
     "posted_at": "2026-07-05T16:03:15Z",
     "publish_at": null,
-    "age_hours": 1186.1,
+    "age_hours": 1216.6,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 47,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "d5f29ff11866003f": {
     "title": null,
     "topic": "Music Boosts Baby Sleep",
     "posted_at": "2026-07-05T18:50:52Z",
     "publish_at": null,
-    "age_hours": 1183.3,
+    "age_hours": 1213.8,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 56,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "af36f349d8640717": {
     "title": null,
     "topic": "Your Heart’s Hidden Brain: The Silent Sleepless Whisper",
     "posted_at": "2026-07-05T21:05:22Z",
     "publish_at": null,
-    "age_hours": 1181.1,
+    "age_hours": 1211.5,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 53,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "764bcfc7d095e400": {
     "title": null,
     "topic": "Heart's Hidden Brain: The Silent Whisper",
     "posted_at": "2026-07-06T19:27:52Z",
     "publish_at": null,
-    "age_hours": 1158.7,
+    "age_hours": 1189.1,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 47,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "031af77a801e154e": {
     "title": null,
     "topic": "🫀 Lungs That Drown You From Inside",
     "posted_at": "2026-07-07T04:57:09Z",
     "publish_at": null,
-    "age_hours": 1149.2,
+    "age_hours": 1179.7,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 44,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "48bfdffbbbf279b9": {
     "title": null,
     "topic": "Goosebumps: The Dark Reflex You Can't Escape",
     "posted_at": "2026-07-07T19:33:28Z",
     "publish_at": null,
-    "age_hours": 1134.6,
+    "age_hours": 1165.1,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 48,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "ff421401d8068c99": {
     "title": null,
     "topic": "🫀 🫀 Your Blood’s Midnight War",
     "posted_at": "2026-07-07T19:48:25Z",
     "publish_at": null,
-    "age_hours": 1134.3,
+    "age_hours": 1164.8,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 45,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "384d4e71acddd861": {
     "title": null,
     "topic": "The Heart's Secret Brain",
     "posted_at": "2026-07-08T00:11:07Z",
     "publish_at": null,
-    "age_hours": 1130.0,
+    "age_hours": 1160.4,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 48,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "871c6ffb34c2065e": {
     "title": null,
     "topic": "🫀 🫀 The Nightly Brain Battle",
     "posted_at": "2026-07-08T14:51:14Z",
     "publish_at": null,
-    "age_hours": 1115.3,
+    "age_hours": 1145.8,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 50,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "db466e68b7a4202f": {
     "title": null,
     "topic": "🫀 🫀 The Bone That Breaks Most in Fights",
     "posted_at": "2026-07-09T04:17:17Z",
     "publish_at": null,
-    "age_hours": 1101.9,
+    "age_hours": 1132.3,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 55,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "aadf18c93ea44088": {
     "title": null,
     "topic": "Why Your Body Does This: The Deadly Secret Inside 😳",
     "posted_at": "2026-07-09T18:05:07Z",
     "publish_at": null,
-    "age_hours": 1088.1,
+    "age_hours": 1118.5,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 50,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "2426578aed56b337": {
     "title": null,
     "topic": "Veins: The Dark Truth",
     "posted_at": "2026-07-09T23:44:19Z",
     "publish_at": null,
-    "age_hours": 1082.4,
+    "age_hours": 1112.9,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 50,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "8baf5cd9186936b1": {
     "title": null,
     "topic": "Why Your Body Does This: The Dark Heartbeat 😳",
     "posted_at": "2026-07-10T00:19:00Z",
     "publish_at": null,
-    "age_hours": 1081.8,
+    "age_hours": 1112.3,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 54,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "ced1a9bcc1aae9f2": {
     "title": null,
     "topic": "Why Your Body Does This: Dark Circles 😳",
     "posted_at": "2026-07-10T19:11:09Z",
     "publish_at": null,
-    "age_hours": 1063.0,
+    "age_hours": 1093.4,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 41,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "d76478e78eb40e77": {
     "title": null,
     "topic": "Why Your Body Does This: Fear Smells 😳",
     "posted_at": "2026-07-11T00:19:27Z",
     "publish_at": null,
-    "age_hours": 1057.8,
+    "age_hours": 1088.3,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 42,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "32586f7133d84dc9": {
     "title": null,
     "topic": "Why Your Body Does This: Heartbeat Secrets 😳",
     "posted_at": "2026-07-11T10:36:34Z",
     "publish_at": null,
-    "age_hours": 1047.5,
+    "age_hours": 1078.0,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 46,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "e28ea281863aea27": {
     "title": null,
     "topic": "Why Your Body Does This: Bones Replaced 😳",
     "posted_at": "2026-07-11T17:12:19Z",
     "publish_at": null,
-    "age_hours": 1040.9,
+    "age_hours": 1071.4,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 42,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "b2c85d7076c436a3": {
     "title": null,
     "topic": "The Truth About Your Body Twitches When You Sleep",
     "posted_at": "2026-07-12T07:35:50Z",
     "publish_at": null,
-    "age_hours": 1026.6,
+    "age_hours": 1057.0,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 52,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00",
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00",
     "facebook_reels": {
       "views": 7,
-      "completion": 1.4674,
+      "completion": 1.5,
       "avg_watch_seconds": 23.48,
-      "fetched_at": "2026-08-24T02:09:25.556097+00:00"
+      "fetched_at": "2026-08-25T08:37:19.038298+00:00"
     }
   },
   "c0338c8f6c977220": {
@@ -844,96 +839,96 @@
     "topic": "The Truth About Reason Your Pulse Changes When You Lie",
     "posted_at": "2026-07-12T14:10:20Z",
     "publish_at": null,
-    "age_hours": 1020.0,
+    "age_hours": 1050.4,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 56,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "d96c0cac3ef7dde8": {
     "title": null,
     "topic": "The Truth About Reason Your Heart Pounds in a Crowd ❤️",
     "posted_at": "2026-07-12T19:31:57Z",
     "publish_at": null,
-    "age_hours": 1014.6,
+    "age_hours": 1045.1,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 57,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "0190c744c7181a29": {
     "title": null,
     "topic": "Your Eyes Never Actually Stop Moving 👁️",
     "posted_at": "2026-07-13T15:18:29Z",
     "publish_at": null,
-    "age_hours": 994.8,
+    "age_hours": 1025.3,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 56,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "6cba5fcd0b6e281c": {
     "title": null,
     "topic": "Why Your Eyes See More Greens Than Any Other Color 👁️",
     "posted_at": "2026-07-16T19:32:12Z",
     "publish_at": null,
-    "age_hours": 918.6,
+    "age_hours": 949.1,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 28,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "30e330e83064d1af": {
     "title": null,
     "topic": "The Music Playing in Your Head 🧠",
     "posted_at": "2026-07-16T19:51:19Z",
     "publish_at": null,
-    "age_hours": 918.3,
+    "age_hours": 948.8,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 36,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "b5c8af26ccf5d0bf": {
     "title": null,
     "topic": "Your Body's Secret Timekeeping Trick",
     "posted_at": "2026-07-17T12:44:03Z",
     "publish_at": null,
-    "age_hours": 901.4,
+    "age_hours": 931.9,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 35,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "797e4cd7b5d4c0c4": {
     "title": null,
     "topic": "The Gut Brain Connection Explained",
     "posted_at": "2026-07-17T20:26:35Z",
     "publish_at": null,
-    "age_hours": 893.7,
+    "age_hours": 924.2,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 29,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "3eeef67d90f2096c29dd40c14e6d874d7ae91a73578ecca69f468eebcc49c677": {
     "title": "Body Glitch #388: Fast Hunger",
     "topic": "The body signal behind getting hungry at the same time daily",
     "posted_at": "2026-07-19T04:09:09.072317+00:00",
     "publish_at": null,
-    "age_hours": 862.0,
+    "age_hours": 892.5,
     "hook_score": 70,
     "seo_score": 92,
     "duration_seconds": 36,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00",
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00",
     "youtube_shorts": {
       "pending": "No analytics rows yet - data can take 24-48h to populate after upload."
     }
@@ -943,43 +938,43 @@
     "topic": "Why Your Body Does This: Body Jerking As Fall 😳",
     "posted_at": "2026-07-19T11:23:20Z",
     "publish_at": null,
-    "age_hours": 854.8,
+    "age_hours": 885.2,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 39,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "ed6709fd53a624a7": {
     "title": null,
     "topic": "Why Your Knees Crack Every Time You Move 🦵",
     "posted_at": "2026-07-19T15:20:51Z",
     "publish_at": null,
-    "age_hours": 850.8,
+    "age_hours": 881.3,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 39,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "13f40d680cd28fdae90562e6964a54d0e469eb0045e56fcbeadadc246696021d": {
     "title": "Wrinkled Hands 😳 🫀",
     "topic": "your hands wrinkling in water",
     "posted_at": "2026-07-19T19:52:56.044757+00:00",
     "publish_at": null,
-    "age_hours": 846.3,
+    "age_hours": 876.7,
     "hook_score": 85,
     "seo_score": 78,
     "duration_seconds": 43,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00",
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00",
     "youtube_shorts": {
-      "views": 25,
-      "completion": 0.2136,
-      "avg_view_seconds": 9,
+      "views": 21,
+      "completion": 0.2349,
+      "avg_view_seconds": 10,
       "impressions": null,
       "ctr": null,
-      "fetched_at": "2026-08-24T02:09:29.839354+00:00"
+      "fetched_at": "2026-08-25T08:37:23.245900+00:00"
     }
   },
   "f44f38c2592c6429": {
@@ -987,17 +982,17 @@
     "topic": "Why Your Body Freezes When You're Scared 🫀",
     "posted_at": "2026-07-20T01:01:37Z",
     "publish_at": null,
-    "age_hours": 841.1,
+    "age_hours": 871.6,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 40,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00",
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00",
     "facebook_reels": {
       "views": 1,
-      "completion": 0.0589,
+      "completion": 0.0674,
       "avg_watch_seconds": 0.94,
-      "fetched_at": "2026-08-24T02:09:30.528059+00:00"
+      "fetched_at": "2026-08-25T08:37:23.899861+00:00"
     }
   },
   "a6b25555e8c4e55c": {
@@ -1005,24 +1000,24 @@
     "topic": "Why Your Heartbeat Sounds So Loud at Night 👂",
     "posted_at": "2026-07-20T13:57:28Z",
     "publish_at": null,
-    "age_hours": 828.2,
+    "age_hours": 858.7,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 46,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "78383380572bd36bf85a78acd20f9fd1bc291fcca532066547936ffda26541f4": {
     "title": "Morning Voice 🫀",
     "topic": "your voice sounding noticeably deeper right after waking up",
     "posted_at": "2026-07-20T18:40:59.734272+00:00",
     "publish_at": null,
-    "age_hours": 823.5,
+    "age_hours": 853.9,
     "hook_score": 85,
     "seo_score": 73,
     "duration_seconds": 42,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00",
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00",
     "youtube_shorts": {
       "pending": "No analytics rows yet - data can take 24-48h to populate after upload."
     }
@@ -1032,36 +1027,36 @@
     "topic": "Why You Freeze Up When You're Terrified 🫀",
     "posted_at": "2026-07-21T21:58:29Z",
     "publish_at": null,
-    "age_hours": 796.2,
+    "age_hours": 826.6,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 47,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "386ec26d96179fba": {
     "title": null,
     "topic": "Why Deja Vu Feels So Real",
     "posted_at": "2026-07-22T09:02:01Z",
     "publish_at": null,
-    "age_hours": 785.1,
+    "age_hours": 815.6,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 40,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "f4ae45e735fb4fdf96b16d8d3b731464641bf20b54be40aa4debc320c0f8264f": {
     "title": "Why You Hear Your Heartbeat at Night 🫀",
     "topic": "Why you hear your heartbeat at night",
     "posted_at": "2026-07-22T18:35:43.234010+00:00",
     "publish_at": null,
-    "age_hours": 775.6,
+    "age_hours": 806.0,
     "hook_score": 90,
     "seo_score": 90,
     "duration_seconds": 43,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00",
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00",
     "youtube_shorts": {
       "pending": "No analytics rows yet - data can take 24-48h to populate after upload."
     }
@@ -1071,17 +1066,17 @@
     "topic": "Have you ever felt like hours flew by\n\nFeeling like time distorts is usually due to our brain's internal clock being influenced by our emotions\n\nMore science that surprises you — follow along\n\n#humanb",
     "posted_at": "2026-07-23T05:05:27+0000",
     "publish_at": null,
-    "age_hours": 765.1,
+    "age_hours": 795.5,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": null,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00",
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00",
     "facebook_reels": {
       "views": 5,
-      "completion": 0.8935,
+      "completion": 1.0211,
       "avg_watch_seconds": 14.3,
-      "fetched_at": "2026-08-24T02:09:33.822859+00:00"
+      "fetched_at": "2026-08-25T08:37:27.101750+00:00"
     }
   },
   "d5a5f92f73479944": {
@@ -1089,37 +1084,37 @@
     "topic": "Why Your Body Does This: Faster Or Slower Than 😳",
     "posted_at": "2026-07-23T10:00:37Z",
     "publish_at": null,
-    "age_hours": 760.1,
+    "age_hours": 790.6,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 42,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "8642df72ef46b2dccc3c3e0e896c10ac8b9d2defd934a939952d85a5294a6a98": {
     "title": "Throat Lump 🫀",
     "topic": "a feeling of a lump in your throat when sad",
     "posted_at": "2026-07-22T23:41:40.581197+00:00",
     "publish_at": null,
-    "age_hours": 770.5,
+    "age_hours": 800.9,
     "hook_score": 85,
     "seo_score": 73,
     "duration_seconds": 37,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00",
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00",
     "youtube_shorts": {
       "views": 1,
       "completion": 0.1639,
       "avg_view_seconds": 6,
       "impressions": null,
       "ctr": null,
-      "fetched_at": "2026-08-24T02:09:34.915819+00:00"
+      "fetched_at": "2026-08-25T08:37:28.030993+00:00"
     },
     "facebook_reels": {
       "views": 2,
-      "completion": 0.0541,
+      "completion": 0.0619,
       "avg_watch_seconds": 0.87,
-      "fetched_at": "2026-08-24T02:09:35.492935+00:00"
+      "fetched_at": "2026-08-25T08:37:28.584087+00:00"
     }
   },
   "e7ac0786668e0ff0": {
@@ -1127,17 +1122,17 @@
     "topic": "",
     "posted_at": "2026-07-23T20:56:36+0000",
     "publish_at": null,
-    "age_hours": 749.2,
+    "age_hours": 779.7,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": null,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00",
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00",
     "facebook_reels": {
       "views": 333,
-      "completion": 0.5647,
+      "completion": 0.6454,
       "avg_watch_seconds": 9.04,
-      "fetched_at": "2026-08-24T02:09:36.410316+00:00"
+      "fetched_at": "2026-08-25T08:37:29.353723+00:00"
     }
   },
   "53556913df06b844": {
@@ -1145,17 +1140,17 @@
     "topic": "You love the sweet taste of cold ice\n\nDiscover why your tongue feels numb after eating cold ice cream and how it's a normal response to cold temperatures\n\nFollow along — new facts every day\n\n#brainfac",
     "posted_at": "2026-07-23T23:38:16+0000",
     "publish_at": null,
-    "age_hours": 746.5,
+    "age_hours": 777.0,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": null,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00",
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00",
     "facebook_reels": {
       "views": 1,
-      "completion": 0.0583,
+      "completion": 0.0666,
       "avg_watch_seconds": 0.93,
-      "fetched_at": "2026-08-24T02:09:37.103683+00:00"
+      "fetched_at": "2026-08-25T08:37:29.940117+00:00"
     }
   },
   "b02191218460c45b": {
@@ -1163,41 +1158,41 @@
     "topic": "Why Yawns Are Contagious 🫀",
     "posted_at": "2026-07-24T00:00:17Z",
     "publish_at": null,
-    "age_hours": 746.1,
+    "age_hours": 776.6,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 39,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "228341597742cb1d": {
     "title": null,
     "topic": "Why Your Body Does This: Brain Freeze 😳",
     "posted_at": "2026-07-24T10:00:22Z",
     "publish_at": null,
-    "age_hours": 736.1,
+    "age_hours": 766.6,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 36,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "e873115c394c7746": {
     "title": null,
     "topic": "Why Your Body Does This: Gag Reflex 😳",
     "posted_at": "2026-07-24T16:30:04Z",
     "publish_at": null,
-    "age_hours": 729.6,
+    "age_hours": 760.1,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 38,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00",
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00",
     "facebook_reels": {
       "views": 1,
-      "completion": 0.1235,
+      "completion": 0.1411,
       "avg_watch_seconds": 1.98,
-      "fetched_at": "2026-08-24T02:09:38.625016+00:00"
+      "fetched_at": "2026-08-25T08:37:31.384813+00:00"
     }
   },
   "5f12c372a4f1a1c8": {
@@ -1205,17 +1200,17 @@
     "topic": "Have you ever noticed your mouth dry up\n\nLearn why your mouth dries up before big speeches and how to prevent it\n\nMore coming — follow so you don't miss it\n\n#humanbody #bodyscience #mouth",
     "posted_at": "2026-07-24T17:01:16+0000",
     "publish_at": null,
-    "age_hours": 729.1,
+    "age_hours": 759.6,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": null,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00",
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00",
     "facebook_reels": {
       "views": 1,
-      "completion": 0.0583,
+      "completion": 0.0666,
       "avg_watch_seconds": 0.93,
-      "fetched_at": "2026-08-24T02:09:39.415914+00:00"
+      "fetched_at": "2026-08-25T08:37:31.965580+00:00"
     }
   },
   "4e95d4617b96b567": {
@@ -1223,53 +1218,53 @@
     "topic": "Why Your Body Does This: Dry Mouth 😳",
     "posted_at": "2026-07-25T00:00:13Z",
     "publish_at": null,
-    "age_hours": 722.1,
+    "age_hours": 752.6,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 41,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "e342690174380a81": {
     "title": null,
     "topic": "Why Your Body Does This: Nervous Shivers 😳",
     "posted_at": "2026-07-25T10:00:32Z",
     "publish_at": null,
-    "age_hours": 712.1,
+    "age_hours": 742.6,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 42,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "0e1ec802eb0da148": {
     "title": null,
     "topic": "Why Your Body Does This: Brain Freeze 😳",
     "posted_at": "2026-07-25T16:30:15Z",
     "publish_at": null,
-    "age_hours": 705.6,
+    "age_hours": 736.1,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 37,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "a1d6b5c4157c9fb7": {
     "title": null,
     "topic": "Why Your Body Does This: Doorway Effect 😳",
     "posted_at": "2026-07-26T16:30:30Z",
     "publish_at": null,
-    "age_hours": 681.6,
+    "age_hours": 712.1,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 42,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00",
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00",
     "facebook_reels": {
       "views": 1,
-      "completion": 0.0583,
+      "completion": 0.0666,
       "avg_watch_seconds": 0.93,
-      "fetched_at": "2026-08-24T02:09:40.978582+00:00"
+      "fetched_at": "2026-08-25T08:37:33.458939+00:00"
     }
   },
   "842f2b0c8b12dcb2": {
@@ -1277,17 +1272,17 @@
     "topic": "Muscle Cramp 😴",
     "posted_at": "2026-07-26T16:40:31+0000",
     "publish_at": null,
-    "age_hours": 681.5,
+    "age_hours": 711.9,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": null,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00",
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00",
     "facebook_reels": {
       "views": 4,
-      "completion": 0.0717,
+      "completion": 0.0819,
       "avg_watch_seconds": 1.15,
-      "fetched_at": "2026-08-24T02:09:41.646126+00:00"
+      "fetched_at": "2026-08-25T08:37:34.054232+00:00"
     }
   },
   "76b02af055c81a6b": {
@@ -1295,17 +1290,17 @@
     "topic": "Song Earworm 🧠",
     "posted_at": "2026-07-26T23:15:17+0000",
     "publish_at": null,
-    "age_hours": 674.9,
+    "age_hours": 705.4,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": null,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00",
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00",
     "facebook_reels": {
       "views": 4,
-      "completion": 0.3874,
+      "completion": 0.4428,
       "avg_watch_seconds": 6.2,
-      "fetched_at": "2026-08-24T02:09:42.533556+00:00"
+      "fetched_at": "2026-08-25T08:37:34.961611+00:00"
     }
   },
   "46da1d04bb19c28f477faad42abd9a275297b2be48e1e979edf1dfc9a3452f14": {
@@ -1313,12 +1308,12 @@
     "topic": "hearing your heartbeat at night",
     "posted_at": "2026-07-20T08:49:46.273323+00:00",
     "publish_at": null,
-    "age_hours": 833.3,
+    "age_hours": 863.8,
     "hook_score": 90,
     "seo_score": 78,
     "duration_seconds": 43,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00",
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00",
     "youtube_shorts": {
       "pending": "No analytics rows yet - data can take 24-48h to populate after upload."
     }
@@ -1328,25 +1323,25 @@
     "topic": "having a 5-second song loop stuck in your brain",
     "posted_at": "2026-07-26T23:16:25.116797+00:00",
     "publish_at": "2026-07-27T01:30:00Z",
-    "age_hours": 674.9,
+    "age_hours": 705.3,
     "hook_score": 85,
     "seo_score": 73,
     "duration_seconds": 39,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00",
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00",
     "youtube_shorts": {
       "views": 203,
       "completion": 0.3168,
       "avg_view_seconds": 12,
       "impressions": null,
       "ctr": null,
-      "fetched_at": "2026-08-24T02:09:44.048674+00:00"
+      "fetched_at": "2026-08-25T08:37:36.252666+00:00"
     },
     "facebook_reels": {
       "views": 4,
-      "completion": 0.3874,
+      "completion": 0.4428,
       "avg_watch_seconds": 6.2,
-      "fetched_at": "2026-08-24T02:09:44.473339+00:00"
+      "fetched_at": "2026-08-25T08:37:36.566341+00:00"
     },
     "instagram_reels": {
       "views": 87,
@@ -1361,7 +1356,7 @@
       "saves_per_reach": 0.0,
       "likes_per_reach": 0.0,
       "unsupported": null,
-      "fetched_at": "2026-08-24T02:09:47.674124+00:00"
+      "fetched_at": "2026-08-25T08:37:39.415399+00:00"
     }
   },
   "81677eec039429f24c89e425814cc54379e7d25d0fd42b7614160304bf883370": {
@@ -1369,25 +1364,25 @@
     "topic": "your ears ringing in absolute silence",
     "posted_at": "2026-07-27T01:22:02.600557+00:00",
     "publish_at": "2026-07-27T16:30:00Z",
-    "age_hours": 672.8,
+    "age_hours": 703.2,
     "hook_score": 85,
     "seo_score": 73,
     "duration_seconds": 38,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00",
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00",
     "youtube_shorts": {
       "views": 730,
       "completion": 0.3601,
       "avg_view_seconds": 13,
       "impressions": null,
       "ctr": null,
-      "fetched_at": "2026-08-24T02:09:48.452614+00:00"
+      "fetched_at": "2026-08-25T08:37:40.103129+00:00"
     },
     "facebook_reels": {
       "views": 7,
-      "completion": 1.4674,
+      "completion": 1.5,
       "avg_watch_seconds": 23.48,
-      "fetched_at": "2026-08-24T02:09:48.837745+00:00"
+      "fetched_at": "2026-08-25T08:37:40.377683+00:00"
     },
     "instagram_reels": {
       "views": 108,
@@ -1402,7 +1397,7 @@
       "saves_per_reach": 0.0,
       "likes_per_reach": 0.0,
       "unsupported": null,
-      "fetched_at": "2026-08-24T02:09:52.136280+00:00"
+      "fetched_at": "2026-08-25T08:37:43.673532+00:00"
     }
   },
   "df09b7c4e0c6246b": {
@@ -1410,17 +1405,17 @@
     "topic": "Sleeping Foot 🫀",
     "posted_at": "2026-07-27T16:58:21+0000",
     "publish_at": null,
-    "age_hours": 657.2,
+    "age_hours": 687.6,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": null,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00",
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00",
     "facebook_reels": {
       "views": 2,
-      "completion": 0.3127,
+      "completion": 0.3574,
       "avg_watch_seconds": 5.0,
-      "fetched_at": "2026-08-24T02:09:52.875633+00:00"
+      "fetched_at": "2026-08-25T08:37:44.752044+00:00"
     }
   },
   "07ce27ca60dc5ddcfafa6d8ff89611d94748833ca71e2fd16f7ebf9d65d6046f": {
@@ -1428,25 +1423,25 @@
     "topic": "your foot falling asleep and feeling numb",
     "posted_at": "2026-07-27T16:59:24.616406+00:00",
     "publish_at": "2026-07-28T00:00:00Z",
-    "age_hours": 657.2,
+    "age_hours": 687.6,
     "hook_score": 85,
     "seo_score": 75,
     "duration_seconds": 36,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00",
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00",
     "youtube_shorts": {
-      "views": 798,
-      "completion": 0.3909,
+      "views": 799,
+      "completion": 0.3913,
       "avg_view_seconds": 14,
       "impressions": null,
       "ctr": null,
-      "fetched_at": "2026-08-24T02:09:53.579749+00:00"
+      "fetched_at": "2026-08-25T08:37:45.428529+00:00"
     },
     "facebook_reels": {
       "views": 5,
-      "completion": 0.8935,
+      "completion": 1.0211,
       "avg_watch_seconds": 14.3,
-      "fetched_at": "2026-08-24T02:09:54.205081+00:00"
+      "fetched_at": "2026-08-25T08:37:45.718063+00:00"
     },
     "instagram_reels": {
       "views": 169,
@@ -1461,7 +1456,7 @@
       "saves_per_reach": 0.0,
       "likes_per_reach": 0.0,
       "unsupported": null,
-      "fetched_at": "2026-08-24T02:09:58.382978+00:00"
+      "fetched_at": "2026-08-25T08:37:48.411748+00:00"
     }
   },
   "dc7b3440077a981e8c666562fefe7e35c0358932d69c882a906c9619065d2483": {
@@ -1469,25 +1464,25 @@
     "topic": "brushing back teeth triggering a sudden gag",
     "posted_at": "2026-07-27T22:30:08.852959+00:00",
     "publish_at": "2026-07-28T01:30:00Z",
-    "age_hours": 651.6,
+    "age_hours": 682.1,
     "hook_score": 85,
     "seo_score": 73,
     "duration_seconds": 39,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00",
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00",
     "youtube_shorts": {
       "views": 658,
       "completion": 0.2812,
       "avg_view_seconds": 10,
       "impressions": null,
       "ctr": null,
-      "fetched_at": "2026-08-24T02:09:59.158944+00:00"
+      "fetched_at": "2026-08-25T08:37:49.080407+00:00"
     },
     "facebook_reels": {
       "views": 1,
-      "completion": 0.0583,
+      "completion": 0.0666,
       "avg_watch_seconds": 0.93,
-      "fetched_at": "2026-08-24T02:09:59.545391+00:00"
+      "fetched_at": "2026-08-25T08:37:49.351605+00:00"
     },
     "instagram_reels": {
       "views": 109,
@@ -1502,7 +1497,7 @@
       "saves_per_reach": 0.0,
       "likes_per_reach": 0.0,
       "unsupported": null,
-      "fetched_at": "2026-08-24T02:10:02.977955+00:00"
+      "fetched_at": "2026-08-25T08:37:52.971269+00:00"
     }
   },
   "8dd35c00cd9a28ec": {
@@ -1510,37 +1505,37 @@
     "topic": "Why You Get Dizzy When You Stand Up Fast 🫀",
     "posted_at": "2026-07-28T16:30:23Z",
     "publish_at": null,
-    "age_hours": 633.6,
+    "age_hours": 664.1,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 36,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "9e3935b7f560bb42535357d54571e06bfed888ae126f9807b50bb95024a90eca": {
     "title": "Bright Spot Vision 🫀",
     "topic": "seeing glowing spots after looking near bright light",
     "posted_at": "2026-07-28T16:34:00.467192+00:00",
     "publish_at": "2026-07-29T00:00:00Z",
-    "age_hours": 633.6,
+    "age_hours": 664.0,
     "hook_score": 85,
     "seo_score": 77,
     "duration_seconds": 36,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00",
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00",
     "youtube_shorts": {
       "views": 262,
       "completion": 0.3627,
       "avg_view_seconds": 13,
       "impressions": null,
       "ctr": null,
-      "fetched_at": "2026-08-24T02:10:04.087639+00:00"
+      "fetched_at": "2026-08-25T08:37:53.952147+00:00"
     },
     "facebook_reels": {
       "views": 2,
-      "completion": 0.3127,
+      "completion": 0.3574,
       "avg_watch_seconds": 5.0,
-      "fetched_at": "2026-08-24T02:10:04.521792+00:00"
+      "fetched_at": "2026-08-25T08:37:54.348195+00:00"
     },
     "instagram_reels": {
       "views": 59,
@@ -1555,7 +1550,7 @@
       "saves_per_reach": 0.0,
       "likes_per_reach": 0.02,
       "unsupported": null,
-      "fetched_at": "2026-08-24T02:10:08.167692+00:00"
+      "fetched_at": "2026-08-25T08:37:57.406438+00:00"
     }
   },
   "61f168687fbdfde9e36177961b34c81ee274fa6d0d6d86b7911d32f98fad4e66": {
@@ -1563,25 +1558,25 @@
     "topic": "losing taste sensation after hot coffee",
     "posted_at": "2026-07-28T22:30:09.600455+00:00",
     "publish_at": "2026-07-29T01:30:00Z",
-    "age_hours": 627.6,
+    "age_hours": 658.1,
     "hook_score": 85,
     "seo_score": 73,
     "duration_seconds": 36,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00",
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00",
     "youtube_shorts": {
       "views": 882,
       "completion": 0.3059,
       "avg_view_seconds": 11,
       "impressions": null,
       "ctr": null,
-      "fetched_at": "2026-08-24T02:10:08.978320+00:00"
+      "fetched_at": "2026-08-25T08:37:58.007121+00:00"
     },
     "facebook_reels": {
       "views": 2,
-      "completion": 0.3127,
+      "completion": 0.3574,
       "avg_watch_seconds": 5.0,
-      "fetched_at": "2026-08-24T02:10:09.379530+00:00"
+      "fetched_at": "2026-08-25T08:37:58.404310+00:00"
     },
     "instagram_reels": {
       "views": 114,
@@ -1596,7 +1591,7 @@
       "saves_per_reach": 0.0,
       "likes_per_reach": 0.0,
       "unsupported": null,
-      "fetched_at": "2026-08-24T02:10:12.831332+00:00"
+      "fetched_at": "2026-08-25T08:38:01.817748+00:00"
     }
   },
   "dcfa4bd7c932f986ac666f2d92fa4f225fca948037f03fe6cf9c9188be9b985c": {
@@ -1604,12 +1599,12 @@
     "topic": "Why deja vu feels strangely familiar",
     "posted_at": "2026-07-22T09:01:49.616444+00:00",
     "publish_at": null,
-    "age_hours": 785.1,
+    "age_hours": 815.6,
     "hook_score": 85,
     "seo_score": 87,
     "duration_seconds": 38,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00",
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00",
     "youtube_shorts": {
       "pending": "No analytics rows yet - data can take 24-48h to populate after upload."
     }
@@ -1619,65 +1614,65 @@
     "topic": "Why Your Body Does This: Cold Sweat 😳",
     "posted_at": "2026-07-30T16:30:00Z",
     "publish_at": null,
-    "age_hours": 585.6,
+    "age_hours": 616.1,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 37,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "375c4b2ea6ea51f2": {
     "title": null,
     "topic": "Why Your Body Does This: Cold Hands 😳",
     "posted_at": "2026-07-31T00:00:26Z",
     "publish_at": null,
-    "age_hours": 578.1,
+    "age_hours": 608.6,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 32,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "ae6c6fd6fcd4c78f": {
     "title": null,
     "topic": "Why Your Body Does This: Cold Tip Nose 😳",
     "posted_at": "2026-07-31T01:30:33Z",
     "publish_at": null,
-    "age_hours": 576.6,
+    "age_hours": 607.1,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 34,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "6a061aac75c63cc5": {
     "title": null,
     "topic": "Why Your Body Freezes When Scared 🫀",
     "posted_at": "2026-07-31T22:30:23Z",
     "publish_at": null,
-    "age_hours": 555.6,
+    "age_hours": 586.1,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 29,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "29fcee8530df28c6": {
     "title": null,
     "topic": "Why Your Body Shakes When Sleeping 😴",
     "posted_at": "2026-08-01T00:00:03Z",
     "publish_at": null,
-    "age_hours": 554.1,
+    "age_hours": 584.6,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 28,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00",
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00",
     "facebook_reels": {
       "views": 5,
-      "completion": 0.8935,
+      "completion": 1.0211,
       "avg_watch_seconds": 14.3,
-      "fetched_at": "2026-08-24T02:10:15.628179+00:00"
+      "fetched_at": "2026-08-25T08:38:04.329077+00:00"
     }
   },
   "99a37fdbcf0973256e6cb714237d4bf142629e5a9cb002b0578784b99179b592": {
@@ -1685,12 +1680,12 @@
     "topic": "your body jerking as you fall asleep",
     "posted_at": "2026-07-19T09:24:32.101083+00:00",
     "publish_at": null,
-    "age_hours": 856.7,
+    "age_hours": 887.2,
     "hook_score": 70,
     "seo_score": 88,
     "duration_seconds": 29,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00",
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00",
     "youtube_shorts": {
       "pending": "No analytics rows yet - data can take 24-48h to populate after upload."
     }
@@ -1700,53 +1695,53 @@
     "topic": "Why Your Body Freezes When Scared 🫀",
     "posted_at": "2026-08-01T22:30:06Z",
     "publish_at": null,
-    "age_hours": 531.6,
+    "age_hours": 562.1,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 31,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "bfaba06cf3595fa4": {
     "title": null,
     "topic": "Why Your Body Freezes When Scared 🫀",
     "posted_at": "2026-08-02T00:00:19Z",
     "publish_at": null,
-    "age_hours": 530.1,
+    "age_hours": 560.6,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 28,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "8160c058ce7d669a": {
     "title": null,
     "topic": "Why Your Body Twitches Every Time 🫀",
     "posted_at": "2026-08-02T16:30:02Z",
     "publish_at": null,
-    "age_hours": 513.6,
+    "age_hours": 544.1,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 32,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00"
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   },
   "ccb244db654ceb40": {
     "title": null,
     "topic": "Why Your Body Freezes When Scared 🫀",
     "posted_at": "2026-08-02T21:48:23Z",
     "publish_at": null,
-    "age_hours": 508.3,
+    "age_hours": 538.8,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 33,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00",
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00",
     "facebook_reels": {
       "views": 1,
-      "completion": 0.1235,
+      "completion": 0.1411,
       "avg_watch_seconds": 1.98,
-      "fetched_at": "2026-08-24T02:10:17.977202+00:00"
+      "fetched_at": "2026-08-25T08:38:06.536553+00:00"
     }
   },
   "db78717f0ac3edd048c63da74b8594df26fa409657b65d548c9eea7329bb78f1": {
@@ -1754,12 +1749,12 @@
     "topic": "your knees cracking when you move",
     "posted_at": "2026-07-19T15:04:49.047803+00:00",
     "publish_at": null,
-    "age_hours": 851.1,
+    "age_hours": 881.5,
     "hook_score": 85,
     "seo_score": 78,
     "duration_seconds": 30,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00",
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00",
     "youtube_shorts": {
       "pending": "No analytics rows yet - data can take 24-48h to populate after upload."
     }
@@ -1769,17 +1764,17 @@
     "topic": "Why Your Body Twitches Every Time 🫀",
     "posted_at": "2026-08-02T23:22:01Z",
     "publish_at": null,
-    "age_hours": 506.8,
+    "age_hours": 537.2,
     "hook_score": null,
     "seo_score": null,
     "duration_seconds": 30,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00",
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00",
     "facebook_reels": {
       "views": 1,
-      "completion": 0.0583,
+      "completion": 0.0666,
       "avg_watch_seconds": 0.93,
-      "fetched_at": "2026-08-24T02:10:19.351840+00:00"
+      "fetched_at": "2026-08-25T08:38:07.749226+00:00"
     }
   },
   "3ba4b8193de4babbd416aa24b9a5c4cac4765549d2cea38ab7332e2c3f68f548": {
@@ -1787,12 +1782,12 @@
     "topic": "your body freezing when scared",
     "posted_at": "2026-07-20T00:39:05.209036+00:00",
     "publish_at": null,
-    "age_hours": 841.5,
+    "age_hours": 872.0,
     "hook_score": 85,
     "seo_score": 82,
     "duration_seconds": 32,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00",
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00",
     "youtube_shorts": {
       "pending": "No analytics rows yet - data can take 24-48h to populate after upload."
     }
@@ -1802,19 +1797,19 @@
     "topic": "Why your body freezes when you feel scared",
     "posted_at": "2026-07-21T21:58:08.407147+00:00",
     "publish_at": null,
-    "age_hours": 796.2,
+    "age_hours": 826.6,
     "hook_score": 85,
     "seo_score": 88,
     "duration_seconds": 30,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00",
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00",
     "youtube_shorts": {
       "views": 1,
       "completion": 0.0,
       "avg_view_seconds": 0,
       "impressions": null,
       "ctr": null,
-      "fetched_at": "2026-08-24T02:10:20.806306+00:00"
+      "fetched_at": "2026-08-25T08:38:09.089068+00:00"
     }
   },
   "5facc1e4cf2c99f9a75d82cfc051bed513b8cbc15f44bf7c7492de076ca5e0a6": {
@@ -1822,25 +1817,25 @@
     "topic": "Why Your Voice Sounds 'Wrong' to You",
     "posted_at": "2026-08-15T08:18:02.026886+00:00",
     "publish_at": "2026-08-15T16:30:00Z",
-    "age_hours": 209.8,
+    "age_hours": 240.3,
     "hook_score": 80,
     "seo_score": 88,
     "duration_seconds": 28.17,
     "meta_cut_seconds": 12.12,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00",
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00",
     "youtube_shorts": {
       "views": 145,
       "completion": 0.3809,
       "avg_view_seconds": 11,
       "impressions": null,
       "ctr": null,
-      "fetched_at": "2026-08-24T02:10:21.574753+00:00"
+      "fetched_at": "2026-08-25T08:38:09.739035+00:00"
     },
     "facebook_reels": {
       "views": 240,
       "completion": 0.374,
       "avg_watch_seconds": 4.53,
-      "fetched_at": "2026-08-24T02:10:22.048365+00:00"
+      "fetched_at": "2026-08-25T08:38:10.406387+00:00"
     },
     "instagram_reels": {
       "views": 6,
@@ -1855,7 +1850,7 @@
       "saves_per_reach": 0.0,
       "likes_per_reach": 0.0,
       "unsupported": null,
-      "fetched_at": "2026-08-24T02:10:26.445391+00:00"
+      "fetched_at": "2026-08-25T08:38:13.848231+00:00"
     }
   },
   "175402ec16ccd18e07e9b89ca06b152d146928d86fbfbeab774164c715b454bf": {
@@ -1863,25 +1858,25 @@
     "topic": "Why You Freeze Under Pressure",
     "posted_at": "2026-08-15T22:30:08.005624+00:00",
     "publish_at": "2026-08-15T22:30:00Z",
-    "age_hours": 195.6,
+    "age_hours": 226.1,
     "hook_score": 80,
     "seo_score": 88,
     "duration_seconds": 30.0,
     "meta_cut_seconds": 12.9,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00",
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00",
     "youtube_shorts": {
-      "views": 137,
+      "views": 138,
       "completion": 0.2987,
       "avg_view_seconds": 9,
       "impressions": null,
       "ctr": null,
-      "fetched_at": "2026-08-24T02:10:27.190215+00:00"
+      "fetched_at": "2026-08-25T08:38:14.500838+00:00"
     },
     "facebook_reels": {
       "views": 219,
       "completion": 0.2198,
       "avg_watch_seconds": 2.84,
-      "fetched_at": "2026-08-24T02:10:27.758305+00:00"
+      "fetched_at": "2026-08-25T08:38:15.174907+00:00"
     },
     "instagram_reels": {
       "views": 47,
@@ -1896,7 +1891,7 @@
       "saves_per_reach": 0.0,
       "likes_per_reach": 0.0,
       "unsupported": null,
-      "fetched_at": "2026-08-24T02:10:31.306708+00:00"
+      "fetched_at": "2026-08-25T08:38:18.125530+00:00"
     }
   },
   "89b36482e45e61281b5aa5b872bdce3dc437fe11b4ada51e4c4a621a6cd2b160": {
@@ -1904,25 +1899,25 @@
     "topic": "Why Babies Grab Your Finger",
     "posted_at": "2026-08-17T06:51:20.280359+00:00",
     "publish_at": "2026-08-17T16:30:00Z",
-    "age_hours": 163.3,
+    "age_hours": 193.8,
     "hook_score": 100,
     "seo_score": 88,
     "duration_seconds": 28.79,
     "meta_cut_seconds": 12.47,
-    "fetched_at": "2026-08-24T02:08:55.200385+00:00",
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00",
     "youtube_shorts": {
       "views": 614,
       "completion": 0.376,
       "avg_view_seconds": 10,
       "impressions": null,
       "ctr": null,
-      "fetched_at": "2026-08-24T02:10:32.041408+00:00"
+      "fetched_at": "2026-08-25T08:38:18.740918+00:00"
     },
     "facebook_reels": {
       "views": 228,
       "completion": 0.3799,
       "avg_watch_seconds": 4.74,
-      "fetched_at": "2026-08-24T02:10:32.780171+00:00"
+      "fetched_at": "2026-08-25T08:38:19.305415+00:00"
     },
     "instagram_reels": {
       "views": 112,
@@ -1937,7 +1932,7 @@
       "saves_per_reach": 0.0,
       "likes_per_reach": 0.0,
       "unsupported": null,
-      "fetched_at": "2026-08-24T02:10:36.751407+00:00"
+      "fetched_at": "2026-08-25T08:38:22.558288+00:00"
     }
   },
   "run-32550895519-4wVFe_NLBLc": {
@@ -1945,20 +1940,25 @@
     "topic": "Why the reciprocity trigger ?",
     "posted_at": "2026-08-22T04:27:35Z",
     "publish_at": "2026-08-22T16:30:00Z",
-    "age_hours": 32.8,
+    "age_hours": 76.2,
     "hook_score": 75,
     "seo_score": null,
     "duration_seconds": null,
     "meta_cut_seconds": null,
-    "fetched_at": "2026-08-23T13:14:36.281680+00:00",
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00",
     "youtube_shorts": {
-      "pending": "No analytics rows yet - data can take 24-48h to populate after upload."
+      "views": 9,
+      "completion": 0.5003,
+      "avg_view_seconds": 23,
+      "impressions": null,
+      "ctr": null,
+      "fetched_at": "2026-08-25T08:38:23.195771+00:00"
     },
     "facebook_reels": {
       "views": 80,
-      "completion": 0.3036,
+      "completion": 0.3469,
       "avg_watch_seconds": 4.86,
-      "fetched_at": "2026-08-23T13:14:38.705859+00:00"
+      "fetched_at": "2026-08-25T08:38:23.920696+00:00"
     },
     "instagram_reels": {
       "views": 15,
@@ -1973,7 +1973,7 @@
       "saves_per_reach": 0.0,
       "likes_per_reach": 0.0,
       "unsupported": null,
-      "fetched_at": "2026-08-23T13:14:42.464709+00:00"
+      "fetched_at": "2026-08-25T08:38:27.304470+00:00"
     }
   },
   "7c59b5346d12b3caaacac53b1b5dcb4966a221784e04163eb7bd93807a61f450": {
@@ -1981,20 +1981,25 @@
     "topic": "Why do your fingers wrinkle in water?",
     "posted_at": "2026-08-22T09:19:00.024321+00:00",
     "publish_at": "2026-08-22T22:30:00Z",
-    "age_hours": 27.9,
+    "age_hours": 71.3,
     "hook_score": 100,
     "seo_score": 88,
     "duration_seconds": 42.77,
     "meta_cut_seconds": 12.18,
-    "fetched_at": "2026-08-23T13:14:36.281680+00:00",
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00",
     "youtube_shorts": {
-      "pending": "No analytics rows yet - data can take 24-48h to populate after upload."
+      "views": 498,
+      "completion": 0.2352,
+      "avg_view_seconds": 10,
+      "impressions": null,
+      "ctr": null,
+      "fetched_at": "2026-08-25T08:38:28.021244+00:00"
     },
     "facebook_reels": {
-      "views": 248,
-      "completion": 0.3178,
-      "avg_watch_seconds": 3.87,
-      "fetched_at": "2026-08-23T13:14:43.974094+00:00"
+      "views": 249,
+      "completion": 0.3181,
+      "avg_watch_seconds": 3.88,
+      "fetched_at": "2026-08-25T08:38:28.464389+00:00"
     },
     "instagram_reels": {
       "views": 123,
@@ -2009,7 +2014,19 @@
       "saves_per_reach": 0.0,
       "likes_per_reach": 0.0,
       "unsupported": null,
-      "fetched_at": "2026-08-23T13:14:47.474228+00:00"
+      "fetched_at": "2026-08-25T08:38:31.825887+00:00"
     }
+  },
+  "fd02583e988006b4b36e81b7c5f70e5fb6826414095cea363db79ef345b5ff71": {
+    "title": "What Really Happens When Your Reciprocity",
+    "topic": "The Reciprocity Trigger",
+    "posted_at": "2026-08-23T14:52:18.855295+00:00",
+    "publish_at": null,
+    "age_hours": 41.7,
+    "hook_score": 55,
+    "seo_score": 92,
+    "duration_seconds": 43.6,
+    "meta_cut_seconds": 14.85,
+    "fetched_at": "2026-08-25T08:36:47.744246+00:00"
   }
 }

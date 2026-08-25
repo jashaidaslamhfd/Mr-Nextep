@@ -1,0 +1,158 @@
+{
+  "feature_weights": {
+    "hook_has_you": 1.0367,
+    "hook_is_statement": 0.9464,
+    "hook_is_why": 1.0567,
+    "hook_has_body_part": 1.0381,
+    "title_length": 1.0306,
+    "title_short": 1.1353,
+    "topic_muscle": 0.5193,
+    "topic_brain": 1.1816,
+    "topic_ear": 1.0209,
+    "topic_body": 0.6852,
+    "hook_score_raw": 1.0694,
+    "seo_score_raw": 1.047
+  },
+  "feature_samples": {
+    "hook_has_you": 5,
+    "hook_is_statement": 28,
+    "hook_is_why": 5,
+    "hook_has_body_part": 4,
+    "title_length": 33,
+    "title_short": 30,
+    "topic_muscle": 1,
+    "topic_brain": 3,
+    "topic_ear": 4,
+    "topic_body": 9,
+    "hook_score_raw": 33,
+    "seo_score_raw": 33
+  },
+  "feature_performance": {
+    "hook_has_you": {
+      "avg_with": 34.65,
+      "avg_without": 33.42,
+      "raw_weight": 1.0367,
+      "ema_weight": 1.0367,
+      "sample_count": 5
+    },
+    "hook_is_statement": {
+      "avg_with": 33.32,
+      "avg_without": 35.21,
+      "raw_weight": 0.9464,
+      "ema_weight": 0.9464,
+      "sample_count": 28
+    },
+    "hook_is_why": {
+      "avg_with": 35.21,
+      "avg_without": 33.32,
+      "raw_weight": 1.0567,
+      "ema_weight": 1.0567,
+      "sample_count": 5
+    },
+    "hook_has_body_part": {
+      "avg_with": 34.73,
+      "avg_without": 33.45,
+      "raw_weight": 1.0381,
+      "ema_weight": 1.0381,
+      "sample_count": 4
+    },
+    "title_short": {
+      "avg_with": 33.98,
+      "avg_without": 29.93,
+      "raw_weight": 1.1353,
+      "ema_weight": 1.1353,
+      "sample_count": 30
+    },
+    "topic_muscle": {
+      "avg_with": 17.71,
+      "avg_without": 34.1,
+      "raw_weight": 0.5193,
+      "ema_weight": 0.5193,
+      "sample_count": 1
+    },
+    "topic_brain": {
+      "avg_with": 39.07,
+      "avg_without": 33.06,
+      "raw_weight": 1.1816,
+      "ema_weight": 1.1816,
+      "sample_count": 3
+    },
+    "topic_ear": {
+      "avg_with": 34.22,
+      "avg_without": 33.52,
+      "raw_weight": 1.0209,
+      "ema_weight": 1.0209,
+      "sample_count": 4
+    },
+    "topic_body": {
+      "avg_with": 25.19,
+      "avg_without": 36.76,
+      "raw_weight": 0.6852,
+      "ema_weight": 0.6852,
+      "sample_count": 9
+    }
+  },
+  "calibration_history": [
+    {
+      "date": "2026-08-25T08:38:33.484645+00:00",
+      "videos": 33,
+      "r2": 0.0,
+      "top_features": [
+        [
+          "topic_muscle",
+          {
+            "avg_with": 17.71,
+            "avg_without": 34.1,
+            "raw_weight": 0.5193,
+            "ema_weight": 0.5193,
+            "sample_count": 1
+          }
+        ],
+        [
+          "topic_body",
+          {
+            "avg_with": 25.19,
+            "avg_without": 36.76,
+            "raw_weight": 0.6852,
+            "ema_weight": 0.6852,
+            "sample_count": 9
+          }
+        ],
+        [
+          "topic_brain",
+          {
+            "avg_with": 39.07,
+            "avg_without": 33.06,
+            "raw_weight": 1.1816,
+            "ema_weight": 1.1816,
+            "sample_count": 3
+          }
+        ],
+        [
+          "title_short",
+          {
+            "avg_with": 33.98,
+            "avg_without": 29.93,
+            "raw_weight": 1.1353,
+            "ema_weight": 1.1353,
+            "sample_count": 30
+          }
+        ],
+        [
+          "hook_is_why",
+          {
+            "avg_with": 35.21,
+            "avg_without": 33.32,
+            "raw_weight": 1.0567,
+            "ema_weight": 1.0567,
+            "sample_count": 5
+          }
+        ]
+      ]
+    }
+  ],
+  "total_videos_calibrated": 33,
+  "prediction_accuracy": 0.0,
+  "last_run": "2026-08-25T08:38:33.484624+00:00",
+  "last_calibration_size": 33
+}

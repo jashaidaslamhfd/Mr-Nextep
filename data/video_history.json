@@ -49,11 +49,11 @@
     "predicted_ctr": 7.0,
     "hook_score": 85,
     "predicted_retention": 0.682,
-    "views": 606,
+    "views": 2,
     "actual_ctr": null,
-    "average_view_duration_sec": 13,
-    "average_view_percentage": 35.19,
-    "analytics_fetched_at": "2026-08-23T02:10:34.015376+00:00",
+    "average_view_duration_sec": 3,
+    "average_view_percentage": 8.46,
+    "analytics_fetched_at": "2026-08-25T08:36:24.808837+00:00",
     "facebook_id": "1044083038116002",
     "fb_views": 205,
     "fb_avg_watch_ms": 0,
@@ -79,7 +79,7 @@
     "actual_ctr": null,
     "average_view_duration_sec": 16,
     "average_view_percentage": 37.67,
-    "analytics_fetched_at": "2026-08-23T02:10:34.376452+00:00",
+    "analytics_fetched_at": "2026-08-25T08:36:25.212057+00:00",
     "instagram_media_id": "18123739615779087",
     "facebook_video_id": "870075022564667"
   },
@@ -103,7 +103,7 @@
     "actual_ctr": null,
     "average_view_duration_sec": 11,
     "average_view_percentage": 32.03,
-    "analytics_fetched_at": "2026-08-23T02:10:34.704134+00:00",
+    "analytics_fetched_at": "2026-08-25T08:36:25.589017+00:00",
     "instagram_media_id": "17975366889082084",
     "facebook_video_id": "2305951026812474"
   },
@@ -127,7 +127,7 @@
     "actual_ctr": null,
     "average_view_duration_sec": 10,
     "average_view_percentage": 27.61,
-    "analytics_fetched_at": "2026-08-23T02:10:35.068383+00:00",
+    "analytics_fetched_at": "2026-08-25T08:36:25.984368+00:00",
     "instagram_media_id": "17918498754205458",
     "facebook_video_id": "1549658033106107"
   },
@@ -1372,11 +1372,11 @@
     "predicted_ctr": 7.1,
     "hook_score": 85,
     "predicted_retention": 0.732,
-    "views": 35,
+    "views": 21,
     "actual_ctr": null,
     "average_view_duration_sec": 10,
-    "average_view_percentage": 23.64,
-    "analytics_fetched_at": "2026-08-23T02:10:35.749883+00:00",
+    "average_view_percentage": 23.49,
+    "analytics_fetched_at": "2026-08-25T08:36:26.809946+00:00",
     "youtube_id": "AbAXF8oHhp0",
     "youtube_title": "Why Your Fingers Wrinkle in Water So Fast 🫀",
     "likes": 4,
@@ -1565,7 +1565,7 @@
     "actual_ctr": null,
     "average_view_duration_sec": 6,
     "average_view_percentage": 16.39,
-    "analytics_fetched_at": "2026-08-23T02:10:36.835418+00:00",
+    "analytics_fetched_at": "2026-08-25T08:36:27.944104+00:00",
     "youtube_id": "QZF0IHtnbIg",
     "youtube_title": "Why You Feel a Lump in Your Throat When Sad 🫀",
     "likes": 1,
@@ -1848,7 +1848,7 @@
     "actual_ctr": null,
     "average_view_duration_sec": 12,
     "average_view_percentage": 31.679999999999996,
-    "analytics_fetched_at": "2026-08-23T02:10:37.613375+00:00",
+    "analytics_fetched_at": "2026-08-25T08:36:28.763978+00:00",
     "youtube_id": "ed031j4Pgy8",
     "youtube_title": "Why a Song Gets Stuck in Your Head All Day 🧠",
     "likes": 0,
@@ -1878,7 +1878,7 @@
     "actual_ctr": null,
     "average_view_duration_sec": 13,
     "average_view_percentage": 36.01,
-    "analytics_fetched_at": "2026-08-23T02:10:37.956895+00:00",
+    "analytics_fetched_at": "2026-08-25T08:36:29.149447+00:00",
     "youtube_id": "QVLAgCpKa1M",
     "youtube_title": "Why Your Ears Ring in Complete Silence 👂",
     "likes": 9,
@@ -1919,11 +1919,11 @@
     "predicted_ctr": 7.0,
     "hook_score": 85,
     "predicted_retention": 0.682,
-    "views": 798,
+    "views": 799,
     "actual_ctr": null,
     "average_view_duration_sec": 14,
-    "average_view_percentage": 39.09,
-    "analytics_fetched_at": "2026-08-23T02:10:38.317255+00:00",
+    "average_view_percentage": 39.13,
+    "analytics_fetched_at": "2026-08-25T08:36:29.619857+00:00",
     "youtube_id": "IgJc5YtvLeY",
     "youtube_title": "Why Your Foot Falls Asleep and Goes Numb 🫀",
     "likes": 17,
@@ -1953,7 +1953,7 @@
     "actual_ctr": null,
     "average_view_duration_sec": 10,
     "average_view_percentage": 28.12,
-    "analytics_fetched_at": "2026-08-23T02:10:38.668200+00:00",
+    "analytics_fetched_at": "2026-08-25T08:36:30.049810+00:00",
     "youtube_id": "NNVgyS0NF4U",
     "youtube_title": "Why Brushing Back Teeth Makes You Gag 🫀",
     "likes": 3,
@@ -2005,7 +2005,7 @@
     "actual_ctr": null,
     "average_view_duration_sec": 13,
     "average_view_percentage": 36.27,
-    "analytics_fetched_at": "2026-08-23T02:10:38.962925+00:00",
+    "analytics_fetched_at": "2026-08-25T08:36:30.446679+00:00",
     "youtube_id": "fnOuctDKhrw",
     "youtube_title": "Why You See Spots After Bright Light 🫀",
     "likes": 2,
@@ -2035,7 +2035,7 @@
     "actual_ctr": null,
     "average_view_duration_sec": 11,
     "average_view_percentage": 30.59,
-    "analytics_fetched_at": "2026-08-23T02:10:39.265102+00:00",
+    "analytics_fetched_at": "2026-08-25T08:36:30.909572+00:00",
     "youtube_id": "xEFEjJBP--E",
     "youtube_title": "Why Hot Coffee Kills Your Taste 🫀",
     "likes": 5,
@@ -2369,7 +2369,7 @@
     "actual_ctr": null,
     "average_view_duration_sec": 0,
     "average_view_percentage": 0,
-    "analytics_fetched_at": "2026-08-23T02:10:40.949389+00:00",
+    "analytics_fetched_at": "2026-08-25T08:36:32.948237+00:00",
     "youtube_id": "mWnKEZll6jA",
     "youtube_title": "Why Your Body Shakes When You Sleep 😴",
     "likes": 0,
@@ -2403,7 +2403,7 @@
     "actual_ctr": null,
     "average_view_duration_sec": 11,
     "average_view_percentage": 38.09,
-    "analytics_fetched_at": "2026-08-23T02:10:41.361098+00:00"
+    "analytics_fetched_at": "2026-08-25T08:36:33.308555+00:00"
   },
   {
     "content_fingerprint": "175402ec16ccd18e07e9b89ca06b152d146928d86fbfbeab774164c715b454bf",
@@ -2431,7 +2431,7 @@
     "actual_ctr": null,
     "average_view_duration_sec": 9,
     "average_view_percentage": 29.87,
-    "analytics_fetched_at": "2026-08-23T02:10:41.733928+00:00"
+    "analytics_fetched_at": "2026-08-25T08:36:33.698416+00:00"
   },
   {
     "content_fingerprint": "89b36482e45e61281b5aa5b872bdce3dc437fe11b4ada51e4c4a621a6cd2b160",
@@ -2459,7 +2459,7 @@
     "actual_ctr": null,
     "average_view_duration_sec": 10,
     "average_view_percentage": 37.6,
-    "analytics_fetched_at": "2026-08-23T02:10:42.099021+00:00"
+    "analytics_fetched_at": "2026-08-25T08:36:34.158623+00:00"
   },
   {
     "content_fingerprint": "run-32550895519-4wVFe_NLBLc",
@@ -2485,7 +2485,12 @@
       "verified_pubmed_count": 3,
       "reconciled_from_run_id": "32550895519"
     },
-    "state_reconciled_from_run_id": "32550895519"
+    "state_reconciled_from_run_id": "32550895519",
+    "views": 9,
+    "actual_ctr": null,
+    "average_view_duration_sec": 23,
+    "average_view_percentage": 50.029999999999994,
+    "analytics_fetched_at": "2026-08-25T08:36:34.582111+00:00"
   },
   {
     "content_fingerprint": "7c59b5346d12b3caaacac53b1b5dcb4966a221784e04163eb7bd93807a61f450",
@@ -2722,7 +2727,12 @@
         "description_preview": "Why do your fingers wrinkle?\n\n👇 Follow for more daily science facts.",
         "predicted_ctr": 9.2
       }
-    }
+    },
+    "views": 498,
+    "actual_ctr": null,
+    "average_view_duration_sec": 10,
+    "average_view_percentage": 23.52,
+    "analytics_fetched_at": "2026-08-25T08:36:34.915514+00:00"
   },
   {
     "youtube_video_id": "XNaeAp-3gbY",
@@ -2731,7 +2741,7 @@
     "posted_at": "2026-08-15T11:38:17Z",
     "views": 86,
     "source": "channel_backfill",
-    "analytics_fetched_at": "2026-08-23T02:10:42.454953+00:00",
+    "analytics_fetched_at": "2026-08-25T08:36:35.277243+00:00",
     "actual_ctr": null,
     "average_view_duration_sec": 9,
     "average_view_percentage": 32.09
@@ -2743,7 +2753,7 @@
     "posted_at": "2026-08-14T22:30:37Z",
     "views": 0,
     "source": "channel_backfill",
-    "analytics_fetched_at": "2026-08-24T02:08:55.178657+00:00",
+    "analytics_fetched_at": "2026-08-25T08:36:35.661315+00:00",
     "actual_ctr": null,
     "average_view_duration_sec": 0,
     "average_view_percentage": 0
@@ -2755,7 +2765,7 @@
     "posted_at": "2026-08-14T16:30:22Z",
     "views": 93,
     "source": "channel_backfill",
-    "analytics_fetched_at": "2026-08-23T02:10:43.053359+00:00",
+    "analytics_fetched_at": "2026-08-25T08:36:36.053351+00:00",
     "actual_ctr": null,
     "average_view_duration_sec": 10,
     "average_view_percentage": 36.36
@@ -2767,7 +2777,7 @@
     "posted_at": "2026-08-14T00:34:15Z",
     "views": 57,
     "source": "channel_backfill",
-    "analytics_fetched_at": "2026-08-23T02:10:43.429470+00:00",
+    "analytics_fetched_at": "2026-08-25T08:36:36.473237+00:00",
     "actual_ctr": null,
     "average_view_duration_sec": 15,
     "average_view_percentage": 52.98
@@ -2779,7 +2789,7 @@
     "posted_at": "2026-08-13T22:30:06Z",
     "views": 13,
     "source": "channel_backfill",
-    "analytics_fetched_at": "2026-08-23T02:10:43.782653+00:00",
+    "analytics_fetched_at": "2026-08-25T08:36:36.818003+00:00",
     "actual_ctr": null,
     "average_view_duration_sec": 8,
     "average_view_percentage": 29.270000000000003
@@ -2791,7 +2801,7 @@
     "posted_at": "2026-08-13T00:00:35Z",
     "views": 197,
     "source": "channel_backfill",
-    "analytics_fetched_at": "2026-08-23T02:10:44.158055+00:00",
+    "analytics_fetched_at": "2026-08-25T08:36:37.198514+00:00",
     "actual_ctr": null,
     "average_view_duration_sec": 37,
     "average_view_percentage": 130.66
@@ -2803,7 +2813,7 @@
     "posted_at": "2026-08-11T16:30:30Z",
     "views": 71,
     "source": "channel_backfill",
-    "analytics_fetched_at": "2026-08-23T02:10:44.520683+00:00",
+    "analytics_fetched_at": "2026-08-25T08:36:37.642013+00:00",
     "actual_ctr": null,
     "average_view_duration_sec": 6,
     "average_view_percentage": 21.11
@@ -2815,7 +2825,7 @@
     "posted_at": "2026-08-11T00:00:03Z",
     "views": 42,
     "source": "channel_backfill",
-    "analytics_fetched_at": "2026-08-23T02:10:44.824632+00:00",
+    "analytics_fetched_at": "2026-08-25T08:36:38.099833+00:00",
     "actual_ctr": null,
     "average_view_duration_sec": 8,
     "average_view_percentage": 26.530000000000005
@@ -2827,7 +2837,7 @@
     "posted_at": "2026-08-09T22:30:04Z",
     "views": 51,
     "source": "channel_backfill",
-    "analytics_fetched_at": "2026-08-23T02:10:45.193189+00:00",
+    "analytics_fetched_at": "2026-08-25T08:36:38.486326+00:00",
     "actual_ctr": null,
     "average_view_duration_sec": 9,
     "average_view_percentage": 30.219999999999995
@@ -2839,7 +2849,7 @@
     "posted_at": "2026-08-09T16:30:06Z",
     "views": 841,
     "source": "channel_backfill",
-    "analytics_fetched_at": "2026-08-23T02:10:45.572898+00:00",
+    "analytics_fetched_at": "2026-08-25T08:36:38.873821+00:00",
     "actual_ctr": null,
     "average_view_duration_sec": 13,
     "average_view_percentage": 44.33
@@ -2851,7 +2861,7 @@
     "posted_at": "2026-08-09T00:00:13Z",
     "views": 536,
     "source": "channel_backfill",
-    "analytics_fetched_at": "2026-08-23T02:10:45.891085+00:00",
+    "analytics_fetched_at": "2026-08-25T08:36:39.363972+00:00",
     "actual_ctr": null,
     "average_view_duration_sec": 18,
     "average_view_percentage": 51.47999999999999
@@ -2863,7 +2873,7 @@
     "posted_at": "2026-08-08T00:00:23Z",
     "views": 235,
     "source": "channel_backfill",
-    "analytics_fetched_at": "2026-08-23T02:10:46.205249+00:00",
+    "analytics_fetched_at": "2026-08-25T08:36:39.810430+00:00",
     "actual_ctr": null,
     "average_view_duration_sec": 12,
     "average_view_percentage": 40.44
@@ -2875,7 +2885,7 @@
     "posted_at": "2026-08-07T22:30:25Z",
     "views": 19,
     "source": "channel_backfill",
-    "analytics_fetched_at": "2026-08-23T02:10:46.558942+00:00",
+    "analytics_fetched_at": "2026-08-25T08:36:40.111806+00:00",
     "actual_ctr": null,
     "average_view_duration_sec": 11,
     "average_view_percentage": 34.98
@@ -2887,7 +2897,7 @@
     "posted_at": "2026-08-07T16:30:16Z",
     "views": 412,
     "source": "channel_backfill",
-    "analytics_fetched_at": "2026-08-23T02:10:46.860363+00:00",
+    "analytics_fetched_at": "2026-08-25T08:36:40.478026+00:00",
     "actual_ctr": null,
     "average_view_duration_sec": 13,
     "average_view_percentage": 42.37
@@ -2899,7 +2909,7 @@
     "posted_at": "2026-08-06T16:30:06Z",
     "views": 389,
     "source": "channel_backfill",
-    "analytics_fetched_at": "2026-08-23T02:10:47.205157+00:00",
+    "analytics_fetched_at": "2026-08-25T08:36:40.813128+00:00",
     "actual_ctr": null,
     "average_view_duration_sec": 10,
     "average_view_percentage": 38.77
@@ -2911,7 +2921,7 @@
     "posted_at": "2026-08-06T00:00:10Z",
     "views": 47,
     "source": "channel_backfill",
-    "analytics_fetched_at": "2026-08-23T02:10:47.564049+00:00",
+    "analytics_fetched_at": "2026-08-25T08:36:41.223705+00:00",
     "actual_ctr": null,
     "average_view_duration_sec": 14,
     "average_view_percentage": 41.18
@@ -2923,7 +2933,7 @@
     "posted_at": "2026-08-05T22:30:33Z",
     "views": 525,
     "source": "channel_backfill",
-    "analytics_fetched_at": "2026-08-23T02:10:47.942940+00:00",
+    "analytics_fetched_at": "2026-08-25T08:36:41.533114+00:00",
     "actual_ctr": null,
     "average_view_duration_sec": 12,
     "average_view_percentage": 42.79
@@ -2935,7 +2945,7 @@
     "posted_at": "2026-08-05T16:30:22Z",
     "views": 133,
     "source": "channel_backfill",
-    "analytics_fetched_at": "2026-08-23T02:10:48.298718+00:00",
+    "analytics_fetched_at": "2026-08-25T08:36:41.891578+00:00",
     "actual_ctr": null,
     "average_view_duration_sec": 9,
     "average_view_percentage": 27.76
@@ -2947,7 +2957,7 @@
     "posted_at": "2026-08-03T16:30:28Z",
     "views": 455,
     "source": "channel_backfill",
-    "analytics_fetched_at": "2026-08-23T02:10:48.570983+00:00",
+    "analytics_fetched_at": "2026-08-25T08:36:42.225714+00:00",
     "actual_ctr": null,
     "average_view_duration_sec": 9,
     "average_view_percentage": 33.28
@@ -2959,7 +2969,7 @@
     "posted_at": "2026-08-03T00:00:09Z",
     "views": 786,
     "source": "channel_backfill",
-    "analytics_fetched_at": "2026-08-23T02:10:48.876375+00:00",
+    "analytics_fetched_at": "2026-08-25T08:36:42.615840+00:00",
     "actual_ctr": null,
     "average_view_duration_sec": 12,
     "average_view_percentage": 37.96
@@ -2971,7 +2981,7 @@
     "posted_at": "2026-08-02T22:30:08Z",
     "views": 1125,
     "source": "channel_backfill",
-    "analytics_fetched_at": "2026-08-23T02:10:49.168665+00:00",
+    "analytics_fetched_at": "2026-08-25T08:36:42.989323+00:00",
     "actual_ctr": null,
     "average_view_duration_sec": 10,
     "average_view_percentage": 34.62
@@ -2983,7 +2993,7 @@
     "posted_at": "2026-08-02T16:30:02Z",
     "views": 254,
     "source": "channel_backfill",
-    "analytics_fetched_at": "2026-08-23T02:10:49.455838+00:00",
+    "analytics_fetched_at": "2026-08-25T08:36:43.322406+00:00",
     "actual_ctr": null,
     "average_view_duration_sec": 12,
     "average_view_percentage": 39.81
@@ -2995,7 +3005,7 @@
     "posted_at": "2026-08-02T00:00:19Z",
     "views": 828,
     "source": "channel_backfill",
-    "analytics_fetched_at": "2026-08-23T02:10:49.807048+00:00",
+    "analytics_fetched_at": "2026-08-25T08:36:43.779367+00:00",
     "actual_ctr": null,
     "average_view_duration_sec": 12,
     "average_view_percentage": 45.72
@@ -3007,7 +3017,7 @@
     "posted_at": "2026-08-01T16:30:22Z",
     "views": 347,
     "source": "channel_backfill",
-    "analytics_fetched_at": "2026-08-23T02:10:50.108825+00:00",
+    "analytics_fetched_at": "2026-08-25T08:36:44.132698+00:00",
     "actual_ctr": null,
     "average_view_duration_sec": 8,
     "average_view_percentage": 30.84
@@ -3019,7 +3029,7 @@
     "posted_at": "2026-08-01T00:00:03Z",
     "views": 607,
     "source": "channel_backfill",
-    "analytics_fetched_at": "2026-08-23T02:10:50.417951+00:00",
+    "analytics_fetched_at": "2026-08-25T08:36:44.485743+00:00",
     "actual_ctr": null,
     "average_view_duration_sec": 17,
     "average_view_percentage": 60.92999999999999
@@ -3031,7 +3041,7 @@
     "posted_at": "2026-07-31T01:30:33Z",
     "views": 874,
     "source": "channel_backfill",
-    "analytics_fetched_at": "2026-08-23T02:10:50.795900+00:00",
+    "analytics_fetched_at": "2026-08-25T08:36:44.904500+00:00",
     "actual_ctr": null,
     "average_view_duration_sec": 15,
     "average_view_percentage": 46.01
@@ -3043,7 +3053,7 @@
     "posted_at": "2026-07-31T00:00:26Z",
     "views": 905,
     "source": "channel_backfill",
-    "analytics_fetched_at": "2026-08-23T02:10:51.204098+00:00",
+    "analytics_fetched_at": "2026-08-25T08:36:45.355234+00:00",
     "actual_ctr": null,
     "average_view_duration_sec": 10,
     "average_view_percentage": 32.97
@@ -3055,7 +3065,7 @@
     "posted_at": "2026-07-30T16:30:00Z",
     "views": 727,
     "source": "channel_backfill",
-    "analytics_fetched_at": "2026-08-23T02:10:51.516923+00:00",
+    "analytics_fetched_at": "2026-08-25T08:36:45.788365+00:00",
     "actual_ctr": null,
     "average_view_duration_sec": 14,
     "average_view_percentage": 37.94
@@ -3067,7 +3077,7 @@
     "posted_at": "2026-07-26T16:30:30Z",
     "views": 536,
     "source": "channel_backfill",
-    "analytics_fetched_at": "2026-08-23T02:10:51.891979+00:00",
+    "analytics_fetched_at": "2026-08-25T08:36:46.145837+00:00",
     "actual_ctr": null,
     "average_view_duration_sec": 18,
     "average_view_percentage": 43.58
@@ -3077,36 +3087,36 @@
     "title": "Why Your Brain Freeze — The Surprising Truth 🫀",
     "published_at": "2026-07-25T16:30:15Z",
     "posted_at": "2026-07-25T16:30:15Z",
-    "views": 990,
+    "views": 347,
     "source": "channel_backfill",
-    "analytics_fetched_at": "2026-08-23T02:10:52.186479+00:00",
+    "analytics_fetched_at": "2026-08-25T08:36:46.472923+00:00",
     "actual_ctr": null,
-    "average_view_duration_sec": 12,
-    "average_view_percentage": 32.76
+    "average_view_duration_sec": 11,
+    "average_view_percentage": 30.72
   },
   {
     "youtube_video_id": "nM-1t8agPN8",
     "title": "Why Your Nervous Shivers — Why It Actually Happens 🦠",
     "published_at": "2026-07-25T10:00:32Z",
     "posted_at": "2026-07-25T10:00:32Z",
-    "views": 651,
+    "views": 415,
     "source": "channel_backfill",
-    "analytics_fetched_at": "2026-08-23T02:10:52.570298+00:00",
+    "analytics_fetched_at": "2026-08-25T08:36:46.916908+00:00",
     "actual_ctr": null,
     "average_view_duration_sec": 12,
-    "average_view_percentage": 30.45
+    "average_view_percentage": 30.84
   },
   {
     "youtube_video_id": "hTDfqIbjQXk",
     "title": "Why Your Dry Mouth — Why It Actually Happens 🫀",
     "published_at": "2026-07-25T00:00:13Z",
     "posted_at": "2026-07-25T00:00:13Z",
-    "views": 794,
+    "views": 0,
     "source": "channel_backfill",
-    "analytics_fetched_at": "2026-08-23T02:10:52.864059+00:00",
+    "analytics_fetched_at": "2026-08-25T08:36:47.359916+00:00",
     "actual_ctr": null,
-    "average_view_duration_sec": 11,
-    "average_view_percentage": 27.37
+    "average_view_duration_sec": 0,
+    "average_view_percentage": 0
   },
   {
     "youtube_video_id": "1Z9bg95d3pY",
@@ -3402,5 +3412,14 @@
     "sources": [],
     "source_verification": [],
     "recovered_from_partial_run": true
+  },
+  {
+    "youtube_video_id": "cEOm5yppZ-E",
+    "title": "Your Nightmare Fuel: Vampire Squid's Glowing Goo",
+    "published_at": "2026-08-24T11:30:57Z",
+    "posted_at": "2026-08-24T11:30:57Z",
+    "views": 0,
+    "source": "channel_backfill",
+    "analytics_fetched_at": null
   }
 ]
