@@ -1071,6 +1071,40 @@ class NextepPipeline:
             self._apply_strategy_decision()
             _complete_stage()
 
+            # Phase 0c: Channel cleanup — unlist dead YouTube videos, remove
+            # dead Meta reels so the channel's avg metrics improve before the
+            # next upload lands.  Only runs in publish mode to avoid side-
+            # effects on draft/local runs.
+            _start_stage("channel_cleanup")
+            try:
+                from channel_cleanup import classify_youtube_videos, classify_meta_videos
+                _cleanup_videos = self._load_video_history()
+                _cleanup_metrics = {}
+                _metrics_path = "data/platform_metrics.json"
+                if os.path.exists(_metrics_path):
+                    with open(_metrics_path) as _mf:
+                        _cleanup_metrics = json.load(_mf)
+                _yt_class = classify_youtube_videos(_cleanup_videos, _cleanup_metrics)
+                _dead_yt = len(_yt_class.get("unlist", []))
+                if _dead_yt > 0:
+                    logger.info(
+                        "🧹 Phase 0c: %d dead YouTube videos detected — "
+                        "will be unlisted on next manual cleanup run.", _dead_yt,
+                    )
+                for _plat in ("facebook", "instagram"):
+                    _meta_class = classify_meta_videos(
+                        _cleanup_videos, _cleanup_metrics, _plat,
+                    )
+                    _dead_meta = len(_meta_class.get("delete", []))
+                    if _dead_meta > 0:
+                        logger.info(
+                            "🧹 Phase 0c: %d dead %s reels detected.",
+                            _dead_meta, _plat,
+                        )
+                _complete_stage()
+            except Exception as _cleanup_err:
+                logger.warning("Channel cleanup scan skipped (%s)", _cleanup_err)
+
             # Phase 1: Script Generation (with trending topics)
             _start_stage("script_generation")
             logger.info("\n📝 PHASE 1: SCRIPT GENERATION (TRENDING)")
