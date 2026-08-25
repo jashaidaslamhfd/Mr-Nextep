@@ -1,8 +1,7 @@
 {
-  "stage": "master_render_and_gates",
-  "status": "failed",
-  "updated_at": "2026-08-25T11:12:59.006136+00:00",
-  "run_id": "32831624034",
-  "reason": "INDEPENDENT GATE BLOCKED the run: seo guard(s) failed. Fix before publishing.",
-  "elapsed_seconds": 401.73
+  "stage": "pipeline",
+  "status": "completed",
+  "updated_at": "2026-08-25T12:05:53.741098+00:00",
+  "run_id": "32844243949",
+  "elapsed_seconds": 658.36
 }

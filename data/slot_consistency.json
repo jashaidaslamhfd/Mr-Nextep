@@ -4,43 +4,25 @@
       "slot": "NY12:30",
       "outcome": "published",
       "topic": "topic a",
-      "at": "2026-08-25T09:26:50.487084+00:00"
+      "at": "2026-08-25T11:53:52.917376+00:00"
     },
     {
       "slot": "NY18:30",
       "outcome": "published",
       "topic": "topic b",
-      "at": "2026-08-25T09:26:50.487505+00:00"
+      "at": "2026-08-25T11:53:52.917877+00:00"
     },
     {
       "slot": "NY20:00",
       "outcome": "guard_fail",
       "topic": "topic c",
-      "at": "2026-08-25T09:26:50.487720+00:00"
+      "at": "2026-08-25T11:53:52.918144+00:00"
     },
     {
       "slot": "offpeak",
-      "outcome": "guard_fail",
-      "topic": "INDEPENDENT GATE BLOCKED the run: seo guard(s) failed. Fix before publishing.",
-      "at": "2026-08-25T10:07:55.830769+00:00"
-    },
-    {
-      "slot": "offpeak",
-      "outcome": "guard_fail",
-      "topic": "INDEPENDENT GATE BLOCKED the run: seo guard(s) failed. Fix before publishing.",
-      "at": "2026-08-25T10:32:50.611627+00:00"
-    },
-    {
-      "slot": "offpeak",
-      "outcome": "guard_fail",
-      "topic": "INDEPENDENT GATE BLOCKED the run: seo guard(s) failed. Fix before publishing.",
-      "at": "2026-08-25T10:52:46.312084+00:00"
-    },
-    {
-      "slot": "offpeak",
-      "outcome": "guard_fail",
-      "topic": "INDEPENDENT GATE BLOCKED the run: seo guard(s) failed. Fix before publishing.",
-      "at": "2026-08-25T11:12:59.006654+00:00"
+      "outcome": "published",
+      "topic": "Why Your Tapeworm Brain ? \u2014 Why It Actually Happens",
+      "at": "2026-08-25T12:05:53.742191+00:00"
     }
   ]
 }
