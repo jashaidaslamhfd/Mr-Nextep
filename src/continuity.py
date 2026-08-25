@@ -55,33 +55,22 @@ def is_us_peak_slot(hour: int = None) -> bool:
 
 
 def register_slot_attempt(slot_label: str, status: str, title: str = "") -> None:
-    path = "data/slot_history.json"
-    os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
-    try:
-        if os.path.exists(path):
-            with open(path) as f:
-                history = json.load(f)
-            if not isinstance(history, list):
-                history = []
-        else:
-            history = []
-    except Exception:
-        history = []
-
-    history.append({
+    """Record that a slot attempt happened. Writes to the shared state file."""
+    state = _load_state()
+    now = datetime.now(timezone.utc).isoformat()
+    state.setdefault("slots", []).append({
         "slot": slot_label,
-        "date": _today_str(),
-        "status": status,
-        "title": title,
-        "hour_et": _now_hour_et(),
-        "timestamp": datetime.now(timezone.utc).isoformat(),
+        "outcome": status,
+        "topic": title[:80],
+        "at": now,
     })
-
-    history = history[-200:]
-    tmp = path + ".tmp"
+    state["slots"] = state["slots"][-200:]
+    p = _state_path()
+    os.makedirs(p.parent, exist_ok=True)
+    tmp = str(p) + ".tmp"
     with open(tmp, "w") as f:
-        json.dump(history, f, indent=2)
-    os.replace(tmp, path)
+        json.dump(state, f, indent=2)
+    os.replace(tmp, str(p))
 
 
 def is_retryable_pre_upload_failure(msg: str) -> bool:
@@ -367,7 +356,7 @@ PRODUCTION_CADENCE = 3
 
 
 def _state_path() -> Path:
-    return DATA / "slot_consistency.json"
+    return DATA / "slot_history.json"
 
 
 def _load_state() -> Dict[str, Any]:

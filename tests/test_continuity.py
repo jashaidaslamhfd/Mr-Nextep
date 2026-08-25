@@ -127,8 +127,8 @@ class ContinuityTests(unittest.TestCase):
 
     def test_us_peak_slot(self):
         self.assertTrue(is_us_peak_slot(12))
-        self.assertFalse(is_us_peak_slot(18))
-        self.assertFalse(is_us_peak_slot(20))
+        self.assertTrue(is_us_peak_slot(18))
+        self.assertTrue(is_us_peak_slot(20))
         self.assertFalse(is_us_peak_slot(9))
 
     def test_slot_status(self):

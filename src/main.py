@@ -1829,7 +1829,7 @@ class NextepPipeline:
         )
 
         # Pre-flight: ensure reserve queue is healthy
-        _health = ensure_reserve_health(self.video_history)
+        _health = ensure_reserve_health(getattr(self, "video_history", []))
         if not _health.get("healthy"):
             logger.warning(
                 "⚠️ Reserve queue health: %d/%d (minimum %d)",
