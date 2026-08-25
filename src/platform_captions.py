@@ -36,10 +36,15 @@ _YT_CLOSERS = (
     "Subscribe for more of what your body does and why.",
     "New body science Short daily — subscribe to stay curious.",
     "One body mystery explained. Subscribe — new Short every day.",
-    "Subscribe and turn on notifications — your body has more secrets.",
     "Hit subscribe — your body does things you've never noticed.",
     "Follow for daily body science — your body is wilder than you think.",
     "New body fact every day — subscribe to stay ahead.",
+    "Want more? Subscribe — your body has way more secrets.",
+    "I post these daily. Subscribe if you want to keep learning.",
+    "Your body is insane. Follow if you agree.",
+    "One fact a day keeps the boredom away. Subscribe.",
+    "Tomorrow's Short is even wilder. Subscribe so you don't miss it.",
+    # No "turn on notifications" — it's engagement bait on YouTube
 )
 
 _META_CLOSERS = (
@@ -52,6 +57,9 @@ _META_CLOSERS = (
     "Your friend needs to see this — follow for more body science.",
     "Send this to someone who needs to hear this.",
     "Follow for daily body facts — your body does things you can't explain.",
+    "Body facts that'll make you say 'wait what' — follow.",
+    "This blew my mind. Follow for more.",
+    "More weird body science tomorrow. Follow.",
 )
 
 
@@ -217,34 +225,72 @@ def _hook_and_summary(script_data: Dict) -> tuple[str, str]:
 # YouTube
 # ---------------------------------------------------------------------------
 
+_YT_KEYWORD_OPENERS = (
+    "Here's what's going on with",
+    "This one's about",
+    "Ever wonder about",
+    "Breaking down",
+    "The science of",
+    "Let's talk about",
+    "This video covers",
+    "Exploring",
+)
+
+
 def build_youtube_description(
     script_data: Dict,
     tags: Sequence[str],
 ) -> str:
-    """Build a YouTube Shorts search-oriented description."""
+    """Build a YouTube Shorts description with rotating structure.
+
+    No two consecutive videos should have the same description template.
+    This avoids the classic template-spam signal that platforms detect.
+    """
     limits = caption_limits(YOUTUBE)
     hook, summary = _hook_and_summary(script_data)
+    topic = script_data.get("topic", "")
+    keywords = _keywords(script_data, tags)
+    readable = ", ".join(keywords) if keywords else ""
+    closer = _pick(_YT_CLOSERS, topic or readable)
 
+    # Rotate description structure based on topic hash
+    structure_seed = int(hashlib.sha256((topic or "x").encode()).hexdigest()[:4], 16) % 4
     parts: List[str] = []
 
-    if hook:
-        parts.append(_sentence(hook))
+    if structure_seed == 0:
+        # Pattern A: hook → keywords → closer
+        if hook:
+            parts.append(_sentence(hook))
+        if readable:
+            opener = _pick(_YT_KEYWORD_OPENERS, topic)
+            parts.append(f"{opener} {readable}.")
+        if closer:
+            parts.append(closer)
 
-    if summary:
-        parts.append(_sentence(summary))
+    elif structure_seed == 1:
+        # Pattern B: hook → summary → closer
+        if hook:
+            parts.append(_sentence(hook))
+        if summary:
+            parts.append(_sentence(summary))
+        if closer:
+            parts.append(closer)
 
-    keywords = _keywords(script_data, tags)
+    elif structure_seed == 2:
+        # Pattern C: summary → hook → closer
+        if summary:
+            parts.append(_sentence(summary))
+        if hook:
+            parts.append(_sentence(hook))
+        if closer:
+            parts.append(closer)
 
-    if keywords:
-        readable = ", ".join(keywords)
-        closer = _pick(
-            _YT_CLOSERS,
-            script_data.get("topic") or readable,
-        )
-
-        parts.append(
-            f"Learn the science behind {readable}. {closer}"
-        )
+    else:
+        # Pattern D: hook → closer (short, like a real person's description)
+        if hook:
+            parts.append(_sentence(hook))
+        if closer:
+            parts.append(closer)
 
     hashtags = enforce_hashtag_limit(
         [

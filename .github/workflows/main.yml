@@ -198,7 +198,6 @@ jobs:
           GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
           REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
           YT_MADE_FOR_KIDS: "false"
-          YT_DECLARE_SYNTHETIC_MEDIA: "true"
           YT_PLAYLIST_ENABLED: "true"
           YT_PRIVACY_STATUS: "private"
           YT_SCHEDULE_PUBLISH: "true"

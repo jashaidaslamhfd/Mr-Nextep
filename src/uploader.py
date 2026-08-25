@@ -377,37 +377,36 @@ def _upload_youtube(video_path, thumb_path, script_data, tags):
     yt_http = AuthorizedHttp(creds, http=yt_transport)
     yt = build('youtube', 'v3', http=yt_http, cache_discovery=False)
 
+    # Human-like geo-location: vary by a few degrees so every video isn't
+    # pinned to the exact same GPS coordinate (bot detection signal).
+    import random as _rng
+    _geo_lat = round(39.8283 + _rng.uniform(-2.0, 2.0), 4)
+    _geo_lon = round(-98.5795 + _rng.uniform(-2.0, 2.0), 4)
+
     body = {
         'snippet': {
             'title': enhanced_title[:100],
             'description': desc[:5000],
             'categoryId': '28',
-            # FIX: was a fixed hardcoded list on every single video - now
-            # topic/category-aware tags from niche_strategy.generate_seo_tags,
-            # which also helps SEO reach and avoids duplicate-metadata spam risk.
+            # topic-aware tags from niche_strategy.generate_seo_tags
             'tags': tags,
             'defaultLanguage': 'en-US',
             'defaultAudioLanguage': 'en-US',
         },
-        # Explicitly geo-target to US so YouTube's recommendation engine
-        # seeds the video to US viewers first. Without this, YouTube
-        # guesses based on the channel's historical audience — which may
-        # include non-US viewers from earlier content.
         'recordingDetails': {
             'locationDescription': 'United States',
             'location': {
-                'latitude': 39.8283,   # geographic center of the US
-                'longitude': -98.5795,
+                'latitude': _geo_lat,
+                'longitude': _geo_lon,
             },
         },
         'status': {
             'privacyStatus': YT_PRIVACY_STATUS,
-            'selfDeclaredMadeForKids': MADE_FOR_KIDS,
-            'containsSyntheticMedia': False,  # Stock footage + voiceover = NOT synthetic per YT policy
-            # US audience content rating signals — helps YouTube classify
-            # the video correctly for US recommendation pools.
             'selfDeclaredMadeForKids': False,
-            # License: standard YouTube license (not Creative Commons)
+            'containsSyntheticMedia': False,
+            'embeddable': True,
+            'publicStatsViewable': True,
+            'license': 'youtube',
         }
     }
 
