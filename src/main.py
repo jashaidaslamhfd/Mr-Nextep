@@ -1802,62 +1802,132 @@ class NextepPipeline:
             raise
 
     def run_pipeline_with_continuity(self, topic: str = None, slot_label: str = None) -> dict:
-        """Run the pipeline but NEVER let a guard failure break the day's
-        consistency.
+        """Run the pipeline with 3-tier fallback — slot NEVER goes empty.
 
-        Guards are strict (that's the point) but a blocked video must not become
-        a MISSED US-peak slot. So on a guard-failure we retry with a NEW topic
-        (bounded by continuity.MAX_GUARD_RETRIES) before giving up, and we
-        register the slot outcome so consistency is visible.
+        Tier 1: Normal generation (strict gates — best quality)
+        Tier 2: Retry with new topic + reserve queue (pre-validated backup)
+        Tier 3: Emergency minimal generation (structural quality guaranteed)
 
-        Returns the successful run dict, or a 'missed' dict if every safe
-        pre-upload retry fails. Unknown and upload-side errors still raise so a
-        possible external side effect is never silently repeated.
+        Consistency is NEVER sacrificed for perfection, but quality is NEVER
+        sacrificed for consistency. The 3-tier system ensures both.
         """
         from continuity import (
             is_retryable_pre_upload_failure,
             should_retry_on_guard_failure,
             register_slot_attempt,
+            handle_slot_failure,
+            add_to_reserve,
+            ensure_reserve_health,
         )
+
+        # Pre-flight: ensure reserve queue is healthy
+        _health = ensure_reserve_health(self.video_history)
+        if not _health.get("healthy"):
+            logger.warning(
+                "⚠️ Reserve queue health: %d/%d (minimum %d)",
+                _health.get("reserve_count", 0),
+                _health.get("reserve_max", 5),
+                _health.get("reserve_min", 2),
+            )
 
         attempt = 0
         last_err = None
+        used_tier = "tier_1"
+
         while True:
             attempt += 1
-            # A fresh topic on each retry gives the guards a genuinely new chance
-            # (the duplicate-title guard especially needs a different subject).
             retry_topic = topic
             if attempt > 1 and not topic:
-                retry_topic = None  # let the topic engine pick something new
+                retry_topic = None
             try:
                 result = self.run_pipeline(topic=retry_topic)
+                if result and not result.get("skipped"):
+                    # Success — add to reserve if it's a strong script
+                    try:
+                        if (result.get("upload_result", {}).get("youtube_success")
+                                or result.get("upload_result", {}).get("draft_only")):
+                            script_data = {
+                                "topic": result.get("title", ""),
+                                "title": result.get("title", ""),
+                            }
+                            add_to_reserve(script_data, topic or result.get("title", ""))
+                    except Exception:
+                        pass
                 if slot_label:
+                    status = "published" if result and result.get("upload_result", {}).get("youtube_success") else "draft"
                     register_slot_attempt(
-                        slot_label, "published",
+                        slot_label, status,
                         (result or {}).get("title", ""))
                 return result
+
             except RuntimeError as exc:
                 msg = str(exc)
                 if not is_retryable_pre_upload_failure(msg):
-                    raise  # unknown or upload-side error; fail closed
+                    raise
                 last_err = exc
                 logger.warning(
-                    "🔄 Pre-upload quality failure on attempt %d (%s). Regenerating "
-                    "before any public upload...", attempt, msg[:160],
+                    "🔄 Pre-upload quality failure on attempt %d (%s). "
+                    "Regenerating with fresh topic...",
+                    attempt, msg[:160],
                 )
                 if not should_retry_on_guard_failure(attempt):
                     break
-                # small backoff so consecutive retries don't hammer
                 time.sleep(attempt * 30)
 
-        # All guard retries exhausted — the slot is missed this run, but we
-        # record it so the workflow can decide (e.g. re-dispatch) instead of
-        # silently breaking the cadence.
-        if slot_label:
-            register_slot_attempt(slot_label, "guard_fail", str(last_err or "")[:80])
-        logger.error("🔴 Slot could not be filled after %d guard retries: %s",
-                     attempt, last_err)
-        return {"success": False, "missed": True, "reason": str(last_err)}
+        # ── Tier 1 exhausted — activate fallback ──────────────────────
+        logger.warning("🔴 Tier 1 exhausted after %d attempts. Activating fallback.", attempt)
+
+        fallback_script, tier_used = handle_slot_failure(
+            str(last_err or ""),
+            topic=topic,
+            attempt=attempt,
+            video_history=self.video_history,
+        )
+
+        if fallback_script and tier_used != "exhausted":
+            used_tier = tier_used
+            logger.warning(
+                "📥 %s FALLBACK ACTIVE: Using backup script '%s'",
+                tier_used.upper(),
+                fallback_script.get("title", "untitled")[:40],
+            )
+
+            try:
+                result = self.run_pipeline(topic=fallback_script.get("topic"))
+                if result:
+                    result["fallback_tier"] = tier_used
+                    result["original_error"] = str(last_err)[:200]
+                if slot_label:
+                    register_slot_attempt(
+                        slot_label, "fallback",
+                        (result or {}).get("title", ""))
+                return result
+            except Exception as fallback_exc:
+                logger.error(
+                    "🔴 %s fallback also failed: %s",
+                    tier_used.upper(), fallback_exc,
+                )
+                if slot_label:
+                    register_slot_attempt(
+                        slot_label, "all_tiers_failed",
+                        str(fallback_exc)[:80])
+                return {
+                    "success": False, "missed": True,
+                    "reason": str(last_err),
+                    "fallback_error": str(fallback_exc),
+                    "tier_exhausted": tier_used,
+                }
+        else:
+            if slot_label:
+                register_slot_attempt(
+                    slot_label, "guard_fail",
+                    str(last_err or "")[:80])
+            logger.error(
+                "🔴 ALL 3 TIERS EXHAUSTED — slot missed. "
+                "Tier 1: %s | Reserve: empty | Emergency: failed",
+                str(last_err)[:80],
+            )
+            return {"success": False, "missed": True, "reason": str(last_err)}
 
     def run_daily_batch(self, num_videos: int = 3):
         """Run multiple videos in batch"""
