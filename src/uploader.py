@@ -497,7 +497,10 @@ def _upload_youtube(video_path, thumb_path, script_data, tags):
     for attempt in range(1, MAX_RETRIES + 1):
         try:
             req = yt.videos().insert(
-                part="snippet,status",
+                # recordingDetails is included because the request body sends
+                # that resource; omitting it causes YouTube API 400
+                # unexpectedPart: recording_details.
+                part="snippet,status,recordingDetails",
                 body=body,
                 media_body=MediaFileUpload(video_path, chunksize=1024 * 1024, resumable=True)
             )
