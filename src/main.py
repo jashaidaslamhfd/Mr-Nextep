@@ -59,6 +59,7 @@ try:
     from us_content_gate import evaluate as evaluate_us_content
     from source_research import discover_pubmed_sources, verify_source_urls
     from max_reach_optimizer import optimize_for_max_reach  # MAX REACH: master optimizer
+    from video_optimizer import check_daily_upload_limit  # daily upload cap
     # Enhanced modules (optional, best-effort)
     try:
         from voice_enhanced import generate_enhanced_voice
@@ -1041,6 +1042,12 @@ class NextepPipeline:
                 pass
 
         try:
+            # ── Daily upload limit (anti-spam: max 2 videos/day) ──
+            allowed, reason = check_daily_upload_limit()
+            if not allowed:
+                logger.warning("🛑 DAILY LIMIT: %s — skipping this run.", reason)
+                return {"success": False, "skipped": "daily_upload_limit", "reason": reason}
+
             _scheduling_on = os.environ.get("YT_SCHEDULE_PUBLISH", "false").lower() == "true"
             if self.video_history and not _scheduling_on:
                 last_posted_at = self.video_history[-1].get('posted_at')
