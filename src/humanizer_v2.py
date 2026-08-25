@@ -63,12 +63,13 @@ def humanize_publish_time(slot_hour: int, slot_minute: int, topic: str) -> Tuple
 
 # AI-typical phrases to ELIMINATE
 _AI_PATTERNS = [
-    (r"\bdelve\b", "dig into"),
-    (r"\buncover\b", "find"),
-    (r"\bmeticulously\b", "carefully"),
-    (r"\bpivotal\b", "key"),
-    (r"\bparamount\b", "really important"),
-    (r"\bsignificantly\b", "a lot"),
+    # Conjugation-aware patterns (delve/delves/delved, uncover/uncovered, etc.)
+    (r"\bdelve[sd]?\b", "dig into"),
+    (r"\buncover[sd]?\b", "find"),
+    (r"\bmeticulous(ly)?\b", "carefully"),
+    (r"\bpivotal(ly)?\b", "key"),
+    (r"\bparamount(ly)?\b", "really important"),
+    (r"\bsignificant(ly)?\b", "a lot"),
     (r"\bfurthermore\b", "plus"),
     (r"\bnevertheless\b", "but"),
     (r"\bconsequently\b", "so"),
@@ -78,12 +79,12 @@ _AI_PATTERNS = [
     (r"\bremarkable\b", "crazy"),
     (r"\bfascinating\b", "wild"),
     (r"\bseamlessly\b", ""),
-    (r"\brobust\b", "strong"),
-    (r"\bcomprehensive\b", "full"),
-    (r"\bleverage\b", "use"),
-    (r"\boptimize\b", "improve"),
-    (r"\benhance\b", "boost"),
-    (r"\bfacilitate\b", "help"),
+    (r"\brobust(ly)?\b", "strong"),
+    (r"\bcomprehensive(ly)?\b", "full"),
+    (r"\bleverage[sd]?\b", "use"),
+    (r"\boptimiz(e[sd]?|ing)\b", "improve"),
+    (r"\benhance[sd]?\b", "boost"),
+    (r"\bfacilitat(e[sd]?|ing)\b", "help"),
     (r"\bnever before seen\b", "crazy"),
     (r"\bin the realm of\b", "in"),
     (r"\bit is worth noting\b", ""),
@@ -99,6 +100,45 @@ _AI_PATTERNS = [
     (r"\bwith regard to\b", "about"),
     (r"\bin addition to\b", "plus"),
     (r"\bat the end of the day\b", "really"),
+    # Extended AI patterns (conjugation-aware)
+    (r"\bparticularly\b", "especially"),
+    (r"\bsubstantial(ly)?\b", "big"),
+    (r"\bencompass(e[sd]?|ing)\b", "include"),
+    (r"\butiliz(e[sd]?|ing)\b", "use"),
+    (r"\bdemonstrate[sd]?\b", "show"),
+    (r"\binvestigat(e[sd]?|ing)\b", "look into"),
+    (r"\bidiosyncras(y|ies)\b", "quirks"),
+    (r"\bphysiological\b", "body"),
+    (r"\banatomical(ly)?\b", "body"),
+    (r"\bcrucial(ly)?\b", "key"),
+    (r"\bintegral(ly)?\b", "key"),
+    (r"\bindispensable\b", "essential"),
+    (r"\bconstitut(e[sd]?|ion)\b", "make"),
+    (r"\bexhibit(s|ed|ing)?\b", "show"),
+    (r"\bprofound(ly)?\b", "deeply"),
+    (r"\belucidat(e[sd]?|ing)\b", "explain"),
+    (r"\bcoalesce[sd]?\b", "come together"),
+    (r"\bprima facie\b", "at first glance"),
+    (r"\bipso facto\b", "by definition"),
+    (r"\binter alia\b", "among other things"),
+    (r"\bakin to\b", "like"),
+    (r"\bjuxtapos(e[sd]?|ing)\b", "compare"),
+    (r"\bper se\b", "in itself"),
+    (r"\bvis-a-vis\b", "compared to"),
+    (r"\bmultifaceted\b", "complex"),
+    (r"\bnuanced\b", "subtle"),
+    (r"\bholistic(ly)?\b", "overall"),
+    (r"\bparadigm\b", "model"),
+    (r"\bunderpin[s]?\b", "support"),
+    (r"\bcatalys(t[sed]?|e[sd]?|ing)\b", "speed up"),
+    (r"\bmyriad\b", "many"),
+    (r"\bplethora\b", "a lot of"),
+    (r"\bnoteworthy\b", "interesting"),
+    (r"\bhone[sd]?\b", "sharpen"),
+    (r"\bvital(ly)?\b", "important"),
+    (r"\binterplay\b", "interaction"),
+    (r"\bmanifest(s|ed|ing)?\b", "appear"),
+    (r"\bperpetual(ly)?\b", "constant"),
 ]
 
 # Human-like fillers/imperfections to ADD occasionally
@@ -144,7 +184,9 @@ def humanize_script_language(text: str, topic: str = "") -> str:
     # Remove AI patterns
     for pattern, replacement in _AI_PATTERNS:
         result = re.sub(pattern, replacement, result, flags=re.IGNORECASE)
-    
+
+    # Clean up double words (e.g. "into into", "use use")
+    result = re.sub(r"\b(\w{2,})\s+\1\b", r"\1", result, flags=re.IGNORECASE)
     # Clean up double spaces
     result = re.sub(r"  +", " ", result).strip()
     
