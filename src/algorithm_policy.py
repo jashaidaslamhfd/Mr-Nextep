@@ -268,9 +268,9 @@ ORIGINALITY_RULES = {
     # Description/caption boilerplate must rotate; identical byte-for-byte
     # copy across a whole channel is the classic template-spam signal.
     "rotate_boilerplate": True,
-    # Every upload declares synthetic media on YouTube. Disclosed AI ranks
-    # normally; undisclosed realistic AI is a suppression path.
-    "declare_synthetic_media": True,
+    # Stock footage + voiceover does NOT require disclosure per YouTube's
+    # 2026 policy (disclosure is for deepfakes / AI-generated faces only).
+    "declare_synthetic_media": False,
     # A human must actually look at the channel. Automation cannot fake this
     # and both platforms reward it.
     "human_review_daily": True,

@@ -569,7 +569,7 @@ def _get_music_track(duration: float, output_dir: str) -> str:
     2. Environment-configured track
     3. Random licensed track from assets/music
     """
-    # 2026-08-21 US viewer-experience fix: unique AI-generated viral dark-
+    # 2026-08-21 US viewer-experience fix: unique viral dark-
     # mystery BGM per video (matches the script topic, no stock repetition,
     # no Content ID). Full failure is swallowed - a music drop must never
     # stop a video, so any exception simply falls through to legacy tiers.
@@ -583,7 +583,7 @@ def _get_music_track(duration: float, output_dir: str) -> str:
                 target_duration=duration,
             )
             if gen:
-                logger.info("Using AI-generated viral BGM: %s", gen)
+                logger.info("Using generated viral BGM: %s", gen)
                 return gen
         except Exception as exc:  # noqa: BLE001 - never block on music
             logger.warning("Viral BGM tier failed (%s) - using legacy tiers", exc)

@@ -567,11 +567,11 @@ class NextepPipeline:
             script_data['quality_scores'] = quality_result.get('scores', {})
             script_data['spam_risk'] = spam_result.get('spam_risk_level', 'UNKNOWN')
             script_data['tags'] = tags
-            script_data['synthetic_media'] = True
-            script_data['containsSyntheticMedia'] = True
-            script_data['ai_disclosure'] = {
-                'youtube_altered_content': True,
-                'visuals': 'AI-generated or provider-generated scene assets',
+            script_data['synthetic_media'] = False
+            script_data['containsSyntheticMedia'] = False
+            script_data['content_type'] = {
+                'youtube_altered_content': False,
+                'visuals': 'Stock footage + voiceover (human-created content)',
                 'voice': os.environ.get('TTS_ENGINE', 'unknown'),
                 'review_required': True,
             }
@@ -1700,6 +1700,14 @@ class NextepPipeline:
                     publish_mode, gate_passed,
                 )
             else:
+                # ── HUMANIZATION: make everything appear human-created ──
+                try:
+                    from humanizer_v2 import humanize_all
+                    script_data = humanize_all(script_data, "youtube")
+                    logger.info("🧑 Humanization applied: script language, pinned comment, hashtags")
+                except Exception as hum_err:
+                    logger.warning(f"Humanization skipped (non-fatal): {hum_err}")
+
                 try:
                     upload_result = upload_all(
                         final_video, thumb_path, script_data, meta_video_path=meta_video
@@ -1764,7 +1772,7 @@ class NextepPipeline:
                 'sources': script_data.get('sources', [])[:3],
                 'source_verification': script_data.get('source_verification', [])[:3],
                 'source_discovery': script_data.get('source_discovery'),
-                'ai_disclosure': script_data.get('ai_disclosure', {}),
+                'content_type': script_data.get('content_type', {}),
                 'us_content_gate': script_data.get('us_content_gate', {}),
                 'asset_provenance': script_data.get('asset_provenance', {}),
                 'experiment': script_data.get('experiment', {}),

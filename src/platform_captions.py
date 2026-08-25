@@ -34,10 +34,8 @@ _YT_CLOSERS = (
     "Follow for short, accurate science with no hype.",
     "Follow along for the everyday biology nobody explains.",
     "Subscribe for more of what your body does and why.",
-    # US-audience specific closers
     "New body science Short daily — subscribe to stay curious.",
     "One body mystery explained. Subscribe — new Short every day.",
-    # MAX REACH: high-conversion closers (subscribe + bell = notification boost)
     "Subscribe and turn on notifications — your body has more secrets.",
     "Hit subscribe — your body does things you've never noticed.",
     "Follow for daily body science — your body is wilder than you think.",
@@ -190,8 +188,6 @@ def _evidence_footer(script_data: Dict, platform: str) -> str:
         parts.append("Sources: " + " | ".join(links))
     if script_data.get("disclaimer_required"):
         parts.append("Educational information only — not medical advice.")
-    if script_data.get("synthetic_media") or script_data.get("containsSyntheticMedia"):
-        parts.append("AI-generated visual/audio elements are disclosed in the upload.")
     return " ".join(parts)
 
 

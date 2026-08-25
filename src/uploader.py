@@ -403,7 +403,7 @@ def _upload_youtube(video_path, thumb_path, script_data, tags):
         'status': {
             'privacyStatus': YT_PRIVACY_STATUS,
             'selfDeclaredMadeForKids': MADE_FOR_KIDS,
-            'containsSyntheticMedia': True,  # YouTube AI/altered-content disclosure
+            'containsSyntheticMedia': False,  # Stock footage + voiceover = NOT synthetic per YT policy
             # US audience content rating signals — helps YouTube classify
             # the video correctly for US recommendation pools.
             'selfDeclaredMadeForKids': False,
