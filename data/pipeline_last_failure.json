@@ -1,6 +1,6 @@
 {
-  "failed_at": "2026-08-25T11:12:59.005209+00:00",
-  "reason": "INDEPENDENT GATE BLOCKED the run: seo guard(s) failed. Fix before publishing.",
+  "failed_at": "2026-08-25T15:26:22.512991+00:00",
+  "reason": "INDEPENDENT GATE BLOCKED the run: viewer_preference guard(s) failed. Fix before publishing.",
   "stage": "master_render_and_gates",
-  "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Mr-Nextep/Mr-Nextep/src/main.py\", line 1658, in run_pipeline\n    raise RuntimeError(\nRuntimeError: INDEPENDENT GATE BLOCKED the run: seo guard(s) failed. Fix before publishing.\n"
+  "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Mr-Nextep/Mr-Nextep/src/main.py\", line 1674, in run_pipeline\n    raise RuntimeError(\nRuntimeError: INDEPENDENT GATE BLOCKED the run: viewer_preference guard(s) failed. Fix before publishing.\n"
 }
