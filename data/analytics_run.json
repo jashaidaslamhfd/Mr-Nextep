@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-25T22:51:57.087841+00:00",
+  "generated_at": "2026-08-25T23:08:03.864583+00:00",
   "exit_code": 1,
   "youtube": {
     "failed": 1
@@ -17,7 +17,7 @@
     "total_records": 1
   },
   "growth": {
-    "generated_at": "2026-08-25T22:51:57.061665+00:00",
+    "generated_at": "2026-08-25T23:08:03.840088+00:00",
     "sample_size": 1,
     "scored_videos": 0,
     "channel_gate_ratio": null,

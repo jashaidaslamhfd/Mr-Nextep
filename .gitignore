@@ -91,6 +91,7 @@ package-lock.json
 # ---- Audit and diagnostic dumps (avoid git bloat) ----
 data/*audit*
 data/*diag*
+!data/ig_diag.json
 
 # ---- Repair dump files (timestamped JSON, never needed in git) ----
 data/deep_repair_*.json

@@ -23,6 +23,9 @@ from typing import Optional, Dict, Any, Tuple
 
 logger = logging.getLogger(__name__)
 
+ROOT = Path(__file__).resolve().parents[1]
+DATA = ROOT / "data"
+
 RESERVE_DIR = os.environ.get("RESERVE_DIR", "data/reserve_queue")
 RESERVE_MAX = int(os.environ.get("RESERVE_MAX", "5"))
 RESERVE_MIN = int(os.environ.get("RESERVE_MIN", "2"))
@@ -85,7 +88,7 @@ def is_retryable_pre_upload_failure(msg: str) -> bool:
     keywords = [
         "hook", "quality", "spam", "gate", "blocked",
         "retention", "seo", "duplicate", "bait", "pacing",
-        "scenes", "hook_miss",
+        "scenes", "hook_miss", "too long",
     ]
     msg_lower = msg.lower()
     return any(kw in msg_lower for kw in keywords)

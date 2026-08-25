@@ -1,0 +1,50 @@
+[
+  {
+    "slot": "NY12:30",
+    "date": "2026-08-25",
+    "status": "published",
+    "title": "topic a",
+    "hour_et": 19,
+    "timestamp": "2026-08-25T23:08:12.602865+00:00"
+  },
+  {
+    "slot": "NY18:30",
+    "date": "2026-08-25",
+    "status": "published",
+    "title": "topic b",
+    "hour_et": 19,
+    "timestamp": "2026-08-25T23:08:12.603328+00:00"
+  },
+  {
+    "slot": "NY20:00",
+    "date": "2026-08-25",
+    "status": "guard_fail",
+    "title": "topic c",
+    "hour_et": 19,
+    "timestamp": "2026-08-25T23:08:12.603935+00:00"
+  },
+  {
+    "slot": "NY12:30",
+    "date": "2026-08-25",
+    "status": "published",
+    "title": "topic a",
+    "hour_et": 19,
+    "timestamp": "2026-08-25T23:08:55.166741+00:00"
+  },
+  {
+    "slot": "NY18:30",
+    "date": "2026-08-25",
+    "status": "published",
+    "title": "topic b",
+    "hour_et": 19,
+    "timestamp": "2026-08-25T23:08:55.177512+00:00"
+  },
+  {
+    "slot": "NY20:00",
+    "date": "2026-08-25",
+    "status": "guard_fail",
+    "title": "topic c",
+    "hour_et": 19,
+    "timestamp": "2026-08-25T23:08:55.177913+00:00"
+  }
+]
