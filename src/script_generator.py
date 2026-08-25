@@ -287,7 +287,9 @@ NON-NEGOTIABLE QUALITY RULES:
   "delve", "explore", "fascinating", "incredible", "journey", "mind-blowing",
   "buckle up", "in this digital age", "crucial", "testament", "tapestry",
   "did you know", "you won't believe", "shocking", "amazing", "in this video",
-  "let's dive", "the truth is", "what if I told you", "turns out".
+  "let's dive", "the truth is", "what if I told you", "turns out",
+  "subscribe for more", "like and subscribe", "smash that like",
+  "hit the bell", "tag someone", "follow for more".
 - Explain one verified, useful idea per video in simple everyday American English.
 - Use American English spelling (color, gray, harbor, fiber, center) and USA
   Imperial units (miles, feet, lbs, Fahrenheit) -- NEVER metric.

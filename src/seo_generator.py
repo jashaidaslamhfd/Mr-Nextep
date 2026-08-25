@@ -64,11 +64,11 @@ _TITLE_TEMPLATES = (
 # so the channel does not ship one identical sentence on every upload.
 _CONTEXT_CLOSERS = (
     "Follow for clear science explained simply.",
-    "Subscribe for more of what your body does and why.",
+    "Your body is wilder than fiction — stay curious.",
     "Follow for one strange body fact a day.",
     "More everyday science, explained in seconds.",
     "Follow if your body keeps surprising you.",
-    "Subscribe for short, honest science.",
+    "Short, honest body science — new daily.",
 )
 
 _TITLE_STOP_WORDS = {
@@ -333,6 +333,18 @@ def generate_description(script_data: Dict, tags: List[str]) -> str:
     hashtags = " ".join(f"#{tag}" for tag in clean_tags[:4])
     if hashtags:
         parts.append(hashtags)
+
+    # --- Strip bait phrases that trigger SEO gate (LLM sometimes injects these)
+    BAIT_PHRASES = ("subscribe for more", "like and subscribe", "smash that like",
+                    "hit the bell", "tag someone", "follow for more")
+    cleaned = []
+    for p in parts:
+        for bait in BAIT_PHRASES:
+            p = re.sub(r"\b" + re.escape(bait) + r"\b", "", p, flags=re.IGNORECASE)
+        p = re.sub(r"\s{2,}", " ", p).strip(" .")
+        if p:
+            cleaned.append(p)
+    parts = cleaned
     # --- Revival cross-links: drive views to dead-but-worthy old videos
     if get_cross_links and build_cross_link_text:
         try:
