@@ -50,7 +50,8 @@ try:
     from algorithm_policy import (
         FACEBOOK, INSTAGRAM, YOUTUBE,
         MIN_HOOK_SCORE as _POLICY_MIN_HOOK_SCORE,
-        BAIT_PATTERNS, contains_bait, duration_policy, env_float, env_int,
+        BAIT_PATTERNS, assert_bait_free, clean_metadata_fields,
+        contains_bait, duration_policy, env_float, env_int,
         hook_enforcement_seconds, retention_gate, shared_hook_seconds,
         strip_bait,
     )
@@ -1571,6 +1572,21 @@ class NextepPipeline:
 
             # Phase 4: Build Video — master cut (YouTube)
             _start_stage("master_render_and_gates")
+
+            # Final metadata hygiene must run after every SEO/CTA mutation and
+            # immediately before the independent publish gate. This prevents
+            # generated phrases such as "subscribe for more" from blocking a
+            # run after the earlier sanitizer has already completed.
+            clean_metadata_fields(
+                script_data,
+                fields=("title", "description", "summary", "cta"),
+                platform=None,
+            )
+            assert_bait_free(
+                script_data,
+                fields=("title", "description", "summary", "cta"),
+                platform=None,
+            )
             logger.info("\n🎬 PHASE 4: BUILD VIDEO (MASTER CUT)")
             try:
                 # Stamp a first-frame hook TEXT on scene 0 so the renderer can

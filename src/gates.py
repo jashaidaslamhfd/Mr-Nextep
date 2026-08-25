@@ -26,6 +26,8 @@ import os
 from pathlib import Path
 from typing import Any, Dict, List
 
+from algorithm_policy import contains_bait
+
 logger = logging.getLogger(__name__)
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -235,11 +237,11 @@ def check_seo(script_data: Dict) -> Dict[str, Any]:
     if len(hashtags) > 8:
         ok, issues = False, issues + [f"Too many hashtags: {len(hashtags)} (>8)"]
 
-    for bait in ("like and subscribe", "smash that like", "hit the bell",
-                 "tag someone", "subscribe for more"):
-        if bait in (title + " " + desc).lower():
-            ok, issues = False, issues + [f"Bait phrase in metadata: {bait}"]
-            break
+    metadata = f"{title} {desc}"
+    if contains_bait(metadata, platform=None):
+        ok, issues = False, issues + [
+            "Engagement bait detected in title/description after cleanup"
+        ]
 
     return {"guard": "seo", "pass": ok, "issues": issues,
             "confidence": "high", "checked": list(checked)}

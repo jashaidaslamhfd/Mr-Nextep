@@ -201,6 +201,34 @@ class BaitPolicyTests(unittest.TestCase):
         cleaned = policy.strip_bait(text)
         self.assertEqual(cleaned.count("\n\n"), 2)
 
+    def test_cleanup_removes_inline_meta_bait_without_losing_explanation(self):
+        text = "This is harmless — subscribe for more body science."
+        cleaned = policy.strip_bait(text)
+        self.assertIn("This is harmless", cleaned)
+        self.assertNotIn("subscribe", cleaned.lower())
+
+    def test_cleanup_normalizes_case_spacing_and_zero_width_characters(self):
+        text = "SUB\u200bSCRIBE   FOR   MORE"
+        self.assertTrue(policy.contains_bait(text))
+        self.assertEqual(policy.strip_bait(text), "")
+
+    def test_youtube_subscribe_remains_allowed_by_platform_policy(self):
+        text = "Subscribe for daily body science."
+        self.assertFalse(policy.contains_bait(text, policy.YOUTUBE))
+        self.assertEqual(policy.strip_bait(text, policy.YOUTUBE), text)
+
+    def test_clean_metadata_fields_and_assertion(self):
+        payload = {
+            "title": "Why your eye twitches",
+            "description": "Your nerves misfire. Subscribe for more.",
+            "summary": "A harmless nerve signal.",
+            "cta": "Follow for more.",
+        }
+        policy.clean_metadata_fields(payload)
+        policy.assert_bait_free(payload)
+        self.assertNotIn("subscribe", payload["description"].lower())
+        self.assertEqual(payload["summary"], "A harmless nerve signal.")
+
     def test_fear_bait_is_recognised(self):
         self.assertTrue(policy.contains_fear_bait("Doctors don't want you to know"))
         self.assertFalse(policy.contains_fear_bait("Your nerves misfire briefly"))

@@ -58,13 +58,14 @@ from __future__ import annotations
 import logging
 import os
 import re
+import unicodedata
 from typing import Dict, Iterable, List, Optional, Tuple
 
 # ---------------------------------------------------------------------------
 # Version + review metadata. scripts/growth_report.py prints these so nobody
 # has to guess how stale the strategy is.
 # ---------------------------------------------------------------------------
-POLICY_VERSION = "2026.08-fix2"
+POLICY_VERSION = "2026.08-fix3"
 LAST_VERIFIED = "2026-08-14"
 REVERIFY_AFTER_DAYS = 90
 
@@ -313,7 +314,8 @@ _UNIVERSAL_BAIT: Tuple[str, ...] = (
     r"\blike (this|if|and)\b",
     r"\bdouble tap\b",
     r"\bsmash (that )?like\b",
-    r"\bshare (this|it|with)\b",
+    r"\bshare\s+this\s+with\s+(?:a\s+)?friend\b",
+    r"\bshare\s+(this|it|with)\b",
     r"\bsend this to\b",
     r"\btag (a|your|someone)\b",
     r"\bcomment (below|down|'?\w+'? if)\b",
@@ -321,10 +323,12 @@ _UNIVERSAL_BAIT: Tuple[str, ...] = (
     r"\bsave this (post|reel|for)\b",
     r"\bvote (below|now)\b",
     r"\bwho agrees\b",
+    r"\bturn\s+on\s+(the\s+)?(notifications|bell)\b",
 )
 
 # Extra restrictions that apply only on Facebook and Instagram.
 _META_ONLY_BAIT: Tuple[str, ...] = (
+    r"\bsubscribe\s+(?:for\s+more|now|to\s+see)\b",
     r"\bsubscribe\b",
     r"\blink in bio\b",
     r"\bcheck (out )?(my|our) (channel|youtube)\b",
@@ -514,45 +518,93 @@ _META_BAIT_RE = re.compile("|".join(_UNIVERSAL_BAIT + _META_ONLY_BAIT), re.IGNOR
 _FEAR_RE = re.compile("|".join(FEAR_BAIT_PATTERNS), re.IGNORECASE)
 
 
+def _normalize_policy_text(text: str) -> str:
+    """Normalize formatting so bait cannot bypass detection."""
+    if not text:
+        return ""
+    normalized = unicodedata.normalize("NFKC", str(text))
+    normalized = re.sub(r"[\u200b\u200c\u200d\ufeff]", "", normalized)
+    normalized = normalized.replace("\r\n", "\n").replace("\r", "\n")
+    normalized = re.sub(r"[^\S\n]+", " ", normalized)
+    normalized = re.sub(r"\n{3,}", "\n\n", normalized)
+    return normalized.strip()
+
+
 def _bait_matcher(platform: Optional[str]):
-    """Meta enforces a wider bait vocabulary than YouTube — see the note above
-    the pattern lists. Passing no platform applies the strict Meta rules,
-    which is the safe default for shared assets like the spoken script."""
+    """Return the platform matcher; None uses strict shared-content rules."""
     return _UNIVERSAL_BAIT_RE if platform == YOUTUBE else _META_BAIT_RE
 
 
 def contains_bait(text: str, platform: Optional[str] = None) -> bool:
-    """True if the text contains an engagement-bait ask for that platform."""
-    return bool(text) and bool(_bait_matcher(platform).search(text))
+    """True if normalized text contains an engagement-bait ask."""
+    normalized = _normalize_policy_text(text)
+    return bool(normalized) and bool(_bait_matcher(platform).search(normalized))
 
 
 def contains_fear_bait(text: str) -> bool:
-    return bool(text) and bool(_FEAR_RE.search(text))
+    return bool(text) and bool(_FEAR_RE.search(_normalize_policy_text(text)))
 
 
 def strip_bait(text: str, platform: Optional[str] = None) -> str:
-    """Remove bait sentences, keeping everything else — including layout.
-
-    Two things matter here:
-    1. Filtering per SENTENCE, not per caption: one bad clause ("Share this
-       with a friend!") must not cost us the surrounding explanation, which is
-       the part the ranking model reads for topic relevance.
-    2. Preserving the blank-line structure: these captions are built as
-       hook / summary / context / hashtag blocks, and the first line is what
-       shows before the "... more" fold on Instagram and Facebook. Flattening
-       them into one paragraph would quietly bury the hook.
-    """
+    """Remove complete and inline bait while preserving metadata blocks."""
     if not text:
         return ""
+
+    normalized = _normalize_policy_text(text)
     matcher = _bait_matcher(platform)
     clean_blocks = []
-    for block in text.split("\n\n"):
-        sentences = re.split(r"(?<=[.!?])\s+", block)
-        kept = [s for s in sentences if s.strip() and not matcher.search(s)]
-        rebuilt = re.sub(r"[ \t]{2,}", " ", " ".join(kept)).strip()
-        if rebuilt:
-            clean_blocks.append(rebuilt)
+
+    for block in normalized.split("\n\n"):
+        cleaned_sentences = []
+        sentences = re.split(r"(?<=[.!?])\s+|\s*;\s*", block)
+        for sentence in sentences:
+            sentence = sentence.strip(" \t-–—")
+            if not sentence:
+                continue
+
+            # Remove bait clauses first. This retains useful information from
+            # sentences such as: "This is harmless — subscribe for more."
+            cleaned_sentence = sentence
+            patterns = BAIT_PATTERNS if platform != YOUTUBE else _UNIVERSAL_BAIT
+            for pattern in patterns:
+                cleaned_sentence = re.sub(
+                    rf"(?:\s*[-–—,:|]?\s*){pattern}(?:\s*[-–—,:|.!?]*)",
+                    " ",
+                    cleaned_sentence,
+                    flags=re.IGNORECASE,
+                )
+            cleaned_sentence = re.sub(r"\s{2,}", " ", cleaned_sentence)
+            cleaned_sentence = cleaned_sentence.strip(" -–—,;:|\t")
+
+            # If the original sentence was only bait, no useful text remains.
+            if cleaned_sentence and not matcher.search(cleaned_sentence):
+                cleaned_sentences.append(cleaned_sentence)
+
+        if cleaned_sentences:
+            clean_blocks.append(" ".join(cleaned_sentences))
+
     return "\n\n".join(clean_blocks)
+
+
+def clean_metadata_fields(
+    payload: dict,
+    fields: Tuple[str, ...] = ("title", "description", "summary", "cta"),
+    platform: Optional[str] = None,
+) -> dict:
+    """Clean final metadata in place and return the same payload."""
+    for field in fields:
+        value = payload.get(field)
+        if isinstance(value, str):
+            payload[field] = strip_bait(value, platform=platform)
+    return payload
+
+
+def assert_bait_free(payload: dict, fields: Tuple[str, ...] = ("title", "description", "summary", "cta"), platform: Optional[str] = None) -> None:
+    """Fail closed with the exact field if cleanup did not remove bait."""
+    for field in fields:
+        value = payload.get(field, "")
+        if isinstance(value, str) and contains_bait(value, platform=platform):
+            raise ValueError(f"Engagement bait remains in metadata field: {field}")
 
 
 def enforce_hashtag_limit(hashtags: List[str], platform: str) -> List[str]:
