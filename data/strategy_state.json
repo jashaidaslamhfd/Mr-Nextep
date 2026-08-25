@@ -6,7 +6,7 @@
   "pivot": false,
   "pivot_reason": null,
   "best_slot": null,
-  "cadence": 3,
+  "cadence": 2,
   "quality_threshold": 60,
   "lever_analysis": {
     "trained": false,
@@ -521,7 +521,7 @@
       "trust_worthy": false,
       "verdict": "LIMITED"
     },
-    "generated_at": "2026-08-26T05:41:29.685496+00:00"
+    "generated_at": "2026-08-25T22:51:57.076510+00:00"
   },
   "signal_guard": {
     "can_trust_scores": false,
@@ -536,7 +536,7 @@
       "trust_worthy": false,
       "verdict": "LIMITED",
       "channel_score": 32.6,
-      "checked_at": "2026-08-26T05:41:29.688005+00:00"
+      "checked_at": "2026-08-25T22:51:57.079579+00:00"
     }
   },
   "viral_readiness": {
@@ -638,7 +638,7 @@
       "missing": 0
     },
     "next_actions": [],
-    "generated_at": "2026-08-26T05:41:29.689896+00:00"
+    "generated_at": "2026-08-25T22:51:57.082180+00:00"
   },
   "series_weights": {
     "dark_mystery": 1.0,
@@ -661,7 +661,7 @@
     "interesting facts",
     "did you know"
   ],
-  "decided_at": "2026-08-26T05:41:29.689905+00:00",
+  "decided_at": "2026-08-25T22:51:57.082196+00:00",
   "trained_model": {
     "generated_at": "2026-08-25T08:39:01.772418+00:00",
     "n_training_samples": 60,
@@ -1049,5 +1049,8 @@
       ],
       "note": "Drift detected: these scores do NOT predict real views \u2014 higher scores are not earning more. Do not raise the approval bar on them; trust real metrics instead. predicted_ctr, seo_score, predicted_retention"
     }
-  }
+  },
+  "cadence_suggested": 3,
+  "cadence_ceiling": 2,
+  "cadence_reason": "No readable platform health yet - holding 2/day while data accumulates instead of assuming 3/day is safe."
 }

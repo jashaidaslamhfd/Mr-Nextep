@@ -18,6 +18,7 @@ import logging
 import os
 import time
 from datetime import datetime, timezone, timedelta
+from pathlib import Path
 from typing import Optional, Dict, Any, Tuple
 
 logger = logging.getLogger(__name__)
@@ -353,3 +354,127 @@ def ensure_reserve_health(video_history: list = None, metrics: dict = None) -> d
         )
 
     return health
+
+
+# ──────────────────────────────────────────────────────────────────────────────
+# RETENTION CADENCE CEILING
+# ──────────────────────────────────────────────────────────────────────────────
+
+PRODUCTION_CADENCE = 3
+
+
+def _state_path() -> Path:
+    return DATA / "slot_consistency.json"
+
+
+def _load_state() -> Dict[str, Any]:
+    p = _state_path()
+    if not p.exists():
+        return {"slots": []}
+    try:
+        return json.load(open(p, encoding="utf-8"))
+    except Exception:
+        return {"slots": []}
+
+
+def slot_consistency_status() -> Dict[str, Any]:
+    """Report how consistent the last 7 days of slots were, by US peak hour."""
+    state = _load_state()
+    slots = state.get("slots", [])
+    per_slot: Dict[str, Dict[str, int]] = {}
+    for s in slots:
+        label = s.get("slot", "?")
+        per_slot.setdefault(label, {"published": 0, "missed": 0, "total": 0})
+        per_slot[label]["total"] += 1
+        if s.get("outcome") == "published":
+            per_slot[label]["published"] += 1
+        elif s.get("outcome") in ("guard_fail", "empty", "error"):
+            per_slot[label]["missed"] += 1
+
+    total = len(slots)
+    published = sum(1 for s in slots if s.get("outcome") == "published")
+    consistency = round(100 * published / total, 1) if total else 100.0
+    return {
+        "total_attempts": total,
+        "published": published,
+        "missed": total - published,
+        "consistency_pct": consistency,
+        "per_slot": per_slot,
+        "target": "3/day at US peak (12:30/18:30/20:00 NY)",
+    }
+
+
+def _load_growth_health() -> Dict[str, Any]:
+    """Measured per-platform health written by growth_engine.analyse()."""
+    path = os.environ.get("GROWTH_STATE_PATH") or str(DATA / "growth_state.json")
+    try:
+        if os.path.exists(path):
+            with open(path, encoding="utf-8") as fh:
+                state = json.load(fh)
+            health = state.get("platform_health")
+            return health if isinstance(health, dict) else {}
+    except Exception as exc:  # noqa: BLE001 - never block a run on state I/O
+        logger.warning("Could not read growth health for cadence cap: %s", exc)
+    return {}
+
+
+def retention_cadence_ceiling(platform_health: Dict[str, Any] = None) -> tuple:
+    """Highest uploads/day that MEASURED retention currently justifies.
+
+    Returns (ceiling, reason).
+    """
+    health = _load_growth_health() if platform_health is None else (platform_health or {})
+
+    statuses = {
+        name: str(info.get("status") or "").strip().lower()
+        for name, info in health.items()
+        if isinstance(info, dict)
+    }
+    real = {n: s for n, s in statuses.items() if s and s != "no_data"}
+
+    if not real:
+        return 2, (
+            "No readable platform health yet - holding 2/day while data "
+            "accumulates instead of assuming 3/day is safe."
+        )
+
+    critical = [n for n, s in real.items() if s == "critical"]
+    if critical:
+        return 1, (
+            f"{', '.join(sorted(critical))} is critical (far under its completion "
+            "gate). Shipping one strong video a day until the hook and cut clear "
+            "the gate - extra uploads of a losing format only widen the damage."
+        )
+
+    below = [n for n, s in real.items() if s == "below_gate"]
+    if below:
+        return 2, (
+            f"{', '.join(sorted(below))} is below its completion gate. Two uploads "
+            "a day at the best-measured slots concentrates the quality budget "
+            "where it converts."
+        )
+
+    healthy = [n for n, s in real.items() if s == "healthy"]
+    if len(healthy) >= 2:
+        return PRODUCTION_CADENCE, (
+            f"{len(healthy)} platforms are clearing their gates - the format has "
+            f"earned the full {PRODUCTION_CADENCE}/day production cadence."
+        )
+
+    return 2, (
+        f"Only {len(healthy)} platform is clearing its gate. Holding 2/day until a "
+        "second platform stabilises."
+    )
+
+
+def clamp_cadence_3(cadence: int, platform_health: Dict[str, Any] = None) -> int:
+    """Aim for the 3/day production cadence, but never above measured retention."""
+    suggested = max(1, int(cadence or 1))
+    if os.environ.get("DISABLE_CADENCE_3", "false").strip().lower() == "true":
+        return suggested
+
+    ceiling, reason = retention_cadence_ceiling(platform_health)
+    target = min(max(suggested, PRODUCTION_CADENCE), ceiling)
+    if target < PRODUCTION_CADENCE:
+        logger.info("Cadence capped at %s/day: %s", target, reason)
+    return max(1, min(PRODUCTION_CADENCE, target))

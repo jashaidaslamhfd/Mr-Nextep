@@ -583,7 +583,7 @@ def _get_music_track(duration: float, output_dir: str) -> str:
                 target_duration=duration,
             )
             if gen:
-                logger.info("Using generated viral BGM: %s", gen)
+                logger.info("Using AI-generated viral BGM: %s", gen)
                 return gen
         except Exception as exc:  # noqa: BLE001 - never block on music
             logger.warning("Viral BGM tier failed (%s) - using legacy tiers", exc)

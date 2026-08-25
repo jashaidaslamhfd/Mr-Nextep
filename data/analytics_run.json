@@ -1,23 +1,24 @@
 {
-  "generated_at": "2026-08-26T05:41:29.692338+00:00",
-  "exit_code": 0,
+  "generated_at": "2026-08-25T22:51:57.087841+00:00",
+  "exit_code": 1,
   "youtube": {
-    "updated": 0,
-    "note": "No history file yet."
+    "failed": 1
   },
   "cross_platform": {
     "stats": {
-      "checked": 0,
-      "updated": 0,
+      "checked": 1,
+      "updated": 1,
       "skipped_young": 0,
       "skipped_fresh": 0,
-      "errors": {}
+      "errors": {
+        "youtube_shorts": "google client unavailable: No module named 'google'"
+      }
     },
-    "total_records": 0
+    "total_records": 1
   },
   "growth": {
-    "generated_at": "2026-08-26T05:41:29.678630+00:00",
-    "sample_size": 0,
+    "generated_at": "2026-08-25T22:51:57.061665+00:00",
+    "sample_size": 1,
     "scored_videos": 0,
     "channel_gate_ratio": null,
     "slot_weights": {},
@@ -33,8 +34,8 @@
         "status": "no_data",
         "samples": 0,
         "gate": 0.65,
-        "blocking_error": null,
-        "action": "No metrics yet — publish and wait 24h, or connect this platform's analytics."
+        "blocking_error": "google client unavailable: No module named 'google'",
+        "action": "No readable metrics. google client unavailable: No module named 'google'"
       },
       "facebook_reels": {
         "platform": "facebook_reels",
@@ -58,7 +59,12 @@
     "instagram_sends": null,
     "recommended_cadence": 1,
     "cadence_reason": "Not enough mature videos to judge yet — holding a conservative 1/day while data accumulates. Channel retention is unproven; extra uploads of an unvalidated format risk teaching the feed to deprioritise.",
-    "alerts": [],
+    "alerts": [
+      {
+        "level": "error",
+        "message": "YouTube Shorts: google client unavailable: No module named 'google' — analytics are blind here."
+      }
+    ],
     "best_slot": null,
     "best_topics": [],
     "best_hook_frame": null

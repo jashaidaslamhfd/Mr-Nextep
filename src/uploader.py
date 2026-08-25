@@ -53,7 +53,7 @@ if YT_PRIVACY_STATUS not in {"private", "unlisted", "public"}:
     raise ValueError("YT_PRIVACY_STATUS must be private, unlisted, or public")
 
 YT_SCHEDULE_PUBLISH = os.environ.get("YT_SCHEDULE_PUBLISH", "false").lower() == "true"
-_PUBLISH_TZ = pytz.timezone("America/New_York")
+_PUBLISH_TZ = pytz.timezone("America/New_York") if pytz else None
 
 def _peak_publish_slots() -> list:
     """(hour, minute) New York slots, single-sourced from the scheduler."""
@@ -372,6 +372,13 @@ def _upload_youtube(video_path, thumb_path, script_data, tags):
             "https://www.googleapis.com/auth/youtube.force-ssl",
         ],
     )
+    # googleapiclient's default httplib2 transport has no useful wall-clock
+    # bound for a stalled socket. Use an explicitly timed transport for every
+    # YouTube request. Disable httplib2's redirect handling because YouTube's
+    # resumable protocol uses HTTP 308 as an in-band "continue upload" response
+    # that may legitimately omit Location; googleapiclient handles that response
+    # in HttpRequest.next_chunk(). The started-state receipt remains fail-closed:
+    # an uncertain request is never retried as a fresh upload by another run.
     yt_transport = httplib2.Http(timeout=YT_HTTP_TIMEOUT)
     yt_transport.follow_redirects = False
     yt_http = AuthorizedHttp(creds, http=yt_transport)

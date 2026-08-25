@@ -2207,7 +2207,7 @@
     },
     "real_retention": 0.0,
     "real_views": 0.0,
-    "recorded_at": "2026-08-26T05:41:00.943812+00:00"
+    "recorded_at": "2026-08-25T22:43:21.630266+00:00"
   },
   {
     "features": {
@@ -2220,7 +2220,7 @@
     },
     "real_retention": 0.0,
     "real_views": 0.0,
-    "recorded_at": "2026-08-26T05:41:27.070505+00:00"
+    "recorded_at": "2026-08-25T22:45:42.676322+00:00"
   },
   {
     "features": {
@@ -2233,6 +2233,45 @@
     },
     "real_retention": 0.0,
     "real_views": 0.0,
-    "recorded_at": "2026-08-26T05:41:28.672392+00:00"
+    "recorded_at": "2026-08-25T22:47:33.417577+00:00"
+  },
+  {
+    "features": {
+      "hook_strength": 0.1,
+      "story_completeness": 0.0,
+      "pacing": 1.0,
+      "title_curiosity": 1.0,
+      "payoff_present": 0.0,
+      "bait_penalty": 0.0
+    },
+    "real_retention": 0.0,
+    "real_views": 0.0,
+    "recorded_at": "2026-08-25T22:47:57.445198+00:00"
+  },
+  {
+    "features": {
+      "hook_strength": 0.1,
+      "story_completeness": 0.0,
+      "pacing": 1.0,
+      "title_curiosity": 1.0,
+      "payoff_present": 0.0,
+      "bait_penalty": 0.0
+    },
+    "real_retention": 0.0,
+    "real_views": 0.0,
+    "recorded_at": "2026-08-25T22:51:46.957554+00:00"
+  },
+  {
+    "features": {
+      "hook_strength": 0.1,
+      "story_completeness": 0.0,
+      "pacing": 1.0,
+      "title_curiosity": 1.0,
+      "payoff_present": 0.0,
+      "bait_penalty": 0.0
+    },
+    "real_retention": 0.0,
+    "real_views": 0.0,
+    "recorded_at": "2026-08-25T22:51:56.425126+00:00"
   }
 ]
