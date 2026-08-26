@@ -1,7 +1,6 @@
 {
-  "stage": "pipeline",
-  "status": "completed",
-  "updated_at": "2026-08-26T07:27:13.453472+00:00",
-  "run_id": "32941527205",
-  "elapsed_seconds": 654.87
+  "stage": "startup",
+  "status": "started",
+  "updated_at": "2026-08-26T09:33:58.744775+00:00",
+  "run_id": "32953188206"
 }

@@ -4,25 +4,25 @@
       "slot": "NY12:30",
       "outcome": "published",
       "topic": "topic a",
-      "at": "2026-08-26T07:15:15.408633+00:00"
+      "at": "2026-08-26T09:32:55.999964+00:00"
     },
     {
       "slot": "NY18:30",
       "outcome": "published",
       "topic": "topic b",
-      "at": "2026-08-26T07:15:15.409186+00:00"
+      "at": "2026-08-26T09:32:56.000528+00:00"
     },
     {
       "slot": "NY20:00",
       "outcome": "guard_fail",
       "topic": "topic c",
-      "at": "2026-08-26T07:15:15.409505+00:00"
+      "at": "2026-08-26T09:32:56.000855+00:00"
     },
     {
       "slot": "offpeak",
-      "outcome": "published",
-      "topic": "Why Your Finger Pops",
-      "at": "2026-08-26T07:27:13.470478+00:00"
+      "outcome": "draft",
+      "topic": "",
+      "at": "2026-08-26T09:33:58.747268+00:00"
     }
   ]
 }
