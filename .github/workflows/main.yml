@@ -394,6 +394,17 @@ jobs:
           done
           git stash pop --quiet 2>/dev/null || true
 
+      - name: Train ML models (autonomous brain)
+        if: always()
+        shell: bash
+        env:
+          PYTHONUNBUFFERED: "1"
+        run: |
+          set -uo pipefail
+          echo "=== ML Brain: training on all available data ==="
+          python src/ml_brain.py --force 2>&1 || echo "::warning::ML training failed (non-blocking)"
+          echo "ML Brain training complete. Models are local to this run."
+
       - name: Upload artifacts
         if: always()
         uses: actions/upload-artifact@v4
