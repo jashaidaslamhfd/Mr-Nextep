@@ -1,0 +1,85 @@
+{
+  "trained_at": "2026-08-26T16:32:20.101429+00:00",
+  "trained": true,
+  "r2_cv": 0.8869,
+  "n": 32,
+  "confidence": "medium",
+  "feature_importance": [
+    {
+      "feature": "topic_avg_views",
+      "importance": 0.1218178469457031
+    },
+    {
+      "feature": "is_peak_us",
+      "importance": 0.06497734136625091
+    },
+    {
+      "feature": "channel_momentum",
+      "importance": 0.06026487547244626
+    },
+    {
+      "feature": "starts_with_why",
+      "importance": 0.0600364085559335
+    },
+    {
+      "feature": "topic_avg_retention",
+      "importance": 0.058649423668799376
+    },
+    {
+      "feature": "hook_frame_second_person",
+      "importance": 0.05476147428502801
+    },
+    {
+      "feature": "title_length",
+      "importance": 0.050861754819114716
+    },
+    {
+      "feature": "hook_score",
+      "importance": 0.05045824702208355
+    },
+    {
+      "feature": "title_word_count",
+      "importance": 0.049609092003701845
+    },
+    {
+      "feature": "curiosity_gap_score",
+      "importance": 0.04926959691992171
+    }
+  ],
+  "features": [
+    "channel_momentum",
+    "curiosity_gap_score",
+    "duration_bucket",
+    "duration_seconds",
+    "ending_loop",
+    "has_body_word",
+    "has_number",
+    "has_question",
+    "hook_frame_second_person",
+    "hook_frame_why",
+    "hook_score",
+    "is_evening_us",
+    "is_peak_us",
+    "is_weekend",
+    "post_day_of_week",
+    "post_hour",
+    "seo_score",
+    "starts_with_what",
+    "starts_with_why",
+    "title_length",
+    "title_uppercase_ratio",
+    "title_word_count",
+    "topic_avg_retention",
+    "topic_avg_views",
+    "topic_recency_days",
+    "trend_from_youtube"
+  ],
+  "weights": {
+    "random_forest": 0.1947,
+    "gradient_boosting": 0.2027,
+    "extra_trees": 0.1914,
+    "ridge": 0.2089,
+    "gradient_boosting_deep": 0.2023
+  },
+  "best_model": "ridge"
+}

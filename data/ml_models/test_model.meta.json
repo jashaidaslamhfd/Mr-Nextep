@@ -1,0 +1,79 @@
+{
+  "trained_at": "2026-08-26T16:32:12.158067+00:00",
+  "trained": true,
+  "r2_cv": 0.9679,
+  "n": 20,
+  "confidence": "low",
+  "feature_importance": [
+    {
+      "feature": "hook_score",
+      "importance": 0.17773032608295214
+    },
+    {
+      "feature": "seo_score",
+      "importance": 0.17773032608295214
+    },
+    {
+      "feature": "title_length",
+      "importance": 0.15411173763330052
+    },
+    {
+      "feature": "title_uppercase_ratio",
+      "importance": 0.15411173763330052
+    },
+    {
+      "feature": "duration_bucket",
+      "importance": 0.04448822660393351
+    },
+    {
+      "feature": "topic_avg_views",
+      "importance": 0.04358938189637955
+    },
+    {
+      "feature": "topic_recency_days",
+      "importance": 0.04358938137703018
+    },
+    {
+      "feature": "post_hour",
+      "importance": 0.04292525193766426
+    },
+    {
+      "feature": "duration_seconds",
+      "importance": 0.03606204792374528
+    },
+    {
+      "feature": "is_evening_us",
+      "importance": 0.033926129521589674
+    }
+  ],
+  "features": [
+    "channel_momentum",
+    "duration_bucket",
+    "duration_seconds",
+    "ending_cliffhanger",
+    "ending_cta",
+    "ending_loop",
+    "hook_frame_question",
+    "hook_frame_second_person",
+    "hook_frame_statement",
+    "hook_score",
+    "is_evening_us",
+    "is_peak_us",
+    "is_weekend",
+    "post_day_of_week",
+    "post_hour",
+    "seo_score",
+    "title_length",
+    "title_uppercase_ratio",
+    "topic_avg_retention",
+    "topic_avg_views",
+    "topic_recency_days"
+  ],
+  "weights": {
+    "random_forest": 0.2409,
+    "gradient_boosting": 0.2504,
+    "extra_trees": 0.2501,
+    "ridge": 0.2586
+  },
+  "best_model": "ridge"
+}
