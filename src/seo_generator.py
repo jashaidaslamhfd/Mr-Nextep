@@ -138,7 +138,7 @@ def _topic_keywords(topic: str, limit: int = 2) -> str:
     """Extract a grammatical short subject for title frames.
 
     Common science pairs get a natural phrase instead of raw keyword soup such
-    as “Sleep Brain”.
+    as "Sleep Brain".
     """
     words = [w.lower() for w in _title_words(topic) if w.lower() not in _TITLE_STOP_WORDS and len(w) > 2]
     word_set = set(words)
@@ -159,7 +159,7 @@ def generate_title_options(topic: str, script_data: Dict, n: int = 5) -> List[st
     keyword_phrase = _topic_keywords(topic)
     templates = _TITLE_TEMPLATES
     if " And " in keyword_phrase:
-        # Compound subjects take “work”, not “works”.
+        # Compound subjects take "work", not "works".
         templates = tuple(
             "How {topic} Work" if template == "How {topic} Works" else template
             for template in _TITLE_TEMPLATES
@@ -185,17 +185,31 @@ def generate_title_options(topic: str, script_data: Dict, n: int = 5) -> List[st
 def _topic_tag_phrases(topic: str, category: str) -> List[str]:
     """Build useful searchable tag phrases and discard grammar/filler words."""
     words = [w.lower() for w in _title_words(topic) if w.lower() not in _TITLE_STOP_WORDS and len(w) > 2]
-    # Topic-specific useful combinations are stronger than generic verbs or
-    # mechanically joined word pairs such as “sleep brain”.
     word_set = set(words)
     phrases: List[str] = []
+    # Topic-specific useful combinations
     if {"sleep", "memory"} <= word_set or {"sleep", "memories"} <= word_set:
         phrases.extend(["sleep science", "sleep and memory", "memory formation"])
     if "brain" in word_set:
-        phrases.extend(["brain facts", "brain science", "neuroscience"])
+        phrases.extend(["brain facts", "brain science", "neuroscience", "brain hacks"])
+    if "body" in word_set:
+        phrases.extend(["human body", "body science", "body secrets", "body glitches"])
     if category == "Body":
-        phrases.extend(["human body", "body science"])
+        phrases.extend(["human body", "body science", "body facts", "body hacks"])
+    # Build topic-specific phrases from word pairs
+    for i, w1 in enumerate(words):
+        for w2 in words[i+1:]:
+            pair = f"{w1} {w2}"
+            if pair not in phrases:
+                phrases.append(pair)
+    # Add individual topic words as tags
     phrases.extend(words)
+    # Add category + science modifier combos
+    for w in words[:3]:
+        for modifier in ["science", "facts", "explained", "research"]:
+            combo = f"{w} {modifier}"
+            if combo not in phrases:
+                phrases.append(combo)
     return phrases
 
 
@@ -233,6 +247,7 @@ def generate_upload_tags(topic: str, category: str, limit: int = 20) -> List[str
     """Return meaningful YouTube tag phrases, never grammar/filler tokens."""
     candidates = _topic_tag_phrases(topic, category)
     candidates.extend(_HIGH_VOLUME_TAGS.get(category, []))
+    candidates.extend(_TRENDING_TAGS)
     candidates.extend(generate_seo_tags(topic, category))
     clean: List[str] = []
     seen = set()

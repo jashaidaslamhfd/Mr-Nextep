@@ -55,6 +55,13 @@ BAIT_WORDS = [
     "comment below", "tag someone", "share this", "follow for more", "like share",
 ]
 
+_TRAILING_PREPOSITIONS = {
+    "at", "in", "on", "to", "for", "of", "by", "with", "from", "up",
+    "out", "about", "into", "over", "after", "before", "between", "through",
+    "during", "without", "against", "under", "above", "the", "a", "an",
+    "is", "are", "was", "were", "do", "does", "did", "that", "this",
+}
+
 _STOP = {
     "a", "an", "the", "and", "or", "but", "so", "of", "to", "in", "on",
     "for", "with", "your", "you", "is", "are", "was", "do", "does",
@@ -420,6 +427,10 @@ def validate_title(title: str, *, max_chars: int = 60) -> dict:
     if _emoji_off() and EMOJI_RE.search(t):
         result["ok"] = False
         result["issues"].append("emoji present while TITLE_EMOJI_OFF is enabled")
+    last_word = t.rstrip("?!.,;:").split()[-1].lower() if t.strip() else ""
+    if last_word in _TRAILING_PREPOSITIONS:
+        result["ok"] = False
+        result["issues"].append(f"title ends with preposition '{last_word}' — sentence incomplete")
     return result
 
 

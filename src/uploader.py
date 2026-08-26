@@ -467,6 +467,8 @@ def _upload_youtube(video_path, thumb_path, script_data, tags):
             logger.info(f"YouTube upload successful: https://youtu.be/{yt_video_id}")
             youtube_success = True
 
+            _pending: list[str] = []
+
             if thumb_path and os.path.exists(thumb_path):
                 try:
                     yt.thumbnails().set(
@@ -475,11 +477,9 @@ def _upload_youtube(video_path, thumb_path, script_data, tags):
                     ).execute()
                     logger.info("Thumbnail uploaded successfully")
                 except Exception as thumb_error:
-                    logger.warning(f"Thumbnail upload failed: {thumb_error}")
+                    logger.warning(f"Thumbnail upload failed (will retry next run): {thumb_error}")
+                    _pending.append("thumbnail")
 
-            # Optional: real closed-caption track from seo/shorts modules'
-            # SRT export (main.py sets script_data['srt_path']). Best-effort
-            # only - see scope note above.
             srt_path = script_data.get('srt_path')
             if srt_path and os.path.exists(srt_path):
                 try:
@@ -497,9 +497,8 @@ def _upload_youtube(video_path, thumb_path, script_data, tags):
                     ).execute()
                     logger.info("Captions uploaded successfully")
                 except Exception as captions_error:
-                    logger.warning(
-                        f"Captions upload failed (needs youtube.force-ssl scope on REFRESH_TOKEN): {captions_error}"
-                    )
+                    logger.warning(f"Captions upload failed (will retry next run): {captions_error}")
+                    _pending.append("captions")
 
             # Optional: post the pinned_comment from seo_generator as the
             # first top-level comment. NOTE: this only posts the comment -
@@ -522,8 +521,22 @@ def _upload_youtube(video_path, thumb_path, script_data, tags):
                     logger.info("Seed comment posted (pin it manually in YouTube Studio for best effect)")
                 except Exception as comment_error:
                     logger.warning(
-                        f"Seed comment post failed (needs youtube.force-ssl scope on REFRESH_TOKEN): {comment_error}"
+                        f"Seed comment post failed (will retry next run): {comment_error}"
                     )
+                    _pending.append("seed_comment")
+
+            if _pending:
+                upload_state[fingerprint] = {
+                    "video_id": yt_video_id,
+                    "status": "uploaded_pending_meta",
+                    "pending": _pending,
+                    "thumb_path": thumb_path,
+                    "srt_path": script_data.get('srt_path'),
+                    "pinned_comment": script_data.get('pinned_comment'),
+                    "ts": datetime.now(timezone.utc).isoformat(),
+                }
+                _save_upload_state(upload_state)
+                logger.info("📋 Pending YT actions saved for retry: %s", _pending)
 
             # --- End screen injection: add old-video cards to drive views
             # to dead-but-worthy uploads. Best-effort only.

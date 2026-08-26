@@ -1180,6 +1180,14 @@ class NextepPipeline:
                         "on this channel (published or scheduled). Refusing to "
                         "publish a duplicate. Pick a new topic and re-run."
                     )
+                from ctr_engine import validate_title as _vt
+                _vc = _vt(_final_title)
+                if not _vc['ok'] and any('preposition' in i for i in _vc['issues']):
+                    _words = _final_title.rstrip('?!.,;:').split()
+                    if _words:
+                        _final_title = ' '.join(_words[:-1])
+                        script_data['title'] = _final_title
+                        logger.info("✅ Truncated preposition from title → %r", _final_title)
                 logger.info("✅ Title passes duplicate guard: %r", _final_title)
             except RuntimeError:
                 raise

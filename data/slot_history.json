@@ -4,25 +4,19 @@
       "slot": "NY12:30",
       "outcome": "published",
       "topic": "topic a",
-      "at": "2026-08-26T13:49:56.084827+00:00"
+      "at": "2026-08-26T02:37:48.432152+00:00"
     },
     {
       "slot": "NY18:30",
       "outcome": "published",
       "topic": "topic b",
-      "at": "2026-08-26T13:49:56.085258+00:00"
+      "at": "2026-08-26T02:37:48.432787+00:00"
     },
     {
       "slot": "NY20:00",
       "outcome": "guard_fail",
       "topic": "topic c",
-      "at": "2026-08-26T13:49:56.085576+00:00"
-    },
-    {
-      "slot": "offpeak",
-      "outcome": "published",
-      "topic": "Why You Choose Badly at",
-      "at": "2026-08-26T14:11:18.140788+00:00"
+      "at": "2026-08-26T02:37:48.433258+00:00"
     }
   ]
 }
