@@ -1,7 +1,7 @@
 {
-  "trained_at": "2026-08-26T16:32:17.654674+00:00",
+  "trained_at": "2026-08-26T23:22:10.311162+00:00",
   "trained": true,
-  "r2_cv": 0.7951,
+  "r2_cv": 0.795,
   "n": 32,
   "confidence": "medium",
   "feature_importance": [
@@ -75,10 +75,10 @@
     "trend_from_youtube"
   ],
   "weights": {
-    "random_forest": 0.2065,
-    "gradient_boosting": 0.2194,
-    "extra_trees": 0.1664,
-    "ridge": 0.1842,
+    "random_forest": 0.2066,
+    "gradient_boosting": 0.2195,
+    "extra_trees": 0.1661,
+    "ridge": 0.1843,
     "gradient_boosting_deep": 0.2235
   },
   "best_model": "gradient_boosting_deep"

@@ -521,7 +521,7 @@
       "trust_worthy": false,
       "verdict": "LIMITED"
     },
-    "generated_at": "2026-08-26T16:32:24.484322+00:00"
+    "generated_at": "2026-08-26T23:22:17.168673+00:00"
   },
   "signal_guard": {
     "can_trust_scores": false,
@@ -536,7 +536,7 @@
       "trust_worthy": false,
       "verdict": "LIMITED",
       "channel_score": 32.0,
-      "checked_at": "2026-08-26T16:32:24.487052+00:00"
+      "checked_at": "2026-08-26T23:22:17.171310+00:00"
     }
   },
   "viral_readiness": {
@@ -638,7 +638,7 @@
       "missing": 0
     },
     "next_actions": [],
-    "generated_at": "2026-08-26T16:32:24.488974+00:00"
+    "generated_at": "2026-08-26T23:22:17.173163+00:00"
   },
   "series_weights": {
     "dark_mystery": 1.0,
@@ -661,7 +661,7 @@
     "interesting facts",
     "did you know"
   ],
-  "decided_at": "2026-08-26T16:32:24.488983+00:00",
+  "decided_at": "2026-08-26T23:22:17.173171+00:00",
   "trained_model": {
     "generated_at": "2026-08-26T08:42:19.584277+00:00",
     "n_training_samples": 60,
