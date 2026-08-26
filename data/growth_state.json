@@ -1,30 +1,30 @@
 {
-  "generated_at": "2026-08-25T08:38:56.589700+00:00",
-  "sample_size": 121,
+  "generated_at": "2026-08-26T08:42:13.574537+00:00",
+  "sample_size": 122,
   "scored_videos": 21,
-  "channel_gate_ratio": 0.52,
+  "channel_gate_ratio": 0.556,
   "slot_weights": {
     "01:00": 1.0,
-    "20:00": 1.096,
-    "12:30": 0.971,
+    "20:00": 1.095,
+    "12:30": 0.956,
     "00:00": 1.0,
     "14:30": 1.0,
-    "21:30": 0.921,
+    "21:30": 0.957,
     "05:00": 1.0,
     "11:00": 1.0,
     "18:30": 1.0,
     "16:30": 1.0
   },
   "topic_weights": {
-    "other": 1.011,
-    "muscle": 1.088,
-    "ear": 1.001,
-    "brain": 0.913
+    "other": 0.99,
+    "muscle": 1.095,
+    "ear": 1.011,
+    "brain": 0.947
   },
   "hook_weights": {
-    "statement": 1.029,
-    "why": 0.883,
-    "unknown": 0.973
+    "statement": 1.026,
+    "why": 0.893,
+    "unknown": 0.982
   },
   "slot_samples": {
     "01:00": 1,
@@ -56,9 +56,9 @@
       "status": "critical",
       "samples": 19,
       "gate": 0.65,
-      "avg_completion": 0.3168,
-      "gate_ratio": 0.58,
-      "avg_views": 300.5,
+      "avg_completion": 0.3203,
+      "gate_ratio": 0.586,
+      "avg_views": 302.9,
       "action": "Only 32% of a 65% bar. The format itself is losing viewers early: rebuild the hook (visual payoff in frame one, promise in under 3 seconds) before changing anything else."
     },
     "facebook_reels": {
@@ -91,7 +91,7 @@
     "action": "Almost nobody DMs these Reels. Sends are Instagram's strongest non-follower signal: end on one surprising, quotable fact a viewer would send to a specific friend, not a generic wrap-up line."
   },
   "recommended_cadence": 1,
-  "cadence_reason": "Average retention is 52% of the required bar. More uploads of a format that loses viewers early just teaches the feed to stop showing the channel. Ship one strong video a day until retention clears the gate.",
+  "cadence_reason": "Average retention is 56% of the required bar. More uploads of a format that loses viewers early just teaches the feed to stop showing the channel. Ship one strong video a day until retention clears the gate.",
   "alerts": [
     {
       "level": "error",
