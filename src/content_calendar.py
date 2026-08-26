@@ -11,10 +11,9 @@ logger = logging.getLogger(__name__)
 
 def build_content_calendar(days=30):
     """Builds and returns the content calendar derived from actual growth analytics."""
-    # Keep planning aligned with the owner's current YouTube Studio heatmap:
-    # one strong daily release at 12:30 PM America/New_York. The live scheduler
-    # remains the source of truth for the actual DST-aware timestamp.
-    best_slots = ["12:30 NY"]
+    # Target US evening prime time (7:00 PM ET) for maximum audience reach.
+    # The live scheduler remains the source of truth for the actual DST-aware timestamp.
+    best_slots = ["19:00 NY"]
     try:
         from growth_engine import load_state
         state = load_state()

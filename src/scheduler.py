@@ -12,7 +12,7 @@ class USAPeakTimeScheduler:
     Tuned for general adult short-form video audience behavior.
     """
     PEAK_TIMES = [
-        {'hour': 13, 'minute': 30, 'zone': 'ET', 'name': 'US Afternoon Peak'},  # 1:30 PM ET
+        {'hour': 19, 'minute': 0, 'zone': 'ET', 'name': 'US Evening Prime'},   # 7:00 PM ET — US prime time
     ]
     
     # IANA zones keep the policy correct across EST/EDT daylight-saving changes.
@@ -118,6 +118,7 @@ class USAPeakTimeScheduler:
             'Lunch Time': 'Lunch break browsing — best measured slot (avg 719 views)',
             'Early Evening': 'Start of the 6-9 PM consensus window (new slot, replaces 21:30)',
             'Evening Prime': 'Prime-time scroll — proven second best (avg 519 views)',
+            'US Evening Prime': 'US prime time (7 PM ET) — maximum viewers online, peak Shorts algorithm push',
         }
         return reasons.get(peak_name, 'Peak engagement time')
     
@@ -191,19 +192,17 @@ class USAPeakTimeScheduler:
         Suggest optimal posting schedule based on engagement patterns.
 
         For this niche (dark/mystery body-science facts, general adult
-        audience), the owner’s current Studio heatmap shows the strongest
-        audience presence from 6:00–11:00 PM local GMT+5, mapped to the
-        12:30 PM ET production slot during EDT. Keep one daily upload until
-        retention improves.
+        audience), the US evening prime time window (7-10 PM ET) has the
+        highest viewer density. Target 7:00 PM ET so the Shorts algorithm
+        pushes the video during peak scroll hours across all US time zones.
         """
         recommendations = [
             {
                 'slot': 1,
-                'time': '12:30 PM ET',
-                'audience': 'Owner heatmap: 6:00–11:00 PM local GMT+5',
-                'expected_engagement': 'Primary daily test slot from YouTube Studio audience presence',
-                'reason': '12:30 PM ET maps to approximately 9:30 PM GMT+5 during EDT; '
-                          'the scheduler remains DST-aware'
+                'time': '7:00 PM ET',
+                'audience': 'US evening prime time — peak viewership across all US time zones',
+                'expected_engagement': 'Maximum algorithm push during 7-10 PM US scroll window',
+                'reason': '7 PM ET = 4:00 AM PKT next day — video processed and pushed by US peak'
             }
         ]
         return recommendations

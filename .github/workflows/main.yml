@@ -18,11 +18,10 @@ on:
         type: string
         default: ""
   schedule:
-    # 2026-08-25: Heatmap-aligned schedule. Pipeline triggers at 2:00 PM
-    # PKT (= 9:00 AM UTC = 4:00 AM ET) so TTS/rendering finishes well before
-    # the 1:30 PM ET (= 17:30 UTC) publish slot. The publishAt is DST-aware
-    # (scheduler). Pipeline has ~8h buffer to finish.
-    - cron: "0 9 * * *"
+    # US evening prime time: 7:00 PM ET publish slot. Pipeline triggers at
+    # 8:00 PM UTC (= 3:00 PM ET / 1:00 AM+1 PKT) for a ~4h buffer before
+    # the video goes live. The publishAt is DST-aware (scheduler).
+    - cron: "0 20 * * *"
 
 permissions:
   actions: read
@@ -205,12 +204,12 @@ jobs:
           FB_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
           FB_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID }}
           FB_UPLOAD_ENABLED: "true"
-          # Meta timing: all platforms publish at 1:30 PM ET (US afternoon peak
-          # from YouTube Studio heatmap). Facebook stagger is minimal.
+          # Meta timing: all platforms publish at 7:00 PM ET (US evening prime
+          # time — peak viewership). Facebook stagger is minimal.
           FB_STAGGER_MINUTES: "5"
           IG_UPLOAD_ENABLED: "true"
           # media_publish has no scheduling parameter; hold the ready container
-          # until the shared 1:30 PM ET slot when it is within the safe cap.
+          # until the shared 7:00 PM ET slot when it is within the safe cap.
           IG_WAIT_FOR_SLOT: "true"
           IG_MAX_WAIT_MINUTES: "150"
           INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
