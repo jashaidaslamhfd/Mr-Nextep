@@ -555,7 +555,7 @@ def retention_cadence_cap(channel_gate_ratio: float | None) -> int:
 
 
 
-MIN_HOOK_SCORE = 85
+MIN_HOOK_SCORE = 80
 # Above this the hook is strong enough that the retry loop stops early instead
 # of spending API calls trying to beat it.
 STRONG_HOOK_SCORE = 100
