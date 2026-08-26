@@ -324,13 +324,19 @@ def generate_fixes(report: dict) -> dict:
 # ── Pipeline Hard Limits ──────────────────────────────────────────────────
 
 def check_daily_upload_limit() -> Tuple[bool, str]:
-    """Check if we've hit the daily upload limit. Returns (allowed, reason)."""
+    """Check if we've hit the daily upload limit. Returns (allowed, reason).
+    Dry-run entries are excluded — they never actually reached a platform."""
     videos = _load_json(HISTORY_PATH)
     now = datetime.now(timezone.utc)
     today = now.strftime("%Y-%m-%d")
 
+    real_videos = [
+        v for v in videos
+        if not v.get("dry_run") and v.get("posted_at")
+    ]
+
     today_count = sum(
-        1 for v in videos
+        1 for v in real_videos
         if (v.get("posted_at") or "").startswith(today)
     )
 
@@ -338,7 +344,7 @@ def check_daily_upload_limit() -> Tuple[bool, str]:
         return False, f"Daily limit reached: {today_count}/{MAX_UPLOADS_PER_DAY} videos today"
 
     recent_24h = sum(
-        1 for v in videos
+        1 for v in real_videos
         if v.get("posted_at") and _is_within_hours(v["posted_at"], 24, now)
     )
     if recent_24h >= MAX_UPLOADS_PER_DAY:

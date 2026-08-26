@@ -1750,8 +1750,12 @@ class NextepPipeline:
                 'trend_source': script_data.get('trend_source'),
                 'trend_url': script_data.get('trend_url'),
                 'voiceover': script_data.get('voiceover', '')[:500],
-                'posted_at': datetime.now(timezone.utc).isoformat() if (upload_result.get('youtube_success') or upload_result.get('facebook_success')) else None,
+                'posted_at': datetime.now(timezone.utc).isoformat() if (
+                    not upload_result.get('dry_run') and
+                    (upload_result.get('youtube_success') or upload_result.get('facebook_success'))
+                ) else None,
                 'publish_at': upload_result.get('publish_at'),
+                'dry_run': upload_result.get('dry_run', False),
                 'facebook_success': upload_result.get('facebook_success', False),
                 'instagram_success': upload_result.get('instagram_success', False),
                 'youtube_video_id': upload_result.get('youtube_video_id'),
