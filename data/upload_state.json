@@ -889,5 +889,21 @@
       "status": "started",
       "started_at": 1787676513.9959292
     }
+  },
+  "744ae3538224a45413d87af933a801a3f6f1191f9ad1acc53f4d5725e3aaff1d": {
+    "status": "completed",
+    "title": "Why You Choose Badly at",
+    "youtube_video_id": "fi5iTUYFmSA",
+    "completed_at": 1787753421.152042,
+    "facebook": {
+      "status": "completed",
+      "video_id": "1479175870922674",
+      "completed_at": 1787753433.6566978
+    },
+    "instagram": {
+      "status": "completed",
+      "media_id": "18407166235090879",
+      "completed_at": 1787753477.9710894
+    }
   }
 }

@@ -4039,5 +4039,322 @@
     "views": 0,
     "source": "channel_backfill",
     "analytics_fetched_at": null
+  },
+  {
+    "content_fingerprint": "744ae3538224a45413d87af933a801a3f6f1191f9ad1acc53f4d5725e3aaff1d",
+    "title": "Why You Choose Badly at",
+    "topic": "The Framing Effect",
+    "trend_source": null,
+    "trend_url": null,
+    "voiceover": "Your brain lies to you at 3AM. Why do your worst decisions happen in the dark? You value the same thing differently when tired. Fatigue shifts how your brain frames the same problem. The Framing Effect makes risks feel bigger at night. It\u2019s not weakness. It\u2019s a biological bias shift. Your 3AM brain weighs losses twice as heavy as gains. So that midnight regret? Just your tired brain lying.",
+    "posted_at": "2026-08-26T14:11:18.135045+00:00",
+    "publish_at": "2026-08-26T17:30:00Z",
+    "dry_run": false,
+    "facebook_success": true,
+    "instagram_success": true,
+    "youtube_video_id": "fi5iTUYFmSA",
+    "facebook_video_id": "1479175870922674",
+    "instagram_media_id": "18407166235090879",
+    "seo_score": 82,
+    "predicted_ctr": 7.4,
+    "hook_score": 80,
+    "predicted_retention": 0.71,
+    "duration_seconds": 32.2,
+    "meta_cut_seconds": 14.83,
+    "ending_mode": "loop",
+    "hook_frame": "second_person",
+    "sources": [
+      {
+        "title": "The Framing Effect and Decision Making - National Institute of Health",
+        "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3446389/",
+        "accessed_at": "2024-05-20"
+      }
+    ],
+    "source_verification": [
+      {
+        "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3446389/",
+        "ok": true,
+        "status": 200,
+        "final_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3446389/"
+      }
+    ],
+    "source_discovery": null,
+    "content_type": {
+      "youtube_altered_content": false,
+      "visuals": "Stock footage + voiceover (human-created content)",
+      "voice": "chatterbox",
+      "review_required": true
+    },
+    "us_content_gate": {
+      "approved": true,
+      "draft_only": false,
+      "risk_level": "low",
+      "issues": [],
+      "warnings": [
+        "No human review approval recorded"
+      ],
+      "duplicate_count": 0,
+      "source_count": 1,
+      "requires_human_review": false
+    },
+    "asset_provenance": {
+      "scene_count": 8,
+      "media_types": [
+        "video",
+        "video",
+        "video",
+        "video",
+        "video",
+        "video",
+        "video",
+        "video"
+      ],
+      "asset_files": [
+        {
+          "path": "scene_0.mp4",
+          "sha256": "bc753c7619d56410f862540550abf4eac5ed5e4757d171d2375d19b3a130954b"
+        },
+        {
+          "path": "scene_1.mp4",
+          "sha256": "ed72f5430ed7b027f100771bdb36ca74e9e7af930b831f8a954780d7d1d6cbe5"
+        },
+        {
+          "path": "scene_2.mp4",
+          "sha256": "13a66c22bfc90b6d1ff4b744c3da72a250d32bd707a05c860d1c3d641547a39d"
+        },
+        {
+          "path": "scene_3.mp4",
+          "sha256": "55f7f79735db69f534326720aab5c5f3d142b58f92320731f246f78f345c5a5a"
+        },
+        {
+          "path": "scene_4.mp4",
+          "sha256": "c6cdf385ba415c9fa82c2a8d92d916e253e02d2ba1e6252da55559e61245c3cd"
+        },
+        {
+          "path": "scene_5.mp4",
+          "sha256": "a822703a0244e07a5e44af9bd517d29b2b51fd33e0fbd7c3af9a09860a3eb119"
+        },
+        {
+          "path": "scene_6.mp4",
+          "sha256": "e222f72accd11f6784807d7aed1c121736cc6d1978dc0e3cb0be53e34547e3b8"
+        },
+        {
+          "path": "scene_7.mp4",
+          "sha256": "f06b7918eda381f65ecfba8975c95c7a46f7a800d3395be3f94587999b4e552d"
+        }
+      ],
+      "audio_segments": 8,
+      "music_track": ""
+    },
+    "experiment": {
+      "id": "b00268a3c6f35346",
+      "design": "predicted_title_description_variant",
+      "selected_title": "Why You Choose Badly at",
+      "recommended_variant": {
+        "title": "3 Ways the Framing Effect Hijacks Your Decisions",
+        "description_variant": "short_punchy",
+        "description_preview": "Your brain lies to you at 3AM.\n\n\ud83d\udc47 Follow for more 3AM body mysteries",
+        "predicted_ctr": 8.9
+      },
+      "candidate_count": 20,
+      "requires_real_metrics": true
+    },
+    "ab_variants": {
+      "variants": [
+        {
+          "title": "3 Ways the Framing Effect Hijacks Your Decisions",
+          "description_variant": "short_punchy",
+          "description_preview": "Your brain lies to you at 3AM.\n\n\ud83d\udc47 Follow for more 3AM body mysteries",
+          "predicted_ctr": 8.9
+        },
+        {
+          "title": "3 Ways the Framing Effect Hijacks Your Decisions",
+          "description_variant": "context_first",
+          "description_preview": "Your brain lies to you at 3AM\n\nFatigue alters the Framing Effect, causing your brain to weigh potential losses more heav",
+          "predicted_ctr": 8.9
+        },
+        {
+          "title": "This Is Why You Choose Badly at 3 AM",
+          "description_variant": "short_punchy",
+          "description_preview": "Your brain lies to you at 3AM.\n\n\ud83d\udc47 Follow for more 3AM body mysteries",
+          "predicted_ctr": 8.9
+        },
+        {
+          "title": "This Is Why You Choose Badly at 3 AM",
+          "description_variant": "context_first",
+          "description_preview": "Your brain lies to you at 3AM\n\nFatigue alters the Framing Effect, causing your brain to weigh potential losses more heav",
+          "predicted_ctr": 8.9
+        },
+        {
+          "title": "The Truth About How Framing Skews Your Choices",
+          "description_variant": "short_punchy",
+          "description_preview": "Your brain lies to you at 3AM.\n\n\ud83d\udc47 Follow for more 3AM body mysteries",
+          "predicted_ctr": 8.9
+        },
+        {
+          "title": "The Truth About How Framing Skews Your Choices",
+          "description_variant": "context_first",
+          "description_preview": "Your brain lies to you at 3AM\n\nFatigue alters the Framing Effect, causing your brain to weigh potential losses more heav",
+          "predicted_ctr": 8.9
+        },
+        {
+          "title": "Science Can't Explain Why You Pick the Wrong Option",
+          "description_variant": "short_punchy",
+          "description_preview": "Your brain lies to you at 3AM.\n\n\ud83d\udc47 Follow for more 3AM body mysteries",
+          "predicted_ctr": 8.9
+        },
+        {
+          "title": "Science Can't Explain Why You Pick the Wrong Option",
+          "description_variant": "context_first",
+          "description_preview": "Your brain lies to you at 3AM\n\nFatigue alters the Framing Effect, causing your brain to weigh potential losses more heav",
+          "predicted_ctr": 8.9
+        },
+        {
+          "title": "This Is Why Your Framing Effecting",
+          "description_variant": "short_punchy",
+          "description_preview": "Your brain lies to you at 3AM.\n\n\ud83d\udc47 Follow for more 3AM body mysteries",
+          "predicted_ctr": 8.9
+        },
+        {
+          "title": "This Is Why Your Framing Effecting",
+          "description_variant": "context_first",
+          "description_preview": "Your brain lies to you at 3AM\n\nFatigue alters the Framing Effect, causing your brain to weigh potential losses more heav",
+          "predicted_ctr": 8.9
+        },
+        {
+          "title": "Framing Effect Explained Simply",
+          "description_variant": "short_punchy",
+          "description_preview": "Your brain lies to you at 3AM.\n\n\ud83d\udc47 Follow for more 3AM body mysteries",
+          "predicted_ctr": 8.9
+        },
+        {
+          "title": "Framing Effect Explained Simply",
+          "description_variant": "context_first",
+          "description_preview": "Your brain lies to you at 3AM\n\nFatigue alters the Framing Effect, causing your brain to weigh potential losses more heav",
+          "predicted_ctr": 8.9
+        },
+        {
+          "title": "Why You Choose Badly at",
+          "description_variant": "short_punchy",
+          "description_preview": "Your brain lies to you at 3AM.\n\n\ud83d\udc47 Follow for more 3AM body mysteries",
+          "predicted_ctr": 7.4
+        },
+        {
+          "title": "Why You Choose Badly at",
+          "description_variant": "context_first",
+          "description_preview": "Your brain lies to you at 3AM\n\nFatigue alters the Framing Effect, causing your brain to weigh potential losses more heav",
+          "predicted_ctr": 7.4
+        },
+        {
+          "title": "The Framing Effect",
+          "description_variant": "short_punchy",
+          "description_preview": "Your brain lies to you at 3AM.\n\n\ud83d\udc47 Follow for more 3AM body mysteries",
+          "predicted_ctr": 7.4
+        },
+        {
+          "title": "The Framing Effect",
+          "description_variant": "context_first",
+          "description_preview": "Your brain lies to you at 3AM\n\nFatigue alters the Framing Effect, causing your brain to weigh potential losses more heav",
+          "predicted_ctr": 7.4
+        },
+        {
+          "title": "Why Framing Effect Matters",
+          "description_variant": "short_punchy",
+          "description_preview": "Your brain lies to you at 3AM.\n\n\ud83d\udc47 Follow for more 3AM body mysteries",
+          "predicted_ctr": 7.4
+        },
+        {
+          "title": "Why Framing Effect Matters",
+          "description_variant": "context_first",
+          "description_preview": "Your brain lies to you at 3AM\n\nFatigue alters the Framing Effect, causing your brain to weigh potential losses more heav",
+          "predicted_ctr": 7.4
+        },
+        {
+          "title": "How Framing Effect Works",
+          "description_variant": "short_punchy",
+          "description_preview": "Your brain lies to you at 3AM.\n\n\ud83d\udc47 Follow for more 3AM body mysteries",
+          "predicted_ctr": 7.4
+        },
+        {
+          "title": "How Framing Effect Works",
+          "description_variant": "context_first",
+          "description_preview": "Your brain lies to you at 3AM\n\nFatigue alters the Framing Effect, causing your brain to weigh potential losses more heav",
+          "predicted_ctr": 7.4
+        }
+      ],
+      "recommended": {
+        "title": "3 Ways the Framing Effect Hijacks Your Decisions",
+        "description_variant": "short_punchy",
+        "description_preview": "Your brain lies to you at 3AM.\n\n\ud83d\udc47 Follow for more 3AM body mysteries",
+        "predicted_ctr": 8.9
+      }
+    },
+    "max_reach": {
+      "predicted_metrics": {
+        "retention": 0.824,
+        "ctr": 0.043,
+        "share_rate_youtube": 0.003,
+        "share_rate_instagram": 0.0045,
+        "loop_score": 0.3,
+        "sub_conversion_rate": 0.03,
+        "estimated_views_per_100k_impressions": 4300.0
+      },
+      "platform_ctas": {
+        "youtube": {
+          "spoken_cta": null,
+          "end_screen_cta": "One body mystery a day \u2014 subscribe to stay curious.",
+          "description_cta": "Subscribe for daily body science \u2014 one weird thing your body does, explained in 30 seconds.",
+          "timing": "end",
+          "strength": "direct",
+          "subscribe_prompt": "Sub for daily body facts \u2014 your body is wilder than you think"
+        },
+        "instagram": {
+          "spoken_cta": "Tag someone who does this too.",
+          "end_screen_cta": "Tag someone who does this too.",
+          "description_cta": "Follow for daily body facts \u2014 your body does weirder things than you think.",
+          "timing": "end",
+          "strength": "direct",
+          "subscribe_prompt": "More body quirks daily \u2014 follow to never miss one"
+        },
+        "facebook": {
+          "spoken_cta": "Tag someone who should know this.",
+          "end_screen_cta": "Tag someone who should know this.",
+          "description_cta": "Follow for daily body science \u2014 one mystery explained every day.",
+          "timing": "end",
+          "strength": "direct",
+          "subscribe_prompt": "Follow for daily body science facts"
+        }
+      },
+      "title_variants": [
+        {
+          "title": "Why You Choose Badly at",
+          "type": "original",
+          "predicted_ctr": 0.043
+        },
+        {
+          "title": "Here's How Your The Framing Effect Actually Works",
+          "type": "mechanism",
+          "predicted_ctr": 0.06100000000000001
+        },
+        {
+          "title": "Why Your The Framing Effect Does That?",
+          "type": "curiosity_question",
+          "predicted_ctr": 0.057999999999999996
+        },
+        {
+          "title": "Your The Framing Effect Is Lying to You",
+          "type": "contradiction",
+          "predicted_ctr": 0.043
+        }
+      ],
+      "loop_back_score": 0.3,
+      "improvements_applied": [],
+      "earnings_estimate": {
+        "estimated_rpm_usd": 0.142,
+        "revenue_per_100k_views_usd": 14.24,
+        "retention_tier": "top",
+        "monetization_note": "Higher retention unlocks higher ad tiers. At 82% retention, estimated RPM is $0.142/1K views."
+      }
+    }
   }
 ]
