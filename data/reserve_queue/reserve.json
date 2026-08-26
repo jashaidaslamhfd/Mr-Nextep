@@ -1,0 +1,86 @@
+[
+  {
+    "topic": "Compliant Short",
+    "title": "Compliant Short",
+    "hook_score": 0,
+    "quality_score": 0,
+    "script_data": {
+      "topic": "Compliant Short",
+      "title": "Compliant Short"
+    },
+    "added_at": "2026-08-26T07:15:15.407169+00:00",
+    "tier": 2
+  },
+  {
+    "topic": "Why Babies Grab Your Finger",
+    "title": "Why Babies Grab Your Finger",
+    "hook_score": 100,
+    "quality_score": 88,
+    "script_data": {
+      "topic": "Why Babies Grab Your Finger",
+      "title": "Why Babies Grab Your Finger",
+      "hook": "",
+      "voiceover": "Why Your Baby Grabs Your Finger. What makes that tiny tug feel so strange? Everyone wonders if it's a sign of affection. The reflex starts in the baby's nervous system. A tiny sensor in the hand triggers the grip. Most babies do it before their first tooth. The grip lasts 2‑3 seconds, then releases. Now you know why your baby grabs your finger.",
+      "scenes": [],
+      "tags": [],
+      "_template_only": true,
+      "_reason": "high_performer_template"
+    },
+    "added_at": "2026-08-26T07:16:18.582928+00:00",
+    "tier": 2
+  },
+  {
+    "topic": "Why do your fingers wrinkle in water?",
+    "title": "This Is Why Your Fingers Wrinkle",
+    "hook_score": 100,
+    "quality_score": 88,
+    "script_data": {
+      "topic": "Why do your fingers wrinkle in water?",
+      "title": "This Is Why Your Fingers Wrinkle",
+      "hook": "",
+      "voiceover": "Why do your fingers wrinkle? You assume your skin just acts like a dry sponge absorbing a bath. That soggy sponge theory completely falls apart when you look at nerve damage. Water triggers your autonomic nervous system to actively shrink the blood vessels. This rapid blood loss forces the outer layer of skin to collapse downward. Your body does this on purpose to create an efficient wet surface traction system. Pruney fingers act like tire treads, squeezing water out to grip wet objects better.",
+      "scenes": [],
+      "tags": [],
+      "_template_only": true,
+      "_reason": "high_performer_template"
+    },
+    "added_at": "2026-08-26T07:16:18.582931+00:00",
+    "tier": 2
+  },
+  {
+    "topic": "Why you hear your heartbeat at night",
+    "title": "Why You Hear Your Heartbeat at Night 🫀",
+    "hook_score": 90,
+    "quality_score": 90,
+    "script_data": {
+      "topic": "Why you hear your heartbeat at night",
+      "title": "Why You Hear Your Heartbeat at Night 🫀",
+      "hook": "",
+      "voiceover": "I hear my heartbeat at night, it's really. Does this mean I'm sick, or is there something wrong with my ears? I thought it was just my imagination, but what's really going on inside my body? The ear has three parts: the outer ear, eardrum, and inner ear, each playing a crucial. When your heart beats, it creates vibrations that travel through your bloodstream and hit the eardrum. In the dark, your brain is more sensitive to these vibrations, making your heartbeat sound louder. This is why you mig",
+      "scenes": [],
+      "tags": [],
+      "_template_only": true,
+      "_reason": "high_performer_template"
+    },
+    "added_at": "2026-08-26T07:16:18.582836+00:00",
+    "tier": 2
+  },
+  {
+    "topic": "hearing your heartbeat at night",
+    "title": "Heartbeat Sound 🫀 👂",
+    "hook_score": 90,
+    "quality_score": 78,
+    "script_data": {
+      "topic": "hearing your heartbeat at night",
+      "title": "Heartbeat Sound 🫀 👂",
+      "hook": "",
+      "voiceover": "Why does my heartbeat sound so loud at. It's because your ears pick up internal sounds more easily in the quiet, dark environment Your ear's ability to hear soft internal sounds is heightened in the quiet darkness, which amplifies. Your heartbeat is usually masked by background noise during the day, but at night, it becomes. This is because the background noise that usually drowns out your heartbeat is reduced at night This is a normal, natural response to the quiet environment, not a cause for ",
+      "scenes": [],
+      "tags": [],
+      "_template_only": true,
+      "_reason": "high_performer_template"
+    },
+    "added_at": "2026-08-26T07:16:18.582853+00:00",
+    "tier": 2
+  }
+]

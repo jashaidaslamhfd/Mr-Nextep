@@ -1,7 +1,7 @@
 {
-  "stage": "platform_upload",
-  "status": "started",
-  "updated_at": "2026-08-25T16:48:13.622688+00:00",
-  "run_id": "32872352972",
-  "elapsed_seconds": 752.77
+  "stage": "pipeline",
+  "status": "completed",
+  "updated_at": "2026-08-26T07:27:13.453472+00:00",
+  "run_id": "32941527205",
+  "elapsed_seconds": 654.87
 }
