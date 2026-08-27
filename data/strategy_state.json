@@ -1,438 +1,100 @@
 {
-  "recommended_series": "trend",
-  "topic_strategy": "viral_hijack",
-  "barrier": "completion",
-  "barrier_advice": "instagram_reels is at 47% of its completion gate. Rebuild the first-3-seconds hook and shorten the cut toward the platform ideal before adding volume.",
-  "pivot": true,
-  "pivot_reason": "trend completion is below the retention bar; rotate toward a higher-retention series format.",
-  "best_slot": "20:00",
-  "cadence": 1,
-  "quality_threshold": 70,
+  "recommended_series": "dark_mystery",
+  "topic_strategy": "dark_mystery_series",
+  "barrier": "volume",
+  "barrier_advice": "Retention healthy enough; increase cadence for reach.",
+  "pivot": false,
+  "pivot_reason": null,
+  "best_slot": null,
+  "cadence": 2,
+  "quality_threshold": 60,
   "lever_analysis": {
-    "trained": true,
+    "trained": false,
     "lever_importance": [
-      {
-        "lever": "duration_seconds",
-        "label": "video length",
-        "importance": 0.36601454599918626,
-        "share": 0.366
-      },
       {
         "lever": "hook_score",
         "label": "hook (first-3s)",
-        "importance": 0.2260549615908308,
-        "share": 0.226
-      },
-      {
-        "lever": "predicted_retention",
-        "label": "predicted retention",
-        "importance": 0.22314627861116376,
-        "share": 0.223
-      },
-      {
-        "lever": "seo_score",
-        "label": "SEO / description+tags",
-        "importance": 0.10787871930959989,
-        "share": 0.108
+        "importance": 0.5
       },
       {
         "lever": "predicted_ctr",
         "label": "click-through / title+thumbnail",
-        "importance": 0.0769054944892194,
-        "share": 0.077
+        "importance": 0.3
+      },
+      {
+        "lever": "seo_score",
+        "label": "SEO / description+tags",
+        "importance": 0.2
       }
     ],
-    "sample_size": 60
+    "sample_size": 0,
+    "note": "Not enough samples to train; using neutral priorities."
   },
   "intelligence": {
     "views_ensemble": {
-      "trained": true,
+      "trained": false,
       "target": "views",
-      "n": 60,
-      "r2_cv": -0.0442,
-      "mae_cv": 260.677,
-      "weights": {
-        "random_forest": 0.25,
-        "gradient_boosting": 0.25,
-        "ridge": 0.25,
-        "extra_trees": 0.25
-      },
-      "note": "",
-      "best_model": "extra_trees",
-      "feature_importance": [
-        {
-          "feature": "hook_score",
-          "importance": 0.3380578553286734
-        },
-        {
-          "feature": "duration_seconds",
-          "importance": 0.30865652433140145
-        },
-        {
-          "feature": "predicted_retention",
-          "importance": 0.18819153192217355
-        },
-        {
-          "feature": "predicted_ctr",
-          "importance": 0.09594422117286201
-        },
-        {
-          "feature": "seo_score",
-          "importance": 0.06914986724488953
-        }
-      ],
-      "confidence": "low",
-      "features": [
-        "hook_score",
-        "predicted_ctr",
-        "seo_score",
-        "duration_seconds",
-        "predicted_retention"
-      ],
-      "predictions": [
-        193.16,
-        422.71,
-        166.87,
-        150.42,
-        230.79,
-        320.21,
-        48.75,
-        16.88,
-        117.18,
-        422.67,
-        124.85,
-        57.37,
-        61.3,
-        223.87,
-        82.94,
-        435.75,
-        170.47,
-        181.87,
-        428.36,
-        193.68
-      ]
+      "n": 0,
+      "r2_cv": null,
+      "mae_cv": null,
+      "weights": {},
+      "note": "Not enough samples for an ensemble."
     },
     "completion_ensemble": {
-      "trained": true,
+      "trained": false,
       "target": "completion",
-      "n": 60,
-      "r2_cv": -0.0355,
-      "mae_cv": 0.119,
-      "weights": {
-        "random_forest": 0.2357,
-        "gradient_boosting": 0.2357,
-        "ridge": 0.2932,
-        "extra_trees": 0.2357
-      },
-      "note": "",
-      "best_model": "ridge",
-      "feature_importance": [
-        {
-          "feature": "predicted_ctr",
-          "importance": 0.22083985475456397
-        },
-        {
-          "feature": "predicted_retention",
-          "importance": 0.21728159992394078
-        },
-        {
-          "feature": "seo_score",
-          "importance": 0.21350035893659935
-        },
-        {
-          "feature": "hook_score",
-          "importance": 0.19594641314572075
-        },
-        {
-          "feature": "duration_seconds",
-          "importance": 0.1524317732391752
-        }
-      ],
-      "confidence": "low",
-      "features": [
-        "hook_score",
-        "predicted_ctr",
-        "seo_score",
-        "duration_seconds",
-        "predicted_retention"
-      ],
-      "predictions": [
-        0.22,
-        0.31,
-        0.27,
-        0.21,
-        0.22,
-        0.29,
-        0.28,
-        0.28,
-        0.19,
-        0.32,
-        0.23,
-        0.32,
-        0.19,
-        0.29,
-        0.17,
-        0.34,
-        0.25,
-        0.32,
-        0.33,
-        0.23
-      ]
+      "n": 0,
+      "r2_cv": null,
+      "mae_cv": null,
+      "weights": {},
+      "note": "Not enough samples for an ensemble."
     },
     "stacking_meta": {
-      "trained": true,
+      "trained": false,
       "target": "views",
-      "n": 60,
-      "r2_cv": 0.0174,
-      "meta_coefficients": {
-        "random_forest": -0.1893,
-        "gradient_boosting": 0.3114
-      },
-      "base_models": [
-        "random_forest",
-        "gradient_boosting"
-      ],
-      "predictions": [
-        242.55,
-        341.17,
-        247.86,
-        260.81,
-        365.78,
-        302.28,
-        257.53,
-        238.33,
-        242.99,
-        420.64,
-        236.79,
-        256.43,
-        250.51,
-        282.05,
-        257.85,
-        375.56,
-        266.66,
-        243.26,
-        390.62,
-        284.24
-      ],
-      "confidence": "low"
+      "n": 0
     },
     "ctr_model": {
-      "trained": true,
+      "trained": false,
       "target": "ctr",
-      "n": 60,
-      "confidence": "high",
-      "drivers": [
-        {
-          "feature": "seo_score",
-          "importance": 0.3913465700430838
-        },
-        {
-          "feature": "predicted_retention",
-          "importance": 0.3403121694756279
-        },
-        {
-          "feature": "predicted_ctr",
-          "importance": 0.17867908794506748
-        },
-        {
-          "feature": "hook_score",
-          "importance": 0.08957436698397837
-        },
-        {
-          "feature": "duration_seconds",
-          "importance": 8.780555224237786e-05
-        }
-      ],
+      "n": 0,
+      "confidence": "low",
+      "drivers": [],
       "advice": [
-        "CTR is most sensitive to SEO/description on this channel \u2014 optimise it before publish.",
-        "Raise hook + title specificity; trim length if it is a CTR drag."
-      ],
-      "target_source": "predicted_ctr",
-      "note": "Only 0 real CTR readings \u2014 modeling heuristic CTR (low confidence).",
-      "r2_cv": 0.9981,
-      "predictions": [
-        7.04,
-        6.99,
-        7.04,
-        7.03,
-        6.84,
-        7.87,
-        7.32,
-        6.84,
-        9.11,
-        6.77,
-        7.27,
-        6.79,
-        6.79,
-        7.0,
-        6.77,
-        7.11,
-        6.77,
-        8.95,
-        7.37,
-        7.12
+        "Not enough video data yet to model CTR."
       ]
     },
     "retention_model": {
-      "trained": true,
+      "trained": false,
       "target": "retention",
-      "n": 60,
+      "n": 0,
       "confidence": "low",
-      "drivers": [
-        {
-          "feature": "duration_seconds",
-          "importance": 0.32080941653722905
-        },
-        {
-          "feature": "hook_score",
-          "importance": 0.2664608534547858
-        },
-        {
-          "feature": "predicted_ctr",
-          "importance": 0.17540593942363314
-        },
-        {
-          "feature": "predicted_retention",
-          "importance": 0.15375557577201543
-        },
-        {
-          "feature": "seo_score",
-          "importance": 0.08356821481233657
-        }
-      ],
+      "drivers": [],
       "advice": [
-        "Retention is most sensitive to video length \u2014 a drop there directly lowers completion and reach.",
-        "Shorten toward the platform ideal; keep the hook promise in the first 3s."
-      ],
-      "r2_cv": -0.0651,
-      "predictions": [
-        0.1937,
-        0.3374,
-        0.2351,
-        0.2278,
-        0.2494,
-        0.3495,
-        0.2141,
-        0.1991,
-        0.1857,
-        0.3708,
-        0.2633,
-        0.3614,
-        0.1675,
-        0.2602,
-        0.1922,
-        0.3776,
-        0.3708,
-        0.2503,
-        0.3179,
-        0.2869
+        "Not enough video data yet to model retention."
       ]
     },
     "viral_outliers": {
-      "detected": true,
-      "n": 60,
-      "outlier_indices": [
-        5,
-        8,
-        18,
-        24,
-        25,
-        26
-      ]
+      "detected": false,
+      "n": 0,
+      "outlier_indices": []
     },
     "topic_segments": {
-      "clustered": true,
-      "n": 60,
-      "segments": [
-        {
-          "cluster": 1,
-          "size": 34,
-          "avg_views": 350.4,
-          "avg_completion": 0.374
-        },
-        {
-          "cluster": 0,
-          "size": 12,
-          "avg_views": 284.2,
-          "avg_completion": 0.261
-        },
-        {
-          "cluster": 2,
-          "size": 14,
-          "avg_views": 181.2,
-          "avg_completion": 0.263
-        }
-      ],
-      "top_segment": {
-        "cluster": 1,
-        "size": 34,
-        "avg_views": 350.4,
-        "avg_completion": 0.374
-      }
+      "clustered": false,
+      "n": 0,
+      "segments": []
     },
-    "top_levers": [
-      {
-        "feature": "hook_score",
-        "importance": 0.3380578553286734
-      },
-      {
-        "feature": "duration_seconds",
-        "importance": 0.30865652433140145
-      },
-      {
-        "feature": "predicted_retention",
-        "importance": 0.18819153192217355
-      },
-      {
-        "feature": "predicted_ctr",
-        "importance": 0.09594422117286201
-      },
-      {
-        "feature": "seo_score",
-        "importance": 0.06914986724488953
-      }
-    ],
-    "advice": [
-      "Ensemble says first-3-second hook quality drives views most on this channel (R\u00b2 -0.0442).",
-      "6 viral/anomalous videos detected \u2014 study them; model is protected from their skew.",
-      "Best content segment (cluster 1, 34 videos) averages 350.4 views \u2014 lean topics toward this profile."
-    ],
+    "top_levers": [],
+    "advice": [],
     "confidence": "low"
   },
   "calibration": {
-    "calibrated": true,
-    "n": 58,
-    "levers": {
-      "hook_score": {
-        "corr": 0.3,
-        "samples": 27,
-        "verdict": "ok"
-      },
-      "predicted_ctr": {
-        "corr": 0.01,
-        "samples": 26,
-        "verdict": "DRIFTED"
-      },
-      "seo_score": {
-        "corr": 0.124,
-        "samples": 26,
-        "verdict": "ok"
-      },
-      "predicted_retention": {
-        "corr": 0.087,
-        "samples": 26,
-        "verdict": "DRIFTED"
-      }
-    },
-    "drifted": [
-      "predicted_ctr",
-      "predicted_retention"
-    ],
-    "trusted": [
-      "hook_score",
-      "seo_score"
-    ],
-    "note": "Drift detected: these scores do NOT predict real views \u2014 higher scores are not earning more. Do not raise the approval bar on them; trust real metrics instead. predicted_ctr, predicted_retention"
+    "calibrated": false,
+    "n": 0,
+    "levers": {},
+    "drifted": [],
+    "trusted": [],
+    "note": "Only 0 videos with real analytics \u2014 not enough to calibrate yet."
   },
   "evaluation": {
     "independent": true,
@@ -859,7 +521,7 @@
       "trust_worthy": false,
       "verdict": "LIMITED"
     },
-    "generated_at": "2026-08-27T18:49:17.784926+00:00"
+    "generated_at": "2026-08-27T19:32:54.188857+00:00"
   },
   "signal_guard": {
     "can_trust_scores": false,
@@ -874,7 +536,7 @@
       "trust_worthy": false,
       "verdict": "LIMITED",
       "channel_score": 31.2,
-      "checked_at": "2026-08-27T18:49:17.789251+00:00"
+      "checked_at": "2026-08-27T19:32:54.192264+00:00"
     }
   },
   "viral_readiness": {
@@ -976,12 +638,12 @@
       "missing": 0
     },
     "next_actions": [],
-    "generated_at": "2026-08-27T18:49:17.792827+00:00"
+    "generated_at": "2026-08-27T19:32:54.193709+00:00"
   },
   "series_weights": {
-    "dark_mystery": 0.7223999999999999,
-    "body_glitches": 0.5769666666666667,
-    "trend": 0.7792000000000002
+    "dark_mystery": 1.0,
+    "body_glitches": 1.0,
+    "trend": 1.0
   },
   "competitor_leads": [
     "Viral channels use avg 37 chars title length \u2014 keep yours 45-55 chars (US mobile optimal)",
@@ -999,9 +661,9 @@
     "interesting facts",
     "did you know"
   ],
-  "decided_at": "2026-08-27T18:49:17.792837+00:00",
+  "decided_at": "2026-08-27T19:32:54.193720+00:00",
   "trained_model": {
-    "generated_at": "2026-08-26T08:42:19.584277+00:00",
+    "generated_at": "2026-08-27T18:49:53.898036+00:00",
     "n_training_samples": 60,
     "data_health": {
       "n_videos": 58,
@@ -1015,8 +677,8 @@
       "trained": true,
       "target": "views",
       "n": 60,
-      "r2_cv": -0.2165,
-      "mae_cv": 299.663,
+      "r2_cv": -0.0442,
+      "mae_cv": 260.677,
       "weights": {
         "random_forest": 0.25,
         "gradient_boosting": 0.25,
@@ -1024,27 +686,27 @@
         "extra_trees": 0.25
       },
       "note": "",
-      "best_model": "ridge",
+      "best_model": "extra_trees",
       "feature_importance": [
         {
-          "feature": "predicted_ctr",
-          "importance": 0.22263398328054507
-        },
-        {
           "feature": "hook_score",
-          "importance": 0.2078386449559339
+          "importance": 0.3380578553286734
         },
         {
           "feature": "duration_seconds",
-          "importance": 0.20354162427644537
-        },
-        {
-          "feature": "seo_score",
-          "importance": 0.19312339380670088
+          "importance": 0.30865652433140145
         },
         {
           "feature": "predicted_retention",
-          "importance": 0.17286235368037478
+          "importance": 0.18819153192217355
+        },
+        {
+          "feature": "predicted_ctr",
+          "importance": 0.09594422117286201
+        },
+        {
+          "feature": "seo_score",
+          "importance": 0.06914986724488953
         }
       ],
       "confidence": "low",
@@ -1056,62 +718,62 @@
         "predicted_retention"
       ],
       "predictions": [
-        316.44,
-        451.42,
-        178.0,
-        201.0,
-        220.54,
-        362.5,
-        216.63,
-        337.35,
-        133.27,
-        599.06,
-        177.19,
-        513.86,
-        177.21,
-        266.45,
-        252.16,
-        644.89,
-        227.63,
-        496.93,
-        403.52,
-        205.15
+        193.16,
+        422.71,
+        166.87,
+        150.42,
+        230.79,
+        320.21,
+        48.75,
+        16.88,
+        117.18,
+        422.67,
+        124.85,
+        57.37,
+        61.3,
+        223.87,
+        82.94,
+        435.75,
+        170.47,
+        181.87,
+        428.36,
+        193.68
       ]
     },
     "completion_ensemble": {
       "trained": true,
       "target": "completion",
       "n": 60,
-      "r2_cv": -0.031,
-      "mae_cv": 0.109,
+      "r2_cv": -0.0355,
+      "mae_cv": 0.119,
       "weights": {
-        "random_forest": 0.2354,
-        "gradient_boosting": 0.2354,
-        "ridge": 0.2938,
-        "extra_trees": 0.2354
+        "random_forest": 0.2357,
+        "gradient_boosting": 0.2357,
+        "ridge": 0.2932,
+        "extra_trees": 0.2357
       },
       "note": "",
       "best_model": "ridge",
       "feature_importance": [
         {
           "feature": "predicted_ctr",
-          "importance": 0.22495767058717445
-        },
-        {
-          "feature": "seo_score",
-          "importance": 0.21542397692127568
+          "importance": 0.22083985475456397
         },
         {
           "feature": "predicted_retention",
-          "importance": 0.21364283776637566
+          "importance": 0.21728159992394078
+        },
+        {
+          "feature": "seo_score",
+          "importance": 0.21350035893659935
         },
         {
           "feature": "hook_score",
-          "importance": 0.19154607307722438
+          "importance": 0.19594641314572075
         },
         {
           "feature": "duration_seconds",
-          "importance": 0.15442944164794972
+          "importance": 0.1524317732391752
         }
       ],
       "confidence": "low",
@@ -1123,23 +785,23 @@
         "predicted_retention"
       ],
       "predictions": [
-        0.33,
-        0.32,
-        0.26,
         0.22,
-        0.28,
-        0.29,
-        0.29,
-        0.3,
-        0.18,
-        0.32,
-        0.24,
-        0.28,
-        0.26,
         0.31,
+        0.27,
+        0.21,
+        0.22,
+        0.29,
+        0.28,
+        0.28,
+        0.19,
         0.32,
+        0.23,
+        0.32,
+        0.19,
+        0.29,
+        0.17,
         0.34,
-        0.3,
+        0.25,
         0.32,
         0.33,
         0.23
@@ -1149,36 +811,36 @@
       "trained": true,
       "target": "views",
       "n": 60,
-      "r2_cv": 0.0458,
+      "r2_cv": 0.0174,
       "meta_coefficients": {
-        "random_forest": -1.1349,
-        "gradient_boosting": 0.5213
+        "random_forest": -0.1893,
+        "gradient_boosting": 0.3114
       },
       "base_models": [
         "random_forest",
         "gradient_boosting"
       ],
       "predictions": [
-        416.64,
-        188.17,
-        362.97,
-        303.11,
-        338.15,
-        248.66,
-        364.62,
-        388.34,
-        454.88,
-        215.89,
-        372.65,
-        303.12,
-        330.11,
-        353.71,
-        371.78,
-        341.33,
-        387.5,
-        198.46,
-        421.68,
-        371.77
+        242.55,
+        341.17,
+        247.86,
+        260.81,
+        365.78,
+        302.28,
+        257.53,
+        238.33,
+        242.99,
+        420.64,
+        236.79,
+        256.43,
+        250.51,
+        282.05,
+        257.85,
+        375.56,
+        266.66,
+        243.26,
+        390.62,
+        284.24
       ],
       "confidence": "low"
     },
@@ -1247,51 +909,51 @@
       "drivers": [
         {
           "feature": "duration_seconds",
-          "importance": 0.28000682357315526
-        },
-        {
-          "feature": "predicted_ctr",
-          "importance": 0.24924127380917016
+          "importance": 0.32080941653722905
         },
         {
           "feature": "hook_score",
-          "importance": 0.20541757513714515
+          "importance": 0.2664608534547858
+        },
+        {
+          "feature": "predicted_ctr",
+          "importance": 0.17540593942363314
         },
         {
           "feature": "predicted_retention",
-          "importance": 0.14694129509201675
+          "importance": 0.15375557577201543
         },
         {
           "feature": "seo_score",
-          "importance": 0.11839303238851273
+          "importance": 0.08356821481233657
         }
       ],
       "advice": [
         "Retention is most sensitive to video length \u2014 a drop there directly lowers completion and reach.",
         "Shorten toward the platform ideal; keep the hook promise in the first 3s."
       ],
-      "r2_cv": -0.0182,
+      "r2_cv": -0.0651,
       "predictions": [
-        0.2927,
-        0.3318,
-        0.2455,
-        0.2513,
-        0.2607,
-        0.3214,
-        0.286,
-        0.2958,
-        0.1815,
-        0.3368,
-        0.2598,
-        0.2919,
-        0.2386,
-        0.265,
-        0.2989,
-        0.3552,
-        0.3373,
-        0.2242,
-        0.3054,
-        0.2694
+        0.1937,
+        0.3374,
+        0.2351,
+        0.2278,
+        0.2494,
+        0.3495,
+        0.2141,
+        0.1991,
+        0.1857,
+        0.3708,
+        0.2633,
+        0.3614,
+        0.1675,
+        0.2602,
+        0.1922,
+        0.3776,
+        0.3708,
+        0.2503,
+        0.3179,
+        0.2869
       ]
     },
     "topic_segments": {
@@ -1301,94 +963,94 @@
         {
           "cluster": 1,
           "size": 34,
-          "avg_views": 358.3,
-          "avg_completion": 0.376
-        },
-        {
-          "cluster": 2,
-          "size": 14,
-          "avg_views": 322.6,
-          "avg_completion": 0.277
+          "avg_views": 350.4,
+          "avg_completion": 0.374
         },
         {
           "cluster": 0,
           "size": 12,
-          "avg_views": 304.5,
-          "avg_completion": 0.279
+          "avg_views": 284.2,
+          "avg_completion": 0.261
+        },
+        {
+          "cluster": 2,
+          "size": 14,
+          "avg_views": 181.2,
+          "avg_completion": 0.263
         }
       ],
       "top_segment": {
         "cluster": 1,
         "size": 34,
-        "avg_views": 358.3,
-        "avg_completion": 0.376
+        "avg_views": 350.4,
+        "avg_completion": 0.374
       }
     },
     "top_levers": [
       {
-        "feature": "predicted_ctr",
-        "importance": 0.22263398328054507
-      },
-      {
         "feature": "hook_score",
-        "importance": 0.2078386449559339
+        "importance": 0.3380578553286734
       },
       {
         "feature": "duration_seconds",
-        "importance": 0.20354162427644537
-      },
-      {
-        "feature": "seo_score",
-        "importance": 0.19312339380670088
+        "importance": 0.30865652433140145
       },
       {
         "feature": "predicted_retention",
-        "importance": 0.17286235368037478
+        "importance": 0.18819153192217355
+      },
+      {
+        "feature": "predicted_ctr",
+        "importance": 0.09594422117286201
+      },
+      {
+        "feature": "seo_score",
+        "importance": 0.06914986724488953
       }
     ],
     "advice": [
-      "Ensemble says click-through (title+thumbnail) drives views most on this channel (R\u00b2 -0.2165).",
+      "Ensemble says first-3-second hook quality drives views most on this channel (R\u00b2 -0.0442).",
       "6 viral/anomalous videos detected \u2014 study them; model is protected from their skew.",
-      "Best content segment (cluster 1, 34 videos) averages 358.3 views \u2014 lean topics toward this profile."
+      "Best content segment (cluster 1, 34 videos) averages 350.4 views \u2014 lean topics toward this profile."
     ],
-    "channel_score": 32.0,
+    "channel_score": 31.2,
     "calibration": {
       "calibrated": true,
       "n": 58,
       "levers": {
         "hook_score": {
-          "corr": 0.269,
+          "corr": 0.3,
           "samples": 27,
           "verdict": "ok"
         },
         "predicted_ctr": {
-          "corr": -0.226,
+          "corr": 0.01,
           "samples": 26,
           "verdict": "DRIFTED"
         },
         "seo_score": {
-          "corr": -0.153,
+          "corr": 0.124,
           "samples": 26,
-          "verdict": "DRIFTED"
+          "verdict": "ok"
         },
         "predicted_retention": {
-          "corr": -0.049,
+          "corr": 0.087,
           "samples": 26,
           "verdict": "DRIFTED"
         }
       },
       "drifted": [
         "predicted_ctr",
-        "seo_score",
         "predicted_retention"
       ],
       "trusted": [
-        "hook_score"
+        "hook_score",
+        "seo_score"
       ],
-      "note": "Drift detected: these scores do NOT predict real views \u2014 higher scores are not earning more. Do not raise the approval bar on them; trust real metrics instead. predicted_ctr, seo_score, predicted_retention"
+      "note": "Drift detected: these scores do NOT predict real views \u2014 higher scores are not earning more. Do not raise the approval bar on them; trust real metrics instead. predicted_ctr, predicted_retention"
     }
   },
-  "cadence_suggested": 1,
-  "cadence_ceiling": 1,
-  "cadence_reason": "facebook_reels, instagram_reels, youtube_shorts is critical (far under its completion gate). Shipping one strong video a day until the hook and cut clear the gate - extra uploads of a losing format only widen the damage."
+  "cadence_suggested": 3,
+  "cadence_ceiling": 2,
+  "cadence_reason": "No readable platform health yet - holding 2/day while data accumulates instead of assuming 3/day is safe."
 }
