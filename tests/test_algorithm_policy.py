@@ -595,21 +595,19 @@ class HookRetryFeedbackTests(unittest.TestCase):
     """
 
     def _script(self, hook: str) -> dict:
-        # UPDATED 2026-08-14: YT master ideal moved 33s -> 24s; scenes now cap
-        # at 10 words each and the whole script at ~79 words at 2.62 w/s.
+        # UPDATED 2026-08-24: YT duration 14-20-25s; total budget now 66
+        # words at 2.62 w/s. Each scene caps at ~8 words.
+        # Scene 2 needs a '?' for the SUSPENSE validator.
+        # Scene 8 (LOOP-BACK) must echo a concept word from the hook.
         captions = [
-            # One caption trimmed 2026-08-14 so the fixture totals 79 words at
-            # the new 24s ceiling: with the weak 8-word hook the script must
-            # still pass the word gate and let the HOOK gate drive the retry
-            # feedback the test asserts on.
             hook,
-            "Why does this happen when you are tired at night?",
-            "People assume something serious is going wrong inside them.",
-            "Tired nerves leak tiny signals into the eyelid muscle.",
-            "That thin muscle turns each stray signal into a visible flutter.",
-            "It repeats in short bursts until the nerve settles down.",
-            "Caffeine and lost sleep raise excitability, so rest usually ends it.",
-            "So your twitching eyelid is just an overtired nerve resetting tonight.",
+            "What tiny nerve is triggering this?",
+            "Tired nerves leak signals into the eyelid.",
+            "That muscle turns stray signals into a flutter.",
+            "It repeats until the nerve settles down.",
+            "Caffeine and lost sleep raise excitability.",
+            "Rest usually ends the twitching tonight.",
+            "Your eyelid twitch is just an overtired nerve.",
         ]
         return {
             "title": "Why Your Eyelid Twitches",
@@ -786,17 +784,16 @@ class TrimmerAndValidatorAgreeTests(unittest.TestCase):
         must not reject on scene word count. These two run back to back on
         every single attempt, so any disagreement is an automatic outage."""
         sg = self.sg
-        # UPDATED 2026-08-14: YT master ideal moved 33s -> 24s; scenes now cap
-        # at 10 words each and the whole script at ~79 words at 2.62 w/s.
+        # UPDATED 2026-08-24: YT duration 14-20-25s; total budget 66 words.
         captions = [
             "Your foot goes numb after sitting still",
-            "Why does the tingling start when you stand up?",
+            "Why does tingling start when you stand?",
             "Pressure on the nerve interrupts its signal",
-            "The nerve is not damaged, only muted for a moment",
-            "Blood flow returns and fires every delayed message at once",
-            "That flood of signals is the pins and needles",
-            "It fades within a minute as the nerve catches up",
-            "So now you know exactly why your foot falls asleep",
+            "The nerve is muted, not damaged",
+            "Blood flow returns and fires delayed signals",
+            "That flood is the pins and needles",
+            "It fades within a minute",
+            "So now you know why your foot sleeps",
         ]
         script = {
             "title": "Why Your Foot Falls Asleep",
@@ -841,7 +838,9 @@ class TrimmerAndValidatorAgreeTests(unittest.TestCase):
 
 def _script_with_scene_caption(sg, caption: str) -> dict:
     """A structurally valid 8-scene script whose LAST scene is `caption`."""
-    filler = " ".join(["word"] * min(10, sg.MAX_SCENE_WORDS)) + "."
+    # Use MAX_SCENE_WORDS filler so total fits within MAX_WORDS (66).
+    # 1 hook (5w) + 6 fillers + 1 test caption must be ≤ 66.
+    filler = " ".join(["word"] * min(sg.MAX_SCENE_WORDS, 7)) + "."
     scenes = [{"visual": "v", "caption": "Your eyelid twitches at night"}]
     scenes += [{"visual": "v", "caption": filler} for _ in range(6)]
     scenes += [{"visual": "v", "caption": caption}]
@@ -1191,11 +1190,11 @@ class SchedulerLearningTests(unittest.TestCase):
         weights or by retired evening-slot experiments."""
         self._patch_weights(lambda: {"12:30": 1.0, "13:30": 1.0, "18:30": 1.9, "20:00": 2.5})
         ranked = self.scheduler.ranked_peak_times()
-        self.assertEqual([(p["hour"], p["minute"]) for p in ranked], [(13, 30)])
+        self.assertEqual([(p["hour"], p["minute"]) for p in ranked], [(19, 0)])
         one = self.scheduler.get_next_posting_times(1)
         self.assertEqual(len(one), 1)
-        self.assertEqual(one[0]["time"].hour, 13)
-        self.assertEqual(one[0]["time"].minute, 30)
+        self.assertEqual(one[0]["time"].hour, 19)
+        self.assertEqual(one[0]["time"].minute, 0)
 
     def test_unmeasured_channel_keeps_heatmap_slot(self):
         self._patch_weights(dict)

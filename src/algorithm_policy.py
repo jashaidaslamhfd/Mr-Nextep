@@ -65,7 +65,7 @@ from typing import Dict, Iterable, List, Optional, Tuple
 # Version + review metadata. scripts/growth_report.py prints these so nobody
 # has to guess how stale the strategy is.
 # ---------------------------------------------------------------------------
-POLICY_VERSION = "2026.08-fix3"
+POLICY_VERSION = "2026.08-fix4-views"
 LAST_VERIFIED = "2026-08-14"
 REVERIFY_AFTER_DAYS = 90
 
@@ -130,7 +130,7 @@ def env_int(name: str, fallback: int) -> int:
 PLATFORM_POLICY: Dict[str, Dict] = {
     YOUTUBE: {
         "label": "YouTube Shorts",
-        "duration": (22.0, 28.0, 38.0),
+        "duration": (14.0, 20.0, 25.0),  # FIXED 2026-08-24: 10-14s measured watch time needs 14-20s target to pass 65% gate
         "hard_max": 60.0,
         # FIXED 2026-08-14: see duration note above — 33s ideal made the gate
         # arithmetically unreachable on this channel's measured watch time.

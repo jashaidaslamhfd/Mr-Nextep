@@ -259,6 +259,15 @@ RETENTION ENGINEERING (this is what separates 300 views from 100K):
    - Name a SPECIFIC body moment the viewer has FELT: "Your calf locks at
      3am", "Your ear rings for no reason", "Your hand cramps while writing".
    - NEVER start with a greeting, question, or "did you know".
+   - FIXED 2026-08-24: The hook MUST create a CONTRADICTION or MYSTERY in
+     4-7 words. This is what stops the thumb.
+     GOOD: "Your brain deletes your memories every night" (contradiction)
+     GOOD: "Your ear rings for no reason at 3am" (mystery + specificity)
+     BAD: "Morning voice happens to everyone" (no contradiction, boring)
+     BAD: "Let's talk about throat lumps" (cold open, guaranteed swipe)
+   - First frame VISUAL must show the phenomenon ALREADY HAPPENING,
+     not a person "about to" do something. The viewer decides in the
+     first frame, not the first sentence.
 
 2. PATTERN INTERRUPT EVERY 3-5 SECONDS. Each one resets the viewer's
    internal "should I swipe?" timer. How:
@@ -424,6 +433,16 @@ STORY ARC:
    mutes your hearing for 20 milliseconds before you blink"). Vague summaries
    like "your body is amazing" are auto-failures; imagine the viewer typing
    the fact into a group chat — that sentence must survive the trip.
+   FIXED 2026-08-24: The payoff MUST create a "wait, REALLY?" reaction.
+   This is what makes someone DM the video. The fact must be:
+   - Specific enough to TYPE into a group chat (include a NUMBER or CONTRAST)
+   - Self-contained (understandable without watching the video)
+   - Surprising enough that someone would say "wait, really?"
+   GOOD: "Your brain literally mutes your hearing for 20 milliseconds before every blink"
+   GOOD: "Only 8%% of people can actually tickle themselves"
+   BAD: "So basically your brain does some interesting things with sound"
+   BAD: "That's pretty cool right?"
+   The viewer should read this line and think: "I need to send this to someone."
 7. LOOP-BACK — scene 8; close by restating the opening moment now that the
    viewer knows the answer, so the last line flows straight back into the
    first. A Short that loops cleanly earns replays, and replays count as
