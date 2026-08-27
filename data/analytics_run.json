@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-27T19:32:54.196261+00:00",
+  "generated_at": "2026-08-27T20:29:36.032329+00:00",
   "exit_code": 0,
   "youtube": {
     "updated": 0,
@@ -16,7 +16,7 @@
     "total_records": 0
   },
   "growth": {
-    "generated_at": "2026-08-27T19:32:54.181147+00:00",
+    "generated_at": "2026-08-27T20:29:36.017119+00:00",
     "sample_size": 0,
     "scored_videos": 0,
     "channel_gate_ratio": null,
@@ -57,7 +57,7 @@
     },
     "instagram_sends": null,
     "recommended_cadence": 1,
-    "cadence_reason": "Not enough mature videos to judge yet — holding a conservative 1/day while data accumulates. Channel retention is unproven; extra uploads of an unvalidated format risk teaching the feed to deprioritise.",
+    "cadence_reason": "Not enough mature videos to judge yet — holding a strict 1/day until retention proves the format. Channel average is below gate; extra uploads of an unvalidated format teach the feed to suppress. Fix the hook and video length FIRST, then scale.",
     "alerts": [],
     "best_slot": null,
     "best_topics": [],

@@ -1,6 +1,5 @@
 {
-  "failed_at": "2026-08-26T13:58:29.766874+00:00",
-  "reason": "HOOK MISS RECOVERABLE: hook 75/80 \u2014 topic queued, retry with fresh script (continuity loop)",
-  "stage": "shorts_enhancements",
-  "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Mr-Nextep/Mr-Nextep/src/main.py\", line 1478, in run_pipeline\n    raise RuntimeError(\nRuntimeError: HOOK MISS RECOVERABLE: hook 75/80 \u2014 topic queued, retry with fresh script (continuity loop)\n"
+  "failed_at": "2026-08-27T20:55:43.246221+00:00",
+  "kind": "quality_retry",
+  "reason": "Queued for retry: None — best candidate rejected: hook=55/80"
 }

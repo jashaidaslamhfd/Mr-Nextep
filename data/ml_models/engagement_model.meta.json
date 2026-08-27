@@ -1,7 +1,7 @@
 {
-  "trained_at": "2026-08-27T19:32:50.441419+00:00",
+  "trained_at": "2026-08-27T20:29:31.938785+00:00",
   "trained": true,
-  "r2_cv": 0.8132,
+  "r2_cv": 0.8131,
   "n": 32,
   "confidence": "medium",
   "feature_importance": [
@@ -79,7 +79,7 @@
     "gradient_boosting": 0.2121,
     "extra_trees": 0.1828,
     "ridge": 0.198,
-    "gradient_boosting_deep": 0.2108
+    "gradient_boosting_deep": 0.2107
   },
   "best_model": "gradient_boosting"
 }

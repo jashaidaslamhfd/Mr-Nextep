@@ -1,5 +1,5 @@
 {
-  "trained_at": "2026-08-27T19:32:47.361805+00:00",
+  "trained_at": "2026-08-27T20:29:28.169016+00:00",
   "models": {
     "views": {
       "trained": true,
@@ -60,7 +60,7 @@
     },
     "engagement": {
       "trained": true,
-      "r2_cv": 0.8132,
+      "r2_cv": 0.8131,
       "confidence": "medium"
     }
   },
