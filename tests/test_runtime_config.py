@@ -694,7 +694,7 @@ class PostingScheduleTests(unittest.TestCase):
                 f"{slot['hour']:02d}:{slot['minute']:02d} is outside 12-2 PM and 6-10 PM ET",
             )
 
-    def test_heatmap_slot_is_inside_lunch_window(self):
+    def test_heatmap_slot_is_inside_evening_window(self):
         slots = {(s["hour"], s["minute"]) for s in self.sched.PEAK_TIMES}
         self.assertIn((19, 0), slots)
 
