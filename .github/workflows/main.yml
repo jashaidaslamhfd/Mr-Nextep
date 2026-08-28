@@ -267,6 +267,10 @@ jobs:
           # On a dry run the uploader skips YouTube/Facebook/Instagram and the
           # final MP4 stays in the runner workspace for inspection.
           DRY_RUN: ${{ inputs.dry_run == true && 'true' || 'false' }}
+          # Production workflow must actually call platform APIs. The code
+          # defaults PUBLISH_MODE to draft for safe local runs; leaving this
+          # unset made successful Actions runs produce no YouTube upload.
+          PUBLISH_MODE: ${{ inputs.dry_run == true && 'draft' || 'publish' }}
           # 2026-08-15: 8B hooks were the quality ceiling. 70B+ class writes
           # noticeably stronger hooks/titles (2026 feeds rank hook quality
           # hard). Groq's GPT-OSS 120B is the strongest free-tier model and
