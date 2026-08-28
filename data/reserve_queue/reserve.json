@@ -1,23 +1,5 @@
 [
   {
-    "topic": "Why Babies Grab Your Finger",
-    "title": "Why Babies Grab Your Finger",
-    "hook_score": 100,
-    "quality_score": 88,
-    "script_data": {
-      "topic": "Why Babies Grab Your Finger",
-      "title": "Why Babies Grab Your Finger",
-      "hook": "",
-      "voiceover": "Why Your Baby Grabs Your Finger. What makes that tiny tug feel so strange? Everyone wonders if it's a sign of affection. The reflex starts in the baby's nervous system. A tiny sensor in the hand triggers the grip. Most babies do it before their first tooth. The grip lasts 2‑3 seconds, then releases. Now you know why your baby grabs your finger.",
-      "scenes": [],
-      "tags": [],
-      "_template_only": true,
-      "_reason": "high_performer_template"
-    },
-    "added_at": "2026-08-26T07:16:18.582928+00:00",
-    "tier": 2
-  },
-  {
     "topic": "Why do your fingers wrinkle in water?",
     "title": "This Is Why Your Fingers Wrinkle",
     "hook_score": 100,
@@ -69,6 +51,18 @@
       "_reason": "high_performer_template"
     },
     "added_at": "2026-08-26T07:16:18.582853+00:00",
+    "tier": 2
+  },
+  {
+    "topic": "Compliant Short",
+    "title": "Compliant Short",
+    "hook_score": 0,
+    "quality_score": 0,
+    "script_data": {
+      "topic": "Compliant Short",
+      "title": "Compliant Short"
+    },
+    "added_at": "2026-08-28T07:36:56.228564+00:00",
     "tier": 2
   }
 ]

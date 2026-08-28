@@ -1,5 +1,6 @@
 {
-  "failed_at": "2026-08-28T04:48:01.612697+00:00",
-  "kind": "quality_retry",
-  "reason": "Queued for retry: Compliant Short — best candidate rejected: quality"
+  "failed_at": "2026-08-28T08:26:28.792760+00:00",
+  "reason": "Narration is 30.9s; refusing destructive speed-up. Regenerate a script that fits the 25s target.",
+  "stage": "master_render_and_gates",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Mr-Nextep/Mr-Nextep/src/main.py\", line 1541, in run_pipeline\n    final_video = build_video(\n                  ^^^^^^^^^^^^\n  File \"/home/runner/work/Mr-Nextep/Mr-Nextep/src/video_editor.py\", line 904, in build_video\n    raise RuntimeError(\nRuntimeError: Narration is 30.9s; refusing destructive speed-up. Regenerate a script that fits the 25s target.\n"
 }

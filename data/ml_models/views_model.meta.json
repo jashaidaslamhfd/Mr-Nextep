@@ -1,5 +1,5 @@
 {
-  "trained_at": "2026-08-28T04:16:03.583159+00:00",
+  "trained_at": "2026-08-28T07:37:23.636215+00:00",
   "trained": true,
   "r2_cv": 0.8144,
   "n": 32,
@@ -76,8 +76,8 @@
   ],
   "weights": {
     "random_forest": 0.2101,
-    "gradient_boosting": 0.2394,
-    "extra_trees": 0.1778,
+    "gradient_boosting": 0.2393,
+    "extra_trees": 0.178,
     "ridge": 0.1356,
     "gradient_boosting_deep": 0.2371
   },
