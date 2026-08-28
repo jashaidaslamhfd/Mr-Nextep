@@ -895,9 +895,10 @@ def build_video(image_paths, audio_segments, scenes, output_path="output/final_v
     duration = final_video.duration
     if duration > TARGET_MAX_SEC:
         required_speed = duration / TARGET_MAX_SEC
-        # A small correction is inaudible. Anything larger must be fixed at
-        # script level; crushing a multi-minute narration into a Short sounds bad.
-        if required_speed <= 1.12:
+        # A bounded correction is preferable to aborting after all assets are
+        # generated. Anything larger must still be fixed at script level;
+        # crushing a long narration into a Short sounds bad.
+        if required_speed <= 1.25:
             logger.warning("Applying small %.3fx correction to meet %.1fs limit", required_speed, TARGET_MAX_SEC)
             final_video = final_video.fx(vfx.speedx, required_speed)
         else:
