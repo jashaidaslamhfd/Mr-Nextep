@@ -4,25 +4,25 @@
       "slot": "NY12:30",
       "outcome": "published",
       "topic": "topic a",
-      "at": "2026-08-28T07:36:56.230311+00:00"
+      "at": "2026-08-28T17:12:42.083749+00:00"
     },
     {
       "slot": "NY18:30",
       "outcome": "published",
       "topic": "topic b",
-      "at": "2026-08-28T07:36:56.230862+00:00"
+      "at": "2026-08-28T17:12:42.084043+00:00"
     },
     {
       "slot": "NY20:00",
       "outcome": "guard_fail",
       "topic": "topic c",
-      "at": "2026-08-28T07:36:56.231238+00:00"
+      "at": "2026-08-28T17:12:42.084231+00:00"
     },
     {
-      "slot": "offpeak",
-      "outcome": "all_tiers_failed",
-      "topic": "All 3 script-generation attempts failed mandatory gates. Last error: US content ",
-      "at": "2026-08-28T07:59:04.442929+00:00"
+      "slot": "NY13:13",
+      "outcome": "draft",
+      "topic": "",
+      "at": "2026-08-28T17:20:36.903612+00:00"
     }
   ]
 }
