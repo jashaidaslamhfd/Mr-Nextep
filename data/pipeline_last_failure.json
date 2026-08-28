@@ -1,5 +1,5 @@
 {
-  "failed_at": "2026-08-27T20:55:43.246221+00:00",
+  "failed_at": "2026-08-28T04:48:01.612697+00:00",
   "kind": "quality_retry",
-  "reason": "Queued for retry: None — best candidate rejected: hook=55/80"
+  "reason": "Queued for retry: Compliant Short — best candidate rejected: quality"
 }
