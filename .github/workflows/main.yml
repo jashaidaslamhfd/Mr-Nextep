@@ -283,7 +283,6 @@ jobs:
           GROQ_MODEL_FALLBACK: ""
           # Zero-touch safe mode: low-risk evidence-backed items publish
           # automatically; medium/high-risk items remain draft-only.
-          PUBLISH_MODE: "publish"
           REQUIRE_HUMAN_REVIEW: "1"
           HUMAN_REVIEW_APPROVED_AT: ${{ secrets.HUMAN_REVIEW_APPROVED_AT }}
           AUTO_SOURCE_RESEARCH: "true"
