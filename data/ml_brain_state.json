@@ -1,9 +1,9 @@
 {
-  "trained_at": "2026-08-28T17:12:58.451040+00:00",
+  "trained_at": "2026-08-29T02:51:24.678306+00:00",
   "models": {
     "views": {
       "trained": true,
-      "r2_cv": 0.8139,
+      "r2_cv": 0.814,
       "confidence": "medium",
       "n": 32,
       "best_model": "gradient_boosting",
