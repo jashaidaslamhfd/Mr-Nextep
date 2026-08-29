@@ -1,69 +1,69 @@
 {
-  "generated_at": "2026-08-28T19:53:18.935274+00:00",
+  "generated_at": "2026-08-29T13:36:04.156276+00:00",
   "sample_size": 124,
-  "scored_videos": 23,
-  "channel_gate_ratio": 0.537,
+  "scored_videos": 22,
+  "channel_gate_ratio": 0.535,
   "slot_weights": {
     "01:00": 1.0,
-    "20:00": 1.16,
-    "12:30": 0.976,
+    "20:00": 1.135,
+    "12:30": 1.0,
     "00:00": 1.0,
     "14:30": 1.0,
-    "21:30": 0.836,
+    "21:30": 0.823,
     "05:00": 1.0,
     "11:00": 1.0,
     "18:30": 1.0,
-    "16:30": 1.0,
-    "13:30": 1.0
+    "13:30": 1.0,
+    "16:30": 1.0
   },
   "topic_weights": {
-    "other": 0.994,
-    "muscle": 1.109,
-    "ear": 1.032,
-    "brain": 0.877
+    "other": 1.012,
+    "muscle": 1.119,
+    "ear": 1.034,
+    "brain": 0.79
   },
   "hook_weights": {
-    "statement": 1.023,
-    "why": 0.916,
-    "unknown": 0.991,
-    "second_person": 1.0
+    "statement": 1.013,
+    "why": 0.954,
+    "second_person": 1.0,
+    "unknown": 0.994
   },
   "slot_samples": {
     "01:00": 1,
     "20:00": 4,
-    "12:30": 7,
+    "12:30": 6,
     "00:00": 1,
     "14:30": 1,
     "21:30": 3,
     "05:00": 1,
     "11:00": 1,
     "18:30": 2,
-    "16:30": 1,
-    "13:30": 1
+    "13:30": 1,
+    "16:30": 1
   },
   "topic_samples": {
-    "other": 13,
+    "other": 12,
     "muscle": 3,
     "ear": 4,
     "brain": 3
   },
   "hook_samples": {
-    "statement": 16,
+    "statement": 15,
     "why": 5,
-    "unknown": 1,
-    "second_person": 1
+    "second_person": 1,
+    "unknown": 1
   },
   "platform_health": {
     "youtube_shorts": {
       "platform": "youtube_shorts",
       "label": "YouTube Shorts",
       "status": "critical",
-      "samples": 15,
+      "samples": 14,
       "gate": 0.65,
-      "avg_completion": 0.3059,
-      "gate_ratio": 0.586,
-      "avg_views": 220.6,
-      "action": "Only 31% of a 65% bar. The format itself is losing viewers early: rebuild the hook (visual payoff in frame one, promise in under 3 seconds) before changing anything else."
+      "avg_completion": 0.2974,
+      "gate_ratio": 0.576,
+      "avg_views": 140.1,
+      "action": "Only 30% of a 65% bar. The format itself is losing viewers early: rebuild the hook (visual payoff in frame one, promise in under 3 seconds) before changing anything else."
     },
     "facebook_reels": {
       "platform": "facebook_reels",
@@ -95,11 +95,11 @@
     "action": "Almost nobody DMs these Reels. Sends are Instagram's strongest non-follower signal: end on one surprising, quotable fact a viewer would send to a specific friend, not a generic wrap-up line."
   },
   "recommended_cadence": 1,
-  "cadence_reason": "Channel retention is 54% — well below every platform gate. One upload/day until retention clears 70% of the bar. Fix the hook (first 2 seconds) and video length (14-20s) before scaling.",
+  "cadence_reason": "Channel retention is 53% — well below every platform gate. One upload/day until retention clears 70% of the bar. Fix the hook (first 2 seconds) and video length (14-20s) before scaling.",
   "alerts": [
     {
       "level": "error",
-      "message": "YouTube Shorts: Only 31% of a 65% bar. The format itself is losing viewers early: rebuild the hook (visual payoff in frame one, promise in under 3 seconds) before changing anything else."
+      "message": "YouTube Shorts: Only 30% of a 65% bar. The format itself is losing viewers early: rebuild the hook (visual payoff in frame one, promise in under 3 seconds) before changing anything else."
     },
     {
       "level": "error",
@@ -119,7 +119,7 @@
     },
     {
       "level": "warn",
-      "message": "Slot 12:30 NY is under-performing across 7 videos — its weight has been reduced automatically."
+      "message": "Slot 12:30 NY is under-performing across 6 videos — its weight has been reduced automatically."
     },
     {
       "level": "warn",
