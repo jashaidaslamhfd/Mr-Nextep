@@ -1,5 +1,5 @@
 {
-  "trained_at": "2026-08-30T20:30:46.066765+00:00",
+  "trained_at": "2026-08-30T21:00:37.517108+00:00",
   "trained": true,
   "r2_cv": 0.8028,
   "n": 26,
@@ -7,43 +7,43 @@
   "feature_importance": [
     {
       "feature": "topic_avg_retention",
-      "importance": 0.2828822345895041
+      "importance": 0.2828822345874421
     },
     {
       "feature": "is_evening_us",
-      "importance": 0.11148244623767699
+      "importance": 0.11148244623686436
     },
     {
       "feature": "seo_score",
-      "importance": 0.06712467807219964
+      "importance": 0.06712467807171035
     },
     {
       "feature": "curiosity_gap_score",
-      "importance": 0.05438216133226272
+      "importance": 0.05438216133186632
     },
     {
       "feature": "has_body_word",
-      "importance": 0.05419571583473016
+      "importance": 0.05419571583433511
     },
     {
       "feature": "topic_recency_days",
-      "importance": 0.05254894494179021
+      "importance": 0.05254894494869646
     },
     {
       "feature": "duration_bucket",
-      "importance": 0.05124083173220317
+      "importance": 0.05124083173182965
     },
     {
       "feature": "post_hour",
-      "importance": 0.04895000152781266
+      "importance": 0.04895000152745586
     },
     {
       "feature": "title_length",
-      "importance": 0.04076827112281364
+      "importance": 0.04076827112251648
     },
     {
       "feature": "title_word_count",
-      "importance": 0.04071720542816211
+      "importance": 0.04071720542786531
     }
   ],
   "features": [

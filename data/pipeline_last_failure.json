@@ -1,5 +1,6 @@
 {
-  "failed_at": "2026-08-30T20:34:32.785173+00:00",
-  "kind": "quality_retry",
-  "reason": "Queued for retry:  — best candidate rejected: quality"
+  "failed_at": "2026-08-30T21:03:04.207435+00:00",
+  "reason": "Caption pacing failed: Scene 6: 1.4 words/sec - dragging, consider trimming the caption or shortening the scene.",
+  "stage": "shorts_enhancements",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Mr-Nextep/Mr-Nextep/src/main.py\", line 1484, in run_pipeline\n    raise RuntimeError(\"Caption pacing failed: \" + \"; \".join(issues[:3]))\nRuntimeError: Caption pacing failed: Scene 6: 1.4 words/sec - dragging, consider trimming the caption or shortening the scene.\n"
 }

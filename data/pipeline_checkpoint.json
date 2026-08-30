@@ -1,7 +1,7 @@
 {
-  "stage": "script_generation",
-  "status": "completed",
-  "updated_at": "2026-08-30T20:34:32.785529+00:00",
-  "run_id": "33333629832",
-  "elapsed_seconds": 182.17
+  "stage": "platform_upload",
+  "status": "started",
+  "updated_at": "2026-08-30T21:13:26.383722+00:00",
+  "run_id": "33334983264",
+  "elapsed_seconds": 592.17
 }

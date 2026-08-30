@@ -1,5 +1,5 @@
 {
-  "trained_at": "2026-08-30T20:30:43.490960+00:00",
+  "trained_at": "2026-08-30T21:00:35.310122+00:00",
   "models": {
     "views": {
       "trained": true,
@@ -38,23 +38,23 @@
       "feature_importance": [
         {
           "feature": "topic_avg_retention",
-          "importance": 0.2828822345895041
+          "importance": 0.2828822345874421
         },
         {
           "feature": "is_evening_us",
-          "importance": 0.11148244623767699
+          "importance": 0.11148244623686436
         },
         {
           "feature": "seo_score",
-          "importance": 0.06712467807219964
+          "importance": 0.06712467807171035
         },
         {
           "feature": "curiosity_gap_score",
-          "importance": 0.05438216133226272
+          "importance": 0.05438216133186632
         },
         {
           "feature": "has_body_word",
-          "importance": 0.05419571583473016
+          "importance": 0.05419571583433511
         }
       ]
     },
