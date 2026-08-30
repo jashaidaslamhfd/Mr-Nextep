@@ -1,9 +1,9 @@
 {
-  "trained_at": "2026-08-29T22:39:17.801789+00:00",
+  "trained_at": "2026-08-30T20:30:43.490960+00:00",
   "models": {
     "views": {
       "trained": true,
-      "r2_cv": 0.6664,
+      "r2_cv": 0.6662,
       "confidence": "medium",
       "n": 32,
       "best_model": "random_forest",
@@ -38,29 +38,29 @@
       "feature_importance": [
         {
           "feature": "topic_avg_retention",
-          "importance": 0.2828822345864199
+          "importance": 0.2828822345895041
         },
         {
           "feature": "is_evening_us",
-          "importance": 0.11148244623646152
+          "importance": 0.11148244623767699
         },
         {
           "feature": "seo_score",
-          "importance": 0.06712467807146778
+          "importance": 0.06712467807219964
         },
         {
           "feature": "curiosity_gap_score",
-          "importance": 0.0543821613316698
+          "importance": 0.05438216133226272
         },
         {
           "feature": "has_body_word",
-          "importance": 0.05419571583413927
+          "importance": 0.05419571583473016
         }
       ]
     },
     "engagement": {
       "trained": true,
-      "r2_cv": 0.5954,
+      "r2_cv": 0.5955,
       "confidence": "medium"
     }
   },
