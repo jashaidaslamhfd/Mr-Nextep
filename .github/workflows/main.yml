@@ -66,23 +66,36 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends ffmpeg fonts-dejavu-core espeak-ng
           python -m pip install --upgrade pip setuptools wheel
+          installed=false
           for i in 1 2 3; do
-            python -m pip install -r requirements.txt && break || {
-              echo "Install retry $i"
-              sleep 15
-            }
+            if python -m pip install -r requirements.txt; then
+              installed=true
+              break
+            fi
+            echo "Install retry $i"
+            sleep $((i * 15))
           done
+          if [ "$installed" != true ]; then
+            echo "::error::Core dependency installation failed after 3 attempts"
+            exit 1
+          fi
           # 2026-08-19: Chatterbox is now the PRIMARY engine (TTS_ENGINE=chatterbox).
           # Its heavy deps live in requirements-optional.txt (lazy imports); a
           # kokoro-only run never needed them, but the real-narrator path does.
           # Always try to install optional deps for voice quality
           if [ -f requirements-optional.txt ]; then
+            optional_installed=false
             for i in 1 2 3; do
-              python -m pip install -r requirements-optional.txt && break || {
-                echo "Optional-deps install retry $i (attempt $i/3)"
-                sleep 15
-              }
-            done || echo "::warning::Optional deps install failed - voice quality may be reduced"
+              if python -m pip install -r requirements-optional.txt; then
+                optional_installed=true
+                break
+              fi
+              echo "Optional-deps install retry $i (attempt $i/3)"
+              sleep $((i * 15))
+            done
+            if [ "$optional_installed" != true ]; then
+              echo "::warning::Optional deps install failed - voice quality may be reduced"
+            fi
           fi
 
       - name: Run offline quality regression tests
@@ -207,7 +220,7 @@ jobs:
           FB_UPLOAD_ENABLED: "true"
           # Meta timing: all platforms publish at 7:00 PM ET (US evening prime
           # time — peak viewership). Facebook stagger is minimal.
-          FB_STAGGER_MINUTES: "5"
+          FB_STAGGER_MINUTES: "10"
           IG_UPLOAD_ENABLED: "true"
           # media_publish has no scheduling parameter; hold the ready container
           # until the shared 7:00 PM ET slot when it is within the safe cap.
@@ -332,7 +345,8 @@ jobs:
           exit 1
 
       - name: 2026 deep-repair all uploaded videos (metadata fix)
-        if: always()
+        # Never mutate live platform metadata after a failed generation or a dry run.
+        if: ${{ success() && !(github.event_name == 'workflow_dispatch' && inputs.dry_run == true) }}
         shell: bash
         env:
           TITLE_EMOJI_OFF: "true"
@@ -363,7 +377,8 @@ jobs:
             echo "::warning::Meta repair skipped: FACEBOOK_ACCESS_TOKEN secret not set"
           fi
       - name: Apply curated legacy-title repair plan
-        if: always()
+        # Keep repair operations fail-closed for dry-runs and failed publishes.
+        if: ${{ success() && !(github.event_name == 'workflow_dispatch' && inputs.dry_run == true) }}
         shell: bash
         env:
           GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}

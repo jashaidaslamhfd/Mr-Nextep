@@ -96,7 +96,8 @@ jobs:
         run: python scripts/train_ml.py 2>&1 | tail -25 || true
 
       - name: Persist analytics state
-        if: always()
+        # Do not commit growth state when metric collection or refresh failed.
+        if: success()
         run: |
           set -euo pipefail
           git config user.name "skillor-bot"
