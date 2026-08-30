@@ -259,6 +259,11 @@ jobs:
           # the data-backed target: 7.5s / 14s = 54% vs 42% at 18s.
           META_TARGET_SECONDS: "14"
           SPOKEN_CTA_MODE: "loop"
+          # Balanced quality gate: lower the score floors slightly so viable
+          # scripts are not discarded for borderline retention scores. Hard
+          # structural, spam, medical, source, and US-safety gates remain active.
+          QUALITY_APPROVAL_THRESHOLD: "55"
+          MIN_HOOK_SCORE: "75"
           # Regenerate safe pre-upload failures in the same scheduled run;
           # upload-side failures remain fail-closed to prevent duplicates. Two
           # in-process retries avoid multiplying expensive renders inside each
