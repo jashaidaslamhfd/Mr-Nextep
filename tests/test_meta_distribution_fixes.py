@@ -208,6 +208,7 @@ class MetaWorkflowContractTests(unittest.TestCase):
         workflow = Path(__file__).parents[1] / ".github" / "workflows" / "main.yml"
         text = workflow.read_text(encoding="utf-8")
         self.assertIn('FB_STAGGER_MINUTES: "10"', text)
+        self.assertIn('QUALITY_GATE_MODE: "balanced"', text)
         self.assertIn('IG_WAIT_FOR_SLOT: "true"', text)
         self.assertIn('IG_MAX_WAIT_MINUTES: "150"', text)
         self.assertIn('MAX_GUARD_RETRIES: "2"', text)

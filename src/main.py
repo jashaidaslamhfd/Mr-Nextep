@@ -91,6 +91,10 @@ FALLBACK_ABORT_RATIO = float(os.environ.get("FALLBACK_ABORT_RATIO", "0.5"))
 # A hardcoded number here, or in the workflow, drifts the moment the scorer
 # changes — which is exactly what happened to the old "85".
 MIN_HOOK_SCORE = env_int("MIN_HOOK_SCORE", _POLICY_MIN_HOOK_SCORE)
+QUALITY_GATE_MODE = os.environ.get("QUALITY_GATE_MODE", "strict").strip().lower()
+if QUALITY_GATE_MODE not in {"strict", "balanced"}:
+    logger.warning("Unknown QUALITY_GATE_MODE=%r; using strict", QUALITY_GATE_MODE)
+    QUALITY_GATE_MODE = "strict"
 MAX_HOOK_SECONDS = env_float("MAX_HOOK_SECONDS", 0.0) or None
 # Tracked repository state is durable across Actions runs; generated media
 # remains in output/ and is intentionally not committed.
@@ -545,7 +549,15 @@ class NextepPipeline:
 
             # Quality check (2026-08-17: an optional `lenient` flag is passed
             # for LLM-outage fallback — see generate_with_niche_strategy)
-            quality_result = self.quality_checker.check_script_quality(script_data, lenient=NextepPipeline.lenient_fallback)
+            # Balanced mode waives only non-safety stylistic arc checks (for
+            # example, a missing suspense question); required fields, scene
+            # shape, spam, medical, source, and US-content gates stay hard.
+            lenient_quality = (
+                NextepPipeline.lenient_fallback or QUALITY_GATE_MODE == "balanced"
+            )
+            quality_result = self.quality_checker.check_script_quality(
+                script_data, lenient=lenient_quality
+            )
             if NextepPipeline.lenient_fallback and quality_result.get('approved'):
                 logger.warning(
                     "Fallback mode: relaxed quality floor — strict structural "

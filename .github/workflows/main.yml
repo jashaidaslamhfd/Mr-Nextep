@@ -262,6 +262,7 @@ jobs:
           # Balanced quality gate: lower the score floors slightly so viable
           # scripts are not discarded for borderline retention scores. Hard
           # structural, spam, medical, source, and US-safety gates remain active.
+          QUALITY_GATE_MODE: "balanced"
           QUALITY_APPROVAL_THRESHOLD: "55"
           MIN_HOOK_SCORE: "75"
           # Regenerate safe pre-upload failures in the same scheduled run;
