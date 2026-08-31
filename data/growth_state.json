@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-08-30T13:34:08.971827+00:00",
+  "generated_at": "2026-08-31T15:50:07.471308+00:00",
   "sample_size": 124,
   "scored_videos": 21,
-  "channel_gate_ratio": 0.533,
+  "channel_gate_ratio": 0.537,
   "slot_weights": {
     "01:00": 1.0,
-    "20:00": 1.084,
+    "20:00": 1.093,
     "00:00": 1.0,
     "14:30": 1.0,
-    "21:30": 0.826,
+    "21:30": 0.815,
     "12:30": 1.038,
     "05:00": 1.0,
     "11:00": 1.0,
@@ -18,15 +18,15 @@
   },
   "topic_weights": {
     "other": 1.036,
-    "muscle": 1.129,
-    "ear": 0.992,
-    "brain": 0.751
+    "muscle": 1.126,
+    "ear": 1.012,
+    "brain": 0.727
   },
   "hook_weights": {
-    "statement": 1.005,
-    "why": 0.98,
+    "statement": 1.007,
+    "why": 0.976,
     "second_person": 1.0,
-    "unknown": 0.996
+    "unknown": 0.998
   },
   "slot_samples": {
     "01:00": 1,
@@ -58,11 +58,11 @@
       "platform": "youtube_shorts",
       "label": "YouTube Shorts",
       "status": "critical",
-      "samples": 12,
+      "samples": 13,
       "gate": 0.65,
-      "avg_completion": 0.2974,
-      "gate_ratio": 0.576,
-      "avg_views": 133.8,
+      "avg_completion": 0.2987,
+      "gate_ratio": 0.586,
+      "avg_views": 137.2,
       "action": "Only 30% of a 65% bar. The format itself is losing viewers early: rebuild the hook (visual payoff in frame one, promise in under 3 seconds) before changing anything else."
     },
     "facebook_reels": {
@@ -95,7 +95,7 @@
     "action": "Almost nobody DMs these Reels. Sends are Instagram's strongest non-follower signal: end on one surprising, quotable fact a viewer would send to a specific friend, not a generic wrap-up line."
   },
   "recommended_cadence": 1,
-  "cadence_reason": "Channel retention is 53% — well below every platform gate. One upload/day until retention clears 70% of the bar. Fix the hook (first 2 seconds) and video length (14-20s) before scaling.",
+  "cadence_reason": "Channel retention is 54% — well below every platform gate. One upload/day until retention clears 70% of the bar. Fix the hook (first 2 seconds) and video length (14-20s) before scaling.",
   "alerts": [
     {
       "level": "error",
