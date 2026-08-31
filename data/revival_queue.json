@@ -8,7 +8,7 @@
       "retention": 0,
       "topic": "other",
       "hook_type": "unknown",
-      "age_days": 27,
+      "age_days": 28,
       "posted_at": "2026-08-02T23:22:10+0000",
       "permalink": "/reel/793469103829436/",
       "revival_score": 25.5
@@ -20,7 +20,7 @@
       "retention": 0,
       "topic": "other",
       "hook_type": "unknown",
-      "age_days": 27,
+      "age_days": 28,
       "posted_at": "2026-08-02T21:48:32+0000",
       "permalink": "/reel/1788053772639430/",
       "revival_score": 25.5
@@ -32,7 +32,7 @@
       "retention": 0,
       "topic": "other",
       "hook_type": "unknown",
-      "age_days": 27,
+      "age_days": 28,
       "posted_at": "2026-08-02T21:20:38+0000",
       "permalink": "/reel/4462053344063433/",
       "revival_score": 25.5
@@ -44,7 +44,7 @@
       "retention": 0,
       "topic": "other",
       "hook_type": "unknown",
-      "age_days": 28,
+      "age_days": 29,
       "posted_at": "2026-08-02T15:58:05+0000",
       "permalink": "/reel/1549658033106107/",
       "revival_score": 25.5
@@ -56,7 +56,7 @@
       "retention": 0,
       "topic": "other",
       "hook_type": "unknown",
-      "age_days": 28,
+      "age_days": 29,
       "posted_at": "2026-08-01T23:21:32+0000",
       "permalink": "/reel/1594844678672436/",
       "revival_score": 25.5
@@ -68,21 +68,9 @@
       "retention": 0,
       "topic": "other",
       "hook_type": "unknown",
-      "age_days": 28,
+      "age_days": 29,
       "posted_at": "2026-08-01T21:50:36+0000",
       "permalink": "/reel/2219523898781644/",
-      "revival_score": 25.5
-    },
-    {
-      "id": "1703627814193953",
-      "title": "Why Your Body Freezes When Scared \ud83e\udec0",
-      "views": 2,
-      "retention": 0,
-      "topic": "other",
-      "hook_type": "unknown",
-      "age_days": 29,
-      "posted_at": "2026-08-01T15:56:17+0000",
-      "permalink": "/reel/1703627814193953/",
       "revival_score": 25.5
     },
     {
@@ -92,7 +80,7 @@
       "retention": 0,
       "topic": "other",
       "hook_type": "unknown",
-      "age_days": 37,
+      "age_days": 38,
       "posted_at": "2026-07-23T23:38:16+0000",
       "permalink": "/reel/1241453812383979/",
       "revival_score": 25.5
@@ -104,7 +92,7 @@
       "retention": 0,
       "topic": "other",
       "hook_type": "unknown",
-      "age_days": 38,
+      "age_days": 39,
       "posted_at": "2026-07-23T16:53:38+0000",
       "permalink": "/reel/1044083038116002/",
       "revival_score": 25.5
@@ -116,7 +104,7 @@
       "retention": 0,
       "topic": "other",
       "hook_type": "unknown",
-      "age_days": 38,
+      "age_days": 39,
       "posted_at": "2026-07-23T05:05:27+0000",
       "permalink": "/reel/1754294192265457/",
       "revival_score": 25.5
@@ -128,7 +116,7 @@
       "retention": 0,
       "topic": "other",
       "hook_type": "unknown",
-      "age_days": 38,
+      "age_days": 39,
       "posted_at": "2026-07-22T23:41:19+0000",
       "permalink": "/reel/27722335547405806/",
       "revival_score": 25.5
@@ -152,7 +140,7 @@
       "retention": 0,
       "topic": "other",
       "hook_type": "unknown",
-      "age_days": 41,
+      "age_days": 42,
       "posted_at": "2026-07-20T00:38:47+0000",
       "permalink": "/reel/1680757336371264/",
       "revival_score": 25.5
@@ -180,6 +168,18 @@
       "posted_at": "2026-07-17T20:26:15+0000",
       "permalink": "/reel/1952677572018954/",
       "revival_score": 25.5
+    },
+    {
+      "id": "1595057902237036",
+      "title": "Untitled",
+      "views": 245,
+      "retention": 0,
+      "topic": "other",
+      "hook_type": "unknown",
+      "age_days": 45,
+      "posted_at": "2026-07-17T16:55:45+0000",
+      "permalink": "/reel/1595057902237036/",
+      "revival_score": 25.5
     }
   ],
   "instagram": [
@@ -190,7 +190,7 @@
       "retention": 0,
       "topic": "other",
       "hook_type": "unknown",
-      "age_days": 27,
+      "age_days": 28,
       "posted_at": "2026-08-03T00:00:02+0000",
       "revival_score": 16.0
     },
@@ -201,7 +201,7 @@
       "retention": 0,
       "topic": "other",
       "hook_type": "unknown",
-      "age_days": 28,
+      "age_days": 29,
       "posted_at": "2026-08-02T16:30:05+0000",
       "revival_score": 16.0
     },
@@ -212,7 +212,7 @@
       "retention": 0,
       "topic": "other",
       "hook_type": "unknown",
-      "age_days": 28,
+      "age_days": 29,
       "posted_at": "2026-08-02T00:00:04+0000",
       "revival_score": 16.0
     },
@@ -223,7 +223,7 @@
       "retention": 0,
       "topic": "other",
       "hook_type": "unknown",
-      "age_days": 28,
+      "age_days": 29,
       "posted_at": "2026-08-01T22:30:04+0000",
       "revival_score": 16.0
     },
@@ -234,9 +234,9 @@
       "retention": 0,
       "topic": "other",
       "hook_type": "unknown",
-      "age_days": 29,
+      "age_days": 30,
       "posted_at": "2026-08-01T16:30:03+0000",
-      "revival_score": 16.0
+      "revival_score": 12.0
     },
     {
       "id": "18014976275879900",
@@ -245,9 +245,9 @@
       "retention": 0,
       "topic": "other",
       "hook_type": "unknown",
-      "age_days": 29,
+      "age_days": 30,
       "posted_at": "2026-08-01T00:20:37+0000",
-      "revival_score": 16.0
+      "revival_score": 12.0
     },
     {
       "id": "18418327993146692",
@@ -256,9 +256,9 @@
       "retention": 0,
       "topic": "other",
       "hook_type": "unknown",
-      "age_days": 29,
+      "age_days": 30,
       "posted_at": "2026-08-01T00:00:04+0000",
-      "revival_score": 16.0
+      "revival_score": 12.0
     },
     {
       "id": "17995400802005904",
@@ -267,9 +267,9 @@
       "retention": 0,
       "topic": "other",
       "hook_type": "unknown",
-      "age_days": 29,
+      "age_days": 30,
       "posted_at": "2026-07-31T22:30:03+0000",
-      "revival_score": 16.0
+      "revival_score": 12.0
     },
     {
       "id": "18022095557886789",
@@ -278,7 +278,7 @@
       "retention": 0,
       "topic": "other",
       "hook_type": "unknown",
-      "age_days": 30,
+      "age_days": 31,
       "posted_at": "2026-07-31T00:00:03+0000",
       "revival_score": 12.0
     },
@@ -289,7 +289,7 @@
       "retention": 0,
       "topic": "other",
       "hook_type": "unknown",
-      "age_days": 30,
+      "age_days": 31,
       "posted_at": "2026-07-30T22:30:06+0000",
       "revival_score": 12.0
     },
@@ -300,7 +300,7 @@
       "retention": 0,
       "topic": "other",
       "hook_type": "unknown",
-      "age_days": 31,
+      "age_days": 32,
       "posted_at": "2026-07-30T02:53:27+0000",
       "revival_score": 12.0
     },
@@ -311,7 +311,7 @@
       "retention": 0,
       "topic": "other",
       "hook_type": "unknown",
-      "age_days": 32,
+      "age_days": 33,
       "posted_at": "2026-07-29T00:00:07+0000",
       "revival_score": 12.0
     },
@@ -322,7 +322,7 @@
       "retention": 0,
       "topic": "other",
       "hook_type": "unknown",
-      "age_days": 32,
+      "age_days": 33,
       "posted_at": "2026-07-28T22:30:04+0000",
       "revival_score": 12.0
     },
@@ -333,7 +333,7 @@
       "retention": 0,
       "topic": "other",
       "hook_type": "unknown",
-      "age_days": 33,
+      "age_days": 34,
       "posted_at": "2026-07-28T16:33:55+0000",
       "revival_score": 12.0
     },
@@ -344,7 +344,7 @@
       "retention": 0,
       "topic": "other",
       "hook_type": "unknown",
-      "age_days": 33,
+      "age_days": 34,
       "posted_at": "2026-07-28T00:00:04+0000",
       "revival_score": 12.0
     }
