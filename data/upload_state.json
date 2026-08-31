@@ -920,5 +920,21 @@
       "status": "started",
       "started_at": 1788124431.2626722
     }
+  },
+  "d612c5dc30b676be325e1a6d8c524afc13e73201471e8338f259ec00c939742d": {
+    "status": "completed",
+    "title": "Why Your Peak-End Memory \u2014 The Real Reason",
+    "youtube_video_id": "Dt27o9oeMDk",
+    "completed_at": 1788220512.3836565,
+    "facebook": {
+      "status": "completed",
+      "video_id": "872222205856076",
+      "completed_at": 1788220526.1205807
+    },
+    "instagram": {
+      "status": "completed",
+      "media_id": "18027316649733297",
+      "completed_at": 1788220571.195827
+    }
   }
 }

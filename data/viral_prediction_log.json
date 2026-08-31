@@ -33,9 +33,9 @@
   },
   {
     "vid_id": "b2c85d7076c436a3",
-    "predicted": 32.59,
+    "predicted": 32.61,
     "actual": 65.07,
-    "error": 32.48,
+    "error": 32.46,
     "views": 7,
     "completion": 1.5
   },
@@ -49,9 +49,9 @@
   },
   {
     "vid_id": "f44f38c2592c6429",
-    "predicted": 32.59,
+    "predicted": 32.61,
     "actual": 13.37,
-    "error": 19.22,
+    "error": 19.24,
     "views": 1,
     "completion": 0.0674
   },
@@ -73,9 +73,9 @@
   },
   {
     "vid_id": "e7ac0786668e0ff0",
-    "predicted": 39.25,
+    "predicted": 39.27,
     "actual": 57.4,
-    "error": 18.15,
+    "error": 18.13,
     "views": 333,
     "completion": 0.6454
   },
@@ -89,41 +89,41 @@
   },
   {
     "vid_id": "e873115c394c7746",
-    "predicted": 32.59,
+    "predicted": 32.61,
     "actual": 17.05,
-    "error": 15.54,
+    "error": 15.56,
     "views": 1,
     "completion": 0.1411
   },
   {
     "vid_id": "5f12c372a4f1a1c8",
-    "predicted": 36.19,
+    "predicted": 36.23,
     "actual": 13.33,
-    "error": 22.86,
+    "error": 22.9,
     "views": 1,
     "completion": 0.0666
   },
   {
     "vid_id": "a1d6b5c4157c9fb7",
-    "predicted": 32.59,
+    "predicted": 32.61,
     "actual": 13.33,
-    "error": 19.26,
+    "error": 19.28,
     "views": 1,
     "completion": 0.0666
   },
   {
     "vid_id": "842f2b0c8b12dcb2",
-    "predicted": 27.93,
+    "predicted": 27.95,
     "actual": 17.71,
-    "error": 10.22,
+    "error": 10.24,
     "views": 4,
     "completion": 0.0819
   },
   {
     "vid_id": "76b02af055c81a6b",
-    "predicted": 42.86,
+    "predicted": 42.89,
     "actual": 35.75,
-    "error": 7.11,
+    "error": 7.14,
     "views": 4,
     "completion": 0.4428
   },
@@ -145,9 +145,9 @@
   },
   {
     "vid_id": "df09b7c4e0c6246b",
-    "predicted": 39.25,
+    "predicted": 39.27,
     "actual": 29.62,
-    "error": 9.63,
+    "error": 9.65,
     "views": 4,
     "completion": 0.3202
   },
@@ -185,25 +185,25 @@
   },
   {
     "vid_id": "29fcee8530df28c6",
-    "predicted": 32.59,
+    "predicted": 32.61,
     "actual": 64.19,
-    "error": 31.6,
+    "error": 31.58,
     "views": 5,
     "completion": 1.0211
   },
   {
     "vid_id": "ccb244db654ceb40",
-    "predicted": 32.59,
+    "predicted": 32.61,
     "actual": 17.05,
-    "error": 15.54,
+    "error": 15.56,
     "views": 1,
     "completion": 0.1411
   },
   {
     "vid_id": "cb3c7a96b7d5cf8c",
-    "predicted": 32.59,
+    "predicted": 32.61,
     "actual": 13.33,
-    "error": 19.26,
+    "error": 19.28,
     "views": 1,
     "completion": 0.0666
   },

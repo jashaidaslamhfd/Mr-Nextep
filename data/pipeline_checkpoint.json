@@ -1,7 +1,7 @@
 {
-  "stage": "script_generation",
+  "stage": "pipeline",
   "status": "completed",
-  "updated_at": "2026-08-31T20:54:37.358263+00:00",
-  "run_id": "33437638311",
-  "elapsed_seconds": 269.78
+  "updated_at": "2026-08-31T23:56:11.429404+00:00",
+  "run_id": "33451800218",
+  "elapsed_seconds": 502.94
 }

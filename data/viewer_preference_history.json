@@ -3235,5 +3235,44 @@
     "real_retention": 32.59,
     "real_views": 68.0,
     "recorded_at": "2026-08-31T20:49:40.785691+00:00"
+  },
+  {
+    "features": {
+      "hook_strength": 0.1,
+      "story_completeness": 0.0,
+      "pacing": 1.0,
+      "title_curiosity": 0.75,
+      "payoff_present": 0.0,
+      "bait_penalty": 0.0
+    },
+    "real_retention": 32.59,
+    "real_views": 68.0,
+    "recorded_at": "2026-08-31T23:46:41.106622+00:00"
+  },
+  {
+    "features": {
+      "hook_strength": 0.1,
+      "story_completeness": 0.0,
+      "pacing": 1.0,
+      "title_curiosity": 0.75,
+      "payoff_present": 0.0,
+      "bait_penalty": 0.0
+    },
+    "real_retention": 32.59,
+    "real_views": 68.0,
+    "recorded_at": "2026-08-31T23:47:12.559917+00:00"
+  },
+  {
+    "features": {
+      "hook_strength": 0.1,
+      "story_completeness": 0.0,
+      "pacing": 1.0,
+      "title_curiosity": 0.75,
+      "payoff_present": 0.0,
+      "bait_penalty": 0.0
+    },
+    "real_retention": 32.59,
+    "real_views": 68.0,
+    "recorded_at": "2026-08-31T23:47:14.246999+00:00"
   }
 ]
