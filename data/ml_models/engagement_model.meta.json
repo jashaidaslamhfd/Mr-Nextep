@@ -1,49 +1,49 @@
 {
-  "trained_at": "2026-08-30T22:42:24.352151+00:00",
+  "trained_at": "2026-08-31T20:49:37.737802+00:00",
   "trained": true,
-  "r2_cv": 0.5954,
+  "r2_cv": 0.6164,
   "n": 32,
   "confidence": "medium",
   "feature_importance": [
     {
       "feature": "topic_avg_views",
-      "importance": 0.1291792834637521
+      "importance": 0.1267081068697722
     },
     {
       "feature": "topic_avg_retention",
-      "importance": 0.0922528956084635
+      "importance": 0.09168712759781751
     },
     {
       "feature": "hook_frame_why",
-      "importance": 0.09063529767205784
+      "importance": 0.08963455157703505
     },
     {
       "feature": "is_peak_us",
-      "importance": 0.07247366824978888
+      "importance": 0.07362498263234926
     },
     {
       "feature": "hook_score",
-      "importance": 0.06427705009146949
-    },
-    {
-      "feature": "post_hour",
-      "importance": 0.049647283161021225
+      "importance": 0.0646784291959037
     },
     {
       "feature": "has_body_word",
-      "importance": 0.048293654463638744
+      "importance": 0.050056436129685924
+    },
+    {
+      "feature": "post_hour",
+      "importance": 0.04766362520424805
     },
     {
       "feature": "hook_frame_second_person",
-      "importance": 0.043019380908053885
-    },
-    {
-      "feature": "is_weekend",
-      "importance": 0.04112912610799832
+      "importance": 0.043624762080456056
     },
     {
       "feature": "curiosity_gap_score",
-      "importance": 0.03954738835302587
+      "importance": 0.04091796318978156
+    },
+    {
+      "feature": "starts_with_why",
+      "importance": 0.0408610503069955
     }
   ],
   "features": [
@@ -75,11 +75,11 @@
     "trend_from_youtube"
   ],
   "weights": {
-    "random_forest": 0.1796,
-    "gradient_boosting": 0.2136,
-    "extra_trees": 0.1386,
-    "ridge": 0.2535,
-    "gradient_boosting_deep": 0.2148
+    "random_forest": 0.1643,
+    "gradient_boosting": 0.2258,
+    "extra_trees": 0.1376,
+    "ridge": 0.2483,
+    "gradient_boosting_deep": 0.2239
   },
   "best_model": "ridge"
 }

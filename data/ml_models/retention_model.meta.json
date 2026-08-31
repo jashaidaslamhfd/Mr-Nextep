@@ -1,49 +1,49 @@
 {
-  "trained_at": "2026-08-30T22:42:23.478409+00:00",
+  "trained_at": "2026-08-31T20:49:36.845512+00:00",
   "trained": true,
-  "r2_cv": 0.8028,
+  "r2_cv": 0.8097,
   "n": 26,
   "confidence": "low",
   "feature_importance": [
     {
       "feature": "topic_avg_retention",
-      "importance": 0.2828822345844336
+      "importance": 0.26566914111647966
     },
     {
       "feature": "is_evening_us",
-      "importance": 0.11148244623567873
+      "importance": 0.09655285257519503
     },
     {
       "feature": "seo_score",
-      "importance": 0.06712467807099647
+      "importance": 0.07182495486200588
     },
     {
       "feature": "curiosity_gap_score",
-      "importance": 0.054382161331287954
+      "importance": 0.059157936373303265
     },
     {
       "feature": "has_body_word",
-      "importance": 0.054195715833758734
-    },
-    {
-      "feature": "topic_recency_days",
-      "importance": 0.05254894495877282
+      "importance": 0.05872582352604677
     },
     {
       "feature": "duration_bucket",
-      "importance": 0.0512408317312847
-    },
-    {
-      "feature": "post_hour",
-      "importance": 0.048950001526935266
+      "importance": 0.053853023908543345
     },
     {
       "feature": "title_length",
-      "importance": 0.0407682711220829
+      "importance": 0.0501583847548663
     },
     {
       "feature": "title_word_count",
-      "importance": 0.040717205427432276
+      "importance": 0.04940789918656125
+    },
+    {
+      "feature": "post_day_of_week",
+      "importance": 0.04797704800999719
+    },
+    {
+      "feature": "topic_recency_days",
+      "importance": 0.04351914291542152
     }
   ],
   "features": [
@@ -72,11 +72,11 @@
     "topic_recency_days"
   ],
   "weights": {
-    "random_forest": 0.1967,
-    "gradient_boosting": 0.2063,
-    "extra_trees": 0.1484,
-    "ridge": 0.2637,
-    "gradient_boosting_deep": 0.1848
+    "random_forest": 0.198,
+    "gradient_boosting": 0.2061,
+    "extra_trees": 0.1481,
+    "ridge": 0.2612,
+    "gradient_boosting_deep": 0.1867
   },
   "best_model": "ridge"
 }
