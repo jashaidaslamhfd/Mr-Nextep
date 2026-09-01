@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-08-31T15:50:07.471308+00:00",
+  "generated_at": "2026-09-01T13:02:42.882410+00:00",
   "sample_size": 124,
   "scored_videos": 21,
   "channel_gate_ratio": 0.537,
   "slot_weights": {
     "01:00": 1.0,
-    "20:00": 1.093,
+    "20:00": 1.097,
     "00:00": 1.0,
     "14:30": 1.0,
-    "21:30": 0.815,
+    "21:30": 0.81,
     "12:30": 1.038,
     "05:00": 1.0,
     "11:00": 1.0,
@@ -18,13 +18,13 @@
   },
   "topic_weights": {
     "other": 1.036,
-    "muscle": 1.126,
-    "ear": 1.012,
-    "brain": 0.727
+    "muscle": 1.125,
+    "ear": 1.022,
+    "brain": 0.715
   },
   "hook_weights": {
-    "statement": 1.007,
-    "why": 0.976,
+    "statement": 1.008,
+    "why": 0.974,
     "second_person": 1.0,
     "unknown": 0.998
   },
@@ -73,7 +73,7 @@
       "gate": 0.72,
       "avg_completion": 0.3325,
       "gate_ratio": 0.462,
-      "avg_views": 59.2,
+      "avg_views": 59.3,
       "action": "Only 33% of a 72% bar. The format itself is losing viewers early: rebuild the hook (visual payoff in frame one, promise in under 3 seconds) before changing anything else."
     },
     "instagram_reels": {

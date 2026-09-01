@@ -1,47 +1,47 @@
 {
   "8642df72ef46b2dccc3c3e0e896c10ac8b9d2defd934a939952d85a5294a6a98": {
     "video_id": "1051855414448490",
-    "fetched_at": "2026-08-31T15:49:35.354587+00:00",
+    "fetched_at": "2026-09-01T13:02:12.802040+00:00",
     "post_video_avg_time_watched": 866
   },
   "1f2dae481737371341141a76f5f2ce8497ff890e5fc3868a0de59c2c17b02536": {
     "video_id": "2219523898781644",
-    "fetched_at": "2026-08-31T15:49:37.151177+00:00",
+    "fetched_at": "2026-09-01T13:02:14.013783+00:00",
     "post_video_avg_time_watched": 932
   },
   "fa2a1f444ac7309d9e2eabe862569d0c3506add9bf1c02a98dc5bc2c533ed28b": {
     "video_id": "1549658033106107",
-    "fetched_at": "2026-08-31T15:49:38.845947+00:00",
+    "fetched_at": "2026-09-01T13:02:15.168117+00:00",
     "post_video_avg_time_watched": 943
   },
   "d53a7772221124002d96d6f3ae8da9b5d2c8085b3041880d949684fb362b5813": {
     "video_id": "870075022564667",
-    "fetched_at": "2026-08-31T15:49:40.648909+00:00",
-    "post_video_avg_time_watched": 1147
+    "fetched_at": "2026-09-01T13:02:16.372868+00:00",
+    "post_video_avg_time_watched": 2679
   },
   "9963ef33654989b167393b3bec2616c2106879bab003bb09d3b537edd01de591": {
     "video_id": "1543194320583010",
-    "fetched_at": "2026-08-31T15:49:42.308913+00:00",
+    "fetched_at": "2026-09-01T13:02:17.645034+00:00",
     "post_video_avg_time_watched": 6199
   },
   "81677eec039429f24c89e425814cc54379e7d25d0fd42b7614160304bf883370": {
     "video_id": "1594844678672436",
-    "fetched_at": "2026-08-31T15:49:44.007735+00:00",
+    "fetched_at": "2026-09-01T13:02:18.794403+00:00",
     "post_video_avg_time_watched": 23479
   },
   "07ce27ca60dc5ddcfafa6d8ff89611d94748833ca71e2fd16f7ebf9d65d6046f": {
     "video_id": "2796503204059829",
-    "fetched_at": "2026-08-31T15:49:45.663301+00:00",
+    "fetched_at": "2026-09-01T13:02:20.011122+00:00",
     "post_video_avg_time_watched": 14296
   },
   "dc7b3440077a981e8c666562fefe7e35c0358932d69c882a906c9619065d2483": {
     "video_id": "2219523898781644",
-    "fetched_at": "2026-08-31T15:49:47.296028+00:00",
+    "fetched_at": "2026-09-01T13:02:21.250525+00:00",
     "post_video_avg_time_watched": 932
   },
   "4967b495a6fee83d69f6e411d1f8d32076461544216b06b3505ba6654e2307dc": {
     "video_id": "2305951026812474",
-    "fetched_at": "2026-08-31T15:49:48.379525+00:00",
+    "fetched_at": "2026-09-01T13:02:22.129420+00:00",
     "warnings": [
       "total_video_views: (#100) Tried accessing nonexisting field (video_insights)",
       "total_video_avg_time_watched: (#100) Tried accessing nonexisting field (video_insights)",
@@ -53,62 +53,67 @@
   },
   "9e3935b7f560bb42535357d54571e06bfed888ae126f9807b50bb95024a90eca": {
     "video_id": "2236092447213631",
-    "fetched_at": "2026-08-31T15:49:50.072444+00:00",
+    "fetched_at": "2026-09-01T13:02:23.318156+00:00",
     "post_video_avg_time_watched": 4483
   },
   "61f168687fbdfde9e36177961b34c81ee274fa6d0d6d86b7911d32f98fad4e66": {
     "video_id": "2236092447213631",
-    "fetched_at": "2026-08-31T15:49:51.804247+00:00",
+    "fetched_at": "2026-09-01T13:02:26.688179+00:00",
     "post_video_avg_time_watched": 4483
   },
   "5578c6258b9e334b3743cc54aedffab62ae60a2f33b147f63a438fb43866710b": {
     "video_id": "1549658033106107",
-    "fetched_at": "2026-08-31T15:49:53.446688+00:00",
+    "fetched_at": "2026-09-01T13:02:28.232061+00:00",
     "post_video_avg_time_watched": 943
   },
   "5facc1e4cf2c99f9a75d82cfc051bed513b8cbc15f44bf7c7492de076ca5e0a6": {
     "video_id": "1724256778854471",
-    "fetched_at": "2026-08-31T15:49:54.998747+00:00",
+    "fetched_at": "2026-09-01T13:02:29.447928+00:00",
     "post_video_avg_time_watched": 4533
   },
   "175402ec16ccd18e07e9b89ca06b152d146928d86fbfbeab774164c715b454bf": {
     "video_id": "917318354763348",
-    "fetched_at": "2026-08-31T15:49:56.278947+00:00",
+    "fetched_at": "2026-09-01T13:02:30.635858+00:00",
     "post_video_avg_time_watched": 2963
   },
   "89b36482e45e61281b5aa5b872bdce3dc437fe11b4ada51e4c4a621a6cd2b160": {
     "video_id": "3361262224074955",
-    "fetched_at": "2026-08-31T15:49:57.608842+00:00",
+    "fetched_at": "2026-09-01T13:02:31.890807+00:00",
     "post_video_avg_time_watched": 4737
   },
   "7c59b5346d12b3caaacac53b1b5dcb4966a221784e04163eb7bd93807a61f450": {
     "video_id": "1366805995056527",
-    "fetched_at": "2026-08-31T15:49:58.874543+00:00",
+    "fetched_at": "2026-09-01T13:02:33.061434+00:00",
     "post_video_avg_time_watched": 3874
   },
   "1db197dd85cafe1436777479b4c249f20b0bc9ddd4c78c22c9cfa21579868d5b": {
     "video_id": "902051795928581",
-    "fetched_at": "2026-08-31T15:50:00.094281+00:00",
+    "fetched_at": "2026-09-01T13:02:34.333862+00:00",
     "post_video_avg_time_watched": 4186
   },
   "e8d9380e7ea120cdd36c0aa6978bc177bb00ec544c81991838838d3f6cdbeaa7": {
     "video_id": "2410848035987742",
-    "fetched_at": "2026-08-31T15:50:01.943466+00:00",
+    "fetched_at": "2026-09-01T13:02:35.831418+00:00",
     "post_video_avg_time_watched": 5707
   },
   "ebd40a43d9c761eb0d178ae7b9ff51a03d2a6856a20e7dd36983fdaf1036c770": {
     "video_id": "1634809391672674",
-    "fetched_at": "2026-08-31T15:50:03.596917+00:00",
+    "fetched_at": "2026-09-01T13:02:37.523224+00:00",
     "post_video_avg_time_watched": 2377
   },
   "744ae3538224a45413d87af933a801a3f6f1191f9ad1acc53f4d5725e3aaff1d": {
     "video_id": "1479175870922674",
-    "fetched_at": "2026-08-31T15:50:04.935790+00:00",
+    "fetched_at": "2026-09-01T13:02:38.694955+00:00",
     "post_video_avg_time_watched": 4331
   },
   "2079e83f1e2a4fb111487e9c0f9a05e4ab6bb44c2c24413cb3e19f56145b23bb": {
     "video_id": "1743691493574891",
-    "fetched_at": "2026-08-31T15:50:06.489009+00:00",
-    "post_video_avg_time_watched": 5046
+    "fetched_at": "2026-09-01T13:02:40.178145+00:00",
+    "post_video_avg_time_watched": 4886
+  },
+  "d612c5dc30b676be325e1a6d8c524afc13e73201471e8338f259ec00c939742d": {
+    "video_id": "872222205856076",
+    "fetched_at": "2026-09-01T13:02:42.153697+00:00",
+    "post_video_avg_time_watched": 0
   }
 }
