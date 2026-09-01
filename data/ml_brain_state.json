@@ -1,32 +1,32 @@
 {
-  "trained_at": "2026-08-31T23:47:07.876815+00:00",
+  "trained_at": "2026-09-01T22:36:16.456899+00:00",
   "models": {
     "views": {
       "trained": true,
-      "r2_cv": 0.668,
+      "r2_cv": 0.7661,
       "confidence": "medium",
-      "n": 32,
+      "n": 33,
       "best_model": "gradient_boosting_deep",
       "feature_importance": [
         {
           "feature": "topic_avg_views",
-          "importance": 0.9928192692407086
+          "importance": 0.9890867129083133
         },
         {
           "feature": "post_hour",
-          "importance": 0.0035620450561968616
-        },
-        {
-          "feature": "curiosity_gap_score",
-          "importance": 0.0009495459473466918
+          "importance": 0.004990501001938143
         },
         {
           "feature": "post_day_of_week",
-          "importance": 0.0005649149402314883
+          "importance": 0.0011624863892967007
         },
         {
-          "feature": "topic_avg_retention",
-          "importance": 0.0005222398867781031
+          "feature": "curiosity_gap_score",
+          "importance": 0.000874059371185798
+        },
+        {
+          "feature": "topic_recency_days",
+          "importance": 0.0007799670338446361
         }
       ]
     },
@@ -38,35 +38,35 @@
       "feature_importance": [
         {
           "feature": "topic_avg_retention",
-          "importance": 0.26566914111907386
+          "importance": 0.265669141123584
         },
         {
           "feature": "is_evening_us",
-          "importance": 0.09655285257613784
+          "importance": 0.09655285257777697
         },
         {
           "feature": "seo_score",
-          "importance": 0.07182495486270724
+          "importance": 0.07182495486392658
         },
         {
           "feature": "curiosity_gap_score",
-          "importance": 0.059157936373880934
+          "importance": 0.05915793637488523
         },
         {
           "feature": "has_body_word",
-          "importance": 0.058725823526620216
+          "importance": 0.058725823527617176
         }
       ]
     },
     "engagement": {
       "trained": true,
-      "r2_cv": 0.6164,
+      "r2_cv": 0.7347,
       "confidence": "medium"
     }
   },
   "data_health": {
-    "total_videos": 164,
-    "training_samples": 32,
+    "total_videos": 165,
+    "training_samples": 33,
     "has_retention_data": 26,
     "min_required": 15
   },
@@ -81,7 +81,7 @@
     "optimization_rules": [
       {
         "param": "curiosity_gap_score",
-        "importance": 0.0335,
+        "importance": 0.0334,
         "note": "Feature 'curiosity_gap_score' contributes 3.3% of prediction"
       },
       {

@@ -1,49 +1,49 @@
 {
-  "trained_at": "2026-08-31T23:47:09.130831+00:00",
+  "trained_at": "2026-09-01T22:36:17.936459+00:00",
   "trained": true,
-  "r2_cv": 0.668,
-  "n": 32,
+  "r2_cv": 0.7661,
+  "n": 33,
   "confidence": "medium",
   "feature_importance": [
     {
       "feature": "topic_avg_views",
-      "importance": 0.9928192692407086
+      "importance": 0.9890867129083133
     },
     {
       "feature": "post_hour",
-      "importance": 0.0035620450561968616
-    },
-    {
-      "feature": "curiosity_gap_score",
-      "importance": 0.0009495459473466918
+      "importance": 0.004990501001938143
     },
     {
       "feature": "post_day_of_week",
-      "importance": 0.0005649149402314883
+      "importance": 0.0011624863892967007
     },
     {
-      "feature": "topic_avg_retention",
-      "importance": 0.0005222398867781031
-    },
-    {
-      "feature": "is_weekend",
-      "importance": 0.00043375462557313914
+      "feature": "curiosity_gap_score",
+      "importance": 0.000874059371185798
     },
     {
       "feature": "topic_recency_days",
-      "importance": 0.000311250835084999
-    },
-    {
-      "feature": "channel_momentum",
-      "importance": 0.00030761758415826174
+      "importance": 0.0007799670338446361
     },
     {
       "feature": "title_uppercase_ratio",
-      "importance": 0.00023669296664700811
+      "importance": 0.0007269739060698026
+    },
+    {
+      "feature": "topic_avg_retention",
+      "importance": 0.0005602883513945502
+    },
+    {
+      "feature": "is_weekend",
+      "importance": 0.0005368263356548992
+    },
+    {
+      "feature": "channel_momentum",
+      "importance": 0.00048807687091836807
     },
     {
       "feature": "starts_with_why",
-      "importance": 9.047788558797034e-05
+      "importance": 0.00018796576141493848
     }
   ],
   "features": [
@@ -75,11 +75,11 @@
     "trend_from_youtube"
   ],
   "weights": {
-    "random_forest": 0.2671,
-    "gradient_boosting": 0.2742,
-    "extra_trees": 0.1646,
-    "ridge": 0.0188,
-    "gradient_boosting_deep": 0.2754
+    "random_forest": 0.2517,
+    "gradient_boosting": 0.2865,
+    "extra_trees": 0.1535,
+    "ridge": 0.0169,
+    "gradient_boosting_deep": 0.2914
   },
   "best_model": "gradient_boosting_deep"
 }
