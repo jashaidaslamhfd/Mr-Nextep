@@ -33,9 +33,9 @@
   },
   {
     "vid_id": "b2c85d7076c436a3",
-    "predicted": 27.65,
+    "predicted": 26.85,
     "actual": 65.07,
-    "error": 37.42,
+    "error": 38.22,
     "views": 7,
     "completion": 1.5
   },
@@ -49,17 +49,17 @@
   },
   {
     "vid_id": "f44f38c2592c6429",
-    "predicted": 27.65,
+    "predicted": 26.85,
     "actual": 13.37,
-    "error": 14.28,
+    "error": 13.48,
     "views": 1,
     "completion": 0.0674
   },
   {
     "vid_id": "22f3a16d7319de4b",
-    "predicted": 36.0,
+    "predicted": 33.74,
     "actual": 64.19,
-    "error": 28.19,
+    "error": 30.45,
     "views": 5,
     "completion": 1.0211
   },
@@ -73,67 +73,67 @@
   },
   {
     "vid_id": "e7ac0786668e0ff0",
-    "predicted": 33.47,
+    "predicted": 32.22,
     "actual": 57.4,
-    "error": 23.93,
+    "error": 25.18,
     "views": 333,
     "completion": 0.6454
   },
   {
     "vid_id": "53556913df06b844",
-    "predicted": 36.0,
+    "predicted": 33.74,
     "actual": 13.33,
-    "error": 22.67,
+    "error": 20.41,
     "views": 1,
     "completion": 0.0666
   },
   {
     "vid_id": "e873115c394c7746",
-    "predicted": 27.65,
+    "predicted": 26.85,
     "actual": 17.05,
-    "error": 10.6,
+    "error": 9.8,
     "views": 1,
     "completion": 0.1411
   },
   {
     "vid_id": "5f12c372a4f1a1c8",
-    "predicted": 30.51,
+    "predicted": 30.11,
     "actual": 13.33,
-    "error": 17.18,
+    "error": 16.78,
     "views": 1,
     "completion": 0.0666
   },
   {
     "vid_id": "a1d6b5c4157c9fb7",
-    "predicted": 27.65,
+    "predicted": 26.85,
     "actual": 13.33,
-    "error": 14.32,
+    "error": 13.52,
     "views": 1,
     "completion": 0.0666
   },
   {
     "vid_id": "842f2b0c8b12dcb2",
-    "predicted": 25.34,
+    "predicted": 24.66,
     "actual": 23.76,
-    "error": 1.57,
+    "error": 0.9,
     "views": 5,
     "completion": 0.1914
   },
   {
     "vid_id": "76b02af055c81a6b",
-    "predicted": 36.33,
+    "predicted": 35.48,
     "actual": 35.75,
-    "error": 0.58,
+    "error": 0.27,
     "views": 4,
     "completion": 0.4428
   },
   {
     "vid_id": "9963ef33654989b167393b3bec2616c2106879bab003bb09d3b537edd01de591",
     "predicted": 100,
-    "actual": 35.75,
-    "error": 64.25,
-    "views": 4,
-    "completion": 0.4428
+    "actual": 13.71,
+    "error": 86.29,
+    "views": 1,
+    "completion": 0.0741
   },
   {
     "vid_id": "81677eec039429f24c89e425814cc54379e7d25d0fd42b7614160304bf883370",
@@ -145,9 +145,9 @@
   },
   {
     "vid_id": "df09b7c4e0c6246b",
-    "predicted": 33.47,
+    "predicted": 32.22,
     "actual": 29.62,
-    "error": 3.85,
+    "error": 2.6,
     "views": 4,
     "completion": 0.3202
   },
@@ -162,10 +162,10 @@
   {
     "vid_id": "dc7b3440077a981e8c666562fefe7e35c0358932d69c882a906c9619065d2483",
     "predicted": 100,
-    "actual": 43.82,
-    "error": 56.18,
+    "actual": 13.33,
+    "error": 86.67,
     "views": 1,
-    "completion": 0.6764
+    "completion": 0.0666
   },
   {
     "vid_id": "9e3935b7f560bb42535357d54571e06bfed888ae126f9807b50bb95024a90eca",
@@ -185,25 +185,25 @@
   },
   {
     "vid_id": "29fcee8530df28c6",
-    "predicted": 27.65,
+    "predicted": 26.85,
     "actual": 64.19,
-    "error": 36.54,
+    "error": 37.34,
     "views": 5,
     "completion": 1.0211
   },
   {
     "vid_id": "ccb244db654ceb40",
-    "predicted": 27.65,
+    "predicted": 26.85,
     "actual": 17.05,
-    "error": 10.6,
+    "error": 9.8,
     "views": 1,
     "completion": 0.1411
   },
   {
     "vid_id": "cb3c7a96b7d5cf8c",
-    "predicted": 27.65,
+    "predicted": 26.85,
     "actual": 13.33,
-    "error": 14.32,
+    "error": 13.52,
     "views": 1,
     "completion": 0.0666
   },
@@ -258,9 +258,9 @@
   {
     "vid_id": "744ae3538224a45413d87af933a801a3f6f1191f9ad1acc53f4d5725e3aaff1d",
     "predicted": 100,
-    "actual": 37.29,
-    "error": 62.71,
-    "views": 68,
-    "completion": 0.3259
+    "actual": 38.09,
+    "error": 61.91,
+    "views": 69,
+    "completion": 0.3411
   }
 ]
