@@ -1,49 +1,49 @@
 {
-  "trained_at": "2026-09-01T22:36:17.936459+00:00",
+  "trained_at": "2026-09-02T20:50:31.792045+00:00",
   "trained": true,
-  "r2_cv": 0.7661,
+  "r2_cv": 0.7648,
   "n": 33,
   "confidence": "medium",
   "feature_importance": [
     {
       "feature": "topic_avg_views",
-      "importance": 0.9890867129083133
+      "importance": 0.9887494447245315
     },
     {
       "feature": "post_hour",
-      "importance": 0.004990501001938143
-    },
-    {
-      "feature": "post_day_of_week",
-      "importance": 0.0011624863892967007
-    },
-    {
-      "feature": "curiosity_gap_score",
-      "importance": 0.000874059371185798
-    },
-    {
-      "feature": "topic_recency_days",
-      "importance": 0.0007799670338446361
-    },
-    {
-      "feature": "title_uppercase_ratio",
-      "importance": 0.0007269739060698026
-    },
-    {
-      "feature": "topic_avg_retention",
-      "importance": 0.0005602883513945502
-    },
-    {
-      "feature": "is_weekend",
-      "importance": 0.0005368263356548992
+      "importance": 0.005037606347106213
     },
     {
       "feature": "channel_momentum",
-      "importance": 0.00048807687091836807
+      "importance": 0.0010797374605719583
     },
     {
-      "feature": "starts_with_why",
-      "importance": 0.00018796576141493848
+      "feature": "post_day_of_week",
+      "importance": 0.0009238313126837219
+    },
+    {
+      "feature": "curiosity_gap_score",
+      "importance": 0.0008522745646405688
+    },
+    {
+      "feature": "topic_avg_retention",
+      "importance": 0.0007999763000483626
+    },
+    {
+      "feature": "title_uppercase_ratio",
+      "importance": 0.0007429216603335633
+    },
+    {
+      "feature": "topic_recency_days",
+      "importance": 0.000718305025785761
+    },
+    {
+      "feature": "is_weekend",
+      "importance": 0.00045532690246375237
+    },
+    {
+      "feature": "duration_seconds",
+      "importance": 0.0002268723957334407
     }
   ],
   "features": [
@@ -75,11 +75,11 @@
     "trend_from_youtube"
   ],
   "weights": {
-    "random_forest": 0.2517,
-    "gradient_boosting": 0.2865,
-    "extra_trees": 0.1535,
-    "ridge": 0.0169,
-    "gradient_boosting_deep": 0.2914
+    "random_forest": 0.2529,
+    "gradient_boosting": 0.2893,
+    "extra_trees": 0.1482,
+    "ridge": 0.017,
+    "gradient_boosting_deep": 0.2925
   },
   "best_model": "gradient_boosting_deep"
 }
