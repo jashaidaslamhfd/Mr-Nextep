@@ -1,5 +1,5 @@
 {
-  "trained_at": "2026-09-02T20:50:31.792045+00:00",
+  "trained_at": "2026-09-02T23:02:41.501907+00:00",
   "trained": true,
   "r2_cv": 0.7648,
   "n": 33,
@@ -75,11 +75,11 @@
     "trend_from_youtube"
   ],
   "weights": {
-    "random_forest": 0.2529,
-    "gradient_boosting": 0.2893,
-    "extra_trees": 0.1482,
+    "random_forest": 0.2531,
+    "gradient_boosting": 0.2895,
+    "extra_trees": 0.1476,
     "ridge": 0.017,
-    "gradient_boosting_deep": 0.2925
+    "gradient_boosting_deep": 0.2927
   },
   "best_model": "gradient_boosting_deep"
 }

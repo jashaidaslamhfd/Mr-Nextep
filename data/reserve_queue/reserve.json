@@ -58,5 +58,17 @@
     },
     "added_at": "2026-08-28T17:12:42.082511+00:00",
     "tier": 2
+  },
+  {
+    "topic": "Compliant Short",
+    "title": "Compliant Short",
+    "hook_score": 0,
+    "quality_score": 0,
+    "script_data": {
+      "topic": "Compliant Short",
+      "title": "Compliant Short"
+    },
+    "added_at": "2026-09-02T23:02:18.368145+00:00",
+    "tier": 2
   }
 ]

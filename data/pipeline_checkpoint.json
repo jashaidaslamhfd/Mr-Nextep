@@ -1,7 +1,8 @@
 {
-  "stage": "script_generation",
-  "status": "completed",
-  "updated_at": "2026-09-02T21:23:13.912158+00:00",
-  "run_id": "33681194643",
-  "elapsed_seconds": 142.72
+  "stage": "master_render_and_gates",
+  "status": "failed",
+  "updated_at": "2026-09-02T23:33:18.132331+00:00",
+  "run_id": "33690719613",
+  "reason": "Narration is 32.9s; refusing destructive speed-up. Regenerate a script that fits the 25s target.",
+  "elapsed_seconds": 283.14
 }

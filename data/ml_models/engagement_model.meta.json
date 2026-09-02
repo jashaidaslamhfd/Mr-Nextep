@@ -1,7 +1,7 @@
 {
-  "trained_at": "2026-09-02T20:50:33.995370+00:00",
+  "trained_at": "2026-09-02T23:02:43.721858+00:00",
   "trained": true,
-  "r2_cv": 0.7924,
+  "r2_cv": 0.7923,
   "n": 33,
   "confidence": "medium",
   "feature_importance": [
