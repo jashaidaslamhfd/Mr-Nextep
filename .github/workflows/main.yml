@@ -13,9 +13,8 @@ on:
         type: string
         default: ""
   schedule:
-    # Heatmap is in PKT (GMT+5). Peak band is roughly 18:00–22:00 PKT.
-    # Two daily publish peaks from the supplied heatmap, in PKT.
-    # Sun/Sat 19:00 + 21:00; Mon–Thu 20:00 + 22:00; Fri 21:00 + 23:00.
+    # US audience is 64.7% of views. Converted peak windows are US Eastern:
+    # Sun/Sat 10:00 + 12:00; Mon–Thu 11:00 + 13:00; Fri 12:00 + 14:00.
     # Start two hours before each publish peak so generation and validation
     # finish before the private video is scheduled. Cron is UTC.
     - cron: "0 12 * * 0"

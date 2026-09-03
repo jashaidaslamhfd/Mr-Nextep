@@ -18,16 +18,16 @@ def upload(video: Path, script: dict[str, Any], settings: Settings) -> dict[str,
     seo = build_packages(script)["youtube"]
     status: dict[str, object] = {"privacyStatus": "private", "selfDeclaredMadeForKids": False}
     if settings.schedule_publish:
-        # Heatmap display is the operator's PKT local time. Schedule at the
-        # selected daily peak, not merely at the workflow start time.
-        local_zone = ZoneInfo("Asia/Karachi")
+        # The channel is US-first (64.7% US viewers in the supplied analytics).
+        # The supplied PKT heatmap converts to these US Eastern peak hours.
+        local_zone = ZoneInfo("America/New_York")
         now_local = datetime.now(UTC).astimezone(local_zone)
-        peak_hours = {0: (20, 22), 1: (20, 22), 2: (20, 22), 3: (20, 22), 4: (21, 23), 5: (19, 21), 6: (19, 21)}[now_local.weekday()]
+        peak_hours = {0: (11, 13), 1: (11, 13), 2: (11, 13), 3: (11, 13), 4: (12, 14), 5: (10, 12), 6: (10, 12)}[now_local.weekday()]
         targets = [now_local.replace(hour=hour, minute=0, second=0, microsecond=0) for hour in peak_hours]
         target = next((item for item in targets if item > now_local), None)
         if target is None:
             next_day = now_local + timedelta(days=1)
-            next_hours = {0: (20, 22), 1: (20, 22), 2: (20, 22), 3: (20, 22), 4: (21, 23), 5: (19, 21), 6: (19, 21)}[next_day.weekday()]
+            next_hours = {0: (11, 13), 1: (11, 13), 2: (11, 13), 3: (11, 13), 4: (12, 14), 5: (10, 12), 6: (10, 12)}[next_day.weekday()]
             target = next_day.replace(hour=next_hours[0], minute=0, second=0, microsecond=0)
         status["publishAt"] = target.astimezone(UTC).isoformat().replace("+00:00", "Z")
     result = youtube.videos().insert(part="snippet,status", body={"snippet": {"title": seo["title"], "description": seo["description"][:5000], "tags": seo["tags"], "categoryId": "28", "defaultLanguage": "en", "defaultAudioLanguage": "en"}, "status": status}, media_body=MediaFileUpload(str(video), mimetype="video/mp4", resumable=True)).execute()
