@@ -1,0 +1,28 @@
+name: Publish existing Short to Instagram
+on:
+  workflow_dispatch:
+    inputs:
+      public_video_url:
+        description: Public HTTPS MP4 URL
+        required: true
+        type: string
+      instagram_caption:
+        description: Instagram Reel caption
+        required: true
+        type: string
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      PUBLIC_VIDEO_URL: ${{ inputs.public_video_url }}
+      INSTAGRAM_CAPTION: ${{ inputs.instagram_caption }}
+      INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
+      FACEBOOK_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
+      INSTAGRAM_PROCESSING_WAIT_SECONDS: "60"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: pip install -r requirements.txt
+      - run: python scripts/publish_instagram.py
