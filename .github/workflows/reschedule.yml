@@ -1,0 +1,27 @@
+name: Reschedule YouTube Short
+on:
+  workflow_dispatch:
+    inputs:
+      video_id:
+        description: YouTube video ID
+        required: true
+        type: string
+      publish_at:
+        description: Publication time in ISO-8601 UTC
+        required: true
+        type: string
+jobs:
+  reschedule:
+    runs-on: ubuntu-latest
+    env:
+      VIDEO_ID: ${{ inputs.video_id }}
+      PUBLISH_AT: ${{ inputs.publish_at }}
+      GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+      GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+      REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: pip install -r requirements.txt
+      - run: python scripts/reschedule_video.py
