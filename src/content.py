@@ -1,5 +1,6 @@
 from __future__ import annotations
 import json, os
+from urllib.request import Request, urlopen
 from typing import Any
 from config import Settings
 
@@ -21,6 +22,31 @@ def choose_topic(settings: Settings) -> str:
     path.write_text(json.dumps(index + 1))
     return TOPICS[index % len(TOPICS)]
 
+SYSTEM_PROMPT = """You write US-English dark-science YouTube Shorts for Mr-Nextep.
+Return JSON only with title, description, tags, and exactly 8 scenes.
+Rules: target 15-24 seconds; hook viewers in the first 2 seconds; one surprising,
+credible idea per video; every scene must advance the explanation; use short spoken
+sentences; make each caption readable as one-word-at-a-time animation; create a
+strong curiosity loop-back ending; never use clickbait claims, medical promises,
+engagement bait, emojis, filler intros, logos, or repeated wording. Avoid any topic
+or angle that is a duplicate of the supplied topic. Do not invent citations.
+Each scene must contain caption and narration strings. Caption text should be brief.
+"""
+
 def generate_script(topic: str, settings: Settings) -> dict[str, Any]:
-    # Deterministic fallback keeps production available when an LLM provider is unavailable.
-    return fallback(topic)
+    key = os.getenv("GROQ_API_KEY")
+    if not key:
+        return fallback(topic)
+    payload = {"model": os.getenv("GROQ_MODEL", "llama-3.1-8b-instant"), "temperature": 0.75, "messages": [{"role": "system", "content": SYSTEM_PROMPT}, {"role": "user", "content": f"Create one original Short about: {topic}"}], "response_format": {"type": "json_object"}}
+    try:
+        request = Request("https://api.groq.com/openai/v1/chat/completions", data=json.dumps(payload).encode(), headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"}, method="POST")
+        with urlopen(request, timeout=30) as response:
+            data = json.loads(response.read().decode())
+        result = json.loads(data["choices"][0]["message"]["content"])
+        scenes = result.get("scenes", [])
+        if not result.get("title") or len(scenes) != 8 or any(not s.get("caption") or not s.get("narration") for s in scenes):
+            raise ValueError("LLM output failed the eight-scene schema")
+        return result
+    except Exception:
+        # Provider failure never blocks a safe run; the deterministic script still passes local gates.
+        return fallback(topic)
