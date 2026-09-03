@@ -4,6 +4,8 @@ Mr-Nextep is a clean US-English YouTube Shorts automation pipeline for dark scie
 
 When Meta credentials are available, the same video is posted to Facebook first and Instagram after a **10-minute gap**. Instagram requires a publicly reachable HTTPS video URL (`PUBLIC_VIDEO_URL`); if it is unavailable, the pipeline records a safe skip instead of reporting a false post. Facebook and Instagram keep the same US-English content and duration policy as YouTube.
 
+Metadata is now platform-specific: YouTube receives a search-oriented title, tags, and Shorts hashtags; Facebook receives a discussion-oriented title and description; Instagram receives a concise Reels caption with a separate hashtag set. The video itself is shared, but SEO text is not copied across platforms.
+
 ## Retention and originality gates
 
 The system cannot honestly guarantee that viewers will watch 70% of every video; actual retention is determined by the audience and YouTube distribution. It does enforce a **70%+ pre-publication retention proxy** based on short length, eight-scene structure, and hook shape. After publication, real YouTube retention is used for strategy decisions. Exact and near-duplicate scripts are rejected with a persistent content fingerprint and token-similarity check.
