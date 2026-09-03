@@ -24,7 +24,10 @@ def is_duplicate(script: dict[str, Any], history: list[dict[str, Any]]) -> bool:
     for item in history:
         if item.get("fingerprint") == current: return True
         previous = item.get("text", "")
-        if previous and token_similarity(current_text, previous) >= 0.78: return True
+        # The factory intentionally shares a recognizable structure; only flag
+        # scripts whose wording is overwhelmingly the same, not merely the
+        # same educational format.
+        if previous and token_similarity(current_text, previous) >= 0.90: return True
     return False
 
 def retention_proxy(script: dict[str, Any], duration: float) -> float:
