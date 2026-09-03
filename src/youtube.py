@@ -20,9 +20,13 @@ def upload(video: Path, script: dict[str, Any], settings: Settings) -> dict[str,
         # selected daily peak, not merely at the workflow start time.
         local_zone = ZoneInfo("Asia/Karachi")
         now_local = datetime.now(UTC).astimezone(local_zone)
-        peak_hour = {0: 20, 1: 20, 2: 20, 3: 20, 4: 21, 5: 19, 6: 19}[now_local.weekday()]
-        target = now_local.replace(hour=peak_hour, minute=0, second=0, microsecond=0)
-        if target <= now_local: target += timedelta(days=1)
+        peak_hours = {0: (20, 22), 1: (20, 22), 2: (20, 22), 3: (20, 22), 4: (21, 23), 5: (19, 21), 6: (19, 21)}[now_local.weekday()]
+        targets = [now_local.replace(hour=hour, minute=0, second=0, microsecond=0) for hour in peak_hours]
+        target = next((item for item in targets if item > now_local), None)
+        if target is None:
+            next_day = now_local + timedelta(days=1)
+            next_hours = {0: (20, 22), 1: (20, 22), 2: (20, 22), 3: (20, 22), 4: (21, 23), 5: (19, 21), 6: (19, 21)}[next_day.weekday()]
+            target = next_day.replace(hour=next_hours[0], minute=0, second=0, microsecond=0)
         status["publishAt"] = target.astimezone(UTC).isoformat().replace("+00:00", "Z")
     result = youtube.videos().insert(part="snippet,status", body={"snippet": {"title": script["title"][:100], "description": script["description"][:5000], "tags": script.get("tags", []), "categoryId": "28", "defaultLanguage": "en", "defaultAudioLanguage": "en"}, "status": status}, media_body=MediaFileUpload(str(video), mimetype="video/mp4", resumable=True)).execute()
     return {"status": "uploaded", "youtube_video_id": result["id"], "url": f"https://youtu.be/{result['id']}"}

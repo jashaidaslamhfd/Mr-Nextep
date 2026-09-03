@@ -8,7 +8,7 @@ The system cannot honestly guarantee that viewers will watch 70% of every video;
 
 ## Daily schedule
 
-GitHub Actions runs twice daily at **16:40 UTC** and **22:10 UTC**. These are approximately **12:40 PM and 6:10 PM America/New_York**, with daylight-saving changes handled by the publication timestamp strategy. Each scheduled run selects a topic, renders one video, and schedules it approximately 15 minutes after upload. This review window can be changed in `src/youtube.py`.
+GitHub Actions runs twice daily in the supplied heatmap's peak band. Sunday/Saturday publish at **19:00 and 21:00 PKT**, Monday–Thursday at **20:00 and 22:00 PKT**, and Friday at **21:00 and 23:00 PKT**. Each run starts about one hour before its target, selects a topic, renders one video, and sets the exact YouTube `publishAt` time. The screenshot's PKT display is used as the scheduling reference; the channel target remains US viewers.
 
 ## Run locally
 
