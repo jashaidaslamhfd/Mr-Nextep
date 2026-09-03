@@ -1,6 +1,0 @@
-{
-  "failed_at": "2026-09-02T23:33:18.130669+00:00",
-  "reason": "Narration is 32.9s; refusing destructive speed-up. Regenerate a script that fits the 25s target.",
-  "stage": "master_render_and_gates",
-  "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Mr-Nextep/Mr-Nextep/src/main.py\", line 1556, in run_pipeline\n    final_video = build_video(\n                  ^^^^^^^^^^^^\n  File \"/home/runner/work/Mr-Nextep/Mr-Nextep/src/video_editor.py\", line 905, in build_video\n    raise RuntimeError(\nRuntimeError: Narration is 32.9s; refusing destructive speed-up. Regenerate a script that fits the 25s target.\n"
-}

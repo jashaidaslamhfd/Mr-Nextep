@@ -1,443 +1,55 @@
-name: "MrNextep - YouTube Shorts Automation (US)"
-
+name: Mr-Nextep Shorts Factory
 on:
   workflow_dispatch:
     inputs:
-      topic:
-        description: "Optional video topic (empty = next Body Glitch episode)"
-        required: false
-        type: string
       dry_run:
-        description: "Dry run: generate the video but skip all uploads"
-        required: false
+        description: Generate without YouTube upload
+        required: true
         type: boolean
-        default: false
-      recover_run_id:
-        description: "Optional failed run ID: recover only its missing YouTube upload"
+        default: true
+      topic:
+        description: Optional US-English dark-science topic
         required: false
         type: string
         default: ""
   schedule:
-    # US evening prime time: 7:00 PM ET publish slot. Pipeline triggers at
-    # 8:00 PM UTC (= 3:00 PM ET / 1:00 AM+1 PKT) for a ~4h buffer before
-    # the video goes live. The publishAt is DST-aware (scheduler).
-    - cron: "0 20 * * *"
-
+    - cron: "40 16 * * *"
+    - cron: "10 22 * * *"
 permissions:
-  actions: read
   contents: write
-
 concurrency:
-  # Shared with analytics.yml so publication and learning runs never mutate
-  # data/ concurrently or overwrite each other's state.
-  group: skillor-channel-state
+  group: mr-nextep-production
   cancel-in-progress: false
-
 jobs:
-  generate-and-upload:
+  production:
     runs-on: ubuntu-latest
-    timeout-minutes: 200
-
+    timeout-minutes: 20
+    env:
+      CHANNEL_LANGUAGE: en-US
+      PUBLISH_TIMEZONE: America/New_York
+      YT_PRIVACY_STATUS: private
+      YT_SCHEDULE_PUBLISH: "true"
+      DRY_RUN: ${{ inputs.dry_run || 'false' }}
+      VIDEO_TOPIC: ${{ inputs.topic || '' }}
+      GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+      OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+      GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+      GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+      REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up Python 3.11
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-          cache: "pip"
-          cache-dependency-path: requirements.txt
-
-      - name: Cache TTS model downloads
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/.cache/huggingface
-            ~/.cache/torch
-          key: skillor-tts-models-${{ runner.os }}-${{ hashFiles('requirements.txt') }}-v3
-          restore-keys: |
-            skillor-tts-models-${{ runner.os }}-
-
-      - name: Install system dependencies
-        shell: bash
-        run: |
-          set -euo pipefail
-          sudo apt-get update
-          sudo apt-get install -y --no-install-recommends ffmpeg fonts-dejavu-core espeak-ng
-          python -m pip install --upgrade pip setuptools wheel
-          installed=false
-          for i in 1 2 3; do
-            if python -m pip install -r requirements.txt; then
-              installed=true
-              break
-            fi
-            echo "Install retry $i"
-            sleep $((i * 15))
-          done
-          if [ "$installed" != true ]; then
-            echo "::error::Core dependency installation failed after 3 attempts"
-            exit 1
-          fi
-          # 2026-08-19: Chatterbox is now the PRIMARY engine (TTS_ENGINE=chatterbox).
-          # Its heavy deps live in requirements-optional.txt (lazy imports); a
-          # kokoro-only run never needed them, but the real-narrator path does.
-          # Always try to install optional deps for voice quality
-          if [ -f requirements-optional.txt ]; then
-            optional_installed=false
-            for i in 1 2 3; do
-              if python -m pip install -r requirements-optional.txt; then
-                optional_installed=true
-                break
-              fi
-              echo "Optional-deps install retry $i (attempt $i/3)"
-              sleep $((i * 15))
-            done
-            if [ "$optional_installed" != true ]; then
-              echo "::warning::Optional deps install failed - voice quality may be reduced"
-            fi
-          fi
-
-      - name: Run offline quality regression tests
-        shell: bash
-        run: |
-          set -euo pipefail
-          python scripts/generate_body_glitch_topics.py
-          python scripts/generate_mystery_music.py
-          python -m compileall -q src scripts tests
-          python -m unittest discover -s tests -v
-
-      - name: Validate required secrets
-        shell: bash
-        env:
-          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
-          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
-          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
-          REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
-          FB_UPLOAD_ENABLED: "true"
-          FACEBOOK_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID }}
-          FACEBOOK_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
-          INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
-          IG_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
-          IG_UPLOAD_ENABLED: "true"
-        run: |
-          set -euo pipefail
-          echo "Checking required secrets..."
-          missing=0
-          [ -z "${GROQ_API_KEY:-}" ] && { echo "::error::GROQ_API_KEY missing"; missing=1; }
-          [ -z "${OPENROUTER_API_KEY:-}" ] && { echo "::warning::OPENROUTER_API_KEY missing — no LLM backup when Groq TPD exhausts (add secret OPENROUTER_API_KEY)"; }
-          for var in GOOGLE_CLIENT_ID GOOGLE_CLIENT_SECRET REFRESH_TOKEN; do
-            [ -z "${!var:-}" ] && { echo "::error::$var missing"; missing=1; }
-          done
-          if [ "${FB_UPLOAD_ENABLED,,}" = "true" ]; then
-            [ -z "$FACEBOOK_PAGE_ID" ] || [ -z "$FACEBOOK_ACCESS_TOKEN" ] && { echo "::error::FB secrets missing"; missing=1; }
-          fi
-          if [ "${IG_UPLOAD_ENABLED,,}" = "true" ]; then
-            [ -z "$INSTAGRAM_USER_ID" ] || [ -z "$IG_ACCESS_TOKEN" ] && { echo "::error::Instagram secrets missing"; missing=1; }
-          fi
-          exit "$missing"
-
-      - name: Recover missing YouTube upload from a partial run
-        if: ${{ github.event_name == 'workflow_dispatch' && inputs.recover_run_id != '' }}
-        shell: bash
-        env:
-          GH_TOKEN: ${{ github.token }}
-          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
-          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
-          REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
-          YT_PRIVACY_STATUS: "private"
-          YT_SCHEDULE_PUBLISH: "true"
-          YT_HTTP_TIMEOUT: "300"
-          YT_UPLOAD_ENABLED: "true"
-          PYTHONUNBUFFERED: "1"
-        run: |
-          set -euo pipefail
-          run_id="${{ inputs.recover_run_id }}"
-          artifact_dir="/tmp/recovery-${run_id}"
-          rm -rf "$artifact_dir"
-          mkdir -p "$artifact_dir"
-          gh run download "$run_id" --repo "${{ github.repository }}" \
-            --name "skillor-run-${run_id}" --dir "$artifact_dir"
-          python scripts/recover_youtube_upload.py \
-            --artifact-dir "$artifact_dir" \
-            --expected-run-id "$run_id"
-          cp "$artifact_dir/data/upload_state.json" data/upload_state.json
-          cp "$artifact_dir/data/video_history.json" data/video_history.json
-
-      - name: Generate and upload Short
-        if: ${{ github.event_name != 'workflow_dispatch' || inputs.recover_run_id == '' }}
-        shell: bash
-        env:
-          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
-          # 2026-08-16: Groq free tier burns its daily token pool (TPD) early
-          # every day; OpenRouter is the backup LLM so a TPD-exhaustion can't
-          # kill the whole run. Only used when Groq fails — free models.
-          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-          TREND_REGION: "US"
-          YOUTUBE_REGION_CODE: "US"
-          CHANNEL_LANGUAGE: "en-US"
-          # YouTube Studio winners are everyday body phenomena (brain freeze,
-          # cold hands, taste sensation, cold nose, knee cracking). Start the
-          # next learning cycle in this proven, low-risk family; the strategy
-          # engine may still pivot later when mature completion data earns it.
-          CONTENT_SERIES: "body_glitches"
-          TOPIC_STRATEGY: "body_glitch_series"
-          # 2026-08 retention-first pass: kill the emoji-title machine template
-          # ("Why Your X 🫀" on 100+ videos) that 2026 template-detection
-          # systems demote. Clean curiosity-question titles from here on.
-          TITLE_EMOJI_OFF: "true"
-          # 2026-08-15 Trend-Spiker overlay: every run scans public trend
-          # feeds (Google Trends RSS + YouTube trending page, no keys). An
-          # on-brand demand spike confirmed by 2+ independent signals
-          # overrides this single slot's queue topic; otherwise the curated
-          # series queue is used as usual.
-          TREND_SPIKER_ENABLED: "true"
-          # 2026-08-19: real-narrator voice everywhere. Chatterbox is the primary
-          # engine (adult-only voice filter + -4.0st pitch deepening in
-          # voice_generator.py); Kokoro stays as the per-segment fallback when
-          # a Chatterbox call fails. This mirrors Neuro-Somaa's proven setup.
-          TTS_ENGINE: "chatterbox"
-          KOKORO_LANG_CODE: "a"
-          KOKORO_VOICE: "am_adam"
-          # 2026-08 humanization: rotate the narrator per topic so the channel
-          # does not sound like one frozen machine voice (5 male + 5 female EN
-          # voices, seeded per topic — same topic keeps its narrator).
-          VOICE_ROTATE: "auto"
-          AI_HORDE_API_KEY: ${{ secrets.AI_HORDE_API_KEY }}
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          HF_API_KEY: ${{ secrets.HF_API_KEY }}
-          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
-          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
-          REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
-          YT_MADE_FOR_KIDS: "false"
-          YT_PLAYLIST_ENABLED: "true"
-          YT_PRIVACY_STATUS: "private"
-          YT_SCHEDULE_PUBLISH: "true"
-          ENFORCE_POSTING_GAP: "true"
-          FB_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
-          FB_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID }}
-          FB_UPLOAD_ENABLED: "true"
-          # Meta timing: all platforms publish at 7:00 PM ET (US evening prime
-          # time — peak viewership). Facebook stagger is minimal.
-          FB_STAGGER_MINUTES: "10"
-          IG_UPLOAD_ENABLED: "true"
-          # media_publish has no scheduling parameter; hold the ready container
-          # until the shared 7:00 PM ET slot when it is within the safe cap.
-          IG_WAIT_FOR_SLOT: "true"
-          IG_MAX_WAIT_MINUTES: "150"
-          INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
-          IG_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
-          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
-          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
-          # 2026-08-17: Pollinations key enables the AI image-to-video layer —
-          # each unique scene image becomes a real 4s Seedance 2.5 motion clip
-          # (true image-to-video: the rendered image is frame 1). Free Pollen
-          # starter credits from https://enter.pollinations.ai/keys.
-          POLLINATIONS_KEY: ${{ secrets.POLLINATIONS_KEY }}
-          # Production latency budget: motion is reserved for the hook, while
-          # the normal image/provider fallback chain remains available for all
-          # other scenes. A provider that does not finish quickly yields to the
-          # next provider instead of consuming the whole Actions job.
-          AI_VIDEO_SCENES: "1"
-          POLLINATIONS_VIDEO_TIMEOUT: "45"
-          AI_HORDE_MAX_WAIT: "60"
-          YT_HTTP_TIMEOUT: "300"
-          PIPELINE_ATTEMPT_TIMEOUT_MINUTES: "35"
-          PIPELINE_CHECKPOINT_PATH: "data/pipeline_checkpoint.json"
-          # 2026-08-21: stock B-roll quality floor. Clips below this width are
-          # rejected (they blur on the 1080x1920 canvas); landscape files are
-          # also rejected so the 9:16 crop keeps the full width.
-          MIN_STOCK_CLIP_WIDTH: "720"
-          MIN_IMAGE_STRICT: "true"
-          META_CUT_ENABLED: "true"
-          # Force a shorter Facebook/Instagram cut to lift completion. Measured
-          # Meta completion was 19-24% vs a 70%+ gate on a ~23s cut (avg watch
-          # 2.6-7.5s). Completion = watch / length, so length is the free lever.
-          # 18 was previously pinned AT the policy floor and therefore did
-          # nothing; the floor is now 12s (see algorithm_policy.py) and 14s is
-          # the data-backed target: 7.5s / 14s = 54% vs 42% at 18s.
-          META_TARGET_SECONDS: "14"
-          SPOKEN_CTA_MODE: "loop"
-          # Balanced quality gate: lower the score floors slightly so viable
-          # scripts are not discarded for borderline retention scores. Hard
-          # structural, spam, medical, source, and US-safety gates remain active.
-          QUALITY_GATE_MODE: "balanced"
-          QUALITY_APPROVAL_THRESHOLD: "55"
-          MIN_HOOK_SCORE: "75"
-          # Regenerate safe pre-upload failures in the same scheduled run;
-          # upload-side failures remain fail-closed to prevent duplicates. Two
-          # in-process retries avoid multiplying expensive renders inside each
-          # bounded workflow attempt.
-          MAX_GUARD_RETRIES: "2"
-          # A completely missed safe slot must trigger the outer job retry;
-          # local/manual runs keep the graceful default.
-          FAIL_ON_MISSED_SLOT: "true"
-          REQUIRE_CLONED_VOICE: "false"
-          MUSIC_VOLUME: "0.18"
-          MODELSLAB_API_KEY: ${{ secrets.MODELSLAB_API_KEY }}
-          # 2026-08-21: unique AI-generated viral dark-mystery BGM per video
-          # (music_generator.py via ModelsLab). Same fix that lifted Neuro-Somaa's
-          # flat music. Falls back to synth/asset tracks on any failure — never
-          # blocks a run. Disable with MR_VIRAL_BGM=false.
-          MR_VIRAL_BGM: "true"
-          VIDEO_TOPIC: ${{ inputs.topic || '' }}
-          # Manual dry-run support: generate the full video but never publish.
-          # On a dry run the uploader skips YouTube/Facebook/Instagram and the
-          # final MP4 stays in the runner workspace for inspection.
-          DRY_RUN: ${{ inputs.dry_run == true && 'true' || 'false' }}
-          # Production workflow must actually call platform APIs. The code
-          # defaults PUBLISH_MODE to draft for safe local runs; leaving this
-          # unset made successful Actions runs produce no YouTube upload.
-          PUBLISH_MODE: ${{ inputs.dry_run == true && 'draft' || 'publish' }}
-          # 2026-08-15: 8B hooks were the quality ceiling. 70B+ class writes
-          # noticeably stronger hooks/titles (2026 feeds rank hook quality
-          # hard). Groq's GPT-OSS 120B is the strongest free-tier model and
-          # the account's live /models list is probed at runtime so a retired
-          # id (e.g. llama-3.1-70b-instruct, 404'd Aug 14) can never stall
-          # the whole run again.
-          # The code probes Groq's live model list and filters for supported
-          # chat/JSON models. Do not pin a decommissioned fallback here.
-          GROQ_MODEL: "llama-3.3-70b-versatile"
-          GROQ_MODEL_FALLBACK: ""
-          # Zero-touch safe mode: low-risk evidence-backed items publish
-          # automatically; medium/high-risk items remain draft-only.
-          REQUIRE_HUMAN_REVIEW: "1"
-          HUMAN_REVIEW_APPROVED_AT: ${{ secrets.HUMAN_REVIEW_APPROVED_AT }}
-          AUTO_SOURCE_RESEARCH: "true"
-          VERIFY_CONTENT_SOURCES: "true"
-          REQUIRE_CONTENT_SOURCES: "true"
-          AUTO_PUBLISH_LOW_RISK: "true"
-          REQUIRE_REAL_ANALYTICS: "false"
-          # 2026-08-15: competitor hijacking (scraping rivals' comments/topics
-          # for copycat content) targets YouTube's inauthentic-engagement
-          # policy — a strike/demotion risk, never enabled in production.
-          COMPETITOR_HIJACK_ENABLED: "false"
-          PYTHONUNBUFFERED: "1"
-        run: |
-          set -euo pipefail
-          # The old five unbounded shell calls could each enter five costly
-          # continuity attempts and consume the GitHub 3h20m job maximum. Each
-          # process now has a hard budget; its checkpoint remains available for
-          # diagnosis, and an upload-stage timeout is never blindly retried.
-          max_minutes="${PIPELINE_ATTEMPT_TIMEOUT_MINUTES:-35}"
-          for attempt in 1 2 3 4 5; do
-            echo "=== Attempt $attempt / 5 (budget ${max_minutes}m) ==="
-            set +e
-            timeout --signal=TERM --kill-after=30s "${max_minutes}m" python src/main.py
-            status=$?
-            set -e
-            if [ "$status" -eq 0 ]; then
-              echo "Pipeline completed successfully on attempt $attempt"
-              exit 0
-            fi
-            echo "::warning::Pipeline attempt $attempt failed with status $status"
-            checkpoint_stage=""
-            checkpoint_status=""
-            if [ -s data/pipeline_checkpoint.json ]; then
-              checkpoint_stage="$(python -c 'import json; print(json.load(open("data/pipeline_checkpoint.json")).get("stage", ""))' 2>/dev/null || true)"
-              checkpoint_status="$(python -c 'import json; print(json.load(open("data/pipeline_checkpoint.json")).get("status", ""))' 2>/dev/null || true)"
-            fi
-            echo "Last checkpoint: stage=${checkpoint_stage:-unknown}, status=${checkpoint_status:-unknown}"
-            if [ "$checkpoint_stage" = "platform_upload" ] || [ "$checkpoint_stage" = "youtube_upload" ] || [ "$checkpoint_stage" = "facebook_upload" ] || [ "$checkpoint_stage" = "instagram_upload" ]; then
-              echo "::error::Upload-stage failure has unknown external completion state; stopping to prevent duplicate publication"
-              exit "$status"
-            fi
-            if [ "$attempt" -lt 5 ]; then
-              sleep $((attempt * 30))
-            fi
-          done
-          echo "::error::All bounded pre-upload pipeline attempts failed"
-          exit 1
-
-      - name: 2026 deep-repair all uploaded videos (metadata fix)
-        # Never mutate live platform metadata after a failed generation or a dry run.
-        if: ${{ success() && !(github.event_name == 'workflow_dispatch' && inputs.dry_run == true) }}
-        shell: bash
-        env:
-          TITLE_EMOJI_OFF: "true"
-          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
-          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
-          REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
-          FB_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
-          FB_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID }}
-          FB_UPLOAD_ENABLED: "true"
-          IG_UPLOAD_ENABLED: "true"
-          INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
-          IG_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
-          PYTHONUNBUFFERED: "1"
-        run: |
-          set -uo pipefail
-          # YouTube: titles/descriptions/tags via API (no analytics scope needed)
-          if [ -n "${GOOGLE_CLIENT_ID:-}" ] && [ -n "${REFRESH_TOKEN:-}" ]; then
-            python scripts/deep_repair_2026.py --apply --youtube-only
-          else
-            echo "::warning::YouTube repair skipped: GOOGLE_CLIENT_ID/REFRESH_TOKEN secrets not set"
-          fi
-          # Facebook/Instagram: caption repairs via Graph API (token already
-          # has pages_manage_engagement/instagram_manage_insights etc.)
-          if [ -n "${FB_ACCESS_TOKEN:-}" ]; then
-            python scripts/deep_repair_2026.py --apply --facebook-only || true
-            python scripts/deep_repair_2026.py --apply --instagram-only || true
-          else
-            echo "::warning::Meta repair skipped: FACEBOOK_ACCESS_TOKEN secret not set"
-          fi
-      - name: Apply curated legacy-title repair plan
-        # Keep repair operations fail-closed for dry-runs and failed publishes.
-        if: ${{ success() && !(github.event_name == 'workflow_dispatch' && inputs.dry_run == true) }}
-        shell: bash
-        env:
-          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
-          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
-          REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
-          PYTHONUNBUFFERED: "1"
-        run: |
-          set -uo pipefail
-          if [ -n "${GOOGLE_CLIENT_ID:-}" ] && [ -n "${REFRESH_TOKEN:-}" ] && [ -f data/auto_repair_plan.json ]; then
-            python scripts/apply_repair_plan.py || echo "::warning::Repair plan apply failed (see logs)"
-          else
-            echo "::notice::No repair plan or YouTube secrets — plan step skipped"
-          fi
-
-      - name: Persist durable channel state
-        if: always()
-        shell: bash
-        run: |
-          set -euo pipefail
-          if [ -z "$(git status --porcelain -- data/)" ]; then exit 0; fi
-          git config user.name "skillor-bot"
-          git config user.email "skillor-bot@users.noreply.github.com"
-          git add -A data/
-          git commit -m "chore: persist MrNextep channel state [skip ci]"
-          # Later steps (or a concurrent run's commit racing this one) can
-          # leave unstaged files; stash them before pulling so 'pull --rebase'
-          # never fails with 'You have unstaged changes'.
-          git stash --quiet --include-untracked || true
-          for i in 1 2 3; do
-            if git pull --rebase origin main && git push origin HEAD:main; then break
-            else sleep $((i * 5)); fi
-          done
-          git stash pop --quiet 2>/dev/null || true
-
-      - name: Train ML models (autonomous brain)
-        if: always()
-        shell: bash
-        env:
-          PYTHONUNBUFFERED: "1"
-        run: |
-          set -uo pipefail
-          echo "=== ML Brain: training on all available data ==="
-          python src/ml_brain.py --force 2>&1 || echo "::warning::ML training failed (non-blocking)"
-          echo "ML Brain training complete. Models are local to this run."
-
-      - name: Upload artifacts
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Install FFmpeg
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - name: Generate, validate and schedule
+        run: PYTHONPATH=src python src/main.py
+      - name: Upload debug artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: skillor-run-${{ github.run_id }}
-          path: |
-            output/
-            pipeline.log
-            data/
+          name: mr-nextep-output
           if-no-files-found: ignore
-          retention-days: 14
+          path: output/

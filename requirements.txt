@@ -1,61 +1,6 @@
-# ============================================================
-# SKILLOR — core production dependencies (CPU-safe path)
-# Install:  pip install -r requirements.txt
-# Optional heavy extras (voice cloning, screenshot fallback):
-#           pip install -r requirements-optional.txt
-# ============================================================
-
-# ---- Core LLM ----
-groq>=0.9.0
-
-# ---- Text-to-Speech ----
-# Kokoro = production engine (fast on CPU, Apache-2.0). torch is a hard
-# Kokoro dependency, so it stays in CORE requirements even though it is big.
-kokoro>=0.7.0,<0.8.0
-torch>=2.1.2
-soundfile>=0.12.1
-# Emergency cloud fallback used by voice_generator._synthesize_cloud_tts()
-# when both Chatterbox and Kokoro fail. Was previously imported but NEVER
-# declared — the emergency layer could not work on a fresh install.
-edge-tts>=6.1.0
-
-# ---- Trend feeds (Google Trends RSS) ----
-# scripts/fetch_trending_now.py imports this at top level; it was missing
-# here, so that script crashed on a fresh install.
-feedparser>=6.0.0
-
-# ---- Video Processing ----
-# MoviePy 2.x breaks `from moviepy.editor import ...` (the .editor
-# subpackage was removed) and changes fx import paths. Pinning to 1.x
-# until the codebase migrates to MoviePy 2.x API. See:
-#   https://zulko.github.io/moviepy/install.html#migration-from-1-x-to-2-x
-moviepy>=1.0.3,<2.0.0
-imageio-ffmpeg>=0.4.8
-
-# ---- Image Processing ----
-# Pillow 10+ removed Image.ANTIALIAS; this codebase already uses
-# Image.LANCZOS everywhere, so 10.x is fully compatible.
-Pillow>=10.0.0
-numpy>=1.24.0
-
-# ---- HTTP/API Requests ----
-requests>=2.31.0
-
-# ---- Google APIs ----
-google-api-python-client>=2.100.0
-google-auth>=2.25.0
-google-auth-oauthlib>=1.1.0
-google-auth-httplib2>=0.2.0
-
-# ---- Timezone handling ----
-pytz>=2024.1
-
-# ---- Utilities ----
-python-dotenv>=1.0.0
-
-# NOTE: `google-genai` was removed — nothing in the codebase imports it
-# (Gemini images are called through the REST endpoint in image_providers.py).
-# NOTE: chatterbox-tts / torchaudio / transformers / perth / playwright moved
-# to requirements-optional.txt — they are lazily imported and only needed for
-# voice cloning on a GPU runner or the (disabled) screenshot fallback.
-scikit-learn>=1.3.0
+Pillow>=10.0
+python-dotenv>=1.0
+google-api-python-client>=2.100
+google-auth>=2.25
+google-auth-oauthlib>=1.1
+edge-tts>=6.1
