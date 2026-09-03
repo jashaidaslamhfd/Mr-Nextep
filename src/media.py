@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import subprocess
 import wave
+import os
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
@@ -24,13 +25,29 @@ def make_overlay(word: str, index: int, path: Path) -> None:
     image = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     draw = ImageDraw.Draw(image)
     accent = (255, 86, 68) if index % 2 else (77, 210, 255)
-    draw.text((72, 92), "MR NEXTEP · DARK SCIENCE", font=font(34), fill="white")
-    draw.text((W // 2, H // 2), word, font=font(112), fill=accent, anchor="mm", stroke_width=4, stroke_fill=(5, 8, 18))
+    # Keep the first frame visually immediate: no logo bar, box, or caption border.
+    draw.text((W // 2, H // 2), word, font=font(112), fill=accent, anchor="mm")
     image.save(path)
 
 
 def _run(command: list[str]) -> None:
     subprocess.run(command, check=True, capture_output=True)
+
+
+def _make_audio(text: str, path: Path, duration_hint: float) -> float:
+    """Generate audible narration; silence is not an acceptable production fallback."""
+    mp3 = path.with_suffix(".mp3")
+    voice = os.getenv("EDGE_US_VOICE", "en-US-GuyNeural")
+    rate = os.getenv("EDGE_US_RATE", "+8%")
+    try:
+        _run(["edge-tts", "--voice", voice, f"--rate={rate}", "--text", text, "--write-media", str(mp3)])
+        _run(["ffmpeg", "-y", "-i", str(mp3), "-ar", "24000", "-ac", "1", str(path)])
+        mp3.unlink(missing_ok=True)
+        probe = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "default=nw=1:nk=1", str(path)], check=True, capture_output=True, text=True)
+        return float(probe.stdout.strip())
+    except (OSError, subprocess.CalledProcessError, ValueError) as exc:
+        mp3.unlink(missing_ok=True)
+        raise RuntimeError(f"Audible narration failed: {exc}") from exc
 
 
 def render(script: dict, settings: Settings) -> Path:
@@ -41,13 +58,15 @@ def render(script: dict, settings: Settings) -> Path:
     total = 0.0
     for index, scene in enumerate(script["scenes"], 1):
         words = scene["caption"].split() or [""]
-        duration = max(1.4, min(3.2, 0.34 * len(words)))
+        duration = max(1.4, min(3.2, 0.30 * len(words)))
         audio = settings.output_dir / f"audio_{index:02d}.wav"
-        with wave.open(str(audio), "wb") as out:
-            out.setnchannels(1)
-            out.setsampwidth(2)
-            out.setframerate(24000)
-            out.writeframes(b"\0\0" * int(duration * 24000))
+        if settings.dry_run:
+            with wave.open(str(audio), "wb") as out:
+                out.setnchannels(1); out.setsampwidth(2); out.setframerate(24000)
+                out.writeframes(b"\0\0" * int(duration * 24000))
+        else:
+            duration = _make_audio(str(scene.get("narration") or scene["caption"]), audio, duration)
+            duration = max(1.1, min(3.8, duration))
         clip = scene_dir / f"clip_{index:02d}.mp4"
         download_clip(query_for_scene(scene), clip)
         frames: list[Path] = []

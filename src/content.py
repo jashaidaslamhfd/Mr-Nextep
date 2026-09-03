@@ -8,7 +8,7 @@ TOPICS = ["Why do déjà vu moments feel so real?", "Why does a smell unlock an 
 
 def fallback(topic: str) -> dict[str, Any]:
     return {"title": topic[:70], "description": f"A dark science explanation in under 30 seconds. #shorts #science #mystery", "tags": ["dark science", "mystery", "psychology", "shorts"], "scenes": [
-        {"caption": topic, "narration": topic}, {"caption": "Your brain spots a pattern before you notice it.", "narration": "Your brain spots a pattern before you notice it."},
+        {"caption": "WAIT—your brain did this.", "narration": topic}, {"caption": "A hidden signal arrives first.", "narration": "A hidden signal arrives first."},
         {"caption": "Then it links that signal to an older memory.", "narration": "Then it links that signal to an older memory."}, {"caption": "The emotion arrives before the explanation.", "narration": "The emotion arrives before the explanation."},
         {"caption": "That is why the moment feels impossible to ignore.", "narration": "That is why the moment feels impossible to ignore."}, {"caption": "Your mind is predicting the next detail.", "narration": "Your mind is predicting the next detail."},
         {"caption": "But prediction is not proof.", "narration": "But prediction is not proof."}, {"caption": "The mystery is your brain filling in the gap.", "narration": "The mystery is your brain filling in the gap."},
@@ -24,13 +24,15 @@ def choose_topic(settings: Settings) -> str:
 
 SYSTEM_PROMPT = """You write US-English dark-science YouTube Shorts for Mr-Nextep.
 Return JSON only with title, description, tags, and exactly 8 scenes.
-Rules: target 15-24 seconds; hook viewers in the first 2 seconds; one surprising,
+Rules: target 15-24 seconds; the first caption must be 3-7 words and create an
+immediate curiosity gap; hook viewers in the first 2 seconds; one surprising,
 credible idea per video; every scene must advance the explanation; use short spoken
 sentences; make each caption readable as one-word-at-a-time animation; create a
 strong curiosity loop-back ending; never use clickbait claims, medical promises,
 engagement bait, emojis, filler intros, logos, or repeated wording. Avoid any topic
 or angle that is a duplicate of the supplied topic. Do not invent citations.
 Each scene must contain caption and narration strings. Caption text should be brief.
+Never put a logo, label, hashtag, or decorative border in a scene caption.
 """
 
 def generate_script(topic: str, settings: Settings) -> dict[str, Any]:
@@ -44,7 +46,10 @@ def generate_script(topic: str, settings: Settings) -> dict[str, Any]:
             data = json.loads(response.read().decode())
         result = json.loads(data["choices"][0]["message"]["content"])
         scenes = result.get("scenes", [])
-        if not result.get("title") or len(scenes) != 8 or any(not s.get("caption") or not s.get("narration") for s in scenes):
+        if (not result.get("title") or len(scenes) != 8 or
+            any(not s.get("caption") or not s.get("narration") for s in scenes) or
+            not 3 <= len(str(scenes[0]["caption"]).split()) <= 7 or
+            any(len(str(s.get("caption", "")).split()) > 12 for s in scenes)):
             raise ValueError("LLM output failed the eight-scene schema")
         return result
     except Exception:
