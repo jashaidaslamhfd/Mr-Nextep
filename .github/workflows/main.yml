@@ -14,11 +14,12 @@ on:
         default: ""
   schedule:
     # Heatmap is in PKT (GMT+5). Peak band is roughly 18:00–22:00 PKT.
-    # Sun 19:00, Mon–Thu 20:00, Fri 21:00, Sat 19:00 PKT; cron is UTC.
-    - cron: "0 14 * * 0"
-    - cron: "0 15 * * 1-4"
-    - cron: "0 16 * * 5"
-    - cron: "0 14 * * 6"
+    # Publish peaks: Sun/Sat 19:00, Mon–Thu 20:00, Fri 21:00 PKT.
+    # Start one hour earlier for generation; cron is UTC.
+    - cron: "0 13 * * 0"
+    - cron: "0 14 * * 1-4"
+    - cron: "0 15 * * 5"
+    - cron: "0 13 * * 6"
 permissions:
   contents: write
 concurrency:
