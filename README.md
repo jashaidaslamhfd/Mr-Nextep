@@ -12,7 +12,7 @@ The system cannot honestly guarantee that viewers will watch 70% of every video;
 
 ## Daily schedule
 
-Analytics show **64.7% of views from the United States**, so scheduling is USA-first. The supplied PKT heatmap converts in September to approximate US Eastern peaks: Sunday/Saturday **10:00 and 12:00 ET**, Monday–Thursday **11:00 and 13:00 ET**, and Friday **12:00 and 14:00 ET**. Each run starts **two hours before its target**, selects a topic, renders and validates one video, uploads it privately, and sets the exact YouTube `publishAt` time. The schedule uses `America/New_York` with daylight-saving handling.
+Analytics show **64.7% of views from the United States**, so the two observed traffic windows will now be tested daily: **11:00 PM PKT** (approximately 2:00 PM US Eastern) and **3:00 AM PKT** (approximately 6:00 PM US Eastern on the previous day). Each run starts **two hours before its target**, selects a topic, renders and validates one video, uploads it privately, and sets the exact YouTube `publishAt` time. Results should be compared after enough impressions accumulate rather than judged from one upload.
 
 ## Run locally
 

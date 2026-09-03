@@ -13,18 +13,13 @@ on:
         type: string
         default: ""
   schedule:
-    # US audience is 64.7% of views. Converted peak windows are US Eastern:
-    # Sun/Sat 10:00 + 12:00; Mon–Thu 11:00 + 13:00; Fri 12:00 + 14:00.
+    # US audience is 64.7% of views. Test two daily peaks: 11:00 PM PKT
+    # (2:00 PM US Eastern) and 3:00 AM PKT (6:00 PM US Eastern).
     # Start two hours before each publish peak so generation and validation
     # finish before the private video is scheduled. Cron is UTC.
-    - cron: "0 12 * * 0"
-    - cron: "0 14 * * 0"
-    - cron: "0 13 * * 1-4"
-    - cron: "0 15 * * 1-4"
-    - cron: "0 14 * * 5"
-    - cron: "0 16 * * 5"
-    - cron: "0 12 * * 6"
-    - cron: "0 14 * * 6"
+    # Generate at 9:00 PM PKT and 1:00 AM PKT; cron is UTC.
+    - cron: "0 16 * * *"
+    - cron: "0 20 * * *"
 permissions:
   contents: write
 concurrency:

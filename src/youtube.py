@@ -18,17 +18,16 @@ def upload(video: Path, script: dict[str, Any], settings: Settings) -> dict[str,
     seo = build_packages(script)["youtube"]
     status: dict[str, object] = {"privacyStatus": "private", "selfDeclaredMadeForKids": False}
     if settings.schedule_publish:
-        # The channel is US-first (64.7% US viewers in the supplied analytics).
-        # The supplied PKT heatmap converts to these US Eastern peak hours.
-        local_zone = ZoneInfo("America/New_York")
+        # Test the two observed traffic windows in the supplied PKT heatmap.
+        # 23:00 PKT is 14:00 US Eastern; 03:00 PKT is 18:00 US Eastern.
+        local_zone = ZoneInfo("Asia/Karachi")
         now_local = datetime.now(UTC).astimezone(local_zone)
-        peak_hours = {0: (11, 13), 1: (11, 13), 2: (11, 13), 3: (11, 13), 4: (12, 14), 5: (10, 12), 6: (10, 12)}[now_local.weekday()]
+        peak_hours = (3, 23)
         targets = [now_local.replace(hour=hour, minute=0, second=0, microsecond=0) for hour in peak_hours]
         target = next((item for item in targets if item > now_local), None)
         if target is None:
             next_day = now_local + timedelta(days=1)
-            next_hours = {0: (11, 13), 1: (11, 13), 2: (11, 13), 3: (11, 13), 4: (12, 14), 5: (10, 12), 6: (10, 12)}[next_day.weekday()]
-            target = next_day.replace(hour=next_hours[0], minute=0, second=0, microsecond=0)
+            target = next_day.replace(hour=3, minute=0, second=0, microsecond=0)
         status["publishAt"] = target.astimezone(UTC).isoformat().replace("+00:00", "Z")
     result = youtube.videos().insert(part="snippet,status", body={"snippet": {"title": seo["title"], "description": seo["description"][:5000], "tags": seo["tags"], "categoryId": "28", "defaultLanguage": "en", "defaultAudioLanguage": "en"}, "status": status}, media_body=MediaFileUpload(str(video), mimetype="video/mp4", resumable=True)).execute()
     return {"status": "uploaded", "youtube_video_id": result["id"], "url": f"https://youtu.be/{result['id']}"}
