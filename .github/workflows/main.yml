@@ -46,6 +46,12 @@ jobs:
       GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
       GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
       REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
+      FACEBOOK_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID }}
+      FACEBOOK_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
+      INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
+      PUBLIC_VIDEO_URL: ${{ secrets.PUBLIC_VIDEO_URL }}
+      META_POST_GAP_SECONDS: "600"
+      INSTAGRAM_PROCESSING_WAIT_SECONDS: "60"
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
