@@ -16,15 +16,16 @@ on:
     # Heatmap is in PKT (GMT+5). Peak band is roughly 18:00–22:00 PKT.
     # Two daily publish peaks from the supplied heatmap, in PKT.
     # Sun/Sat 19:00 + 21:00; Mon–Thu 20:00 + 22:00; Fri 21:00 + 23:00.
-    # Start one hour earlier for generation; cron is UTC.
-    - cron: "0 13 * * 0"
-    - cron: "0 15 * * 0"
-    - cron: "0 14 * * 1-4"
-    - cron: "0 16 * * 1-4"
-    - cron: "0 15 * * 5"
-    - cron: "0 17 * * 5"
-    - cron: "0 13 * * 6"
-    - cron: "0 15 * * 6"
+    # Start two hours before each publish peak so generation and validation
+    # finish before the private video is scheduled. Cron is UTC.
+    - cron: "0 12 * * 0"
+    - cron: "0 14 * * 0"
+    - cron: "0 13 * * 1-4"
+    - cron: "0 15 * * 1-4"
+    - cron: "0 14 * * 5"
+    - cron: "0 16 * * 5"
+    - cron: "0 12 * * 6"
+    - cron: "0 14 * * 6"
 permissions:
   contents: write
 concurrency:

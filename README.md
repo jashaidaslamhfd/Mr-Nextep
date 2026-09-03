@@ -12,7 +12,7 @@ The system cannot honestly guarantee that viewers will watch 70% of every video;
 
 ## Daily schedule
 
-GitHub Actions runs twice daily in the supplied heatmap's peak band. Sunday/Saturday publish at **19:00 and 21:00 PKT**, Monday–Thursday at **20:00 and 22:00 PKT**, and Friday at **21:00 and 23:00 PKT**. Each run starts about one hour before its target, selects a topic, renders one video, and sets the exact YouTube `publishAt` time. The screenshot's PKT display is used as the scheduling reference; the channel target remains US viewers.
+GitHub Actions runs twice daily in the supplied heatmap's peak band. Sunday/Saturday publish at **19:00 and 21:00 PKT**, Monday–Thursday at **20:00 and 22:00 PKT**, and Friday at **21:00 and 23:00 PKT**. Each run starts **two hours before its target**, selects a topic, renders and validates one video, uploads it privately, and sets the exact YouTube `publishAt` time. The screenshot's PKT display is used as the scheduling reference; the channel target remains US viewers.
 
 ## Run locally
 
