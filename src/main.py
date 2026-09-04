@@ -16,6 +16,10 @@ def run() -> dict:
     history = load_history(history_path)
     for _ in range(10):
         topic = choose_topic(SETTINGS); script = generate_script(topic, SETTINGS)
+        if SETTINGS.topic:
+            script["title"] = topic[:70]
+            if script.get("scenes"):
+                script["scenes"][0]["narration"] = topic
         try:
             video = render(script, SETTINGS); technical = validate(video, SETTINGS)
             guard = enforce(script, technical["duration"], history)
