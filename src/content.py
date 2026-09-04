@@ -1,5 +1,5 @@
 from __future__ import annotations
-import json, os
+import json, os, hashlib
 from urllib.request import Request, urlopen
 from typing import Any
 from config import Settings
@@ -7,12 +7,21 @@ from config import Settings
 TOPICS = ["Why do déjà vu moments feel so real?", "Why does a smell unlock an old memory?", "Why does your body jolt as you fall asleep?", "Why do nightmares wake you up?", "Why can silence feel physically loud?"]
 
 def fallback(topic: str) -> dict[str, Any]:
-    return {"title": topic[:70], "description": f"A dark science explanation in under 30 seconds. #shorts #science #mystery", "tags": ["dark science", "mystery", "psychology", "shorts"], "scenes": [
-        {"caption": "WAIT—your brain did this.", "narration": topic}, {"caption": "A hidden signal arrives first.", "narration": "A hidden signal arrives first."},
-        {"caption": "Then it links that signal to an older memory.", "narration": "Then it links that signal to an older memory."}, {"caption": "The emotion arrives before the explanation.", "narration": "The emotion arrives before the explanation."},
-        {"caption": "That is why the moment feels impossible to ignore.", "narration": "That is why the moment feels impossible to ignore."}, {"caption": "Your mind is predicting the next detail.", "narration": "Your mind is predicting the next detail."},
-        {"caption": "But prediction is not proof.", "narration": "But prediction is not proof."}, {"caption": "The mystery is your brain filling in the gap.", "narration": "The mystery is your brain filling in the gap."},
-    ]}
+    seed = int(hashlib.sha256(topic.encode()).hexdigest()[:8], 16)
+    hooks = ["WAIT—this changes the way you think.", "Your brain hides this detail.", "The surprising signal starts here.", "This everyday clue has a science story."]
+    hook = hooks[seed % len(hooks)]
+    focus = topic.rstrip("?.!")
+    scenes = [
+        {"caption": hook, "narration": focus + "."},
+        {"caption": "The signal begins before you notice it.", "narration": "The signal begins before you consciously notice it."},
+        {"caption": f"That is what {focus.lower()} reveals.", "narration": f"That is what {focus.lower()} reveals."},
+        {"caption": "Your brain compares the new signal with stored patterns.", "narration": "Your brain compares the new signal with stored patterns."},
+        {"caption": "Small changes can shift the whole response.", "narration": "Small changes can shift the whole response."},
+        {"caption": "The effect is real, but it is not magic.", "narration": "The effect is real, but it is not magic."},
+        {"caption": "Context decides what your brain notices next.", "narration": "Context decides what your brain notices next."},
+        {"caption": "Now watch for that hidden pattern.", "narration": "Now watch for that hidden pattern the next time it happens."},
+    ]
+    return {"title": topic[:70], "description": f"A dark science explanation in under 30 seconds. #shorts #science #mystery", "tags": ["dark science", "mystery", "psychology", "shorts"], "scenes": scenes}
 
 def choose_topic(settings: Settings) -> str:
     if settings.topic: return settings.topic
