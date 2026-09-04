@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import subprocess
 import wave
+import hashlib
 import os
 from pathlib import Path
 
@@ -55,6 +56,7 @@ def render(script: dict, settings: Settings) -> Path:
     scene_dir = settings.output_dir / "scenes"
     scene_dir.mkdir(exist_ok=True)
     segments: list[Path] = []
+    clip_hashes: list[str] = []
     total = 0.0
     for index, scene in enumerate(script["scenes"], 1):
         words = scene["caption"].split() or [""]
@@ -69,6 +71,10 @@ def render(script: dict, settings: Settings) -> Path:
             duration = max(1.1, min(3.8, duration))
         clip = scene_dir / f"clip_{index:02d}.mp4"
         download_clip(query_for_scene(scene), clip)
+        clip_hash = hashlib.sha256(clip.read_bytes()).hexdigest()
+        if clip_hash in clip_hashes:
+            raise RuntimeError(f"Duplicate moving clip detected in scene {index}")
+        clip_hashes.append(clip_hash)
         frames: list[Path] = []
         for word_index, word in enumerate(words):
             overlay = scene_dir / f"overlay_{index:02d}_{word_index:03d}.png"
@@ -88,6 +94,7 @@ def render(script: dict, settings: Settings) -> Path:
     concat.write_text("\n".join(f"file '{path.resolve()}'" for path in segments), encoding="utf-8")
     video = settings.output_dir / "mr_nextep_short.mp4"
     _run(["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(concat), "-t", f"{total:.3f}", "-r", "30", "-c:v", "libx264", "-pix_fmt", "yuv420p", "-c:a", "aac", "-movflags", "+faststart", str(video)])
+    (settings.output_dir / "clip_hashes.json").write_text(json.dumps(clip_hashes), encoding="utf-8")
     return video
 
 
