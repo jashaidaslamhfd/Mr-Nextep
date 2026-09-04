@@ -4,18 +4,26 @@ on:
     inputs:
       video_id:
         description: YouTube video ID
-        required: true
+        required: false
         type: string
+        default: ""
       publish_at:
         description: Publication time in ISO-8601 UTC
-        required: true
+        required: false
         type: string
+        default: ""
+      unschedule_ids:
+        description: Optional comma-separated IDs to keep private and remove from schedule
+        required: false
+        type: string
+        default: ""
 jobs:
   reschedule:
     runs-on: ubuntu-latest
     env:
       VIDEO_ID: ${{ inputs.video_id }}
       PUBLISH_AT: ${{ inputs.publish_at }}
+      UNSCHEDULE_IDS: ${{ inputs.unschedule_ids }}
       GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
       GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
       REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
@@ -24,4 +32,9 @@ jobs:
       - uses: actions/setup-python@v5
         with: {python-version: "3.11"}
       - run: pip install -r requirements.txt
-      - run: python scripts/reschedule_video.py
+      - name: Reschedule video
+        if: inputs.video_id != ''
+        run: python scripts/reschedule_video.py
+      - name: Remove publication time from duplicate videos
+        if: inputs.unschedule_ids != ''
+        run: python scripts/unschedule_videos.py
