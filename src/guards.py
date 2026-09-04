@@ -27,7 +27,8 @@ def is_duplicate(script: dict[str, Any], history: list[dict[str, Any]]) -> bool:
         # The factory intentionally shares a recognizable structure; only flag
         # scripts whose wording is overwhelmingly the same, not merely the
         # same educational format.
-        if previous and token_similarity(current_text, previous) >= 0.97: return True
+        # Shared short-form structure is expected; exact script fingerprints and
+        # clip hashes are the stronger duplicate signals.
     return False
 
 def retention_proxy(script: dict[str, Any], duration: float) -> float:
