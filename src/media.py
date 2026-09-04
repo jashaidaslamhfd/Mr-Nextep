@@ -70,7 +70,8 @@ def render(script: dict, settings: Settings) -> Path:
             duration = _make_audio(str(scene.get("narration") or scene["caption"]), audio, duration)
             duration = max(1.1, min(3.8, duration))
         clip = scene_dir / f"clip_{index:02d}.mp4"
-        download_clip(query_for_scene(scene), clip)
+        scene_query = query_for_scene({**scene, "caption": f"{scene.get('caption', 'dark science')} scene {index}"})
+        download_clip(scene_query, clip)
         clip_hash = hashlib.sha256(clip.read_bytes()).hexdigest()
         if clip_hash in clip_hashes:
             raise RuntimeError(f"Duplicate moving clip detected in scene {index}")
