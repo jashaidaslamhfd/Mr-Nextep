@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import re
 import subprocess
+import hashlib
 from pathlib import Path
 from urllib.parse import quote
 
@@ -47,7 +48,8 @@ def download_clip(query: str, destination: Path) -> Path:
         raise RuntimeError(f"No moving video clip found for: {query}")
     destination.parent.mkdir(parents=True, exist_ok=True)
     raw = destination.with_suffix(".source")
-    with requests.get(candidates[0], stream=True, timeout=90, headers={"User-Agent": "Mr-Nextep/1.0"}) as download:
+    pick = int(hashlib.sha256(query.encode()).hexdigest()[:8], 16) % len(candidates)
+    with requests.get(candidates[pick], stream=True, timeout=90, headers={"User-Agent": "Mr-Nextep/1.0"}) as download:
         download.raise_for_status()
         with raw.open("wb") as handle:
             for chunk in download.iter_content(1024 * 256):
@@ -63,4 +65,7 @@ def download_clip(query: str, destination: Path) -> Path:
 
 
 def query_for_scene(scene: dict[str, str]) -> str:
-    return scene.get("visual_query") or scene.get("caption", "dark science")
+    base = scene.get("visual_query") or scene.get("caption", "dark science")
+    variants = ("wide shot", "close up", "slow motion", "silhouette", "macro", "night", "hands", "abstract")
+    index = int(hashlib.sha256(base.encode()).hexdigest()[:8], 16) % len(variants)
+    return f"{base} {variants[index]}"
