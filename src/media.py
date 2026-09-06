@@ -5,6 +5,7 @@ import subprocess
 import wave
 import hashlib
 import os
+import shutil
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
@@ -54,6 +55,7 @@ def _make_audio(text: str, path: Path, duration_hint: float) -> float:
 def render(script: dict, settings: Settings) -> Path:
     settings.ensure_dirs()
     scene_dir = settings.output_dir / "scenes"
+    shutil.rmtree(scene_dir, ignore_errors=True)
     scene_dir.mkdir(exist_ok=True)
     segments: list[Path] = []
     clip_hashes: list[str] = []

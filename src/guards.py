@@ -20,11 +20,19 @@ def token_similarity(left: str, right: str) -> float:
 
 def is_duplicate(script: dict[str, Any], history: list[dict[str, Any]]) -> bool:
     current = fingerprint(script)
-    current_text = " ".join([script.get("title", "")] + [str(s.get("caption", "")) for s in script.get("scenes", [])])
+    current_title = str(script.get("title", ""))
+    current_body = " ".join(str(s.get("caption", "")) for s in script.get("scenes", []))
     for item in history if isinstance(history, list) else []:
         if item.get("fingerprint") == current: return True
-        previous = item.get("text", "")
-        if previous and token_similarity(current_text, previous) >= 0.95: return True
+        previous_title = str(item.get("title", ""))
+        previous_body = str(item.get("body", ""))
+        if not previous_title and item.get("text"):
+            previous_title, _, previous_body = str(item["text"]).partition(" ")
+        if not item.get("title") and item.get("text") and token_similarity(f"{current_title} {current_body}", str(item["text"])) >= 0.95:
+            return True
+        if previous_title and previous_body:
+            if token_similarity(current_title, previous_title) >= 0.75 and token_similarity(current_body, previous_body) >= 0.55:
+                return True
     return False
 
 def retention_proxy(script: dict[str, Any], duration: float) -> float:
@@ -54,4 +62,6 @@ def enforce(script: dict[str, Any], duration: float, history: list[dict[str, Any
     if is_duplicate(script, history): raise RuntimeError("Duplicate or near-duplicate content rejected")
     score = retention_proxy(script, duration)
     if score < RETENTION_TARGET: raise RuntimeError(f"Retention proxy {score:.0%} is below target {RETENTION_TARGET:.0%}")
-    return {"retention_proxy": score, "fingerprint": fingerprint(script), "text": " ".join([script.get("title", "")] + [str(s.get("caption", "")) for s in script.get("scenes", [])])}
+    title = str(script.get("title", ""))
+    body = " ".join(str(s.get("caption", "")) for s in script.get("scenes", []))
+    return {"retention_proxy": score, "fingerprint": fingerprint(script), "title": title, "body": body, "text": f"{title} {body}"}

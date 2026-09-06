@@ -14,9 +14,9 @@ def test_duplicate_is_rejected():
 def test_near_duplicate_is_rejected():
     script = fallback("Why does déjà vu feel real?")
     previous = dict(script)
-    previous["title"] = "Why does déjà vu feel true?"
-    previous["text"] = " ".join([previous["title"]] + [s["caption"] for s in previous["scenes"]])
-    assert is_duplicate(script, [previous])
+    previous["title"] = "Why does déjà vu feel real today?"
+    previous["body"] = " ".join(s["caption"] for s in previous["scenes"])
+    assert is_duplicate(script, [{"title": previous["title"], "body": previous["body"], "text": f"{previous['title']} {previous['body']}"}])
 
 
 def test_weak_script_fails_retention_gate():

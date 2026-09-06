@@ -27,6 +27,16 @@ def fallback(topic: str) -> dict[str, Any]:
 
 def choose_topic(settings: Settings) -> str:
     if settings.topic: return settings.topic
+    queue_path = settings.data_dir / "search_demand_queue_us.json"
+    queue_index_path = settings.data_dir / "trend_topic_index.json"
+    try:
+        queue = json.loads(queue_path.read_text(encoding="utf-8")).get("topics", [])
+        index = int(json.loads(queue_index_path.read_text(encoding="utf-8")))
+        if queue:
+            queue_index_path.write_text(json.dumps(index + 1))
+            return str(queue[index % len(queue)].get("question_phrase") or queue[index % len(queue)].get("topic"))
+    except (OSError, ValueError, TypeError, json.JSONDecodeError):
+        pass
     path = settings.data_dir / "topic_index.json"
     try: index = int(json.loads(path.read_text()))
     except (OSError, ValueError, TypeError, json.JSONDecodeError): index = 0

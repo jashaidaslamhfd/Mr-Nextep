@@ -12,6 +12,8 @@ import requests
 
 API = "https://commons.wikimedia.org/w/api.php"
 ARCHIVE_SEARCH = "https://archive.org/advancedsearch.php"
+MAX_CLIP_BYTES = 40_000_000
+MAX_CANDIDATES = 5
 
 
 def _safe_name(text: str) -> str:
@@ -27,7 +29,7 @@ def download_clip(query: str, destination: Path, avoid_hashes: set[str] | None =
     candidates: list[str] = []
     if response.ok:
         pages = response.json().get("query", {}).get("pages", {}).values()
-        candidates = [p.get("imageinfo", [{}])[0].get("url") for p in pages if p.get("imageinfo") and p["imageinfo"][0].get("mime", "").startswith("video/")]
+        candidates = [p.get("imageinfo", [{}])[0].get("url") for p in pages if p.get("imageinfo") and p["imageinfo"][0].get("mime", "").startswith("video/") and int(p["imageinfo"][0].get("size", 0) or 0) <= MAX_CLIP_BYTES][:MAX_CANDIDATES]
     if not candidates:
         search = requests.get(ARCHIVE_SEARCH, params={"q": f"mediatype:movies AND collection:opensource_movies AND ({_safe_name(query)} OR science OR nature)", "fl[]": "identifier", "rows": 30, "output": "json"}, timeout=30, headers=headers)
         search.raise_for_status()
@@ -37,10 +39,10 @@ def download_clip(query: str, destination: Path, avoid_hashes: set[str] | None =
                 continue
             for item in metadata.json().get("files", []):
                 name = item.get("name", "")
-                if name.lower().endswith((".mp4", ".webm", ".ogv")) and int(item.get("size", 0) or 0) < 200_000_000:
+                if name.lower().endswith((".mp4", ".webm", ".ogv")) and int(item.get("size", 0) or 0) <= MAX_CLIP_BYTES:
                     candidates.append(f"https://archive.org/download/{doc['identifier']}/{quote(name)}")
                     break
-            if len(candidates) >= 30:
+            if len(candidates) >= MAX_CANDIDATES:
                 break
     try:
         history_path = Path(os.getenv("DATA_DIR", "data")) / "clip_history.json"
@@ -57,9 +59,13 @@ def download_clip(query: str, destination: Path, avoid_hashes: set[str] | None =
     avoid_hashes = avoid_hashes or set()
     salt = os.getenv("GITHUB_RUN_ID", "local")
     start = int(hashlib.sha256(f"{salt}:{query}:{destination.name}".encode()).hexdigest()[:8], 16) % len(candidates)
-    ordered = candidates[start:] + candidates[:start]
+    ordered = (candidates[start:] + candidates[:start])[:MAX_CANDIDATES]
     for source_url in ordered:
         try:
+            head = requests.head(source_url, timeout=20, headers=headers, allow_redirects=True)
+            content_length = int(head.headers.get("content-length", 0) or 0)
+            if content_length and content_length > MAX_CLIP_BYTES:
+                continue
             with requests.get(source_url, stream=True, timeout=90, headers=headers) as download:
                 download.raise_for_status()
                 with raw.open("wb") as handle:

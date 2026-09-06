@@ -2,6 +2,7 @@ from __future__ import annotations
 import json
 import logging
 import subprocess
+from copy import deepcopy
 from datetime import UTC, datetime
 from config import SETTINGS
 from content import choose_topic, generate_script
@@ -36,18 +37,19 @@ def run() -> dict:
     history = load_history(history_path)
     last_error: Exception | None = None
     for attempt in range(SETTINGS.max_attempts):
-        topic = choose_topic(SETTINGS)
-        if SETTINGS.topic and attempt:
-            topic = f"{SETTINGS.topic} — fresh angle {attempt + 1}"
+        base_topic = SETTINGS.topic or choose_topic(SETTINGS)
+        topic = f"{base_topic} — fresh angle {attempt + 1}" if SETTINGS.topic and attempt else base_topic
         script = generate_script(topic, SETTINGS)
         if SETTINGS.topic:
-            script["title"] = topic[:70]
+            script["title"] = base_topic[:70]
             if script.get("scenes"):
-                script["scenes"][0]["narration"] = topic
+                script["scenes"][0]["narration"] = base_topic
         try:
             video = render(script, SETTINGS)
             technical = validate(video, SETTINGS)
-            guard = enforce(script, float(technical["duration"]), history)
+            guard_script = deepcopy(script)
+            guard_script["title"] = topic[:70]
+            guard = enforce(guard_script, float(technical["duration"]), history)
             break
         except RuntimeError as exc:
             last_error = exc
@@ -61,7 +63,7 @@ def run() -> dict:
     clip_hashes = json.loads(clip_manifest.read_text(encoding="utf-8")) if clip_manifest.exists() else []
     source_urls = [p.read_text(encoding="utf-8") for p in sorted((SETTINGS.output_dir / "scenes").glob("*.source_url"))]
     created_at = datetime.now(UTC).isoformat()
-    result = {"created_at": created_at, "status": "pending", "topic": topic, "title": script["title"], "video_path": str(video), "clip_hashes": clip_hashes, **technical, **guard}
+    result = {"created_at": created_at, "status": "pending", "topic": base_topic, "title": script["title"], "video_path": str(video), "clip_hashes": clip_hashes, **technical, **guard}
 
     # Persist the reservation before any external upload. A later run can reject it.
     history.append(guard)
@@ -75,7 +77,9 @@ def run() -> dict:
     video_history.append(result)
     video_history_path.write_text(json.dumps(video_history[-500:], ensure_ascii=False, indent=2), encoding="utf-8")
     topic_index_path = SETTINGS.data_dir / "topic_index.json"
-    _git_persist([str(history_path), str(clip_history_path), str(video_history_path), str(topic_index_path)], "chore: reserve generated video state")
+    trend_index_path = SETTINGS.data_dir / "trend_topic_index.json"
+    queue_path = SETTINGS.data_dir / "search_demand_queue_us.json"
+    _git_persist([str(history_path), str(clip_history_path), str(video_history_path), str(topic_index_path), str(trend_index_path), str(queue_path)], "chore: reserve generated video state")
 
     try:
         result.update(upload(video, script, SETTINGS))
@@ -86,8 +90,13 @@ def run() -> dict:
                 log.exception("Meta publishing failed after YouTube upload; preserving YouTube result")
                 result["meta"] = {"status": "error", "reason": str(exc)}
         result["status"] = "uploaded"
-    except Exception:
-        log.exception("Upload failed; pending state remains committed for duplicate protection")
+    except Exception as exc:
+        result["status"] = "failed"
+        result["error"] = str(exc)
+        video_history[-1] = result
+        video_history_path.write_text(json.dumps(video_history[-500:], ensure_ascii=False, indent=2), encoding="utf-8")
+        _git_persist([str(video_history_path)], "chore: mark generated video upload failed")
+        log.exception("Upload failed; failed state committed for recovery")
         raise
 
     video_history[-1] = result

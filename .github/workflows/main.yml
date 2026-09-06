@@ -48,7 +48,6 @@ jobs:
       GITHUB_REPOSITORY: ${{ github.repository }}
       PUBLIC_VIDEO_URL: ${{ secrets.PUBLIC_VIDEO_URL }}
       META_POST_GAP_SECONDS: "600"
-      INSTAGRAM_PROCESSING_WAIT_SECONDS: "60"
       INSTAGRAM_PROCESSING_TIMEOUT_SECONDS: "300"
     steps:
       - uses: actions/checkout@v4
@@ -58,6 +57,10 @@ jobs:
         run: python -m pip install -r requirements.txt
       - name: Install FFmpeg
         run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - name: Run preflight
+        run: PYTHONPATH=src python scripts/preflight.py
+      - name: Refresh USA trend queue
+        run: python scripts/fetch_usa_trends.py --output data/search_demand_queue_us.json --limit 30 || true
       - name: Run regression tests
         run: PYTHONPATH=src pytest -q
       - name: Generate, validate and schedule
