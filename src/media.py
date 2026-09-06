@@ -72,7 +72,7 @@ def render(script: dict, settings: Settings) -> Path:
             duration = max(1.9, min(3.0, duration))
         clip = scene_dir / f"clip_{index:02d}.mp4"
         scene_query = query_for_scene({**scene, "caption": f"{scene.get('caption', 'dark science')} scene {index}"})
-        download_clip(scene_query, clip)
+        download_clip(scene_query, clip, set(clip_hashes))
         clip_hash = hashlib.sha256(clip.read_bytes()).hexdigest()
         if clip_hash in clip_hashes:
             raise RuntimeError(f"Duplicate moving clip detected in scene {index}")
