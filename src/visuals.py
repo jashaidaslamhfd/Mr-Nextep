@@ -13,7 +13,7 @@ import requests
 API = "https://commons.wikimedia.org/w/api.php"
 ARCHIVE_SEARCH = "https://archive.org/advancedsearch.php"
 MAX_CLIP_BYTES = 40_000_000
-MAX_CANDIDATES = 5
+MAX_CANDIDATES = 12
 
 
 def _safe_name(text: str) -> str:
@@ -30,7 +30,7 @@ def download_clip(query: str, destination: Path, avoid_hashes: set[str] | None =
     if response.ok:
         pages = response.json().get("query", {}).get("pages", {}).values()
         candidates = [p.get("imageinfo", [{}])[0].get("url") for p in pages if p.get("imageinfo") and p["imageinfo"][0].get("mime", "").startswith("video/") and int(p["imageinfo"][0].get("size", 0) or 0) <= MAX_CLIP_BYTES][:MAX_CANDIDATES]
-    if not candidates:
+    if len(candidates) < MAX_CANDIDATES:
         search = requests.get(ARCHIVE_SEARCH, params={"q": f"mediatype:movies AND collection:opensource_movies AND ({_safe_name(query)} OR science OR nature)", "fl[]": "identifier", "rows": 30, "output": "json"}, timeout=30, headers=headers)
         search.raise_for_status()
         for doc in search.json().get("response", {}).get("docs", []):
@@ -40,7 +40,9 @@ def download_clip(query: str, destination: Path, avoid_hashes: set[str] | None =
             for item in metadata.json().get("files", []):
                 name = item.get("name", "")
                 if name.lower().endswith((".mp4", ".webm", ".ogv")) and int(item.get("size", 0) or 0) <= MAX_CLIP_BYTES:
-                    candidates.append(f"https://archive.org/download/{doc['identifier']}/{quote(name)}")
+                    url = f"https://archive.org/download/{doc['identifier']}/{quote(name)}"
+                    if url not in candidates:
+                        candidates.append(url)
                     break
             if len(candidates) >= MAX_CANDIDATES:
                 break
