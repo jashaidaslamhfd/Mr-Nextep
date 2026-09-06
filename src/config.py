@@ -2,6 +2,9 @@ from __future__ import annotations
 import os
 from dataclasses import dataclass
 from pathlib import Path
+from dotenv import load_dotenv
+
+load_dotenv()
 
 def env(name: str, default: str = "") -> str:
     return (os.getenv(name, default) or "").strip()
@@ -18,6 +21,7 @@ class Settings:
     min_seconds: float = float(env("TARGET_MIN_SECONDS", "15"))
     max_seconds: float = float(env("TARGET_MAX_SECONDS", "30"))
     topic: str = env("VIDEO_TOPIC")
+    max_attempts: int = int(env("MAX_GENERATION_ATTEMPTS", "10"))
     @property
     def youtube_ready(self) -> bool:
         return all(env(k) for k in ("GOOGLE_CLIENT_ID", "GOOGLE_CLIENT_SECRET", "REFRESH_TOKEN"))

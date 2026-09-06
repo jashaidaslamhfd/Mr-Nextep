@@ -1,8 +1,10 @@
 from __future__ import annotations
-import json, os, hashlib
+import json, os, hashlib, logging
 from urllib.request import Request, urlopen
 from typing import Any
 from config import Settings
+
+log = logging.getLogger(__name__)
 
 TOPICS = ["Why do déjà vu moments feel so real?", "Why does a smell unlock an old memory?", "Why does your body jolt as you fall asleep?", "Why do nightmares wake you up?", "Why can silence feel physically loud?"]
 
@@ -61,6 +63,6 @@ def generate_script(topic: str, settings: Settings) -> dict[str, Any]:
             any(len(str(s.get("caption", "")).split()) > 12 for s in scenes)):
             raise ValueError("LLM output failed the eight-scene schema")
         return result
-    except Exception:
-        # Provider failure never blocks a safe run; the deterministic script still passes local gates.
+    except Exception as exc:
+        log.warning("LLM generation failed; using deterministic fallback: %s", exc)
         return fallback(topic)

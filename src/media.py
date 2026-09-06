@@ -68,7 +68,8 @@ def render(script: dict, settings: Settings) -> Path:
                 out.writeframes(b"\0\0" * int(duration * 24000))
         else:
             duration = _make_audio(str(scene.get("narration") or scene["caption"]), audio, duration)
-            duration = max(1.1, min(3.8, duration))
+            # Eight scenes at 1.9–3.0s produce a reliable 15.2–24.0s Short.
+            duration = max(1.9, min(3.0, duration))
         clip = scene_dir / f"clip_{index:02d}.mp4"
         scene_query = query_for_scene({**scene, "caption": f"{scene.get('caption', 'dark science')} scene {index}"})
         download_clip(scene_query, clip)

@@ -21,23 +21,23 @@ def token_similarity(left: str, right: str) -> float:
 def is_duplicate(script: dict[str, Any], history: list[dict[str, Any]]) -> bool:
     current = fingerprint(script)
     current_text = " ".join([script.get("title", "")] + [str(s.get("caption", "")) for s in script.get("scenes", [])])
-    for item in history:
+    for item in history if isinstance(history, list) else []:
         if item.get("fingerprint") == current: return True
         previous = item.get("text", "")
-        # The factory intentionally shares a recognizable structure; only flag
-        # scripts whose wording is overwhelmingly the same, not merely the
-        # same educational format.
-        # Shared short-form structure is expected; exact script fingerprints and
-        # clip hashes are the stronger duplicate signals.
+        if previous and token_similarity(current_text, previous) >= 0.95: return True
     return False
 
 def retention_proxy(script: dict[str, Any], duration: float) -> float:
     scenes = len(script.get("scenes", []))
     first = str((script.get("scenes") or [{}])[0].get("caption", ""))
-    score = 0.70
-    if scenes >= 8: score += 0.04
-    if 15 <= duration <= 24: score += 0.03
-    if 4 <= len(first.split()) <= 12: score += 0.03
+    score = 0.35
+    if scenes >= 8: score += 0.20
+    elif scenes >= 6: score += 0.10
+    if 15 <= duration <= 24: score += 0.20
+    elif 12 <= duration <= 28: score += 0.10
+    if 4 <= len(first.split()) <= 12: score += 0.15
+    elif first: score += 0.05
+    if all(1 <= len(str(s.get("caption", "")).split()) <= 8 for s in script.get("scenes", [])): score += 0.10
     return min(0.90, score)
 
 def load_history(path: Path) -> list[dict[str, Any]]:

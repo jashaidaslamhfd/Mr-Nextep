@@ -4,6 +4,7 @@ import re
 import subprocess
 import hashlib
 import os
+import json
 from pathlib import Path
 from urllib.parse import quote
 
@@ -46,7 +47,8 @@ def download_clip(query: str, destination: Path) -> Path:
             if len(candidates) >= 20:
                 break
     try:
-        history = __import__("json").loads(Path("data/clip_history.json").read_text(encoding="utf-8"))
+        history_path = Path(os.getenv("DATA_DIR", "data")) / "clip_history.json"
+        history = json.loads(history_path.read_text(encoding="utf-8"))
         used_urls = {row.get("source_url") for row in history if isinstance(row, dict)}
         candidates = [url for url in candidates if url not in used_urls] or candidates
     except (OSError, ValueError, TypeError):
