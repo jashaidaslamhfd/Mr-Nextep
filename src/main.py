@@ -3,7 +3,11 @@ import json
 import logging
 import subprocess
 from copy import deepcopy
-from datetime import UTC, datetime
+from datetime import datetime, timezone
+try:
+    from datetime import UTC
+except ImportError:
+    UTC = timezone.utc
 from config import SETTINGS
 from content import choose_topic, generate_script
 from media import render, validate
@@ -59,12 +63,16 @@ def run() -> dict:
         except RuntimeError as exc:
             last_error = exc
             log.warning("Attempt %d/%d rejected: %s", attempt + 1, SETTINGS.max_attempts, exc)
-            if "No unique moving video clip found" in str(exc):
+            if "No unique moving video clip found" in str(exc) and attempt >= SETTINGS.max_attempts - 1:
                 raise RuntimeError(
                     f"Could not produce a valid video because no unique moving video clip was found: {exc}"
                 ) from exc
             continue
     else:
+        if last_error and "no unique moving video clip" in str(last_error).lower():
+            raise RuntimeError(
+                f"Could not produce a valid video because no unique moving video clip was found: {last_error}"
+            )
         raise RuntimeError(f"Could not produce a valid unique video after {SETTINGS.max_attempts} attempts: {last_error}")
 
     SETTINGS.ensure_dirs()

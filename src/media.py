@@ -110,7 +110,7 @@ def render(script: dict, settings: Settings) -> Path:
             duration = max(2.0, min(3.5, duration))
 
         clip = scene_dir / f"clip_{index:02d}.mp4"
-        scene_query = query_for_scene({**scene, "caption": f"{scene.get('caption', 'dark science')} scene {index}"})
+        scene_query = query_for_scene(scene, scene_index=index)
         download_clip(scene_query, clip, set(clip_hashes))
         clip_hash = hashlib.sha256(clip.read_bytes()).hexdigest()
         clip_hashes.append(clip_hash)

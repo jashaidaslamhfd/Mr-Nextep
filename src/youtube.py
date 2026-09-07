@@ -1,6 +1,10 @@
 from __future__ import annotations
 import os
-from datetime import UTC, datetime, timedelta
+from datetime import datetime, timezone, timedelta
+try:
+    from datetime import UTC
+except ImportError:
+    UTC = timezone.utc
 from zoneinfo import ZoneInfo
 from pathlib import Path
 from typing import Any
