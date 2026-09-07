@@ -28,7 +28,7 @@ concurrency:
 jobs:
   production:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 35
     env:
       CHANNEL_LANGUAGE: en-US
       PUBLISH_TIMEZONE: America/New_York
@@ -47,7 +47,7 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       GITHUB_REPOSITORY: ${{ github.repository }}
       PUBLIC_VIDEO_URL: ${{ secrets.PUBLIC_VIDEO_URL }}
-      META_POST_GAP_SECONDS: "600"
+      META_POST_GAP_SECONDS: "60"
       INSTAGRAM_PROCESSING_TIMEOUT_SECONDS: "300"
     steps:
       - uses: actions/checkout@v4

@@ -41,5 +41,17 @@ class Settings:
         if not self.dry_run and not self.youtube_ready: errors.append("YouTube OAuth secrets are required outside dry-run mode")
         return errors
     def ensure_dirs(self) -> None:
-        self.output_dir.mkdir(parents=True, exist_ok=True); self.data_dir.mkdir(parents=True, exist_ok=True)
+        self.output_dir.mkdir(parents=True, exist_ok=True)
+        self.data_dir.mkdir(parents=True, exist_ok=True)
+        defaults = {
+            "topic_index.json": "0",
+            "trend_topic_index.json": "0",
+            "history.json": "[]",
+            "clip_history.json": "[]",
+            "video_history.json": "[]",
+        }
+        for name, initial in defaults.items():
+            f = self.data_dir / name
+            if not f.exists():
+                f.write_text(initial, encoding="utf-8")
 SETTINGS = Settings()

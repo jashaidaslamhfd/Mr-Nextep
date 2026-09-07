@@ -95,7 +95,7 @@ def render(script: dict, settings: Settings) -> Path:
 
     for index, scene in enumerate(script["scenes"], 1):
         words = scene["caption"].split() or [""]
-        duration = max(1.8, min(3.0, 0.32 * len(words)))
+        duration = max(2.2, min(3.2, 0.38 * len(words)))
         audio = settings.output_dir / f"audio_{index:02d}.wav"
 
         if settings.dry_run:
@@ -103,10 +103,11 @@ def render(script: dict, settings: Settings) -> Path:
                 out.setnchannels(2)
                 out.setsampwidth(2)
                 out.setframerate(44100)
-                out.writeframes(b"\0\0" * int(duration * 44100))
+                # 16-bit stereo frame is 4 bytes: channels (2) * sampwidth (2)
+                out.writeframes(b"\x00\x00\x00\x00" * int(duration * 44100))
         else:
             duration = _make_audio(str(scene.get("narration") or scene["caption"]), audio, duration)
-            duration = max(1.8, min(3.0, duration))
+            duration = max(2.0, min(3.5, duration))
 
         clip = scene_dir / f"clip_{index:02d}.mp4"
         scene_query = query_for_scene({**scene, "caption": f"{scene.get('caption', 'dark science')} scene {index}"})
@@ -140,7 +141,7 @@ def render(script: dict, settings: Settings) -> Path:
             "-map", "[v]", "-map", "2:a",
             "-t", f"{duration:.3f}",
             "-r", "30",
-            "-c:v", "libx264", "-b:v", "6500k", "-pix_fmt", "yuv420p",
+            "-c:v", "libx264", "-b:v", "6500k", "-preset", "ultrafast", "-pix_fmt", "yuv420p",
             "-c:a", "aac", "-b:a", "192k",
             "-shortest", str(segment),
         ])
@@ -156,7 +157,7 @@ def render(script: dict, settings: Settings) -> Path:
         "ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(concat),
         "-t", f"{total:.3f}",
         "-r", "30",
-        "-c:v", "libx264", "-b:v", "7000k", "-preset", "fast", "-pix_fmt", "yuv420p",
+        "-c:v", "libx264", "-b:v", "7000k", "-preset", "veryfast", "-pix_fmt", "yuv420p",
         "-c:a", "aac", "-b:a", "192k",
         "-movflags", "+faststart",
         str(video)

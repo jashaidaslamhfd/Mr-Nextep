@@ -17,15 +17,20 @@ logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
 
 def _git_persist(paths: list[str], message: str) -> None:
     """Best-effort state commit with rebase; never hide the production result."""
+    from pathlib import Path
+    existing = [p for p in paths if Path(p).exists()]
+    if not existing:
+        return
     subprocess.run(["git", "config", "user.name", "github-actions[bot]"], check=False)
     subprocess.run(["git", "config", "user.email", "41898282+github-actions[bot]@users.noreply.github.com"], check=False)
-    subprocess.run(["git", "add", *paths], check=False)
+    subprocess.run(["git", "add", "-f", *existing], check=False)
     commit = subprocess.run(["git", "commit", "-m", message], check=False, capture_output=True, text=True)
     if commit.returncode == 0:
         pull = subprocess.run(["git", "pull", "--rebase", "origin", "main"], check=False, capture_output=True, text=True)
         if pull.returncode == 0:
             pushed = subprocess.run(["git", "push", "origin", "HEAD:main"], check=False, capture_output=True, text=True)
-            if pushed.returncode != 0: log.warning("State push failed: %s", pushed.stderr[-500:])
+            if pushed.returncode != 0:
+                log.warning("State push failed: %s", pushed.stderr[-500:])
         else:
             log.warning("State rebase failed: %s", pull.stderr[-500:])
 

@@ -121,7 +121,7 @@ def download_clip(query: str, destination: Path, avoid_hashes: set[str] | None =
                 "-t", "8", "-an",
                 "-vf", vf_filter,
                 "-r", "30",
-                "-c:v", "libx264", "-b:v", "6500k", "-preset", "fast",
+                "-c:v", "libx264", "-b:v", "6500k", "-preset", "ultrafast",
                 "-pix_fmt", "yuv420p",
                 str(destination)
             ], check=True, capture_output=True)

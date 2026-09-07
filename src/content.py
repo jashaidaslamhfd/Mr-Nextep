@@ -58,20 +58,29 @@ def choose_topic(settings: Settings) -> str:
         return settings.topic
     queue_path = settings.data_dir / "search_demand_queue_us.json"
     queue_index_path = settings.data_dir / "trend_topic_index.json"
-    try:
-        queue = json.loads(queue_path.read_text(encoding="utf-8")).get("topics", [])
-        index = int(json.loads(queue_index_path.read_text(encoding="utf-8")))
-        if queue:
-            queue_index_path.write_text(json.dumps(index + 1))
-            return str(queue[index % len(queue)].get("question_phrase") or queue[index % len(queue)].get("topic"))
-    except (OSError, ValueError, TypeError, json.JSONDecodeError):
-        pass
+    if queue_path.exists():
+        try:
+            queue = json.loads(queue_path.read_text(encoding="utf-8")).get("topics", [])
+            if queue:
+                index = 0
+                if queue_index_path.exists():
+                    try:
+                        index = int(json.loads(queue_index_path.read_text(encoding="utf-8")))
+                    except (ValueError, TypeError, json.JSONDecodeError):
+                        index = 0
+                queue_index_path.write_text(json.dumps(index + 1), encoding="utf-8")
+                item = queue[index % len(queue)]
+                return str(item.get("question_phrase") or item.get("topic"))
+        except Exception as exc:
+            log.warning("Could not parse trend topic queue: %s", exc)
     path = settings.data_dir / "topic_index.json"
-    try:
-        index = int(json.loads(path.read_text()))
-    except (OSError, ValueError, TypeError, json.JSONDecodeError):
-        index = 0
-    path.write_text(json.dumps(index + 1))
+    index = 0
+    if path.exists():
+        try:
+            index = int(json.loads(path.read_text(encoding="utf-8")))
+        except (ValueError, TypeError, json.JSONDecodeError):
+            index = 0
+    path.write_text(json.dumps(index + 1), encoding="utf-8")
     return TOPICS[index % len(TOPICS)]
 
 SYSTEM_PROMPT = """You write US-English dark-science YouTube Shorts for Mr-Nextep.
