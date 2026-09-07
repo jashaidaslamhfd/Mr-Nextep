@@ -63,5 +63,31 @@
         "reason": "PUBLIC_VIDEO_URL must be a public HTTPS video URL"
       }
     }
+  },
+  {
+    "created_at": "2026-09-07T18:36:26.350445+00:00",
+    "status": "pending",
+    "topic": "Why some fails in life",
+    "title": "Why some fails in life",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "1247bcefeb79b77960e6379211a36b21ecf18c9f329bb47e2382f4bcd03457ed",
+      "2097c315861d74f9ed8f9189e85bf8095fa7fdf6f2eeeb8134afa9f274ccc61f",
+      "c24a2daf11a794fbd3345c4b8dd3abbc2071f4eb53f923be17af0ed9efda3b2b",
+      "2c82056ce646827766eb764be8cbf210da8224e7094df404be3ff26a050f8a8d",
+      "28d0819a2f0df50934838a045734fa1f84c046035c9102688e95373cdbc23127",
+      "aab49a170cac704c6ae30ba4cce6c60cd4a09f27437c64d989b71b4c4bf9fb57",
+      "4b38ae7ba972bcedd8b4b308b089e0651e8226de5cec815aa559558a5f081ad7",
+      "f2edc4ee2f7f2a38577bb1220139ba1aab55584ff1c9ee194e20b8f8e9f9cea2"
+    ],
+    "width": 1080,
+    "height": 1920,
+    "duration": 27.170204,
+    "audio": true,
+    "moving_clips": true,
+    "retention_proxy": 0.9,
+    "fingerprint": "06ca8ce12f23737d2b6a7e740d3ca9429998cd0e16c513dd60e0ebbd604e361e",
+    "body": "The truth about this will shock you. Your sensory neurons fire before awareness. A hidden neural pathway takes over. Neuroscientists call this spontaneous cognitive drift. Your brain manufactures a false memory. The eerie feeling is completely biological. You just caught your mind glitching. Which is why you felt that...",
+    "text": "Why some fails in life The truth about this will shock you. Your sensory neurons fire before awareness. A hidden neural pathway takes over. Neuroscientists call this spontaneous cognitive drift. Your brain manufactures a false memory. The eerie feeling is completely biological. You just caught your mind glitching. Which is why you felt that..."
   }
 ]
