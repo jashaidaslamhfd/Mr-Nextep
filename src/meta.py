@@ -3,6 +3,7 @@ import os
 import time
 from pathlib import Path
 from typing import Any
+from urllib.parse import urlparse
 import requests
 from seo import build_packages
 
@@ -89,16 +90,20 @@ def publish(video: Path, script: dict[str, Any], youtube_result: dict[str, str])
     else:
         result["facebook"] = {"status": "skipped", "reason": "FACEBOOK_PAGE_ID or FACEBOOK_ACCESS_TOKEN missing"}
 
-    if instagram_id and token:
+    public_url = os.getenv("PUBLIC_VIDEO_URL", "").strip()
+    parsed_url = urlparse(public_url)
+    valid_public_url = parsed_url.scheme == "https" and bool(parsed_url.netloc)
+    if instagram_id and token and valid_public_url:
         try:
             time.sleep(gap)
-            public_url = _host_for_instagram(video)
             container = _post(f"{GRAPH}/{instagram_id}/media", params={"access_token": token}, data={"media_type": "REELS", "video_url": public_url, "caption": seo["instagram"]["caption"]})
             _wait_for_instagram_ready(container["id"], token)
             published = _post(f"{GRAPH}/{instagram_id}/media_publish", params={"access_token": token}, data={"creation_id": container["id"]})
             result["instagram"] = {"status": "published", "id": str(published.get("id", "")), "source_url": public_url}
         except Exception as exc:
             result["instagram"] = {"status": "error", "reason": str(exc)}
-    else:
+    elif not instagram_id or not token:
         result["instagram"] = {"status": "skipped", "reason": "INSTAGRAM_USER_ID or FACEBOOK_ACCESS_TOKEN missing"}
+    else:
+        result["instagram"] = {"status": "skipped", "reason": "PUBLIC_VIDEO_URL must be a public HTTPS video URL"}
     return result

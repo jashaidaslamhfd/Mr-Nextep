@@ -55,7 +55,9 @@ def run() -> dict:
             last_error = exc
             log.warning("Attempt %d/%d rejected: %s", attempt + 1, SETTINGS.max_attempts, exc)
             if "No unique moving video clip found" in str(exc):
-                break
+                raise RuntimeError(
+                    f"Could not produce a valid video because no unique moving video clip was found: {exc}"
+                ) from exc
             continue
     else:
         raise RuntimeError(f"Could not produce a valid unique video after {SETTINGS.max_attempts} attempts: {last_error}")

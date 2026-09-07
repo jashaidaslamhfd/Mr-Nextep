@@ -2,6 +2,7 @@ from __future__ import annotations
 import os
 from dataclasses import dataclass
 from pathlib import Path
+from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -31,6 +32,10 @@ class Settings:
     def validate(self) -> list[str]:
         errors = []
         if not 0 < self.min_seconds < self.max_seconds <= 60: errors.append("TARGET_MIN_SECONDS/TARGET_MAX_SECONDS must be within 60 seconds")
+        try:
+            ZoneInfo(self.timezone)
+        except (ZoneInfoNotFoundError, ValueError):
+            errors.append(f"PUBLISH_TIMEZONE is invalid: {self.timezone}")
         if self.privacy_status not in {"private", "unlisted", "public"}: errors.append("YT_PRIVACY_STATUS must be private, unlisted, or public")
         if self.schedule_publish and self.privacy_status != "private": errors.append("Scheduled publication requires YT_PRIVACY_STATUS=private")
         if not self.dry_run and not self.youtube_ready: errors.append("YouTube OAuth secrets are required outside dry-run mode")

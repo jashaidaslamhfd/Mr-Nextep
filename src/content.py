@@ -112,7 +112,7 @@ def generate_script(topic: str, settings: Settings) -> dict[str, Any]:
         if (
             not result.get("title") or len(scenes) != 8 or
             any(not s.get("caption") or not s.get("narration") for s in scenes) or
-            not 4 <= len(str(scenes[0]["caption"]).split()) <= 12 or
+            not 4 <= len(str(scenes[0]["caption"]).split()) <= 7 or
             any(len(str(s.get("caption", "")).split()) > 8 for s in scenes)
         ):
             raise ValueError("LLM output failed the eight-scene schema")
