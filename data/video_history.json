@@ -1,7 +1,7 @@
 [
   {
     "created_at": "2026-09-07T14:43:44.908915+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Why your brain hallucinates shadows in the dark",
     "title": "Why your brain hallucinates shadows in the dark",
     "video_path": "output/mr_nextep_short.mp4",
@@ -23,6 +23,7 @@
     "retention_proxy": 0.9,
     "fingerprint": "729d01b80e55714fba6531ec2e920011563917afb93faba11cd794ed320c1340",
     "body": "Science explains this uncanny human reflex. Your sensory neurons fire before awareness. A hidden neural pathway takes over. Neuroscientists call this spontaneous cognitive drift. Your brain manufactures a false memory. The eerie feeling is completely biological. You just caught your mind glitching. Which is why you felt that...",
-    "text": "Why your brain hallucinates shadows in the dark Science explains this uncanny human reflex. Your sensory neurons fire before awareness. A hidden neural pathway takes over. Neuroscientists call this spontaneous cognitive drift. Your brain manufactures a false memory. The eerie feeling is completely biological. You just caught your mind glitching. Which is why you felt that..."
+    "text": "Why your brain hallucinates shadows in the dark Science explains this uncanny human reflex. Your sensory neurons fire before awareness. A hidden neural pathway takes over. Neuroscientists call this spontaneous cognitive drift. Your brain manufactures a false memory. The eerie feeling is completely biological. You just caught your mind glitching. Which is why you felt that...",
+    "video": "output/mr_nextep_short.mp4"
   }
 ]
