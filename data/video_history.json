@@ -177,5 +177,31 @@
         "reason": "PUBLIC_VIDEO_URL must be a public HTTPS video URL"
       }
     }
+  },
+  {
+    "created_at": "2026-09-08T19:17:00.703239+00:00",
+    "status": "pending",
+    "topic": "Why does the Psychology of the Democratic Individual and the Science of Association?",
+    "title": "Why does the Psychology of the Democratic Individual and the Science o",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "c92e12560b3728dcfcd323bc763e51b272527faa26be40f2fea63e67c672f437",
+      "517a90f1c37bb66bc502ce48d0417c6b19ffc6ab120c5ff09e37fe83e02c35b0",
+      "28193758e2ce64b9f053a295aa5fcfd4241c7cd1e46827c369b5b04344bc1ab1",
+      "2202c0c66edec535c4643aa6ac5bd01b295c273d209c3b10818bf59e7348ebda",
+      "a2cd42ff22c54f9a82556126904685da981a9c380d41534b01c3cc8eda55cff7",
+      "91b60eafbf937d7132b7eaa1062c319ae0d35c7418942fdabe91fbbcee0787a5",
+      "b88b9d80df2a7438ed7074c68fe985062b6d118f152aa71c52d2fb0135f5b358",
+      "4347bb58c08e511023a218dbd9abdf76105b8116c741b9090401cc69cacc47b7"
+    ],
+    "width": 1080,
+    "height": 1920,
+    "duration": 28.006213,
+    "audio": true,
+    "moving_clips": true,
+    "retention_proxy": 0.8,
+    "fingerprint": "2ba6c6384933dc4475714cd3a1d3ff9092af8626fa4999e802616325ada6b527",
+    "body": "The truth about this will shock you. Your sensory neurons fire before awareness. A hidden neural pathway takes over. Neuroscientists call this spontaneous cognitive drift. Your brain manufactures a false memory. The eerie feeling is completely biological. You just caught your mind glitching. Which is why you felt that...",
+    "text": "Why does the Psychology of the Democratic Individual and the Science o The truth about this will shock you. Your sensory neurons fire before awareness. A hidden neural pathway takes over. Neuroscientists call this spontaneous cognitive drift. Your brain manufactures a false memory. The eerie feeling is completely biological. You just caught your mind glitching. Which is why you felt that..."
   }
 ]
