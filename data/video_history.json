@@ -180,7 +180,7 @@
   },
   {
     "created_at": "2026-09-08T19:17:00.703239+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Why does the Psychology of the Democratic Individual and the Science of Association?",
     "title": "Why does the Psychology of the Democratic Individual and the Science o",
     "video_path": "output/mr_nextep_short.mp4",
@@ -202,6 +202,18 @@
     "retention_proxy": 0.8,
     "fingerprint": "2ba6c6384933dc4475714cd3a1d3ff9092af8626fa4999e802616325ada6b527",
     "body": "The truth about this will shock you. Your sensory neurons fire before awareness. A hidden neural pathway takes over. Neuroscientists call this spontaneous cognitive drift. Your brain manufactures a false memory. The eerie feeling is completely biological. You just caught your mind glitching. Which is why you felt that...",
-    "text": "Why does the Psychology of the Democratic Individual and the Science o The truth about this will shock you. Your sensory neurons fire before awareness. A hidden neural pathway takes over. Neuroscientists call this spontaneous cognitive drift. Your brain manufactures a false memory. The eerie feeling is completely biological. You just caught your mind glitching. Which is why you felt that..."
+    "text": "Why does the Psychology of the Democratic Individual and the Science o The truth about this will shock you. Your sensory neurons fire before awareness. A hidden neural pathway takes over. Neuroscientists call this spontaneous cognitive drift. Your brain manufactures a false memory. The eerie feeling is completely biological. You just caught your mind glitching. Which is why you felt that...",
+    "youtube_video_id": "VzOMr3qUmMA",
+    "url": "https://youtu.be/VzOMr3qUmMA",
+    "meta": {
+      "facebook": {
+        "status": "published",
+        "id": "1370100824825645"
+      },
+      "instagram": {
+        "status": "skipped",
+        "reason": "PUBLIC_VIDEO_URL must be a public HTTPS video URL"
+      }
+    }
   }
 ]
