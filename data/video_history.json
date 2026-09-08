@@ -215,5 +215,31 @@
         "reason": "PUBLIC_VIDEO_URL must be a public HTTPS video URL"
       }
     }
+  },
+  {
+    "created_at": "2026-09-08T22:08:23.904262+00:00",
+    "status": "pending",
+    "topic": "Why does apple acquires brain imaging firm for health and accessibility features?",
+    "title": "Why does apple acquires brain imaging firm for health and accessibilit",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "3ba2f46207a1c52a0abb1f0a9e892ef5b5b755df5a5c44af26ce963f3349edbb",
+      "2ed38e38046cafa5a637dc072378c8d4fa820d875b931fe562fc1ad71affe3ad",
+      "97974442084cc32e281d8ad6eef51d49b052ec8bf7bdb7230940aa1f5e3272fc",
+      "32697e77db9f0f5dd260553e35ab304141e1d6b096e7b24352c28ea7f3dff54f",
+      "c0f396d293f786bb38d84496e54034e0cc24faad2a869fa67fd5c6601ad9e76c",
+      "3a4529b30154f5d8e0ce85f7df6437a852a9e5f6d4e74d385d4d2d790293ec44",
+      "3039ecb5037d97c0b5909dc658d0c2a8729f38498336c499e712a559c411a54f",
+      "6b4a6e82931608a506dbeb4266824ab7fc2c4d2e8eb6c2713f9d38bb1f151c2b"
+    ],
+    "width": 1080,
+    "height": 1920,
+    "duration": 28.006213,
+    "audio": true,
+    "moving_clips": true,
+    "retention_proxy": 0.8,
+    "fingerprint": "4bdbc382b6fd53d364c767fa046c7f5e57088d05b850eace2192d3b7f744ed04",
+    "body": "Science explains this uncanny human reflex. Your sensory neurons fire before awareness. A hidden neural pathway takes over. Neuroscientists call this spontaneous cognitive drift. Your brain manufactures a false memory. The eerie feeling is completely biological. You just caught your mind glitching. Which is why you felt that...",
+    "text": "Why does apple acquires brain imaging firm for health and accessibilit Science explains this uncanny human reflex. Your sensory neurons fire before awareness. A hidden neural pathway takes over. Neuroscientists call this spontaneous cognitive drift. Your brain manufactures a false memory. The eerie feeling is completely biological. You just caught your mind glitching. Which is why you felt that..."
   }
 ]

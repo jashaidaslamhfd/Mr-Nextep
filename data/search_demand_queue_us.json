@@ -1,306 +1,306 @@
 {
   "source": "Google Trends US + US science RSS",
-  "mined_at": "2026-09-08T19:15:32.902606+00:00",
+  "mined_at": "2026-09-08T22:07:05.957992+00:00",
   "topics": [
     {
       "series_number": "TREND-1",
-      "topic": "Scientists identify brain cells that control how badly the body needs sleep",
-      "question_phrase": "Why does scientists identify brain cells that control how badly the body needs sleep?",
-      "angle": "Why does scientists identify brain cells that control how badly the body needs sleep?",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFB2UlR0Y25saWJhS3VNekkwUU1ZdzNyY3BrZDJhVzJYcWVqMjgwRWJNTS1FbjdqMzlpcHdHQVFfRjQ0c3Z0YjJMb3pLNDBIYzJwWndFWGViSF9JWUZacVBRWmt3LWxwckhvbTlINA?oc=5",
-      "trend_score": 10,
-      "fetched_at": "2026-09-08T19:15:32.902432+00:00"
-    },
-    {
-      "series_number": "TREND-2",
       "topic": "Overnight Therapy? The Role of Sleep in Emotional Brain Processing",
       "question_phrase": "Why does overnight Therapy? The Role of Sleep in Emotional Brain Processing?",
       "angle": "Why does overnight Therapy? The Role of Sleep in Emotional Brain Processing?",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9BSktHeEJiYzAyeFAxMERDeE5MSmJUSGxnWXFVQXRpSS1QRENacTkxUGFyeEwySjJoY2pSN3lXVHdEaHlQcVYzMHpJS2w4OHRLdnZucEZWR0x1clRhNmc?oc=5",
       "trend_score": 10,
-      "fetched_at": "2026-09-08T19:15:32.902450+00:00"
+      "fetched_at": "2026-09-08T22:07:05.957825+00:00"
     },
     {
-      "series_number": "TREND-3",
-      "topic": "Apple acquires brain imaging firm for health and accessibility features",
-      "question_phrase": "Why does apple acquires brain imaging firm for health and accessibility features?",
-      "angle": "Why does apple acquires brain imaging firm for health and accessibility features?",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQbENvWFdHMlR2LXZrNjhMTGMzMThZZGMxUFhQcFo0bnlQLTNnTXZwSTJqNTJwU010QUVOaWR0WnlNd3gxN3pvUDU2WG0wNU1HTDBJS0ZSVS1JR2d3dVRIY3JTSHdRNnJqNVotMk14REVKMmxBZ3M1eW56ZTJuQzJXYmhnWmJEX2NzS3BrYzhFUVVOc3pBeDJNaklCOFMwQUlTVTlGc1JucVQ1NVVyRFI4N3dScW0?oc=5",
-      "trend_score": 7,
-      "fetched_at": "2026-09-08T19:15:32.902457+00:00"
-    },
-    {
-      "series_number": "TREND-4",
-      "topic": "The Psychology of the Democratic Individual and the Science of Association",
-      "question_phrase": "Why does the Psychology of the Democratic Individual and the Science of Association?",
-      "angle": "Why does the Psychology of the Democratic Individual and the Science of Association?",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQNUhnWmpLa2ZRcnJNa1RBbGJYUnNtU2RZMzJiRkpKdGNlMjlYWlFwMlZINnVUOFFoaDZYVzdyUkJ1S3Y2UjNHZjV1SW85WkxQTzJVWmk1SXpPZ2dVVUF1ZEtHTFh1OTJ1UmVaM0pIVkdqSHJqa0paeVpDb3RyV2xRNHkwWEZCcVg0cm9DMHI2ZS1KT1lnLVBESEVWX3lMWlcxa3dLTnE2MGlNUQ?oc=5",
-      "trend_score": 7,
-      "fetched_at": "2026-09-08T19:15:32.902463+00:00"
-    },
-    {
-      "series_number": "TREND-5",
-      "topic": "How music helps the stressed brain bounce back",
-      "question_phrase": "Why does how music helps the stressed brain bounce back?",
-      "angle": "Why does how music helps the stressed brain bounce back?",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMickFVX3lxTFBnQjB6MlNPdldHSWFoS2NUbUcyUkZHMXNTVUNGNXdRMVlJYVlqWExtSXhVeXUxaFNlRU5icjYxc2ZfejVjN0dOQTVqZlFYMXN4VzFFemRES2pWVVVxaTV1WXdVaVZfQzVOMjJXaHBYMGJiQQ?oc=5",
-      "trend_score": 7,
-      "fetched_at": "2026-09-08T19:15:32.902469+00:00"
-    },
-    {
-      "series_number": "TREND-6",
+      "series_number": "TREND-2",
       "topic": "Zapping the face could boost brain signalling and memory",
       "question_phrase": "Why does zapping the face could boost brain signalling and memory?",
       "angle": "Why does zapping the face could boost brain signalling and memory?",
       "source": "google_news_us",
       "source_url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNOGE5XzJldUlkYlo0V285NS1laFlCQUpxUzB4eXNCUTExdDhFcjdnYzdCTE43YjlBR0tYaXJXRkxEM3pON3gxVUtYWktlb3FVcDhjRnJxVVl6ek9BTmlLbWRkM2x0cEpEYlpYeGVrS3JHRUhSMXFyczdtWnRBT1F4Nl9MY3U5cWFXZ2lQMHphN2twUEFVajJMZHdtRk03ekVJb3FpXw?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-08T19:15:32.902475+00:00"
+      "fetched_at": "2026-09-08T22:07:05.957842+00:00"
     },
     {
-      "series_number": "TREND-7",
+      "series_number": "TREND-3",
+      "topic": "Effect of Computer Screen Background Hues on Attention, Memory, and Visual Task Performance in Medical Students",
+      "question_phrase": "Why does effect of Computer Screen Background Hues on Attention, Memory, and Visual Task Performance in Medical Students?",
+      "angle": "Why does effect of Computer Screen Background Hues on Attention, Memory, and Visual Task Performance in Medical Students?",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMijAJBVV95cUxQWHBaRktNMUxzd3ZBMDh3cnVLTm9BY2pnUllOSlFpU253dXNUWHNrVU1xNWlOMWxIYlVxOVBVRmRPeHhCWFp2XzRfa3VBRWdfWTgyUzRTTmdfT2lOUmJJOVYzektRQTlxaFpMamVVNDRPVmZPcGpGcTh5d24weDYxUUJNcUJoUE9GZGlOeko4WjdFOEpvV0h5cm9XZkZkb3RMbVpqR2lQRF9hOGswZlE1YkxnM1BjSWRxY2lIeFVaR1YtZVZnMVp5YnJvMjFmY25RRFVGbkVaZXBKVXZMX3UyMnZWVERCYXBvOWhIemN2dHcyckdnMXZONHNPUXhCWGY0LXZzb2xGVmh2a0dF?oc=5",
+      "trend_score": 7,
+      "fetched_at": "2026-09-08T22:07:05.957850+00:00"
+    },
+    {
+      "series_number": "TREND-4",
+      "topic": "The #1 Herb for Better Brain Health, According to Neurologists",
+      "question_phrase": "Why does the #1 Herb for Better Brain Health, According to Neurologists?",
+      "angle": "Why does the #1 Herb for Better Brain Health, According to Neurologists?",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBJODBFVWY4NTBIWDVoNklEZ3V4aEduZjdoUXVLYnVEVnZXcU85SVVRQ0Zfcy1pV25QMUtTY0RySWZtV0lodUdoWHRWMG5ka3lYaHpYUnZSaEI3dldJV2VraTVrZmtaMWtFc3owQUhPZ0owbTIzcDlqdnNR?oc=5",
+      "trend_score": 7,
+      "fetched_at": "2026-09-08T22:07:05.957855+00:00"
+    },
+    {
+      "series_number": "TREND-5",
+      "topic": "Apple acquires brain imaging firm for health and accessibility features",
+      "question_phrase": "Why does apple acquires brain imaging firm for health and accessibility features?",
+      "angle": "Why does apple acquires brain imaging firm for health and accessibility features?",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQbENvWFdHMlR2LXZrNjhMTGMzMThZZGMxUFhQcFo0bnlQLTNnTXZwSTJqNTJwU010QUVOaWR0WnlNd3gxN3pvUDU2WG0wNU1HTDBJS0ZSVS1JR2d3dVRIY3JTSHdRNnJqNVotMk14REVKMmxBZ3M1eW56ZTJuQzJXYmhnWmJEX2NzS3BrYzhFUVVOc3pBeDJNaklCOFMwQUlTVTlGc1JucVQ1NVVyRFI4N3dScW0?oc=5",
+      "trend_score": 7,
+      "fetched_at": "2026-09-08T22:07:05.957861+00:00"
+    },
+    {
+      "series_number": "TREND-6",
       "topic": "Calming Brain Stress with Acoustic Neuromodulation",
       "question_phrase": "Why does calming Brain Stress with Acoustic Neuromodulation?",
       "angle": "Why does calming Brain Stress with Acoustic Neuromodulation?",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOdzA1YVBXSkRRR044RHU0dHF0RWdzTG9OZ3o3RHF1MXNhQjEwakJ3T3JpTG0xY3NFSzBHRnZST2hhc2FnVDlPRjQ0V09RZFQ1c09MWl9yZmNQZURjcmtybDFHdlJNY0lYeUFWaEx3OTMxQkZRTGhUNC1Hd3lDN3dGR0d1TFhvTmJvYTVUd0dXa29jdzd5Q3lmYUxNN2xFQdIBowFBVV95cUxOSTBhRUd5LWp6QVBIbHdXQWJyR0ZYaXBuY1UySlFnNW5IU3o4Z2E1b0FOeXpJN0dlNmNHZHFXbElnQURqWVZ0VElQTUlqSXBvSG1IUWNTVmd3bUdnN2FmbXJfMlFFZnZ0X2lkRGRfajRCVC1fcFQ2VzRRVTB1aE5CVDNpNm1RNHVad1hTcW1paHhzQWlEa3RPT1dRMWJUbV9vSW9j?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNY1ZZakVkWVF0dDBIQmFwM3kxR01ndmhDQXJzRU15LS1lMnd4U3RlUWg0XzJrM1RCMTlZYlJ5bl9ERWExUmFyNzNJeVIxMVBuQlFwblU4SV9Zc1lGLVJWWmgtUXRTSG1tbFV5QnlSdmRXQ0p0U0JTUmFINlVxdUtQQl9TUzctanQ1YzRBTHFEMUFQWkZxNk5pbXBKUDFIa3dK0gGmAUFVX3lxTE5DTGRPNGpWbVBfMy1KTDV6YURnRWNpRzJCS1g5c3VMSFhlc3JGS1FoZUFOQ3E3UVJZR19ZUTBuY01ab2JrUnpWX3VqR2lDRFVzTm9fbXJTSVo2ek9FaFR3NDhfckJqRklISFN4VDRGNEEtdWxVTkQ1NC1kUWpnMUgtUVF6VG10RnQzRjZMYXdiS3NKSTctcEUwdHRDd1h5SjlBbnk2VXc?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-08T19:15:32.902479+00:00"
+      "fetched_at": "2026-09-08T22:07:05.957866+00:00"
+    },
+    {
+      "series_number": "TREND-7",
+      "topic": "The Psychology of the Democratic Individual and the Science of Association",
+      "question_phrase": "Why does the Psychology of the Democratic Individual and the Science of Association?",
+      "angle": "Why does the Psychology of the Democratic Individual and the Science of Association?",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQNUhnWmpLa2ZRcnJNa1RBbGJYUnNtU2RZMzJiRkpKdGNlMjlYWlFwMlZINnVUOFFoaDZYVzdyUkJ1S3Y2UjNHZjV1SW85WkxQTzJVWmk1SXpPZ2dVVUF1ZEtHTFh1OTJ1UmVaM0pIVkdqSHJqa0paeVpDb3RyV2xRNHkwWEZCcVg0cm9DMHI2ZS1KT1lnLVBESEVWX3lMWlcxa3dLTnE2MGlNUQ?oc=5",
+      "trend_score": 7,
+      "fetched_at": "2026-09-08T22:07:05.957871+00:00"
     },
     {
       "series_number": "TREND-8",
-      "topic": "Take This Simple Challenge From a Psychology PhD to Be Less Stressed and More Productive",
-      "question_phrase": "Why does take This Simple Challenge From a Psychology PhD to Be Less Stressed and More Productive?",
-      "angle": "Why does take This Simple Challenge From a Psychology PhD to Be Less Stressed and More Productive?",
+      "topic": "How music helps the stressed brain bounce back",
+      "question_phrase": "Why does how music helps the stressed brain bounce back?",
+      "angle": "Why does how music helps the stressed brain bounce back?",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNVnlfVHhPdHlNdXhoLVVHRjkwNlNwX1hDRk5ybkFsbGNCSlY1OVdHYTVBWEdqNC1jeHVYQUdta3ZDeF81SDFHSzktaGNUeWY3b1lhX0NOMmktR1dEbU9mUTAxUi1ha2UwM1JWUGhtcGR2NloxRzRUSnd5WkNIZ2k0cmFtUkd6VzVFV0FnaGlQQ095aFhQYmNFVXF2aFhoQzA4TUlVRllXbzJnSDdmaUUxUDlQVHlSbWlab0dOQTBhVlB2NTlvNVVOdmFn?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMickFVX3lxTFBnQjB6MlNPdldHSWFoS2NUbUcyUkZHMXNTVUNGNXdRMVlJYVlqWExtSXhVeXUxaFNlRU5icjYxc2ZfejVjN0dOQTVqZlFYMXN4VzFFemRES2pWVVVxaTV1WXdVaVZfQzVOMjJXaHBYMGJiQQ?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-08T19:15:32.902485+00:00"
+      "fetched_at": "2026-09-08T22:07:05.957876+00:00"
     },
     {
       "series_number": "TREND-9",
-      "topic": "Can society's emotional climate be reflected in individual brain function?",
-      "question_phrase": "Can society's emotional climate be reflected in individual brain function?",
-      "angle": "Can society's emotional climate be reflected in individual brain function?",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOenREYUNDcEFMR0s1bl9ONERPaWpWZGF3XzlmWk01SG5OT0RtLVFScUZKcEo3QzJ4cldJWlY2WVN1bWI3YW9xTENYTlBvU20yUUVzT0dYTG4wM2FHdXpjX3NfZU5BNkR5R2hVRUJwd092QmVnQUFqOTdaZXctWmpxTjZpVVNYaVFmcDRLZElzUQ?oc=5",
-      "trend_score": 7,
-      "fetched_at": "2026-09-08T19:15:32.902490+00:00"
-    },
-    {
-      "series_number": "TREND-10",
       "topic": "Some adult vaccines are linked to lower dementia risk. Can they promote brain health?",
       "question_phrase": "Some adult vaccines are linked to lower dementia risk. Can they promote brain health?",
       "angle": "Some adult vaccines are linked to lower dementia risk. Can they promote brain health?",
       "source": "google_news_us",
       "source_url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNR2l1QWRlQXVnR0tUdE1fQzREOFd5aWJJUEJvWjFOcnExMjFEYWY1OVJfN0FKWTlLTzdobUx1aFFGT1AtVXVaSl9LcnpKWnE0ek1OUGZ0WDlVb1pVYnNZZ1JXdXJOdk1rcFVrODc5Q3JSSUtXMkVDOElXR2VLYko3NXFkbjQ5clE4UkRQNkttSWZLc0xmR0M2Ui1WaGpkZnQtYW9BYmtTM3hyMG9VVkVSczR6bGxTVzhBWDZSejFOUmQ?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-08T19:15:32.902496+00:00"
+      "fetched_at": "2026-09-08T22:07:05.957881+00:00"
     },
     {
-      "series_number": "TREND-11",
+      "series_number": "TREND-10",
       "topic": "A single workout may help protect memory after a short night's sleep",
       "question_phrase": "Why does a single workout may help protect memory after a short night's sleep?",
       "angle": "Why does a single workout may help protect memory after a short night's sleep?",
       "source": "google_news_us",
       "source_url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE81WlBhU0htZ3VzMTJBOFlfSzlYaWdpakJIMFdMWVNJNU91c2hSZnhCczRGSjZGbWtHM3BZdEh0em13U1BvbWtDZ0loazlVNVJUa3VQaU9JNnZlaWJsa0pQRjlUODNIaFE3YUM2LTFJcDRkZDZrYjA4bXNn?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-08T19:15:32.902501+00:00"
+      "fetched_at": "2026-09-08T22:07:05.957887+00:00"
+    },
+    {
+      "series_number": "TREND-11",
+      "topic": "Take This Simple Challenge From a Psychology PhD to Be Less Stressed and More Productive",
+      "question_phrase": "Why does take This Simple Challenge From a Psychology PhD to Be Less Stressed and More Productive?",
+      "angle": "Why does take This Simple Challenge From a Psychology PhD to Be Less Stressed and More Productive?",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNVnlfVHhPdHlNdXhoLVVHRjkwNlNwX1hDRk5ybkFsbGNCSlY1OVdHYTVBWEdqNC1jeHVYQUdta3ZDeF81SDFHSzktaGNUeWY3b1lhX0NOMmktR1dEbU9mUTAxUi1ha2UwM1JWUGhtcGR2NloxRzRUSnd5WkNIZ2k0cmFtUkd6VzVFV0FnaGlQQ095aFhQYmNFVXF2aFhoQzA4TUlVRllXbzJnSDdmaUUxUDlQVHlSbWlab0dOQTBhVlB2NTlvNVVOdmFn?oc=5",
+      "trend_score": 7,
+      "fetched_at": "2026-09-08T22:07:05.957892+00:00"
     },
     {
       "series_number": "TREND-12",
-      "topic": "He Believed a CIA Agent Was Inserting Dreams Into His Sleep, and Psychiatrists Named the Symptom",
-      "question_phrase": "Why does he Believed a CIA Agent Was Inserting Dreams Into His Sleep, and Psychiatrists Named the Symptom?",
-      "angle": "Why does he Believed a CIA Agent Was Inserting Dreams Into His Sleep, and Psychiatrists Named the Symptom?",
+      "topic": "Binghamton University\u2019s Lecture Series in Clinical Psychology Teaches How to Handle Couple\u2019s Distress",
+      "question_phrase": "Why does binghamton University\u2019s Lecture Series in Clinical Psychology Teaches How to Handle Couple\u2019s Distress?",
+      "angle": "Why does binghamton University\u2019s Lecture Series in Clinical Psychology Teaches How to Handle Couple\u2019s Distress?",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNdzVlV3cwQjFMUmtnTEZaaTdFVG9qWTFQaDRxdDN6WDhJSW9Xc0YxMEhRdmVIZDR6VGRvN1VPQ1JLU2hqZmEtejRBQUk4VDc2dnA0cFpTSFJ1bVR3MXlsTkV1MGh4QXROSHU0QVU3U1NxQnhfNkptOWUyYlJaVXBtdGwwNGdsRmRRUXpmSDV1R28?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOZDZHUnowWnVqVGVrOWRLc3pBdTN1dUR1NGItV1EyRjQyakMxYXVRUVliYkVLMmh4ODZnRFkzcjRFRzl2NTRZZWRMMC1zcVJZNHp3N0hMbU5rOUgxdXlyUk01bFBNNFFBLUlCOU12eGp2Zlg4N0hxWndQZlU4Sy1IVEFXLWJDSWRXT1Rwb2NMT2t0NjZxRVRlTlFfZ3dyWE1NOGFzTXFnNkwzLXJFLTVLMnhXb0RxVlhnUWhUWWJVYXFiSzRB0gHYAUFVX3lxTFA2bnlQemJLTmVOclBrVlY5ejgwUGpRaXFoVDU1a1NGTUNVMndoU0laN19DejQ0TDJBTmczYkQyUzVIS2YxZEJuR3pxbXlyME9EQjNfTWdkMURBSjRBaFhuNDNGWk1QUXlCLTkzbGZjSjA0eWN1a01ZZVA5T0VnTjRLRzhjUFh1X1pEYzU1VmI0UFJ3RjYtUWNGWkIyMGtpNzY2aHBnT1VKemozTGk5VGZTODRJWWZVajZqYVRoSlZCdURVcGJPOHQ4R0t0Yzg5aEJlYWtQQzVhbA?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-08T19:15:32.902506+00:00"
+      "fetched_at": "2026-09-08T22:07:05.957900+00:00"
     },
     {
       "series_number": "TREND-13",
-      "topic": "One simple way to keep your brain sharp even after a bad night\u2019s sleep",
-      "question_phrase": "Why does one simple way to keep your brain sharp even after a bad night\u2019s sleep?",
-      "angle": "Why does one simple way to keep your brain sharp even after a bad night\u2019s sleep?",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5MbDl0WWpwY3Q3YnFfVEd5alJtcEk2ejFacWk3eVFSdGpRUWZ6X1BJSWhibUJVQzRzamltWEttNTYxT2ZGY2dGaXV5MVIzUndVa1pHUGEtSi01VG56amwzTWNGNmJvOEJ1?oc=5",
-      "trend_score": 7,
-      "fetched_at": "2026-09-08T19:15:32.902513+00:00"
-    },
-    {
-      "series_number": "TREND-14",
-      "topic": "Why music is a powerful tool to quiet stress in the brain",
-      "question_phrase": "Why does why music is a powerful tool to quiet stress in the brain?",
-      "angle": "Why does why music is a powerful tool to quiet stress in the brain?",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOb0RRSUtSR05feVctbEItZmpQQXJvZGRNUG9mZ2pnVnZiYkFlWk9uNGttR2JCQnJWRmtVQnpjVThzc1JSeTRZRF9ka1VaOE9pYnFaaUJ6dnlpWjFZajc2QjJWaFU0MkFjSEdYZUw2TGdaSldwem1QeDl5MEpxdnZOU3pYSTB0NjJRNWEwMjR5MmQxSl9TampDT2FmLWdFN29INTR3?oc=5",
-      "trend_score": 7,
-      "fetched_at": "2026-09-08T19:15:32.902519+00:00"
-    },
-    {
-      "series_number": "TREND-15",
       "topic": "Drugs, Brains, and Behavior",
       "question_phrase": "Why does drugs, Brains, and Behavior?",
       "angle": "Why does drugs, Brains, and Behavior?",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPOFFTUUVtUGE1WDNBb2d3U1NzWGhkRnQ2SUlVWHAwRVRQeGFWODhrbm91YkU4WGwwSmVMczV5Q2I4dzRFSTF5WFVtZ0RsYUVCMVdMbFE4clUzM2RUem5xOXMxMHNKZnZKczVPSG9OaUd6RHlvbzVUdnZCeHhjSHB5WHhDaHNsREQ3eWlnQk5kWGxfejBINnB0NE91THY?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-08T19:15:32.902523+00:00"
+      "fetched_at": "2026-09-08T22:07:05.957905+00:00"
     },
     {
-      "series_number": "TREND-16",
+      "series_number": "TREND-14",
       "topic": "Sleep and quiet wakefulness signify an idling brain hub for creative insights",
       "question_phrase": "Why does sleep and quiet wakefulness signify an idling brain hub for creative insights?",
       "angle": "Why does sleep and quiet wakefulness signify an idling brain hub for creative insights?",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFA1V2ZQRTdoSF9uWFIyaE1hSkdtV25lNklmdnlRckh6NDVFT2ZUbEI3c0dHdkdVZ1owMXI3Wm5OY0xiQkFsdmVfR3BIcUt0YmM4WUxkREx5WHU1NWtDRjU0?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-08T19:15:32.902529+00:00"
+      "fetched_at": "2026-09-08T22:07:05.957910+00:00"
     },
     {
-      "series_number": "TREND-17",
+      "series_number": "TREND-15",
       "topic": "Effects of creatine supplementation on memory in healthy individuals",
       "question_phrase": "Why does effects of creatine supplementation on memory in healthy individuals?",
       "angle": "Why does effects of creatine supplementation on memory in healthy individuals?",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9KaThiS3hmeEw3T3M1Q2R6UWRnNFN5ajNJTE1IQzJKX1JRQUVPa1hRcXRzd2Q0VGhfTS1lYWg4TTBLdmtQRWtZcjVuUU41dTJkeldz?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-08T19:15:32.902534+00:00"
+      "fetched_at": "2026-09-08T22:07:05.957915+00:00"
     },
     {
-      "series_number": "TREND-18",
+      "series_number": "TREND-16",
       "topic": "How does inadequate sleep affect health?",
       "question_phrase": "How does inadequate sleep affect health?",
       "angle": "How does inadequate sleep affect health?",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNNlg4eFlrdUlHazVGeklkOXU5TEhNQmkzTW50eUx2WnAtTllyM2xxNTVveGNoNkY4WDFwdkJLTi02M0ZqNEFLOXo1UmNRQS1qdFFTZmR2dE5oNWdBWExkdFYydE1WMnBKbnJZTFBpRWZYTWNUNXp0R1RocHJLem9iQVpR?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-08T19:15:32.902539+00:00"
+      "fetched_at": "2026-09-08T22:07:05.957919+00:00"
     },
     {
-      "series_number": "TREND-19",
+      "series_number": "TREND-17",
       "topic": "Short sleep duration is associated with reduced leptin, elevated ghrelin, and increased body mass index",
       "question_phrase": "Why does short sleep duration is associated with reduced leptin, elevated ghrelin, and increased body mass index?",
       "angle": "Why does short sleep duration is associated with reduced leptin, elevated ghrelin, and increased body mass index?",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE8tVGdhTklWUWN3cTZZZlVsd2RGa1Fkc1E1NFBMTkIzUmNDR3R6eFY4TzNzVFR6SDl1NlNULVlrNFViNFNPa0F3ZUxWMGFfUFBjVkVF?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-08T19:15:32.902544+00:00"
+      "fetched_at": "2026-09-08T22:07:05.957925+00:00"
     },
     {
-      "series_number": "TREND-20",
+      "series_number": "TREND-18",
       "topic": "Chapter 12 Memory Impairments Associated with Stress and Aging",
       "question_phrase": "Why does chapter 12 Memory Impairments Associated with Stress and Aging?",
       "angle": "Why does chapter 12 Memory Impairments Associated with Stress and Aging?",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5TOGM1Um1Pb2hYTnVSazcyNk1hTlYyTU9iaVF1MWV4YkphdG84d0h5bDRfR2NYT0VGQ2llTTFHTVFqOC1Gb0VYdlVDQ3RTQmpaN2VtdXJB?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-08T19:15:32.902549+00:00"
+      "fetched_at": "2026-09-08T22:07:05.957929+00:00"
     },
     {
-      "series_number": "TREND-21",
+      "series_number": "TREND-19",
       "topic": "Sleep drives metabolite clearance from the adult brain",
       "question_phrase": "Why does sleep drives metabolite clearance from the adult brain?",
       "angle": "Why does sleep drives metabolite clearance from the adult brain?",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9NZjM0RXNpeE1raVlFclJ6ZTdqQ0dKLURSYUJnREd1TWNzZFhQTHExRUtCdElrY3ZEci1menRHSFNrUVp3RWxzSjJOSHNwZ3BEZ2pR?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-08T19:15:32.902553+00:00"
+      "fetched_at": "2026-09-08T22:07:05.957934+00:00"
     },
     {
-      "series_number": "TREND-22",
+      "series_number": "TREND-20",
       "topic": "The Global Problem of Insufficient Sleep and Its Serious Public Health Implications",
       "question_phrase": "Why does the Global Problem of Insufficient Sleep and Its Serious Public Health Implications?",
       "angle": "Why does the Global Problem of Insufficient Sleep and Its Serious Public Health Implications?",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE0tN29MTjFScHctZlFWck5IWjNxeHh6VEgyeDhvVUJIcVAxamFPdW90ZWJyVVoyWlNwWF9oaGNJNjhnLUota2w4dlBvVlowcDUtUEtIMnpEWVE5UkdkWGc?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-08T19:15:32.902558+00:00"
+      "fetched_at": "2026-09-08T22:07:05.957939+00:00"
+    },
+    {
+      "series_number": "TREND-21",
+      "topic": "The Role of Slow Wave Sleep in Memory Processing",
+      "question_phrase": "Why does the Role of Slow Wave Sleep in Memory Processing?",
+      "angle": "Why does the Role of Slow Wave Sleep in Memory Processing?",
+      "source": "nih_news",
+      "source_url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9WRmlzS2dpNjc5dExPbzh1bTYwcWp4RTFCQ2dMWkY1LXl5MlFEb3hvREhjYWp0bFJMYjlhdG02ZmFId2lvQnBEdEl2bEJkZU9XZTJ5OVVMcFBBTFNsWWc?oc=5",
+      "trend_score": 7,
+      "fetched_at": "2026-09-08T22:07:05.957944+00:00"
+    },
+    {
+      "series_number": "TREND-22",
+      "topic": "House Rebukes Navy for Refusing to Investigate Pilot Brain Injury",
+      "question_phrase": "Why does house Rebukes Navy for Refusing to Investigate Pilot Brain Injury?",
+      "angle": "Why does house Rebukes Navy for Refusing to Investigate Pilot Brain Injury?",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBjZGF2UU1nRmdISUpJVEIxVTdNT3lGWGRWQlE4YV8ybmRKbGVJcXlmSTU5d0hMelluYzRCSGtON1lZWmM4blU4d1hDaHJzUk0yRUc2WUFJQV9NandpNVZZbmpXN3pfMkNlNFFQQllXdlRVMF9QRXJQdw?oc=5",
+      "trend_score": 4,
+      "fetched_at": "2026-09-08T22:07:05.957949+00:00"
     },
     {
       "series_number": "TREND-23",
-      "topic": "Sleep expert tells why high schools need later start times",
-      "question_phrase": "Why does sleep expert tells why high schools need later start times?",
-      "angle": "Why does sleep expert tells why high schools need later start times?",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOUGNqVS05SjBnZm9MaXhSVXJROGRNdXZwckp3WENERFlETFp1SkhHTGZUMDQ0bEtWbEV2ZG5rako3RnBHSXlhQWZFVTJsM09pRjk0bWlHMUZzdmg0cTQyVmtBLWVBTk96WFRVTnUyLVNfT2ZFeldSQmxNZVpfUmRiVTR3R1NQLVZrWXRLSWc3cmI?oc=5",
-      "trend_score": 4,
-      "fetched_at": "2026-09-08T19:15:32.902563+00:00"
-    },
-    {
-      "series_number": "TREND-24",
-      "topic": "Scientists identify new role for tau protein in brain diseases",
-      "question_phrase": "Why does scientists identify new role for tau protein in brain diseases?",
-      "angle": "Why does scientists identify new role for tau protein in brain diseases?",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQV2hWRlkxZm9xSjlNbldfTm5zdWUwalVrRnFuZWZLN1VlRXhHTXNQVmJQRmxXREtEY2hVd01uclBQTFRieGtIR0hLRHVPb2pkYTAtdldoZzN0blFPTjFVN2ZDMWZxTTR3WExPWlVRT09YOEt0SjVObmtzVk9fMVBQcGM2V0pFU195RjhVeTNWcXlndVFfNW0wODU5Wmd2NFZuTXBJckNwQW5nQm5m?oc=5",
-      "trend_score": 4,
-      "fetched_at": "2026-09-08T19:15:32.902568+00:00"
-    },
-    {
-      "series_number": "TREND-25",
       "topic": "Something unique seems to be happening to the brain in menopause",
       "question_phrase": "Why does something unique seems to be happening to the brain in menopause?",
       "angle": "Why does something unique seems to be happening to the brain in menopause?",
       "source": "google_news_us",
       "source_url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOemswZzExZkdnd21HcUp3TlhXSXJ3bHk1d2VpVjc1dUFISDY4Zk5QVHNMWkdRMFJCS1d3Qk1hcGVpeHpZMWlJSGFWaFBpOGU2cGd2M1ZUYnNVbWxBV2hiaVFXNk9tc2V1al8zRl8xd3YtZnlGcHVIWXZ3TkZoUTc2cUUzSjdETF8wd09fUFRpaGtYaV9xLThJenJUVEVlOUFMRkxPWTJJbGFKVFho?oc=5",
       "trend_score": 4,
-      "fetched_at": "2026-09-08T19:15:32.902573+00:00"
+      "fetched_at": "2026-09-08T22:07:05.957954+00:00"
+    },
+    {
+      "series_number": "TREND-24",
+      "topic": "Which Sleep Data to Trust From Oura and Other Wearables",
+      "question_phrase": "Why does which Sleep Data to Trust From Oura and Other Wearables?",
+      "angle": "Why does which Sleep Data to Trust From Oura and Other Wearables?",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE11REw2VFJMQ01jRW1iZG03czRSYnBvWjc1TDAyZ1lVYWlUWGtXeXFfMmJ6djRRb1RyWnRLRTgtdkVwSnlEYjBHZTQtTDNaVWRHbWE3VThvTjg2cjBlR3FUNUxudGZHUUt4UGZlcnB6MnZXWTJTOTlR?oc=5",
+      "trend_score": 4,
+      "fetched_at": "2026-09-08T22:07:05.957959+00:00"
+    },
+    {
+      "series_number": "TREND-25",
+      "topic": "Sleep expert tells why high schools need later start times",
+      "question_phrase": "Why does sleep expert tells why high schools need later start times?",
+      "angle": "Why does sleep expert tells why high schools need later start times?",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOUGNqVS05SjBnZm9MaXhSVXJROGRNdXZwckp3WENERFlETFp1SkhHTGZUMDQ0bEtWbEV2ZG5rako3RnBHSXlhQWZFVTJsM09pRjk0bWlHMUZzdmg0cTQyVmtBLWVBTk96WFRVTnUyLVNfT2ZFeldSQmxNZVpfUmRiVTR3R1NQLVZrWXRLSWc3cmI?oc=5",
+      "trend_score": 4,
+      "fetched_at": "2026-09-08T22:07:05.957964+00:00"
     },
     {
       "series_number": "TREND-26",
-      "topic": "The stepping stones of memory are more fluid than once thought",
-      "question_phrase": "Why does the stepping stones of memory are more fluid than once thought?",
-      "angle": "Why does the stepping stones of memory are more fluid than once thought?",
+      "topic": "Scientists identify new role for tau protein in brain diseases",
+      "question_phrase": "Why does scientists identify new role for tau protein in brain diseases?",
+      "angle": "Why does scientists identify new role for tau protein in brain diseases?",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE1jUExsNXcweE1GSFNJZjhNU3ZJZE5MQVBDelMyVlZHekdvNHplV01hSUZJLVNrNHgzcnp3d0VHajFzS0VOeHZsRDh6ZEY1Y0RyblRxeFNyVGw4LWowb1ZTTldJLXlBVHN2ZzlwTmhSQ2ZzVGxyaFhUSEVKbw?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQV2hWRlkxZm9xSjlNbldfTm5zdWUwalVrRnFuZWZLN1VlRXhHTXNQVmJQRmxXREtEY2hVd01uclBQTFRieGtIR0hLRHVPb2pkYTAtdldoZzN0blFPTjFVN2ZDMWZxTTR3WExPWlVRT09YOEt0SjVObmtzVk9fMVBQcGM2V0pFU195RjhVeTNWcXlndVFfNW0wODU5Wmd2NFZuTXBJckNwQW5nQm5m?oc=5",
       "trend_score": 4,
-      "fetched_at": "2026-09-08T19:15:32.902579+00:00"
+      "fetched_at": "2026-09-08T22:07:05.957969+00:00"
     },
     {
       "series_number": "TREND-27",
+      "topic": "Baltimore sees 11 sleep",
+      "question_phrase": "Why does baltimore sees 11 sleep?",
+      "angle": "Why does baltimore sees 11 sleep?",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQN3NhSWlCZEsydTNLdG4wWW5OY1kxZFB5WFVFc3RXQm9ERlBBMFpOOUpTOUc5eTltYmJ3N2ZBS2YtS1Y5TzR5SHZ1eHlIdkJKSnR5N0JzR3FCdlNXUXZQejNuRUh6Y2l2dXpabG8zVV9acjFYa2RrTEF1ZkNkNGhseDJmQzZLdw?oc=5",
+      "trend_score": 4,
+      "fetched_at": "2026-09-08T22:07:05.957974+00:00"
+    },
+    {
+      "series_number": "TREND-28",
       "topic": "Are you and your partner \u2018sleep divorced?\u2019 That might not be a bad thing",
       "question_phrase": "Why does are you and your partner \u2018sleep divorced?\u2019 That might not be a bad thing?",
       "angle": "Why does are you and your partner \u2018sleep divorced?\u2019 That might not be a bad thing?",
       "source": "google_news_us",
       "source_url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPclo3cnhHTFhuRTVxR3pWeTFLaFViM3VXTlBRbXdzbW15NmJ3NklicGxUbTd4bWR3U0xUSk9abjE3alRSX1BITTlkdVd3UUN0U2hXMHJFM1c1czJsQTR5d180Z0lZT0lFakFBc1hHcFRtWlZNQWllenkwMWYtTFE5Y2ZxTGJxbzIyREtDZmFRdWJNV29fZmNN0gGcAUFVX3lxTE5wQ19ONHhXb19HQ0NKeE01WUxBU01LVzhYSzJFdmVUTEd5d3hGQVYxLVZoLVZWc0IzRnFnaVo0c3owNG5idVlqY3I4dWR5TFlnbm5oZXlMYUVqX0ZXcVpBazVYaGd1R2F2VVQyTXhfZTk0OEN6US1Gd043azAyd2hTNFQ4TDVwVjJtbVBfZnJvMzJxSy1HVTVzdDdESQ?oc=5",
       "trend_score": 4,
-      "fetched_at": "2026-09-08T19:15:32.902585+00:00"
-    },
-    {
-      "series_number": "TREND-28",
-      "topic": "Sleep Deprived? Try This Quick Recovery Option That\u2019s Not a Nap",
-      "question_phrase": "Why does sleep Deprived? Try This Quick Recovery Option That\u2019s Not a Nap?",
-      "angle": "Why does sleep Deprived? Try This Quick Recovery Option That\u2019s Not a Nap?",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE5pZE9SZ1NHQmJkVDRNWndmUUc1RG1DOVlrclYyTmxSRkQwUUczc3pxOXQwNzBtdG9FNHNUWEpOM2dtSGU4WEp3XzR3cUZpNDFXM3Bad2REUTZnd0taQkJWa2xxVkRyRE15YWVV?oc=5",
-      "trend_score": 4,
-      "fetched_at": "2026-09-08T19:15:32.902592+00:00"
+      "fetched_at": "2026-09-08T22:07:05.957981+00:00"
     },
     {
       "series_number": "TREND-29",
-      "topic": "Google maps entire brain and central nervous system of adult male fruit fly, software engineers immediately make it run Doom",
-      "question_phrase": "Why does google maps entire brain and central nervous system of adult male fruit fly, software engineers immediately make it run Doom?",
-      "angle": "Why does google maps entire brain and central nervous system of adult male fruit fly, software engineers immediately make it run Doom?",
+      "topic": "BrainChild Bio masterminds $116M series A for CAR",
+      "question_phrase": "Why does brainChild Bio masterminds $116M series A for CAR?",
+      "angle": "Why does brainChild Bio masterminds $116M series A for CAR?",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMi5AJBVV95cUxOWExNcVlqNDFHd0ZwTzJwQkM3Zm9NT1JSazY3ZU1LVFNKeVg0Ulhuc1ZMaDdoYlBCZTlULUlMaHExRDBOLWhST1Y3cHN1UmYxN2VVV0VRcmlUNmVoaGlfRnlQQVNJR09XWFNObl95ZFNoYXlOTUNMZWlpMnFiRm5SMmJfZjdhT3RVbnRmbWN6X3BURW9JT1dXMkNfREtuWHRYMjNBNjBtTVAzRXdXOTNxaVQtVE1Qano4S3lkTmRHYVNIV0ctNWhMLS1EV3JJbGhOd3Z2R3JKQTc0aVNxc2RtbjF3TGpBY1czSmk1S1dzdGFGR09CVUI0aVBoZjA1MmdhbXBzckN4dTJMeE05ZWJ1ZnRCblNtQzNoWWdRd3BHLVp1MW56MkotZUstVTBkWGczUmVPRE4zNThRcFFNRFBoa3lZbmI0N0lkQmRjT3ZROHFOb19PSU9Rd1ZYZmx3bmhjSTFDNA?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPUUZ4VUUyT2IwelFFWU15WjROQ0lXNUQ2em9zenczN2VyMXh6QVZGeFI5aWJUdDVoSkdCZ3lVcy1BbmtIOVpJQ0xGUExLZ05OYXZndE01QkJsbzNyUUpicmJnQWh5dU1rSEp0ZmVZa21OZDE5c1BxWllRTUhwclJTc1VEYmpqcWdBMkRnUlFXLURfQWZuRENFakk3aGRWa0tuVzZicGVQTVJwczRNZUkyUHRB?oc=5",
       "trend_score": 4,
-      "fetched_at": "2026-09-08T19:15:32.902598+00:00"
+      "fetched_at": "2026-09-08T22:07:05.957986+00:00"
     },
     {
       "series_number": "TREND-30",
-      "topic": "Vitamin A derivative prevents immune cell exhaustion in brain tumors",
-      "question_phrase": "Why does vitamin A derivative prevents immune cell exhaustion in brain tumors?",
-      "angle": "Why does vitamin A derivative prevents immune cell exhaustion in brain tumors?",
+      "topic": "Memristor chip breaks the capacity limit of brain",
+      "question_phrase": "Why does memristor chip breaks the capacity limit of brain?",
+      "angle": "Why does memristor chip breaks the capacity limit of brain?",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQVDZWVlJXQ191eGVBRWtjNzNjU2JjX2FrREdyQ1JITWx1blM0b0JialFnR1QxZ3dXb3FDNkd4Ykc2bWd1cXRSMzNDY1FqQnZHVWVJZ0lCLTZwdGpvaUZVcmdPNVhGSlRrdE1iRWxXN185MHk0bTMxdUdwcHNiX29DXzZsUUJGQ2djTXJaOUxCVFNhSkVOYkRPOS0yX0dsTHV3Y0tMUmV2Sl8td2ctU1ZmZ3dkcEVQZGM?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNdGVzalJqb181a09JUU91WUhhbnpyS0NRdDdPa2RlOFYyQkNyRVZFVVU0el9MMUNZMzdXUFdsRk1BWDJyQ0QxR1NkUnJIX2pJQ1FsNVRaV2ZoX1FEb0JtNmxZcWxJU0Q4M01DbW82dlQtcW9MZlJ1NC1jZnY0cE44anF3?oc=5",
       "trend_score": 4,
-      "fetched_at": "2026-09-08T19:15:32.902603+00:00"
+      "fetched_at": "2026-09-08T22:07:05.957990+00:00"
     }
   ],
   "source_errors": []
