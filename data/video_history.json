@@ -253,5 +253,31 @@
         "reason": "PUBLIC_VIDEO_URL must be a public HTTPS video URL"
       }
     }
+  },
+  {
+    "created_at": "2026-09-09T19:04:34.959652+00:00",
+    "status": "pending",
+    "topic": "Why does wisconsin health officials stress importance of vaccines as school year begins?",
+    "title": "Why does wisconsin health officials stress importance of vaccines as s",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "1feaa3023cfab10d6dddb0ff338948d542291d9d808ab874f0d69f128e89aaff",
+      "f0ec1fb890e25b382ea85bbfedfaedbf52221a9b1175adcae7cc1da5ccf971d0",
+      "9fafc210925b821867a804dd2b99e293c520647fa7090ba9a967e4258db26c6d",
+      "8549b0b07d7773d63937eedd2c8d67fb5ab8cd0ccec69c8b460d0d582cf1e215",
+      "216fde131ef001e978deebc96cb9d7f84de387b84019fc65fb0b4391459f364d",
+      "d9790b0afda41dacb1a2942ec65644fbb6e69fe3bb9fe9f560181157b01acb2c",
+      "d192e61c8da5b95978ed947c838421b76fb9c44fec9b00d1c79ea1ebeab1fd89",
+      "cace19e38c4e710cd95ac169a7a9b31c07af27ad322c32ae6f27c01a6a40f1e1"
+    ],
+    "width": 1080,
+    "height": 1920,
+    "duration": 28.006213,
+    "audio": true,
+    "moving_clips": true,
+    "retention_proxy": 0.8,
+    "fingerprint": "83ec2d3545d91c7e939402969de46ddde2c7681a4e1e206c807ebb521a22e029",
+    "body": "Never ignore this strange brain signal. Your sensory neurons fire before awareness. A hidden neural pathway takes over. Neuroscientists call this spontaneous cognitive drift. Your brain manufactures a false memory. The eerie feeling is completely biological. You just caught your mind glitching. Which is why you felt that...",
+    "text": "Why does wisconsin health officials stress importance of vaccines as s Never ignore this strange brain signal. Your sensory neurons fire before awareness. A hidden neural pathway takes over. Neuroscientists call this spontaneous cognitive drift. Your brain manufactures a false memory. The eerie feeling is completely biological. You just caught your mind glitching. Which is why you felt that..."
   }
 ]
