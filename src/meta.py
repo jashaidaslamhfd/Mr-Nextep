@@ -16,6 +16,7 @@ from __future__ import annotations
 import os
 import time
 import logging
+import random
 from pathlib import Path
 from typing import Any, Dict
 from urllib.parse import urlparse
@@ -77,7 +78,7 @@ def _host_for_instagram(video: Path) -> str:
     # Cleanup and create release if necessary (errors will bubble)
     # (We intentionally keep direct requests here as before but ensure failures are logged)
     releases_url = f"https://api.github.com/repos/{repo}/releases"
-    r = session.get(f"{releases_url}/tags/{tag}")
+    r = session.get(f"{releases_url}/tags/{tag}", headers=headers)
     if r.status_code == 200:
         release = r.json()
     else:

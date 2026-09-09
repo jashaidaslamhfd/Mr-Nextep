@@ -6,6 +6,7 @@ Features:
 - requests_session_with_retries: a requests.Session wrapper that uses the retry logic.
 - sanitize_hashtags, unique_text_suffix: basic metadata utilities to avoid exact duplicates.
 - randomized_window: helper to jitter a datetime by +/- minutes.
+- US-focused hashtag & title helpers for metadata generation targeted to US audiences.
 
 This module intentionally does NOT include any evasion/stealth techniques.
 """
@@ -14,7 +15,7 @@ import time
 import random
 import logging
 from functools import wraps
-from typing import Callable, Any, Iterable, List
+from typing import Callable, Any, Iterable, List, Dict
 import requests
 from requests.exceptions import RequestException
 from googleapiclient.errors import HttpError
@@ -138,3 +139,73 @@ def randomized_window(base_timestamp, window_minutes: int = 30):
         raise TypeError("base_timestamp must be datetime")
     offset_seconds = random.uniform(-window_minutes * 60, window_minutes * 60)
     return base_timestamp + _dt.timedelta(seconds=offset_seconds)
+
+
+# --- USA-specific metadata helpers ---
+
+def _tokenize_topic(topic: str) -> List[str]:
+    return [p.strip().lower() for p in topic.replace('-', ' ').split() if p.strip()]
+
+
+def generate_us_hashtag_sets(topic: str, raw_tags: List[str], max_total: int = 8) -> Dict[str, List[str]]:
+    """
+    Generate hashtag clusters optimized for US discovery on YouTube/Meta.
+    Returns a dict with keys: youtube_tags (3), meta_tags (8), meta_broad (3), meta_niche (3), meta_community (2)
+    """
+    topic_tokens = _tokenize_topic(topic)
+    # Broad US trending tags (sensible, non-spammy defaults)
+    broad_us = ["#USA", "#USATrends", "#TrendingNow"]
+    # Niche tags from raw_tags and topic tokens
+    niche_candidates = []
+    for t in raw_tags:
+        if t:
+            niche_candidates.append('#' + t.strip().replace(' ', '').lower())
+    for tok in topic_tokens[:4]:
+        niche_candidates.append('#' + tok)
+    niche = []
+    for n in niche_candidates:
+        if n not in niche:
+            niche.append(n)
+        if len(niche) >= 3:
+            break
+    # Community tags (broader communities related to content)
+    community = ["#learn", "#howto", "#facts"]
+    # Final sanitized sets
+    youtube_tags = ['#Shorts'] + (niche[:2] if niche else ['#shorts'])
+    meta_broad = broad_us[:3]
+    meta_niche = niche[:3]
+    meta_community = community[:2]
+
+    meta_tags = meta_broad + meta_niche + meta_community
+    meta_tags = sanitize_hashtags(meta_tags, max_hashtags=max_total)
+    youtube_tags = sanitize_hashtags(youtube_tags, max_hashtags=3)
+
+    return {
+        'youtube_tags': youtube_tags,
+        'meta_tags': meta_tags,
+        'meta_broad': meta_broad,
+        'meta_niche': meta_niche,
+        'meta_community': meta_community,
+    }
+
+
+def us_title_for_short(raw_title: str, max_chars: int = 50) -> str:
+    """
+    Produce a high-CTR US mobile-friendly title for Shorts.
+    Rules:
+      - Keep under max_chars
+      - Start with a curiosity hook or number when possible
+      - Append #Shorts if not present
+    """
+    t = str(raw_title or '').strip()
+    if len(t) > max_chars:
+        # Prefer keeping the first clause and trimming
+        parts = t.split(':')
+        t = parts[0][:max_chars]
+    t = t[:max_chars].rstrip()
+    if '#shorts' not in t.lower():
+        t = f"{t} #Shorts"
+        if len(t) > max_chars:
+            # if adding #Shorts pushes over, trim a bit
+            t = t[:max_chars - 8].rstrip() + ' #Shorts'
+    return t
