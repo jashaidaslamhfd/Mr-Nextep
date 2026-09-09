@@ -1,57 +1,20 @@
-from __future__ import annotations
-import os
-from dataclasses import dataclass
-from pathlib import Path
-from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
-from dotenv import load_dotenv
-
-load_dotenv()
-
-def env(name: str, default: str = "") -> str:
-    return (os.getenv(name, default) or "").strip()
-
-@dataclass
-class Settings:
-    language: str = env("CHANNEL_LANGUAGE", "en-US")
-    timezone: str = env("PUBLISH_TIMEZONE", "America/New_York")
-    output_dir: Path = Path(env("OUTPUT_DIR", "output"))
-    data_dir: Path = Path(env("DATA_DIR", "data"))
-    dry_run: bool = env("DRY_RUN", "false").lower() == "true"
-    privacy_status: str = env("YT_PRIVACY_STATUS", "private")
-    schedule_publish: bool = env("YT_SCHEDULE_PUBLISH", "true").lower() == "true"
-    min_seconds: float = float(env("TARGET_MIN_SECONDS", "15"))
-    max_seconds: float = float(env("TARGET_MAX_SECONDS", "30"))
-    topic: str = env("VIDEO_TOPIC")
-    max_attempts: int = int(env("MAX_GENERATION_ATTEMPTS", "10"))
-    @property
-    def youtube_ready(self) -> bool:
-        return all(env(k) for k in ("GOOGLE_CLIENT_ID", "GOOGLE_CLIENT_SECRET", "REFRESH_TOKEN"))
-    @property
-    def llm_ready(self) -> bool:
-        return any(env(k) for k in ("GROQ_API_KEY", "OPENROUTER_API_KEY"))
-    def validate(self) -> list[str]:
-        errors = []
-        if not 0 < self.min_seconds < self.max_seconds <= 60: errors.append("TARGET_MIN_SECONDS/TARGET_MAX_SECONDS must be within 60 seconds")
-        try:
-            ZoneInfo(self.timezone)
-        except (ZoneInfoNotFoundError, ValueError):
-            errors.append(f"PUBLISH_TIMEZONE is invalid: {self.timezone}")
-        if self.privacy_status not in {"private", "unlisted", "public"}: errors.append("YT_PRIVACY_STATUS must be private, unlisted, or public")
-        if self.schedule_publish and self.privacy_status != "private": errors.append("Scheduled publication requires YT_PRIVACY_STATUS=private")
-        if not self.dry_run and not self.youtube_ready: errors.append("YouTube OAuth secrets are required outside dry-run mode")
-        return errors
-    def ensure_dirs(self) -> None:
-        self.output_dir.mkdir(parents=True, exist_ok=True)
-        self.data_dir.mkdir(parents=True, exist_ok=True)
-        defaults = {
-            "topic_index.json": "0",
-            "trend_topic_index.json": "0",
-            "history.json": "[]",
-            "clip_history.json": "[]",
-            "video_history.json": "[]",
-        }
-        for name, initial in defaults.items():
-            f = self.data_dir / name
-            if not f.exists():
-                f.write_text(initial, encoding="utf-8")
-SETTINGS = Settings()
+*** Begin Patch
+*** Update File: src/config.py
+@@
+ class Settings:
+     language: str = env("CHANNEL_LANGUAGE", "en-US")
+     timezone: str = env("PUBLISH_TIMEZONE", "America/New_York")
+     output_dir: Path = Path(env("OUTPUT_DIR", "output"))
+     data_dir: Path = Path(env("DATA_DIR", "data"))
+     dry_run: bool = env("DRY_RUN", "false").lower() == "true"
+     privacy_status: str = env("YT_PRIVACY_STATUS", "private")
+     schedule_publish: bool = env("YT_SCHEDULE_PUBLISH", "true").lower() == "true"
+     min_seconds: float = float(env("TARGET_MIN_SECONDS", "15"))
+     max_seconds: float = float(env("TARGET_MAX_SECONDS", "30"))
+     topic: str = env("VIDEO_TOPIC")
+     max_attempts: int = int(env("MAX_GENERATION_ATTEMPTS", "10"))
++    # Number of recent videos to compare against for duplicate detection
++    duplicate_check_last: int = int(env("DUPLICATE_CHECK_LAST", "10"))
++    # Default jitter in minutes to apply when scheduling publish times (US peak windows)
++    schedule_jitter_minutes: int = int(env("SCHEDULE_JITTER_MINUTES", "20"))
+*** End Patch
