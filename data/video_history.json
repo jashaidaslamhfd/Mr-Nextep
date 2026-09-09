@@ -291,5 +291,31 @@
         "reason": "PUBLIC_VIDEO_URL must be a public HTTPS video URL"
       }
     }
+  },
+  {
+    "created_at": "2026-09-09T20:11:15.237778+00:00",
+    "status": "pending",
+    "topic": "Why does writer's Enterprise Brain Adds Shared Memory For Agents?",
+    "title": "Why does writer's Enterprise Brain Adds Shared Memory For Agents?",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "6a7fcc993ff318c5e981cdff180479c6ae803e4b330f4c5b4b8ad86e4fd3e699",
+      "35fca996ce48e7ffe855eb11349487fa6d9af9f633981ccdd3b9c8735bb126eb",
+      "c63cf5ed3d59319030969c83c0a1aaaeaa7e82b8e32727c9463df3a329c5030a",
+      "00b5912f262ea9a2c3b8e1b7f3032edef78f7bbc7d3a2cb1767546dd23ce2118",
+      "492c5ca7344fc2f44bef905808933995c8189cfb6d0a572439fec495b087b462",
+      "01f3e7d97522b16de6091ba79e7da220dccf5992c3aa6c5603573d30d86a1d3c",
+      "ae7f7ba3852b14d342987a450d89b9234d59448295266e4d9df533637df08ed6",
+      "1f61cacb80af7cbefd11aa2003a3e074184b059b45cab73da570f3c3b145657f"
+    ],
+    "width": 1080,
+    "height": 1920,
+    "duration": 28.006213,
+    "audio": true,
+    "moving_clips": true,
+    "retention_proxy": 0.8,
+    "fingerprint": "ec653abd2e6e339bdaa3d7abffb3db931dfe0f0b5ebb814eeaf0b2bf3cc42481",
+    "body": "The truth about this will shock you. Your sensory neurons fire before awareness. A hidden neural pathway takes over. Neuroscientists call this spontaneous cognitive drift. Your brain manufactures a false memory. The eerie feeling is completely biological. You just caught your mind glitching. Which is why you felt that...",
+    "text": "Why does writer's Enterprise Brain Adds Shared Memory For Agents? The truth about this will shock you. Your sensory neurons fire before awareness. A hidden neural pathway takes over. Neuroscientists call this spontaneous cognitive drift. Your brain manufactures a false memory. The eerie feeling is completely biological. You just caught your mind glitching. Which is why you felt that..."
   }
 ]
