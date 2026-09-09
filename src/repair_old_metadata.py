@@ -3,6 +3,7 @@ Repair and update old metadata to match US-targeting SEO rules.
 
 Usage:
   python src/repair_old_metadata.py [--dry-run] [--confirm] [--max-updates N]
+  python src/repair_old_metadata.py --revert --revert-count N
 
 Notes:
 - By default runs in dry-run mode and prints proposed changes.
@@ -13,6 +14,8 @@ Notes:
 Safety:
 - Respects rate limits with configurable sleep and exponential backoff.
 - Logs all attempted updates and appends revised metadata to video_history.json.
+- Staged rollout: honors STAGED_DAILY_LIMIT env var and limits updates per 24h window.
+- Revert mode: can revert applied updates using saved original snippets in history.
 """
 from __future__ import annotations
 import argparse
@@ -38,6 +41,8 @@ from guards import load_history, save_history
 logger = logging.getLogger("mrnextep.repair")
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 
+STAGED_DAILY_LIMIT = int(os.getenv("STAGED_DAILY_LIMIT", "15"))
+
 
 def _load_youtube_creds() -> Credentials:
     refresh_token = os.getenv("REFRESH_TOKEN", "").strip()
@@ -58,7 +63,6 @@ def _load_youtube_creds() -> Credentials:
 
 def _iter_uploaded_video_ids(youtube) -> List[str]:
     """Return a list of all video IDs uploaded by the authenticated channel."""
-    # Get channel's uploads playlist
     resp = youtube.channels().list(part="contentDetails", mine=True).execute()
     items = resp.get("items", [])
     if not items:
@@ -77,7 +81,6 @@ def _iter_uploaded_video_ids(youtube) -> List[str]:
         page_token = resp.get("nextPageToken")
         if not page_token:
             break
-        # modest pause to avoid quota burst
         time.sleep(1)
     return video_ids
 
@@ -95,16 +98,28 @@ def _fetch_video_snippets(youtube, ids: List[str]) -> Dict[str, Dict[str, Any]]:
 
 @retry_on_exception(max_attempts=5)
 def _update_video_snippet(youtube, video_id: str, new_snippet: Dict[str, Any]):
-    # Build minimal body: include id and snippet
     body = {"id": video_id, "snippet": new_snippet}
     resp = youtube.videos().update(part="snippet", body=body).execute()
     return resp
 
 
 def _normalize_tags_for_youtube(tags: List[str]) -> List[str]:
-    # sanitize_hashtags returns hashtags with '#'; remove and keep as tags
     cleaned = [t.lstrip('#') for t in sanitize_hashtags(tags, max_hashtags=15)]
     return cleaned
+
+
+def _count_recent_updates(video_history: List[Dict[str, Any]], window_hours: int = 24) -> int:
+    cutoff = time.time() - window_hours * 3600
+    cnt = 0
+    for e in reversed(video_history[-1000:]):
+        if not isinstance(e, dict):
+            continue
+        if not e.get("updated"):
+            continue
+        ts = e.get("timestamp", 0)
+        if ts >= cutoff:
+            cnt += 1
+    return cnt
 
 
 def plan_and_apply_updates(youtube, video_ids: List[str], dry_run: bool = True, max_updates: Optional[int] = None, sleep_between: float = 2.0):
@@ -121,15 +136,11 @@ def plan_and_apply_updates(youtube, video_ids: List[str], dry_run: bool = True, 
         current_description = snippet.get("description", "").strip()
         current_tags = snippet.get("tags", []) or []
 
-        # Build our target packages using existing script info where possible
-        # We pass a minimal script structure for seo.build_packages; primary input is title+description+tags
         script = {"title": current_title, "description": current_description, "tags": current_tags}
         seo = build_packages(script).get("youtube", {})
         target_title = seo.get("title", current_title).strip()
         target_description = seo.get("description", current_description).strip()
         target_tags = seo.get("tags", []) or []
-
-        # Ensure tag format
         target_tags = [t.lstrip('#') for t in target_tags]
 
         needs_update = False
@@ -137,11 +148,9 @@ def plan_and_apply_updates(youtube, video_ids: List[str], dry_run: bool = True, 
         if target_title and target_title != current_title and len(target_title) <= 60:
             needs_update = True
             reasons.append("title")
-        # Check description - simple substring / length heuristic
         if target_description and target_description != current_description:
             needs_update = True
             reasons.append("description")
-        # Compare tags as sets
         if set([t.lower() for t in target_tags]) != set([t.lower() for t in current_tags]):
             needs_update = True
             reasons.append("tags")
@@ -156,29 +165,37 @@ def plan_and_apply_updates(youtube, video_ids: List[str], dry_run: bool = True, 
 
     logger.info("Planned updates for %d videos", len(updates))
 
-    # Load history
     video_history_path = SETTINGS.data_dir / "video_history.json"
     video_history = load_history(video_history_path)
 
+    # Staged rollout: limit by STAGED_DAILY_LIMIT and by recent updates in history
+    recent_count = _count_recent_updates(video_history, window_hours=24)
+    daily_remaining = max(0, STAGED_DAILY_LIMIT - recent_count)
+    if max_updates is None:
+        allowed = daily_remaining
+    else:
+        allowed = min(max_updates, daily_remaining)
+    logger.info("Staged rollout limit: daily limit=%d, recent applied=%d, allowed this run=%d", STAGED_DAILY_LIMIT, recent_count, allowed)
+
     applied = 0
     for u in updates:
-        if max_updates and applied >= max_updates:
+        if applied >= allowed:
+            logger.info("Reached staged rollout limit for this run: %d updates applied", applied)
             break
         vid = u["video_id"]
         logger.info("Processing video %s for update: reasons=%s", vid, u["reasons"])
         if dry_run:
             logger.info("Dry-run: would update %s -> %s", vid, u["target"])
-            # Append to history with marker but do not call API
-            entry = {"platform": "youtube", "id": vid, "updated": False, "planned": u["target"], "timestamp": time.time()}
+            entry = {"platform": "youtube", "id": vid, "updated": False, "planned": u["target"], "original_snippet": u.get("current"), "timestamp": time.time()}
             video_history.append(entry)
             applied += 1
             continue
 
-        # Live update
         try:
-            # Fetch existing snippet to preserve other fields
             existing = snippets.get(vid, {}).get("snippet", {})
             new_snippet = existing.copy()
+            # Save original to history before updating
+            original_snippet = existing.copy()
             new_snippet["title"] = u["target"]["title"]
             new_snippet["description"] = u["target"]["description"]
             new_snippet["tags"] = u["target"]["tags"]
@@ -186,7 +203,7 @@ def plan_and_apply_updates(youtube, video_ids: List[str], dry_run: bool = True, 
             resp = _update_video_snippet(youtube, vid, new_snippet)
             logger.info("Updated video %s: response id=%s", vid, resp.get("id"))
 
-            entry = {"platform": "youtube", "id": vid, "updated": True, "result": resp, "timestamp": time.time()}
+            entry = {"platform": "youtube", "id": vid, "updated": True, "result": resp, "original_snippet": original_snippet, "timestamp": time.time()}
             video_history.append(entry)
             applied += 1
             time.sleep(sleep_between)
@@ -194,24 +211,72 @@ def plan_and_apply_updates(youtube, video_ids: List[str], dry_run: bool = True, 
             logger.exception("YouTube HttpError updating %s: %s", vid, he)
             entry = {"platform": "youtube", "id": vid, "updated": False, "error": str(he), "timestamp": time.time()}
             video_history.append(entry)
-            # backoff before next
             time.sleep(5)
         except Exception as ex:
             logger.exception("Unexpected error updating %s: %s", vid, ex)
             video_history.append({"platform": "youtube", "id": vid, "updated": False, "error": str(ex), "timestamp": time.time()})
             time.sleep(5)
 
-    # Persist history
     save_history(video_history_path, video_history)
     logger.info("Finished. Applied %d updates (planned %d). History saved to %s", applied, len(updates), video_history_path)
 
 
+def revert_updates(youtube, video_history_path: Path, revert_count: Optional[int] = None, revert_ids: Optional[List[str]] = None, dry_run: bool = True, sleep_between: float = 2.0):
+    """Revert previously applied updates using original_snippet stored in history.
+
+    If revert_ids is provided, attempt to revert those videos. Otherwise revert the most recent revert_count applied updates.
+    """
+    video_history = load_history(video_history_path)
+    applied = 0
+
+    # Build list of candidate entries that were updated and have original_snippet
+    candidates = [e for e in reversed(video_history) if isinstance(e, dict) and e.get("platform") == "youtube" and e.get("updated") and e.get("original_snippet")]
+
+    if revert_ids:
+        # Filter candidates by requested ids
+        candidates = [c for c in candidates if c.get("id") in revert_ids]
+    else:
+        if revert_count:
+            candidates = candidates[:revert_count]
+
+    if not candidates:
+        logger.info("No eligible applied updates found to revert.")
+        return
+
+    for c in candidates:
+        if revert_count and applied >= revert_count:
+            break
+        vid = c.get("id")
+        original = c.get("original_snippet")
+        if not original:
+            logger.warning("No original snippet stored for %s; skipping", vid)
+            continue
+        logger.info("Reverting video %s to original snippet", vid)
+        if dry_run:
+            logger.info("Dry-run: would revert %s", vid)
+            video_history.append({"platform": "youtube", "id": vid, "reverted": False, "planned_revert": True, "timestamp": time.time()})
+            applied += 1
+            continue
+        try:
+            resp = _update_video_snippet(youtube, vid, original)
+            logger.info("Reverted video %s: %s", vid, resp.get("id"))
+            video_history.append({"platform": "youtube", "id": vid, "reverted": True, "result": resp, "timestamp": time.time()})
+            applied += 1
+            time.sleep(sleep_between)
+        except HttpError as he:
+            logger.exception("YouTube HttpError reverting %s: %s", vid, he)
+            video_history.append({"platform": "youtube", "id": vid, "reverted": False, "error": str(he), "timestamp": time.time()})
+            time.sleep(5)
+        except Exception as ex:
+            logger.exception("Unexpected error reverting %s: %s", vid, ex)
+            video_history.append({"platform": "youtube", "id": vid, "reverted": False, "error": str(ex), "timestamp": time.time()})
+            time.sleep(5)
+
+    save_history(video_history_path, video_history)
+    logger.info("Revert run complete. Applied %d reverts.", applied)
+
+
 def meta_attempt_update(fb_token: str, facebook_page_id: str, instagram_id: str, video_history_path: Path, dry_run: bool = True, max_updates: Optional[int] = None):
-    """
-    Attempt to update Facebook page video metadata and Instagram captions where supported.
-    Note: Meta APIs have restrictions; editing captions may not be permitted for all media types.
-    We'll attempt to update and log the response. If the API refuses, we log guidance.
-    """
     session = None
     try:
         import requests
@@ -224,28 +289,19 @@ def meta_attempt_update(fb_token: str, facebook_page_id: str, instagram_id: str,
         return
 
     video_history = load_history(video_history_path)
-
-    # For safety, do not enumerate old IG/FB posts here; expect user to provide a list or rely on video_history.json
-    # We'll scan video_history for existing youtube uploads that have meta IDs recorded
     candidates = [v for v in video_history if isinstance(v, dict) and v.get("platform") == "youtube" and v.get("result")]
     applied = 0
     for c in candidates:
         if max_updates and applied >= max_updates:
             break
         meta_info = c.get("result", {})
-        # Try to find fb_id or ig_id in result
         fb_id = meta_info.get("facebook_id") or meta_info.get("fb_id")
         ig_id = meta_info.get("instagram_id") or meta_info.get("ig_id")
-
-        # If none, skip
         if not fb_id and not ig_id:
             continue
-
-        # Build desired meta caption from stored planned SEO where possible
         planned = c.get("planned") or {}
         title = planned.get("title") or c.get("current", {}).get("title")
         description = planned.get("description") or c.get("current", {}).get("description")
-        # build using seo to keep consistency
         seo = build_packages({"title": title, "description": description, "tags": planned.get("tags", [])}).get("instagram", {})
         caption = seo.get("caption")
         hashtags = seo.get("hashtags") or []
@@ -258,7 +314,6 @@ def meta_attempt_update(fb_token: str, facebook_page_id: str, instagram_id: str,
                 video_history.append({"platform": "instagram", "id": ig_id, "updated": False, "planned": caption_with_tags, "timestamp": time.time()})
                 applied += 1
                 continue
-            # Attempt to update via Graph API
             url = f"https://graph.facebook.com/v16.0/{ig_id}"
             params = {"access_token": fb_token, "caption": caption_with_tags}
             resp = session.post(url, params=params)
@@ -270,9 +325,8 @@ def meta_attempt_update(fb_token: str, facebook_page_id: str, instagram_id: str,
             except Exception as ex:
                 logger.exception("Failed to update IG %s: %s", ig_id, ex)
                 video_history.append({"platform": "instagram", "id": ig_id, "updated": False, "error": resp.text if resp is not None else str(ex), "timestamp": time.time()})
-                # If API refuses, provide guidance
                 if resp is not None and resp.status_code in (400, 403):
-                    logger.warning("Instagram API may not allow caption edits programmatically for this media. Refer to Meta docs and consider reposting with updated caption as fallback.")
+                    logger.warning("Instagram API may not allow caption edits programmatically for this media. Consider reposting as fallback.")
                 time.sleep(2)
 
         if fb_id:
@@ -308,6 +362,9 @@ def main():
     parser.add_argument("--confirm", action="store_true", help="If set, apply changes (requires --dry-run to be false)")
     parser.add_argument("--max-updates", type=int, default=10, help="Maximum number of videos to update in this run")
     parser.add_argument("--sleep", type=float, default=2.0, help="Seconds to sleep between updates")
+    parser.add_argument("--revert", action="store_true", help="Revert previously applied updates using backups in video_history.json")
+    parser.add_argument("--revert-count", type=int, default=0, help="Number of recent applied updates to revert")
+    parser.add_argument("--revert-ids", type=str, help="Comma-separated video ids to revert")
     args = parser.parse_args()
 
     if args.confirm and args.dry_run:
@@ -317,11 +374,9 @@ def main():
     if args.confirm:
         logger.warning("Live mode enabled. This script will modify remote video metadata. Proceed with caution.")
 
-    # Ensure dirs exist
     SETTINGS.ensure_dirs()
     video_history_path = SETTINGS.data_dir / "video_history.json"
 
-    # YouTube flow
     try:
         creds = _load_youtube_creds()
         youtube = build("youtube", "v3", credentials=creds, cache_discovery=False)
@@ -329,7 +384,11 @@ def main():
         logger.exception("Failed to initialize YouTube client: %s", exc)
         return
 
-    # Enumerate videos
+    if args.revert:
+        revert_ids = [s.strip() for s in args.revert_ids.split(',')] if args.revert_ids else None
+        revert_updates(youtube, video_history_path, revert_count=(args.revert_count if args.revert_count > 0 else None), revert_ids=revert_ids, dry_run=args.dry_run, sleep_between=args.sleep)
+        return
+
     video_ids = _iter_uploaded_video_ids(youtube)
     logger.info("Found %d uploaded videos", len(video_ids))
 
@@ -339,7 +398,6 @@ def main():
 
     plan_and_apply_updates(youtube, video_ids, dry_run=args.dry_run, max_updates=args.max_updates, sleep_between=args.sleep)
 
-    # Meta flow: attempt updates if tokens are present
     fb_token = os.getenv("FACEBOOK_ACCESS_TOKEN", "").strip()
     fb_page = os.getenv("FACEBOOK_PAGE_ID", "").strip()
     ig_user = os.getenv("INSTAGRAM_USER_ID", "").strip()
