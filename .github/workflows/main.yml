@@ -20,6 +20,7 @@ on:
     # Generate at 9:00 PM PKT and 1:00 AM PKT; cron is UTC.
     - cron: "0 16 * * *"
     - cron: "0 20 * * *"
+    - cron: "0 22 * * *"
 permissions:
   contents: write
 concurrency:
