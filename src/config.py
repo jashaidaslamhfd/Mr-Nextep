@@ -16,17 +16,15 @@ class Settings(BaseSettings):
     max_seconds: float = Field(default=30.0)
     topic: str = Field(default="")
     max_attempts: int = Field(default=10)
-    # Number of recent videos to compare against for duplicate detection
     duplicate_check_last: int = Field(default=10)
-    # Default jitter in minutes to apply when scheduling publish times (US peak windows)
     schedule_jitter_minutes: int = Field(default=20)
+    max_hashtags: int = Field(default=30)
 
     class Config:
         env_prefix = ""
         case_sensitive = False
 
     def __init__(self, **data):
-        # Load from environment variables
         env_data = {
             "language": getenv("CHANNEL_LANGUAGE", "en-US"),
             "timezone": getenv("PUBLISH_TIMEZONE", "America/New_York"),
@@ -41,9 +39,22 @@ class Settings(BaseSettings):
             "max_attempts": int(getenv("MAX_GENERATION_ATTEMPTS", "10")),
             "duplicate_check_last": int(getenv("DUPLICATE_CHECK_LAST", "10")),
             "schedule_jitter_minutes": int(getenv("SCHEDULE_JITTER_MINUTES", "20")),
+            "max_hashtags": int(getenv("MAX_HASHTAGS", "30")),
         }
         env_data.update(data)
         super().__init__(**env_data)
 
+    def validate(self):
+        errors = []
+        if self.max_seconds < self.min_seconds:
+            errors.append(f"TARGET_MAX_SECONDS ({self.max_seconds}) must be >= TARGET_MIN_SECONDS ({self.min_seconds})")
+        if self.timezone not in ["America/New_York", "America/Los_Angeles", "America/Chicago", "UTC", "Europe/London"]:
+            errors.append(f"PUBLISH_TIMEZONE is invalid: {self.timezone}")
+        return errors
 
-settings = Settings()
+    def ensure_dirs(self):
+        self.output_dir.mkdir(parents=True, exist_ok=True)
+        self.data_dir.mkdir(parents=True, exist_ok=True)
+
+
+SETTINGS = Settings()
