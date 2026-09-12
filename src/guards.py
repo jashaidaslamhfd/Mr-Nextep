@@ -89,6 +89,19 @@ def is_duplicate(script: dict[str, Any], history: list[dict[str, Any]]) -> bool:
     return duplicate_reason(script, history) is not None
 
 def retention_proxy(script: dict[str, Any], duration: float) -> float:
+    """Structural conformance score. NOT a retention prediction — see below.
+
+    This function is retained under its original name because callers and tests import it,
+    but its meaning is now explicit: it measures whether a script matches the Shorts format
+    (scene count, duration band, caption lengths). Every input it reads is something the
+    generation prompt already enforces, and it is capped at 0.90 against a 0.70 target, so
+    it cannot fail any script the generator is able to produce. It never rejected a single
+    one of the channel's ~100 published videos.
+
+    It is kept as a cheap format check. It is no longer treated as evidence about
+    retention: that judgement now belongs to analytics.evaluate_retention, which reads real
+    averageViewPercentage from the YouTube Analytics API.
+    """
     scenes = len(script.get("scenes", []))
     first = str((script.get("scenes") or [{}])[0].get("caption", ""))
     score = 0.35
@@ -101,6 +114,10 @@ def retention_proxy(script: dict[str, Any], duration: float) -> float:
     if all(1 <= len(str(s.get("caption", "")).split()) <= 8 for s in script.get("scenes", [])): score += 0.10
     return min(0.90, score)
 
+
+# Kept as an alias so the honest name is available at call sites.
+structural_conformance = retention_proxy
+
 def load_history(path: Path) -> list[dict[str, Any]]:
     try:
         value = json.loads(path.read_text(encoding="utf-8"))
@@ -111,11 +128,60 @@ def save_history(path: Path, history: list[dict[str, Any]]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(history[-500:], indent=2, ensure_ascii=False), encoding="utf-8")
 
-def enforce(script: dict[str, Any], duration: float, history: list[dict[str, Any]]) -> dict[str, Any]:
+def enforce(
+    script: dict[str, Any],
+    duration: float,
+    history: list[dict[str, Any]],
+    performance: Any | None = None,
+) -> dict[str, Any]:
+    """Gate a script before it is published.
+
+    Two independent checks:
+
+    1. Duplication, against the content history (OR'd similarity — see duplicate_reason).
+    2. Retention, against real measured channel performance when `performance` is supplied.
+
+    `performance` is an analytics.ChannelPerformance. When it is None or has no baseline
+    yet, the retention verdict is recorded as ungrounded and does not block publication —
+    an honest "no evidence" rather than the fabricated 0.90 the old proxy returned. Once
+    enough real data exists, a script whose closest published relatives underperformed the
+    channel median is rejected.
+
+    The structural score is still computed and returned, but under a key that says what it
+    is. `retention_proxy` is kept in the payload for backward compatibility with existing
+    history files.
+    """
     reason = duplicate_reason(script, history)
     if reason: raise RuntimeError(f"Duplicate or near-duplicate content rejected: {reason}")
-    score = retention_proxy(script, duration)
-    if score < RETENTION_TARGET: raise RuntimeError(f"Retention proxy {score:.0%} is below target {RETENTION_TARGET:.0%}")
+
+    structural = structural_conformance(script, duration)
+    if structural < RETENTION_TARGET:
+        raise RuntimeError(
+            f"Structural conformance {structural:.0%} is below target {RETENTION_TARGET:.0%}"
+        )
+
+    verdict_payload: dict[str, Any] = {
+        "grounded": False,
+        "passed": True,
+        "reason": "no performance data supplied to enforce()",
+    }
+    if performance is not None:
+        from .analytics import evaluate_retention
+
+        verdict = evaluate_retention(script, performance)
+        verdict_payload = verdict.as_dict()
+        if not verdict.passed:
+            raise RuntimeError(f"Rejected on measured retention: {verdict.reason}")
+
     title = str(script.get("title", ""))
     body = " ".join(str(s.get("caption", "")) for s in script.get("scenes", []))
-    return {"retention_proxy": score, "fingerprint": fingerprint(script), "title": title, "body": body, "text": f"{title} {body}"}
+    return {
+        "structural_conformance": structural,
+        # Legacy key: existing history entries and tests read this name.
+        "retention_proxy": structural,
+        "retention_verdict": verdict_payload,
+        "fingerprint": fingerprint(script),
+        "title": title,
+        "body": body,
+        "text": f"{title} {body}",
+    }
