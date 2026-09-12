@@ -23,7 +23,10 @@ def test_weak_script_fails_retention_gate():
     try:
         enforce(weak, 8.0, [])
     except RuntimeError as exc:
-        assert "Retention proxy" in str(exc)
+        # The message deliberately says "Structural conformance", not "Retention": this
+        # check reads scene count, duration and caption lengths, none of which is evidence
+        # about retention. Real retention now comes from analytics.evaluate_retention.
+        assert "Structural conformance" in str(exc)
     else:
         raise AssertionError("weak script passed retention gate")
 
