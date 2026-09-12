@@ -53,8 +53,12 @@ def main():
     ranked=sorted(unique.values(),key=score,reverse=True)[:a.limit]
     topics=[]
     for i,r in enumerate(ranked,1):
-        q=r['title'] if r['title'].endswith('?') else 'Why does '+r['title'][0].lower()+r['title'][1:]+'?'
-        topics.append({'series_number':f'TREND-{i}','topic':r['title'],'question_phrase':q,'angle':q,'source':r['source'],'source_url':r['url'],'trend_score':score(r),'fetched_at':datetime.now(UTC).isoformat()})
+        # The headline is stored as raw source material only. It used to be turned into a
+        # "question_phrase" by lowercasing the first letter and prepending 'Why does ',
+        # which is grammatically wrong for any headline carrying its own conjugated verb
+        # and produced published titles like "Why does apple acquires brain imaging firm".
+        # Writing the title is the model's job now (see content.SYSTEM_PROMPT).
+        topics.append({'series_number':f'TREND-{i}','topic':r['title'],'source':r['source'],'source_url':r['url'],'trend_score':score(r),'fetched_at':datetime.now(UTC).isoformat()})
     payload={'source':'Google Trends US + US science RSS','mined_at':datetime.now(UTC).isoformat(),'topics':topics,'source_errors':errors}
     p=Path(a.output); p.parent.mkdir(parents=True,exist_ok=True); p.write_text(json.dumps(payload,indent=2),encoding='utf-8')
     print(json.dumps({'output':str(p),'topics':len(topics),'source_errors':errors}))
