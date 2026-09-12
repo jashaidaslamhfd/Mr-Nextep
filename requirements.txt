@@ -3,7 +3,7 @@
 # Dependabot (.github/dependabot.yml) proposes upgrades as reviewable PRs instead.
 Pillow==11.3.0
 python-dotenv==1.1.1
-google-api-python-client==2.184.0
+google-api-python-client==2.200.0
 google-auth==2.41.1
 google-auth-oauthlib==1.2.2
 edge-tts==7.2.4
