@@ -11,14 +11,16 @@ Features:
 This module intentionally does NOT include any evasion/stealth techniques.
 """
 from __future__ import annotations
-import time
-import random
+
 import logging
+import random
+import time
+from collections.abc import Callable, Iterable
 from functools import wraps
-from typing import Callable, Any, Iterable, List, Dict
+
 import requests
-from requests.exceptions import RequestException
 from googleapiclient.errors import HttpError
+from requests.exceptions import RequestException
 
 logger = logging.getLogger("mrnextep.utils")
 
@@ -31,11 +33,52 @@ def backoff_with_jitter(attempt: int, base: float = 1.0, cap: float = 60.0) -> f
     return wait
 
 
+def http_status_of(exc: Exception) -> int | None:
+    """Best-effort HTTP status extraction from a googleapiclient HttpError."""
+    if not isinstance(exc, HttpError):
+        return None
+    try:
+        return int(getattr(exc, "status_code", None) or exc.resp.status)
+    except Exception:
+        return None
+
+
+def is_transient_http_error(exc: Exception) -> bool:
+    """Decide whether an exception is worth retrying.
+
+    5xx and 429 are transient. 403 is NOT: on the YouTube Data API it is almost always
+    quotaExceeded / uploadLimitExceeded, which is permanent for the rest of the day.
+    Retrying it five times with backoff only burns quota and CI minutes while hiding
+    the real cause, so it fails fast and loudly instead.
+    """
+    status = http_status_of(exc)
+    if status is not None:
+        if 500 <= status < 600 or status == 429:
+            return True
+        if status == 403:
+            detail = ""
+            try:
+                detail = (exc.content or b"").decode("utf-8", "replace")[:300]
+            except Exception:
+                detail = str(exc)[:300]
+            logger.error(
+                "HTTP 403 from the API is treated as permanent (usually quota or permissions), "
+                "not retried. Detail: %s",
+                detail,
+            )
+            return False
+        return False
+    return isinstance(exc, RequestException)
+
+
 def retry_on_exception(max_attempts: int = 5, allowed_exceptions: Iterable[type] = (Exception,)):
     """
     Decorator to retry a function on exception with exponential backoff + jitter.
-    - For HttpError, this will reattempt on 5xx and certain 429/403 transient-like statuses.
+    - For HttpError, retries 5xx and 429 only (403 is permanent — see is_transient_http_error).
     - For RequestException will retry.
+
+    NOTE: do not wrap a resumable upload loop with this decorator. Re-entering the call
+    restarts an already partially-consumed media upload; retry the chunk loop instead.
     """
     def decorator(fn: Callable):
         @wraps(fn)
@@ -46,18 +89,9 @@ def retry_on_exception(max_attempts: int = 5, allowed_exceptions: Iterable[type]
                     return fn(*args, **kwargs)
                 except Exception as exc:
                     last_exc = exc
-                    # Special-case: googleapiclient HttpError -> inspect status
                     transient = False
-                    if isinstance(exc, HttpError):
-                        try:
-                            status = int(getattr(exc, "status_code", exc.resp.status))
-                        except Exception:
-                            status = None
-                        # Retry on 5xx or 429; 403 can be transient in some quota flows (be conservative)
-                        if status and (500 <= status < 600 or status == 429 or status == 403):
-                            transient = True
-                    elif isinstance(exc, RequestException):
-                        transient = True
+                    if isinstance(exc, (HttpError, RequestException)):
+                        transient = is_transient_http_error(exc)
                     else:
                         # for other exception types, only retry if explicitly allowed
                         for et in allowed_exceptions:
@@ -89,7 +123,7 @@ def requests_session_with_retries(max_attempts: int = 4, backoff_base: float = 1
     return session
 
 
-def sanitize_hashtags(tags: List[str], max_hashtags: int = 10) -> List[str]:
+def sanitize_hashtags(tags: list[str], max_hashtags: int = 10) -> list[str]:
     """
     Normalize and deduplicate hashtags, return up to max_hashtags.
     - Removes spaces, leading '#', lowercases duplication checks but preserves original case for output.
@@ -116,17 +150,16 @@ def sanitize_hashtags(tags: List[str], max_hashtags: int = 10) -> List[str]:
 
 
 def unique_text_suffix(previous_text: str | None = None) -> str:
+    """Deprecated. Always returns "".
+
+    This used to append " ✨" / " 🔥" / " #<random>" to titles and descriptions so that
+    duplicate metadata would slip past dedupe checks. That put visible noise in front of
+    viewers (hurting CTR) without making the content any less duplicated. Duplicates are
+    now resolved upstream in main.metadata_collides by regenerating the script.
+
+    Kept as a no-op so any external caller keeps working; remove once nothing calls it.
     """
-    Produce a short, mostly harmless suffix when needed to avoid exact duplication.
-    Keeps texts human-readable while introducing minor variation.
-    """
-    # 30% chance to append nothing, otherwise append a small emoji or number
-    if not previous_text:
-        return ""
-    if random.random() < 0.3:
-        return ""
-    suffixes = [" ✨", " 🔥", " •", " #shorts", f" #{random.randint(1,999)}"]
-    return random.choice(suffixes)
+    return ""
 
 
 def randomized_window(base_timestamp, window_minutes: int = 30):
@@ -143,11 +176,11 @@ def randomized_window(base_timestamp, window_minutes: int = 30):
 
 # --- USA-specific metadata helpers ---
 
-def _tokenize_topic(topic: str) -> List[str]:
+def _tokenize_topic(topic: str) -> list[str]:
     return [p.strip().lower() for p in topic.replace('-', ' ').split() if p.strip()]
 
 
-def generate_us_hashtag_sets(topic: str, raw_tags: List[str], max_total: int = 8) -> Dict[str, List[str]]:
+def generate_us_hashtag_sets(topic: str, raw_tags: list[str], max_total: int = 8) -> dict[str, list[str]]:
     """
     Generate hashtag clusters optimized for US discovery on YouTube/Meta.
     Returns a dict with keys: youtube_tags (3), meta_tags (8), meta_broad (3), meta_niche (3), meta_community (2)

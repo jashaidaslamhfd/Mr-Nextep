@@ -18,25 +18,23 @@ Safety:
 - Revert mode: can revert applied updates using saved original snippets in history.
 """
 from __future__ import annotations
+
 import argparse
 import logging
 import os
 import time
-import json
 from pathlib import Path
-from typing import List, Dict, Any, Optional
+from typing import Any
 
-from google.oauth2.credentials import Credentials
 from google.auth.transport.requests import Request
+from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
-from config import SETTINGS
-from seo import build_packages
-from utils import retry_on_exception, sanitize_hashtags
-
-# Local helpers for history
-from guards import load_history, save_history
+from src.config import SETTINGS
+from src.guards import load_history, save_history
+from src.seo import build_packages
+from src.utils import retry_on_exception, sanitize_hashtags
 
 logger = logging.getLogger("mrnextep.repair")
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
@@ -61,7 +59,7 @@ def _load_youtube_creds() -> Credentials:
     return creds
 
 
-def _iter_uploaded_video_ids(youtube) -> List[str]:
+def _iter_uploaded_video_ids(youtube) -> list[str]:
     """Return a list of all video IDs uploaded by the authenticated channel."""
     resp = youtube.channels().list(part="contentDetails", mine=True).execute()
     items = resp.get("items", [])
@@ -69,8 +67,8 @@ def _iter_uploaded_video_ids(youtube) -> List[str]:
         logger.error("No channels found for authenticated user")
         return []
     uploads_playlist = items[0]["contentDetails"]["relatedPlaylists"]["uploads"]
-    video_ids: List[str] = []
-    page_token: Optional[str] = None
+    video_ids: list[str] = []
+    page_token: str | None = None
     while True:
         pl = youtube.playlistItems().list(part="contentDetails", playlistId=uploads_playlist, maxResults=50, pageToken=page_token)
         resp = pl.execute()
@@ -85,8 +83,8 @@ def _iter_uploaded_video_ids(youtube) -> List[str]:
     return video_ids
 
 
-def _fetch_video_snippets(youtube, ids: List[str]) -> Dict[str, Dict[str, Any]]:
-    out: Dict[str, Dict[str, Any]] = {}
+def _fetch_video_snippets(youtube, ids: list[str]) -> dict[str, dict[str, Any]]:
+    out: dict[str, dict[str, Any]] = {}
     for i in range(0, len(ids), 50):
         chunk = ids[i:i+50]
         resp = youtube.videos().list(part="snippet,contentDetails", id=','.join(chunk)).execute()
@@ -97,18 +95,18 @@ def _fetch_video_snippets(youtube, ids: List[str]) -> Dict[str, Dict[str, Any]]:
 
 
 @retry_on_exception(max_attempts=5)
-def _update_video_snippet(youtube, video_id: str, new_snippet: Dict[str, Any]):
+def _update_video_snippet(youtube, video_id: str, new_snippet: dict[str, Any]):
     body = {"id": video_id, "snippet": new_snippet}
     resp = youtube.videos().update(part="snippet", body=body).execute()
     return resp
 
 
-def _normalize_tags_for_youtube(tags: List[str]) -> List[str]:
+def _normalize_tags_for_youtube(tags: list[str]) -> list[str]:
     cleaned = [t.lstrip('#') for t in sanitize_hashtags(tags, max_hashtags=15)]
     return cleaned
 
 
-def _count_recent_updates(video_history: List[Dict[str, Any]], window_hours: int = 24) -> int:
+def _count_recent_updates(video_history: list[dict[str, Any]], window_hours: int = 24) -> int:
     cutoff = time.time() - window_hours * 3600
     cnt = 0
     for e in reversed(video_history[-1000:]):
@@ -122,7 +120,7 @@ def _count_recent_updates(video_history: List[Dict[str, Any]], window_hours: int
     return cnt
 
 
-def plan_and_apply_updates(youtube, video_ids: List[str], dry_run: bool = True, max_updates: Optional[int] = None, sleep_between: float = 2.0):
+def plan_and_apply_updates(youtube, video_ids: list[str], dry_run: bool = True, max_updates: int | None = None, sleep_between: float = 2.0):
     logger.info("Inspecting %d videos", len(video_ids))
     snippets = _fetch_video_snippets(youtube, video_ids)
 
@@ -221,7 +219,7 @@ def plan_and_apply_updates(youtube, video_ids: List[str], dry_run: bool = True, 
     logger.info("Finished. Applied %d updates (planned %d). History saved to %s", applied, len(updates), video_history_path)
 
 
-def revert_updates(youtube, video_history_path: Path, revert_count: Optional[int] = None, revert_ids: Optional[List[str]] = None, dry_run: bool = True, sleep_between: float = 2.0):
+def revert_updates(youtube, video_history_path: Path, revert_count: int | None = None, revert_ids: list[str] | None = None, dry_run: bool = True, sleep_between: float = 2.0):
     """Revert previously applied updates using original_snippet stored in history.
 
     If revert_ids is provided, attempt to revert those videos. Otherwise revert the most recent revert_count applied updates.
@@ -276,7 +274,7 @@ def revert_updates(youtube, video_history_path: Path, revert_count: Optional[int
     logger.info("Revert run complete. Applied %d reverts.", applied)
 
 
-def meta_attempt_update(fb_token: str, facebook_page_id: str, instagram_id: str, video_history_path: Path, dry_run: bool = True, max_updates: Optional[int] = None):
+def meta_attempt_update(fb_token: str, facebook_page_id: str, instagram_id: str, video_history_path: Path, dry_run: bool = True, max_updates: int | None = None):
     session = None
     try:
         import requests

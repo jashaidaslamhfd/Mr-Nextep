@@ -1,7 +1,9 @@
 from __future__ import annotations
+
 from typing import Any
 
 from .utils import generate_us_hashtag_sets, us_title_for_short
+
 
 def build_packages(script: dict[str, Any]) -> dict[str, dict[str, Any]]:
     raw_title = str(script.get("title", "Dark Science Explained")).strip()
@@ -25,6 +27,8 @@ def build_packages(script: dict[str, Any]) -> dict[str, dict[str, Any]]:
     meta_caption = first_line + "\n\n" + description + cta
 
     meta_hashtags = tag_sets.get("meta_tags", [])
+    # Reels-specific discovery tag, so the Instagram package is not just a Facebook copy.
+    instagram_hashtags = ["#Reels"] + [t for t in meta_hashtags if t.lower() != "#reels"]
 
     return {
         "youtube": {
@@ -38,6 +42,6 @@ def build_packages(script: dict[str, Any]) -> dict[str, dict[str, Any]]:
         },
         "instagram": {
             "caption": (meta_caption)[:2200],
-            "hashtags": meta_hashtags,
+            "hashtags": instagram_hashtags,
         },
     }

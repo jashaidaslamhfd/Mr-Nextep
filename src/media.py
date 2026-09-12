@@ -1,14 +1,17 @@
 from __future__ import annotations
-import json
-import subprocess
-import wave
+
 import hashlib
+import json
 import os
 import shutil
+import subprocess
+import wave
 from pathlib import Path
+
 from PIL import Image, ImageDraw, ImageFont
-from config import Settings
-from visuals import download_clip, query_for_scene
+
+from .config import Settings
+from .visuals import download_clip, query_for_scene
 
 W, H = 1080, 1920
 
@@ -96,7 +99,8 @@ def render(script: dict, settings: Settings) -> Path:
     for index, scene in enumerate(script["scenes"], 1):
         words = scene["caption"].split() or [""]
         duration = max(2.2, min(3.2, 0.38 * len(words)))
-        audio = settings.output_dir / f"audio_{index:02d}.wav"
+        # Keep audio inside scene_dir, which is wiped per run; output/ root used to accumulate WAVs.
+        audio = scene_dir / f"audio_{index:02d}.wav"
 
         if settings.dry_run:
             with wave.open(str(audio), "wb") as out:

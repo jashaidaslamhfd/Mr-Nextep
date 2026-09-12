@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import logging
 import os
 import re
 import subprocess
@@ -10,10 +11,21 @@ from urllib.parse import quote
 
 import requests
 
+logger = logging.getLogger("mrnextep.visuals")
+
 API = "https://commons.wikimedia.org/w/api.php"
 ARCHIVE_SEARCH = "https://archive.org/advancedsearch.php"
 MAX_CLIP_BYTES = 45_000_000
 MAX_CANDIDATES = 16
+CLIP_SECONDS = 8
+
+GRADE_FILTER = (
+    "scale=1080:1920:force_original_aspect_ratio=increase,"
+    "crop=1080:1920,"
+    "unsharp=5:5:0.8:5:5:0.0,"
+    "eq=contrast=1.14:saturation=1.20:brightness=-0.02,"
+    "vignette=PI/4"
+)
 
 GUARANTEED_TOPICS = [
     "dark science",
@@ -60,6 +72,8 @@ def _fetch_wikimedia_candidates(query_terms: str, headers: dict) -> list[str]:
     }
     try:
         response = requests.get(API, params=params, timeout=20, headers=headers)
+        if not response.ok:
+            logger.warning("Wikimedia search returned HTTP %s for %r", response.status_code, query_terms)
         if response.ok:
             pages = response.json().get("query", {}).get("pages", {}).values()
             for p in pages:
@@ -70,7 +84,7 @@ def _fetch_wikimedia_candidates(query_terms: str, headers: dict) -> list[str]:
                 if url and mime.startswith("video/") and (size <= MAX_CLIP_BYTES or size == 0):
                     candidates.append(url)
     except Exception:
-        pass
+        logger.warning("Stock provider %s failed; continuing with other sources", "wikimedia", exc_info=True)
     return candidates
 
 
@@ -104,7 +118,7 @@ def _fetch_archive_candidates(query: str, headers: dict) -> list[str]:
                 if len(candidates) >= 8:
                     break
     except Exception:
-        pass
+        logger.warning("Stock provider %s failed; continuing with other sources", "archive.org", exc_info=True)
     return candidates
 
 
@@ -129,7 +143,7 @@ def _fetch_pexels_candidates(keywords: str) -> list[str]:
                             candidates.append(vf["link"])
                             break
     except Exception:
-        pass
+        logger.warning("Stock provider %s failed; continuing with other sources", "pexels", exc_info=True)
     return candidates
 
 
@@ -156,12 +170,66 @@ def _fetch_pixabay_candidates(keywords: str) -> list[str]:
                 if link and link not in candidates:
                     candidates.append(link)
     except Exception:
-        pass
+        logger.warning("Stock provider %s failed; continuing with other sources", "pixabay", exc_info=True)
     return candidates
 
 
+def _try_candidate(
+    source_url: str,
+    destination: Path,
+    avoid_hashes: set[str],
+    headers: dict,
+    check_size: bool = True,
+) -> bool:
+    """Download one candidate, grade it, and keep it unless its hash collides.
+
+    Returns True when destination now holds a usable graded clip. Leaves no partial
+    files behind on failure. This body used to exist twice, near-verbatim.
+    """
+    raw = destination.with_suffix(".source")
+    try:
+        if check_size:
+            head = requests.head(source_url, timeout=20, headers=headers, allow_redirects=True)
+            content_length = int(head.headers.get("content-length", 0) or 0)
+            if content_length and content_length > MAX_CLIP_BYTES:
+                logger.debug("Skipping %s: %d bytes exceeds cap", source_url, content_length)
+                return False
+
+        with requests.get(source_url, stream=True, timeout=90, headers=headers) as download:
+            download.raise_for_status()
+            with raw.open("wb") as handle:
+                for chunk in download.iter_content(1024 * 256):
+                    if chunk:
+                        handle.write(chunk)
+
+        subprocess.run([
+            "ffmpeg", "-y", "-i", str(raw),
+            "-t", str(CLIP_SECONDS), "-an",
+            "-vf", GRADE_FILTER,
+            "-r", "30",
+            "-c:v", "libx264", "-b:v", "6500k", "-preset", "ultrafast",
+            "-pix_fmt", "yuv420p",
+            str(destination),
+        ], check=True, capture_output=True)
+
+        clip_hash = hashlib.sha256(destination.read_bytes()).hexdigest()
+        if clip_hash in avoid_hashes:
+            logger.debug("Discarding %s: duplicate of a clip already used in this video", source_url)
+            destination.unlink(missing_ok=True)
+            return False
+
+        destination.with_suffix(".source_url").write_text(source_url, encoding="utf-8")
+        return True
+    except (requests.RequestException, OSError, subprocess.CalledProcessError) as exc:
+        logger.warning("Candidate %s unusable: %s", source_url, exc)
+        destination.unlink(missing_ok=True)
+        return False
+    finally:
+        raw.unlink(missing_ok=True)
+
+
 def download_clip(query: str, destination: Path, avoid_hashes: set[str] | None = None) -> Path:
-    """Download stock clip and apply cinematic grading, unsharp filter, and vignette."""
+    """Download a stock clip and apply cinematic grading, unsharp filter, and vignette."""
     headers = {"User-Agent": "Mr-Nextep/2.0 (cinematic-shorts-renderer; contact via GitHub)"}
     clean_kw = _clean_keywords(query)
 
@@ -201,8 +269,10 @@ def download_clip(query: str, destination: Path, avoid_hashes: set[str] | None =
         history = json.loads(history_path.read_text(encoding="utf-8"))
         used_urls = {row.get("source_url") for row in history if isinstance(row, dict)}
         candidates = [url for url in candidates if url not in used_urls] or candidates
+    except FileNotFoundError:
+        logger.info("No clip history yet; not filtering previously used clips")
     except (OSError, ValueError, TypeError, json.JSONDecodeError):
-        pass
+        logger.warning("Could not read clip history; not filtering previously used clips", exc_info=True)
 
     if not candidates:
         for topic in GUARANTEED_TOPICS:
@@ -216,93 +286,27 @@ def download_clip(query: str, destination: Path, avoid_hashes: set[str] | None =
         raise RuntimeError(f"No moving video clip found for: {query}")
 
     destination.parent.mkdir(parents=True, exist_ok=True)
-    raw = destination.with_suffix(".source")
     avoid_hashes = avoid_hashes or set()
 
     salt = os.getenv("GITHUB_RUN_ID", "local")
     start = int(hashlib.sha256(f"{salt}:{query}:{destination.name}".encode()).hexdigest()[:8], 16) % len(candidates)
-    ordered = (candidates[start:] + candidates[:start])
+    ordered = candidates[start:] + candidates[:start]
 
-    vf_filter = (
-        "scale=1080:1920:force_original_aspect_ratio=increase,"
-        "crop=1080:1920,"
-        "unsharp=5:5:0.8:5:5:0.0,"
-        "eq=contrast=1.14:saturation=1.20:brightness=-0.02,"
-        "vignette=PI/4"
-    )
-
+    logger.info("Trying %d candidate clips for %r", len(ordered), query)
     for source_url in ordered:
-        try:
-            head = requests.head(source_url, timeout=20, headers=headers, allow_redirects=True)
-            content_length = int(head.headers.get("content-length", 0) or 0)
-            if content_length and content_length > MAX_CLIP_BYTES:
-                continue
-
-            with requests.get(source_url, stream=True, timeout=90, headers=headers) as download:
-                download.raise_for_status()
-                with raw.open("wb") as handle:
-                    for chunk in download.iter_content(1024 * 256):
-                        if chunk:
-                            handle.write(chunk)
-
-            subprocess.run([
-                "ffmpeg", "-y", "-i", str(raw),
-                "-t", "8", "-an",
-                "-vf", vf_filter,
-                "-r", "30",
-                "-c:v", "libx264", "-b:v", "6500k", "-preset", "ultrafast",
-                "-pix_fmt", "yuv420p",
-                str(destination)
-            ], check=True, capture_output=True)
-
-            clip_hash = hashlib.sha256(destination.read_bytes()).hexdigest()
-            if clip_hash in avoid_hashes:
-                destination.unlink(missing_ok=True)
-                raw.unlink(missing_ok=True)
-                continue
-
-            raw.unlink(missing_ok=True)
-            destination.with_suffix(".source_url").write_text(source_url, encoding="utf-8")
+        if _try_candidate(source_url, destination, avoid_hashes, headers):
             return destination
-        except (requests.RequestException, OSError, subprocess.CalledProcessError):
-            destination.unlink(missing_ok=True)
-            raw.unlink(missing_ok=True)
-            continue
 
-    # Fallback to guaranteed topics if all candidates collided
+    # Fallback to guaranteed topics if every candidate failed or collided.
+    logger.warning("All %d primary candidates failed for %r; falling back to guaranteed topics", len(ordered), query)
+    attempted = set(ordered)
     for fallback_topic in GUARANTEED_TOPICS:
-        fb_candidates = _fetch_wikimedia_candidates(fallback_topic, headers)
-        for fb_url in fb_candidates:
-            if fb_url in ordered:
+        for fb_url in _fetch_wikimedia_candidates(fallback_topic, headers):
+            if fb_url in attempted:
                 continue
-            try:
-                with requests.get(fb_url, stream=True, timeout=90, headers=headers) as download:
-                    download.raise_for_status()
-                    with raw.open("wb") as handle:
-                        for chunk in download.iter_content(1024 * 256):
-                            if chunk:
-                                handle.write(chunk)
-                subprocess.run([
-                    "ffmpeg", "-y", "-i", str(raw),
-                    "-t", "8", "-an",
-                    "-vf", vf_filter,
-                    "-r", "30",
-                    "-c:v", "libx264", "-b:v", "6500k", "-preset", "ultrafast",
-                    "-pix_fmt", "yuv420p",
-                    str(destination)
-                ], check=True, capture_output=True)
-                clip_hash = hashlib.sha256(destination.read_bytes()).hexdigest()
-                if clip_hash in avoid_hashes:
-                    destination.unlink(missing_ok=True)
-                    raw.unlink(missing_ok=True)
-                    continue
-                raw.unlink(missing_ok=True)
-                destination.with_suffix(".source_url").write_text(fb_url, encoding="utf-8")
+            attempted.add(fb_url)
+            if _try_candidate(fb_url, destination, avoid_hashes, headers, check_size=False):
                 return destination
-            except Exception:
-                destination.unlink(missing_ok=True)
-                raw.unlink(missing_ok=True)
-                continue
 
     raise RuntimeError(f"No unique moving video clip found for: {query}")
 
