@@ -1,58 +1,75 @@
-from pydantic_settings import BaseSettings
-from pydantic import Field
+"""Typed configuration for the Mr-Nextep pipeline.
+
+Settings are bound directly from environment variables by pydantic-settings via
+per-field validation aliases. Nothing is read with getenv here: a malformed value
+surfaces as a pydantic ValidationError naming the offending field, instead of a
+bare ValueError raised from a hand-rolled __init__.
+"""
+from __future__ import annotations
+
 from pathlib import Path
-from os import getenv
+from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
+
+from pydantic import Field, field_validator
+from pydantic_settings import BaseSettings, SettingsConfigDict
+
+VALID_PRIVACY_STATUSES = ("private", "public", "unlisted")
 
 
 class Settings(BaseSettings):
-    language: str = Field(default="en-US")
-    timezone: str = Field(default="America/New_York")
-    output_dir: Path = Field(default_factory=lambda: Path(getenv("OUTPUT_DIR", "output")))
-    data_dir: Path = Field(default_factory=lambda: Path(getenv("DATA_DIR", "data")))
-    dry_run: bool = Field(default=False)
-    privacy_status: str = Field(default="private")
-    schedule_publish: bool = Field(default=True)
-    min_seconds: float = Field(default=15.0)
-    max_seconds: float = Field(default=30.0)
-    topic: str = Field(default="")
-    max_attempts: int = Field(default=10)
-    duplicate_check_last: int = Field(default=10)
-    schedule_jitter_minutes: int = Field(default=20)
-    max_hashtags: int = Field(default=30)
+    model_config = SettingsConfigDict(
+        case_sensitive=False,
+        populate_by_name=True,
+        extra="ignore",
+    )
 
-    class Config:
-        env_prefix = ""
-        case_sensitive = False
+    language: str = Field(default="en-US", validation_alias="CHANNEL_LANGUAGE")
+    timezone: str = Field(default="America/New_York", validation_alias="PUBLISH_TIMEZONE")
+    output_dir: Path = Field(default=Path("output"), validation_alias="OUTPUT_DIR")
+    data_dir: Path = Field(default=Path("data"), validation_alias="DATA_DIR")
+    dry_run: bool = Field(default=False, validation_alias="DRY_RUN")
+    privacy_status: str = Field(default="private", validation_alias="YT_PRIVACY_STATUS")
+    schedule_publish: bool = Field(default=True, validation_alias="YT_SCHEDULE_PUBLISH")
+    min_seconds: float = Field(default=15.0, validation_alias="TARGET_MIN_SECONDS")
+    max_seconds: float = Field(default=30.0, validation_alias="TARGET_MAX_SECONDS")
+    topic: str = Field(default="", validation_alias="VIDEO_TOPIC")
+    max_attempts: int = Field(default=10, validation_alias="MAX_GENERATION_ATTEMPTS")
+    duplicate_check_last: int = Field(default=10, validation_alias="DUPLICATE_CHECK_LAST")
+    schedule_jitter_minutes: int = Field(default=20, validation_alias="SCHEDULE_JITTER_MINUTES")
+    max_hashtags: int = Field(default=30, validation_alias="MAX_HASHTAGS")
 
-    def __init__(self, **data):
-        env_data = {
-            "language": getenv("CHANNEL_LANGUAGE", "en-US"),
-            "timezone": getenv("PUBLISH_TIMEZONE", "America/New_York"),
-            "output_dir": getenv("OUTPUT_DIR", "output"),
-            "data_dir": getenv("DATA_DIR", "data"),
-            "dry_run": getenv("DRY_RUN", "false").lower() == "true",
-            "privacy_status": getenv("YT_PRIVACY_STATUS", "private"),
-            "schedule_publish": getenv("YT_SCHEDULE_PUBLISH", "true").lower() == "true",
-            "min_seconds": float(getenv("TARGET_MIN_SECONDS", "15")),
-            "max_seconds": float(getenv("TARGET_MAX_SECONDS", "30")),
-            "topic": getenv("VIDEO_TOPIC", ""),
-            "max_attempts": int(getenv("MAX_GENERATION_ATTEMPTS", "10")),
-            "duplicate_check_last": int(getenv("DUPLICATE_CHECK_LAST", "10")),
-            "schedule_jitter_minutes": int(getenv("SCHEDULE_JITTER_MINUTES", "20")),
-            "max_hashtags": int(getenv("MAX_HASHTAGS", "30")),
-        }
-        env_data.update(data)
-        super().__init__(**env_data)
+    @field_validator("privacy_status")
+    @classmethod
+    def _normalize_privacy(cls, value: str) -> str:
+        normalized = (value or "").strip().lower()
+        if normalized not in VALID_PRIVACY_STATUSES:
+            raise ValueError(
+                f"YT_PRIVACY_STATUS must be one of {VALID_PRIVACY_STATUSES}, got {value!r}"
+            )
+        return normalized
 
-    def validate(self):
-        errors = []
+    def check_config(self) -> list[str]:
+        """Return human-readable configuration problems; empty list means valid.
+
+        Named check_config rather than validate so it does not shadow pydantic's
+        own BaseModel.validate classmethod.
+        """
+        errors: list[str] = []
         if self.max_seconds < self.min_seconds:
-            errors.append(f"TARGET_MAX_SECONDS ({self.max_seconds}) must be >= TARGET_MIN_SECONDS ({self.min_seconds})")
-        if self.timezone not in ["America/New_York", "America/Los_Angeles", "America/Chicago", "UTC", "Europe/London"]:
+            errors.append(
+                f"TARGET_MAX_SECONDS ({self.max_seconds}) must be >= "
+                f"TARGET_MIN_SECONDS ({self.min_seconds})"
+            )
+        # Accept any zone the system tz database knows, rather than a hardcoded allowlist.
+        try:
+            ZoneInfo(self.timezone)
+        except (ZoneInfoNotFoundError, ValueError, OSError):
             errors.append(f"PUBLISH_TIMEZONE is invalid: {self.timezone}")
+        if self.max_attempts < 1:
+            errors.append(f"MAX_GENERATION_ATTEMPTS must be >= 1, got {self.max_attempts}")
         return errors
 
-    def ensure_dirs(self):
+    def ensure_dirs(self) -> None:
         self.output_dir.mkdir(parents=True, exist_ok=True)
         self.data_dir.mkdir(parents=True, exist_ok=True)
 

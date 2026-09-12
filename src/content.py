@@ -1,11 +1,13 @@
 from __future__ import annotations
-import json
-import os
+
 import hashlib
+import json
 import logging
-from urllib.request import Request, urlopen
+import os
 from typing import Any
-from config import Settings
+from urllib.request import Request, urlopen
+
+from .config import Settings
 
 log = logging.getLogger(__name__)
 
