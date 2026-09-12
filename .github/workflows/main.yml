@@ -54,7 +54,7 @@ jobs:
       META_POST_GAP_SECONDS: "60"
       INSTAGRAM_PROCESSING_TIMEOUT_SECONDS: "300"
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
