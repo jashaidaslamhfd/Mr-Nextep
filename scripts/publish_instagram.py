@@ -1,7 +1,9 @@
 from __future__ import annotations
+
 import os
 import time
 from urllib.parse import urlparse
+
 import requests
 
 GRAPH = 'https://graph.facebook.com/v23.0'
