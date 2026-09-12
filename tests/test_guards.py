@@ -1,9 +1,7 @@
 from __future__ import annotations
-import sys
-from pathlib import Path
-sys.path.insert(0, str(Path(__file__).parents[1] / "src"))
-from content import fallback
-from guards import enforce, fingerprint, is_duplicate, retention_proxy
+
+from src.content import fallback
+from src.guards import enforce, fingerprint, is_duplicate, retention_proxy
 
 
 def test_duplicate_is_rejected():

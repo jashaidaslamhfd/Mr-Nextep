@@ -3,11 +3,10 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-import content
-import main
-from config import Settings
-from content import fallback, generate_script
-from meta import publish
+from src import content, main
+from src.config import Settings
+from src.content import fallback, generate_script
+from src.meta import publish
 
 
 class _DummySettings:
@@ -16,8 +15,9 @@ class _DummySettings:
     data_dir = Path("/tmp/mr-nextep-regression-data")
     output_dir = Path("/tmp/mr-nextep-regression-output")
     dry_run = True
+    duplicate_check_last = 10
 
-    def validate(self):
+    def check_config(self):
         return []
 
     def ensure_dirs(self):
@@ -44,7 +44,14 @@ def test_clip_exhaustion_preserves_actionable_error(monkeypatch):
 
 def test_invalid_publish_timezone_is_rejected():
     settings = Settings(dry_run=True, timezone="Not/AZone")
-    assert any("PUBLISH_TIMEZONE is invalid" in error for error in settings.validate())
+    assert any("PUBLISH_TIMEZONE is invalid" in error for error in settings.check_config())
+
+
+def test_real_iana_timezone_is_accepted():
+    """The old validator used a hardcoded 5-item allowlist, so every other valid IANA
+    zone was reported invalid. Validation now goes through zoneinfo."""
+    settings = Settings(dry_run=True, timezone="Asia/Karachi")
+    assert settings.check_config() == []
 
 
 def test_llm_hook_above_seven_words_falls_back(monkeypatch):
@@ -88,3 +95,41 @@ def test_instagram_without_public_url_is_safely_skipped(monkeypatch):
     result = publish(Path("unused.mp4"), fallback("Why does memory feel familiar?"), {})
     assert result["instagram"]["status"] == "skipped"
     assert "PUBLIC_VIDEO_URL" in result["instagram"]["reason"]
+
+
+def test_metadata_collision_is_detected_before_render():
+    """Duplicate metadata is caught before the expensive encode, and resolved by
+    regenerating rather than by appending a cosmetic suffix."""
+    script = {"title": "Why do dreams feel real?", "description": "d"}
+    history = [{"title": "Why do dreams feel real?", "description": "d"}]
+    assert main.metadata_collides(script, history, 10) is True
+    assert main.metadata_collides({"title": "Something else entirely"}, history, 10) is False
+    assert main.metadata_collides(script, [], 10) is False
+
+
+def test_unique_text_suffix_no_longer_garnishes_titles():
+    """Titles must not gain emoji or random numbers; that was viewer-visible noise."""
+    from src.utils import unique_text_suffix
+
+    assert unique_text_suffix("Why do dreams feel real?") == ""
+    assert unique_text_suffix(None) == ""
+
+
+def test_403_is_not_retried_as_transient():
+    """403 on the YouTube Data API is quota/permissions — permanent, not transient."""
+    from googleapiclient.errors import HttpError
+
+    from src.utils import is_transient_http_error
+
+    class _Resp:
+        def __init__(self, status):
+            self.status = status
+            self.reason = "Forbidden"
+
+    forbidden = HttpError(_Resp(403), b'{"error":{"message":"quotaExceeded"}}')
+    server_error = HttpError(_Resp(503), b"unavailable")
+    rate_limited = HttpError(_Resp(429), b"slow down")
+
+    assert is_transient_http_error(forbidden) is False
+    assert is_transient_http_error(server_error) is True
+    assert is_transient_http_error(rate_limited) is True
