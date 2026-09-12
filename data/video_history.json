@@ -329,5 +329,40 @@
         "reason": "PUBLIC_VIDEO_URL must be a public HTTPS video URL"
       }
     }
+  },
+  {
+    "created_at": "2026-09-12T20:43:54.923163+00:00",
+    "status": "pending",
+    "topic": "Brain aging may be detected decades before symptoms appear, with links to gut health",
+    "title": "Brain aging may be detected decades before symptoms appear, with links to gut health",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "c738c13b8f3921b2c7da44ea3e116950a4f2af41774240ab8a083df65d4387be",
+      "7b761eaeaed1b851d005668a2b64a3d8a8d8b06402a1cf99ab58ab7c03d6b6bf",
+      "042f49fa4f0fff440c10135090a4a24cfd5bed8895c5fc010f945c3fb4724a0a",
+      "30e9277266a6ea3ad8d6fddc70229eeb18baf73751a53835c512d507c5973fee",
+      "4e9924397f257dfaa76afa3a42bddcdfdc84ea3ef1f28ef895a0644413293fe2",
+      "bff0dcb9eb1974db6e89972d1c39094c112fea1506a82fbd4cd34dd78bff0b49",
+      "447424b409ff07bd0662dc80d051024869d03ad79d8918ddadf5bffd91866dae",
+      "2c4021d00600a801d0db3f839aa7849f088b67fc9478dd5db62902761d8de6ed"
+    ],
+    "width": 1080,
+    "height": 1920,
+    "duration": 17.858776,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "be5ada5fcb5b8890c32d9965dd5dd7f6ee1aa201f20d7e6723746c32c3d80b8e",
+    "body": "Never ignore this detected signal. Symptoms lags behind your awareness. Your oldest wiring seizes symptoms. Researchers call this detected drift. Your mind invents an instant explanation. Detected is machinery, not magic. You just caught your mind glitching. Which is why you felt that.",
+    "text": "Brain aging may be detected decades before symptoms appear, with links to gut health Never ignore this detected signal. Symptoms lags behind your awareness. Your oldest wiring seizes symptoms. Researchers call this detected drift. Your mind invents an instant explanation. Detected is machinery, not magic. You just caught your mind glitching. Which is why you felt that."
   }
 ]

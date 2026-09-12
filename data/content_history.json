@@ -943,5 +943,21 @@
     "video_id": "Q7I4kViqNbM",
     "published_at": "2026-09-10T00:00:36Z",
     "source": "backfill_youtube_uploads"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "be5ada5fcb5b8890c32d9965dd5dd7f6ee1aa201f20d7e6723746c32c3d80b8e",
+    "title": "Brain aging may be detected decades before symptoms appear, with links to gut health",
+    "body": "Never ignore this detected signal. Symptoms lags behind your awareness. Your oldest wiring seizes symptoms. Researchers call this detected drift. Your mind invents an instant explanation. Detected is machinery, not magic. You just caught your mind glitching. Which is why you felt that.",
+    "text": "Brain aging may be detected decades before symptoms appear, with links to gut health Never ignore this detected signal. Symptoms lags behind your awareness. Your oldest wiring seizes symptoms. Researchers call this detected drift. Your mind invents an instant explanation. Detected is machinery, not magic. You just caught your mind glitching. Which is why you felt that."
   }
 ]
