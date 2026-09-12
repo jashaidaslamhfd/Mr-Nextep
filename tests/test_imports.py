@@ -15,6 +15,7 @@ import pytest
 import src
 
 MODULES = [
+    "src.analytics",
     "src.config",
     "src.content",
     "src.guards",
