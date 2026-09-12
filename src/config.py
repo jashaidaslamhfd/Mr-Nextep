@@ -8,6 +8,7 @@ bare ValueError raised from a hand-rolled __init__.
 from __future__ import annotations
 
 from pathlib import Path
+from typing import Any
 from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 from pydantic import Field, field_validator
@@ -37,6 +38,22 @@ class Settings(BaseSettings):
     duplicate_check_last: int = Field(default=10, validation_alias="DUPLICATE_CHECK_LAST")
     schedule_jitter_minutes: int = Field(default=20, validation_alias="SCHEDULE_JITTER_MINUTES")
     max_hashtags: int = Field(default=30, validation_alias="MAX_HASHTAGS")
+
+    def __init__(self, **values: Any) -> None:
+        """Accept field-name overrides even when an environment alias is configured.
+
+        ``pydantic-settings`` treats a validation alias as the only recognized key in
+        its init source. As a result, ``Settings(timezone="...")`` was silently
+        ignored whenever ``PUBLISH_TIMEZONE`` existed in the process environment,
+        which made the test suite depend on the workflow's production env block.
+        Normalize explicit field names to their aliases before the base class merges
+        environment values; explicit constructor values then retain normal priority.
+        """
+        for field_name, field_info in self.__class__.model_fields.items():
+            alias = field_info.validation_alias
+            if field_name in values and isinstance(alias, str) and alias not in values:
+                values[alias] = values.pop(field_name)
+        super().__init__(**values)
 
     @field_validator("privacy_status")
     @classmethod
