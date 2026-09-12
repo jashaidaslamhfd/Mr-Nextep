@@ -23,6 +23,7 @@ from .content import choose_topic, generate_script
 from .guards import enforce, load_history, save_history
 from .media import render, validate
 from .meta import publish as publish_meta
+from .utils import TitleRejected, validate_short_title
 from .youtube import upload
 
 log = logging.getLogger(__name__)
@@ -105,7 +106,15 @@ def run() -> dict:
         topic = f"{base_topic} — fresh angle {attempt + 1}" if SETTINGS.topic and attempt else base_topic
         script = generate_script(topic, SETTINGS)
         if SETTINGS.topic:
-            script["title"] = base_topic[:70]
+            # An operator-supplied topic may be used verbatim as the title, but only when
+            # it is publishable on its own. Truncating it to 70 chars (the old behaviour)
+            # cut words in half and bypassed title validation entirely.
+            try:
+                script["title"] = validate_short_title(base_topic)
+            except TitleRejected as exc:
+                log.info(
+                    "Keeping the generated title; VIDEO_TOPIC is not usable as one (%s)", exc
+                )
             if script.get("scenes"):
                 script["scenes"][0]["narration"] = base_topic
 
@@ -123,7 +132,7 @@ def run() -> dict:
             video = render(script, SETTINGS)
             technical = validate(video, SETTINGS)
             guard_script = deepcopy(script)
-            guard_script["title"] = topic[:70]
+            guard_script["title"] = topic
             guard = enforce(guard_script, float(technical["duration"]), history)
             break
         except RuntimeError as exc:
