@@ -40,6 +40,7 @@ logger = logging.getLogger("mrnextep.repair")
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 
 STAGED_DAILY_LIMIT = int(os.getenv("STAGED_DAILY_LIMIT", "15"))
+META_GRAPH_API_VERSION = os.getenv("META_GRAPH_API_VERSION", "v21.0")
 
 
 def _load_youtube_creds() -> Credentials:
@@ -312,7 +313,7 @@ def meta_attempt_update(fb_token: str, facebook_page_id: str, instagram_id: str,
                 video_history.append({"platform": "instagram", "id": ig_id, "updated": False, "planned": caption_with_tags, "timestamp": time.time()})
                 applied += 1
                 continue
-            url = f"https://graph.facebook.com/v16.0/{ig_id}"
+            url = f"https://graph.facebook.com/{META_GRAPH_API_VERSION}/{ig_id}"
             params = {"access_token": fb_token, "caption": caption_with_tags}
             resp = session.post(url, params=params)
             try:
@@ -334,7 +335,7 @@ def meta_attempt_update(fb_token: str, facebook_page_id: str, instagram_id: str,
                 video_history.append({"platform": "facebook", "id": fb_id, "updated": False, "planned": {"title": title, "description": description}, "timestamp": time.time()})
                 applied += 1
                 continue
-            url = f"https://graph.facebook.com/v16.0/{fb_id}"
+            url = f"https://graph.facebook.com/{META_GRAPH_API_VERSION}/{fb_id}"
             params = {"access_token": fb_token}
             data = {"title": title, "description": description}
             resp = session.post(url, params=params, data=data)
