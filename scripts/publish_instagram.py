@@ -7,10 +7,19 @@ from urllib.parse import urlparse
 import requests
 
 GRAPH = 'https://graph.facebook.com/v23.0'
-instagram_id = os.environ['INSTAGRAM_USER_ID']
-token = os.environ['FACEBOOK_ACCESS_TOKEN']
-video_url = os.environ['PUBLIC_VIDEO_URL'].strip()
-caption = os.environ['INSTAGRAM_CAPTION']
+
+
+def required_env(name: str) -> str:
+    value = os.getenv(name, '').strip()
+    if not value:
+        raise SystemExit(f'{name} is required')
+    return value
+
+
+instagram_id = required_env('INSTAGRAM_USER_ID')
+token = required_env('FACEBOOK_ACCESS_TOKEN')
+video_url = required_env('PUBLIC_VIDEO_URL')
+caption = os.getenv('INSTAGRAM_CAPTION', '')
 parsed_url = urlparse(video_url)
 if parsed_url.scheme != 'https' or not parsed_url.netloc:
     raise SystemExit('PUBLIC_VIDEO_URL must be a public HTTPS video URL')
@@ -23,6 +32,7 @@ def post(path, **kwargs):
 
 def wait_until_ready(media_id: str) -> None:
     timeout = max(120, int(os.getenv('INSTAGRAM_PROCESSING_TIMEOUT_SECONDS', '300')))
+    wait_seconds = max(1, int(os.getenv('INSTAGRAM_PROCESSING_WAIT_SECONDS', '10')))
     deadline = time.time() + timeout
     while time.time() < deadline:
         response = requests.get(
@@ -36,7 +46,7 @@ def wait_until_ready(media_id: str) -> None:
             return
         if status in {'ERROR', 'EXPIRED'}:
             raise RuntimeError(f'Instagram media processing failed: {status}')
-        time.sleep(10)
+        time.sleep(wait_seconds)
     raise TimeoutError('Instagram media processing timed out')
 
 

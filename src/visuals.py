@@ -197,10 +197,7 @@ def _try_candidate(
 
         with requests.get(source_url, stream=True, timeout=90, headers=headers) as download:
             download.raise_for_status()
-            with raw.open("wb") as handle:
-                for chunk in download.iter_content(1024 * 256):
-                    if chunk:
-                        handle.write(chunk)
+            _write_bounded_download(download, raw, MAX_CLIP_BYTES)
 
         subprocess.run([
             "ffmpeg", "-y", "-i", str(raw),
@@ -220,12 +217,29 @@ def _try_candidate(
 
         destination.with_suffix(".source_url").write_text(source_url, encoding="utf-8")
         return True
-    except (requests.RequestException, OSError, subprocess.CalledProcessError) as exc:
+    except (requests.RequestException, OSError, subprocess.CalledProcessError, ValueError) as exc:
         logger.warning("Candidate %s unusable: %s", source_url, exc)
         destination.unlink(missing_ok=True)
         return False
     finally:
         raw.unlink(missing_ok=True)
+
+
+def _write_bounded_download(response, destination: Path, max_bytes: int) -> None:
+    """Persist a streamed response without trusting its optional Content-Length.
+
+    Some stock providers omit or misreport that header. Enforcing the limit while
+    reading prevents a large response from filling the runner before ffmpeg sees it.
+    """
+    written = 0
+    with destination.open("wb") as handle:
+        for chunk in response.iter_content(1024 * 256):
+            if not chunk:
+                continue
+            written += len(chunk)
+            if written > max_bytes:
+                raise ValueError(f"download exceeds {max_bytes} byte limit")
+            handle.write(chunk)
 
 
 def download_clip(query: str, destination: Path, avoid_hashes: set[str] | None = None) -> Path:
