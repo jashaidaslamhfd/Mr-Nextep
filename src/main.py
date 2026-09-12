@@ -18,6 +18,7 @@ try:
 except ImportError:  # Python < 3.11
     UTC = UTC
 
+from .analytics import AnalyticsError, load_performance
 from .config import SETTINGS
 from .content import choose_topic, generate_script
 from .guards import enforce, load_history, save_history
@@ -100,6 +101,29 @@ def run() -> dict:
     history = load_history(history_path)
     published_history = load_history(video_history_path)
 
+    # Real measured channel performance, when it has been pulled. An empty or unreadable
+    # cache must not stop a publishing run, but the reason is logged so a silently broken
+    # feedback loop cannot masquerade as "no data yet".
+    performance_path = SETTINGS.data_dir / "performance_history.json"
+    try:
+        performance = load_performance(performance_path)
+    except AnalyticsError as exc:
+        log.error("Performance cache unusable (%s); publishing without retention evidence.", exc)
+        performance = None
+    else:
+        if performance.has_baseline:
+            log.info(
+                "Retention baseline: %.0f%% median across %d videos (through %s).",
+                (performance.median_retention or 0.0) * 100,
+                performance.videos_with_data,
+                performance.covered_through or "unknown",
+            )
+        else:
+            log.info(
+                "Only %d videos with performance data; retention gate stays ungrounded.",
+                performance.videos_with_data,
+            )
+
     last_error: Exception | None = None
     for attempt in range(SETTINGS.max_attempts):
         base_topic = SETTINGS.topic or choose_topic(SETTINGS)
@@ -133,7 +157,7 @@ def run() -> dict:
             technical = validate(video, SETTINGS)
             guard_script = deepcopy(script)
             guard_script["title"] = topic
-            guard = enforce(guard_script, float(technical["duration"]), history)
+            guard = enforce(guard_script, float(technical["duration"]), history, performance)
             break
         except RuntimeError as exc:
             last_error = exc

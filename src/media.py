@@ -86,6 +86,51 @@ def _make_audio(text: str, path: Path, duration_hint: float) -> float:
         mp3.unlink(missing_ok=True)
         raise RuntimeError(f"Audible narration failed: {exc}") from exc
 
+def _srt_timestamp(seconds: float) -> str:
+    """SRT wants HH:MM:SS,mmm — comma for the decimal separator, not a period."""
+    if seconds < 0:
+        raise ValueError(f"timestamp cannot be negative: {seconds}")
+    total_ms = int(round(seconds * 1000))
+    hours, remainder = divmod(total_ms, 3_600_000)
+    minutes, remainder = divmod(remainder, 60_000)
+    secs, millis = divmod(remainder, 1000)
+    return f"{hours:02d}:{minutes:02d}:{secs:02d},{millis:03d}"
+
+
+def build_srt(cues: list[tuple[str, float]], path: Path) -> Path:
+    """Write a caption track from (text, duration) pairs in scene order.
+
+    Why a separate track when the video already burns word-by-word text into the pixels:
+    those are different things to YouTube. Burned-in text is opaque to the platform, so
+    Studio reports the channel as having no subtitles/CC, the captions are not searchable,
+    they cannot be auto-translated, and viewers who need real captions get nothing. This
+    emits the narration as a genuine track, which is also what makes the content indexable.
+
+    Durations are the measured per-scene audio durations from the render, so the cues stay
+    in sync with the voiceover rather than with a guess.
+    """
+    if not cues:
+        raise ValueError("cannot build a caption track with no cues")
+
+    blocks: list[str] = []
+    elapsed = 0.0
+    for index, (text, duration) in enumerate(cues, 1):
+        if duration <= 0:
+            raise ValueError(f"cue {index} has non-positive duration {duration}")
+        clean = " ".join(str(text).split())
+        if not clean:
+            # A silent scene would produce an empty cue, which some players reject.
+            clean = "..."
+        start = _srt_timestamp(elapsed)
+        end = _srt_timestamp(elapsed + duration)
+        blocks.append(f"{index}\n{start} --> {end}\n{clean}\n")
+        elapsed += duration
+
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text("\n".join(blocks), encoding="utf-8")
+    return path
+
+
 def render(script: dict, settings: Settings) -> Path:
     settings.ensure_dirs()
     scene_dir = settings.output_dir / "scenes"
@@ -94,6 +139,7 @@ def render(script: dict, settings: Settings) -> Path:
 
     segments: list[Path] = []
     clip_hashes: list[str] = []
+    caption_cues: list[tuple[str, float]] = []
     total = 0.0
 
     for index, scene in enumerate(script["scenes"], 1):
@@ -150,6 +196,9 @@ def render(script: dict, settings: Settings) -> Path:
             "-shortest", str(segment),
         ])
         segments.append(segment)
+        # Narration is what the viewer hears, so it is what the caption track must carry;
+        # the on-screen word overlay is a different, non-machine-readable surface.
+        caption_cues.append((str(scene.get("narration") or scene.get("caption") or ""), duration))
         total += duration
 
     concat = settings.output_dir / "concat.txt"
@@ -167,6 +216,8 @@ def render(script: dict, settings: Settings) -> Path:
         str(video)
     ])
     (settings.output_dir / "clip_hashes.json").write_text(json.dumps(clip_hashes), encoding="utf-8")
+    # Caption track sits beside the video; youtube.upload attaches it after the video id exists.
+    build_srt(caption_cues, settings.output_dir / "mr_nextep_short.srt")
     return video
 
 def validate(video: Path, settings: Settings) -> dict[str, object]:

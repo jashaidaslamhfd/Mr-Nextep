@@ -157,6 +157,49 @@ def build_upload_body(script: dict[str, Any], settings) -> dict[str, Any]:
     return _prepare_snippet_and_status(title, description, tags, privacy=privacy, schedule_dt=schedule_dt)
 
 
+def upload_caption_track(
+    youtube_service: Any, video_id: str | None, caption: Path, language: str = "en"
+) -> str:
+    """Attach an SRT caption track to an uploaded video. Returns a status string.
+
+    YouTube Studio reported this channel as having no subtitles/CC on 92.5% of views. The
+    pipeline burns word-by-word text into the pixels, which the platform cannot read: it is
+    not searchable, not translatable, and not usable by a viewer who needs real captions.
+    This uploads the narration as an actual track.
+
+    Never raises. The video is already published by the time this runs, so a caption
+    failure is reported, not thrown — the alternative is failing a run whose upload already
+    succeeded.
+    """
+    if not video_id:
+        logger.error("No video id returned; cannot attach a caption track.")
+        return "skipped: no video id"
+    if not caption.exists():
+        logger.error("Caption file %s is missing; publishing without a caption track.", caption)
+        return f"skipped: {caption.name} not found"
+
+    try:
+        media = MediaFileUpload(str(caption), mimetype="application/octet-stream", resumable=False)
+        youtube_service.captions().insert(
+            part="snippet",
+            body={
+                "snippet": {
+                    "videoId": video_id,
+                    "language": language,
+                    "name": "English",
+                    "isDraft": False,
+                }
+            },
+            media_body=media,
+        ).execute()
+    except Exception as exc:  # noqa: BLE001 - deliberately non-fatal, see docstring
+        logger.exception("Caption track upload failed for %s: %s", video_id, exc)
+        return f"failed: {exc}"
+
+    logger.info("Caption track attached to %s", video_id)
+    return "uploaded"
+
+
 def upload(video: Path, script: dict[str, Any], settings) -> dict[str, Any]:
     if settings.dry_run:
         logger.info("Dry run enabled; skipping YouTube upload")
@@ -178,7 +221,13 @@ def upload(video: Path, script: dict[str, Any], settings) -> dict[str, Any]:
         resp = _do_videos_insert(youtube, body, media)
         vid = resp.get("id") or resp.get("videoId")
         logger.info("YouTube upload complete, id=%s", vid)
-        return {"status": "uploaded", "youtube_video_id": vid, "url": f"https://youtu.be/{vid}"}
+        result = {"status": "uploaded", "youtube_video_id": vid, "url": f"https://youtu.be/{vid}"}
+        # The caption track is a separate API call and is deliberately non-fatal: the video
+        # is already public at this point, so failing the run over a missing caption track
+        # would be worse than publishing without one. The failure is logged loudly instead.
+        caption = Path(video).with_suffix(".srt")
+        result["caption_track"] = upload_caption_track(youtube, vid, caption)
+        return result
     except HttpError as he:
         logger.exception("YouTube API HttpError during upload: %s", he)
         raise
