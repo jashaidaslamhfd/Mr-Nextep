@@ -1,0 +1,19 @@
+[project]
+name = "mr-nextep"
+version = "2.0.0"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+# rootdir is the repo root, so `import src.<module>` resolves without PYTHONPATH games.
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B"]
+# E701/E702 are style only: several helper scripts are deliberately terse one-liners.
+ignore = ["E501", "B008", "E701", "E702"]

@@ -1,10 +1,13 @@
-Pillow>=10.0
-python-dotenv>=1.0
-google-api-python-client>=2.100
-google-auth>=2.25
-google-auth-oauthlib>=1.1
-edge-tts>=6.1
-requests>=2.31
-pytest>=8.0
-pydantic>=2.0
-pydantic-settings>=2.0
+# Pinned exactly. Floating >= specifiers on a job that runs unattended three times a
+# day mean an upstream release can take production down with no change on our side.
+# Dependabot (.github/dependabot.yml) proposes upgrades as reviewable PRs instead.
+Pillow==11.3.0
+python-dotenv==1.1.1
+google-api-python-client==2.184.0
+google-auth==2.41.1
+google-auth-oauthlib==1.2.2
+edge-tts==7.2.4
+requests==2.32.5
+pytest==8.4.2
+pydantic==2.12.3
+pydantic-settings==2.11.0
