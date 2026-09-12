@@ -13,19 +13,24 @@ Expect environment variables:
 - PUBLIC_VIDEO_URL (the hosted video, e.g., via GitHub release asset; repo already used this method)
 """
 from __future__ import annotations
+
+import logging
 import os
 import time
-import logging
-import random
 from pathlib import Path
-from typing import Any, Dict
+from typing import Any
 from urllib.parse import urlparse
+
 import requests
+
 from .utils import requests_session_with_retries, retry_on_exception, sanitize_hashtags
 
 logger = logging.getLogger("mrnextep.meta")
 
-GRAPH_BASE = "https://graph.facebook.com/v16.0"
+# Graph API version. v16.0 was long past Meta's ~2-year support window and would
+# hard-fail at sunset. Review this pin roughly every 12 months (next: 2027-09).
+GRAPH_API_VERSION = os.getenv("META_GRAPH_API_VERSION", "v21.0")
+GRAPH_BASE = f"https://graph.facebook.com/{GRAPH_API_VERSION}"
 
 
 def _is_valid_public_video_url(url: str) -> bool:
@@ -57,6 +62,36 @@ def _get(session: requests.Session, url: str, params: dict = None, timeout: int 
         logger.error("GET %s failed: status=%s body=%s", url, resp.status_code, resp.text)
         raise
     return resp.json()
+
+
+def _wait_until_ready(session: requests.Session, media_id: str, token: str) -> None:
+    """Poll an Instagram container until FINISHED. Raises on error or timeout.
+
+    Never returns without a FINISHED status, so the caller can only reach media_publish
+    with a container that actually finished processing.
+    """
+    timeout = max(120, int(os.getenv("INSTAGRAM_PROCESSING_TIMEOUT_SECONDS", "300")))
+    deadline = time.time() + timeout
+    last_status = ""
+    while time.time() < deadline:
+        status_resp = _get(
+            session,
+            f"{GRAPH_BASE}/{media_id}",
+            params={"access_token": token, "fields": "status_code"},
+        )
+        last_status = status_resp.get("status_code", "")
+        if last_status == "FINISHED":
+            return
+        if last_status in {"ERROR", "EXPIRED"}:
+            raise RuntimeError(f"Instagram media processing failed: {last_status}")
+        logger.debug(
+            "Instagram processing status %s for container %s. Sleeping 10s", last_status, media_id
+        )
+        time.sleep(10)
+    raise TimeoutError(
+        f"Instagram media processing timed out after {timeout}s for container {media_id} "
+        f"(last status: {last_status or 'unknown'}); refusing to publish an unprocessed container"
+    )
 
 
 def _host_for_instagram(video: Path) -> str:
@@ -98,7 +133,7 @@ def _host_for_instagram(video: Path) -> str:
         return url
 
 
-def publish(video: Path, script: dict[str, Any], youtube_result: Dict[str, Any]) -> Dict[str, Any]:
+def publish(video: Path, script: dict[str, Any], youtube_result: dict[str, Any]) -> dict[str, Any]:
     page_id = os.getenv("FACEBOOK_PAGE_ID", "").strip()
     token = os.getenv("FACEBOOK_ACCESS_TOKEN", "").strip()
     instagram_id = os.getenv("INSTAGRAM_USER_ID", "").strip()
@@ -137,12 +172,12 @@ def publish(video: Path, script: dict[str, Any], youtube_result: Dict[str, Any])
 
     if instagram_id and token and public_url:
         try:
-            # Optionally add a small randomized delay rather than a fixed gap to avoid deterministic posting cadence
-            jitter = max(0, int(os.getenv("META_POST_GAP_JITTER_SECONDS", "60")))
-            actual_gap = gap_seconds + random.randint(-jitter, jitter)
-            if actual_gap > 0:
-                logger.info("Waiting %d seconds before Instagram container creation", actual_gap)
-                time.sleep(actual_gap)
+            # Space the cross-post out from the YouTube upload. This is a plain
+            # configurable gap: no randomized cadence, matching this module's stated
+            # position that it does not conceal automation.
+            if gap_seconds > 0:
+                logger.info("Waiting %d seconds before Instagram container creation", gap_seconds)
+                time.sleep(gap_seconds)
 
             caption = seo.get("instagram", {}).get("caption", "")
             # sanitize hashtags if present in caption (simple heuristic)
@@ -156,18 +191,10 @@ def publish(video: Path, script: dict[str, Any], youtube_result: Dict[str, Any])
             media_id = container.get("id")
             if not media_id:
                 raise RuntimeError("Instagram container creation did not return an id: " + str(container))
-            # Wait for processing
-            start = time.time()
-            deadline = start + max(120, int(os.getenv("INSTAGRAM_PROCESSING_TIMEOUT_SECONDS", "300")))
-            while time.time() < deadline:
-                status_resp = _get(session, f"{GRAPH_BASE}/{media_id}", params={"access_token": token, "fields": "status_code"})
-                status = status_resp.get("status_code", "")
-                if status == "FINISHED":
-                    break
-                if status in {"ERROR", "EXPIRED"}:
-                    raise RuntimeError(f"Instagram media processing failed: {status}")
-                logger.debug("Instagram processing status %s for container %s. Sleeping 10s", status, media_id)
-                time.sleep(10)
+            # Wait for processing. Falling out of this loop on deadline used to drop
+            # through to media_publish and publish a container that never finished
+            # processing; a timeout now raises instead.
+            _wait_until_ready(session, media_id, token)
             published = _post(session, f"{GRAPH_BASE}/{instagram_id}/media_publish", params={"access_token": token}, data={"creation_id": media_id})
             result["instagram"] = {"status": "published", "id": str(published.get("id", "")), "source_url": public_url}
         except Exception as exc:
