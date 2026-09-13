@@ -991,5 +991,21 @@
     "title": "Your Brain Cleans Itself While You Sleep",
     "body": "Nobody explains this cleans reflex. Itself lags behind your awareness. Your oldest wiring seizes itself. Researchers call this cleans drift. Your mind invents an instant explanation. Cleans is machinery, not magic. You just caught your mind glitching. Which is why you felt that.",
     "text": "Your Brain Cleans Itself While You Sleep Nobody explains this cleans reflex. Itself lags behind your awareness. Your oldest wiring seizes itself. Researchers call this cleans drift. Your mind invents an instant explanation. Cleans is machinery, not magic. You just caught your mind glitching. Which is why you felt that."
+  },
+  {
+    "structural_conformance": 0.8,
+    "retention_proxy": 0.8,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "14375794465f6a5e70f1bb5daa061679c4721fb237a55bd0faf3436962f64743",
+    "title": "Why Wild Blueberries Stand Out for Heart, Gut, and Brain Health Benefits",
+    "body": "The Forest's Secret Ingredient High in Antioxidants Gut Health Activated Brain Function Amplified Memory and Focus Enhanced A Recipe for Longevity Unlocking the Code The Forest's Secret Ingredient",
+    "text": "Why Wild Blueberries Stand Out for Heart, Gut, and Brain Health Benefits The Forest's Secret Ingredient High in Antioxidants Gut Health Activated Brain Function Amplified Memory and Focus Enhanced A Recipe for Longevity Unlocking the Code The Forest's Secret Ingredient"
   }
 ]
