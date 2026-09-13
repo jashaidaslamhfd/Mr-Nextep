@@ -98,6 +98,8 @@ def _prepare_snippet_and_status(
         "description": (description or "")[:5000],
         "tags": clean_tags,
         "categoryId": "28",
+        "defaultLanguage": "en",
+        "defaultAudioLanguage": "en-US",
     }
     # YouTube API enforces that scheduled uploads must have privacyStatus set to private
     effective_privacy = "private" if schedule_dt else privacy
