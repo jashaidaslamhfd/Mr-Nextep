@@ -1,7 +1,7 @@
 # Pinned exactly. Floating >= specifiers on a job that runs unattended three times a
 # day mean an upstream release can take production down with no change on our side.
 # Dependabot (.github/dependabot.yml) proposes upgrades as reviewable PRs instead.
-Pillow==11.3.0
+Pillow==12.3.0
 python-dotenv==1.1.1
 google-api-python-client==2.184.0
 google-auth==2.41.1
