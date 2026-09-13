@@ -535,5 +535,40 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18138150403657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
       }
     }
+  },
+  {
+    "created_at": "2026-09-13T21:54:33.738971+00:00",
+    "status": "pending",
+    "topic": "Short sleep duration is associated with reduced leptin, elevated ghrelin, and increased body mass index",
+    "title": "Short sleep duration is associated with reduced leptin, elevated ghrelin, and increased body mass index",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "a4e38f79e699266af89270b3e90c51df3e5685e5841993fea5f3cbea61fe1c4a",
+      "44876cab855ef647120ebb2bcb8610f5f86ef5de915635d85b20828e463f79ee",
+      "ba61284cded3bead0227ca815940b8e49bb4352667b84e1386b781b79f9d3225",
+      "92b6567cee3981b1c28b727dcf0a9265204f573ba87b5d8fec5ff8fbdee90c8e",
+      "bb550911159668e9a7db7d2cfd4f957614e6d2c797b356ed4d1cf02a682a9582",
+      "17a49dbf31e24ab3787189d13a5323e51d1d65f39cfbaaaa7c58eef2792f31ac",
+      "a5d747674a30e9bf1ef91a480edde8739c22c55e83744de3fac910dfda1f2d1d",
+      "4f5a7c0b257ca375bea9c9646865dea31c8895884b39a2fd97db52a53031e414"
+    ],
+    "width": 1080,
+    "height": 1920,
+    "duration": 27.936553,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "e85edfb781a6675c9b0363cbf822bc013fd45af8442f961723d766e0d83dffdf",
+    "body": "Dead tired, starving soon Leptin levels plummeting Ghrelin takes over Belly fat storage increases Body mass index skyrockets Circadian rhythms disrupted Metabolic slowdown Sleep, satiety, the vicious cycle",
+    "text": "Short sleep duration is associated with reduced leptin, elevated ghrelin, and increased body mass index Dead tired, starving soon Leptin levels plummeting Ghrelin takes over Belly fat storage increases Body mass index skyrockets Circadian rhythms disrupted Metabolic slowdown Sleep, satiety, the vicious cycle"
   }
 ]

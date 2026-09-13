@@ -1023,5 +1023,21 @@
     "title": "How does inadequate sleep affect health?",
     "body": "Sleepless nights whisper a secret Hormonal Havoc Immune System Weakness Cerebral Impairment Visceral Vulnerability Metabolic Mayhem Cancer Connection The Shadow Looms",
     "text": "How does inadequate sleep affect health? Sleepless nights whisper a secret Hormonal Havoc Immune System Weakness Cerebral Impairment Visceral Vulnerability Metabolic Mayhem Cancer Connection The Shadow Looms"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "e85edfb781a6675c9b0363cbf822bc013fd45af8442f961723d766e0d83dffdf",
+    "title": "Short sleep duration is associated with reduced leptin, elevated ghrelin, and increased body mass index",
+    "body": "Dead tired, starving soon Leptin levels plummeting Ghrelin takes over Belly fat storage increases Body mass index skyrockets Circadian rhythms disrupted Metabolic slowdown Sleep, satiety, the vicious cycle",
+    "text": "Short sleep duration is associated with reduced leptin, elevated ghrelin, and increased body mass index Dead tired, starving soon Leptin levels plummeting Ghrelin takes over Belly fat storage increases Body mass index skyrockets Circadian rhythms disrupted Metabolic slowdown Sleep, satiety, the vicious cycle"
   }
 ]

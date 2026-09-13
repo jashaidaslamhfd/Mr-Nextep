@@ -1,6 +1,6 @@
 {
   "source": "Google Trends US + US science RSS",
-  "mined_at": "2026-09-13T18:31:16.001244+00:00",
+  "mined_at": "2026-09-13T21:53:17.537472+00:00",
   "topics": [
     {
       "series_number": "TREND-1",
@@ -8,7 +8,7 @@
       "source": "google_news_us",
       "source_url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQdXRVdXBCZzlDal81d2RhNTd6SWpkeW9BMkY2cEs0Y3BjVFB1a3BaZUtDRk43ZlRpa3o2WFFxd3pxZS1HeHM1Qnd5ZWJrQ19GazREQlJRdWd0cjRXZlFwSkRPbkQwd1ZRWmlWT1M1THZPUmt6WmsyZmpaTmtQaUJCRVlEUUhIN2NYb0Yw?oc=5",
       "trend_score": 10,
-      "fetched_at": "2026-09-13T18:31:16.001091+00:00"
+      "fetched_at": "2026-09-13T21:53:17.537341+00:00"
     },
     {
       "series_number": "TREND-2",
@@ -16,7 +16,7 @@
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9BSktHeEJiYzAyeFAxMERDeE5MSmJUSGxnWXFVQXRpSS1QRENacTkxUGFyeEwySjJoY2pSN3lXVHdEaHlQcVYzMHpJS2w4OHRLdnZucEZWR0x1clRhNmc?oc=5",
       "trend_score": 10,
-      "fetched_at": "2026-09-13T18:31:16.001106+00:00"
+      "fetched_at": "2026-09-13T21:53:17.537356+00:00"
     },
     {
       "series_number": "TREND-3",
@@ -24,7 +24,7 @@
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1CTnRLamR4U1U0VlpaZVNOVzBucWNSc25YQmlZYXg5OEYzWXNFd2lRQmd5LVI3TGdEYl9GMTROdHJ5ZFJFb0FvWkU4YV9Kb2wtTlZB?oc=5",
       "trend_score": 10,
-      "fetched_at": "2026-09-13T18:31:16.001111+00:00"
+      "fetched_at": "2026-09-13T21:53:17.537361+00:00"
     },
     {
       "series_number": "TREND-4",
@@ -32,7 +32,7 @@
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1sdGdJblhlU19LU0NZQXc4YWt3OXcxN0VGTmFrNHhlRmR4NEV3aExKejlwcnk4OERwdENMdU5YM2dHd1ZxbmtOTlJqekNTUWdoT3Jv?oc=5",
       "trend_score": 10,
-      "fetched_at": "2026-09-13T18:31:16.001116+00:00"
+      "fetched_at": "2026-09-13T21:53:17.537365+00:00"
     },
     {
       "series_number": "TREND-5",
@@ -40,7 +40,7 @@
       "source": "google_news_us",
       "source_url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQby1lUkNxaThXRUlqdHJQZVRLVmFXcDkzWHhHN2FuWmtuektOZWw3RnF1aEtPS3NhTkF3cGM2QzhpUEZHOVMtcUd4WTNYMWFBY053bHlscExha1JGazhhR1NuSlF0V1FYb3B5cDVYcnRUYlFpMEVJTEpSX0M2ZTlsbUw5NUl6S3pOcFJrM3c0bnF6akpmSU9waDNsSzQ?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-13T18:31:16.001121+00:00"
+      "fetched_at": "2026-09-13T21:53:17.537369+00:00"
     },
     {
       "series_number": "TREND-6",
@@ -48,7 +48,7 @@
       "source": "google_news_us",
       "source_url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE4yZDl5dVNxZWNvVFN6d25pME0xRWo4cjVWQ20zVmVjbVZrd1ZfZEZJeWd6cWZNNTNrWFZHWEZOeFVhdE9wdVJKSXZiU2otamN5aUFMZVBlQzYzdnU3WDhTcUh2c0FIQQ?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-13T18:31:16.001125+00:00"
+      "fetched_at": "2026-09-13T21:53:17.537373+00:00"
     },
     {
       "series_number": "TREND-7",
@@ -56,7 +56,7 @@
       "source": "google_news_us",
       "source_url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOYXFFZXNLQWR3bGRKUmRMc1h0TnZPUmstcXRneE9GQ3B2RllXMXk1d25OZEVhM1JIT2dMMVJuMFJoUG5QQkpLWkxGWVVrTjNTeV9vQ2xVeEhwa2lXbGZqN2tUS1lodWQwNTFBSFdZQkpMamkzdkFPaG5HVjVRc2wtMzZQYjJ5RVdjMVYtdWJ5UkpVUlNmbEw5N2dGbWVnYUhW0gG0AUFVX3lxTE5UVGFRMzlFQWVNb2FBalIybmMtd09leE9kanVtc0hVR2JMZG5WV09BUXNST0xwU0hyOWFuaGZQNEQzMnVOb3lQZTZreV9pTm54REp0cGMzWlZnLVdpNzdFVmlLREdtU21td2JKN1c0cnhYSDM1aUVFcjdndHBTWndubWZRS2dQWGpMLUJnd0RrcUlNLWlPT3R6dkhvTWRzMUcyZ3Qwb1ZDejU0Y1VNQmdMWHBMSQ?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-13T18:31:16.001130+00:00"
+      "fetched_at": "2026-09-13T21:53:17.537377+00:00"
     },
     {
       "series_number": "TREND-8",
@@ -64,23 +64,23 @@
       "source": "google_news_us",
       "source_url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOcEg3SF9ZOTZnNjFwZGIwYjJuQ1FBZm9vMEVKSmFBOFdscE9uTFFvTkpjOFVwbDQ0RG80anpwdHJoRjJPYjV1SGloNDJtWk9OUnltRVdjQVJidTBlZnFSdkxmRHZUcFA3ZTl5ZFBrS3FFMHZYTEJUYmpJMHIwYUhBUlY1SHdIRm5SYVJ3?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-13T18:31:16.001136+00:00"
+      "fetched_at": "2026-09-13T21:53:17.537382+00:00"
     },
     {
       "series_number": "TREND-9",
-      "topic": "Brain aging may be detected decades before symptoms appear, with links to gut health",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOdmxBRjVPLW9qVjBOZ2ljaVg0dEwxMGJ6S095N1lEVVdRdjdlRGhzRDJheHlvajFJMDZkM2ZWU0FiWWNJbXpJYTJmOFZoQldqSlNGd3lPTmpFZU4tUVJmend6NEVCd3BCY2tEN2g3aUthQjNzcEhvakk1QkRVcFBfa1lobE8?oc=5",
-      "trend_score": 7,
-      "fetched_at": "2026-09-13T18:31:16.001141+00:00"
-    },
-    {
-      "series_number": "TREND-10",
       "topic": "County Public Health Leaders Stress Fall Vaccinations to Prevent Severe Illness",
       "source": "google_news_us",
       "source_url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQMXpHQVkyQkZwdGh6NlZHY1hyZjZjTTJxOHBnM3lTeFRGZThGWUZ4VFZkY2NsOWdxOHY5MmpnbUJOSHNtTlFUUFNtRS02NDRYSkxLZ3BlM0xPSTNuVmNuM1JBanpScmlYbXZCVkxoV2ZRN1E1ZlNidkFfZUZfUHpxNlV5cVBmQ1VzOWRWbDFyVzdlMmF4WGFKeEtvMFZIYjVPT1ZWWjRJc3dReU1CaVhPTkJUSdIBuAFBVV95cUxQNDh0aUMwcm5rcG5aNFRDWFRka3ZwaXM0WmlSak04T0FBZnBtMzMzRVBlSVlUU0d5cElsSWRXZEJtMmtCZkJaUl8tWE1qZFBDQ01yVTA0VXlXdjkwSzg5THNjX2dsSHFiWEFsdnp6bUJab196SGtjeDFQbXRMcGptT21zR3VHSXBLNnpXdWEzR2cxWnZFRVRSLXQ5MFQ4WW1vVzcyVlNoY2dfdVNhSVJDamJaM2lRN1hp?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-13T18:31:16.001146+00:00"
+      "fetched_at": "2026-09-13T21:53:17.537387+00:00"
+    },
+    {
+      "series_number": "TREND-10",
+      "topic": "Brain aging may be detected decades before symptoms appear, with links to gut health",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOdmxBRjVPLW9qVjBOZ2ljaVg0dEwxMGJ6S095N1lEVVdRdjdlRGhzRDJheHlvajFJMDZkM2ZWU0FiWWNJbXpJYTJmOFZoQldqSlNGd3lPTmpFZU4tUVJmend6NEVCd3BCY2tEN2g3aUthQjNzcEhvakk1QkRVcFBfa1lobE8?oc=5",
+      "trend_score": 7,
+      "fetched_at": "2026-09-13T21:53:17.537391+00:00"
     },
     {
       "series_number": "TREND-11",
@@ -88,15 +88,15 @@
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPOFFTUUVtUGE1WDNBb2d3U1NzWGhkRnQ2SUlVWHAwRVRQeGFWODhrbm91YkU4WGwwSmVMczV5Q2I4dzRFSTF5WFVtZ0RsYUVCMVdMbFE4clUzM2RUem5xOXMxMHNKZnZKczVPSG9OaUd6RHlvbzVUdnZCeHhjSHB5WHhDaHNsREQ3eWlnQk5kWGxfejBINnB0NE91THY?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-13T18:31:16.001150+00:00"
+      "fetched_at": "2026-09-13T21:53:17.537394+00:00"
     },
     {
       "series_number": "TREND-12",
-      "topic": "Recommended Amount of Sleep for a Healthy Adult",
+      "topic": "Telomerase reverse transcriptase as a core regulator of brain health",
       "source": "nih_news",
-      "source_url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9uR1pSYUx6RktqMWRHeFJiZWVlM2pZVVM4SDlRbHp6NXN2UG5JOG5mdF8teDZlSXk4b1otRDBQelV5ZGRWd0xPYW5tNTBQTEtRS014UHoya3RMSmNBM1E?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE8tTUstNlZZNmpLTzZlOUxZSENxUFNwX3kydTJEd1Q2eWowTG11bmRQbVl0WTBJOEc4YzRvLUtDVEFtMDFXV25VaU1Ycmw1UUh0MURF?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-13T18:31:16.001155+00:00"
+      "fetched_at": "2026-09-13T21:53:17.537398+00:00"
     },
     {
       "series_number": "TREND-13",
@@ -104,7 +104,7 @@
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNNlg4eFlrdUlHazVGeklkOXU5TEhNQmkzTW50eUx2WnAtTllyM2xxNTVveGNoNkY4WDFwdkJLTi02M0ZqNEFLOXo1UmNRQS1qdFFTZmR2dE5oNWdBWExkdFYydE1WMnBKbnJZTFBpRWZYTWNUNXp0R1RocHJLem9iQVpR?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-13T18:31:16.001159+00:00"
+      "fetched_at": "2026-09-13T21:53:17.537401+00:00"
     },
     {
       "series_number": "TREND-14",
@@ -112,7 +112,7 @@
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE8tVGdhTklWUWN3cTZZZlVsd2RGa1Fkc1E1NFBMTkIzUmNDR3R6eFY4TzNzVFR6SDl1NlNULVlrNFViNFNPa0F3ZUxWMGFfUFBjVkVF?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-13T18:31:16.001164+00:00"
+      "fetched_at": "2026-09-13T21:53:17.537405+00:00"
     },
     {
       "series_number": "TREND-15",
@@ -120,7 +120,7 @@
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5TOGM1Um1Pb2hYTnVSazcyNk1hTlYyTU9iaVF1MWV4YkphdG84d0h5bDRfR2NYT0VGQ2llTTFHTVFqOC1Gb0VYdlVDQ3RTQmpaN2VtdXJB?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-13T18:31:16.001168+00:00"
+      "fetched_at": "2026-09-13T21:53:17.537409+00:00"
     },
     {
       "series_number": "TREND-16",
@@ -128,7 +128,7 @@
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9NZjM0RXNpeE1raVlFclJ6ZTdqQ0dKLURSYUJnREd1TWNzZFhQTHExRUtCdElrY3ZEci1menRHSFNrUVp3RWxzSjJOSHNwZ3BEZ2pR?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-13T18:31:16.001172+00:00"
+      "fetched_at": "2026-09-13T21:53:17.537412+00:00"
     },
     {
       "series_number": "TREND-17",
@@ -136,7 +136,7 @@
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE0tN29MTjFScHctZlFWck5IWjNxeHh6VEgyeDhvVUJIcVAxamFPdW90ZWJyVVoyWlNwWF9oaGNJNjhnLUota2w4dlBvVlowcDUtUEtIMnpEWVE5UkdkWGc?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-13T18:31:16.001181+00:00"
+      "fetched_at": "2026-09-13T21:53:17.537418+00:00"
     },
     {
       "series_number": "TREND-18",
@@ -144,7 +144,7 @@
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9WRmlzS2dpNjc5dExPbzh1bTYwcWp4RTFCQ2dMWkY1LXl5MlFEb3hvREhjYWp0bFJMYjlhdG02ZmFId2lvQnBEdEl2bEJkZU9XZTJ5OVVMcFBBTFNsWWc?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-13T18:31:16.001186+00:00"
+      "fetched_at": "2026-09-13T21:53:17.537422+00:00"
     },
     {
       "series_number": "TREND-19",
@@ -152,7 +152,7 @@
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFA1eVJpLUkxXzI0Q3VqTEQ2NmMyQUEwMWxHbVBiekNsS0lZUVVfRG9US09Yb0JwVnZtSVN1dElFZkV6RXZGYkJ1OEZ6TUUwQnVjUVJ4Z3hKaEtoRF96VEhhcERwN1BwdUZvWW5j?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-13T18:31:16.001189+00:00"
+      "fetched_at": "2026-09-13T21:53:17.537425+00:00"
     },
     {
       "series_number": "TREND-20",
@@ -160,7 +160,7 @@
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1MUElwNUdiWU9MaHltZGxHem40VDJBQWh5ZE13S040bUNTbm5NNlRkUUJDUnEtWlpXUUg0VVdhcW4yWHRPTmtpSmJ4N3VWbG1acmt3MWNJazQtOHB0V3c?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-13T18:31:16.001194+00:00"
+      "fetched_at": "2026-09-13T21:53:17.537428+00:00"
     },
     {
       "series_number": "TREND-21",
@@ -168,7 +168,7 @@
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQTDhDZks5aHpLM0hCaFgtU2lIZFBna2JEd1BDWlVlM2o4WTcyWlBMNjRNcE9OYXRucHZBb0hXeUJXd0FuZEQ4dURQbzA4NThUY2ZrblNHaGpnT0hxX3FhSEhfVWg5M3ZLM2tNdHF6X0ZlcjJwVTUxSXNET1ZKS2RNUHVzSlk0WExlZjhtc2laZTlFeXpMYjRjSg?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-13T18:31:16.001198+00:00"
+      "fetched_at": "2026-09-13T21:53:17.537432+00:00"
     },
     {
       "series_number": "TREND-22",
@@ -176,7 +176,7 @@
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE53enZ5SXoxLTU0ckV6aFdyQ2JzQm4tMVVHYzdUZEVacWpBSGxsM1BERnpmWVdHVGxuYkJsLXhhaXhFSmgwVjROVmRfbjc5dU82bG45NmJKbVg?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-13T18:31:16.001202+00:00"
+      "fetched_at": "2026-09-13T21:53:17.537436+00:00"
     },
     {
       "series_number": "TREND-23",
@@ -184,7 +184,7 @@
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1WalYxeGF4bEw5YVlTWmNucnh2R05EVE9CUU5Ob3FiWFlaTFF4TXh6Z0l1anBZTkpFczBUUUptMWVNSjZPTTVSRExKanRSZm0zTkJZdWhpSlJRWVBXMkE?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-13T18:31:16.001206+00:00"
+      "fetched_at": "2026-09-13T21:53:17.537439+00:00"
     },
     {
       "series_number": "TREND-24",
@@ -192,55 +192,55 @@
       "source": "google_news_us",
       "source_url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOaTJDRjNpWHc2WlAxSDJ0M25sa0VBOXlVeF9RS1dzOEoyY1oxQ3RrVEdzSHBTcWJOYzZCZDlQQzNHU3JiMFUtWEw2OXpyRmhJd2NqWmRPUWI1Z1kxcGFha2cwNTNhekItNlJSX2RGN0c3bEQxN2M0ODdPbUQyMXplYkVReDNLM3F6bmFEYzZBRXdlUQ?oc=5",
       "trend_score": 4,
-      "fetched_at": "2026-09-13T18:31:16.001211+00:00"
+      "fetched_at": "2026-09-13T21:53:17.537444+00:00"
     },
     {
       "series_number": "TREND-25",
-      "topic": "How our sense of beauty takes shape in the brain",
+      "topic": "Why doing nothing is good for your brain",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNektMLXRzWFpIYkx4UmlvZXQ3UUF6VUpfN3VfeEdORmV6TmFkZkpiRlEtOHNod19paTIzd01JbndNV1pWbHQ4YmFKYXV2QjFpYU04MDBrSkY2dThsU3BJbzZvVkRnVy1iNDAzVGdFMUE1SE1IdkZQX2dGS2RpMkhvZ0FsbzUxSnAySE1RSnpNdDdHc3Y4bmpr?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPczFMSGlSTlM5QWVqSXVPaWJXUUlOajdpUGRNRklER1Z4RHNHeE9xZXJEY1E0aU1kbDF2M2hTMDJIczl5OEFtREl0UTJwZUpxUVZwemVRQzlycW1mWnhuMm52QjlSQ3VCbklLbklpMUNNbEhUTVdySFVlTFFPVnhwVWdFY1lVX3dfeTd6NA?oc=5",
       "trend_score": 4,
-      "fetched_at": "2026-09-13T18:31:16.001215+00:00"
+      "fetched_at": "2026-09-13T21:53:17.537447+00:00"
     },
     {
       "series_number": "TREND-26",
-      "topic": "Bad Night\u2019s Sleep? An Eye Mask Could Make All the Difference",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBVckVzbndZY1VOZXFfNkxLOHN2VHAwUmpXemJhRjQxRDhreXRXUzJuWDNfbmZuajlSRHhkUjJGQV91eElINTlxQ1J1cWhUeUdHbi0zWkdXT1FBQQ?oc=5",
-      "trend_score": 4,
-      "fetched_at": "2026-09-13T18:31:16.001221+00:00"
-    },
-    {
-      "series_number": "TREND-27",
-      "topic": "Fishers brain & spine center celebrates \u2018topping out\u2019",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOMTZ6ZWxHWnFyZHE3LXdSaGY2djdPb3ZLSVh5bHpqNTFYNXBFTWtSSHQtZzQ3eGEzdXVPem1GS1VQNTQzZzl6Um03bHNzYnZaT25sX1ZuU0x0SWd0MXBoTkxJQlhXTUl1ak9rdl9qS3Qwdk1xdnFpcTk0UV9mY0dIU19pbkpjZGFvWGMwcTFmckltWVA4alE?oc=5",
-      "trend_score": 4,
-      "fetched_at": "2026-09-13T18:31:16.001227+00:00"
-    },
-    {
-      "series_number": "TREND-28",
-      "topic": "Timed bursts of \u2018pink noise\u2019 can boost restorative sleep, Boston study finds",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE40MVl6cFRXXzF5SE5kZlpab2R4YVhONk9LODRNdDYzZk0tVU5tSFJQU2dQdmlhT0ZqZjRpOTNmRkRuRzJaWFpRYkdIalF6Z1lJOWlxRzBTTk5IYy1MSHItV3V3cG5vYVhsME9lZ2RmVXh4WjJWd1pCOEhMcno?oc=5",
-      "trend_score": 4,
-      "fetched_at": "2026-09-13T18:31:16.001233+00:00"
-    },
-    {
-      "series_number": "TREND-29",
       "topic": "Smart beds cost up to $10,000 and promise better sleep. Do they actually work?",
       "source": "google_news_us",
       "source_url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOOFBfUHBZeWZ3VXhHVUs1UUUzX28wUTdscDRxYXVMcm5qWHUzZDYxcnh1NzQ4a01tdEgyQjF2ZnZaMXZvNDhzVjBWZ1hkM0RWSVNWei1NLVEzZkxEWmF2MEMzYlo3WlU3aHN3amNmNkZRM2haMVJrTFlWRjVrRV9vLVBfUEVwdXJZWWZGbFN3?oc=5",
       "trend_score": 4,
-      "fetched_at": "2026-09-13T18:31:16.001237+00:00"
+      "fetched_at": "2026-09-13T21:53:17.537452+00:00"
     },
     {
-      "series_number": "TREND-30",
+      "series_number": "TREND-27",
+      "topic": "Timed bursts of \u2018pink noise\u2019 can boost restorative sleep, Boston study finds",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE40MVl6cFRXXzF5SE5kZlpab2R4YVhONk9LODRNdDYzZk0tVU5tSFJQU2dQdmlhT0ZqZjRpOTNmRkRuRzJaWFpRYkdIalF6Z1lJOWlxRzBTTk5IYy1MSHItV3V3cG5vYVhsME9lZ2RmVXh4WjJWd1pCOEhMcno?oc=5",
+      "trend_score": 4,
+      "fetched_at": "2026-09-13T21:53:17.537457+00:00"
+    },
+    {
+      "series_number": "TREND-28",
+      "topic": "Fishers brain & spine center celebrates \u2018topping out\u2019",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOMTZ6ZWxHWnFyZHE3LXdSaGY2djdPb3ZLSVh5bHpqNTFYNXBFTWtSSHQtZzQ3eGEzdXVPem1GS1VQNTQzZzl6Um03bHNzYnZaT25sX1ZuU0x0SWd0MXBoTkxJQlhXTUl1ak9rdl9qS3Qwdk1xdnFpcTk0UV9mY0dIU19pbkpjZGFvWGMwcTFmckltWVA4alE?oc=5",
+      "trend_score": 4,
+      "fetched_at": "2026-09-13T21:53:17.537461+00:00"
+    },
+    {
+      "series_number": "TREND-29",
       "topic": "Why scientists are starting to worry popular supplements could harm the aging brain",
       "source": "google_news_us",
       "source_url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOUUpYQ2ZDdW1MMFFnMHV4YTRkU2VBR1ZnMVFuMVdjRUZVaGV5ajZnY20zNVBsUXliMDQ0NXZuMXJrc1hYYmw4MGZkYlNIS0haMzRhWTlCU1hSaGJwdVF6YUt1SnhTbkxVcnNoTk93eGZxVkZOaVozUDFVX2Z4UDR6bjRHTWFRVWtySkJ4R0lwd29IY25naVRpUERzclcwRXJ4TE9qTDJRLTJ5SFk1YmZTWE01MDJxZGlBWHY2ZXA4UmFLRURtOE0wag?oc=5",
       "trend_score": 4,
-      "fetched_at": "2026-09-13T18:31:16.001242+00:00"
+      "fetched_at": "2026-09-13T21:53:17.537466+00:00"
+    },
+    {
+      "series_number": "TREND-30",
+      "topic": "Family and friends wear black in memory of Alexis Massey, those affected by gun violence",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQYzEyUUlieE12X2lYRkNGRUdqbEFjOWdCbEtuLXRBTXNqSzlyS2VBdEpETXJqcVAzT21oTXdlTTlfZE56ck0zMDVMR2RUMnZnRjhCUV82NjF4NGhmeU9ta2YzWjR6UVY5MTdqeWw1VGJuOW9XOVYzLXRxd2hKZTE3akVtekpVWjlWUE1CUWZUczctb3dfWEdUZlp4c2Qzbk1QeWZ6aE1GdEhYemwwUFdsb3djbldISWpkX2NfTGNvcmpYblEzOVJGN2hR?oc=5",
+      "trend_score": 4,
+      "fetched_at": "2026-09-13T21:53:17.537470+00:00"
     }
   ],
   "source_errors": []
