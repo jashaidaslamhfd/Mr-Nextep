@@ -287,15 +287,49 @@ def _request_script(topic: str, key: str, feedback: str | None = None) -> dict[s
         ],
         "response_format": {"type": "json_object"}
     }
+    user_agent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 Mr-Nextep/2.0"
     request = Request(
         "https://api.groq.com/openai/v1/chat/completions",
         data=json.dumps(payload).encode(),
-        headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"},
+        headers={
+            "Authorization": f"Bearer {key}",
+            "Content-Type": "application/json",
+            "User-Agent": user_agent,
+        },
         method="POST"
     )
-    with urlopen(request, timeout=30) as response:
-        data = json.loads(response.read().decode())
-    return json.loads(data["choices"][0]["message"]["content"])
+    try:
+        with urlopen(request, timeout=30) as response:
+            data = json.loads(response.read().decode())
+        raw_text = data["choices"][0]["message"]["content"].strip()
+    except Exception as exc:
+        openrouter_key = os.getenv("OPENROUTER_API_KEY", "").strip()
+        if openrouter_key:
+            log.info("Groq request failed (%s); attempting fallback via OpenRouter...", exc)
+            or_payload = dict(payload)
+            or_payload["model"] = os.getenv("OPENROUTER_MODEL", "meta-llama/llama-3.1-8b-instruct")
+            or_req = Request(
+                "https://openrouter.ai/api/v1/chat/completions",
+                data=json.dumps(or_payload).encode(),
+                headers={
+                    "Authorization": f"Bearer {openrouter_key}",
+                    "Content-Type": "application/json",
+                    "User-Agent": user_agent,
+                    "HTTP-Referer": "https://github.com/jashaidaslamhfd/Mr-Nextep",
+                },
+                method="POST",
+            )
+            with urlopen(or_req, timeout=35) as or_resp:
+                data = json.loads(or_resp.read().decode())
+            raw_text = data["choices"][0]["message"]["content"].strip()
+        else:
+            raise
+
+    if "```" in raw_text:
+        match = re.search(r"```(?:json)?\s*([\s\S]*?)\s*```", raw_text)
+        if match:
+            raw_text = match.group(1).strip()
+    return json.loads(raw_text)
 
 
 def generate_script(topic: str, settings: Settings) -> dict[str, Any]:

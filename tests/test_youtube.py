@@ -50,3 +50,11 @@ def test_title_has_no_random_garnish():
     body = build_upload_body(_script(), Settings(schedule_publish=False))
     title = body["snippet"]["title"]
     assert "✨" not in title and "🔥" not in title
+
+
+def test_scheduled_upload_forces_private_status_even_if_public_requested():
+    """YouTube API rejects scheduled uploads unless privacyStatus is strictly private."""
+    settings = Settings(dry_run=False, privacy_status="public", schedule_publish=True)
+    body = build_upload_body(_script(), settings)
+    assert body["status"]["privacyStatus"] == "private"
+    assert "publishAt" in body["status"]

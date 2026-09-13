@@ -11,12 +11,18 @@ from youtube_inputs import require_publish_at, require_video_id
 def main() -> int:
     video_id = require_video_id(os.getenv('VIDEO_ID', ''))
     publish_at = require_publish_at(os.getenv('PUBLISH_AT', ''))
+    refresh_token = (os.getenv('REFRESH_TOKEN') or os.getenv('YT_REFRESH_TOKEN', '')).strip()
+    client_id = (os.getenv('GOOGLE_CLIENT_ID') or os.getenv('YT_CLIENT_ID', '')).strip()
+    client_secret = (os.getenv('GOOGLE_CLIENT_SECRET') or os.getenv('YT_CLIENT_SECRET', '')).strip()
+    if not (refresh_token and client_id and client_secret):
+        raise SystemExit('Missing YouTube credentials: REFRESH_TOKEN/GOOGLE_CLIENT_ID/GOOGLE_CLIENT_SECRET')
+
     creds = Credentials(
         None,
-        refresh_token=os.environ['REFRESH_TOKEN'],
+        refresh_token=refresh_token,
         token_uri='https://oauth2.googleapis.com/token',
-        client_id=os.environ['GOOGLE_CLIENT_ID'],
-        client_secret=os.environ['GOOGLE_CLIENT_SECRET'],
+        client_id=client_id,
+        client_secret=client_secret,
         scopes=['https://www.googleapis.com/auth/youtube'],
     )
     creds.refresh(Request())

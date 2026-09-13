@@ -35,15 +35,17 @@ def wait_until_ready(media_id: str, token: str, timeout: int | None = None, wait
     while time.time() < deadline:
         response = requests.get(
             f'{GRAPH}/{media_id}',
-            params={'access_token': token, 'fields': 'status_code'},
+            params={'access_token': token, 'fields': 'status_code,status,error_message'},
             timeout=60,
         )
         response.raise_for_status()
-        status = response.json().get('status_code', '')
+        data = response.json()
+        status = data.get('status_code', '')
         if status == 'FINISHED':
             return
         if status in {'ERROR', 'EXPIRED'}:
-            raise RuntimeError(f'Instagram media processing failed: {status}')
+            error_msg = data.get('error_message') or data.get('status') or 'no error details'
+            raise RuntimeError(f'Instagram media processing failed: {status} ({error_msg})')
         time.sleep(wait_seconds)
     raise TimeoutError('Instagram media processing timed out')
 

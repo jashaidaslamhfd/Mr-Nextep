@@ -122,3 +122,19 @@ def test_trend_queue_prefers_raw_headline_over_spliced_question(tmp_path):
     }), encoding="utf-8")
 
     assert content.choose_topic(_S()) == "Sleep clears brain waste overnight"
+
+def test_markdown_code_fences_are_stripped_from_llm_json(monkeypatch):
+    """If LLM wraps JSON response in markdown fences, parsing still succeeds."""
+    monkeypatch.setenv("GROQ_API_KEY", "test-key")
+    payload = _valid_payload()
+    fenced = f"```json\n{json.dumps(payload)}\n```"
+    class _FencedResponse:
+        def __enter__(self):
+            return self
+        def __exit__(self, *args):
+            return False
+        def read(self):
+            return json.dumps({"choices": [{"message": {"content": fenced}}]}).encode()
+    monkeypatch.setattr(content, "urlopen", lambda req, timeout=None: _FencedResponse())
+    script = generate_script("Why does silence feel loud?", _Settings(dry_run=False))
+    assert script["title"] == payload["title"]

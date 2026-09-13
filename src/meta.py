@@ -77,13 +77,14 @@ def _wait_until_ready(session: requests.Session, media_id: str, token: str) -> N
         status_resp = _get(
             session,
             f"{GRAPH_BASE}/{media_id}",
-            params={"access_token": token, "fields": "status_code"},
+            params={"access_token": token, "fields": "status_code,status,error_message"},
         )
         last_status = status_resp.get("status_code", "")
         if last_status == "FINISHED":
             return
         if last_status in {"ERROR", "EXPIRED"}:
-            raise RuntimeError(f"Instagram media processing failed: {last_status}")
+            error_msg = status_resp.get("error_message") or status_resp.get("status") or "no error details"
+            raise RuntimeError(f"Instagram media processing failed: {last_status} ({error_msg})")
         logger.debug(
             "Instagram processing status %s for container %s. Sleeping 10s", last_status, media_id
         )
@@ -137,7 +138,7 @@ def publish(video: Path, script: dict[str, Any], youtube_result: dict[str, Any])
     page_id = os.getenv("FACEBOOK_PAGE_ID", "").strip()
     token = os.getenv("FACEBOOK_ACCESS_TOKEN", "").strip()
     instagram_id = os.getenv("INSTAGRAM_USER_ID", "").strip()
-    gap_seconds = max(0, int(os.getenv("META_POST_GAP_SECONDS", "600")))
+    gap_seconds = max(0, int(os.getenv("META_POST_GAP_SECONDS", "60")))
     session = requests_session_with_retries()
 
     # Build SEO packages (repo has seo.build_packages)

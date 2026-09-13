@@ -28,10 +28,10 @@ logger = logging.getLogger("mrnextep.youtube")
 RESUMABLE_CHUNK_ATTEMPTS = 5
 
 
-def _load_credentials_from_env() -> Credentials:
-    refresh_token = os.getenv("REFRESH_TOKEN", "").strip()
-    client_id = os.getenv("GOOGLE_CLIENT_ID", "").strip()
-    client_secret = os.getenv("GOOGLE_CLIENT_SECRET", "").strip()
+def _load_credentials_from_env(scopes: list[str] | None = None) -> Credentials:
+    refresh_token = (os.getenv("REFRESH_TOKEN") or os.getenv("YT_REFRESH_TOKEN", "")).strip()
+    client_id = (os.getenv("GOOGLE_CLIENT_ID") or os.getenv("YT_CLIENT_ID", "")).strip()
+    client_secret = (os.getenv("GOOGLE_CLIENT_SECRET") or os.getenv("YT_CLIENT_SECRET", "")).strip()
     token_uri = "https://oauth2.googleapis.com/token"
     if not (refresh_token and client_id and client_secret):
         raise RuntimeError(
@@ -44,7 +44,7 @@ def _load_credentials_from_env() -> Credentials:
         token_uri=token_uri,
         client_id=client_id,
         client_secret=client_secret,
-        scopes=["https://www.googleapis.com/auth/youtube.upload"],
+        scopes=scopes,
     )
     creds.refresh(Request())
     return creds
@@ -99,8 +99,10 @@ def _prepare_snippet_and_status(
         "tags": clean_tags,
         "categoryId": "28",
     }
+    # YouTube API enforces that scheduled uploads must have privacyStatus set to private
+    effective_privacy = "private" if schedule_dt else privacy
     status_body = {
-        "privacyStatus": privacy,
+        "privacyStatus": effective_privacy,
         "selfDeclaredMadeForKids": False,
     }
     if schedule_dt:
@@ -122,18 +124,27 @@ def _choose_us_peak_time(settings) -> datetime.datetime:
 
     now = _dt.datetime.now(tz)
     # Primary windows: 12:00-15:00 and 18:00-21:00 local time.
+    min_lead = _dt.timedelta(minutes=20)
     windows = [(12, 15), (18, 21)]
-    start_hour, end_hour = random.choice(windows)
-    candidate = now.replace(hour=start_hour, minute=0, second=0, microsecond=0)
-    if candidate <= now:
-        candidate = candidate + _dt.timedelta(days=1)
-    total_minutes = (end_hour - start_hour) * 60
-    minute_offset = random.randint(0, total_minutes - 1)
-    scheduled_local = candidate + _dt.timedelta(minutes=minute_offset)
-    jitter = getattr(settings, "schedule_jitter_minutes", 20)
-    jitter = max(15, min(30, int(jitter)))
-    jitter_seconds = random.uniform(-jitter * 60, jitter * 60)
-    scheduled_local = scheduled_local + _dt.timedelta(seconds=jitter_seconds)
+    valid_windows = []
+    for start_h, end_h in windows:
+        w_start = now.replace(hour=start_h, minute=0, second=0, microsecond=0)
+        w_end = now.replace(hour=end_h, minute=0, second=0, microsecond=0)
+        if w_end > now + min_lead:
+            valid_windows.append((max(w_start, now + min_lead), w_end))
+    if not valid_windows:
+        tomorrow = now + _dt.timedelta(days=1)
+        for start_h, end_h in windows:
+            w_start = tomorrow.replace(hour=start_h, minute=0, second=0, microsecond=0)
+            w_end = tomorrow.replace(hour=end_h, minute=0, second=0, microsecond=0)
+            valid_windows.append((w_start, w_end))
+
+    start_cand, end_cand = random.choice(valid_windows)
+    delta_secs = max(60, int((end_cand - start_cand).total_seconds()))
+    offset_secs = random.randint(0, delta_secs - 1)
+    scheduled_local = start_cand + _dt.timedelta(seconds=offset_secs)
+    if scheduled_local <= now + _dt.timedelta(minutes=15):
+        scheduled_local = now + min_lead + _dt.timedelta(minutes=5)
     return scheduled_local.astimezone(tz)
 
 
