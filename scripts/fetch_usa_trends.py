@@ -60,7 +60,15 @@ def main():
         # Writing the title is the model's job now (see content.SYSTEM_PROMPT).
         topics.append({'series_number':f'TREND-{i}','topic':r['title'],'source':r['source'],'source_url':r['url'],'trend_score':score(r),'fetched_at':datetime.now(UTC).isoformat()})
     payload={'source':'Google Trends US + US science RSS','mined_at':datetime.now(UTC).isoformat(),'topics':topics,'source_errors':errors}
-    p=Path(a.output); p.parent.mkdir(parents=True,exist_ok=True); p.write_text(json.dumps(payload,indent=2),encoding='utf-8')
+    p=Path(a.output)
+    if topics:
+        p.parent.mkdir(parents=True,exist_ok=True); p.write_text(json.dumps(payload,indent=2),encoding='utf-8')
+    else:
+        # Every source failed (e.g. all three returned 403). The caller's error handling
+        # prints "continuing with the existing queue", so make that literally true instead
+        # of overwriting a good queue with an empty one right before saying we didn't.
+        print(json.dumps({'output':str(p),'topics':0,'source_errors':errors,'note':'existing queue file left untouched'}))
+        return 2
     print(json.dumps({'output':str(p),'topics':len(topics),'source_errors':errors}))
     return 0 if topics else 2
 if __name__=='__main__': raise SystemExit(main())

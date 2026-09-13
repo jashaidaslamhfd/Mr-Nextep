@@ -184,35 +184,46 @@ def _tokenize_topic(topic: str) -> list[str]:
 def generate_us_hashtag_sets(topic: str, raw_tags: list[str], max_total: int = 8) -> dict[str, list[str]]:
     """
     Generate hashtag clusters optimized for US discovery on YouTube/Meta.
-    Returns a dict with keys: youtube_tags (3), meta_tags (8), meta_broad (3), meta_niche (3), meta_community (2)
+
+    Previously this produced mostly generic filler: only up to 3 of 8 Meta tags were
+    ever topic-specific (#USA, #USATrends, #TrendingNow, #learn, #howto, #facts were
+    fixed on every single video regardless of topic), and youtube_tags could fall back
+    to bare '#shorts' with zero real keywords if raw_tags/topic tokens ran out. Real
+    per-video keywords (from the now-validated `tags` field, see content.py) are
+    prioritized first; generic tags only fill remaining slots.
+
+    Returns a dict with keys: youtube_tags, meta_tags, meta_broad, meta_niche, meta_community
     """
     topic_tokens = _tokenize_topic(topic)
-    # Broad US trending tags (sensible, non-spammy defaults)
-    broad_us = ["#USA", "#USATrends", "#TrendingNow"]
-    # Niche tags from raw_tags and topic tokens
+    # Niche/topic-specific candidates come first and dominate — these are the actual
+    # keywords a viewer would search for, unlike the fixed broad/community tags below.
     niche_candidates = []
     for t in raw_tags:
         if t:
             niche_candidates.append('#' + t.strip().replace(' ', '').lower())
-    for tok in topic_tokens[:4]:
+    for tok in topic_tokens[:6]:
         niche_candidates.append('#' + tok)
     niche = []
     for n in niche_candidates:
         if n not in niche:
             niche.append(n)
-        if len(niche) >= 3:
+        if len(niche) >= 6:
             break
-    # Community tags (broader communities related to content)
+    # Broad/community tags are filler used only to round out remaining slots — never
+    # allowed to crowd out topic-specific keywords the way the fixed 3+2 split used to.
+    broad_us = ["#USA", "#USATrends", "#TrendingNow"]
     community = ["#learn", "#howto", "#facts"]
-    # Final sanitized sets
-    youtube_tags = ['#Shorts'] + (niche[:2] if niche else ['#shorts'])
-    meta_broad = broad_us[:3]
-    meta_niche = niche[:3]
-    meta_community = community[:2]
 
-    meta_tags = meta_broad + meta_niche + meta_community
+    youtube_tags = ['#Shorts'] + niche[:4]
+    meta_niche = niche[:6]
+    remaining = max(0, max_total - len(meta_niche))
+    meta_broad = broad_us[: min(2, remaining)]
+    remaining -= len(meta_broad)
+    meta_community = community[: min(2, remaining)]
+
+    meta_tags = meta_niche + meta_broad + meta_community
     meta_tags = sanitize_hashtags(meta_tags, max_hashtags=max_total)
-    youtube_tags = sanitize_hashtags(youtube_tags, max_hashtags=3)
+    youtube_tags = sanitize_hashtags(youtube_tags, max_hashtags=5)
 
     return {
         'youtube_tags': youtube_tags,

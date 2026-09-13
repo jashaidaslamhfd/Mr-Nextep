@@ -4,6 +4,7 @@ import hashlib
 import json
 import logging
 import os
+import re
 from typing import Any
 from urllib.request import Request, urlopen
 
@@ -208,7 +209,25 @@ Script rules:
 - Never use clickbait medical promises, emojis, or greetings like "Did you know".
 - The eight scenes must be written for THIS topic specifically. Do not reuse a generic
   skeleton about neurons and survival pathways that would fit any topic.
+
+Description and tags rules (these feed YouTube's, Facebook's, and Instagram's keyword
+matching directly — generic tags get generic distribution):
+- "description": 1-3 sentences that reinforce the title's real subject (the specific
+  organ, phenomenon, or effect — not a vague teaser), then a short CTA. No emojis.
+- "tags": 6-15 keywords/short phrases SPECIFIC to this exact topic (the concrete noun
+  phrases someone would actually search for). At least 2 of them must reuse real words
+  from the title itself. Do not just repeat generic filler like "shorts", "facts",
+  "psychology", "mystery" on every video — those are fine as 1-2 of the tags, not most
+  of them.
 """
+
+
+_STOPWORDS_FOR_KEYWORDS = _STOPWORDS | frozenset({"about", "into", "over", "under", "than"})
+
+
+def _keyword_words(text: str) -> set[str]:
+    words = re.sub(r"[^\w' ]", " ", str(text or "").lower()).split()
+    return {w for w in words if len(w) > 2 and w not in _STOPWORDS_FOR_KEYWORDS}
 
 
 def _validate_script(result: Any) -> dict[str, Any]:
@@ -226,6 +245,29 @@ def _validate_script(result: Any) -> dict[str, Any]:
         raise ValueError("scene captions must be 8 words or fewer")
     # Raises TitleRejected with the reason, which is fed back to the model on retry.
     result["title"] = validate_short_title(result.get("title", ""))
+
+    # Tags/description were never validated before this, so the model could — and did —
+    # return a handful of generic tags ("shorts", "facts", "psychology") with no real
+    # connection to the specific topic. That defeats YouTube's/Meta's keyword matching:
+    # a generic-but-valid title with unrelated tags gets weaker algorithmic distribution
+    # than one where title, description, and tags all reinforce the same real keyword.
+    tags = result.get("tags", [])
+    if not isinstance(tags, list) or not (6 <= len(tags) <= 15):
+        raise ValueError("tags must be a list of 6 to 15 topic-specific keywords/phrases")
+    description = str(result.get("description", "")).strip()
+    if not description or len(description) < 20:
+        raise ValueError("description is missing or too short to carry any real keywords")
+
+    title_words = _keyword_words(result["title"])
+    tag_blob = " ".join(str(t).lower() for t in tags)
+    overlap = {w for w in title_words if w in tag_blob}
+    if len(overlap) < 2:
+        raise ValueError(
+            "tags must share at least 2 real keywords with the title (title keywords: "
+            f"{sorted(title_words)}); the current tags don't reuse the topic's actual terms"
+        )
+    result["description"] = description
+    result["tags"] = [str(t).strip() for t in tags if str(t).strip()]
     return result
 
 

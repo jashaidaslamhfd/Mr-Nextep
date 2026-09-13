@@ -29,6 +29,10 @@ def build_packages(script: dict[str, Any]) -> dict[str, dict[str, Any]]:
     meta_hashtags = tag_sets.get("meta_tags", [])
     # Reels-specific discovery tag, so the Instagram package is not just a Facebook copy.
     instagram_hashtags = ["#Reels"] + [t for t in meta_hashtags if t.lower() != "#reels"]
+    # Facebook video posts also benefit from a few keyword hashtags in the description —
+    # previously this package carried none at all (title + plain description only),
+    # so Facebook's own keyword/topic matching had nothing to key off of.
+    facebook_hashtags = " ".join(meta_hashtags[:5])
 
     return {
         "youtube": {
@@ -38,7 +42,8 @@ def build_packages(script: dict[str, Any]) -> dict[str, dict[str, Any]]:
         },
         "facebook": {
             "title": raw_title[:255],
-            "description": (description + "\n\nFollow for more US-focused short explainers.")[:3000],
+            "description": (description + "\n\nFollow for more US-focused short explainers.\n\n" + facebook_hashtags)[:3000],
+            "tags": [t.lstrip('#') for t in meta_hashtags],
         },
         "instagram": {
             "caption": (meta_caption)[:2200],
