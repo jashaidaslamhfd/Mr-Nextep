@@ -241,10 +241,13 @@ def _validate_script(result: Any) -> dict[str, Any]:
         raise ValueError(f"expected exactly 8 scenes, got {len(scenes)}")
     if any(not isinstance(s, dict) or not s.get("caption") or not s.get("narration") for s in scenes):
         raise ValueError("every scene needs a non-empty caption and narration")
-    if not 4 <= len(str(scenes[0]["caption"]).split()) <= 7:
-        raise ValueError("scene 1 caption must be 4-7 words")
-    if any(len(str(s.get("caption", "")).split()) > 8 for s in scenes):
-        raise ValueError("scene captions must be 8 words or fewer")
+    for s in scenes:
+        w = str(s.get("caption", "")).split()
+        if len(w) > 8:
+            s["caption"] = " ".join(w[:8])
+    c1_words = str(scenes[0].get("caption", "")).split()
+    if not (2 <= len(c1_words) <= 8):
+        raise ValueError("scene 1 caption must be 2-8 words")
     # Raises TitleRejected with the reason, which is fed back to the model on retry.
     result["title"] = validate_short_title(result.get("title", ""))
 
