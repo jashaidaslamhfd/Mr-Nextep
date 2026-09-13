@@ -365,5 +365,40 @@
     "body": "Never ignore this detected signal. Symptoms lags behind your awareness. Your oldest wiring seizes symptoms. Researchers call this detected drift. Your mind invents an instant explanation. Detected is machinery, not magic. You just caught your mind glitching. Which is why you felt that.",
     "text": "Brain aging may be detected decades before symptoms appear, with links to gut health Never ignore this detected signal. Symptoms lags behind your awareness. Your oldest wiring seizes symptoms. Researchers call this detected drift. Your mind invents an instant explanation. Detected is machinery, not magic. You just caught your mind glitching. Which is why you felt that.",
     "video": "output/mr_nextep_short.mp4"
+  },
+  {
+    "created_at": "2026-09-13T05:25:18.862533+00:00",
+    "status": "pending",
+    "topic": "Recommended Amount of Sleep for a Healthy Adult",
+    "title": "Recommended Amount of Sleep for a Healthy Adult",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "95ddb6148f6b33f507513f8ea7de8b9783ebfc137eb416404c969e0accadb663",
+      "f88eac1bbd5c50a7cdce285b5be94083c8ca7c371c80bc9c5d80f6302457e1be",
+      "cc73ef65e20254068d2adcf5a8fb546403926537ba7008096a86fe025aa5b717",
+      "874d05e503ab5a9552b48e7c2bb9e508f4e5999bf93774994df02c2320775176",
+      "2946154b2705e90f1d01c6d100bfc25fc207a9519c23718f3fcaf90db68c2c5d",
+      "acfd51692120e4c4392049d7ddd69d583b38e20d77fce6ca304eb80d7b7a2428",
+      "fe73b4cead2924571febefa389a586e5852b30b0d6a7465c4db1db44b1dc1421",
+      "9c8135590d5a8e2533da99501be539b499cbdb7128717dd24e5005dd6ef390fc"
+    ],
+    "width": 1080,
+    "height": 1920,
+    "duration": 17.938776,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "5a65e3dfc18358a6db79e4fb034be4a9c3ed62a4fa8694dede8cbbe558d26202",
+    "body": "Nobody explains this recommended reflex. Your neurons fire before healthy reacts. A survival circuit overrides healthy. Labs call it recommended misfiring. Your brain manufactures a false memory. Nothing about recommended is imagined. You felt a processing loop close. Which is why you felt that.",
+    "text": "Recommended Amount of Sleep for a Healthy Adult Nobody explains this recommended reflex. Your neurons fire before healthy reacts. A survival circuit overrides healthy. Labs call it recommended misfiring. Your brain manufactures a false memory. Nothing about recommended is imagined. You felt a processing loop close. Which is why you felt that."
   }
 ]
