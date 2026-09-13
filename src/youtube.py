@@ -226,7 +226,7 @@ def upload(video: Path, script: dict[str, Any], settings) -> dict[str, Any]:
         raise
 
     youtube = build("youtube", "v3", credentials=creds, cache_discovery=False)
-    media = MediaFileUpload(str(video), chunksize=5 * 1024 * 1024, resumable=True, mimetype="video/mp4")
+    media = MediaFileUpload(str(video), chunksize=10 * 1024 * 1024, resumable=True, mimetype="video/mp4")
     try:
         logger.info("Starting YouTube upload for %s", video)
         resp = _do_videos_insert(youtube, body, media)

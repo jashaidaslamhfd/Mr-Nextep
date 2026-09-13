@@ -148,14 +148,56 @@ def publish(video: Path, script: dict[str, Any], youtube_result: dict[str, Any])
 
     if page_id and token:
         try:
-            # Facebook page upload (multipart). Use retry wrapper via _post
-            url = f"{GRAPH_BASE}/{page_id}/videos"
-            with video.open("rb") as fh:
-                files = {"source": (video.name, fh, "video/mp4")}
-                params = {"access_token": token}
-                data = {"title": seo.get("facebook", {}).get("title", ""), "description": seo.get("facebook", {}).get("description", "")}
-                fb = _post(session, url, params=params, data=data, files=files, timeout=180)
-                result["facebook"] = {"status": "published", "id": str(fb.get("id", ""))}
+            # Prefer modern 3-phase Facebook Reels upload (video_reels) for maximum algorithm reach;
+            # fall back to standard page video upload if Page token lacks Reels permissions.
+            init_url = f"{GRAPH_BASE}/{page_id}/video_reels"
+            fb_done = False
+            try:
+                init_res = _post(
+                    session,
+                    init_url,
+                    params={"access_token": token, "upload_phase": "start"},
+                    timeout=30,
+                )
+                video_id = init_res.get("video_id")
+                upload_url = init_res.get("upload_url")
+                if video_id and upload_url:
+                    file_size = video.stat().st_size
+                    with video.open("rb") as fh:
+                        up_headers = {
+                            "Authorization": f"OAuth {token}",
+                            "offset": "0",
+                            "file_size": str(file_size),
+                            "Content-Type": "application/octet-stream",
+                        }
+                        up_resp = session.post(upload_url, headers=up_headers, data=fh, timeout=180)
+                        up_resp.raise_for_status()
+                    desc = seo.get("facebook", {}).get("description") or seo.get("facebook", {}).get("title", "")
+                    _post(
+                        session,
+                        init_url,
+                        params={
+                            "access_token": token,
+                            "upload_phase": "finish",
+                            "video_id": video_id,
+                            "video_state": "PUBLISHED",
+                            "description": desc,
+                        },
+                        timeout=60,
+                    )
+                    result["facebook"] = {"status": "published", "id": str(video_id), "format": "reels"}
+                    fb_done = True
+            except Exception as reels_exc:
+                logger.warning("Facebook Reels 3-phase upload unavailable (%s); falling back to page video", reels_exc)
+
+            if not fb_done:
+                url = f"{GRAPH_BASE}/{page_id}/videos"
+                with video.open("rb") as fh:
+                    files = {"source": (video.name, fh, "video/mp4")}
+                    params = {"access_token": token}
+                    data = {"title": seo.get("facebook", {}).get("title", ""), "description": seo.get("facebook", {}).get("description", "")}
+                    fb = _post(session, url, params=params, data=data, files=files, timeout=180)
+                    result["facebook"] = {"status": "published", "id": str(fb.get("id", ""))}
         except Exception as exc:
             logger.exception("Facebook publish failed")
             result["facebook"] = {"status": "error", "reason": str(exc)}

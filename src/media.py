@@ -6,15 +6,20 @@ import os
 import shutil
 import subprocess
 import wave
+import logging
+from functools import lru_cache
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
+
+logger = logging.getLogger("mrnextep.media")
 
 from .config import Settings
 from .visuals import download_clip, query_for_scene
 
 W, H = 1080, 1920
 
+@lru_cache(maxsize=16)
 def font(size: int):
     for path in (
         "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
@@ -23,6 +28,56 @@ def font(size: int):
         if Path(path).exists():
             return ImageFont.truetype(path, size)
     return ImageFont.load_default()
+
+def generate_cover_thumbnail(video: Path, title: str, output_path: Path) -> Path:
+    """Extract key visual frame and render high-CTR mobile thumbnail typography."""
+    temp_frame = output_path.with_suffix(".raw.jpg")
+    try:
+        subprocess.run(
+            [
+                "ffmpeg", "-y", "-ss", "00:00:01.500", "-i", str(video),
+                "-vframes", "1", "-q:v", "2", str(temp_frame),
+            ],
+            check=True,
+            capture_output=True,
+        )
+        if temp_frame.exists():
+            with Image.open(temp_frame).convert("RGBA") as img:
+                draw = ImageDraw.Draw(img)
+                f = font(108)
+                words = title.upper().split()
+                lines = []
+                curr = []
+                for w in words:
+                    curr.append(w)
+                    if len(curr) >= 3:
+                        lines.append(" ".join(curr))
+                        curr = []
+                if curr:
+                    lines.append(" ".join(curr))
+
+                start_y = int(H * 0.40)
+                for i, line in enumerate(lines[:3]):
+                    y = start_y + (i * 125)
+                    # Drop shadow
+                    draw.text((W // 2 + 5, y + 7), line, font=f, fill=(0, 0, 0, 240), anchor="mm")
+                    # Vibrant Gold Headline Text
+                    draw.text(
+                        (W // 2, y),
+                        line,
+                        font=f,
+                        fill=(255, 230, 0),
+                        anchor="mm",
+                        stroke_width=8,
+                        stroke_fill=(0, 0, 0, 255),
+                    )
+                img.convert("RGB").save(output_path, "JPEG", quality=95)
+    except Exception as exc:
+        logger.warning("Cover thumbnail generation skipped (%s)", exc)
+    finally:
+        temp_frame.unlink(missing_ok=True)
+    return output_path
+
 
 def make_overlay(word: str, index: int, path: Path) -> None:
     """Render high-contrast, stroke-bordered text overlay optimized for phone screens."""
@@ -224,6 +279,8 @@ def render(script: dict, settings: Settings) -> Path:
     (settings.output_dir / "clip_hashes.json").write_text(json.dumps(clip_hashes), encoding="utf-8")
     # Caption track sits beside the video; youtube.upload attaches it after the video id exists.
     build_srt(caption_cues, settings.output_dir / "mr_nextep_short.srt")
+    # Render high-CTR mobile cover frame
+    generate_cover_thumbnail(video, script.get("title", ""), settings.output_dir / "mr_nextep_thumb.jpg")
     return video
 
 def validate(video: Path, settings: Settings) -> dict[str, object]:
