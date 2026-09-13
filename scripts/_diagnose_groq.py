@@ -32,7 +32,10 @@ def main() -> None:
         try:
             req = Request(
                 "https://api.groq.com/openai/v1/models",
-                headers={"Authorization": f"Bearer {key}"},
+                headers={
+                    "Authorization": f"Bearer {key}",
+                    "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) Mr-Nextep-Pipeline/1.0",
+                },
             )
             with urlopen(req, timeout=15) as resp:
                 info["http_status"] = resp.status
