@@ -200,12 +200,14 @@ Title rules (the title is the channel's only click surface — treat it as the h
 - Open a curiosity gap: name the strange effect, withhold the cause.
 - No hashtags, no emojis, no colons, no dashes, no source or brand names, no ellipsis.
 
-Script rules:
+Script rules (optimized for maximum 0-3s retention & algorithmic velocity):
 - Target 18-22 seconds total duration.
-- Scene 1 caption MUST be 4-7 words and create an immediate psychological curiosity gap.
+- Scene 1 caption MUST be 4-7 words and create an immediate psychological curiosity gap (loss aversion, cognitive dissonance, or an irresistible dark-science mystery).
+- Scene 1 narration MUST hook the listener instantly within the first 2 seconds — zero greetings, zero filler, zero channel plugs.
 - Every scene caption MUST be brief (1 to 8 words maximum).
-- Each scene must contain "caption" and "narration" strings.
-- Scene 8 narration must provide a curiosity loop-back ending that connects into Scene 1.
+- Each scene must contain "caption" and "narration" strings. Narration must be punchy (8 to 14 words per scene) for high information density.
+- Micro-escalation: each scene introduces a rapid new twist or deeper revelation, keeping viewer attention active.
+- Scene 8 narration must provide a curiosity loop-back ending that connects seamlessly into Scene 1, forming an infinite loop.
 - Never use clickbait medical promises, emojis, or greetings like "Did you know".
 - The eight scenes must be written for THIS topic specifically. Do not reuse a generic
   skeleton about neurons and survival pathways that would fit any topic.

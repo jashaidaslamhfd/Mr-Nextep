@@ -37,6 +37,8 @@ def make_overlay(word: str, index: int, path: Path) -> None:
     x = W // 2
     y = int(H * 0.58)
 
+    # Drop shadow for extra depth and separation against moving video
+    draw.text((x + 4, y + 6), word.upper(), font=f, fill=(0, 0, 0, 200), anchor="mm")
     # Heavy dark stroke so captions pop against both bright and dark backgrounds
     draw.text(
         (x, y),
@@ -44,8 +46,8 @@ def make_overlay(word: str, index: int, path: Path) -> None:
         font=f,
         fill=accent,
         anchor="mm",
-        stroke_width=6,
-        stroke_fill=(0, 0, 0, 240)
+        stroke_width=7,
+        stroke_fill=(0, 0, 0, 255)
     )
     image.save(path)
 
@@ -57,8 +59,8 @@ def _make_audio(text: str, path: Path, duration_hint: float) -> float:
     mp3 = path.with_suffix(".mp3")
     # Upgrade voice from monotonous GuyNeural to deep authoritative ChristopherNeural
     voice = os.getenv("EDGE_US_VOICE", "en-US-ChristopherNeural")
-    rate = os.getenv("EDGE_US_RATE", "-2%")
-    pitch = os.getenv("EDGE_US_PITCH", "-3Hz")
+    rate = os.getenv("EDGE_US_RATE", "+8%")
+    pitch = os.getenv("EDGE_US_PITCH", "+0Hz")
 
     try:
         cmd = ["edge-tts", "--voice", voice, f"--rate={rate}", f"--pitch={pitch}", "--text", text, "--write-media", str(mp3)]
@@ -185,7 +187,11 @@ def render(script: dict, settings: Settings) -> Path:
             "-f", "concat", "-safe", "0", "-i", str(listfile),
             "-i", str(audio),
             "-filter_complex",
-            "[0:v]trim=duration=30,setpts=PTS-STARTPTS[bg];"
+            (
+                "[0:v]trim=duration=30,setpts=PTS-STARTPTS[bg];"
+                if index % 2 != 0
+                else "[0:v]crop=in_w/1.12:in_h/1.12,scale=1080:1920,trim=duration=30,setpts=PTS-STARTPTS[bg];"
+            ) +
             "[1:v]format=rgba,trim=duration=30,setpts=PTS-STARTPTS[fg];"
             "[bg][fg]overlay=0:0:shortest=1[v]",
             "-map", "[v]", "-map", "2:a",
