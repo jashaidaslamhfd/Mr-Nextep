@@ -181,6 +181,35 @@ def _tokenize_topic(topic: str) -> list[str]:
     return [p.strip().lower() for p in topic.replace('-', ' ').split() if p.strip()]
 
 
+def safe_truncate_text(text: str, limit: int) -> str:
+    """Truncate at the last full word before `limit`, never mid-word and never
+    leaving a dangling partial hashtag.
+
+    seo.py's Facebook description (3000 chars) and Instagram caption (2200
+    chars — Instagram's actual hard limit, realistic to hit once hook +
+    description + CTA + hashtags are concatenated) previously used naive
+    text[:limit] slicing, which is exactly the bug class validate_short_title
+    exists to prevent on the YouTube title side ("...Emotional Brain Proce").
+    A half-cut hashtag like "#TrendingNo" at the very end is just as broken
+    as a half-cut sentence, so this also backs off past an incomplete
+    trailing hashtag if the cut lands inside one.
+    """
+    text = text.rstrip()
+    if len(text) <= limit:
+        return text
+    truncated = text[:limit]
+    truncated = truncated.rsplit(" ", 1)[0] if " " in truncated else truncated
+    if "#" in truncated:
+        last_hash = truncated.rfind("#")
+        last_space_before_hash = truncated.rfind(" ", 0, last_hash)
+        remainder = truncated[last_hash:]
+        if " " not in remainder and last_space_before_hash != -1:
+            candidate = truncated[:last_space_before_hash].rstrip()
+            if candidate:
+                truncated = candidate
+    return truncated.rstrip(" ,.;:!-") or text[:limit]
+
+
 def generate_us_hashtag_sets(topic: str, raw_tags: list[str], max_total: int = 8) -> dict[str, list[str]]:
     """
     Generate hashtag clusters optimized for US discovery on YouTube/Meta.

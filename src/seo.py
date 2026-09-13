@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from .utils import generate_us_hashtag_sets, us_title_for_short
+from .utils import generate_us_hashtag_sets, safe_truncate_text, us_title_for_short
 
 
 def build_packages(script: dict[str, Any]) -> dict[str, dict[str, Any]]:
@@ -37,16 +37,18 @@ def build_packages(script: dict[str, Any]) -> dict[str, dict[str, Any]]:
     return {
         "youtube": {
             "title": yt_title,
-            "description": (yt_description_hook + "\n\n" + yt_description_tags)[:5000],
+            "description": safe_truncate_text(yt_description_hook + "\n\n" + yt_description_tags, 5000),
             "tags": [t.lstrip('#') for t in tag_sets.get("youtube_tags", [])],
         },
         "facebook": {
-            "title": raw_title[:255],
-            "description": (description + "\n\nFollow for more US-focused short explainers.\n\n" + facebook_hashtags)[:3000],
+            "title": safe_truncate_text(raw_title, 255),
+            "description": safe_truncate_text(
+                description + "\n\nFollow for more US-focused short explainers.\n\n" + facebook_hashtags, 3000
+            ),
             "tags": [t.lstrip('#') for t in meta_hashtags],
         },
         "instagram": {
-            "caption": (meta_caption)[:2200],
+            "caption": safe_truncate_text(meta_caption, 2200),
             "hashtags": instagram_hashtags,
         },
     }
