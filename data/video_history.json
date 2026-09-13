@@ -489,7 +489,7 @@
   },
   {
     "created_at": "2026-09-13T18:32:46.088650+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "How does inadequate sleep affect health?",
     "title": "How does inadequate sleep affect health?",
     "video_path": "output/mr_nextep_short.mp4",
@@ -520,6 +520,20 @@
     },
     "fingerprint": "51228edf171dd53ae021a1953919ad57177af389e3b40b67db455a671395919e",
     "body": "Sleepless nights whisper a secret Hormonal Havoc Immune System Weakness Cerebral Impairment Visceral Vulnerability Metabolic Mayhem Cancer Connection The Shadow Looms",
-    "text": "How does inadequate sleep affect health? Sleepless nights whisper a secret Hormonal Havoc Immune System Weakness Cerebral Impairment Visceral Vulnerability Metabolic Mayhem Cancer Connection The Shadow Looms"
+    "text": "How does inadequate sleep affect health? Sleepless nights whisper a secret Hormonal Havoc Immune System Weakness Cerebral Impairment Visceral Vulnerability Metabolic Mayhem Cancer Connection The Shadow Looms",
+    "youtube_video_id": "5o_Bh7Eth5s",
+    "url": "https://youtu.be/5o_Bh7Eth5s",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "published",
+        "id": "1594246918240680",
+        "format": "reels"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18138150403657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
+      }
+    }
   }
 ]
