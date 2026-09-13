@@ -38,8 +38,8 @@ def _groq_response(payload: dict):
 def _valid_payload(title: str = "Why does silence feel loud?") -> dict:
     return {
         "title": title,
-        "description": "A short explainer.",
-        "tags": ["dark science"],
+        "description": "A short explainer about why total silence can feel loud to your brain.",
+        "tags": ["dark science", "silence", "loud silence", "psychology facts", "brain glitch", "why silence feels loud"],
         "scenes": [
             {"caption": "Your brain hides this signal", "narration": "Narration one."},
             *[{"caption": f"Scene {i} caption here", "narration": f"Narration {i}."} for i in range(2, 9)],
