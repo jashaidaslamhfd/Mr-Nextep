@@ -440,7 +440,7 @@
   },
   {
     "created_at": "2026-09-13T12:54:38.985415+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Why Wild Blueberries Stand Out for Heart, Gut, and Brain Health Benefits",
     "title": "Why Wild Blueberries Stand Out for Heart, Gut, and Brain Health Benefits",
     "video_path": "output/mr_nextep_short.mp4",
@@ -471,6 +471,20 @@
     },
     "fingerprint": "14375794465f6a5e70f1bb5daa061679c4721fb237a55bd0faf3436962f64743",
     "body": "The Forest's Secret Ingredient High in Antioxidants Gut Health Activated Brain Function Amplified Memory and Focus Enhanced A Recipe for Longevity Unlocking the Code The Forest's Secret Ingredient",
-    "text": "Why Wild Blueberries Stand Out for Heart, Gut, and Brain Health Benefits The Forest's Secret Ingredient High in Antioxidants Gut Health Activated Brain Function Amplified Memory and Focus Enhanced A Recipe for Longevity Unlocking the Code The Forest's Secret Ingredient"
+    "text": "Why Wild Blueberries Stand Out for Heart, Gut, and Brain Health Benefits The Forest's Secret Ingredient High in Antioxidants Gut Health Activated Brain Function Amplified Memory and Focus Enhanced A Recipe for Longevity Unlocking the Code The Forest's Secret Ingredient",
+    "youtube_video_id": "noqU5MhjY3c",
+    "url": "https://youtu.be/noqU5MhjY3c",
+    "caption_track": "failed: <HttpError 404 when requesting https://youtube.googleapis.com/upload/youtube/v3/captions?part=snippet&alt=json&uploadType=multipart returned \"The video identified by the <code>videoId</code> parameter could not be found.\". Details: \"[{'message': 'The video identified by the <code>videoId</code> parameter could not be found.', 'domain': 'youtube.caption', 'reason': 'videoNotFound', 'location': 'body.snippet.videoId', 'locationType': 'other'}]\">",
+    "meta": {
+      "facebook": {
+        "status": "published",
+        "id": "1443518117590249",
+        "format": "reels"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18138102910657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
+      }
+    }
   }
 ]
