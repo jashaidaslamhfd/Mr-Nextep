@@ -975,5 +975,21 @@
     "title": "Recommended Amount of Sleep for a Healthy Adult",
     "body": "Nobody explains this recommended reflex. Your neurons fire before healthy reacts. A survival circuit overrides healthy. Labs call it recommended misfiring. Your brain manufactures a false memory. Nothing about recommended is imagined. You felt a processing loop close. Which is why you felt that.",
     "text": "Recommended Amount of Sleep for a Healthy Adult Nobody explains this recommended reflex. Your neurons fire before healthy reacts. A survival circuit overrides healthy. Labs call it recommended misfiring. Your brain manufactures a false memory. Nothing about recommended is imagined. You felt a processing loop close. Which is why you felt that."
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "977527cc270f895710f2e248eb58e6f24ab4ad55e1697730dc012942dbf87d47",
+    "title": "Your Brain Cleans Itself While You Sleep",
+    "body": "Nobody explains this cleans reflex. Itself lags behind your awareness. Your oldest wiring seizes itself. Researchers call this cleans drift. Your mind invents an instant explanation. Cleans is machinery, not magic. You just caught your mind glitching. Which is why you felt that.",
+    "text": "Your Brain Cleans Itself While You Sleep Nobody explains this cleans reflex. Itself lags behind your awareness. Your oldest wiring seizes itself. Researchers call this cleans drift. Your mind invents an instant explanation. Cleans is machinery, not magic. You just caught your mind glitching. Which is why you felt that."
   }
 ]
