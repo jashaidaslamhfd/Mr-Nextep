@@ -1071,5 +1071,21 @@
     "title": "Here's how to catch up on sleep, the right way",
     "body": "The Sleep Debt Time Bomb Your Body's Internal Clock Sleep Pressure Builds The Counterintuitive Way to Sleep Catching Up on Sleep The Science of Sleep Recovery The Long-Term Consequences The Sleep Debt Wake Call",
     "text": "Here's how to catch up on sleep, the right way The Sleep Debt Time Bomb Your Body's Internal Clock Sleep Pressure Builds The Counterintuitive Way to Sleep Catching Up on Sleep The Science of Sleep Recovery The Long-Term Consequences The Sleep Debt Wake Call"
+  },
+  {
+    "structural_conformance": 0.7000000000000001,
+    "retention_proxy": 0.7000000000000001,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "9ddb13ff2fa916e5fe0834504688d3a2e383195e1497e3fc433e28f2bb7cbfba",
+    "title": "Zuckerberg says the science isn’t settled. But the harms of short",
+    "body": "You Can't Leave The Algorithm Knows Dopamine Hits The Cycle Continues Your Time is Valuable The Harms are Real Zuckerberg's Denial The Toxic Trap Remains",
+    "text": "Zuckerberg says the science isn’t settled. But the harms of short You Can't Leave The Algorithm Knows Dopamine Hits The Cycle Continues Your Time is Valuable The Harms are Real Zuckerberg's Denial The Toxic Trap Remains"
   }
 ]
