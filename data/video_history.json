@@ -636,7 +636,7 @@
   },
   {
     "created_at": "2026-09-14T20:10:41.843676+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Here's how to catch up on sleep, the right way",
     "title": "Here's how to catch up on sleep, the right way",
     "video_path": "output/mr_nextep_short.mp4",
@@ -667,6 +667,20 @@
     },
     "fingerprint": "701dfb3225c75a7804fc0efcc43374a0d0d3af4c277042d775f638668cf5d1e8",
     "body": "The Sleep Debt Time Bomb Your Body's Internal Clock Sleep Pressure Builds The Counterintuitive Way to Sleep Catching Up on Sleep The Science of Sleep Recovery The Long-Term Consequences The Sleep Debt Wake Call",
-    "text": "Here's how to catch up on sleep, the right way The Sleep Debt Time Bomb Your Body's Internal Clock Sleep Pressure Builds The Counterintuitive Way to Sleep Catching Up on Sleep The Science of Sleep Recovery The Long-Term Consequences The Sleep Debt Wake Call"
+    "text": "Here's how to catch up on sleep, the right way The Sleep Debt Time Bomb Your Body's Internal Clock Sleep Pressure Builds The Counterintuitive Way to Sleep Catching Up on Sleep The Science of Sleep Recovery The Long-Term Consequences The Sleep Debt Wake Call",
+    "youtube_video_id": "GC8edOg5src",
+    "url": "https://youtu.be/GC8edOg5src",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "published",
+        "id": "1072084395565384",
+        "format": "reels"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18138328252657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
+      }
+    }
   }
 ]
