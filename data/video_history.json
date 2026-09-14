@@ -685,7 +685,7 @@
   },
   {
     "created_at": "2026-09-14T22:51:29.681501+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Zuckerberg says the science isn’t settled. But the harms of short",
     "title": "Zuckerberg says the science isn’t settled. But the harms of short",
     "video_path": "output/mr_nextep_short.mp4",
@@ -716,6 +716,20 @@
     },
     "fingerprint": "9ddb13ff2fa916e5fe0834504688d3a2e383195e1497e3fc433e28f2bb7cbfba",
     "body": "You Can't Leave The Algorithm Knows Dopamine Hits The Cycle Continues Your Time is Valuable The Harms are Real Zuckerberg's Denial The Toxic Trap Remains",
-    "text": "Zuckerberg says the science isn’t settled. But the harms of short You Can't Leave The Algorithm Knows Dopamine Hits The Cycle Continues Your Time is Valuable The Harms are Real Zuckerberg's Denial The Toxic Trap Remains"
+    "text": "Zuckerberg says the science isn’t settled. But the harms of short You Can't Leave The Algorithm Knows Dopamine Hits The Cycle Continues Your Time is Valuable The Harms are Real Zuckerberg's Denial The Toxic Trap Remains",
+    "youtube_video_id": "ZtjSJrG8uiY",
+    "url": "https://youtu.be/ZtjSJrG8uiY",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "published",
+        "id": "28145516338448974",
+        "format": "reels"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18138341167657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
+      }
+    }
   }
 ]
