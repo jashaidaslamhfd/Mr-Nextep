@@ -1055,5 +1055,21 @@
     "title": "Chapter 12 Memory Impairments Associated with Stress and Aging",
     "body": "First signs of memory loss Stress hormone surges Neurons under attack Aging accelerates decline Epigenetic changes Synaptic pruning Reversing memory loss The cycle repeats",
     "text": "Chapter 12 Memory Impairments Associated with Stress and Aging First signs of memory loss Stress hormone surges Neurons under attack Aging accelerates decline Epigenetic changes Synaptic pruning Reversing memory loss The cycle repeats"
+  },
+  {
+    "structural_conformance": 0.8,
+    "retention_proxy": 0.8,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "701dfb3225c75a7804fc0efcc43374a0d0d3af4c277042d775f638668cf5d1e8",
+    "title": "Here's how to catch up on sleep, the right way",
+    "body": "The Sleep Debt Time Bomb Your Body's Internal Clock Sleep Pressure Builds The Counterintuitive Way to Sleep Catching Up on Sleep The Science of Sleep Recovery The Long-Term Consequences The Sleep Debt Wake Call",
+    "text": "Here's how to catch up on sleep, the right way The Sleep Debt Time Bomb Your Body's Internal Clock Sleep Pressure Builds The Counterintuitive Way to Sleep Catching Up on Sleep The Science of Sleep Recovery The Long-Term Consequences The Sleep Debt Wake Call"
   }
 ]
