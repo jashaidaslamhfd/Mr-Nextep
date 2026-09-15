@@ -731,5 +731,40 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18138341167657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
       }
     }
+  },
+  {
+    "created_at": "2026-09-15T00:05:05.834039+00:00",
+    "status": "pending",
+    "topic": "Micron Stock Sinks Again. What AI Safety Fears Mean for Memory Chips.",
+    "title": "Micron Stock Sinks Again. What AI Safety Fears Mean for Memory Chips.",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "d283081e30ef164e61fa7e8a0bdffa87339b482b46ddfba0ff08bdec752ea7b0",
+      "3900b40ad0b5a46a58caf08a5496f09d6ccc7f64809749347b48ee83bd69d59b",
+      "22d23e1bc04e010b3c5b5bd5081beba2e65ca49adf7431761da3c8613647edc9",
+      "b04042d402c11fd6509e42447a90d2d66d253c2e744248e8a07ee57ebe1a243e",
+      "2e99138f8104729376fb9a4f842d40329b6aa68c43c0f24a9a0b2dca7f28eb21",
+      "7f8c284305b391c68878407463167ed0c4a762c703dffba5936d00bc54f64af5",
+      "35693e991461749591ef589f8ca4a6dbe0a3ec0932e6f86d35dd6c1a1564ee31",
+      "835454a2d49b2a7009eb1ee2d9f547491b9b62ed1022e7d68762b6e8677f79d3"
+    ],
+    "width": 1080,
+    "height": 1920,
+    "duration": 28.006213,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.8,
+    "retention_proxy": 0.8,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "f8ffaaff8ccd956118d6ab48c268804450c31e3251453f5114a77070c7895e29",
+    "body": "Critical System Failure Imminent What Goes Wrong Ripple Effect Begins The Devastating Consequences Disconnecting the Dots Safety Net or Trap Memory Meltdown Unleashed Cycles of Collapse",
+    "text": "Micron Stock Sinks Again. What AI Safety Fears Mean for Memory Chips. Critical System Failure Imminent What Goes Wrong Ripple Effect Begins The Devastating Consequences Disconnecting the Dots Safety Net or Trap Memory Meltdown Unleashed Cycles of Collapse"
   }
 ]

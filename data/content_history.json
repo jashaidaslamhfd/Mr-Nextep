@@ -1087,5 +1087,21 @@
     "title": "Zuckerberg says the science isn’t settled. But the harms of short",
     "body": "You Can't Leave The Algorithm Knows Dopamine Hits The Cycle Continues Your Time is Valuable The Harms are Real Zuckerberg's Denial The Toxic Trap Remains",
     "text": "Zuckerberg says the science isn’t settled. But the harms of short You Can't Leave The Algorithm Knows Dopamine Hits The Cycle Continues Your Time is Valuable The Harms are Real Zuckerberg's Denial The Toxic Trap Remains"
+  },
+  {
+    "structural_conformance": 0.8,
+    "retention_proxy": 0.8,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "f8ffaaff8ccd956118d6ab48c268804450c31e3251453f5114a77070c7895e29",
+    "title": "Micron Stock Sinks Again. What AI Safety Fears Mean for Memory Chips.",
+    "body": "Critical System Failure Imminent What Goes Wrong Ripple Effect Begins The Devastating Consequences Disconnecting the Dots Safety Net or Trap Memory Meltdown Unleashed Cycles of Collapse",
+    "text": "Micron Stock Sinks Again. What AI Safety Fears Mean for Memory Chips. Critical System Failure Imminent What Goes Wrong Ripple Effect Begins The Devastating Consequences Disconnecting the Dots Safety Net or Trap Memory Meltdown Unleashed Cycles of Collapse"
   }
 ]
