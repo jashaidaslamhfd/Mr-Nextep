@@ -110,8 +110,6 @@ def run() -> dict:
     except AnalyticsError as exc:
         log.error("Performance cache unusable (%s); publishing without retention evidence.", exc)
         performance = None
-    agent_brain = AgentBrain()
-    agent_brain.sense(performance.raw if performance else None)
     else:
         if performance.has_baseline:
             log.info(
@@ -125,6 +123,9 @@ def run() -> dict:
                 "Only %d videos with performance data; retention gate stays ungrounded.",
                 performance.videos_with_data,
             )
+
+    agent_brain = AgentBrain()
+    agent_brain.sense(performance.raw if performance else None)
 
     last_error: Exception | None = None
     for attempt in range(SETTINGS.max_attempts):
