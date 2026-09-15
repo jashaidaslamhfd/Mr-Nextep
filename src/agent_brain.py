@@ -91,7 +91,7 @@ class AgentBrain:
         except Exception as e:
             logger.error("Could not persist agent memory: %s", e)
 
-    def sense(self, performance_data: dict[str, Any] | None = None) -> dict[str, Any]:
+    def sense(self, performance_data: Any = None) -> dict[str, Any]:
         """Sense channel performance and extract learning signals."""
         signals = {
             "top_performing_topics": [],
@@ -101,16 +101,26 @@ class AgentBrain:
         if not performance_data:
             return signals
 
-        videos = performance_data.get("videos", [])
+        videos = getattr(performance_data, "videos", None)
+        if videos is None and isinstance(performance_data, dict):
+            videos = performance_data.get("videos", [])
         if not videos:
             return signals
 
         signals["sample_size"] = len(videos)
-        valid_vids = [v for v in videos if v.get("views") is not None]
-        if valid_vids:
-            signals["avg_view_rate"] = sum(v["views"] for v in valid_vids) / len(valid_vids)
-            sorted_vids = sorted(valid_vids, key=lambda x: x.get("views", 0), reverse=True)
-            signals["top_performing_topics"] = [v.get("title") for v in sorted_vids[:5]]
+        view_counts = []
+        topic_scores = []
+        for v in videos:
+            v_views = getattr(v, "views", None) if not isinstance(v, dict) else v.get("views")
+            v_title = getattr(v, "title", "") if not isinstance(v, dict) else v.get("title", "")
+            if v_views is not None:
+                view_counts.append(v_views)
+                topic_scores.append((v_title, v_views))
+
+        if view_counts:
+            signals["avg_view_rate"] = sum(view_counts) / len(view_counts)
+            topic_scores.sort(key=lambda x: x[1], reverse=True)
+            signals["top_performing_topics"] = [t[0] for t in topic_scores[:5]]
 
         return signals
 
