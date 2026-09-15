@@ -15,6 +15,7 @@ import pytest
 import src
 
 MODULES = [
+    "src.agent_brain",
     "src.analytics",
     "src.config",
     "src.content",
