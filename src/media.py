@@ -2,20 +2,20 @@ from __future__ import annotations
 
 import hashlib
 import json
+import logging
 import os
 import shutil
 import subprocess
 import wave
-import logging
 from functools import lru_cache
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
 
-logger = logging.getLogger("mrnextep.media")
-
 from .config import Settings
 from .visuals import download_clip, query_for_scene
+
+logger = logging.getLogger("mrnextep.media")
 
 W, H = 1080, 1920
 
