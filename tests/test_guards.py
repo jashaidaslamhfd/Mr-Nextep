@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 from src.content import fallback
 from src.guards import (
@@ -52,7 +52,7 @@ def test_publish_gap_allows_when_empty_history():
 
 
 def test_publish_gap_blocks_when_recent_upload():
-    now = datetime(2026, 9, 15, 12, 0, 0, tzinfo=timezone.utc)
+    now = datetime(2026, 9, 15, 12, 0, 0, tzinfo=UTC)
     recent_history = [
         {"status": "uploaded", "created_at": "2026-09-15T10:30:00+00:00", "title": "Recent Video"}
     ]
@@ -63,7 +63,7 @@ def test_publish_gap_blocks_when_recent_upload():
 
 
 def test_publish_gap_allows_when_elapsed_exceeds_threshold():
-    now = datetime(2026, 9, 15, 18, 0, 0, tzinfo=timezone.utc)
+    now = datetime(2026, 9, 15, 18, 0, 0, tzinfo=UTC)
     past_history = [
         {"status": "uploaded", "created_at": "2026-09-15T12:00:00+00:00", "title": "Past Video"}
     ]

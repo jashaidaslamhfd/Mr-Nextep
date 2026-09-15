@@ -11,15 +11,8 @@ import logging
 import os
 import subprocess
 from copy import deepcopy
-from datetime import datetime
+from datetime import UTC, datetime
 from pathlib import Path
-
-try:
-    from datetime import UTC
-except ImportError:  # Python < 3.11
-    from datetime import timezone
-
-    UTC = timezone.utc
 
 from .agent_brain import AgentBrain
 from .analytics import AnalyticsError, load_performance

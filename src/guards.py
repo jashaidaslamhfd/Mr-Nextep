@@ -3,7 +3,7 @@ from __future__ import annotations
 import hashlib
 import json
 import re
-from datetime import datetime
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -206,12 +206,6 @@ def check_publish_gap(
         return True, None
 
     if now is None:
-        try:
-            from datetime import UTC
-        except ImportError:
-            from datetime import timezone
-
-            UTC = timezone.utc
         now = datetime.now(UTC)
 
     for prev in reversed(published_history):
@@ -221,12 +215,6 @@ def check_publish_gap(
             try:
                 prev_time = datetime.fromisoformat(prev["created_at"])
                 if prev_time.tzinfo is None:
-                    try:
-                        from datetime import UTC
-                    except ImportError:
-                        from datetime import timezone
-
-                        UTC = timezone.utc
                     prev_time = prev_time.replace(tzinfo=UTC)
                 elapsed_hours = (now - prev_time).total_seconds() / 3600.0
                 if elapsed_hours < min_gap_hours:
