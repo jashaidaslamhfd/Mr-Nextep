@@ -126,7 +126,7 @@ def run() -> dict:
             )
 
     agent_brain = AgentBrain()
-    agent_brain.sense(performance.raw if performance else None)
+    agent_brain.sense(performance if performance else None)
 
     last_error: Exception | None = None
     for attempt in range(SETTINGS.max_attempts):
