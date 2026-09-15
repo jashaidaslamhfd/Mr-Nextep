@@ -110,6 +110,8 @@ def run() -> dict:
     except AnalyticsError as exc:
         log.error("Performance cache unusable (%s); publishing without retention evidence.", exc)
         performance = None
+    agent_brain = AgentBrain()
+    agent_brain.sense(performance.raw if performance else None)
     else:
         if performance.has_baseline:
             log.info(
@@ -235,6 +237,7 @@ def run() -> dict:
         if not SETTINGS.dry_run:
             try:
                 result["meta"] = publish_meta(video, script, result)
+                agent_brain.learn(result)
             except Exception as exc:
                 log.exception("Meta publishing failed after YouTube upload; preserving YouTube result")
                 result["meta"] = {"status": "error", "reason": str(exc)}
