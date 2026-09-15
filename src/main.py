@@ -148,6 +148,13 @@ def run() -> dict:
         base_topic = SETTINGS.topic or choose_topic(SETTINGS)
         topic = f"{base_topic} — fresh angle {attempt + 1}" if SETTINGS.topic and attempt else base_topic
         script = generate_script(topic, SETTINGS)
+        agent_brain.enrich_visual_prompts(script)
+        retention_verdict = agent_brain.predict_retention(script)
+        log.info(
+            "Agent Brain Retention Index: %d%% (Verdict: %s)",
+            retention_verdict.get("retention_index_pct", 0),
+            "PASSED" if retention_verdict.get("passed") else "SUBOPTIMAL",
+        )
         if SETTINGS.topic:
             # An operator-supplied topic may be used verbatim as the title, but only when
             # it is publishable on its own. Truncating it to 70 chars (the old behaviour)
@@ -208,6 +215,8 @@ def run() -> dict:
         "title": script["title"],
         "video_path": str(video),
         "clip_hashes": clip_hashes,
+        "retention_verdict": retention_verdict,
+        "archetype": agent_brain.select_archetype(script.get("title", base_topic)),
         **technical,
         **guard,
     }
