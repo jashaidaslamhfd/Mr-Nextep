@@ -18,6 +18,7 @@ try:
 except ImportError:  # Python < 3.11
     UTC = UTC
 
+from .agent_brain import AgentBrain
 from .analytics import AnalyticsError, load_performance
 from .config import SETTINGS
 from .content import choose_topic, generate_script
