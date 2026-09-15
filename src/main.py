@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import json
 import logging
+import os
 import subprocess
 from copy import deepcopy
 from datetime import datetime
@@ -16,13 +17,15 @@ from pathlib import Path
 try:
     from datetime import UTC
 except ImportError:  # Python < 3.11
-    UTC = UTC
+    from datetime import timezone
+
+    UTC = timezone.utc
 
 from .agent_brain import AgentBrain
 from .analytics import AnalyticsError, load_performance
 from .config import SETTINGS
 from .content import choose_topic, generate_script
-from .guards import enforce, load_history, save_history
+from .guards import check_publish_gap, enforce, load_history, save_history
 from .media import render, validate
 from .meta import publish as publish_meta
 from .utils import TitleRejected, validate_short_title
@@ -124,6 +127,25 @@ def run() -> dict:
                 "Only %d videos with performance data; retention gate stays ungrounded.",
                 performance.videos_with_data,
             )
+
+    min_gap_hours = getattr(SETTINGS, "min_publish_gap_hours", 4.0)
+    force_publish = str(os.getenv("FORCE_PUBLISH", "")).strip().lower() in ("true", "1", "yes")
+    if not SETTINGS.topic and not force_publish and published_history:
+        can_publish, elapsed = check_publish_gap(published_history, min_gap_hours=min_gap_hours)
+        if not can_publish and elapsed is not None:
+            log.info(
+                "Minimum publish gap active: last video published %.2f hours ago. "
+                "Minimum configured gap is %.1f hours (aligned to USA peak audience windows). "
+                "Skipping automated run to avoid algorithm cannibalization.",
+                elapsed,
+                min_gap_hours,
+            )
+            result = {
+                "status": "skipped",
+                "reason": f"min_gap_active: {elapsed:.2f}h < {min_gap_hours:.1f}h",
+            }
+            print(json.dumps(result, indent=2))
+            return result
 
     agent_brain = AgentBrain()
     agent_brain.sense(performance if performance else None)

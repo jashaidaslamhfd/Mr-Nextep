@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 import json
 import re
+from datetime import datetime
 from pathlib import Path
 from typing import Any
 
@@ -185,3 +186,53 @@ def enforce(
         "body": body,
         "text": f"{title} {body}",
     }
+
+
+def check_publish_gap(
+    published_history: list[dict[str, Any]],
+    min_gap_hours: float = 4.0,
+    now: datetime | None = None,
+) -> tuple[bool, float | None]:
+    """Check whether sufficient time has elapsed since the last uploaded video.
+
+    Protects against rapid sequential uploads that cannibalize impressions on the
+    YouTube Shorts shelf and harm retention within the target USA audience.
+
+    Returns:
+        tuple[bool, float | None]: (can_publish, elapsed_hours).
+        can_publish is True if no previous upload exists or elapsed_hours >= min_gap_hours.
+    """
+    if not published_history or min_gap_hours <= 0:
+        return True, None
+
+    if now is None:
+        try:
+            from datetime import UTC
+        except ImportError:
+            from datetime import timezone
+
+            UTC = timezone.utc
+        now = datetime.now(UTC)
+
+    for prev in reversed(published_history):
+        if not isinstance(prev, dict):
+            continue
+        if prev.get("status") == "uploaded" and prev.get("created_at"):
+            try:
+                prev_time = datetime.fromisoformat(prev["created_at"])
+                if prev_time.tzinfo is None:
+                    try:
+                        from datetime import UTC
+                    except ImportError:
+                        from datetime import timezone
+
+                        UTC = timezone.utc
+                    prev_time = prev_time.replace(tzinfo=UTC)
+                elapsed_hours = (now - prev_time).total_seconds() / 3600.0
+                if elapsed_hours < min_gap_hours:
+                    return False, elapsed_hours
+                return True, elapsed_hours
+            except Exception:
+                continue
+
+    return True, None

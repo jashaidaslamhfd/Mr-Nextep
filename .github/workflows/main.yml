@@ -6,22 +6,26 @@ on:
         description: Generate without YouTube upload
         required: true
         type: boolean
-        default: true
+        default: false
+      force_publish:
+        description: Bypass minimum publish gap guard
+        required: false
+        type: boolean
+        default: false
       topic:
         description: Optional US-English dark-science topic
         required: false
         type: string
         default: ""
   schedule:
-    # US audience is 64.7% of views. Generation starts two hours before each publish
-    # peak so rendering and validation finish before the private video is scheduled.
-    # Cron is UTC. Three daily generation runs:
-    #   16:00 UTC = 9:00 PM PKT  (12:00 PM US Eastern)
-    #   20:00 UTC = 1:00 AM PKT  (4:00 PM US Eastern)
-    #   22:00 UTC = 3:00 AM PKT  (6:00 PM US Eastern)
-    - cron: "0 16 * * *"
-    - cron: "0 20 * * *"
+    # US audience is 64.7%+ of views. Published directly to public at peak US engagement
+    # windows, spaced with at least 5 hours gap to prevent algorithm cannibalization:
+    #   17:00 UTC = 1:00 PM US Eastern / 10:00 AM US Pacific (US Lunch Peak)
+    #   22:00 UTC = 6:00 PM US Eastern / 3:00 PM US Pacific (US Evening / Commute Peak)
+    #   03:00 UTC = 11:00 PM US Eastern / 8:00 PM US Pacific (US West Coast Prime / Bedtime Peak)
+    - cron: "0 17 * * *"
     - cron: "0 22 * * *"
+    - cron: "0 3 * * *"
 permissions:
   contents: write
 concurrency:
@@ -36,6 +40,8 @@ jobs:
       PUBLISH_TIMEZONE: America/New_York
       YT_PRIVACY_STATUS: public
       YT_SCHEDULE_PUBLISH: "false"
+      MIN_PUBLISH_GAP_HOURS: "4.0"
+      FORCE_PUBLISH: ${{ inputs.force_publish || 'false' }}
       DRY_RUN: ${{ inputs.dry_run || 'false' }}
       VIDEO_TOPIC: ${{ inputs.topic || '' }}
       GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
@@ -74,7 +80,7 @@ jobs:
           fi
       - name: Run regression tests
         run: python -m pytest -q
-      - name: Generate, validate and schedule
+      - name: Generate, validate and direct-publish to YouTube
         run: python -m src.main
       - name: Upload debug artifact
         if: always()

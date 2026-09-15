@@ -36,6 +36,7 @@ class Settings(BaseSettings):
     topic: str = Field(default="", validation_alias="VIDEO_TOPIC")
     max_attempts: int = Field(default=10, validation_alias="MAX_GENERATION_ATTEMPTS")
     duplicate_check_last: int = Field(default=10, validation_alias="DUPLICATE_CHECK_LAST")
+    min_publish_gap_hours: float = Field(default=4.0, validation_alias="MIN_PUBLISH_GAP_HOURS")
     schedule_jitter_minutes: int = Field(default=20, validation_alias="SCHEDULE_JITTER_MINUTES")
     max_hashtags: int = Field(default=30, validation_alias="MAX_HASHTAGS")
 
