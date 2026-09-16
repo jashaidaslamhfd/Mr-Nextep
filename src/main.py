@@ -21,7 +21,6 @@ from .content import choose_topic, generate_script
 from .guards import check_publish_gap, enforce, load_history, save_history
 from .media import render, validate
 from .meta import publish as publish_meta
-from .utils import TitleRejected, validate_short_title
 from .youtube import upload
 
 log = logging.getLogger(__name__)
@@ -157,18 +156,10 @@ def run() -> dict:
             retention_verdict.get("retention_index_pct", 0),
             "PASSED" if retention_verdict.get("passed") else "SUBOPTIMAL",
         )
-        if SETTINGS.topic:
-            # An operator-supplied topic may be used verbatim as the title, but only when
-            # it is publishable on its own. Truncating it to 70 chars (the old behaviour)
-            # cut words in half and bypassed title validation entirely.
-            try:
-                script["title"] = validate_short_title(base_topic)
-            except TitleRejected as exc:
-                log.info(
-                    "Keeping the generated title; VIDEO_TOPIC is not usable as one (%s)", exc
-                )
-            if script.get("scenes"):
-                script["scenes"][0]["narration"] = base_topic
+        if SETTINGS.topic and script.get("scenes"):
+            # Keep the supplied topic in the opening narration, but preserve the model's
+            # curiosity title so repeated manual topics do not collide with history.
+            script["scenes"][0]["narration"] = base_topic
 
         if metadata_collides(script, published_history, SETTINGS.duplicate_check_last):
             log.warning(

@@ -614,7 +614,7 @@ Return only the required JSON."""
             "Fix exactly that and return the corrected JSON."
         )
     payload = {
-        "model": os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile"),
+        "model": os.getenv("GROQ_MODEL", "openai/gpt-oss-120b"),
         "temperature": 0.75,
         "messages": [
             {"role": "system", "content": SYSTEM_PROMPT},
