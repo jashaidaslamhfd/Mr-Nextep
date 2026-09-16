@@ -56,6 +56,12 @@ def salient_words(topic: str) -> list[str]:
     return sorted(dict.fromkeys(keep), key=len, reverse=True)
 
 
+def _keyword_words(text: str) -> list[str]:
+    """Return normalized, meaningful words for metadata keyword alignment."""
+    words = re.findall(r"[a-z0-9]+", str(text or "").lower())
+    return list(dict.fromkeys(w for w in words if len(w) > 2 and w not in _STOPWORDS))
+
+
 def _fallback_title(topic: str, max_chars: int = SHORTS_TITLE_MAX_CHARS) -> str:
     """A validated title derived from the topic, without ever truncating it."""
     candidate = " ".join(str(topic or "").split()).rstrip(".!")
