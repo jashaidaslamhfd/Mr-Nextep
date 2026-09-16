@@ -780,5 +780,41 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18138347644657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
       }
     }
+  },
+  {
+    "created_at": "2026-09-16T19:23:54.182063+00:00",
+    "status": "pending",
+    "topic": "Why does déjà vu feel so real?",
+    "title": "Why does déjà vu feel so real? — fresh angle 2",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "75631f7814ec364f72d3579621f50e7216c6f2cb8b5973388291d6c614611dd5",
+      "a3438c6e1f222c88ba8a6a451f4532c495504eb25bd57de5638cff12f88f94bb",
+      "9cb7c0cbb8061b8aa80f7e64debdc34134ddd44fe52f06b40ce5e6e6376a3ebe",
+      "6b7e96a0a22775c58358a138daa6d76a423c0bcd22f350124d4323b478be76be",
+      "a390faf4ea259484c2eca7a803bc89580f81e3dcf3c8c434ec925892638dd7ea",
+      "0265e02352516d5a91837ce93f6ecf3d007b778de0375df39700dab2c78bc231",
+      "f62616425939f1dec978a60fa08ab60c756cd626bb3c0cefbd8814d2aa8200ab",
+      "fb072f3db70dfe5dcbfe1c5d5ea306500888d44e3e0fc59e8e07829eed165ef2"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 17.605896,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "47c65f976fea78d2f876066343b20071919449182db811c8a148d691854f0426",
+    "body": "When time feels stuck A strange familiarity The memory that never was A brief flicker The brain's memory replay trick A hidden memory pattern The paradox of déjà vu Déjà Vu's hidden hack",
+    "text": "Why does déjà vu feel so real? — fresh angle 2 When time feels stuck A strange familiarity The memory that never was A brief flicker The brain's memory replay trick A hidden memory pattern The paradox of déjà vu Déjà Vu's hidden hack"
   }
 ]

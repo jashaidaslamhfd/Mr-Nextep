@@ -1103,5 +1103,21 @@
     "title": "Micron Stock Sinks Again. What AI Safety Fears Mean for Memory Chips.",
     "body": "Critical System Failure Imminent What Goes Wrong Ripple Effect Begins The Devastating Consequences Disconnecting the Dots Safety Net or Trap Memory Meltdown Unleashed Cycles of Collapse",
     "text": "Micron Stock Sinks Again. What AI Safety Fears Mean for Memory Chips. Critical System Failure Imminent What Goes Wrong Ripple Effect Begins The Devastating Consequences Disconnecting the Dots Safety Net or Trap Memory Meltdown Unleashed Cycles of Collapse"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "47c65f976fea78d2f876066343b20071919449182db811c8a148d691854f0426",
+    "title": "Why does déjà vu feel so real? — fresh angle 2",
+    "body": "When time feels stuck A strange familiarity The memory that never was A brief flicker The brain's memory replay trick A hidden memory pattern The paradox of déjà vu Déjà Vu's hidden hack",
+    "text": "Why does déjà vu feel so real? — fresh angle 2 When time feels stuck A strange familiarity The memory that never was A brief flicker The brain's memory replay trick A hidden memory pattern The paradox of déjà vu Déjà Vu's hidden hack"
   }
 ]
