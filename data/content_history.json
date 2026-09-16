@@ -1119,5 +1119,21 @@
     "title": "Why does déjà vu feel so real? — fresh angle 2",
     "body": "When time feels stuck A strange familiarity The memory that never was A brief flicker The brain's memory replay trick A hidden memory pattern The paradox of déjà vu Déjà Vu's hidden hack",
     "text": "Why does déjà vu feel so real? — fresh angle 2 When time feels stuck A strange familiarity The memory that never was A brief flicker The brain's memory replay trick A hidden memory pattern The paradox of déjà vu Déjà Vu's hidden hack"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "5090e9a27f6e7ddbee842b63892fba0c87c236606d68abe2318f94ec9f0da231",
+    "title": "AI vs. Human Intelligence",
+    "body": "Your brain finishes sentences instantly It predicts before sound arrives AI models need massive data Your brain uses context shortcuts Prediction happens in 50 ms Predictive coding drives the speed AI still lags behind That’s why you finish sentences",
+    "text": "AI vs. Human Intelligence Your brain finishes sentences instantly It predicts before sound arrives AI models need massive data Your brain uses context shortcuts Prediction happens in 50 ms Predictive coding drives the speed AI still lags behind That’s why you finish sentences"
   }
 ]

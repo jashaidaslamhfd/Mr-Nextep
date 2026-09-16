@@ -817,5 +817,41 @@
     "body": "When time feels stuck A strange familiarity The memory that never was A brief flicker The brain's memory replay trick A hidden memory pattern The paradox of déjà vu Déjà Vu's hidden hack",
     "text": "Why does déjà vu feel so real? — fresh angle 2 When time feels stuck A strange familiarity The memory that never was A brief flicker The brain's memory replay trick A hidden memory pattern The paradox of déjà vu Déjà Vu's hidden hack",
     "video": "output/mr_nextep_short.mp4"
+  },
+  {
+    "created_at": "2026-09-16T19:56:50.433801+00:00",
+    "status": "pending",
+    "topic": "AI vs. Human Intelligence",
+    "title": "AI vs. Human Intelligence",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "b385558a49faa139ce854906572d2d6e0920b9c92c608e18fe8849d85eba64a2",
+      "a82ec5ed869fbc8714e216cc81d7b16dfddf7830383095488a34b9887c634543",
+      "8354fdaac91967cbb71ff8f1a0981d76f6dbbc3d087edfa7f988d7e6bf66e73a",
+      "f429a6586bab52bbd8f1c8b31fa33dd9bb62589d66c0b53e037d4c0438be4136",
+      "aefff26cff52088ff4701130cca7b64db821f204e77a7158107caa3ea0d5a1db",
+      "7dd22ac44f3a44759cc84f21febceb833b02038a0755113e844110545fb31175",
+      "ab2aa40a3a6f705dff6cd1cd550260b7c4ecff3fe4101bfe99895238efc33f45",
+      "e4553ef329ef871f9f9af8994e67eafc27a4ef8eb61ee0f795e30a8ff202b130"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 27.338209,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "5090e9a27f6e7ddbee842b63892fba0c87c236606d68abe2318f94ec9f0da231",
+    "body": "Your brain finishes sentences instantly It predicts before sound arrives AI models need massive data Your brain uses context shortcuts Prediction happens in 50 ms Predictive coding drives the speed AI still lags behind That’s why you finish sentences",
+    "text": "AI vs. Human Intelligence Your brain finishes sentences instantly It predicts before sound arrives AI models need massive data Your brain uses context shortcuts Prediction happens in 50 ms Predictive coding drives the speed AI still lags behind That’s why you finish sentences"
   }
 ]
