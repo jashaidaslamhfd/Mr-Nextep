@@ -361,6 +361,96 @@ class AgentBrain:
             "recommendations": recommendations,
         }
 
+
+    def audit_script(self, script: dict[str, Any]) -> dict[str, Any]:
+        """Perform deep cognitive audit: hook potency, mid-video retention, and vocabulary."""
+        verdict = self.predict_retention(script)
+        scenes = script.get("scenes", [])
+        neuro_triggers = ("brain", "neurons", "synapse", "dopamine", "subconscious", "panic", "reflex", "sensory", "circuit", "hypnic", "freeze", "memory")
+
+        found_triggers = []
+        total_words = 0
+        for s in scenes:
+            narr = str(s.get("narration", "")).lower()
+            total_words += len(narr.split())
+            for trig in neuro_triggers:
+                if trig in narr and trig not in found_triggers:
+                    found_triggers.append(trig)
+
+        neuro_score = round(min(1.0, len(found_triggers) / 4.0), 2)
+        str_pct = round(65.0 + (verdict["hook_potency"] * 25.0), 1)
+        apv_pct = round(80.0 + (verdict["overall_score"] * 30.0), 1)
+
+        return {
+            "neuro_score": neuro_score,
+            "retention_score": verdict["overall_score"],
+            "retention_index_pct": verdict["retention_index_pct"],
+            "passed": verdict["passed"],
+            "predicted_str_pct": str_pct,
+            "predicted_apv_pct": apv_pct,
+            "hook_potency": verdict["hook_potency"],
+            "pacing_velocity": verdict["pacing_velocity"],
+            "loopback_seamlessness": verdict["loopback_seamlessness"],
+            "neuro_triggers_found": found_triggers,
+            "total_narration_words": total_words,
+            "recommendations": verdict.get("recommendations", []),
+        }
+
+    def optimize_script(self, script: dict[str, Any]) -> dict[str, Any]:
+        """Auto-rewrite and balance scene narration and captions to maximize retention."""
+        scenes = script.get("scenes", [])
+        if len(scenes) != 8:
+            return self.enrich_visual_prompts(script)
+
+        # Optimize scene 8 loopback if missing
+        scene8 = scenes[7]
+        n8 = str(scene8.get("narration", ""))
+        if not any(w in n8.lower() for w in ("which is why", "and that is why", "every time")):
+            title = script.get("title", "this happens")
+            clean_title = re.sub(r"^(why (does|do)\s+)", "", title, flags=re.IGNORECASE).rstrip("?.!").lower()
+            scene8["narration"] = f"Which is why {clean_title} every single time."
+            scene8["caption"] = "The loop resets."
+
+        self.enrich_visual_prompts(script)
+        script["retention_verdict"] = self.predict_retention(script)
+        return script
+
+    def simulate_retention_curve(self, script: dict[str, Any]) -> list[dict[str, Any]]:
+        """Synthesize second-by-second viewer retention curve from 0s to 18s."""
+        verdict = self.predict_retention(script)
+        score = verdict.get("overall_score", 0.85)
+        scenes = script.get("scenes", [])
+        points = []
+        current = 100.0
+        for sec in range(19):
+            if sec == 0:
+                pct = 100.0
+            elif sec <= 2:
+                drop = (1.0 - (score * 0.95)) * 16.0
+                current -= drop / 2.0
+                pct = current
+            elif sec <= 6:
+                current -= 1.1
+                pct = current
+            elif sec <= 11:
+                current -= 0.9
+                pct = current
+            elif sec <= 15:
+                current -= 0.8
+                pct = current
+            else:
+                current += 1.8
+                pct = min(98.0, current)
+
+            scene_idx = min(len(scenes) - 1, int(sec / (18.0 / max(1, len(scenes))))) if scenes else 0
+            phase = "Hook" if sec <= 2 else ("Curiosity" if sec <= 6 else ("Core" if sec <= 14 else "Loop Replay"))
+            points.append({
+                "second": sec,
+                "retention_pct": round(pct, 1),
+                "scene_index": scene_idx + 1,
+                "phase": phase
+            })
+        return points
     def enrich_visual_prompts(self, script: dict[str, Any]) -> dict[str, Any]:
         """Synthesize cinematic dark-science visual prompts for video and procedural engines."""
         scenes = script.get("scenes", [])

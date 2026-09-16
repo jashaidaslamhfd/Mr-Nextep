@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 from unittest.mock import MagicMock
-import pytest
 
 from src.agent_brain import AgentBrain
 from src.utils import SHORTS_TITLE_MAX_CHARS, validate_short_title
@@ -101,3 +100,33 @@ def test_agent_brain_sense_and_learn_cycle(tmp_path):
     })
     assert brain.memory["total_cycles"] == 1
     assert "The Dark Science Of Sleep Paralysis" in brain.memory["winning_hooks"]
+
+
+def test_agent_brain_audit_and_optimize():
+    brain = AgentBrain()
+    script = {
+        "title": "Why Does Your Body Jolt?",
+        "scenes": [
+            {"caption": "Body jolts.", "narration": "You are drifting to sleep when your body violently jolts awake."},
+            {"caption": "Sensory signal.", "narration": "Your sensory neurons misinterpret relaxing muscles as free fall."},
+            {"caption": "Brainstem reflex.", "narration": "An ancient brainstem circuit seizes control before awareness reactivates."},
+            {"caption": "Hypnic spasm.", "narration": "Neuroscientists classify this sudden misfire as a hypnic jerk."},
+            {"caption": "Motor reflex.", "narration": "To rescue you from imaginary falling, motor cortex fires full impulse."},
+            {"caption": "Subconscious fear.", "narration": "Nothing about this reflex is dangerous, but subconscious panics."},
+            {"caption": "Nervous loop.", "narration": "You literally caught your nervous system switching operating states."},
+            {"caption": "Closing.", "narration": "And that is why your body jolts the exact moment sleep begins."}
+        ]
+    }
+    audit = brain.audit_script(script)
+    assert audit["passed"] is True
+    assert audit["predicted_str_pct"] >= 70.0
+    assert audit["predicted_apv_pct"] >= 90.0
+
+    optimized = brain.optimize_script(script)
+    assert "visual_prompt" in optimized["scenes"][0]
+    assert "retention_verdict" in optimized
+
+    curve = brain.simulate_retention_curve(script)
+    assert len(curve) == 19
+    assert curve[0]["retention_pct"] == 100.0
+    assert curve[-1]["phase"] == "Loop Replay"
