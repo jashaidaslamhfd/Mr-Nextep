@@ -28,7 +28,8 @@ def test_public_is_only_used_when_explicitly_configured():
     assert body["status"]["privacyStatus"] == "public"
 
 
-def test_default_privacy_status_is_private():
+def test_default_privacy_status_is_private(monkeypatch):
+    monkeypatch.delenv("YT_PRIVACY_STATUS", raising=False)
     assert Settings().privacy_status == "private"
     body = build_upload_body(_script(), Settings(schedule_publish=False))
     assert body["status"]["privacyStatus"] == "private"
