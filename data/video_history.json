@@ -783,7 +783,7 @@
   },
   {
     "created_at": "2026-09-16T19:23:54.182063+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Why does déjà vu feel so real?",
     "title": "Why does déjà vu feel so real? — fresh angle 2",
     "video_path": "output/mr_nextep_short.mp4",
@@ -815,6 +815,7 @@
     "retention_proxy": 0.9,
     "fingerprint": "47c65f976fea78d2f876066343b20071919449182db811c8a148d691854f0426",
     "body": "When time feels stuck A strange familiarity The memory that never was A brief flicker The brain's memory replay trick A hidden memory pattern The paradox of déjà vu Déjà Vu's hidden hack",
-    "text": "Why does déjà vu feel so real? — fresh angle 2 When time feels stuck A strange familiarity The memory that never was A brief flicker The brain's memory replay trick A hidden memory pattern The paradox of déjà vu Déjà Vu's hidden hack"
+    "text": "Why does déjà vu feel so real? — fresh angle 2 When time feels stuck A strange familiarity The memory that never was A brief flicker The brain's memory replay trick A hidden memory pattern The paradox of déjà vu Déjà Vu's hidden hack",
+    "video": "output/mr_nextep_short.mp4"
   }
 ]
