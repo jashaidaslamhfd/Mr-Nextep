@@ -7,7 +7,7 @@ from __future__ import annotations
 
 import pytest
 
-from src.media import _srt_timestamp, build_srt
+from src.media import _display_words, _srt_timestamp, build_srt
 
 
 def test_timestamp_format_uses_comma_decimal_separator():
@@ -61,6 +61,15 @@ def test_no_cues_raises():
 def test_non_positive_duration_raises(tmp_path):
     with pytest.raises(ValueError):
         build_srt([("text", 0.0)], tmp_path / "out.srt")
+
+
+def test_burned_caption_words_follow_narration():
+    scene = {"caption": "Different hook", "narration": "The spoken sentence matches"}
+    assert _display_words(scene) == ["The", "spoken", "sentence", "matches"]
+
+
+def test_burned_caption_words_fall_back_to_caption():
+    assert _display_words({"caption": "Fallback words", "narration": "  "}) == ["Fallback", "words"]
 
 
 def test_caption_upload_is_non_fatal_when_file_missing(tmp_path):

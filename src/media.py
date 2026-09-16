@@ -106,6 +106,14 @@ def make_overlay(word: str, index: int, path: Path) -> None:
     )
     image.save(path)
 
+
+def _display_words(scene: dict) -> list[str]:
+    """Return the words shown on screen in the same order as the spoken narration."""
+    narration = " ".join(str(scene.get("narration") or "").split())
+    caption = " ".join(str(scene.get("caption") or "").split())
+    return (narration or caption).split() or [""]
+
+
 def _run(command: list[str]) -> None:
     subprocess.run(command, check=True, capture_output=True)
 
@@ -200,7 +208,7 @@ def render(script: dict, settings: Settings) -> Path:
     total = 0.0
 
     for index, scene in enumerate(script["scenes"], 1):
-        words = scene["caption"].split() or [""]
+        words = _display_words(scene)
         duration = max(2.2, min(3.2, 0.38 * len(words)))
         # Keep audio inside scene_dir, which is wiped per run; output/ root used to accumulate WAVs.
         audio = scene_dir / f"audio_{index:02d}.wav"
@@ -213,8 +221,9 @@ def render(script: dict, settings: Settings) -> Path:
                 # 16-bit stereo frame is 4 bytes: channels (2) * sampwidth (2)
                 out.writeframes(b"\x00\x00\x00\x00" * int(duration * 44100))
         else:
+            # The measured narration duration is authoritative. Clamping it here cuts
+            # sentences at scene boundaries and desynchronizes voice from captions.
             duration = _make_audio(str(scene.get("narration") or scene["caption"]), audio, duration)
-            duration = max(2.0, min(3.5, duration))
 
         clip = scene_dir / f"clip_{index:02d}.mp4"
         scene_query = query_for_scene(scene, scene_index=index)
