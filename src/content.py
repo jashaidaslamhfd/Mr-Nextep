@@ -575,21 +575,28 @@ def _request_script(topic: str, key: str, feedback: str | None = None) -> dict[s
 TOPIC:
 {topic}
 
-Your priority order is:
-1. Viewer retention
-2. Immediate curiosity
+Optimize in this priority order:
+
+1. Immediate scroll-stop
+2. Viewer retention
 3. Completion rate
-4. Rewatch/loop potential
-5. Scientific credibility
+4. Curiosity
+5. Rewatch potential
 6. Shareability
-7. Search/discovery relevance
+7. Natural engagement
+8. Search/discovery relevance
 
-Find the most fascinating specific angle within this topic.
+First identify the most fascinating SPECIFIC angle within the topic.
 
-Do not explain the topic like a textbook.
-Turn it into a short curiosity-driven story.
+Build the Short around ONE central mystery.
 
-The viewer should understand something surprising about their own brain, perception, memory, behavior, or experience.
+Do not write like a textbook.
+Do not summarize the topic.
+Turn the idea into a fast curiosity-driven story.
+
+The viewer should discover something surprising about the brain, perception, memory, behavior, consciousness, emotions, sleep, or another relevant psychological/neuroscience phenomenon.
+
+Make every scene necessary.
 
 Return only the required JSON."""
     if feedback:
