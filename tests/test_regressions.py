@@ -42,6 +42,27 @@ def test_clip_exhaustion_preserves_actionable_error(monkeypatch):
         raise AssertionError("clip exhaustion unexpectedly passed")
 
 
+def test_dry_run_ignores_publish_gap(monkeypatch):
+    settings = _DummySettings()
+    monkeypatch.setattr(main, "SETTINGS", settings)
+    monkeypatch.setattr(main, "load_history", lambda path: [{"created_at": "recent"}])
+    monkeypatch.setattr(main, "check_publish_gap", lambda *args, **kwargs: (_ for _ in ()).throw(
+        AssertionError("dry-run must not check the publish gap")
+    ))
+    monkeypatch.setattr(main, "choose_topic", lambda _settings: "test topic")
+    monkeypatch.setattr(main, "generate_script", lambda _topic, _settings: {"title": "t", "scenes": []})
+    monkeypatch.setattr(main, "render", lambda _script, _settings: (_ for _ in ()).throw(
+        RuntimeError("No unique moving video clip found")
+    ))
+
+    try:
+        main.run()
+    except RuntimeError as exc:
+        assert "no unique moving video clip" in str(exc).lower()
+    else:
+        raise AssertionError("dry-run unexpectedly returned before rendering")
+
+
 def test_invalid_publish_timezone_is_rejected():
     settings = Settings(dry_run=True, timezone="Not/AZone")
     assert any("PUBLISH_TIMEZONE is invalid" in error for error in settings.check_config())

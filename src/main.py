@@ -123,7 +123,9 @@ def run() -> dict:
 
     min_gap_hours = getattr(SETTINGS, "min_publish_gap_hours", 4.0)
     force_publish = str(os.getenv("FORCE_PUBLISH", "")).strip().lower() in ("true", "1", "yes")
-    if not SETTINGS.topic and not force_publish and published_history:
+    # Dry runs never publish, so a previous upload must not prevent them from exercising
+    # generation, rendering, and validation. The gap guard applies only to real uploads.
+    if not SETTINGS.dry_run and not SETTINGS.topic and not force_publish and published_history:
         can_publish, elapsed = check_publish_gap(published_history, min_gap_hours=min_gap_hours)
         if not can_publish and elapsed is not None:
             log.info(
