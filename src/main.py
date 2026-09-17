@@ -17,7 +17,7 @@ from pathlib import Path
 from .agent_brain import AgentBrain
 from .analytics import AnalyticsError, load_performance
 from .config import SETTINGS
-from .content import choose_topic, generate_script
+from .content import ContentGenerationError, choose_topic, generate_script
 from .guards import check_publish_gap, enforce, load_history, save_history
 from .media import render, validate
 from .meta import publish as publish_meta
@@ -148,7 +148,23 @@ def run() -> dict:
     for attempt in range(SETTINGS.max_attempts):
         base_topic = SETTINGS.topic or choose_topic(SETTINGS)
         topic = f"{base_topic} — fresh angle {attempt + 1}" if SETTINGS.topic and attempt else base_topic
-        script = generate_script(topic, SETTINGS)
+        # A malformed or rate-limited LLM response must not forfeit the whole
+        # scheduled slot. generate_script has its own response-level retries;
+        # if those are exhausted, spend the remaining run budget on another
+        # queued topic instead of failing immediately.
+        try:
+            script = generate_script(topic, SETTINGS)
+        except ContentGenerationError as exc:
+            last_error = exc
+            log.warning(
+                "Attempt %d/%d could not generate a publishable script for %r: %s; "
+                "trying another topic",
+                attempt + 1,
+                SETTINGS.max_attempts,
+                topic,
+                exc,
+            )
+            continue
         agent_brain.enrich_visual_prompts(script)
         retention_verdict = agent_brain.predict_retention(script)
         log.info(
