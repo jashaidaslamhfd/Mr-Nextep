@@ -1007,7 +1007,7 @@
   },
   {
     "created_at": "2026-09-18T19:27:35.554716+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Stopping tremors in their tracks with deep brain stimulation",
     "title": "Stopping tremors in their tracks with deep brain stimulation",
     "video_path": "output/mr_nextep_short.mp4",
@@ -1039,6 +1039,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "1efe86e86c2e4c8e84c318c05734c2ac2ad35b386e2d20622f6949e209b1af9c",
     "body": "Your brain can hit pause A tiny electrode lives deep inside It stops shaking before the pulse ends It hijacks the brain’s rhythm loop Patients feel control return instantly The brain’s oscillators act like a metronome Adaptive DBS predicts and cuts tremor That pause? It’s your own stop button",
-    "text": "Stopping tremors in their tracks with deep brain stimulation Your brain can hit pause A tiny electrode lives deep inside It stops shaking before the pulse ends It hijacks the brain’s rhythm loop Patients feel control return instantly The brain’s oscillators act like a metronome Adaptive DBS predicts and cuts tremor That pause? It’s your own stop button"
+    "text": "Stopping tremors in their tracks with deep brain stimulation Your brain can hit pause A tiny electrode lives deep inside It stops shaking before the pulse ends It hijacks the brain’s rhythm loop Patients feel control return instantly The brain’s oscillators act like a metronome Adaptive DBS predicts and cuts tremor That pause? It’s your own stop button",
+    "youtube_video_id": "hgSIHVbMDtc",
+    "url": "https://youtu.be/hgSIHVbMDtc",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "published",
+        "id": "1721342088922708",
+        "format": "reels"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18138979921657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
+      }
+    }
   }
 ]
