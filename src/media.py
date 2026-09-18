@@ -271,6 +271,41 @@ def render(script: dict, settings: Settings) -> Path:
         caption_cues.append((str(scene.get("narration") or scene.get("caption") or ""), duration))
         total += duration
 
+    # LLM narration length is not fully deterministic. Fit the completed
+    # render into the configured Shorts window rather than discarding a nearly
+    # finished job. Audio and burned-in word cards are transformed together,
+    # while the SRT cue durations are scaled by the same factor.
+    if total < settings.min_seconds or total > settings.max_seconds:
+        original_total = total
+        target = (settings.min_seconds + settings.max_seconds) / 2.0
+        speed = total / target
+        adjusted_segments: list[Path] = []
+        for index, segment in enumerate(segments, 1):
+            adjusted = scene_dir / f"segment_{index:02d}_fit.mp4"
+            atempo = speed
+            audio_filters: list[str] = []
+            while atempo > 2.0:
+                audio_filters.append("atempo=2.0")
+                atempo /= 2.0
+            while atempo < 0.5:
+                audio_filters.append("atempo=0.5")
+                atempo /= 0.5
+            audio_filters.append(f"atempo={atempo:.6f}")
+            _run([
+                "ffmpeg", "-y", "-i", str(segment),
+                "-filter_complex",
+                f"[0:v]setpts={1.0 / speed:.8f}*PTS[v];[0:a]{','.join(audio_filters)}[a]",
+                "-map", "[v]", "-map", "[a]", "-r", "30",
+                "-c:v", "libx264", "-b:v", "6500k", "-preset", "veryfast",
+                "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "192k",
+                str(adjusted),
+            ])
+            adjusted_segments.append(adjusted)
+        segments = adjusted_segments
+        caption_cues = [(text, duration / speed) for text, duration in caption_cues]
+        total = original_total / speed
+        logger.info("Fitted rendered duration from %.2fs to %.2fs", original_total, total)
+
     concat = settings.output_dir / "concat.txt"
     concat.write_text("\n".join(f"file '{path.resolve()}'" for path in segments), encoding="utf-8")
     video = settings.output_dir / "mr_nextep_short.mp4"

@@ -367,8 +367,20 @@ def _validate_script(result: Any) -> dict[str, Any]:
     c1_words = str(scenes[0].get("caption", "")).split()
     if not (2 <= len(c1_words) <= 8):
         raise ValueError("scene 1 caption must be 2-8 words")
-    # Raises TitleRejected with the reason, which is fed back to the model on retry.
-    result["title"] = validate_short_title(result.get("title", ""))
+    # Models sometimes return a natural interrogative title without the final
+    # question mark. Normalize that harmless punctuation omission once instead
+    # of burning all provider retries on it; substantive title problems still
+    # go through the strict shared validator below.
+    candidate_title = " ".join(str(result.get("title", "")).split())
+    first_word = candidate_title.split(maxsplit=1)[0].lower() if candidate_title else ""
+    interrogative_openers = {
+        "why", "how", "what", "when", "where", "who", "whose", "which",
+        "can", "could", "should", "would", "will", "does", "do", "did",
+        "is", "are", "was", "were", "am",
+    }
+    if first_word in interrogative_openers and not candidate_title.endswith(("?", "!", ".")):
+        candidate_title += "?"
+    result["title"] = validate_short_title(candidate_title)
 
     # Tags/description were never validated before this, so the model could — and did —
     # return a handful of generic tags ("shorts", "facts", "psychology") with no real
