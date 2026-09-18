@@ -1167,5 +1167,21 @@
     "title": "Brain Disorder Due to Vitamin Deficiency Often Goes Unrecognized",
     "body": "Your memory loss could be a nutrient A hidden deficiency mimics dementia Doctors often miss it in exams Low B12 shrinks brain’s white matter Lives unravel, thought to be irreversible B12 builds myelin, keeps signals clear Blood test, supplements restore clarity The fog was just a missing nutrient",
     "text": "Brain Disorder Due to Vitamin Deficiency Often Goes Unrecognized Your memory loss could be a nutrient A hidden deficiency mimics dementia Doctors often miss it in exams Low B12 shrinks brain’s white matter Lives unravel, thought to be irreversible B12 builds myelin, keeps signals clear Blood test, supplements restore clarity The fog was just a missing nutrient"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "d03ab7e2ce0f2234b5d62dc77bdd430dfb24223e94d50be5fe50209430d1bf2d",
+    "title": "SK Hynix's Solidigm unit is weighing NAND memory chip factory in US, sources say",
+    "body": "US chip plant could rewrite AI memory Solidigm eyes a new US factory Why does location matter for AI? Domestic chips cut latency dramatically Speed tricks our brain into trust Latency mirrors neuronal synapse delay Faster AI feels more present The factory reshapes how AI remembers",
+    "text": "SK Hynix's Solidigm unit is weighing NAND memory chip factory in US, sources say US chip plant could rewrite AI memory Solidigm eyes a new US factory Why does location matter for AI? Domestic chips cut latency dramatically Speed tricks our brain into trust Latency mirrors neuronal synapse delay Faster AI feels more present The factory reshapes how AI remembers"
   }
 ]

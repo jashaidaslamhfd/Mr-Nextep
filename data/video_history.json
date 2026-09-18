@@ -954,5 +954,41 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18138853198657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
       }
     }
+  },
+  {
+    "created_at": "2026-09-18T08:08:26.704500+00:00",
+    "status": "pending",
+    "topic": "SK Hynix's Solidigm unit is weighing NAND memory chip factory in US, sources say",
+    "title": "SK Hynix's Solidigm unit is weighing NAND memory chip factory in US, sources say",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "0e40d766dba3c64e0a1c50929280750e100a1da2e40fd956fe5f93c9330c4aa2",
+      "53f1a2e3c71accb4e790b1512753fdd3aabbf995f9b9404ff9f4932fdc189fd6",
+      "288ba2e22d65504dd85fc5e626eb24e7639b31c25455a7c18f0897a09fc7de01",
+      "518e2f651c077f54485cff41ddfbc1813d35f3fe94963adc599467b8ac74f4aa",
+      "a62bd5062c17d66c9a1c048beb30a3448f362f915573d17687c9333dcf45b804",
+      "806e3c7f1e42e609f57f9df4ec50b27e54ef66d93df72b2f5f91f3af5bcdbb34",
+      "7ad332a8e187f0491a42bfcaad879d95d0bab7d232731ef8641d1aeb8cd92d95",
+      "0344fba1a609814168357fc3a0dd7359f0b1f98f29eb2dcb1a246f3f59cda200"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 22.516735,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "d03ab7e2ce0f2234b5d62dc77bdd430dfb24223e94d50be5fe50209430d1bf2d",
+    "body": "US chip plant could rewrite AI memory Solidigm eyes a new US factory Why does location matter for AI? Domestic chips cut latency dramatically Speed tricks our brain into trust Latency mirrors neuronal synapse delay Faster AI feels more present The factory reshapes how AI remembers",
+    "text": "SK Hynix's Solidigm unit is weighing NAND memory chip factory in US, sources say US chip plant could rewrite AI memory Solidigm eyes a new US factory Why does location matter for AI? Domestic chips cut latency dramatically Speed tricks our brain into trust Latency mirrors neuronal synapse delay Faster AI feels more present The factory reshapes how AI remembers"
   }
 ]
