@@ -1183,5 +1183,21 @@
     "title": "SK Hynix's Solidigm unit is weighing NAND memory chip factory in US, sources say",
     "body": "US chip plant could rewrite AI memory Solidigm eyes a new US factory Why does location matter for AI? Domestic chips cut latency dramatically Speed tricks our brain into trust Latency mirrors neuronal synapse delay Faster AI feels more present The factory reshapes how AI remembers",
     "text": "SK Hynix's Solidigm unit is weighing NAND memory chip factory in US, sources say US chip plant could rewrite AI memory Solidigm eyes a new US factory Why does location matter for AI? Domestic chips cut latency dramatically Speed tricks our brain into trust Latency mirrors neuronal synapse delay Faster AI feels more present The factory reshapes how AI remembers"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "1efe86e86c2e4c8e84c318c05734c2ac2ad35b386e2d20622f6949e209b1af9c",
+    "title": "Stopping tremors in their tracks with deep brain stimulation",
+    "body": "Your brain can hit pause A tiny electrode lives deep inside It stops shaking before the pulse ends It hijacks the brain’s rhythm loop Patients feel control return instantly The brain’s oscillators act like a metronome Adaptive DBS predicts and cuts tremor That pause? It’s your own stop button",
+    "text": "Stopping tremors in their tracks with deep brain stimulation Your brain can hit pause A tiny electrode lives deep inside It stops shaking before the pulse ends It hijacks the brain’s rhythm loop Patients feel control return instantly The brain’s oscillators act like a metronome Adaptive DBS predicts and cuts tremor That pause? It’s your own stop button"
   }
 ]

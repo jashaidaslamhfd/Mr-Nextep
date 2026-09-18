@@ -1004,5 +1004,41 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18138883501657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
       }
     }
+  },
+  {
+    "created_at": "2026-09-18T19:27:35.554716+00:00",
+    "status": "pending",
+    "topic": "Stopping tremors in their tracks with deep brain stimulation",
+    "title": "Stopping tremors in their tracks with deep brain stimulation",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "40f514a9f75eba91cc81e8a31efb2b81b37a09c6f86b7eada5f62c9362fd9b45",
+      "26dbdf52f5460d969017484582a37db91890b7cd5d9f3b0883703352031beebd",
+      "44f75974b31f8879e15663ba1d3ed161bf92f1de40951d092ee2ab58549da1af",
+      "f99cff0c2f1794f8839092745276974388dbe06766b931d0a406ffdda0ebe467",
+      "bbe6d13a4227b877ad968c893efb33c17df0efd0ded824cc24fd984211dec503",
+      "bd24741e5d7cd8cf36c093bb7797fddc2608d34d77a2d4f4447984b2610e1c07",
+      "4165139ef668c2487c777ee0f7d0defdac2c251cf4e50b3864cefccfc5b8b6a7",
+      "c8ce4a9ca0212243df3a534e8d50e8efb32994818426d6061b64ea3be62f544f"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 22.503628,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "1efe86e86c2e4c8e84c318c05734c2ac2ad35b386e2d20622f6949e209b1af9c",
+    "body": "Your brain can hit pause A tiny electrode lives deep inside It stops shaking before the pulse ends It hijacks the brain’s rhythm loop Patients feel control return instantly The brain’s oscillators act like a metronome Adaptive DBS predicts and cuts tremor That pause? It’s your own stop button",
+    "text": "Stopping tremors in their tracks with deep brain stimulation Your brain can hit pause A tiny electrode lives deep inside It stops shaking before the pulse ends It hijacks the brain’s rhythm loop Patients feel control return instantly The brain’s oscillators act like a metronome Adaptive DBS predicts and cuts tremor That pause? It’s your own stop button"
   }
 ]
