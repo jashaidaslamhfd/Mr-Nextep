@@ -867,5 +867,41 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18138655129657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
       }
     }
+  },
+  {
+    "created_at": "2026-09-18T02:42:39.244466+00:00",
+    "status": "pending",
+    "topic": "Stanford Medicine team creates advanced model for studying brain development, disorders",
+    "title": "Stanford Medicine team creates advanced model for studying brain development, disorders",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "bc641c524f13acef3180e13a5abe99b4cf5b5462ef805440a9584f839be96222",
+      "7edaa9040bd1ad097d2771ecdf5c5e5df077ca42db96116b63be6fa2d1f722f5",
+      "51bb8ac9446b89b5abb2028785fa76b4ceee06f38cdabbea7ca576104b293bcf",
+      "a4db187e9ffa2a222d19ee4acef4e53fb907d495d5389eb90f0e5777be0c97f9",
+      "71f2915d3f03e3fb67c627d3b27d29a0f8e408bbc8c4a1ce6c9294b76cec0068",
+      "76caf32ff3f5531fbf4c05548e10eacf357f78c35bdc45947d9e9808a343e21c",
+      "126dfcc078a6b5da48da052a4ee87093109bfc0e4d9dccd9d4cf4904626cec9f",
+      "cd41aeff4dc66175437fa8c53374f51b7a605688c191b309f8751a9076ada2de"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 25.604354,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "99c29544dd4f4ec025638089b1f016f7c9513afffcf8ae073658f90f3eca6cc7",
+    "body": "Predicts disease before symptoms appear A digital newborn brain learns like us AI spots wiring differences doctors miss Tiny miswirings match later autism patterns Early detection could start treatment sooner Simulates billions of neurons with pruning rules AI isn’t reading thoughts, just wiring errors Turns invisible changes into a warning sign",
+    "text": "Stanford Medicine team creates advanced model for studying brain development, disorders Predicts disease before symptoms appear A digital newborn brain learns like us AI spots wiring differences doctors miss Tiny miswirings match later autism patterns Early detection could start treatment sooner Simulates billions of neurons with pruning rules AI isn’t reading thoughts, just wiring errors Turns invisible changes into a warning sign"
   }
 ]

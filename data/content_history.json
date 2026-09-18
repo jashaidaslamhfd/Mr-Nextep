@@ -1135,5 +1135,21 @@
     "title": "AI vs. Human Intelligence",
     "body": "Your brain finishes sentences instantly It predicts before sound arrives AI models need massive data Your brain uses context shortcuts Prediction happens in 50 ms Predictive coding drives the speed AI still lags behind That’s why you finish sentences",
     "text": "AI vs. Human Intelligence Your brain finishes sentences instantly It predicts before sound arrives AI models need massive data Your brain uses context shortcuts Prediction happens in 50 ms Predictive coding drives the speed AI still lags behind That’s why you finish sentences"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "99c29544dd4f4ec025638089b1f016f7c9513afffcf8ae073658f90f3eca6cc7",
+    "title": "Stanford Medicine team creates advanced model for studying brain development, disorders",
+    "body": "Predicts disease before symptoms appear A digital newborn brain learns like us AI spots wiring differences doctors miss Tiny miswirings match later autism patterns Early detection could start treatment sooner Simulates billions of neurons with pruning rules AI isn’t reading thoughts, just wiring errors Turns invisible changes into a warning sign",
+    "text": "Stanford Medicine team creates advanced model for studying brain development, disorders Predicts disease before symptoms appear A digital newborn brain learns like us AI spots wiring differences doctors miss Tiny miswirings match later autism patterns Early detection could start treatment sooner Simulates billions of neurons with pruning rules AI isn’t reading thoughts, just wiring errors Turns invisible changes into a warning sign"
   }
 ]
