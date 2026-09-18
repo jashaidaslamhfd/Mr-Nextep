@@ -870,7 +870,7 @@
   },
   {
     "created_at": "2026-09-18T02:42:39.244466+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Stanford Medicine team creates advanced model for studying brain development, disorders",
     "title": "Stanford Medicine team creates advanced model for studying brain development, disorders",
     "video_path": "output/mr_nextep_short.mp4",
@@ -902,6 +902,7 @@
     "retention_proxy": 0.9,
     "fingerprint": "99c29544dd4f4ec025638089b1f016f7c9513afffcf8ae073658f90f3eca6cc7",
     "body": "Predicts disease before symptoms appear A digital newborn brain learns like us AI spots wiring differences doctors miss Tiny miswirings match later autism patterns Early detection could start treatment sooner Simulates billions of neurons with pruning rules AI isn’t reading thoughts, just wiring errors Turns invisible changes into a warning sign",
-    "text": "Stanford Medicine team creates advanced model for studying brain development, disorders Predicts disease before symptoms appear A digital newborn brain learns like us AI spots wiring differences doctors miss Tiny miswirings match later autism patterns Early detection could start treatment sooner Simulates billions of neurons with pruning rules AI isn’t reading thoughts, just wiring errors Turns invisible changes into a warning sign"
+    "text": "Stanford Medicine team creates advanced model for studying brain development, disorders Predicts disease before symptoms appear A digital newborn brain learns like us AI spots wiring differences doctors miss Tiny miswirings match later autism patterns Early detection could start treatment sooner Simulates billions of neurons with pruning rules AI isn’t reading thoughts, just wiring errors Turns invisible changes into a warning sign",
+    "video": "output/mr_nextep_short.mp4"
   }
 ]
