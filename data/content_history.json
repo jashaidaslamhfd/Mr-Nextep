@@ -1199,5 +1199,21 @@
     "title": "Stopping tremors in their tracks with deep brain stimulation",
     "body": "Your brain can hit pause A tiny electrode lives deep inside It stops shaking before the pulse ends It hijacks the brain’s rhythm loop Patients feel control return instantly The brain’s oscillators act like a metronome Adaptive DBS predicts and cuts tremor That pause? It’s your own stop button",
     "text": "Stopping tremors in their tracks with deep brain stimulation Your brain can hit pause A tiny electrode lives deep inside It stops shaking before the pulse ends It hijacks the brain’s rhythm loop Patients feel control return instantly The brain’s oscillators act like a metronome Adaptive DBS predicts and cuts tremor That pause? It’s your own stop button"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "9f168fd2a386b8fa74a155b74840cbd49fa1002df80b0db1e20b1b6c63f80f71",
+    "title": "When the eyes play tricks, the brain builds consensus",
+    "body": "Your brain is pulling a fast one That vase could be two faces Why we all see the same thing Brain favors familiar patterns It shapes what we remember AI learns the same bias Both brain and AI pick one Your brain isn’t cheating, it’s simplifying",
+    "text": "When the eyes play tricks, the brain builds consensus Your brain is pulling a fast one That vase could be two faces Why we all see the same thing Brain favors familiar patterns It shapes what we remember AI learns the same bias Both brain and AI pick one Your brain isn’t cheating, it’s simplifying"
   }
 ]

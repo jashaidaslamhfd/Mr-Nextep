@@ -1054,5 +1054,41 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18138979921657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
       }
     }
+  },
+  {
+    "created_at": "2026-09-18T23:43:13.382964+00:00",
+    "status": "pending",
+    "topic": "When the eyes play tricks, the brain builds consensus",
+    "title": "When the eyes play tricks, the brain builds consensus",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "6d0dcf1e0a792a9d7fdb69ab6b58467479c1be10a9f861b0c61ab1ce14a676ca",
+      "3e877c5f46c99eefba8ab6be251b626d7bef70a14925c5468bacd7801e2fbd3d",
+      "f3ac9b3f04602b8d2a1fb7bdce7c7fde3332e5865d3a331ff59b2b72f437a56d",
+      "f3608c563773abc0a65d8d6964909266bd0d834a20c88924285dd646cddbe166",
+      "2c9dcab3bf2cb38f3d2269adc5a4ff652515e19d2f839a0c86ec82841d690a66",
+      "082f14b0b9f1da15b36f9b2c464ea3c7ef3967c897c7cd1e0c14d752e07dfeb1",
+      "4be0ff91f91cc4c855eb03b563fa6866fa07d867416ed0a0b28a50f88225cc54",
+      "b327a559efc6e5766c7f1e54fcb7bbf85cdbe4fac8f6f2b9bd7f8c7806afb6a3"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "archetype": "SENSORY_ILLUSION",
+    "width": 1080,
+    "height": 1920,
+    "duration": 22.500635,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "9f168fd2a386b8fa74a155b74840cbd49fa1002df80b0db1e20b1b6c63f80f71",
+    "body": "Your brain is pulling a fast one That vase could be two faces Why we all see the same thing Brain favors familiar patterns It shapes what we remember AI learns the same bias Both brain and AI pick one Your brain isn’t cheating, it’s simplifying",
+    "text": "When the eyes play tricks, the brain builds consensus Your brain is pulling a fast one That vase could be two faces Why we all see the same thing Brain favors familiar patterns It shapes what we remember AI learns the same bias Both brain and AI pick one Your brain isn’t cheating, it’s simplifying"
   }
 ]
