@@ -907,7 +907,7 @@
   },
   {
     "created_at": "2026-09-18T03:13:02.438741+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Brain Disorder Due to Vitamin Deficiency Often Goes Unrecognized",
     "title": "Brain Disorder Due to Vitamin Deficiency Often Goes Unrecognized",
     "video_path": "output/mr_nextep_short.mp4",
@@ -939,6 +939,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "95b0c1d6a41d1f36a96150e2fbc70554c7793426c82dcf8e509b3f8431a092ec",
     "body": "Your memory loss could be a nutrient A hidden deficiency mimics dementia Doctors often miss it in exams Low B12 shrinks brain’s white matter Lives unravel, thought to be irreversible B12 builds myelin, keeps signals clear Blood test, supplements restore clarity The fog was just a missing nutrient",
-    "text": "Brain Disorder Due to Vitamin Deficiency Often Goes Unrecognized Your memory loss could be a nutrient A hidden deficiency mimics dementia Doctors often miss it in exams Low B12 shrinks brain’s white matter Lives unravel, thought to be irreversible B12 builds myelin, keeps signals clear Blood test, supplements restore clarity The fog was just a missing nutrient"
+    "text": "Brain Disorder Due to Vitamin Deficiency Often Goes Unrecognized Your memory loss could be a nutrient A hidden deficiency mimics dementia Doctors often miss it in exams Low B12 shrinks brain’s white matter Lives unravel, thought to be irreversible B12 builds myelin, keeps signals clear Blood test, supplements restore clarity The fog was just a missing nutrient",
+    "youtube_video_id": "SAdJJp4fDxI",
+    "url": "https://youtu.be/SAdJJp4fDxI",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "published",
+        "id": "1311769954331276",
+        "format": "reels"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18138853198657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
+      }
+    }
   }
 ]
