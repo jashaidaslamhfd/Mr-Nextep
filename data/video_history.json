@@ -1107,7 +1107,7 @@
   },
   {
     "created_at": "2026-09-19T07:58:29.823017+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Disney actress talks of brain injury. What 'Jessie' star is dealing with",
     "title": "Disney actress talks of brain injury. What 'Jessie' star is dealing with",
     "video_path": "output/mr_nextep_short.mp4",
@@ -1139,6 +1139,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "dbf5a4f389d32ea16a5df8b148a4c1f48cb14b30a7803f3a19cb033f3da98c81",
     "body": "When memory betrays you A Disney star shares her trauma Her mind fills in missing details Doctors call it confabulation Friends believe the false memories AI predicts plausible falsehoods Pattern completion drives false narratives Confidence hides missing pieces",
-    "text": "Disney actress talks of brain injury. What 'Jessie' star is dealing with When memory betrays you A Disney star shares her trauma Her mind fills in missing details Doctors call it confabulation Friends believe the false memories AI predicts plausible falsehoods Pattern completion drives false narratives Confidence hides missing pieces"
+    "text": "Disney actress talks of brain injury. What 'Jessie' star is dealing with When memory betrays you A Disney star shares her trauma Her mind fills in missing details Doctors call it confabulation Friends believe the false memories AI predicts plausible falsehoods Pattern completion drives false narratives Confidence hides missing pieces",
+    "youtube_video_id": "I7HzeifKgAU",
+    "url": "https://youtu.be/I7HzeifKgAU",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "published",
+        "id": "2316642159098261",
+        "format": "reels"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18139056751657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
+      }
+    }
   }
 ]
