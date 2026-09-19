@@ -1104,5 +1104,41 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18139002454657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
       }
     }
+  },
+  {
+    "created_at": "2026-09-19T07:58:29.823017+00:00",
+    "status": "pending",
+    "topic": "Disney actress talks of brain injury. What 'Jessie' star is dealing with",
+    "title": "Disney actress talks of brain injury. What 'Jessie' star is dealing with",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "5b933cc1b076c5083fd22801f8d43bc50fe88f3ac64fbb1cb851b88606419256",
+      "a3a217b34855d13620d603f27fd628a57f375e161232702241ac84e55b3ab41c",
+      "d5c1bc3db2d7351af5aed356588446cc0321ccccf87e92ef6ead523a86886a46",
+      "58496e2b67560b56e5170f9a03c143ce674a48b518ae7494b8de706ed8215386",
+      "6e43b1b2f43c66d3abc3220343a90dfae3306df7bf4bf12dd33c5272e5dd7679",
+      "dc90bcf226268c1c95c31aa96341b6040236af53c9fbaa92d9186bf6827e91d8",
+      "7a0fe5dcfc446dffeb0c8392b44558658961e295510583beb10ef6da769ac03f",
+      "724b77f67186ec169b3ae4ade1c83e4cb99e4179b4f2d8cbff281f720df6c5b2"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "archetype": "SENSORY_ILLUSION",
+    "width": 1080,
+    "height": 1920,
+    "duration": 22.511882,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "dbf5a4f389d32ea16a5df8b148a4c1f48cb14b30a7803f3a19cb033f3da98c81",
+    "body": "When memory betrays you A Disney star shares her trauma Her mind fills in missing details Doctors call it confabulation Friends believe the false memories AI predicts plausible falsehoods Pattern completion drives false narratives Confidence hides missing pieces",
+    "text": "Disney actress talks of brain injury. What 'Jessie' star is dealing with When memory betrays you A Disney star shares her trauma Her mind fills in missing details Doctors call it confabulation Friends believe the false memories AI predicts plausible falsehoods Pattern completion drives false narratives Confidence hides missing pieces"
   }
 ]

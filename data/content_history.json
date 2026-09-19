@@ -1215,5 +1215,21 @@
     "title": "When the eyes play tricks, the brain builds consensus",
     "body": "Your brain is pulling a fast one That vase could be two faces Why we all see the same thing Brain favors familiar patterns It shapes what we remember AI learns the same bias Both brain and AI pick one Your brain isn’t cheating, it’s simplifying",
     "text": "When the eyes play tricks, the brain builds consensus Your brain is pulling a fast one That vase could be two faces Why we all see the same thing Brain favors familiar patterns It shapes what we remember AI learns the same bias Both brain and AI pick one Your brain isn’t cheating, it’s simplifying"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "dbf5a4f389d32ea16a5df8b148a4c1f48cb14b30a7803f3a19cb033f3da98c81",
+    "title": "Disney actress talks of brain injury. What 'Jessie' star is dealing with",
+    "body": "When memory betrays you A Disney star shares her trauma Her mind fills in missing details Doctors call it confabulation Friends believe the false memories AI predicts plausible falsehoods Pattern completion drives false narratives Confidence hides missing pieces",
+    "text": "Disney actress talks of brain injury. What 'Jessie' star is dealing with When memory betrays you A Disney star shares her trauma Her mind fills in missing details Doctors call it confabulation Friends believe the false memories AI predicts plausible falsehoods Pattern completion drives false narratives Confidence hides missing pieces"
   }
 ]
