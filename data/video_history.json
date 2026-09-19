@@ -1157,7 +1157,7 @@
   },
   {
     "created_at": "2026-09-19T19:10:05.862114+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Mice with human brain cells offer a tool to study disease. Ethicists ask",
     "title": "Mice with human brain cells offer a tool to study disease. Ethicists ask",
     "video_path": "output/mr_nextep_short.mp4",
@@ -1189,6 +1189,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "7e36865fdeb694ed8e7172060f46311961f2c9843d651de3b52438cfe86779e4",
     "body": "A mouse that thinks like you Human neurons live inside its brain It starts solving human‑style puzzles Human cells link with mouse circuits Ethicists ask: does it feel? Why use it for disease research? It even shows early Alzheimer signs The mouse blurs the line between species",
-    "text": "Mice with human brain cells offer a tool to study disease. Ethicists ask A mouse that thinks like you Human neurons live inside its brain It starts solving human‑style puzzles Human cells link with mouse circuits Ethicists ask: does it feel? Why use it for disease research? It even shows early Alzheimer signs The mouse blurs the line between species"
+    "text": "Mice with human brain cells offer a tool to study disease. Ethicists ask A mouse that thinks like you Human neurons live inside its brain It starts solving human‑style puzzles Human cells link with mouse circuits Ethicists ask: does it feel? Why use it for disease research? It even shows early Alzheimer signs The mouse blurs the line between species",
+    "youtube_video_id": "c3IiKsrTUMs",
+    "url": "https://youtu.be/c3IiKsrTUMs",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "published",
+        "id": "39805382845727334",
+        "format": "reels"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18139160842657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
+      }
+    }
   }
 ]
