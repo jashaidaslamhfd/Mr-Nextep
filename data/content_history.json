@@ -1231,5 +1231,21 @@
     "title": "Disney actress talks of brain injury. What 'Jessie' star is dealing with",
     "body": "When memory betrays you A Disney star shares her trauma Her mind fills in missing details Doctors call it confabulation Friends believe the false memories AI predicts plausible falsehoods Pattern completion drives false narratives Confidence hides missing pieces",
     "text": "Disney actress talks of brain injury. What 'Jessie' star is dealing with When memory betrays you A Disney star shares her trauma Her mind fills in missing details Doctors call it confabulation Friends believe the false memories AI predicts plausible falsehoods Pattern completion drives false narratives Confidence hides missing pieces"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "7e36865fdeb694ed8e7172060f46311961f2c9843d651de3b52438cfe86779e4",
+    "title": "Mice with human brain cells offer a tool to study disease. Ethicists ask",
+    "body": "A mouse that thinks like you Human neurons live inside its brain It starts solving human‑style puzzles Human cells link with mouse circuits Ethicists ask: does it feel? Why use it for disease research? It even shows early Alzheimer signs The mouse blurs the line between species",
+    "text": "Mice with human brain cells offer a tool to study disease. Ethicists ask A mouse that thinks like you Human neurons live inside its brain It starts solving human‑style puzzles Human cells link with mouse circuits Ethicists ask: does it feel? Why use it for disease research? It even shows early Alzheimer signs The mouse blurs the line between species"
   }
 ]

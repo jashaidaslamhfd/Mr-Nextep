@@ -1154,5 +1154,41 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18139056751657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
       }
     }
+  },
+  {
+    "created_at": "2026-09-19T19:10:05.862114+00:00",
+    "status": "pending",
+    "topic": "Mice with human brain cells offer a tool to study disease. Ethicists ask",
+    "title": "Mice with human brain cells offer a tool to study disease. Ethicists ask",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "d12c74a09934ea8128b0ef1370f12922445a03f98fbf4f092a95fc5fd09fbab0",
+      "7fb51385ee5c494cd106fe2d93e71add39e93be63677fa05b10cfe1faba20d2b",
+      "41552a9c43df5609e51e6a07a3a1e3cac680324b6957e96c9bbceba819d3265b",
+      "36b06c58266fcf453efc88bc62696de93e5a9c59116e94457e94d5ac2ef04998",
+      "3bba77d6d7cae85d245f9ea585ecbfa153ce3c76a81880cd5adbbd8f88aece72",
+      "f78db37b1ed6b4ced043ae87500654a5199a5b25bb48e5c076dfa0b40ce0355f",
+      "fb57cdfad687f327c64780230ec136c3d9ca7f3e7713397cd2362ed7bbf4043b",
+      "b9c1eec514a876debf372280674cfc818d28b8bd8a654c14f0307fa15ed9294c"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 22.501769,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "7e36865fdeb694ed8e7172060f46311961f2c9843d651de3b52438cfe86779e4",
+    "body": "A mouse that thinks like you Human neurons live inside its brain It starts solving human‑style puzzles Human cells link with mouse circuits Ethicists ask: does it feel? Why use it for disease research? It even shows early Alzheimer signs The mouse blurs the line between species",
+    "text": "Mice with human brain cells offer a tool to study disease. Ethicists ask A mouse that thinks like you Human neurons live inside its brain It starts solving human‑style puzzles Human cells link with mouse circuits Ethicists ask: does it feel? Why use it for disease research? It even shows early Alzheimer signs The mouse blurs the line between species"
   }
 ]

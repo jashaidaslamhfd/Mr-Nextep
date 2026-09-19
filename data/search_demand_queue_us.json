@@ -1,78 +1,78 @@
 {
   "source": "Google Trends US + US science RSS",
-  "mined_at": "2026-09-19T07:56:31.033673+00:00",
+  "mined_at": "2026-09-19T19:08:35.704490+00:00",
   "topics": [
     {
       "series_number": "TREND-1",
-      "topic": "Childhood hobby leads to lower stress, fewer mental health problems and better brain function as adults",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNYVpIMng0WE9BNHJsNnQ5RnJEX3lJVDNsdHdnX1E1Y19YNG94eU9ZSkJWak1odWxpNG0wY0dCNVp0dlluM2ZzY2oxelVwb3VHcm9lZ0ZERXhyZ0FPM082d3J6OG1HWG1TVFJyM3l0OVVNcXU4Q2JHZTI0Nm9YcU1meHQycmN2Q1hoYkR3dHlzZ29mODFXUE9HT3Y1Ym0yaU5OU3BjSjhVRE16WW8?oc=5",
-      "trend_score": 10,
-      "fetched_at": "2026-09-19T07:56:31.033499+00:00"
-    },
-    {
-      "series_number": "TREND-2",
       "topic": "Overnight Therapy? The Role of Sleep in Emotional Brain Processing",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9BSktHeEJiYzAyeFAxMERDeE5MSmJUSGxnWXFVQXRpSS1QRENacTkxUGFyeEwySjJoY2pSN3lXVHdEaHlQcVYzMHpJS2w4OHRLdnZucEZWR0x1clRhNmc?oc=5",
       "trend_score": 10,
-      "fetched_at": "2026-09-19T07:56:31.033533+00:00"
+      "fetched_at": "2026-09-19T19:08:35.704369+00:00"
     },
     {
-      "series_number": "TREND-3",
+      "series_number": "TREND-2",
       "topic": "Sleep deprivation, vigilant attention, and brain function",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1CTnRLamR4U1U0VlpaZVNOVzBucWNSc25YQmlZYXg5OEYzWXNFd2lRQmd5LVI3TGdEYl9GMTROdHJ5ZFJFb0FvWkU4YV9Kb2wtTlZB?oc=5",
       "trend_score": 10,
-      "fetched_at": "2026-09-19T07:56:31.033539+00:00"
+      "fetched_at": "2026-09-19T19:08:35.704384+00:00"
+    },
+    {
+      "series_number": "TREND-3",
+      "topic": "What Behavioral Scientists and Sleep Experts Actually Say About Sleep Divorce",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBxVWxuZERXRUNEWDc2ajA2eHFVWnBVMzZpNy04WlB3UUZpcER3QzJQQjdMUG5WaE1fMEFITlNSX0lWNXdvY3NTbXBHMGVWSXhSbXQ2VWtEMmZ0SWc5eC0wU0ZpU1cwejZ5eUdnd2VRMVA?oc=5",
+      "trend_score": 7,
+      "fetched_at": "2026-09-19T19:08:35.704388+00:00"
     },
     {
       "series_number": "TREND-4",
+      "topic": "This Simple Snack Could Have Surprising Brain Health Benefits, New Study Says",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9qS016d1VnY25BR2JRYmo3VGdWd0dPYllvdm1aenA1OUNIOXU3WEhSRXp0SjVweDZmYW5TajkzNG1iWnoyNC1mZHM3cUtQczRMajVUZlNDekUyX3Q0QkFkeE1XYTNyUzhUMEFXTFVzMV9xeTBoaGgw?oc=5",
+      "trend_score": 7,
+      "fetched_at": "2026-09-19T19:08:35.704392+00:00"
+    },
+    {
+      "series_number": "TREND-5",
+      "topic": "Aerobics May Help Improve Brain Health After Menopause",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPczNSbTVWcGpmcERneWdGbU10Z2FxX2swVTRIRG9qVFlJVkM2aGs3d19GLWM3c3hxeGZ6ZVpDV1dTNUFIcWh1SHFFaklYbFhYMEpMN1ByeTlmV3ZZOGM4VWRudWt3XzdTYkl5RUZtQktndjNiYTJLSnRXZThPenRIaExGeDVHY2lsaV9IYjVCVVBsMlk?oc=5",
+      "trend_score": 7,
+      "fetched_at": "2026-09-19T19:08:35.704396+00:00"
+    },
+    {
+      "series_number": "TREND-6",
       "topic": "Emory Goizueta Brain Health Institute part of nationwide NIH study on links between environmental factors and Alzheimer\u2019s disease",
       "source": "google_news_us",
       "source_url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPOVZ1dXV0cXh6NFd0ZFFscmNjZXR4VGk4Q0syQ0wxWUFGb0cyLTBzMUtmeHlsMFBnSDZVaVE0ejVPNUVXeUIxcWZpNmFPVjNEajg1aWt5ZUNsaDNPQ2lQakVoeXpZX2stNzUwOUl5Q3hvZGxWeHUzemJiODMyMGRCbjVJRHFLSUV6RHE5YVBteTFxazJqemZxRktOQUd3UQ?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-19T07:56:31.033546+00:00"
+      "fetched_at": "2026-09-19T19:08:35.704401+00:00"
     },
     {
-      "series_number": "TREND-5",
-      "topic": "Finding the cells that put our brain to sleep",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPUVl5ZW0xYnpDM0Q4VExwa0RZTXNlYVFlMFdtUEZYZ1MxcUg5eTVwdjY4bHRKbGFYVUpZZzgwSFV3aVNmT3I3akRubzJvUjVvbjFLRkN5b25USEhyS3cyQUFVSlQ2RFhGTE1WTFBhWG1uam00Q0dWbENydGM4dFJCbXJTdUhYMkZFSDB2TWpXRQ?oc=5",
-      "trend_score": 7,
-      "fetched_at": "2026-09-19T07:56:31.033551+00:00"
-    },
-    {
-      "series_number": "TREND-6",
+      "series_number": "TREND-7",
       "topic": "Heavy caffeine users and deeper sleep; wonders of microscopic life; preparing for life after an Alzheimer\u2019s diagnosis; plus other stories with Vanderbilt Health sources",
       "source": "google_news_us",
       "source_url": "https://news.google.com/rss/articles/CBMipAJBVV95cUxOeEtCUEVleGdPa1liWDBRV0JYWTRJM3FSamwxZzFGcmhXVjAzdFRMSHhMeTZUZ2lpLWpYZEJBOE4walIxNnV6ZWxHcGs5UEZOdFFJM3NJcEdtUTNLQ0ZmTXBKYnBuRlhlY0pLbGRic1p4U0I4SkFjUHdWYUxTMEpLS0QxNTV1di11cWh0TTd4NGpQSmhtaDBLZ01YczBja3hlQjAxUnhWd2tIeXI1R0h2OW1wRzYyR0diVW9QcVhqcWtablp3Wi1RZzc0RXpXZEVQVThHbF9PMWppdlRJWmF0WkhYTFJfbXpuSndTNGdEU0pUQzRaVlFfc3N3MWI4a2hCSWZDcjBCY1dMMlZObVhScmU4djFjUjVDZEhsWEVNUHdTcE0x?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-19T07:56:31.033559+00:00"
+      "fetched_at": "2026-09-19T19:08:35.704407+00:00"
     },
     {
-      "series_number": "TREND-7",
+      "series_number": "TREND-8",
       "topic": "Learning another language may be one of the best ways to keep your brain healthy as you age",
       "source": "google_news_us",
       "source_url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQV0RBRXZjUmlLN3J5YWtGMjhvTGE1bTlDTWo4RjEyV3c2NTFUclBGb29WcjdNa25fdUxnQlNER2NqNk5HNkI3TXd6bzlKcGNoZTRHcGEzMHZTWS15TVliMW9teDl1OXdZS3hWbjlMRnZ2aTFHZXo2c0ZYZVVnTmlyckpiU0UwWG9Td2pxVlNrd3BrNW9HaUUzdnNQbmcxSWJUVDdWRUJ0RWlwemxlMzBoYmFheVg2Wk9rN0xRMTJqN0FwUkVq?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-19T07:56:31.033564+00:00"
-    },
-    {
-      "series_number": "TREND-8",
-      "topic": "What science reveals about the reliability of eyewitness memory",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOMkY2a1VEVThpVXpzZkNmX2ZBZjR4RF83ZktRMmMySXliZUhDZGhVcmVqaUd1Y3FOUTVkb1YyLVlHeVlLd0dfVEd6bHhNOFlSa0ZXaXU4T3p0eVhic09GeFNXLWRfSzhHT2xFTFpGUWstR052Q1JGejd6bTdIdkViVEZXWEVxUjBrVVhTb0dhWTJPMGNYSDNKQUJtQTZYV3BtUVZvN0V0bw?oc=5",
-      "trend_score": 7,
-      "fetched_at": "2026-09-19T07:56:31.033568+00:00"
+      "fetched_at": "2026-09-19T19:08:35.704410+00:00"
     },
     {
       "series_number": "TREND-9",
-      "topic": "Henry Ford Health offers new sleep apnea implant for patients who can't tolerate CPAP",
+      "topic": "Finding the cells that put our brain to sleep",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQVFlqQjFRaDBkQUdycFY0Ym5pMDVVZTYzblc1TEdYdkNhNzFGWkVPYzZNbWJWRHI4LTdwS1N0VmZXWUNNUndTbXpZb3EwRFlTS0hiZjJtTUl5Y0tYZEllVUNJT2NhYjRaNEhfb09jMkEwOU5NUlZuNXIxb19Sa1Y1bTl4RE9YV2JhVjgwaHRUNHh6eHM5VE4zVnFNTXdfTGx0RFJaRnM0dks?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPUVl5ZW0xYnpDM0Q4VExwa0RZTXNlYVFlMFdtUEZYZ1MxcUg5eTVwdjY4bHRKbGFYVUpZZzgwSFV3aVNmT3I3akRubzJvUjVvbjFLRkN5b25USEhyS3cyQUFVSlQ2RFhGTE1WTFBhWG1uam00Q0dWbENydGM4dFJCbXJTdUhYMkZFSDB2TWpXRQ?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-19T07:56:31.033573+00:00"
+      "fetched_at": "2026-09-19T19:08:35.704414+00:00"
     },
     {
       "series_number": "TREND-10",
@@ -80,7 +80,7 @@
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPOFFTUUVtUGE1WDNBb2d3U1NzWGhkRnQ2SUlVWHAwRVRQeGFWODhrbm91YkU4WGwwSmVMczV5Q2I4dzRFSTF5WFVtZ0RsYUVCMVdMbFE4clUzM2RUem5xOXMxMHNKZnZKczVPSG9OaUd6RHlvbzVUdnZCeHhjSHB5WHhDaHNsREQ3eWlnQk5kWGxfejBINnB0NE91THY?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-19T07:56:31.033577+00:00"
+      "fetched_at": "2026-09-19T19:08:35.704417+00:00"
     },
     {
       "series_number": "TREND-11",
@@ -88,7 +88,7 @@
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNNlg4eFlrdUlHazVGeklkOXU5TEhNQmkzTW50eUx2WnAtTllyM2xxNTVveGNoNkY4WDFwdkJLTi02M0ZqNEFLOXo1UmNRQS1qdFFTZmR2dE5oNWdBWExkdFYydE1WMnBKbnJZTFBpRWZYTWNUNXp0R1RocHJLem9iQVpR?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-19T07:56:31.033581+00:00"
+      "fetched_at": "2026-09-19T19:08:35.704420+00:00"
     },
     {
       "series_number": "TREND-12",
@@ -96,7 +96,7 @@
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5TOGM1Um1Pb2hYTnVSazcyNk1hTlYyTU9iaVF1MWV4YkphdG84d0h5bDRfR2NYT0VGQ2llTTFHTVFqOC1Gb0VYdlVDQ3RTQmpaN2VtdXJB?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-19T07:56:31.033586+00:00"
+      "fetched_at": "2026-09-19T19:08:35.704423+00:00"
     },
     {
       "series_number": "TREND-13",
@@ -104,7 +104,7 @@
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9NZjM0RXNpeE1raVlFclJ6ZTdqQ0dKLURSYUJnREd1TWNzZFhQTHExRUtCdElrY3ZEci1menRHSFNrUVp3RWxzSjJOSHNwZ3BEZ2pR?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-19T07:56:31.033590+00:00"
+      "fetched_at": "2026-09-19T19:08:35.704426+00:00"
     },
     {
       "series_number": "TREND-14",
@@ -112,7 +112,7 @@
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE0tN29MTjFScHctZlFWck5IWjNxeHh6VEgyeDhvVUJIcVAxamFPdW90ZWJyVVoyWlNwWF9oaGNJNjhnLUota2w4dlBvVlowcDUtUEtIMnpEWVE5UkdkWGc?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-19T07:56:31.033594+00:00"
+      "fetched_at": "2026-09-19T19:08:35.704430+00:00"
     },
     {
       "series_number": "TREND-15",
@@ -120,7 +120,7 @@
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9WRmlzS2dpNjc5dExPbzh1bTYwcWp4RTFCQ2dMWkY1LXl5MlFEb3hvREhjYWp0bFJMYjlhdG02ZmFId2lvQnBEdEl2bEJkZU9XZTJ5OVVMcFBBTFNsWWc?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-19T07:56:31.033598+00:00"
+      "fetched_at": "2026-09-19T19:08:35.704433+00:00"
     },
     {
       "series_number": "TREND-16",
@@ -128,7 +128,7 @@
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFA1eVJpLUkxXzI0Q3VqTEQ2NmMyQUEwMWxHbVBiekNsS0lZUVVfRG9US09Yb0JwVnZtSVN1dElFZkV6RXZGYkJ1OEZ6TUUwQnVjUVJ4Z3hKaEtoRF96VEhhcERwN1BwdUZvWW5j?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-19T07:56:31.033602+00:00"
+      "fetched_at": "2026-09-19T19:08:35.704436+00:00"
     },
     {
       "series_number": "TREND-17",
@@ -136,111 +136,111 @@
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1MUElwNUdiWU9MaHltZGxHem40VDJBQWh5ZE13S040bUNTbm5NNlRkUUJDUnEtWlpXUUg0VVdhcW4yWHRPTmtpSmJ4N3VWbG1acmt3MWNJazQtOHB0V3c?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-19T07:56:31.033606+00:00"
+      "fetched_at": "2026-09-19T19:08:35.704439+00:00"
     },
     {
       "series_number": "TREND-18",
+      "topic": "Children's sleep linked to brain development",
+      "source": "nih_news",
+      "source_url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQTDhDZks5aHpLM0hCaFgtU2lIZFBna2JEd1BDWlVlM2o4WTcyWlBMNjRNcE9OYXRucHZBb0hXeUJXd0FuZEQ4dURQbzA4NThUY2ZrblNHaGpnT0hxX3FhSEhfVWg5M3ZLM2tNdHF6X0ZlcjJwVTUxSXNET1ZKS2RNUHVzSlk0WExlZjhtc2laZTlFeXpMYjRjSg?oc=5",
+      "trend_score": 7,
+      "fetched_at": "2026-09-19T19:08:35.704442+00:00"
+    },
+    {
+      "series_number": "TREND-19",
+      "topic": "National Institutes of Health Sleep Research Plan",
+      "source": "nih_news",
+      "source_url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE53enZ5SXoxLTU0ckV6aFdyQ2JzQm4tMVVHYzdUZEVacWpBSGxsM1BERnpmWVdHVGxuYkJsLXhhaXhFSmgwVjROVmRfbjc5dU82bG45NmJKbVg?oc=5",
+      "trend_score": 7,
+      "fetched_at": "2026-09-19T19:08:35.704446+00:00"
+    },
+    {
+      "series_number": "TREND-20",
+      "topic": "Balance training improves memory and spatial cognition in healthy adults",
+      "source": "nih_news",
+      "source_url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1WalYxeGF4bEw5YVlTWmNucnh2R05EVE9CUU5Ob3FiWFlaTFF4TXh6Z0l1anBZTkpFczBUUUptMWVNSjZPTTVSRExKanRSZm0zTkJZdWhpSlJRWVBXMkE?oc=5",
+      "trend_score": 7,
+      "fetched_at": "2026-09-19T19:08:35.704449+00:00"
+    },
+    {
+      "series_number": "TREND-21",
       "topic": "Human brain is two separate organs, Stanford Medicine",
       "source": "google_news_us",
       "source_url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE0xZTcyUUxsbVR5cS1oS2s3Wi1vNWprNnkycTdFTDhNbTFjdWtIUEpGZVp1SVQ5NGJDeEN4eTNSeXJhT1pZTy1vU2oyNXlRYUF5RHJsMmc0UWhFTUcwTWhDUU5CTEVmT3FTT3UwY0hkS2FVWXpITS1qNWkwUQ?oc=5",
       "trend_score": 4,
-      "fetched_at": "2026-09-19T07:56:31.033610+00:00"
+      "fetched_at": "2026-09-19T19:08:35.704453+00:00"
     },
     {
-      "series_number": "TREND-19",
-      "topic": "The Brain Is Two Separate Organs Joined by Evolution",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBhZ3lFTlpjWm1oSnJiU2JxcXlHZFdaVkdkNHVFY1c0UHUwOTB0c3NrZDAtRmRESmFiQmlnY3lUOTNQZ1ZOSkVPeWZFX25XS3N2dEdVZjlxbEJPT1p1VUliWmliV2RnVFprSlpueWJJMUJyV2Y4YUE?oc=5",
-      "trend_score": 4,
-      "fetched_at": "2026-09-19T07:56:31.033615+00:00"
-    },
-    {
-      "series_number": "TREND-20",
+      "series_number": "TREND-22",
       "topic": "Two parallel neural ectoderm progenitors contribute to the developing brain",
       "source": "google_news_us",
       "source_url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9RSU42djhfUVVwY043azRjS2NBRTluemtObF9uRHpBZ1F2OVVyV3Z3SHBMNUlXUV85UzA1aXJDTUNndE1sVjZUQ0VlVVhCQ0V3YnVVM0tIVnJHdFlOeGZr?oc=5",
       "trend_score": 4,
-      "fetched_at": "2026-09-19T07:56:31.033620+00:00"
+      "fetched_at": "2026-09-19T19:08:35.704457+00:00"
     },
     {
-      "series_number": "TREND-21",
-      "topic": "When the eyes play tricks, the brain builds consensus",
+      "series_number": "TREND-23",
+      "topic": "Micron (MU) Unveils Breakthrough Memory Product. It Says Much About the Memory Market",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBMQTV5M3R0N0xkQ1JiSVJTdUxjbU1HajZWU0VjaVBXZHBlZVh2VC1pNmoweUZ3NDdreTlleU5hQTR0dU12bVFiY2NwdFpCaDY1VGFaRUZDeDhaNGVEUnE2TWY2SUthV2tjX2F3WV9sWkN6aTRic0lxaENTTHozOUk?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOUGRWY0dOS3J1QndQQzVNems4VFBITXEzMW56Tk84MDVoRVExMm05V0hlcG5tRkxOTGh0M1RrU1hyRUZHdnp5bzBaX2tFRzFDX2NZX0VXdU9sdXk2V0lUWmRQX0Z5QkV1RmdIZXoyWV9mTUVsMk0teEF3S1NZYVRMeXVCdXY5dnJZTlM0VGg1X3BmNm0td3dUWWQ1dlJDV00?oc=5",
       "trend_score": 4,
-      "fetched_at": "2026-09-19T07:56:31.033624+00:00"
+      "fetched_at": "2026-09-19T19:08:35.704461+00:00"
     },
     {
-      "series_number": "TREND-22",
+      "series_number": "TREND-24",
+      "topic": "Memory Mania Mystery Finale Walkthrough",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNU1lnX3F2ejdKQ0wzeFZEclBIaXV4cGp1X1FQOUZfWHhaMzY0S0d3WktrUXhzRTJYelU1QWdOYUY4UmFOeUI3emtOMGZNMDlhczFfM2JoZmRINndaeGdHdFJ0MnNJc1hRVUoxcVUwYTRKcUExNXV0QVZldXlTOFc3Q0xGUW5sMF9fSUo3QjRFa2s0SG1U?oc=5",
+      "trend_score": 4,
+      "fetched_at": "2026-09-19T19:08:35.704464+00:00"
+    },
+    {
+      "series_number": "TREND-25",
       "topic": "Mice with human brain cells offer a tool to study disease. Ethicists ask",
       "source": "google_news_us",
       "source_url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQdE16NXhncTJqY1lERkQ0ZmJ6VmtWd2U4dUM4ZmMzSjlKOWo2eEx6cnhPcTVyVUgzNjJWZFhSYzEtclJOanh5Vkg4MHliajc1aTE4bG5RRGh3VHIzRUFvMmZGbnlKQjdLSDU3ZVhSNVVrbFdyX2ExeDZwTlFDUmZXYzI2OTFMMHJKREhhMDlqMDJfeTJENEtCb1VVLVY?oc=5",
       "trend_score": 4,
-      "fetched_at": "2026-09-19T07:56:31.033629+00:00"
-    },
-    {
-      "series_number": "TREND-23",
-      "topic": "Fed's Bowman says overhaul of bank stress test will make process more transparent",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNdVhMeF8xaElKaXVlUmExRzVBU244d3pfR3k5V25FdlZJel9nOElkbTlXb1lILXhremYwQV9kTTZ2SGZBdjlMVWR2QU9JM3o4Q0E5OHpjSGlidkFUdG5vdkhkajZ0Q2hKUl9yZ2xfaXBMQU5vbHBjVHRhbk83ZVB0T2pRYlZzYUI3R2dCQkozekRHT0V4UFBRZUJYa3Nqa2c5R1Z0eUhCNXltdw?oc=5",
-      "trend_score": 4,
-      "fetched_at": "2026-09-19T07:56:31.033634+00:00"
-    },
-    {
-      "series_number": "TREND-24",
-      "topic": "Disney actress talks of brain injury. What 'Jessie' star is dealing with",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQZ2N0b1Vhb3RlMWx3T0dSLVhSVkJPR3RPb2pCR0lMRlM2aGJZbXlUZHMwem9tTnJ3Sndyd1RmNzBGckotN0JpTWp3MkJ5NlVYMHRDY1JISkw2VTJBUlJSSDFpcW8xZHlneXl0UVE0V2huRGlXeHRtMmVFcU9RQlVFZEMzU3ZJSTRVbVNJNVhxc1liem9YWHJZdXZsMnFuNHNxck83VVZOZ0pwcmgtbUE0X09ya0xJNXlwZjZ6SjR3bTh0M0swTks1MWI2WQ?oc=5",
-      "trend_score": 4,
-      "fetched_at": "2026-09-19T07:56:31.033638+00:00"
-    },
-    {
-      "series_number": "TREND-25",
-      "topic": "Your brain is actually two organs, new study finds",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxPVkVEbUlwR1QtQW9VSHoxNmZUZ0NSemdOdXhUMHZwRDZ1NWVnLUpOb3R2cTlySlhIRnlsYUdsT1ZiMmc1SE5QdjNDbUZmOVVLNm9KZnVWX0dKaGFEZDE3SlBXcjVMbkxQUmFXWEpkSnRuS0hwSFg2bjB0YlhsaTBTSFBLQlFSdEpubVBLeFlOdVZPMWVCMENtMlVhQVUxc1BjZDFrY00xX1lKYXdNS0hoeXZqTnZRTzJCalRnQnhOdThjeU1pV1Uxd3phTFZuZGNwR1JSZGhSTXgyTE1iSmc?oc=5",
-      "trend_score": 4,
-      "fetched_at": "2026-09-19T07:56:31.033643+00:00"
+      "fetched_at": "2026-09-19T19:08:35.704471+00:00"
     },
     {
       "series_number": "TREND-26",
-      "topic": "Debby Ryan says some things 'did not come back' after brain injury",
+      "topic": "Could brain",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNVkVCYm5sT2RZWlExcnE2ZmptR2J2X2c0bDhiUXNpcmtqSlhIbWVjTFpZYzctYkxhbjh3bmZBb1dLenkxQWtFa3A2XzVCNGZzQ3Zka09KUEp2dEN2NURLUHlDaDZwcWtLOEhldzllTWdOb0laU19QSmI1Z3BLenA1cDVTMDdLU2Jtc1ZyYjdFZkZrWnBkb0tId18zYVROQWN5NE9qSHR6MTMyaUhWUXo1MjdvbmU3Zi13ekE?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQbmtrczJyQ1YtTlVnMktYa0d5dzJVZWdOa3Jxbk9qc0M4clZGZVBFRlZWZ3E0dlVsa09MZWNvNU1SdXEtbGdleXgySFJ2QXRKWFhnUjd4STF3X2JpWkdKcGo5Z3JfdGQ4MXdkNE1GSjhpcHJoTmMzT0pRbDBmQXRyck5vaUVVaGJLYjk0dWUwanBtUlF2RmtydHNNV3J4ZmVBTDcySC1YYzhEaHFib1A3alk2YW1IWTlQSEVtU0NVanI?oc=5",
       "trend_score": 4,
-      "fetched_at": "2026-09-19T07:56:31.033651+00:00"
+      "fetched_at": "2026-09-19T19:08:35.704474+00:00"
     },
     {
       "series_number": "TREND-27",
-      "topic": "Americans Prioritize Work and Family Over Sleep",
+      "topic": "White matter 'bridge' bundles link brain hierarchy levels to broader mental functions",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPb3JObHdqWFVWckRZQmtobjFTNnREdms4UURjYTQ0NnBsQm9qREdMMENWQlVfcEpWX0FQcnNFR2JzTVU5TW1tMFNSQWVLalplVVFTd052bmFRM0ltVGZtd1Jub0l2czY3azJwLVBlSnhfdEJzUU9fTnZyTHpjUFNYbFpLSG10UEZsWmEwWWhldGdSeVctUmVKQ2lNd2NZbUdvZmZ3eWVWdnhFV2hPNENsVnMxTWE?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOZXJGZlgxQTIxZ2V3dEpGRXpLaGU2RlNoZVpOZnYxSENQNE1UV2hUME5Gd2YyQ3RZcDdxT1huVlhvWHZfNHFCMWtpV25jVFdQLVRGNzBmRlZtZzUxVnNZZU01QU5JNnJFN2R4Q3N6X2VvMGh6eUNIY1VVdmplWE4wbw?oc=5",
       "trend_score": 4,
-      "fetched_at": "2026-09-19T07:56:31.033656+00:00"
+      "fetched_at": "2026-09-19T19:08:35.704478+00:00"
     },
     {
       "series_number": "TREND-28",
-      "topic": "Calming currents with deep brain stimulation",
+      "topic": "Our brain evolved from two primitive nervous systems that merged",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQU0x3VlhHT0trSXd1eWlRTVB3Nm45RnlPd0pGa1JDR05yaDRpRG1GeXVyYVpEeVo5bFp6UVBoRFZiZTQxMHVRcHJXYjdVbDNLZEVVS1ZERGo2SWV2cU90M2I1M3RQaWVFaFBzMzQtNW16LWcwVWtkNGktT0VDb0NURGpn?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNSENFa3ZocWw0TUFiV3VkekI2cHZ2Z3dla1FOeVVIclM5WTRGVlhCRzE4Qm9zQURRZ1pURktQSWc5VTFMMzhFQzU0N2o4T3hkM0lIYzMyZS1kclZtTElVQnF3ZmwzS2F3ajhNbTVMNWdZVEY3UlNUdC1URjA4cEwtVGlnQUM5YUxhQXR3UFl4dFg1MTdTUnJsMlRSUjE1bWdEN3lWTVMzRUZzY2Q3bTEw?oc=5",
       "trend_score": 4,
-      "fetched_at": "2026-09-19T07:56:31.033660+00:00"
+      "fetched_at": "2026-09-19T19:08:35.704482+00:00"
     },
     {
       "series_number": "TREND-29",
-      "topic": "Why do we stay afraid for so long when the brain\u2019s first alarm fires so fast?",
+      "topic": "The Brain Is Two Separate Organs Joined by Evolution",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPRkw1TU0yRE9MVTRtdkVObTlEaXBRbmNRNzV4dUFTaFZXSU9fakRJLWQ2RWZhVmlTTlNJTkhtNEtoblFaMUp1VmVzU3NQM1p4X2d5TFN6emV6SlBicDgtWUoySXpvRnZWOFhjSU1qZ2xqNVNKVS14RHVOVHF0N25XOWlWR1pNMDdsX1doMFd0YnkteWttM0xVdVJnRWpmYzVacGYzaFRjRzNpRHppcFlB?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBhZ3lFTlpjWm1oSnJiU2JxcXlHZFdaVkdkNHVFY1c0UHUwOTB0c3NrZDAtRmRESmFiQmlnY3lUOTNQZ1ZOSkVPeWZFX25XS3N2dEdVZjlxbEJPT1p1VUliWmliV2RnVFprSlpueWJJMUJyV2Y4YUE?oc=5",
       "trend_score": 4,
-      "fetched_at": "2026-09-19T07:56:31.033666+00:00"
+      "fetched_at": "2026-09-19T19:08:35.704486+00:00"
     },
     {
       "series_number": "TREND-30",
-      "topic": "The 32 best early fall bedding and sleep deals to shop now, from Brooklinen to that viral Mellow pillow",
+      "topic": "Emulating Memory Access",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQM1lmOE5CQ0VRYWtZenVOOFM2U25rRS1ENHVLVzlfTHBLS2FDUmtNUFlSTFoyY282d0VaVGNWT0t2MXNTN2VwU2VXeDY0R0RnN0c1bFVLZU9SQzdndnM3emh3V3pnMnZ4SVI4VWhJNHBDMFRUaGx4YkJud1hGWVBTbFlTWjNhZ2lUMlMyR1lR?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOTTM4S09KQXMya015Q1NSbmZzakNQeXVCZUhHYXdfOUNUaGxpcmdEaVM1em4zVmJUbTk0QVRwNmFwdWJrV0kzMGRzalZSc2U2VDJocDJqSlBaT2JXTU1lWk9XS1pNam1xZUx6cUdfdnVfODNnbHR0b0trNmNTelc4Vg?oc=5",
       "trend_score": 4,
-      "fetched_at": "2026-09-19T07:56:31.033671+00:00"
+      "fetched_at": "2026-09-19T19:08:35.704489+00:00"
     }
   ],
   "source_errors": []
