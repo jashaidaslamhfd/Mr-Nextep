@@ -2,7 +2,7 @@
 # day mean an upstream release can take production down with no change on our side.
 # Dependabot (.github/dependabot.yml) proposes upgrades as reviewable PRs instead.
 Pillow==12.3.0
-python-dotenv==1.1.1
+python-dotenv==1.2.3
 google-api-python-client==2.200.0
 google-auth==2.41.1
 google-auth-oauthlib==1.2.2
