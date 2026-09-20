@@ -1307,7 +1307,7 @@
   },
   {
     "created_at": "2026-09-20T19:16:35.974503+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Mothers and teen sons team up Saturday to build beds with Sleep in Heavenly Peace",
     "title": "Mothers and teen sons team up Saturday to build beds with Sleep in Heavenly Peace",
     "video_path": "output/mr_nextep_short.mp4",
@@ -1339,6 +1339,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "7aef1700ce41704de556c210927f4978faa1d8b058d20e8123ce3fa74c8154e6",
     "body": "Why building a bed feels like a nap Moms and teens build beds together They claim faster, deeper sleep afterward Purpose releases dopamine, drops cortisol levels Chemicals calm the brain's sleep switch Teamwork signals safety, triggers sleep rhythm Try building together for better rest That’s the hidden sleep hack",
-    "text": "Mothers and teen sons team up Saturday to build beds with Sleep in Heavenly Peace Why building a bed feels like a nap Moms and teens build beds together They claim faster, deeper sleep afterward Purpose releases dopamine, drops cortisol levels Chemicals calm the brain's sleep switch Teamwork signals safety, triggers sleep rhythm Try building together for better rest That’s the hidden sleep hack"
+    "text": "Mothers and teen sons team up Saturday to build beds with Sleep in Heavenly Peace Why building a bed feels like a nap Moms and teens build beds together They claim faster, deeper sleep afterward Purpose releases dopamine, drops cortisol levels Chemicals calm the brain's sleep switch Teamwork signals safety, triggers sleep rhythm Try building together for better rest That’s the hidden sleep hack",
+    "youtube_video_id": "ngLSuBZ_vOU",
+    "url": "https://youtu.be/ngLSuBZ_vOU",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "published",
+        "id": "1601727698369308",
+        "format": "reels"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18139340650657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
+      }
+    }
   }
 ]
