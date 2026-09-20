@@ -1295,5 +1295,21 @@
     "title": "Mothers and teen sons team up Saturday to build beds with Sleep in Heavenly Peace",
     "body": "Why building a bed feels like a nap Moms and teens build beds together They claim faster, deeper sleep afterward Purpose releases dopamine, drops cortisol levels Chemicals calm the brain's sleep switch Teamwork signals safety, triggers sleep rhythm Try building together for better rest That’s the hidden sleep hack",
     "text": "Mothers and teen sons team up Saturday to build beds with Sleep in Heavenly Peace Why building a bed feels like a nap Moms and teens build beds together They claim faster, deeper sleep afterward Purpose releases dopamine, drops cortisol levels Chemicals calm the brain's sleep switch Teamwork signals safety, triggers sleep rhythm Try building together for better rest That’s the hidden sleep hack"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "7d5b2afc008bc2161056206ec09e3f3f2755526991829a29d8965e3fa6db8396",
+    "title": "Dozens at Kansas State Fair honor boy who died of brain cancer",
+    "body": "A fair turned into a memory machine Candles, songs, Ferris wheel projection Strangers felt his presence Our brain fills missing pieces AI uses the same shortcut Predictive wiring drives perception Collective hallucination mirrors AI Your mind completes stories, too",
+    "text": "Dozens at Kansas State Fair honor boy who died of brain cancer A fair turned into a memory machine Candles, songs, Ferris wheel projection Strangers felt his presence Our brain fills missing pieces AI uses the same shortcut Predictive wiring drives perception Collective hallucination mirrors AI Your mind completes stories, too"
   }
 ]

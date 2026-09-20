@@ -1354,5 +1354,41 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18139340650657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
       }
     }
+  },
+  {
+    "created_at": "2026-09-20T23:40:41.416417+00:00",
+    "status": "pending",
+    "topic": "Dozens at Kansas State Fair honor boy who died of brain cancer",
+    "title": "Dozens at Kansas State Fair honor boy who died of brain cancer",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "448e421ab240d77f67a6c6d4e946003fd6bdba6f3d4343baf7bdccf0b30fb56c",
+      "dbc679d9ebbe158aac7b326fb770130eef1efac04aead7f3476f7ad244f9b8d1",
+      "49ca1cf4e5f946ae7d79a2bb74e07b03cc7f3669843380dca62395471e34b2cf",
+      "00f8a5badf2421da958269999df6341666ece7c7aafb029ee3c17a7acd8fb2cb",
+      "86784a58b7b2aef0f7b1ab8191f46df3d6d4df5e54dcab9fe768c9fa20346cf6",
+      "59096d12bf4e51daa02d322c96ba10e4639fcc0c5b6cd303685ffcb2bd433e85",
+      "e983163a499bdc2cdb02ed591516c798f6c733262d1e6188c70c45896f5fbb30",
+      "15e3381bfb950870182122693cb8c5bc3f6d10b33b13a10de689cc7f4dc7d6d3"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "archetype": "SENSORY_ILLUSION",
+    "width": 1080,
+    "height": 1920,
+    "duration": 22.522721,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "7d5b2afc008bc2161056206ec09e3f3f2755526991829a29d8965e3fa6db8396",
+    "body": "A fair turned into a memory machine Candles, songs, Ferris wheel projection Strangers felt his presence Our brain fills missing pieces AI uses the same shortcut Predictive wiring drives perception Collective hallucination mirrors AI Your mind completes stories, too",
+    "text": "Dozens at Kansas State Fair honor boy who died of brain cancer A fair turned into a memory machine Candles, songs, Ferris wheel projection Strangers felt his presence Our brain fills missing pieces AI uses the same shortcut Predictive wiring drives perception Collective hallucination mirrors AI Your mind completes stories, too"
   }
 ]
