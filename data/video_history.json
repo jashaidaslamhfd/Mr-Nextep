@@ -1254,5 +1254,41 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18139185823657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
       }
     }
+  },
+  {
+    "created_at": "2026-09-20T08:27:49.672626+00:00",
+    "status": "pending",
+    "topic": "‘Walk for Thought’ raises funds for brain injury program",
+    "title": "‘Walk for Thought’ raises funds for brain injury program",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "504a9dac1e3da52d61b20b748f4689f9edaf8042d7842f2a4736a5637e00c156",
+      "f6485ba0efa597bb67ea37ba8e36d9df677d9fd5113bbc791b623139f40e7d1c",
+      "763aa1927dc8a64140066756497363e8c50b8914576c2040e65464e23b7a0f14",
+      "02a12db736e391c8030dae29e81669be6dd7aac5604fa392caecf1b9c421c68b",
+      "7158c36e2b359634a6b1b5cda5ae95ebb83c206d48074f662eb98f53dec36287",
+      "25ea13736e3f5b1b82fbf379125cb51360e1eb940175035512c070ee0437c267",
+      "377cb408d63c713d907b81b19e868361cffa01688acd30a5260b758954e1daa7",
+      "09696f8da389d819922f130989f80f3207a3eeb5dac8c4f53b17edf8a500c00c"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 22.503628,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "554bf078befd0c690bf7cef2fecf33cdf69b2b9e477a16ea7fddc99aa8b53587",
+    "body": "Your steps could heal a brain Walking supports injured brains directly Why does a stroll aid recovery? Exercise spikes BDNF, the brain's fertilizer BDNF improves memory and mood after injury More blood flow feeds damaged neurons Each mile funds research and healing Your next walk may rewire a brain",
+    "text": "‘Walk for Thought’ raises funds for brain injury program Your steps could heal a brain Walking supports injured brains directly Why does a stroll aid recovery? Exercise spikes BDNF, the brain's fertilizer BDNF improves memory and mood after injury More blood flow feeds damaged neurons Each mile funds research and healing Your next walk may rewire a brain"
   }
 ]
