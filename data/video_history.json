@@ -1357,7 +1357,7 @@
   },
   {
     "created_at": "2026-09-20T23:40:41.416417+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Dozens at Kansas State Fair honor boy who died of brain cancer",
     "title": "Dozens at Kansas State Fair honor boy who died of brain cancer",
     "video_path": "output/mr_nextep_short.mp4",
@@ -1389,6 +1389,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "7d5b2afc008bc2161056206ec09e3f3f2755526991829a29d8965e3fa6db8396",
     "body": "A fair turned into a memory machine Candles, songs, Ferris wheel projection Strangers felt his presence Our brain fills missing pieces AI uses the same shortcut Predictive wiring drives perception Collective hallucination mirrors AI Your mind completes stories, too",
-    "text": "Dozens at Kansas State Fair honor boy who died of brain cancer A fair turned into a memory machine Candles, songs, Ferris wheel projection Strangers felt his presence Our brain fills missing pieces AI uses the same shortcut Predictive wiring drives perception Collective hallucination mirrors AI Your mind completes stories, too"
+    "text": "Dozens at Kansas State Fair honor boy who died of brain cancer A fair turned into a memory machine Candles, songs, Ferris wheel projection Strangers felt his presence Our brain fills missing pieces AI uses the same shortcut Predictive wiring drives perception Collective hallucination mirrors AI Your mind completes stories, too",
+    "youtube_video_id": "L8b5dyLwnqY",
+    "url": "https://youtu.be/L8b5dyLwnqY",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "published",
+        "id": "1813425783438773",
+        "format": "reels"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18139361851657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
+      }
+    }
   }
 ]
