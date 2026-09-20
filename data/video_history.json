@@ -1304,5 +1304,41 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18139251748657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
       }
     }
+  },
+  {
+    "created_at": "2026-09-20T19:16:35.974503+00:00",
+    "status": "pending",
+    "topic": "Mothers and teen sons team up Saturday to build beds with Sleep in Heavenly Peace",
+    "title": "Mothers and teen sons team up Saturday to build beds with Sleep in Heavenly Peace",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "51b59e865af2294793e14d718d4e271cf5e553bf7f339db2d4ccce695f964450",
+      "a4ed48463210eef8d26cc2c44450d093b7fbb71cbfad1e58adc9720c302e2130",
+      "e6f9931623785b00a1c65899ed241825668bf17da5fa104c4da10e2b83ab2585",
+      "89073ea5a5b2881069fbc8268fc759b2a868f1ceb218618784431949ee1b23ae",
+      "68966fe710b3747ee6c62661491351617a39aa9419970b0b5c856e80fed995c4",
+      "0b318f6efbe611ee523d11e19d38dcf8dde7472078add4a0d892d210e732995b",
+      "f9a4854ff66a5b6b332baf3b680b44b8c8f369f273b8cd96502306d93454c9b8",
+      "6ad36449ea6af51ec67ad202975487a8dd274a0306e569562543d137d1243378"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "archetype": "SLEEP_TERROR",
+    "width": 1080,
+    "height": 1920,
+    "duration": 22.507029,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "7aef1700ce41704de556c210927f4978faa1d8b058d20e8123ce3fa74c8154e6",
+    "body": "Why building a bed feels like a nap Moms and teens build beds together They claim faster, deeper sleep afterward Purpose releases dopamine, drops cortisol levels Chemicals calm the brain's sleep switch Teamwork signals safety, triggers sleep rhythm Try building together for better rest That’s the hidden sleep hack",
+    "text": "Mothers and teen sons team up Saturday to build beds with Sleep in Heavenly Peace Why building a bed feels like a nap Moms and teens build beds together They claim faster, deeper sleep afterward Purpose releases dopamine, drops cortisol levels Chemicals calm the brain's sleep switch Teamwork signals safety, triggers sleep rhythm Try building together for better rest That’s the hidden sleep hack"
   }
 ]
