@@ -1407,7 +1407,7 @@
   },
   {
     "created_at": "2026-09-21T08:47:17.682609+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Matthew Donovan suffers severe brain injury",
     "title": "Matthew Donovan suffers severe brain injury",
     "video_path": "output/mr_nextep_short.mp4",
@@ -1439,6 +1439,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "3dca59a16be1b3b92dd4c5f56491a7319f3515ebab076d38aff53fe595d75c46",
     "body": "Brain injury, yet he talks fluently Doctors expected silence, not chatter But his words were… wrong His brain was inventing reality A predictive brain, like a model When data gaps appear, it guesses Result: vivid false memories, confident lies So his fluent talk was the brain’s guesswork",
-    "text": "Matthew Donovan suffers severe brain injury Brain injury, yet he talks fluently Doctors expected silence, not chatter But his words were… wrong His brain was inventing reality A predictive brain, like a model When data gaps appear, it guesses Result: vivid false memories, confident lies So his fluent talk was the brain’s guesswork"
+    "text": "Matthew Donovan suffers severe brain injury Brain injury, yet he talks fluently Doctors expected silence, not chatter But his words were… wrong His brain was inventing reality A predictive brain, like a model When data gaps appear, it guesses Result: vivid false memories, confident lies So his fluent talk was the brain’s guesswork",
+    "youtube_video_id": "fH6RPrKiiNw",
+    "url": "https://youtu.be/fH6RPrKiiNw",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "published",
+        "id": "1746319996584969",
+        "format": "reels"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18139413502657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
+      }
+    }
   }
 ]
