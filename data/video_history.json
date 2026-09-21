@@ -1457,7 +1457,7 @@
   },
   {
     "created_at": "2026-09-21T20:47:09.686094+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Overnight Therapy? The Role of Sleep in Emotional Brain Processing",
     "title": "Overnight Therapy? The Role of Sleep in Emotional Brain Processing",
     "video_path": "output/mr_nextep_short.mp4",
@@ -1489,6 +1489,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "23103ead8036a1fb78fce13b1826012d54427bd16fed267572880f287195e6da",
     "body": "Woke up lighter after nightmare? Brain rewrites emotions overnight How does sleep soothe hurt feelings? AI finds amygdala quiets in REM Tagging memory as less threatening Nightly emotional reset mechanism Your brain is a silent therapist Wake up lighter after nightmare rewrite",
-    "text": "Overnight Therapy? The Role of Sleep in Emotional Brain Processing Woke up lighter after nightmare? Brain rewrites emotions overnight How does sleep soothe hurt feelings? AI finds amygdala quiets in REM Tagging memory as less threatening Nightly emotional reset mechanism Your brain is a silent therapist Wake up lighter after nightmare rewrite"
+    "text": "Overnight Therapy? The Role of Sleep in Emotional Brain Processing Woke up lighter after nightmare? Brain rewrites emotions overnight How does sleep soothe hurt feelings? AI finds amygdala quiets in REM Tagging memory as less threatening Nightly emotional reset mechanism Your brain is a silent therapist Wake up lighter after nightmare rewrite",
+    "youtube_video_id": "-y-0Dx7ilOA",
+    "url": "https://youtu.be/-y-0Dx7ilOA",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "published",
+        "id": "1087088927142522",
+        "format": "reels"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18139505524657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
+      }
+    }
   }
 ]
