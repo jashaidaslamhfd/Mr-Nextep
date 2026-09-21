@@ -1404,5 +1404,41 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18139361851657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
       }
     }
+  },
+  {
+    "created_at": "2026-09-21T08:47:17.682609+00:00",
+    "status": "pending",
+    "topic": "Matthew Donovan suffers severe brain injury",
+    "title": "Matthew Donovan suffers severe brain injury",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "c7a9638fdd880def00a1f507a2fb2b4a40b5e190d8c4fac8c750cb4ec1cbd190",
+      "229944a7e8b050a7b493c085b414fa0ebc9a4bd920e1a9e7e38e56bfca19dd3c",
+      "1a90de0a9bce826e6adc84967add7f52c0293d6b642bab42646e582eb53111e7",
+      "0993db05c36aac775cb3521c57cd6d970a03a7e8f9177b309ad4e60bec74b57c",
+      "04354e3d21fc30118866e6dd027fcaa04df50e55d2a0807c70a5dbd875562d66",
+      "7c3d0d0abadefbfee6c3726e18d2b1276c632c3ef468ae91037a8b057600b85a",
+      "160ea1f755ebb4178b260947fb3f5fd6dc7ca8da6ec4aae9e9b3c745253e56a8",
+      "cfb980c81e97aa515db08910ff0fa300ef9163ecc4cb6f9937ad8d87cfc1815e"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 22.501361,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "3dca59a16be1b3b92dd4c5f56491a7319f3515ebab076d38aff53fe595d75c46",
+    "body": "Brain injury, yet he talks fluently Doctors expected silence, not chatter But his words were… wrong His brain was inventing reality A predictive brain, like a model When data gaps appear, it guesses Result: vivid false memories, confident lies So his fluent talk was the brain’s guesswork",
+    "text": "Matthew Donovan suffers severe brain injury Brain injury, yet he talks fluently Doctors expected silence, not chatter But his words were… wrong His brain was inventing reality A predictive brain, like a model When data gaps appear, it guesses Result: vivid false memories, confident lies So his fluent talk was the brain’s guesswork"
   }
 ]
