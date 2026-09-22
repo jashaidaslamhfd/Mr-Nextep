@@ -1557,7 +1557,7 @@
   },
   {
     "created_at": "2026-09-22T20:02:46.308647+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Brain Health Rooms Give Students Space to Pause, Regulate and Return",
     "title": "Brain Health Rooms Give Students Space to Pause, Regulate and Return",
     "video_path": "output/mr_nextep_short.mp4",
@@ -1589,6 +1589,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "9da448820835b6565cd2ed05821a7850b1d6ba0588009f1b196c9376ba94fed8",
     "body": "The secret behind quiet rooms Students step into a brain‑reset zone Five minutes, then they feel refreshed Low sensory input triggers the vagus nerve Result? Sharper focus and calmer mood Brain waves shift from beta to alpha AI analysis shows cortisol dropping quickly That empty room is a brain reset",
-    "text": "Brain Health Rooms Give Students Space to Pause, Regulate and Return The secret behind quiet rooms Students step into a brain‑reset zone Five minutes, then they feel refreshed Low sensory input triggers the vagus nerve Result? Sharper focus and calmer mood Brain waves shift from beta to alpha AI analysis shows cortisol dropping quickly That empty room is a brain reset"
+    "text": "Brain Health Rooms Give Students Space to Pause, Regulate and Return The secret behind quiet rooms Students step into a brain‑reset zone Five minutes, then they feel refreshed Low sensory input triggers the vagus nerve Result? Sharper focus and calmer mood Brain waves shift from beta to alpha AI analysis shows cortisol dropping quickly That empty room is a brain reset",
+    "youtube_video_id": "_Z3BqDj-6_Q",
+    "url": "https://youtu.be/_Z3BqDj-6_Q",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "published",
+        "id": "1883654746331313",
+        "format": "reels"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18139663540657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
+      }
+    }
   }
 ]
