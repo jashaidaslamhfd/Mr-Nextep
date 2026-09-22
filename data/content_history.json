@@ -1343,5 +1343,21 @@
     "title": "Overnight Therapy? The Role of Sleep in Emotional Brain Processing",
     "body": "Woke up lighter after nightmare? Brain rewrites emotions overnight How does sleep soothe hurt feelings? AI finds amygdala quiets in REM Tagging memory as less threatening Nightly emotional reset mechanism Your brain is a silent therapist Wake up lighter after nightmare rewrite",
     "text": "Overnight Therapy? The Role of Sleep in Emotional Brain Processing Woke up lighter after nightmare? Brain rewrites emotions overnight How does sleep soothe hurt feelings? AI finds amygdala quiets in REM Tagging memory as less threatening Nightly emotional reset mechanism Your brain is a silent therapist Wake up lighter after nightmare rewrite"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "8295813cbe036c8f9412674922872fba8fe7348ec6c645e5575acec3e4ba016b",
+    "title": "Sleep deprivation, vigilant attention, and brain function",
+    "body": "Can't sleep? Your brain's on guard Even random AI answers feel convincing Your vigilance is misfiring Sleep loss amplifies prediction errors You trust AI mistakes more The brain treats confidence as certainty So coffee can't fix AI trust Sleep restores your skepticism",
+    "text": "Sleep deprivation, vigilant attention, and brain function Can't sleep? Your brain's on guard Even random AI answers feel convincing Your vigilance is misfiring Sleep loss amplifies prediction errors You trust AI mistakes more The brain treats confidence as certainty So coffee can't fix AI trust Sleep restores your skepticism"
   }
 ]
