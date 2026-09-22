@@ -1507,7 +1507,7 @@
   },
   {
     "created_at": "2026-09-22T08:26:28.354380+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Sleep deprivation, vigilant attention, and brain function",
     "title": "Sleep deprivation, vigilant attention, and brain function",
     "video_path": "output/mr_nextep_short.mp4",
@@ -1539,6 +1539,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "8295813cbe036c8f9412674922872fba8fe7348ec6c645e5575acec3e4ba016b",
     "body": "Can't sleep? Your brain's on guard Even random AI answers feel convincing Your vigilance is misfiring Sleep loss amplifies prediction errors You trust AI mistakes more The brain treats confidence as certainty So coffee can't fix AI trust Sleep restores your skepticism",
-    "text": "Sleep deprivation, vigilant attention, and brain function Can't sleep? Your brain's on guard Even random AI answers feel convincing Your vigilance is misfiring Sleep loss amplifies prediction errors You trust AI mistakes more The brain treats confidence as certainty So coffee can't fix AI trust Sleep restores your skepticism"
+    "text": "Sleep deprivation, vigilant attention, and brain function Can't sleep? Your brain's on guard Even random AI answers feel convincing Your vigilance is misfiring Sleep loss amplifies prediction errors You trust AI mistakes more The brain treats confidence as certainty So coffee can't fix AI trust Sleep restores your skepticism",
+    "youtube_video_id": "wNFxIMuLtsA",
+    "url": "https://youtu.be/wNFxIMuLtsA",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "published",
+        "id": "1825020698933227",
+        "format": "reels"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18139573627657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
+      }
+    }
   }
 ]
