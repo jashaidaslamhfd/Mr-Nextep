@@ -1,7 +1,0 @@
-{
-  "key_present": true,
-  "key_fingerprint": "(len=56, gsk_...ypSC)",
-  "http_status": 403,
-  "error_body": "error code: 1010\n",
-  "verdict": "key REJECTED by Groq"
-}
