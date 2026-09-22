@@ -1554,5 +1554,41 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18139573627657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
       }
     }
+  },
+  {
+    "created_at": "2026-09-22T20:02:46.308647+00:00",
+    "status": "pending",
+    "topic": "Brain Health Rooms Give Students Space to Pause, Regulate and Return",
+    "title": "Brain Health Rooms Give Students Space to Pause, Regulate and Return",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "ec243f9152e14f73c2de8ac48dede99821f723c6029c5dbcf0d5bc1503ed5498",
+      "2d048b19b06326b79fd4751430f4e083763cf327e7f631350dd2c620d84cf629",
+      "ce2fbcb8da74305f59c5145d213fe5df11f36be94d2a97266fac3bca26e92edd",
+      "7d0a4f93804d6a0cd5e077301fc0920cba0304e2e873217892eaa2c36eadf65a",
+      "73a5da74bf35f14e8c0840d544bff326b2ea5a7eb0940d0e9a2e16c16601109e",
+      "0124aeea0dc319f8aa0a8c44776e1bdf761f996fd605c86498aba7baca19e4c2",
+      "8c8694756392a056f9db46863efc8fb186a7ffdb29a07f3e6358ec79fdc4ee53",
+      "f68bd20edce2d7ae17c144572aaf6313793db533d274565bd08ed4290e183433"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 22.511882,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "9da448820835b6565cd2ed05821a7850b1d6ba0588009f1b196c9376ba94fed8",
+    "body": "The secret behind quiet rooms Students step into a brain‑reset zone Five minutes, then they feel refreshed Low sensory input triggers the vagus nerve Result? Sharper focus and calmer mood Brain waves shift from beta to alpha AI analysis shows cortisol dropping quickly That empty room is a brain reset",
+    "text": "Brain Health Rooms Give Students Space to Pause, Regulate and Return The secret behind quiet rooms Students step into a brain‑reset zone Five minutes, then they feel refreshed Low sensory input triggers the vagus nerve Result? Sharper focus and calmer mood Brain waves shift from beta to alpha AI analysis shows cortisol dropping quickly That empty room is a brain reset"
   }
 ]

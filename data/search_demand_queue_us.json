@@ -1,246 +1,246 @@
 {
   "source": "Google Trends US + US science RSS",
-  "mined_at": "2026-09-22T08:24:43.945033+00:00",
+  "mined_at": "2026-09-22T20:00:15.017544+00:00",
   "topics": [
     {
       "series_number": "TREND-1",
+      "topic": "Stress Hormone Cortisol Rewires the Brain to Strengthen Emotional Memories",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQaXZXU2ttLXI1ZkNZZ0VwRnVWUXJhTU1LTENiVXlDcndqY3c4YmVON0Q5aTJYVG5PeDFBZmZ3dkh3SllSeDdRSkpvTXZ3WlU2YWlFMi1OcWhfa0ZlWDNTR0VhUUpsTVZGcEdTUzh6RVYzMXJWbHNNd2pvM2JLazRuOEhMbWdCeVF4Ull4Y2paRk9ocGt5Z1ZGdmxNRjhtWS14bmc?oc=5",
+      "trend_score": 10,
+      "fetched_at": "2026-09-22T20:00:15.017448+00:00"
+    },
+    {
+      "series_number": "TREND-2",
       "topic": "Overnight Therapy? The Role of Sleep in Emotional Brain Processing",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9BSktHeEJiYzAyeFAxMERDeE5MSmJUSGxnWXFVQXRpSS1QRENacTkxUGFyeEwySjJoY2pSN3lXVHdEaHlQcVYzMHpJS2w4OHRLdnZucEZWR0x1clRhNmc?oc=5",
       "trend_score": 10,
-      "fetched_at": "2026-09-22T08:24:43.944883+00:00"
+      "fetched_at": "2026-09-22T20:00:15.017461+00:00"
     },
     {
-      "series_number": "TREND-2",
+      "series_number": "TREND-3",
       "topic": "Sleep deprivation, vigilant attention, and brain function",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1CTnRLamR4U1U0VlpaZVNOVzBucWNSc25YQmlZYXg5OEYzWXNFd2lRQmd5LVI3TGdEYl9GMTROdHJ5ZFJFb0FvWkU4YV9Kb2wtTlZB?oc=5",
       "trend_score": 10,
-      "fetched_at": "2026-09-22T08:24:43.944899+00:00"
-    },
-    {
-      "series_number": "TREND-3",
-      "topic": "Everyday choices may shape brain health across a lifetime",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQRzJTYXlfZTA1NzM1WHBFeWdEekZGbVpoMEUyZ0NSdEFBOXJmWjNWV2U5NlV1WWhPbXJHWTE3VWdwMzVvMkxlUkFITl9oQmw0RUFMUEJrNHN2ZVpPVU91NDNZVWRLNE1Ycl9YYWlCdkRIVHhiSjB3ekxzREhtUGhXV0xWRnRNMUdjUHBZS3VlcEpsZw?oc=5",
-      "trend_score": 7,
-      "fetched_at": "2026-09-22T08:24:43.944905+00:00"
+      "fetched_at": "2026-09-22T20:00:15.017464+00:00"
     },
     {
       "series_number": "TREND-4",
-      "topic": "Want health in your old age? Get some sleep tonight",
+      "topic": "Brain Health Rooms Give Students Space to Pause, Regulate and Return",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQdjB3UmdmT2Z6Ym1UWFV4WXpDc09LYWJ5ZGRWdlhzdGtaNzRhd1J2anEwZDU0OU9XeHdKanlQc1FCdEZFM3FEN3lGdkJMMy1QS2oxVnVrQUh1SWk5RFN6c3FCUDRhVFFGdkxNa2dNdUIta0hoRXFtT2Nmb2J1NjRQMm5n?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNMTBTUGQySldhbmFLLUYzeUxTRVZYbnV5MUJEaktvRW5XWURrSnhBVHNjVERPS2tyREZwWTNqVU9pRGxmLW96eGxDMWpQem1va19RYTZJa3EzczN2a0o5OTh4TnRMc0Q1MkV5S1lpWDFNMVAxeldhQXhUUFI4SHg0TVFfM1BXR09nbVk4NVRseS16WDh5YXlVRmFGdUM3c0NqUmZ1dTRfdFhsaml1MlE1bQ?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-22T08:24:43.944909+00:00"
+      "fetched_at": "2026-09-22T20:00:15.017467+00:00"
     },
     {
       "series_number": "TREND-5",
-      "topic": "Brain Health WA resource aims to reduce dementia risk",
+      "topic": "Poor sleep health in late pregnancy linked to higher childhood obesity risk",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNdkR2R1c5TjJqUzNHWm5XV2tRb3Bzd0pkM25VbkJuV3huZmRGaG1EVThMNU1NS2FYQzJNMlZ0bWRzRW5pUWdRb0JoTV9qdFluNnZPZkpiLWtCTGI5OERSVnZiSVpBQ1RoenRlOHUwa1k3UUxsX0tkVUF1SkVPeUR0eXBVSTlmX2d6QXo2Y3J4TjBqTFBQWHhyVElTNUNkWXhFSWRv?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQR1luRnBFUTh3cDNpNFhoSTFyWWxQVnUxR2hENldvLTNaMmZLTlU5TmlDLWp1OEdPQUMtcklmbTdvWlJzYkFVV3FnU0Z1UU5fZXRGSW1XY0NrSkVCdXNZczJoTEJiTnhRQUtqSjFMNjZQVlJZdzBITlB5QzRkWUtuc3hyRUMyWmpGTV9VZ19PeW5IYTl0U3RMQzNvQUZDRG9COGVab09jWlBwaU9IaU83MG5iekxveVBlejFTdnNHano?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-22T08:24:43.944914+00:00"
+      "fetched_at": "2026-09-22T20:00:15.017470+00:00"
     },
     {
       "series_number": "TREND-6",
-      "topic": "Prenatal cannabis exposure linked to subtle brain and behavioral differences in children",
+      "topic": "Putting brain health on the to",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQd2NSalNKZm44eEdWOUpnOE5yS3RlLW5Db3gtVzJCbG1kUW9vMjVNYV9ZNGJzWGZ0WWNfcXVrdEsxVDhfdTRvRUN5NlVqM0l1QVJ2NkM2S3VMc2piRGUyOHQ0SEtvLWp5azJsNlhORUQ5TlRhb2ZWbTBMZkU2cTE2S2ZXZ3F1ZUpTWExjTGNBVkswWEM3ZjBEdG80cDJZNnpSRzFUM0dYYU11bDByNV9DcTlJWXk5QlQ2ZFQ1Y25OVkN5M2JlcW55ZlJhcURpOGJEeVE?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPbk1JSTNDM1dWM0pTTWJSSnhmR1BhTkt3dTUzWGFVcHFyRUc1dUMtZ2pQd1FRVFNYeHRVYjBpT2I3OEZBQTluaE02WXlvYWVWcmx0TGpuS2o5NU9fQmhGOTZpR2IxTTR2cjhubTluRlNMMGU0VThrLTc1S1RfS25FbTh3VS0yaEd2RnVnakg2dXJUTUVwel8zQ21kcFpKWi1kSHFNME5JZE1IUm5pMVZ6SmxFaG44ZXRMb3NqRVN6b2hQSTVSTnJ0SUhHdw?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-22T08:24:43.944919+00:00"
+      "fetched_at": "2026-09-22T20:00:15.017473+00:00"
     },
     {
       "series_number": "TREND-7",
-      "topic": "Brain health is focus on World Alzheimer's Day",
+      "topic": "Maintaining A Healthy Sleep Pattern",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPZDJjRHg4ZDFLa004cGdIcGJJR3RFcGI0VS13d21HNjV1ZHVka2c1ZG0tNDZDSFFlc1g1ckhBcFplODVFOERXZl9QNzBZX21oYWhpVFdpZFpOQ2FjTFJhbkhCR1ZIa2FBeEJlNjR4dXpzc1BfdnByUkxZT2VTVHlvZEg2NDFZN01NeDZHYm9ST0JPQXlRWThFcHV2cTZXZ0ZHUTFQZExDVUJsMWthTkd5Vl9vSmVXdG1TSG4xUWJ2Ums0WEUxMXc?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQVXlaVkR3cVlaYnJvWWJudkF1VHZiNHMxamdYTkQtZFdtajlsclBCdmV3VllvRXo0MjUxR2hwSXJlWWJMc2U0UVl6Nnl1MzJzbFM0VzExczhoa0dyNmxncWJWdmpxVzdMRWoxRm40TUFMOEpybE1pb0Flek11YTJXU0o0cVJTOW1EOHVFVno5eGx5czA3U04yNnR4NEpGbjg?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-22T08:24:43.944923+00:00"
+      "fetched_at": "2026-09-22T20:00:15.017475+00:00"
     },
     {
       "series_number": "TREND-8",
-      "topic": "Seniors receive brain healthy food on World Alzheimer's Day",
+      "topic": "Brain fog, daydreaming, low energy, and other signs of cognitive disengagement syndrome",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxQRzRPNWpMSnZJWG5wb3Jtb0NMSWFwSVBlQ1JsbjZLQ0QtTlZJYkhrMGlzcGV2SFdHNGZUcnpmX2FkRmpQTUVGbXpSR0s5WHFkZjB2WERZMG5nU3JFdlJSUF9kZnVMTXdqWnpaNy1LdjBxU19PSGtOOXBscEV3dDhGdXVuTmlIblRhNklKRjZSNWI1eHNBRkRmMjZHRDFsa3VMbGVOcFRQaWtERjlsUFNhRWVaakFzQ1NCa0NqNXl4UlRxaVZJZGM2djZwZFVTbDBBSGpJRlRxYlAxR1E?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPdVVRYnVLVE5aVGQzVkhYclZYRjl0SGRsQXhXbFJQRGNhel8xMmx6dm45di1UVy1aajhlbTFqZmdLZzkyaFktTzdpQnBOSHFxN3A3MUtjWGFsazFxS3YzMk9FT09jdzJfRnZtSlJsVzEzdFNKeVVtbFRfSVlobkhLMmhYS0ZMTUxmUllSc09fU3lNRkFQQUF2ckJkV25jUzg2MG1ueXp5RXItTjN0QjhhMFZKckJZdnNwRkh2aTNKcVBzajNNQXhGZFljVlo0YVVZZEhYdEZ3?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-22T08:24:43.944928+00:00"
+      "fetched_at": "2026-09-22T20:00:15.017478+00:00"
     },
     {
       "series_number": "TREND-9",
-      "topic": "Want to Preserve Your Memory as You Age? New Research Points to 1 Sleep Factor",
+      "topic": "Mira Launches Cortisol Pattern\u2122 Kit To Redefine Stress Tracking in Women's Health",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOQjdOS3FNeFlxbVNMWUM1dWVvaFZQLUswaXNCX01EVVQ2SlZMbVBUZnF4MFU5VkZKS0RoaldZTE9ZeV9ld2d6Q2ZtZXQ0SXktY2lOd0hyejJ2TkdqVDQ3dXpMM1RPbHEtSmo2c19yZmJxckkzYjR5aHFLU1lpdzJWQ3l2WjZYMzRzOHJZSVpBOV90aFlvUV9UMmotdnRtclRmX3puNjcyQ05FcGY2am9N?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNXzZYdkxWQmUtdXAtdG05NTI0MExub0pldnd4UVlmeHR1YmpKMnh2aHRUWWNCbUFBT2NicVdvZkJPWkRRUVRSRGxqNlk3X05kRjVpeFBnaUltREd4MWpWUUMya1ZCU3BLX1V1akhUazVwX3pzSjZMMlBuRFpNNGtCOXJuT3VzdGVYZHM1bkRJbjR2OXRjcjNRdEhEcXVldHpJMGJHajZKWWxMd1NLVDBaWFI2NF9pQVEzVFJRazJSbUlVdVhQVWJwMWkxVWZLOEJ0RDg2cWk0bw?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-22T08:24:43.944932+00:00"
+      "fetched_at": "2026-09-22T20:00:15.017481+00:00"
     },
     {
       "series_number": "TREND-10",
-      "topic": "Learning another language may be one of the best ways to keep your brain healthy as you age",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQV0RBRXZjUmlLN3J5YWtGMjhvTGE1bTlDTWo4RjEyV3c2NTFUclBGb29WcjdNa25fdUxnQlNER2NqNk5HNkI3TXd6bzlKcGNoZTRHcGEzMHZTWS15TVliMW9teDl1OXdZS3hWbjlMRnZ2aTFHZXo2c0ZYZVVnTmlyckpiU0UwWG9Td2pxVlNrd3BrNW9HaUUzdnNQbmcxSWJUVDdWRUJ0RWlwemxlMzBoYmFheVg2Wk9rN0xRMTJqN0FwUkVq?oc=5",
-      "trend_score": 7,
-      "fetched_at": "2026-09-22T08:24:43.944937+00:00"
-    },
-    {
-      "series_number": "TREND-11",
-      "topic": "How Your Environment May Be Affecting Stress Levels, Sleep & The Nervous System, According To Dr. Jess Tranchina",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxOemN6eERCTU14Y1hibWtFRmtlbE5wUm5obWxtNjE1ZjFNYnNIV3R4WXBmWTVzVnJjYTdqMHlpRUhGMDNFTTczN0kwTEt1aDN5NTNjYTlxTklia0hiQ1FmdWxhQU84SndxUVBnNjE0OFEyWk5DVlFkRllDTTRRaVl4RHVPaUpHNU1LZ0l6dE9DT29kQ0MwVHFKRXlSc3VNNkNHMXNaUXN2TkxuOW9WMTN2R0RPMEFMZ3FLNTJ0TTdPNHI1bUN5SFZINHdDUDhhMlZxRFdnMVJGektINXU3VjZqNtIB5gFBVV95cUxOODlUQUVReFgzeldrcFNWWTZkbHc5ZUotakEyX3FLZHMzclU1RkpqTHBDN0xhTENZQ1B5aGhCZlp3Ylk4bmJsNzdxZlF5MF8yYUhFbFlXaGtzN0JMaEF2SFRfRk1oendyam00VlVmMU9sTnhaaWZ3MEV6dmtDa0FQY3ZIMS1VRkdIbG5YckNMWXFpNmhJTVhwNnJmWFRFakVGZjQxdHNOaUJoWWRkNU5yVDJERVRVclpwSHRaREJTd1NSYVNZOG9ON3RDTWh2M25NNW43dW9WZzdXb0NMSXhVUGo0VldPdw?oc=5",
-      "trend_score": 7,
-      "fetched_at": "2026-09-22T08:24:43.944943+00:00"
-    },
-    {
-      "series_number": "TREND-12",
-      "topic": "Exploring the brain and behavior of children who struggle with math",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPVjByYzhzX3dtWkI1czJ0Ymt0cGNPeURDUmY2ZmpUcm5kaXBpUjlWTVl1REIyNHYwQlo3Z2JOeTZwVEFmaTNwSmI0eldwd2xlNEVEUVNuUDBkX2VELWpvTU9aNi1MQ0JQRW9aUGFpYVVGNWswS2Vaa29WcEYyOURjejVHdw?oc=5",
-      "trend_score": 7,
-      "fetched_at": "2026-09-22T08:24:43.944947+00:00"
-    },
-    {
-      "series_number": "TREND-13",
-      "topic": "This Free Nighttime Ritual Is Going Viral and Sleep Researchers Say There Is Science Behind It",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOMmVscGV1ekt5TjdqWkFmSEJvcVNkLVdFWUV1cThuVlRObnU5aldZTUg4Y2pseDJWb3VZMmE5WkRBa05GWEZCVUlxZU50eGE0X0RhN3FaQjJlVnJpOEloMWdkUnJSbGhwVDdxT2lMSnZXTkZ6dkV0S0swMEgzNVRyZFEtZ1lOeVNCRHJyZjNjOFZwSkJYQjZkbmxfREpGZw?oc=5",
-      "trend_score": 7,
-      "fetched_at": "2026-09-22T08:24:43.944952+00:00"
-    },
-    {
-      "series_number": "TREND-14",
-      "topic": "Drugs, Brains, and Behavior",
-      "source": "nih_news",
-      "source_url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPOFFTUUVtUGE1WDNBb2d3U1NzWGhkRnQ2SUlVWHAwRVRQeGFWODhrbm91YkU4WGwwSmVMczV5Q2I4dzRFSTF5WFVtZ0RsYUVCMVdMbFE4clUzM2RUem5xOXMxMHNKZnZKczVPSG9OaUd6RHlvbzVUdnZCeHhjSHB5WHhDaHNsREQ3eWlnQk5kWGxfejBINnB0NE91THY?oc=5",
-      "trend_score": 7,
-      "fetched_at": "2026-09-22T08:24:43.944956+00:00"
-    },
-    {
-      "series_number": "TREND-15",
       "topic": "How does inadequate sleep affect health?",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNNlg4eFlrdUlHazVGeklkOXU5TEhNQmkzTW50eUx2WnAtTllyM2xxNTVveGNoNkY4WDFwdkJLTi02M0ZqNEFLOXo1UmNRQS1qdFFTZmR2dE5oNWdBWExkdFYydE1WMnBKbnJZTFBpRWZYTWNUNXp0R1RocHJLem9iQVpR?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-22T08:24:43.944960+00:00"
+      "fetched_at": "2026-09-22T20:00:15.017483+00:00"
     },
     {
-      "series_number": "TREND-16",
+      "series_number": "TREND-11",
       "topic": "Chapter 12 Memory Impairments Associated with Stress and Aging",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5TOGM1Um1Pb2hYTnVSazcyNk1hTlYyTU9iaVF1MWV4YkphdG84d0h5bDRfR2NYT0VGQ2llTTFHTVFqOC1Gb0VYdlVDQ3RTQmpaN2VtdXJB?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-22T08:24:43.944964+00:00"
+      "fetched_at": "2026-09-22T20:00:15.017486+00:00"
     },
     {
-      "series_number": "TREND-17",
+      "series_number": "TREND-12",
       "topic": "Sleep drives metabolite clearance from the adult brain",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9NZjM0RXNpeE1raVlFclJ6ZTdqQ0dKLURSYUJnREd1TWNzZFhQTHExRUtCdElrY3ZEci1menRHSFNrUVp3RWxzSjJOSHNwZ3BEZ2pR?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-22T08:24:43.944968+00:00"
+      "fetched_at": "2026-09-22T20:00:15.017488+00:00"
     },
     {
-      "series_number": "TREND-18",
+      "series_number": "TREND-13",
       "topic": "The Global Problem of Insufficient Sleep and Its Serious Public Health Implications",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE0tN29MTjFScHctZlFWck5IWjNxeHh6VEgyeDhvVUJIcVAxamFPdW90ZWJyVVoyWlNwWF9oaGNJNjhnLUota2w4dlBvVlowcDUtUEtIMnpEWVE5UkdkWGc?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-22T08:24:43.944973+00:00"
+      "fetched_at": "2026-09-22T20:00:15.017490+00:00"
     },
     {
-      "series_number": "TREND-19",
+      "series_number": "TREND-14",
       "topic": "The Role of Slow Wave Sleep in Memory Processing",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9WRmlzS2dpNjc5dExPbzh1bTYwcWp4RTFCQ2dMWkY1LXl5MlFEb3hvREhjYWp0bFJMYjlhdG02ZmFId2lvQnBEdEl2bEJkZU9XZTJ5OVVMcFBBTFNsWWc?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-22T08:24:43.944977+00:00"
+      "fetched_at": "2026-09-22T20:00:15.017492+00:00"
     },
     {
-      "series_number": "TREND-20",
+      "series_number": "TREND-15",
       "topic": "Good Sleep for Good Health",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFA1eVJpLUkxXzI0Q3VqTEQ2NmMyQUEwMWxHbVBiekNsS0lZUVVfRG9US09Yb0JwVnZtSVN1dElFZkV6RXZGYkJ1OEZ6TUUwQnVjUVJ4Z3hKaEtoRF96VEhhcERwN1BwdUZvWW5j?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-22T08:24:43.944980+00:00"
+      "fetched_at": "2026-09-22T20:00:15.017494+00:00"
     },
     {
-      "series_number": "TREND-21",
+      "series_number": "TREND-16",
       "topic": "Improving sleep quality leads to better mental health",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1MUElwNUdiWU9MaHltZGxHem40VDJBQWh5ZE13S040bUNTbm5NNlRkUUJDUnEtWlpXUUg0VVdhcW4yWHRPTmtpSmJ4N3VWbG1acmt3MWNJazQtOHB0V3c?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-22T08:24:43.944984+00:00"
+      "fetched_at": "2026-09-22T20:00:15.017496+00:00"
+    },
+    {
+      "series_number": "TREND-17",
+      "topic": "Coffee doesn\u2019t have to keep you awake to disrupt your sleep",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBGMVhTam5na05MaUs3SFpUNXpuNTNTcUtTMlVJXzNCakhNdWJNSHpqem82b083VV8wbGhnNmUtTzFrVHB2RGRkSEN1N3hQX1ZMdkZtUk4xdWJBTUJLbUJaTWxXRXF2WVROTTZDNVFqYw?oc=5",
+      "trend_score": 4,
+      "fetched_at": "2026-09-22T20:00:15.017500+00:00"
+    },
+    {
+      "series_number": "TREND-18",
+      "topic": "FIU study finds brain differences linked to obesity risk in preschoolers",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOZExLUjZuR3BuajJsVXpyTVBSSm5vMFEwMmduQmpVaUt1Uzc5M29RcDNwYjJIX0NnemMwTlk1Y2pYMnZIeHNERUZiSVQwU2xuc2tvMzJGOUxqQW95VWEwZkYyRkw5eUQ2QWFRX1dubFIxYXhXNURXQ283TEpUNjdiaF93RVNMQjJ2cm9RcUNjLXVRYUxxLWZJMk1DUU9YQXM?oc=5",
+      "trend_score": 4,
+      "fetched_at": "2026-09-22T20:00:15.017503+00:00"
+    },
+    {
+      "series_number": "TREND-19",
+      "topic": "In Memory of Susan Rai, Who Served the Vera Institute of Justice for 40 Years",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxObTBEemtHSGh4c3p2RVpQSXdTUHV3cDFWUEtMM1NQa2kxb21pYjFvZFF2VEJZRHZXQkpzWHdOTGdheDB0Wmg1Ym1mNVJVSlFTU3VDVFRYVHZtM1dlcVFDUE02XzF5ZXZlcjg2dm5ib3BEeVhUSDFyS0JmaTd0cTViUnNCcFhfczMzOURFeFRla0RRbEhxYTlIZ3c5TnhhODFVSVJIcA?oc=5",
+      "trend_score": 4,
+      "fetched_at": "2026-09-22T20:00:15.017506+00:00"
+    },
+    {
+      "series_number": "TREND-20",
+      "topic": "New scientific research projects study heart/brain connection to migraines, headaches",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNbjZaaHk4NGdDbmZ0THFkYVI4aHZSUWlnS3YtOU1CZXA0X0w4V3FCSzNTczJwNDNxel9WeXl1NmUwNEVVcG53Yl9yM3FGeGVfc3RPMWNsXzJJQ2tEUGRjWk5UbFRfR1gwNG45R1JVQXd0ZG5mdlkwVWx3S2xkeGRpd3FKeWQ3aHFvS2czeWdpbmxUZEZXZEFzMXhEaVN6MmtGSU52dzlBTTFjUk5XcElDay1LbVJTUQ?oc=5",
+      "trend_score": 4,
+      "fetched_at": "2026-09-22T20:00:15.017509+00:00"
+    },
+    {
+      "series_number": "TREND-21",
+      "topic": "C.T.E. Can\u2019t Be Detected in the Living. New Brain Research Offers Hope.",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBPSUFwTGZGM0tmTlRVX2ExQno2VmZ4N1ZXZlFOT3BOZlJyY3U5VG5pOFR5UGNGZEwtZ2gxNGZHRnZDa3c0YnJKRlVBLWZHV1gtai1xem1zeC1KMGxXYVJNWlhtYlhyWlRacTdJWmw5cTJUOGIyVUxBcDZLd1FnUE0?oc=5",
+      "trend_score": 4,
+      "fetched_at": "2026-09-22T20:00:15.017513+00:00"
     },
     {
       "series_number": "TREND-22",
-      "topic": "A Prospective Cohort Study of Adolescents' Memory Performance and Individual Brain Dose of Microwave Radiation from Wireless Communication",
-      "source": "nih_news",
-      "source_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFAtSHRsZDZTemNPOWNSWXE0MzlWeGtLOWZuOG1oODRLU1A2NC1wQThZeWR5TGFmcGlCMVdxNVBQdC1tM1MyRjRUNk5HT3FpZlVSaE1V?oc=5",
-      "trend_score": 7,
-      "fetched_at": "2026-09-22T08:24:43.944989+00:00"
+      "topic": "Bone Density Linked with Brain Function",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNZzRDNldkZl9heHY1ZmdxaTd0ei1jNzEtekdjZ2dmNmdtVXNZbDVjNHBSRW9TLVFyTHA1QVkxVGRoYXI2VGlKTVhaSEhnaGhPYUNRTVRPOVZYdWE3ZnRKR3Q5ajQ3ZDNjWDhYRWlMUnNZZFlpdWQtVXBOamhsX1ZCZXFRWV92Tlk1YnlUcE4tLTJ6OFFtaFBGbDlxV2JzRm9kWjdYYl83NmFiUQ?oc=5",
+      "trend_score": 4,
+      "fetched_at": "2026-09-22T20:00:15.017515+00:00"
     },
     {
       "series_number": "TREND-23",
-      "topic": "Children's sleep linked to brain development",
-      "source": "nih_news",
-      "source_url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQTDhDZks5aHpLM0hCaFgtU2lIZFBna2JEd1BDWlVlM2o4WTcyWlBMNjRNcE9OYXRucHZBb0hXeUJXd0FuZEQ4dURQbzA4NThUY2ZrblNHaGpnT0hxX3FhSEhfVWg5M3ZLM2tNdHF6X0ZlcjJwVTUxSXNET1ZKS2RNUHVzSlk0WExlZjhtc2laZTlFeXpMYjRjSg?oc=5",
-      "trend_score": 7,
-      "fetched_at": "2026-09-22T08:24:43.944993+00:00"
-    },
-    {
-      "series_number": "TREND-24",
-      "topic": "National Institutes of Health Sleep Research Plan",
-      "source": "nih_news",
-      "source_url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE53enZ5SXoxLTU0ckV6aFdyQ2JzQm4tMVVHYzdUZEVacWpBSGxsM1BERnpmWVdHVGxuYkJsLXhhaXhFSmgwVjROVmRfbjc5dU82bG45NmJKbVg?oc=5",
-      "trend_score": 7,
-      "fetched_at": "2026-09-22T08:24:43.944997+00:00"
-    },
-    {
-      "series_number": "TREND-25",
-      "topic": "Youth Health in Focus",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5vTDBhc3FJNk5WdkFLYlM5TjlLNGRNN0tqV2tvWkN4MlFHNmNOSzJKNm1CdXByblA3dWI2b0ppcDc3a2tVM2JCaFV3eC1KRWNzUG9MNUpubU9qVldKRW5YMmppXzAtcC0x?oc=5",
-      "trend_score": 4,
-      "fetched_at": "2026-09-22T08:24:43.945001+00:00"
-    },
-    {
-      "series_number": "TREND-26",
       "topic": "Two parallel neural ectoderm progenitors contribute to the developing brain",
       "source": "google_news_us",
       "source_url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9RSU42djhfUVVwY043azRjS2NBRTluemtObF9uRHpBZ1F2OVVyV3Z3SHBMNUlXUV85UzA1aXJDTUNndE1sVjZUQ0VlVVhCQ0V3YnVVM0tIVnJHdFlOeGZr?oc=5",
       "trend_score": 4,
-      "fetched_at": "2026-09-22T08:24:43.945010+00:00"
+      "fetched_at": "2026-09-22T20:00:15.017518+00:00"
+    },
+    {
+      "series_number": "TREND-24",
+      "topic": "Eckerd College\u2019s new psychology professor, motivated by father\u2019s unidentified neurological disease, brings aging expertise to campus",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxPRjFYdFdIUmVLdVFmMTA0ZWxlVXRvcVRHWUpNd2NkMUo5XzdnQmZOQVZRVjc3NmdBY01wajk1UFNHOXpKOTJHZEduamp4M3Z0NUpBS1lLa0V3WVN0LURqVVBRanlLVE5uZGdNbFlwUEF1UElrNFVBTU5MMk5iNGlNR2dLNndHS0xnd2JxQUZocEZrR0tBN2F1MTVqdWFuQmV6Vlp4c3FSUjJsWlNjS3lwVDA2a3pDWGdsOUhZbHVlak4ybWZfbjQwVlRsQThRbHR4UWNJNWh2cGpUZ2c0S2xUNG82V243VDZYbENiVkNkTFNmajk0?oc=5",
+      "trend_score": 4,
+      "fetched_at": "2026-09-22T20:00:15.017523+00:00"
+    },
+    {
+      "series_number": "TREND-25",
+      "topic": "Researchers highlight how brain economy principles could transform clinical care",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQaHMzaDFnbHBqX2EwQ2g3MS1zNExoNWJwNTRJRjdFUHFLa0NOcnRILVU1ckFSMU9WZktYNk1KSzBJYWxIRXdRT1FFYnlqMUp0R2tYdFRwVjZ2ZkVoQl8xMFl6cWZHQ0dCVlIzUGRiZlFGMHRIbUVaZ25lQWFXNHJicC1lbUVlVDBfeEdrYnRoTWQ?oc=5",
+      "trend_score": 4,
+      "fetched_at": "2026-09-22T20:00:15.017526+00:00"
+    },
+    {
+      "series_number": "TREND-26",
+      "topic": "Low spinal bone density may predict faster brain aging",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOa2RwcXlPRmlDTUlWcFNfVF9iWENGU2lETlRMVWh2VEhfeUw4MGluV19tSFZCSHlCZHdlc1kxTE5adllYMjN6akZCb2ROSlJJRnFhV1ZVVWNoY1N5SHNfcDVqLWlZa0NtUUlVaWU5eWlQOXltUjd4UE10dE1NVGtUaEpOZy1pLVFrV1EwZ0dVUzVlbDBweWJnNWtaWFBySUs2SkhGdA?oc=5",
+      "trend_score": 4,
+      "fetched_at": "2026-09-22T20:00:15.017529+00:00"
     },
     {
       "series_number": "TREND-27",
-      "topic": "Brain scans reveal a possible cause of long COVID fatigue and brain fog",
+      "topic": "SFSU Psychology student Frankie Sanchez receives CSU Trustees\u2019 Award",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFA3a2xRbDExVmNjTEh3WXVyZmxBLXJwcTA0QzBGS3N1ZFhqVEtWc0o4Z3dLVHNYMldMUTVyN0dWS2RXU09rVnNvYXJ4SVlCcVZTTllvWE5hSVZ6b2k2SE9va1N1S0NHd0ViN1hVdEFFUQ?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNeWNYcE5nM1RnY3I2a2YyV2NvWFExYm95UkQ3dVZFaFJsNnppNW9QaHpwdVNjUHU2MThCUUktY2dPNXNfUWpUbFZDeFI1QllGOWNpcTZ3anVOMF9ZRmNIcFY1WEtYNzFrVTZBRl9aRTlkRkExUkR6MHNjYndpUmJLOThwQ2xLXzVnR1NIT0hiVjNESW5KZEhPS1dR?oc=5",
       "trend_score": 4,
-      "fetched_at": "2026-09-22T08:24:43.945015+00:00"
+      "fetched_at": "2026-09-22T20:00:15.017532+00:00"
     },
     {
       "series_number": "TREND-28",
-      "topic": "6 Insights We\u2019re Learning from Sleep Research That Could Change How You Age",
+      "topic": "Youth Health in Focus",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPV2xfdDIyUEUwekllbWtsUHlsTXZhcWJoeXJsNFRmQlEwelFWZFdkS3Q4d2tXMVgxUzBldTA0TGdYbEhKd045dklvNGRvSEtBd2U3djFKYmgyN0dFaDU4ME92a1N5X09qVlUyLWxsbG1IRDBqVHh5WnFNWlV5MmZhaFFfUnNtT2JpOGZodHptWl8tVVZhSkJoSG04RS1IeUdlZzBXLXRZRjBiUTQ?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5vTDBhc3FJNk5WdkFLYlM5TjlLNGRNN0tqV2tvWkN4MlFHNmNOSzJKNm1CdXByblA3dWI2b0ppcDc3a2tVM2JCaFV3eC1KRWNzUG9MNUpubU9qVldKRW5YMmppXzAtcC0x?oc=5",
       "trend_score": 4,
-      "fetched_at": "2026-09-22T08:24:43.945021+00:00"
+      "fetched_at": "2026-09-22T20:00:15.017534+00:00"
     },
     {
       "series_number": "TREND-29",
-      "topic": "How V7 gives AI agents institutional memory",
+      "topic": "Pace Undergraduate Psychology Jumps 34 Spots in 2027 U.S. News Rankings",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiQkFVX3lxTE5ydmNpUWd5Slg5OHl5ZXRsdTZzaE9ZMmF6LVpxWWRSSXhhQzJxelNfSGh6NEFMYkl2LTNZM3E4eGQ5Zw?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQckJtWXVjLUo5TjVaU2I0cUU0RVg1NEZaV2gzOEctZHdGbVBVdzJDOV9sWGNrNFVLR2oxZXcyR296N0tvMlFZbDc0aWtYTEI4a1VqRjY1YTNrazBlSThmTl93V2hOMDUwVUxjdVNRZnpTU0E4QnNkN29YdmJoYWw0aFhuUlQ4dVFIOTJIZHZWejRaQ3dGZjg0?oc=5",
       "trend_score": 4,
-      "fetched_at": "2026-09-22T08:24:43.945026+00:00"
+      "fetched_at": "2026-09-22T20:00:15.017537+00:00"
     },
     {
       "series_number": "TREND-30",
-      "topic": "The brain\u2019s own opioids help guide purposeful action",
+      "topic": "Roanoke makes list of best psychology programs in U.S. News & World Report",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOOVl1ZGVMZFZOZUNiampCdlNxendlcFF0SGtjaUxfYlFXZ2I0OW9mc3M0RUJIT3hIbmJYb2h4S3VNdV9TbWdJd0NnNkZlaDlieEc1UU54WG81MzdGMTI5TEVzakhmbUZpS0hXOTB5R1k0eXp5dDByTHVncTlVNUdfM1VmVk95cHRvOVlLOE85ZjctM0k?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNaEJ0VVpOMXNTS0xDQ2trQ2N4YkZaVDRoWXpoMFVxTFdXRENRZGFEZ0NHY0o2QVFoOVlOSEkxUDJiYlFFR0EyZDl5OGtia2JfRlhtX0xrbG5xR2VXSEIwTV9wUTdmcTBpTkVmWkRwRl91RWpJbENZNldJYVllX0FzWDNOTVpoNnM?oc=5",
       "trend_score": 4,
-      "fetched_at": "2026-09-22T08:24:43.945031+00:00"
+      "fetched_at": "2026-09-22T20:00:15.017542+00:00"
     }
   ],
   "source_errors": []

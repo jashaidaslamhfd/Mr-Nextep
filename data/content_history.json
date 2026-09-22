@@ -1359,5 +1359,21 @@
     "title": "Sleep deprivation, vigilant attention, and brain function",
     "body": "Can't sleep? Your brain's on guard Even random AI answers feel convincing Your vigilance is misfiring Sleep loss amplifies prediction errors You trust AI mistakes more The brain treats confidence as certainty So coffee can't fix AI trust Sleep restores your skepticism",
     "text": "Sleep deprivation, vigilant attention, and brain function Can't sleep? Your brain's on guard Even random AI answers feel convincing Your vigilance is misfiring Sleep loss amplifies prediction errors You trust AI mistakes more The brain treats confidence as certainty So coffee can't fix AI trust Sleep restores your skepticism"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "9da448820835b6565cd2ed05821a7850b1d6ba0588009f1b196c9376ba94fed8",
+    "title": "Brain Health Rooms Give Students Space to Pause, Regulate and Return",
+    "body": "The secret behind quiet rooms Students step into a brain‑reset zone Five minutes, then they feel refreshed Low sensory input triggers the vagus nerve Result? Sharper focus and calmer mood Brain waves shift from beta to alpha AI analysis shows cortisol dropping quickly That empty room is a brain reset",
+    "text": "Brain Health Rooms Give Students Space to Pause, Regulate and Return The secret behind quiet rooms Students step into a brain‑reset zone Five minutes, then they feel refreshed Low sensory input triggers the vagus nerve Result? Sharper focus and calmer mood Brain waves shift from beta to alpha AI analysis shows cortisol dropping quickly That empty room is a brain reset"
   }
 ]
