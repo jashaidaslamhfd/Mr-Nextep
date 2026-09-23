@@ -1,0 +1,23 @@
+== CPU-only torch (shared by both tools) ==
+== Cloning OpenVoice ==
+Cloning into 'OpenVoice'...
+  error: subprocess-exited-with-error
+  
+  × Getting requirements to build wheel did not run successfully.
+  │ exit code: 1
+  ╰─> [11 lines of output]
+      Package libavformat was not found in the pkg-config search path.
+      Perhaps you should add the directory containing `libavformat.pc'
+      to the PKG_CONFIG_PATH environment variable
+      Package 'libavformat', required by 'virtual:world', not found
+      Package 'libavcodec', required by 'virtual:world', not found
+      Package 'libavdevice', required by 'virtual:world', not found
+      Package 'libavutil', required by 'virtual:world', not found
+      Package 'libavfilter', required by 'virtual:world', not found
+      Package 'libswscale', required by 'virtual:world', not found
+      Package 'libswresample', required by 'virtual:world', not found
+      pkg-config could not find libraries ['avformat', 'avcodec', 'avdevice', 'avutil', 'avfilter', 'swscale', 'swresample']
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+ERROR: Failed to build 'av' when getting requirements to build wheel
