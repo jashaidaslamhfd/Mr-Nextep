@@ -1,0 +1,20 @@
+name: TEMP - Test avatar pipeline
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: write
+jobs:
+  test-avatar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+      - name: Install ffmpeg
+        run: sudo apt-get update -y && sudo apt-get install -y ffmpeg
+      - name: Set up avatar models (OpenVoice + SadTalker)
+        run: bash scripts/setup_avatar_models.sh
+      - name: Run avatar pipeline test
+        run: python scripts/test_avatar_pipeline.py
