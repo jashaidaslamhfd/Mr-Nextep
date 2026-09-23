@@ -16,9 +16,6 @@ cd "$THIRD_PARTY"
 echo "== CPU-only torch (shared by both tools) =="
 pip install --quiet torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
 
-echo "== 'av' (PyAV) — force the precompiled wheel, which bundles its own FFmpeg, to avoid a Cython/system-FFmpeg version mismatch when building from source =="
-pip install --quiet --only-binary=:all: "av"
-
 # ---------------------------------------------------------------------------
 # OpenVoice V2
 # ---------------------------------------------------------------------------
@@ -27,6 +24,11 @@ if [ ! -d "OpenVoice" ]; then
   git clone --depth 1 https://github.com/myshell-ai/OpenVoice.git
 fi
 cd OpenVoice
+# faster-whisper==0.9.0 (pinned in setup.py) transitively requires av==10.*, which has
+# no prebuilt wheel for current Python versions and fails to build from source (see
+# myshell-ai/OpenVoice#455). Relaxing this one pin is a known, community-confirmed fix;
+# a newer faster-whisper pulls in a modern av with prebuilt wheels instead.
+sed -i "s/'faster-whisper==0.9.0'/'faster-whisper>=1.0.2'/" setup.py
 pip install --quiet -e .
 pip install --quiet git+https://github.com/myshell-ai/MeloTTS.git
 python -m unidic download
