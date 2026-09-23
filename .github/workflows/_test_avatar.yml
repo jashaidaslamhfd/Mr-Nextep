@@ -15,6 +15,15 @@ jobs:
       - name: Install ffmpeg
         run: sudo apt-get update -y && sudo apt-get install -y ffmpeg
       - name: Set up avatar models (OpenVoice + SadTalker)
-        run: bash scripts/setup_avatar_models.sh
+        run: bash scripts/setup_avatar_models.sh 2>&1 | tee data/_avatar_test_setup.log
+      - name: Commit setup log (always, even on failure)
+        if: always()
+        run: |
+          mkdir -p data
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f data/_avatar_test_setup.log
+          git commit -m "chore: avatar setup log (debug)" || true
+          git push origin HEAD || true
       - name: Run avatar pipeline test
         run: python scripts/test_avatar_pipeline.py
