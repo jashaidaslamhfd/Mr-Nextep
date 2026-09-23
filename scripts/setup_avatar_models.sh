@@ -16,13 +16,8 @@ cd "$THIRD_PARTY"
 echo "== CPU-only torch (shared by both tools) =="
 pip install --quiet torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
 
-echo "== FFmpeg dev libraries (needed to build the 'av' package OpenVoice depends on) =="
-sudo apt-get update -y -qq
-sudo apt-get install -y -qq pkg-config libavformat-dev libavcodec-dev libavdevice-dev \
-  libavutil-dev libavfilter-dev libswscale-dev libswresample-dev
-# Install a prebuilt wheel first so the apt dev libs above are only a fallback,
-# not the primary path — much faster when a wheel is available for this runner.
-pip install --quiet "av>=11,<13" || echo "no prebuilt 'av' wheel matched; will build from source using the apt dev libs above"
+echo "== 'av' (PyAV) — force the precompiled wheel, which bundles its own FFmpeg, to avoid a Cython/system-FFmpeg version mismatch when building from source =="
+pip install --quiet --only-binary=:all: "av"
 
 # ---------------------------------------------------------------------------
 # OpenVoice V2
