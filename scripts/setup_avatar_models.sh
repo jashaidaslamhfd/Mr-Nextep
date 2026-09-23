@@ -35,8 +35,12 @@ python -m unidic download
 
 if [ ! -d "checkpoints_v2" ]; then
   echo "== Downloading OpenVoice V2 checkpoints =="
-  curl -sL -o checkpoints_v2.zip \
-    https://myshell-public-repo-hosting.s3.amazonaws.com/openvoice/checkpoints_v2_0417.zip
+  # The official README had a bucket-name typo for a while ("-hosting" vs "-host");
+  # try the corrected official URL first, fall back to a known HF mirror.
+  curl -sL --fail -o checkpoints_v2.zip \
+    https://myshell-public-repo-host.s3.amazonaws.com/openvoice/checkpoints_v2_0417.zip \
+    || curl -sL --fail -o checkpoints_v2.zip \
+    https://huggingface.co/kevinwang676/OpenVoice-v2/resolve/main/checkpoints_v2_0417.zip
   unzip -q checkpoints_v2.zip
   rm checkpoints_v2.zip
 fi
