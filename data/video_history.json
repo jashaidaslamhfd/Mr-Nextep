@@ -1607,7 +1607,7 @@
   },
   {
     "created_at": "2026-09-23T19:02:16.157012+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Heart attack deaths down 90%, but experts warn stress, poor sleep are fueling other heart conditions",
     "title": "Heart attack deaths down 90%, but experts warn stress, poor sleep are fueling other heart conditions",
     "video_path": "output/mr_nextep_short.mp4",
@@ -1639,6 +1639,7 @@
     "retention_proxy": 0.9,
     "fingerprint": "17e8db51635da86fe828c789e7dd0be76ee34a6f6dc0b86d04529462dba26df8",
     "body": "Your heart might be safer—until now Heart attacks down 90% worldwide Other heart conditions are climbing fast Stress and sleep loss are the culprits You could be silently at risk AI health apps use old data They miss stress‑related damage Screen safety isn’t the whole story",
-    "text": "Heart attack deaths down 90%, but experts warn stress, poor sleep are fueling other heart conditions Your heart might be safer—until now Heart attacks down 90% worldwide Other heart conditions are climbing fast Stress and sleep loss are the culprits You could be silently at risk AI health apps use old data They miss stress‑related damage Screen safety isn’t the whole story"
+    "text": "Heart attack deaths down 90%, but experts warn stress, poor sleep are fueling other heart conditions Your heart might be safer—until now Heart attacks down 90% worldwide Other heart conditions are climbing fast Stress and sleep loss are the culprits You could be silently at risk AI health apps use old data They miss stress‑related damage Screen safety isn’t the whole story",
+    "video": "output/mr_nextep_short.mp4"
   }
 ]
