@@ -8,3 +8,6 @@ output/*
 data/*
 !data/.gitkeep
 !data/*.json
+# OpenVoice/SadTalker are cloned + have multi-GB checkpoints downloaded at
+# runtime by scripts/setup_avatar_models.sh — never committed.
+third_party/
