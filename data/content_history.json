@@ -1423,5 +1423,21 @@
     "title": "Drugs, Brains, and Behavior",
     "body": "Your brain thinks drugs are friends Dopamine lights up friendship pathways Why the high feels lasting Drug cues bind to social memory Cravings mimic missing‑friend loneliness Ventral striatum teams with hippocampus Drug becomes a social surrogate Is your craving a lost friend?",
     "text": "Drugs, Brains, and Behavior Your brain thinks drugs are friends Dopamine lights up friendship pathways Why the high feels lasting Drug cues bind to social memory Cravings mimic missing‑friend loneliness Ventral striatum teams with hippocampus Drug becomes a social surrogate Is your craving a lost friend?"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "ab7c86233d8361e352ca6a8c54a6399f29530682b63605653c6d6a948c22612f",
+    "title": "The Men’s Health 2026 Sleep Awards",
+    "body": "Your phone just told you you slept perfectly The Sleep Awards crowned it flawless But you wake up feeling foggy Why trust that glowing number? AI confidence hijacks our judgment Brain treats confident output like truth Studies show we accept AI mistakes So the perfect score fooled you again",
+    "text": "The Men’s Health 2026 Sleep Awards Your phone just told you you slept perfectly The Sleep Awards crowned it flawless But you wake up feeling foggy Why trust that glowing number? AI confidence hijacks our judgment Brain treats confident output like truth Studies show we accept AI mistakes So the perfect score fooled you again"
   }
 ]

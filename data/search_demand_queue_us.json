@@ -1,246 +1,246 @@
 {
   "source": "Google Trends US + US science RSS",
-  "mined_at": "2026-09-24T08:17:45.881834+00:00",
+  "mined_at": "2026-09-24T20:15:24.655739+00:00",
   "topics": [
     {
       "series_number": "TREND-1",
-      "topic": "Researchers Discover Rare Cortical Neurons That Can Help Put the Brain to Sleep",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQRzdBRnMxNnJ2M09kYVlqTWxmdmNMeVFnM2ozWGMyY1NWM1YtTTZ3RFUwUlZ6WFd4dkxQenJ5ZS1RbXlrdmw4R2lUZDRJSHlydU4zVFRFa0JhSjFqLUxwMnFKdDlJeUZzRm1xZDNZMUFLMFNnSW5PRVN3b1B2VHJNQWZNMG4yaDcySWlvbHNXbXQyY2gyakxGOFo2V3B0VEY1bEw3dWdhNGpsekdDaG5MNk1UaHlLaFJjNlZ6Sm52V0lyT29Z?oc=5",
-      "trend_score": 10,
-      "fetched_at": "2026-09-24T08:17:45.881677+00:00"
-    },
-    {
-      "series_number": "TREND-2",
       "topic": "Overnight Therapy? The Role of Sleep in Emotional Brain Processing",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9BSktHeEJiYzAyeFAxMERDeE5MSmJUSGxnWXFVQXRpSS1QRENacTkxUGFyeEwySjJoY2pSN3lXVHdEaHlQcVYzMHpJS2w4OHRLdnZucEZWR0x1clRhNmc?oc=5",
       "trend_score": 10,
-      "fetched_at": "2026-09-24T08:17:45.881693+00:00"
+      "fetched_at": "2026-09-24T20:15:24.655586+00:00"
     },
     {
-      "series_number": "TREND-3",
+      "series_number": "TREND-2",
       "topic": "Sleep deprivation, vigilant attention, and brain function",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1CTnRLamR4U1U0VlpaZVNOVzBucWNSc25YQmlZYXg5OEYzWXNFd2lRQmd5LVI3TGdEYl9GMTROdHJ5ZFJFb0FvWkU4YV9Kb2wtTlZB?oc=5",
       "trend_score": 10,
-      "fetched_at": "2026-09-24T08:17:45.881698+00:00"
+      "fetched_at": "2026-09-24T20:15:24.655601+00:00"
+    },
+    {
+      "series_number": "TREND-3",
+      "topic": "College of Human Sciences faculty members secure $2.73 million grant to advance sleep research",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQZUkwWjNpeEEybE5BV2EtdUxjb2lJRm5rSmxPeUp3cDMwakRYV0lvRkJac0ltSkhWUmd3MEd3YXBPZ0t6emVuZTcyUFJmekVHVS12V1FDc3lJdXdpTVdYYjZ3N3VoQW5ZdGltanB6TDdFMi0zeV9sNzVlMHdLblV0UUtVa2tvT25SLU5KdEl6MkpiNlIwY0Y1Z1EzcWtsSmFTQlBmZ3JwWE56MTRfYTdnNk1B?oc=5",
+      "trend_score": 7,
+      "fetched_at": "2026-09-24T20:15:24.655608+00:00"
     },
     {
       "series_number": "TREND-4",
-      "topic": "John E. Lewis, Ph.D., Releases Guide to Evaluating Brain Health Claims",
+      "topic": "Love To Dream Recalls Portable Sleep Machines Due to Risk of Injury from Fire and Burn Hazards",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQNmNOWEhZaHJUNWIzZEp1ZEk4WTNrSy1xa0pZRDFZd3VETE5HbU11MGF2MTY4X2h2OV8yVzhWZW1pYlpHWkVkamVzaUFYazlyQWlVT0RTNWJuRGNrNEZIUXk1RnVyR0ZlUDA3WDN3T3VhNmo0VEtNd3IxVkZFZ2VLTEZ6SWNvVlEyMTdHMDdDVW5MdUJUclIySktVMTZSSExoQVlKRlpUb1dpUTZjQ2VPSkFsMTB2RHRadW5YNGloS0pRZ28?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPUWVGS1NpdVdsbFp1ZjRPaG5jZ1NyQUpXRHFpcTJiNFpQVy1CenVGb2xQZmpLaVlBbmhjRGlNZVYzR3dKTm5VYkxzNDdzdHBqZldkNDI1NXNySWlTS015MlZBLVVuZGlSdVVUY3BNTjhCeFhmQWVacU1kWXREUjhWNXZkX1lIWDZLRlFscjRyNXVXOXJpVVR3bTZXMkpiVnVhQS1fTWpaUktLaWNrbTRtcU11UXZLMmxUcmhBdWREM2lGWFlpMURR?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-24T08:17:45.881704+00:00"
+      "fetched_at": "2026-09-24T20:15:24.655613+00:00"
     },
     {
       "series_number": "TREND-5",
-      "topic": "Mruk Center to host MIND Diet talk on eating for brain health",
+      "topic": "CDC\u2019s latest youth behavior report offers a narrower look at teen health",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQRWZMTE9TYnJoOWkwT0ZTaHEzXzJEUmhBV2NEWS1LNzM5ai1DaHpxclZLUzhmSl82WGhicU9wajg5TjB6eGN0bFRwa2t5OEo3Skd5VHdlU1dWVTViLUxGLVExZ05wS2MtdTlLdDkwOWEzUkNzT1RvaXBQZjVLMlF1YVFTYkpfUWVsRnNXald3?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNbVBaMDRqb1cySWdkd2pCZ0ktYWQyRi1keUdYZTBkSXA3cDY0ekFfZ1NKc2FuNHdwZFBvRFlsbXFiUVVVMDJicnAxNHJjS2hfazllN3NOWEE0QjVmem91bmctWHZ1bk56Vlp1cVdpc185VGg1akdmMGlWRzIwaExwZ2dOeE5aMmJQRzM4Z21lNFBXU2FHeW1tUHVtb29rMFZnS3BpbFR3UFg?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-24T08:17:45.881708+00:00"
+      "fetched_at": "2026-09-24T20:15:24.655619+00:00"
     },
     {
       "series_number": "TREND-6",
-      "topic": "Northwest Neighbors Network hosting Brain Health speaker in Edmonds Sept. 30",
+      "topic": "Precision Neuroscience raises $250M for brain",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPZUNFc2FqVUs4MmNSMHBwd3ZCaU5ZUVJ1bWlwV0Z0QVV5SE1UZzJEdlJVQzRrMFpIUkNkV2pzVklGdEpYUWhQOW50QTY3S2VOWEhMRk5DWlpWcGFiN1J0ZlZMSXZsLVpVQnVoX25ncmktZzkyeUp2TTJocU0tUkMzY2laQUFkUno2VEdkNXJwN0ctaTVJNWJPMUlzME9JbGd6X1IzYVk5OEFwNHZPM3dR?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOckhHM0JQUkpSaHA5Zk5NdmVTczNIb1ZMR1ZpcmxjS29VVnhKLWt6aHdJX3ZNXzk4RTNMeXJTSk01NzJ0UUlIanVZT2FjTzNVWTNtZzRUdHAza3VVMVc1NWhqSTV1SU41YTZ1YWRmZHoyQmZ1eUpJeDdRcVE4elhGdFQ1eFRTS2NhaXlfTDV0dG1KYnNMRGN6NEJ6UQ?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-24T08:17:45.881713+00:00"
+      "fetched_at": "2026-09-24T20:15:24.655624+00:00"
     },
     {
       "series_number": "TREND-7",
+      "topic": "Flatworms offer brain repair clues, caregiving brain health and AI hack hits health data",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMihwJBVV95cUxPWF9va3VLaEhjeWlKQnVSeWtmM3ZXaVEzeEpRYVJLQ2hHd1NLd19YVnJlY3gxWENvTlp3SlRTYnpMWHNiNWFQa0hiYkRjQ3BieWZXMnRBOTlrbFQ4S2tRYjFUd2RremZReFFiMDdQd0VMbE9SMFlvd0lHYy1PSFhjNDB5dzhaT2t5OU5nRmZiQWdwMnAzdmxEelZpZnFsZmkwRWpCNGlnYzV4LTlMQ1FxdjBKY0VSVWZHZWNjdTF6VHRmc2haUEFaT25OSFpJbGdCbmMzbFYyVDNlRW1RQVJYMWczaHpTdFJwWTBXWGVMWXc5NVFHaXBPR3V5SVg3SS0wVFk5cncwWQ?oc=5",
+      "trend_score": 7,
+      "fetched_at": "2026-09-24T20:15:24.655629+00:00"
+    },
+    {
+      "series_number": "TREND-8",
+      "topic": "The Men\u2019s Health 2026 Sleep Awards",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOQ2hxNW5jNzd6M1JoYm9OcUlSblktcElrRUFNbVRTVk8tU3BtTGJCSWFuSk5Gelh2eTRIMllXcmt4X2x0eEdteWZneTNwcmNDa0R5SF9TRDVmN3N3Qkw5Z0k2aVpocWlWcUlBNjN1LXZCMlQwV29nX1dqaU14Q3JCUTZwMjZUdS1wSUxr?oc=5",
+      "trend_score": 7,
+      "fetched_at": "2026-09-24T20:15:24.655634+00:00"
+    },
+    {
+      "series_number": "TREND-9",
+      "topic": "The Brain Injury Association of Maryland is hosting \"Bands for Brains\" at Peabody Heights Brewery",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOZkdWX3NfYjdTbzZ5cU1FSUFacmtPYUdKdGh3UkhXbXRoRURYV19fdVd3QUVJYl9VZWtoaEUwSWhIem1hS2szandvU2djeFZvNUZxU1VtbVFvM2twMm9tUE91X0l0NGtmYjMtVnJlbTVRbU5fdnd4bjhSWEt0RmxmS0VwOFZUZ014MUpLVV9ienU2cUZXRWQxMmh2Sktta1hORnh2MVlIUUhmMGFQdUp3U1RiQ2lFc25WRllKb2FmcFFlM2lIbDNzQ2JxN3V3V3VUMEE?oc=5",
+      "trend_score": 7,
+      "fetched_at": "2026-09-24T20:15:24.655639+00:00"
+    },
+    {
+      "series_number": "TREND-10",
+      "topic": "Sleep supporting emotional wellbeing device among projects from Georgia Institute of Technology",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOazNFVG1BaFZsMTJNcmlROTlZQlpXUTIyQzdFRWVVck81VGxWYk1yUmhlbjNnX2JONlpuM1JBMHdfMzhrRnhNTVRrQ1c4WWJfa2R0T3hnTGRjVk4wY011aXhGMk9DWEJ6ek5HVUJHMkRXREJfODhYbXQwNkl6U1hGa2syOHA5ZkE0RF9GTzhMcGFOM0gyT1l4ZXFvWkJWa3ZzcFczTWZKb2FTV0VWV2c4?oc=5",
+      "trend_score": 7,
+      "fetched_at": "2026-09-24T20:15:24.655644+00:00"
+    },
+    {
+      "series_number": "TREND-11",
+      "topic": "Neurologist Shares His Sunday Walking Routine for Improved Brain Health",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQc0l1RHRyWlVzQzAzNkRXZmxiR1JycDZjM09TWlVGZ0ZObzVzU3hCTklUVTRyWERHOWkzMmZ2SWNwcGxOT1loUGFVaWJibTZsRFVDMjVGb25mWWN5NTRvd2pTTXVZS241Vkd4NWpLb01DMGZyalMyWHZOTFhZVWhGTjduTWdsMnVjVkVkeVVSRVl2SVI1SC1WY010MVNmZERSWHA1ZFp1ZnhDLWdjS1U2Z1g5bWM?oc=5",
+      "trend_score": 7,
+      "fetched_at": "2026-09-24T20:15:24.655649+00:00"
+    },
+    {
+      "series_number": "TREND-12",
       "topic": "Drugs, Brains, and Behavior",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPOFFTUUVtUGE1WDNBb2d3U1NzWGhkRnQ2SUlVWHAwRVRQeGFWODhrbm91YkU4WGwwSmVMczV5Q2I4dzRFSTF5WFVtZ0RsYUVCMVdMbFE4clUzM2RUem5xOXMxMHNKZnZKczVPSG9OaUd6RHlvbzVUdnZCeHhjSHB5WHhDaHNsREQ3eWlnQk5kWGxfejBINnB0NE91THY?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-24T08:17:45.881717+00:00"
+      "fetched_at": "2026-09-24T20:15:24.655653+00:00"
     },
     {
-      "series_number": "TREND-8",
+      "series_number": "TREND-13",
       "topic": "Effects of Creatine Supplementation on Brain Function and Health",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5XcXJadkxHeVVuTmJFYVAyUFMyWFhzQjNVdnNTQThOVk94QVM2dFRWZWVaazh3OVVVcXpua3JtdEVhaTFoZzNoR0dkYmdmaVBpd3RN?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-24T08:17:45.881721+00:00"
+      "fetched_at": "2026-09-24T20:15:24.655657+00:00"
     },
     {
-      "series_number": "TREND-9",
+      "series_number": "TREND-14",
+      "topic": "Sensory neuronal mTORC1 kinase signaling establishes neuroimmune memory that initiates allergic immunity",
+      "source": "nih_news",
+      "source_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5KYzFEV1htOGpyMHNCRDJxVUZpTm1USG1rVC1uU0EwS3Vtd1owTzg5Q3hpQmNZcHRvWkRSYXZRUGJveDBac2Ffd2Y4Q2VMbFZmVVZ3?oc=5",
+      "trend_score": 7,
+      "fetched_at": "2026-09-24T20:15:24.655662+00:00"
+    },
+    {
+      "series_number": "TREND-15",
       "topic": "How does inadequate sleep affect health?",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNNlg4eFlrdUlHazVGeklkOXU5TEhNQmkzTW50eUx2WnAtTllyM2xxNTVveGNoNkY4WDFwdkJLTi02M0ZqNEFLOXo1UmNRQS1qdFFTZmR2dE5oNWdBWExkdFYydE1WMnBKbnJZTFBpRWZYTWNUNXp0R1RocHJLem9iQVpR?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-24T08:17:45.881726+00:00"
+      "fetched_at": "2026-09-24T20:15:24.655666+00:00"
     },
     {
-      "series_number": "TREND-10",
+      "series_number": "TREND-16",
       "topic": "Chapter 12 Memory Impairments Associated with Stress and Aging",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5TOGM1Um1Pb2hYTnVSazcyNk1hTlYyTU9iaVF1MWV4YkphdG84d0h5bDRfR2NYT0VGQ2llTTFHTVFqOC1Gb0VYdlVDQ3RTQmpaN2VtdXJB?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-24T08:17:45.881730+00:00"
+      "fetched_at": "2026-09-24T20:15:24.655670+00:00"
     },
     {
-      "series_number": "TREND-11",
+      "series_number": "TREND-17",
       "topic": "Sleep drives metabolite clearance from the adult brain",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9NZjM0RXNpeE1raVlFclJ6ZTdqQ0dKLURSYUJnREd1TWNzZFhQTHExRUtCdElrY3ZEci1menRHSFNrUVp3RWxzSjJOSHNwZ3BEZ2pR?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-24T08:17:45.881734+00:00"
+      "fetched_at": "2026-09-24T20:15:24.655675+00:00"
     },
     {
-      "series_number": "TREND-12",
+      "series_number": "TREND-18",
       "topic": "The Global Problem of Insufficient Sleep and Its Serious Public Health Implications",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE0tN29MTjFScHctZlFWck5IWjNxeHh6VEgyeDhvVUJIcVAxamFPdW90ZWJyVVoyWlNwWF9oaGNJNjhnLUota2w4dlBvVlowcDUtUEtIMnpEWVE5UkdkWGc?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-24T08:17:45.881739+00:00"
+      "fetched_at": "2026-09-24T20:15:24.655679+00:00"
     },
     {
-      "series_number": "TREND-13",
+      "series_number": "TREND-19",
       "topic": "The Role of Slow Wave Sleep in Memory Processing",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9WRmlzS2dpNjc5dExPbzh1bTYwcWp4RTFCQ2dMWkY1LXl5MlFEb3hvREhjYWp0bFJMYjlhdG02ZmFId2lvQnBEdEl2bEJkZU9XZTJ5OVVMcFBBTFNsWWc?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-24T08:17:45.881743+00:00"
+      "fetched_at": "2026-09-24T20:15:24.655683+00:00"
     },
     {
-      "series_number": "TREND-14",
+      "series_number": "TREND-20",
       "topic": "Good Sleep for Good Health",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFA1eVJpLUkxXzI0Q3VqTEQ2NmMyQUEwMWxHbVBiekNsS0lZUVVfRG9US09Yb0JwVnZtSVN1dElFZkV6RXZGYkJ1OEZ6TUUwQnVjUVJ4Z3hKaEtoRF96VEhhcERwN1BwdUZvWW5j?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-24T08:17:45.881747+00:00"
+      "fetched_at": "2026-09-24T20:15:24.655687+00:00"
     },
     {
-      "series_number": "TREND-15",
+      "series_number": "TREND-21",
       "topic": "Improving sleep quality leads to better mental health",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1MUElwNUdiWU9MaHltZGxHem40VDJBQWh5ZE13S040bUNTbm5NNlRkUUJDUnEtWlpXUUg0VVdhcW4yWHRPTmtpSmJ4N3VWbG1acmt3MWNJazQtOHB0V3c?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-24T08:17:45.881751+00:00"
+      "fetched_at": "2026-09-24T20:15:24.655692+00:00"
     },
     {
-      "series_number": "TREND-16",
+      "series_number": "TREND-22",
       "topic": "A Prospective Cohort Study of Adolescents' Memory Performance and Individual Brain Dose of Microwave Radiation from Wireless Communication",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFAtSHRsZDZTemNPOWNSWXE0MzlWeGtLOWZuOG1oODRLU1A2NC1wQThZeWR5TGFmcGlCMVdxNVBQdC1tM1MyRjRUNk5HT3FpZlVSaE1V?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-24T08:17:45.881756+00:00"
+      "fetched_at": "2026-09-24T20:15:24.655697+00:00"
     },
     {
-      "series_number": "TREND-17",
-      "topic": "Children's sleep linked to brain development",
-      "source": "nih_news",
-      "source_url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQTDhDZks5aHpLM0hCaFgtU2lIZFBna2JEd1BDWlVlM2o4WTcyWlBMNjRNcE9OYXRucHZBb0hXeUJXd0FuZEQ4dURQbzA4NThUY2ZrblNHaGpnT0hxX3FhSEhfVWg5M3ZLM2tNdHF6X0ZlcjJwVTUxSXNET1ZKS2RNUHVzSlk0WExlZjhtc2laZTlFeXpMYjRjSg?oc=5",
-      "trend_score": 7,
-      "fetched_at": "2026-09-24T08:17:45.881760+00:00"
-    },
-    {
-      "series_number": "TREND-18",
-      "topic": "National Institutes of Health Sleep Research Plan",
-      "source": "nih_news",
-      "source_url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE53enZ5SXoxLTU0ckV6aFdyQ2JzQm4tMVVHYzdUZEVacWpBSGxsM1BERnpmWVdHVGxuYkJsLXhhaXhFSmgwVjROVmRfbjc5dU82bG45NmJKbVg?oc=5",
-      "trend_score": 7,
-      "fetched_at": "2026-09-24T08:17:45.881764+00:00"
-    },
-    {
-      "series_number": "TREND-19",
-      "topic": "The lipidomic architecture of the mouse brain",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5sVkdySzg4WlFLZWtuTjFzRFZzbU1EejJKMkNfX05RY0d4LXVRbnp1VVJob0pRTFNseXdvSURtYWpLQnlmRXBQdmpsc3NZY0JYcjFLMk1xWTU5RE85eHdV?oc=5",
-      "trend_score": 4,
-      "fetched_at": "2026-09-24T08:17:45.881769+00:00"
-    },
-    {
-      "series_number": "TREND-20",
+      "series_number": "TREND-23",
       "topic": "More REM sleep linked to lower risk of 83 diseases",
       "source": "google_news_us",
       "source_url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5NcnY0ZkRKdklDU3lBbzBDTFNzVlE3T2Y0NFRWYmdFb21ON0NLV2lxVC02bjZkYy14clhveWRDdEUwOUFvLXhndmx6dTJPMEJsMUZvSGlGczhhbTBhSURFRHI1WWFTNVhOSW9OWmFkVQ?oc=5",
       "trend_score": 4,
-      "fetched_at": "2026-09-24T08:17:45.881773+00:00"
-    },
-    {
-      "series_number": "TREND-21",
-      "topic": "Six Flags Magic Mountain sued over alleged \u2018catastrophic brain damage\u2019 from X2 rollercoaster",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPMVVDV3dTZUhQYlBXNHRxTGlrNmVhVFJVbEtDa25CODFid1VNRWhxbTg0bkU1RnpGa05TbWtyN0NWb3E0b2xCR3d6N3hEck84MGRraDlRNHhKYVlTT1pmd0kzaC1kUmhDNlJMTjB3bDY0MGttSWJ6SUxhZkZvNThDNWIxNzdQRWVZTG5z?oc=5",
-      "trend_score": 4,
-      "fetched_at": "2026-09-24T08:17:45.881780+00:00"
-    },
-    {
-      "series_number": "TREND-22",
-      "topic": "Over 100 people sustained brain injuries on X2 roller coaster at Six Flags, victims\u2019 lawyers say",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQVkxPY0dUdUFON2tsejAtRkhKRUhKUWZOVExlR3hNUkttNFFxbE9tUE0xWEltX0NfUDloWktnN3lJMDVYdkxtZzJmMlVUWG5BLXNzOGNTZVlZSS1CazVOQ2NLNlVFemw2X2txU0VpY3RzUWJSUzg2Mnk4U3hEUlJlWW5qYklCNzA0bmVyM080RnhscVV2X0prSXdMbC0ySS1mR2Q3RkRrNUZsZVh4NEhmWEJHWElRSXRn?oc=5",
-      "trend_score": 4,
-      "fetched_at": "2026-09-24T08:17:45.881786+00:00"
-    },
-    {
-      "series_number": "TREND-23",
-      "topic": "Darrell Waltrip has progressive brain disease, family says",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPZmFZVFlGZHpBTXVSdkptVVN5d3doQ3VIMWFmdFdrUTBkSEhJcHZOdmhpODdlNjJOb2Z1eFcwSlFfYk9XQWNIV3VRNDh1UDhMeGI0OUVhMXhKRTY4dWJGOVUyS0RkSW0zNHQyUE9GaUROYmRtYlotSDhJRUVBZG1JckpNZ0NCcDAwc1V4QWt2eW51M0Z2R1hOY2Y0U2dLaW1XMEN5eks4NHZVaVNj?oc=5",
-      "trend_score": 4,
-      "fetched_at": "2026-09-24T08:17:45.881791+00:00"
+      "fetched_at": "2026-09-24T20:15:24.655703+00:00"
     },
     {
       "series_number": "TREND-24",
-      "topic": "Eight Sleep\u2019s new Pod 6 comes in smaller and solo sizes, starting at $1,999",
+      "topic": "Teen Discovered With a Memory More Powerful Than 99.9% of The Population",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPMXlYTjRzRDZGSm8xQUZDaUl3Uk5DWWduNWpaXzM5emxnWENNejJmWVhWQUd0SFZyTkV0MHFleVA2RXlHUU1NLUFtQkVRZXVsMDYtaTJBNC10blZSVWxxVTd3Qjd2ckZGb18yNG1nTlFSREgxSklKSWUwSTdjUTdtRzNnNzdUTHduUzVHX01qd2p3azFkSzZnNWY1N0ZZdEhYdUhKY0ZTY2lRQQ?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQbHN0VUY3dEpXOVJlTHpGckhpcmxlOGM4ZjFacEV0bE5UaEdvenFiT04tSjNuOFV3UzcxU2RZYkRsalVqM00zcDlxUHlKbGVEamFWTFdzSEVyN3hTQ3VMVGhNdFZJQWVrRXpxa0drOHZWUTU2bTBJaWxjMlh2c3VJRUhOeW9BalFCUXhEME5SNl9VUDdPb1VBOVk3VzZxZHoxR2c?oc=5",
       "trend_score": 4,
-      "fetched_at": "2026-09-24T08:17:45.881797+00:00"
+      "fetched_at": "2026-09-24T20:15:24.655707+00:00"
     },
     {
       "series_number": "TREND-25",
-      "topic": "Lawsuits allege Six Flags X2 roller coaster left riders with \u2018catastrophic' brain injuries",
+      "topic": "Investors Are Betting On Devices That Connect the Brain to Computers",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQZ3UwRHk0OTJjVXVLTHJ3RkM1Rkh6V1Z5OHVCczZOam5RX2lGNWlaalV0bHlId28xd09yczJkblZXM295dWZuUmdrX0pWaWVpc3dhZmQ4WlpnOEx3eS10MUpMN0RTbTFYeHlFbS1SQUJoSVhRTHFfM01pWFVZa2pDWGh0WE5HWEhpZXBrNGs4YU5wdUVoQTlULTVWc3l0MnVKRDVpTzlsbGvSAbABQVVfeXFMTUQxdTROMXZ2TlhIdHRKUTlRVDVDWVZNSU5qaW04UVk1Z1RiUzh1OUxtNmZzZjlEbTJYOVpzZE95OFVKSGVTOTNUWXNiLUNBT210ZzgtdV9wRHRYa19xamZWRkJ4YVAyaWZMSy1WZHhYV3ZFOExPaWVoV2lRYndTS3c5b2hub0VJS2ZpcGdfV282Tm1obVluMWd5UFBvaV9PeTI0ZzRycTVvbUwyb2lkSjY?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQNldUY1RCNlpaeGsyVjNQTW1rcWtXRWRCZWVJRE02dWZUVVFXazZ6ZzhELXZETjJRRXZmZTIyaW5zY2pLNlJBR29vZlFRcEdacm9tMG5ZSzl6ODMyLWNaUTBUN1hLT2F4dFluNm4tbl9DelIyQnBTX0tRQ21hOFFXZDZ5X1dTeVBjOUF0dW1CTVQ2bkRLbW1hRVRydWpuWk0?oc=5",
       "trend_score": 4,
-      "fetched_at": "2026-09-24T08:17:45.881803+00:00"
+      "fetched_at": "2026-09-24T20:15:24.655712+00:00"
     },
     {
       "series_number": "TREND-26",
-      "topic": "3 Riders Sue Six Flags, Saying California Roller Coaster Caused Brain Injuries",
+      "topic": "Legendary NASCAR champion has degenerative brain condition, family says",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPVGZ6UzZSRm1QcEpwd0VZWjNkRkFkTUpJeF9KTEl1cFBCSEpxcm9sei0zbnp1RVQyYjFxSmhsWDVjRUd5LWhoVnRzb0pYY19QUk15cHNweTFxQktaVUt3amNQQmxZSU1zVUQ2RnFTSXhBQXJVTzJwQ09XeVpvZzhGMnZ0d21RUQ?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPMHFUdnNfWFRUeE9QbTlTTlpWYlV3Q3UtQUQzSTU1WmV2aUJQcEZmSXhxYkFGR2d6Y05lWklYUVlOdnFGSEMwRTV2R3p0QVlPNzYzcDZERDhpdmF4WWkwR0FONWlBLWxqc1lwTDh1dHhqR05KTU5sY3RMOGh5a1RBd1ZfbW93U1NGaUtyM0IyWENVem1BeF9INnljcVktV3NwRUNNQ3ZB0gG6AUFVX3lxTE1wOTZWVDFCRDl2elJtcXY1VXFTTnJKcU1VbnR4Q2FtbGlXQ3gwOFRKX1ZwWi1zdUxlTFBoaXdFM2ZxS2NUaC1FemRwTnJfQzhuRVJmUUN0UkpKNWU5UXNRMTl4OGwtRUNFZjNqZHNLZXIycFFGTGs2bVBQRU1Da09NMEx3XzFUaWNwSFN2aC1OUVVnd29lWW9Fdm9USGJPdGZDNE5sVm45ZHNlTzNTUHhKdmRPMkJ4LS1Qdw?oc=5",
       "trend_score": 4,
-      "fetched_at": "2026-09-24T08:17:45.881808+00:00"
+      "fetched_at": "2026-09-24T20:15:24.655717+00:00"
     },
     {
       "series_number": "TREND-27",
-      "topic": "New lawsuits allege X2 roller coaster at Six Flags Magic Mountain caused major brain injuries",
+      "topic": "In Good Health",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQcnhMWXFBYnFLZXVUTlI5YW9uM25wV3p4Z2V5clVDZ0M1ZFlMS3FNUjFHMWZ6aVNabC1kVHJ2NEx2RUJzWVotMVVqNXlSZHlwYVFjZ0lTOVFmbGx0V0tKRWxjU3l6SDB1YVlHcUF5dW4tZkV6c3VFWml0TnRVOFFzbVhEY0ljNDVUSkVIUE13eExDTTJ3OFHSAZsBQVVfeXFMT2J4Q0o5NXUxVmxDZ09hTE5OSDNCOGlycHRTTlU0SFVKdVRsZTNXM2pVM1JwRHFlN2JydjRXSmFBcnV1X1ZaVTBmTDdEdXR0cEM3TXhhdWl1ZmZvczRwNnhFdFc1S014M0p4UWJ6LWxSZkNxSlktZkVodnZEZGtPeFZFSjhWMjNidm9PUnExQ1IwR0Q3R2F6cEJTU3M?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNN1FqY2s0M1pxYzlmLVBybG5Yd1FINS01eEFlcmtiVEYyUmFxRHR1RzBlZ3ZsczZDaXJCWnpNdXczc2VQTjdDVmhEdjJsSmVNZWkweUZOQzA1T3I1eWZPUEdxYS1aSFhSWkxRLUdPS3FXM0xQN2VCUlF2Uzd4NHFSOUdxQzFOUkE?oc=5",
       "trend_score": 4,
-      "fetched_at": "2026-09-24T08:17:45.881817+00:00"
+      "fetched_at": "2026-09-24T20:15:24.655721+00:00"
     },
     {
       "series_number": "TREND-28",
-      "topic": "Army National Guard Stress",
+      "topic": "Mount Sinai Researchers Identify How APOE4 Gene Damages Brain Blood Vessels in Alzheimer\u2019s Disease",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPT2plOV9NenREclJxb2stWDR0WXFkdTliWXlOTWp0cTktcGFGUXpoVUdaZVl4RzdzREN4a3otektxUC1SM0lJYzFYNzRaN2lXbzd3TEFTMFhKWU1LcXFPZGpwLU9JVjhCU240ZkROSGE3dkJra05SRjFCcXo2dWdhZ1JXQ011dEE0bkRIR1hMTExrMkVFYkNmdl9LaklvYnZIR3FVeHhxckdaMENNNG5DUEs0aWt3WjRmZWg1MVhHMm5rUE9LNlh0bDJvNUNNd29J?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNeF9FVUV3NExaV19iNzl5Z1UwcXI4WlBLbnZsX29PNnFWc2FQOXZ0bUR0MzI3Uk52eWw1dkZVSUNjRDd6YkJfanQzSnBjN3B5VkJnZlE3RlB2UFBBaktoRjJ0V1d3ZWlONVRDTU9iQXpqbEhmcTJQT2NvZFp4dVFPbGlUSXA4M3NtZVhldlNJLXktam1mNWJCQnJ0SXhUYlNQT2RZNDRHelQzRkF1R19TcXR3TG00ZEpTSzZIMDFxZ2NLS2dlS3V6aUdvajlVUjhnRVFNWEo4WVpJNUdL?oc=5",
       "trend_score": 4,
-      "fetched_at": "2026-09-24T08:17:45.881821+00:00"
+      "fetched_at": "2026-09-24T20:15:24.655728+00:00"
     },
     {
       "series_number": "TREND-29",
-      "topic": "Psychology climbs to No. 12 in nation, No. 6 among public universities",
+      "topic": "Scientists Had People Eat Tomato Paste Every Day. This Is What Their Brain Scans Looked Like After 3 Months",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQX1c0NHZudVdSMndVV1hoM0I0NkY4LXVSNVBrLW54TVE2Vjc2emgzVC1yU09DNF91NjBhYlc1OTBWRnk5UDZsQ1BrQl9HYXptb0RJcy1fb0I2Z1VMM2ZpUmlCZ081a1RMUWppdm9jdmJCdFhVWENRRHV1WG1aajBLbUVGT183TlcwaVplNEF0YjZkUkYzTjNLa2FqeGM?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9Bc0ROSVFXZDhldjJxTnNjbnNsVWhpdXF6dDhETW8wbzRnaVpxdS1nSXlVTURoMUhJcXpRTTZDRzNrdjhMUTJXeFh2d09ZcmtyRUJtWjVQR2hRTzBldzJIM3h1NWg3cmhzT2Z2aGRDWUhyYnFwdW93YVpR?oc=5",
       "trend_score": 4,
-      "fetched_at": "2026-09-24T08:17:45.881826+00:00"
+      "fetched_at": "2026-09-24T20:15:24.655734+00:00"
     },
     {
       "series_number": "TREND-30",
-      "topic": "Woman claims brain matter was returned with late partner\u2019s possessions, suing funeral home",
+      "topic": "Talking Sleep",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOSEZrWXAtd25XOUE2b3JoSWtfcENOanJZdmZJT09TdFBzWVI4aHJpVnhaX2Vwd0JjYWdBakItdDhTOE45b2p6VF9JbDdiZHBxdnZjV0hReWRfbTEwRTNjMlo2dE0wQVRXZTZzXy13VmpoUm5YTTF2cHRlVU94WG8yUjQ2T0ZNYXIyeHJLNXh1S1dvU3hQLVRlSllhVVN0Y0ZnUlJKeVd6ZjlWZ2FMd0pQZ1cybENIYlc3QWxHVW5R0gHDAUFVX3lxTE9PSVVNelNEcmQ0TlpTSkdYU3o1V1BES0dwQlY1YmNJSV9BaExqeldmd2Y2WXRhd2pWalNISTloU1FxemN3VjkwVmY0QkFQMk9yS2ZOaUdQaUZwT3M5TlplYzNwQWhQSUVPT0xQcnV4ck53RlFTeXVMV3FETjRKazdwcEttSmhZNXVhU0pmbkdMWTZvN3ZFT3E3MHExU1pPZFNNOWR5SXlBUnpZLS0yZTBUOS04NUQ3ZVpSSkpuZVZpRTF0Zw?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9pWGdaTWRYaWdWQWV6a0lnbkpHTFpzbThEQU0wN1VQYV8wc1JzNjJ5T2oxdEN5QUgyMXVSRjRMd3oxUm9XbUdIaV9iM2k1Vm52VzNJVWpscjZadFhmTHZPcExVeFJWVXk4ZXRBRS0zbVhWc2Zj?oc=5",
       "trend_score": 4,
-      "fetched_at": "2026-09-24T08:17:45.881832+00:00"
+      "fetched_at": "2026-09-24T20:15:24.655737+00:00"
     }
   ],
   "source_errors": []

@@ -1741,5 +1741,41 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18139902232657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
       }
     }
+  },
+  {
+    "created_at": "2026-09-24T20:17:48.700376+00:00",
+    "status": "pending",
+    "topic": "The Men’s Health 2026 Sleep Awards",
+    "title": "The Men’s Health 2026 Sleep Awards",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "642541f6fcb979bc3fc8a5da9889c9923629315e43005d3c81b83941e3c7b4be",
+      "ed8a873bf6e32565416093319f9ff979c96bcc9bc838b9c7c350776f58d9e47a",
+      "402998b514afb00211e42b8f88729d0a9c40fdf1d85745a2253f80ff55609c95",
+      "94932ac2b8a1a7ac221da841d2e9c373e50e73f72c662af8b88ab71223c28323",
+      "67e524f26cbfdbeab75fbda0a27ee43f4cf5a0b853f1dd69c45a333d2f82b6a3",
+      "e2dafb665558842f6e40142491c3bf84a2097d49c2dc0f6f21b0c77a54bbae6c",
+      "53f471ec838b4e0b4528d3fde9b718267734cb2ddcafa908539f6f83e663afc1",
+      "36cd3d21449f9cb74905fb7bac2924b03fc2d4c211a161f7f57caae799eee33c"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "archetype": "SLEEP_TERROR",
+    "width": 1080,
+    "height": 1920,
+    "duration": 27.615737,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "ab7c86233d8361e352ca6a8c54a6399f29530682b63605653c6d6a948c22612f",
+    "body": "Your phone just told you you slept perfectly The Sleep Awards crowned it flawless But you wake up feeling foggy Why trust that glowing number? AI confidence hijacks our judgment Brain treats confident output like truth Studies show we accept AI mistakes So the perfect score fooled you again",
+    "text": "The Men’s Health 2026 Sleep Awards Your phone just told you you slept perfectly The Sleep Awards crowned it flawless But you wake up feeling foggy Why trust that glowing number? AI confidence hijacks our judgment Brain treats confident output like truth Studies show we accept AI mistakes So the perfect score fooled you again"
   }
 ]
