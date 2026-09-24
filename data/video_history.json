@@ -1691,5 +1691,41 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18139846006657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
       }
     }
+  },
+  {
+    "created_at": "2026-09-24T08:19:29.168546+00:00",
+    "status": "pending",
+    "topic": "Drugs, Brains, and Behavior",
+    "title": "Drugs, Brains, and Behavior",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "1ddfe87749a67db5e9aea447a6c04cafb0d115aaaae09070b0ff3c7df08c8d68",
+      "fb12f8775ba3225cc0c4ed83af43b4a1dbcf4b0e6226c64d90400cbce7a55189",
+      "16cdb05e010fc75d826b3bf6b4285dd763430bd09a4d00e91b65c0a2b7c24e83",
+      "b3d0518c9f1448d0580c76f207af7db8640eb1b58eb711368a629a7a2e76eaa0",
+      "cf2056871e53abb81c5bee59832eb6ed58e608f19884c2bd37d35e5b43d55565",
+      "557ead3d9e0acc4161b6ffdb382b57c079cbec4753593bbfb42a695f0d5837a5",
+      "5f6ceab97f5a4c636d0137cc002f5110b330972b8095b43b89156694f07b8ca0",
+      "5b4049c740347613cef453f4c2c8ec956e77552d23f7d4e12ddf5f42e18c7f68"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 22.513016,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "691d71922a257d4b2a74ac6444d15f350bf86bcd1046cedfc839efb0854fd458",
+    "body": "Your brain thinks drugs are friends Dopamine lights up friendship pathways Why the high feels lasting Drug cues bind to social memory Cravings mimic missing‑friend loneliness Ventral striatum teams with hippocampus Drug becomes a social surrogate Is your craving a lost friend?",
+    "text": "Drugs, Brains, and Behavior Your brain thinks drugs are friends Dopamine lights up friendship pathways Why the high feels lasting Drug cues bind to social memory Cravings mimic missing‑friend loneliness Ventral striatum teams with hippocampus Drug becomes a social surrogate Is your craving a lost friend?"
   }
 ]
