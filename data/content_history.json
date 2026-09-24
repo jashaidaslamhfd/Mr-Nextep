@@ -1391,5 +1391,21 @@
     "title": "Heart attack deaths down 90%, but experts warn stress, poor sleep are fueling other heart conditions",
     "body": "Your heart might be safer—until now Heart attacks down 90% worldwide Other heart conditions are climbing fast Stress and sleep loss are the culprits You could be silently at risk AI health apps use old data They miss stress‑related damage Screen safety isn’t the whole story",
     "text": "Heart attack deaths down 90%, but experts warn stress, poor sleep are fueling other heart conditions Your heart might be safer—until now Heart attacks down 90% worldwide Other heart conditions are climbing fast Stress and sleep loss are the culprits You could be silently at risk AI health apps use old data They miss stress‑related damage Screen safety isn’t the whole story"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "75e668b4f6de6a9c63273818421bedc3315ce3dc2a2f5251bad9ca272b349dd6",
+    "title": "This AI Memory Stock Is Up More Than 650% in 2026. Micron Investors Should Pay Attention",
+    "body": "Stocks that remember you AI memory chips are booming Investors act like it's personal Word 'memory' lights reward centers Emotional buying overrides analysis Framing triggers loss‑aversion bias The chip’s hype is a brain trick Your brain just bought the stock",
+    "text": "This AI Memory Stock Is Up More Than 650% in 2026. Micron Investors Should Pay Attention Stocks that remember you AI memory chips are booming Investors act like it's personal Word 'memory' lights reward centers Emotional buying overrides analysis Framing triggers loss‑aversion bias The chip’s hype is a brain trick Your brain just bought the stock"
   }
 ]

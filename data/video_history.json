@@ -1641,5 +1641,41 @@
     "body": "Your heart might be safer—until now Heart attacks down 90% worldwide Other heart conditions are climbing fast Stress and sleep loss are the culprits You could be silently at risk AI health apps use old data They miss stress‑related damage Screen safety isn’t the whole story",
     "text": "Heart attack deaths down 90%, but experts warn stress, poor sleep are fueling other heart conditions Your heart might be safer—until now Heart attacks down 90% worldwide Other heart conditions are climbing fast Stress and sleep loss are the culprits You could be silently at risk AI health apps use old data They miss stress‑related damage Screen safety isn’t the whole story",
     "video": "output/mr_nextep_short.mp4"
+  },
+  {
+    "created_at": "2026-09-24T00:05:36.666467+00:00",
+    "status": "pending",
+    "topic": "This AI Memory Stock Is Up More Than 650% in 2026. Micron Investors Should Pay Attention",
+    "title": "This AI Memory Stock Is Up More Than 650% in 2026. Micron Investors Should Pay Attention",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "c098e2e33feb6a190da62a2af1c136adefde8d211419a333b89e306c7c4b378b",
+      "c9c8c604d07b90444328efe724b42b9b41d20f269f4d1a857e853c0457e32856",
+      "7c2abef732f8383119e6e723a08e633c7af357c03fdac3300d3c6a99c6bf341a",
+      "ccf8caed5ea1c934ee634af4133cdd9a70cd374c69836e184f1f05902d2bbb57",
+      "14fb22b315751920d3918b7dda2b9c8ffe649395e4e42447a2c7ef49c40dc6f7",
+      "7a98cd81a9ec907c6a29383d1bb231d0cd9d46b8e112567a63fb6fd0784d74b6",
+      "b36c546db68a1cbb9eb5a176b22b9043f4811cc8d5459e52afc48a74cb4fef02",
+      "23e888698f64f0b82b46f0968a4a928774f0b00436247398699e7dba10f41601"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "archetype": "DARK_PSYCHOLOGY",
+    "width": 1080,
+    "height": 1920,
+    "duration": 22.507029,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "75e668b4f6de6a9c63273818421bedc3315ce3dc2a2f5251bad9ca272b349dd6",
+    "body": "Stocks that remember you AI memory chips are booming Investors act like it's personal Word 'memory' lights reward centers Emotional buying overrides analysis Framing triggers loss‑aversion bias The chip’s hype is a brain trick Your brain just bought the stock",
+    "text": "This AI Memory Stock Is Up More Than 650% in 2026. Micron Investors Should Pay Attention Stocks that remember you AI memory chips are booming Investors act like it's personal Word 'memory' lights reward centers Emotional buying overrides analysis Framing triggers loss‑aversion bias The chip’s hype is a brain trick Your brain just bought the stock"
   }
 ]
