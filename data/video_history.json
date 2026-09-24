@@ -1694,7 +1694,7 @@
   },
   {
     "created_at": "2026-09-24T08:19:29.168546+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Drugs, Brains, and Behavior",
     "title": "Drugs, Brains, and Behavior",
     "video_path": "output/mr_nextep_short.mp4",
@@ -1726,6 +1726,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "691d71922a257d4b2a74ac6444d15f350bf86bcd1046cedfc839efb0854fd458",
     "body": "Your brain thinks drugs are friends Dopamine lights up friendship pathways Why the high feels lasting Drug cues bind to social memory Cravings mimic missing‑friend loneliness Ventral striatum teams with hippocampus Drug becomes a social surrogate Is your craving a lost friend?",
-    "text": "Drugs, Brains, and Behavior Your brain thinks drugs are friends Dopamine lights up friendship pathways Why the high feels lasting Drug cues bind to social memory Cravings mimic missing‑friend loneliness Ventral striatum teams with hippocampus Drug becomes a social surrogate Is your craving a lost friend?"
+    "text": "Drugs, Brains, and Behavior Your brain thinks drugs are friends Dopamine lights up friendship pathways Why the high feels lasting Drug cues bind to social memory Cravings mimic missing‑friend loneliness Ventral striatum teams with hippocampus Drug becomes a social surrogate Is your craving a lost friend?",
+    "youtube_video_id": "ERYZVyOQv70",
+    "url": "https://youtu.be/ERYZVyOQv70",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "published",
+        "id": "1939777176997879",
+        "format": "reels"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18139902232657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
+      }
+    }
   }
 ]
