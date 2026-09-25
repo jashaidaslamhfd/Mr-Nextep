@@ -1841,5 +1841,41 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18140070178657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
       }
     }
+  },
+  {
+    "created_at": "2026-09-25T20:15:21.326594+00:00",
+    "status": "pending",
+    "topic": "Here's how food impacts your brain health",
+    "title": "Here's how food impacts your brain health",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "da6e9f013dfefc72ed8b64974085adf2f7008905d157a2ccff0411f252319da1",
+      "ff51cd25aad33190e1f8d5abfad4b43a59cdfc40bcc3088eb292b0ce6ecb021c",
+      "5b4a65a988d2f06b167e0b498d3864861facfc20cbc70fd8b168b93c7a777467",
+      "c3126b73e2d73afe1fb1f970a5a80f8887a62b648813d3f96ca204b87aceb8b6",
+      "600d4018316721477a03f7984001e6dd5b5a3d3988fac332b68ddf047cfec796",
+      "98cc1c85932085a903e7c6933ead48d2aba80bcc703af2caf6ac2325725580f2",
+      "09a10e0dd0a99286f7546766ea628c612db6b08775a4098f8e66255e8cc31d1f",
+      "31492f46b6da68584482cb7db649b5669617d00777c337a682882c3eec15e735"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "archetype": "DARK_PSYCHOLOGY",
+    "width": 1080,
+    "height": 1920,
+    "duration": 22.505896,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "91cc56c240a6ae66f306ea6f634d2b42f6ac0c5c43684e500f4f9ef175d12c26",
+    "body": "Your snack decides your next memory Food can trigger memory encoding Why blueberries act so fast? Flavonoids spark dopamine release Brain tags the moment Fast signaling bypasses digestion Boost recall before a test Your next memory starts with a bite",
+    "text": "Here's how food impacts your brain health Your snack decides your next memory Food can trigger memory encoding Why blueberries act so fast? Flavonoids spark dopamine release Brain tags the moment Fast signaling bypasses digestion Boost recall before a test Your next memory starts with a bite"
   }
 ]

@@ -1455,5 +1455,21 @@
     "title": "Sensory neuronal mTORC1 kinase signaling establishes neuroimmune memory that initiates allergic immunity",
     "body": "Your brain stores sneezes Neurons can flag allergens But neurons aren't immune cells mTORC1 flips a memory switch Next exposure equals overdrive Brain‑immune bridge via cytokines Your brain decides the allergy That’s why sneezes feel familiar",
     "text": "Sensory neuronal mTORC1 kinase signaling establishes neuroimmune memory that initiates allergic immunity Your brain stores sneezes Neurons can flag allergens But neurons aren't immune cells mTORC1 flips a memory switch Next exposure equals overdrive Brain‑immune bridge via cytokines Your brain decides the allergy That’s why sneezes feel familiar"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "91cc56c240a6ae66f306ea6f634d2b42f6ac0c5c43684e500f4f9ef175d12c26",
+    "title": "Here's how food impacts your brain health",
+    "body": "Your snack decides your next memory Food can trigger memory encoding Why blueberries act so fast? Flavonoids spark dopamine release Brain tags the moment Fast signaling bypasses digestion Boost recall before a test Your next memory starts with a bite",
+    "text": "Here's how food impacts your brain health Your snack decides your next memory Food can trigger memory encoding Why blueberries act so fast? Flavonoids spark dopamine release Brain tags the moment Fast signaling bypasses digestion Boost recall before a test Your next memory starts with a bite"
   }
 ]

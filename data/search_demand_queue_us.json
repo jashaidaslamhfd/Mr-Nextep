@@ -1,6 +1,6 @@
 {
   "source": "Google Trends US + US science RSS",
-  "mined_at": "2026-09-25T08:40:59.691785+00:00",
+  "mined_at": "2026-09-25T20:13:51.262009+00:00",
   "topics": [
     {
       "series_number": "TREND-1",
@@ -8,7 +8,7 @@
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9BSktHeEJiYzAyeFAxMERDeE5MSmJUSGxnWXFVQXRpSS1QRENacTkxUGFyeEwySjJoY2pSN3lXVHdEaHlQcVYzMHpJS2w4OHRLdnZucEZWR0x1clRhNmc?oc=5",
       "trend_score": 10,
-      "fetched_at": "2026-09-25T08:40:59.691631+00:00"
+      "fetched_at": "2026-09-25T20:13:51.261904+00:00"
     },
     {
       "series_number": "TREND-2",
@@ -16,231 +16,231 @@
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1CTnRLamR4U1U0VlpaZVNOVzBucWNSc25YQmlZYXg5OEYzWXNFd2lRQmd5LVI3TGdEYl9GMTROdHJ5ZFJFb0FvWkU4YV9Kb2wtTlZB?oc=5",
       "trend_score": 10,
-      "fetched_at": "2026-09-25T08:40:59.691648+00:00"
+      "fetched_at": "2026-09-25T20:13:51.261916+00:00"
     },
     {
       "series_number": "TREND-3",
-      "topic": "How Social Determinants of Health Influence Stress and Social Support in Patients With Gynecologic Cancer",
+      "topic": "Precision Neuroscience raises $250M for brain",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxQenVyT3pPRUdadUFWZm5mRTJjQzhfMERyRW10M0JfekpCVUVWV09nNlBESmhHd0xXLThGM3I1ZzlLWl9LNkpqV1JvZW5qQnVLRmVSZk9QaE9Jc05jZVhwQ09sS2ZnZUdJYlNHNUMxRFhnYkI2Tk8yYk9fOHdrODFRS1YtQWVXTThtSmJWaFR3MUV1YmtCcTdpeEpKQ0N3QU12eV9UMF9vekoxSWIzaW9vOXUtYU1lcWQzYklNeDJ4eFh0MW8xT0RIc2Rjc1ZqRWRHU3NxX2Q0UUM4UDBFWGc?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNQm40THpGZVFUdDZ0R283Ynp4ZUVBU0swU3hYbHh3Nk5UcTRtYm5MTWlFT0h1Q3pSd0VmNWRscjB3cFFYaFQwZ0VQUVpQMDFlR3BLQ3FXdGtIRjRzVEl3dlhJaWxEc0E5R0x3TU1IVkVvUlBIVHVIWTZSa1NZMDNQR3Nhc29yQjNieV9PMGhmNGpISVBBWlJxT09aZV9FT1pid3pMYXA4RENlUktSVnc?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-25T08:40:59.691654+00:00"
+      "fetched_at": "2026-09-25T20:13:51.261920+00:00"
     },
     {
       "series_number": "TREND-4",
-      "topic": "CDC\u2019s latest youth behavior report offers a narrower look at teen health",
+      "topic": "Callier, Brain Sciences, Student Programs Inspire Giving",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNbVBaMDRqb1cySWdkd2pCZ0ktYWQyRi1keUdYZTBkSXA3cDY0ekFfZ1NKc2FuNHdwZFBvRFlsbXFiUVVVMDJicnAxNHJjS2hfazllN3NOWEE0QjVmem91bmctWHZ1bk56Vlp1cVdpc185VGg1akdmMGlWRzIwaExwZ2dOeE5aMmJQRzM4Z21lNFBXU2FHeW1tUHVtb29rMFZnS3BpbFR3UFg?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5VVGkxY0x3bHpDRzBLUG5DZzZuSHdkaXZmWG02c1d0RUNTTmtVS2VtVjNzRUVSREhnVzE5SGJQYkxjb09sUGwyUWVZbWh2Q1BESkpNYVZ3N0xLSkJTUm52S3hBQUZDdXpqdnFWUFFPR1lNUXVqNFRFdF9tMjN5UVU?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-25T08:40:59.691661+00:00"
+      "fetched_at": "2026-09-25T20:13:51.261923+00:00"
     },
     {
       "series_number": "TREND-5",
-      "topic": "Changes in Body Mass Index Following Pediatric Tonsillectomy for Obstructive Sleep Apnea",
+      "topic": "Can what you eat impact your brain health? A dietitian weighs in",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNUWk4QnJldzRLempzbVp4Zi1vendNd1lkb3Q0OWZoUE0xeW1SQURJelI2ZExuYkNfNkp5NUVMSngxYk5pVDVDTnN2cnZpaEZqOUxEMU9ZbmttendNVWtpRzFGS2doeE0wMjQxcy1LODBhRkRrUzNNY0NIX2lkUVo2aExLT1hiSEE1NW1TTTNYSkE3aTVPNzNjdDJrMmNEeTgwaVkxZ2Fsa1MzODY4TmxlVWkyeWhpV0RtT2xyWWE1cmphRlJQeFE?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxNMktlX05ITk9Rem45b1A4VE1ON2NicWlrNXBJVmkwelBwM1FkYnpZdVNWUHVTblo3OHFVc0RqRTZyaHhuZktGbjVxaGVjVlV3NDdQSlY4SkZoOXRQN21pVno5MUdkMmR3Y3VJOWp0YzVfNVFGTFRLdkpvb3RPMEhMUFdVaHE3dHFuZXktUklwYUJNTFlTem9lY1JfejFLU0NDZVZORHdpTGdtUWVpSXc1QUwtUGhWR1hmZ28ybGs3WG15d2FJelJsNW83TW8ybjZ6ZzJqTnJmUDVHbWFPd2c?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-25T08:40:59.691666+00:00"
+      "fetched_at": "2026-09-25T20:13:51.261927+00:00"
     },
     {
       "series_number": "TREND-6",
-      "topic": "Precision Neuroscience raises $250M for brain",
+      "topic": "What Happens To Your Brain Under Chronic Stress May Change Over Time",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOckhHM0JQUkpSaHA5Zk5NdmVTczNIb1ZMR1ZpcmxjS29VVnhKLWt6aHdJX3ZNXzk4RTNMeXJTSk01NzJ0UUlIanVZT2FjTzNVWTNtZzRUdHAza3VVMVc1NWhqSTV1SU41YTZ1YWRmZHoyQmZ1eUpJeDdRcVE4elhGdFQ1eFRTS2NhaXlfTDV0dG1KYnNMRGN6NEJ6UQ?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPX1o5ZTdnd2YtOURCSDZEY1RQOWdRWGo1YzEzSVRlVkhnbEhYYWRhMldWNjFKakV1aEVSRXBmRklEekUxMU5TSDh0bldXcmZBWm5XTFVBOHJERmZ2Q1dXNmllWFpTYVIzSW54R3VDdWc3ajhqZVVOeC15V20tSXQxY3NUdGthOGNacnllcnFsVVBQeUpweDlpdE94V0RzT2JXTUNHaC1fcw?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-25T08:40:59.691671+00:00"
+      "fetched_at": "2026-09-25T20:13:51.261930+00:00"
     },
     {
       "series_number": "TREND-7",
-      "topic": "OU Health brings brain and spinal cord tumor specialists to Tulsa",
+      "topic": "Brightcore for brain health",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQNGRTUURsUmhUSW45ZVlQdENPdUJsU3ZlZW9udDBNRm8zQTV2eDZHN1kxb185WFJsbTd6NVYzc0RmMTI3T1BpY0FwS1gwX0M0VEp3RlRsSEg2WUNfdVF0NmZMenV1ZWR2VzM4QWdLMmdwYUp4Y2ZmVUtNNjJ1TjU3b0tDdjlrQW1OVGc?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1NQ1RhandVZ1RzSlRuaEZPQlNHN1FGVkcwSGZ1d1NDT0VVWGJSTmxRa0FIcEZYcVdIdVhlMXUyMU1ReERnbkw0TE80a3JnNjVFMGliaVMwLVU0Vk5oRFlyTENvYjNnT01kX1R5bm5QbFF5VW4x?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-25T08:40:59.691676+00:00"
+      "fetched_at": "2026-09-25T20:13:51.261933+00:00"
     },
     {
       "series_number": "TREND-8",
-      "topic": "Flatworms offer brain repair clues, caregiving brain health and AI hack hits health data",
+      "topic": "Want a better brain as you get older? Neuroscience says stay far away from these 3 things",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMihwJBVV95cUxPWTA4UVlrS2JzbkhfQU9CZFRleXdIOVJBVUdGUlNjdFk1Ykw4NmFkbUkzakp2SHJRQnFFMmNfd0FrdkJnSHN5d2R4X3A3Nm4xT3hicjlQRVU0b01ReTZrVzJTWmZvSHQyRzlna2JFUXVCZ0ZYYjJfM0xiOEswaVJFNHFrWmFjUEliS0xjN0tkeDZuN0dFd1MydXk4Y1NOVGRaVXdBQzZjaFdoZ0dNWm9SVFNqTjE1bDZNc1Q5YUt6WnY1RWsyZDBZM2NMa2NONGsxMklNOHJudWQxT05fWjItZXdyS0RuWEJ1blZkMHRLc3JROEhIS0I1RXJ3OVdzY0pQRlRuMkVMYw?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNLW5PSF9hRzhtSXpGRGVGQzVwQXVaWXdfMVlidXUzZGJKX0FQOEwyS3dHSDFRZURWWkNwNDJRWnRZbFZSWlNLQVFVOEVTWTBwNFdqeW1JZV9mdjYwZkliNHU2bkEyOXRTRDRJM0VqV25pU1UwOXp3SzZucDJiZ0xtMWN6bWtGNmRKREN4YnVXcEJjbU40TWszVFB3RVlNNG9zSFl1ZWpqU1Bzd3JDZnc?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-25T08:40:59.691680+00:00"
+      "fetched_at": "2026-09-25T20:13:51.261936+00:00"
     },
     {
       "series_number": "TREND-9",
-      "topic": "Sensory neuronal mTORC1 kinase signaling establishes neuroimmune memory that initiates allergic immunity",
-      "source": "nih_news",
-      "source_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5KYzFEV1htOGpyMHNCRDJxVUZpTm1USG1rVC1uU0EwS3Vtd1owTzg5Q3hpQmNZcHRvWkRSYXZRUGJveDBac2Ffd2Y4Q2VMbFZmVVZ3?oc=5",
+      "topic": "CDC\u2019s youth behavior report offers a narrower look at teen health",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5Nako5NXBwcnNNdF95Z3N0cUhLMVJ3SVVKaG5zUjJpbF9oQVg0MzhEeHBRVGxIWWVBdW9JY2VrM0FZNmd5MzBKMzkyc29FMDVvSm5nb2o2SldrUHZ4NjIzVA?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-25T08:40:59.691685+00:00"
+      "fetched_at": "2026-09-25T20:13:51.261940+00:00"
     },
     {
       "series_number": "TREND-10",
+      "topic": "Here's how food impacts your brain health",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQTHQ4QjFyMkpPVlFDZ24yMzQ4MVh0VVFXQWZMZm5RLVhPckpYYTFVTWhjNFBmMUtLX0MtRU81UlJtVGdTWm4wNlpBRVhWaHMybWpBTGhWVllNZTQ1SVgtekNPTmJMSVJIVFY2dmJZaEczZE0zSkRCMmdZOHItX3Nrei02Y1lzWldQQTF2aFl3c21NWWpPbVNDQ01nZmQ2WWNiWUZFR1F4TXRQUDNwN3ZWWlRuazhzeWhoUzJQSw?oc=5",
+      "trend_score": 7,
+      "fetched_at": "2026-09-25T20:13:51.261943+00:00"
+    },
+    {
+      "series_number": "TREND-11",
+      "topic": "BAYSTATE HEALTH ANNOUNCES PARTICIPATION IN NATIONAL CLINICAL TRIAL FOR ADVANCED BRAIN ANEURYSM TREATMENT",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxNemVTVTdsUnQ4cEl3LXo4RHBaeDY1NzNZVWZGaEhwWWR3dHppMnc0aTUzQnEtWldfS3NpdXIzcXBpYzYzb005d0dscHgtOUg5dG1GdGVkYTFEQUJmSDNyWkRZNUlTQnlSWWhfSTRHWm5CVnJTQXdFV0xLUndpQkQ4S0IxV3hGcHdOYTY0Z2laZGdBT2VCcElFMEFJM0tWNDczSFdDTG9Sa1YxblRiUVlsNmdsX1NiYlRfcWdDNlFJejBmbGZrWUZ0UW84ZFNOdjRGSEFlcVBjVmJ1TG1aQ0tjZGhQVDdBS3FESmRhS3haNWw5Zw?oc=5",
+      "trend_score": 7,
+      "fetched_at": "2026-09-25T20:13:51.261946+00:00"
+    },
+    {
+      "series_number": "TREND-12",
+      "topic": "Study Reveals Complex, Nonlinear Process of Health Behavior Change Among Women With Polycystic Ovary Syndrome",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPRGdEalltdGV5d2daWnRtMjdTTVBxaHpZYjJhNThSbk10RXNGNmNpRHV3eHByOThFUy02azRXUy00ZXZtR2RFSWl1Rzc2cGFqMnJ4UmFzZUpPNUs2NHR3d1Q4Z01JcVdiWEJZYUhZb3d0V0dvR2lOV3VrLUJQSWh2LXhyTldoTHVFT2hsd2JzZEthZTJTQTJpX01nVTgyZ0lkbnpsLWM5MGpud2FIUlVWNHpES0hqSUF3eGpHSUJsQ3pXejBHVTU2U1JhLW16bDU1Tkw5YUJTQXNBd9IB2gFBVV95cUxPRGdEalltdGV5d2daWnRtMjdTTVBxaHpZYjJhNThSbk10RXNGNmNpRHV3eHByOThFUy02azRXUy00ZXZtR2RFSWl1Rzc2cGFqMnJ4UmFzZUpPNUs2NHR3d1Q4Z01JcVdiWEJZYUhZb3d0V0dvR2lOV3VrLUJQSWh2LXhyTldoTHVFT2hsd2JzZEthZTJTQTJpX01nVTgyZ0lkbnpsLWM5MGpud2FIUlVWNHpES0hqSUF3eGpHSUJsQ3pXejBHVTU2U1JhLW16bDU1Tkw5YUJTQXNBdw?oc=5",
+      "trend_score": 7,
+      "fetched_at": "2026-09-25T20:13:51.261950+00:00"
+    },
+    {
+      "series_number": "TREND-13",
+      "topic": "Key sleep metric linked to lower risk of 83 conditions across the body",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxORk1KdHFIcjZHamNhSl9MYjlFX3NhSDJ5Y3JPdFhRVGhZSk1zc3Q3TVFaYXJ2UG1Fc1drVU9pT2NUZjdsUV9aLVg5RHVtNlZvU2t5ZFF2TzJpaG5yYTJBOW9TajBaTUlUNXNXb3FBQUNLNUdtVHI0cjNxYzN4dmo2eWRYbDRSV1J4Q0tUSW9Qb3NOdjNpbXhJTkNCMHpvX2lfUngtRkRBVnB6LUlu?oc=5",
+      "trend_score": 7,
+      "fetched_at": "2026-09-25T20:13:51.261954+00:00"
+    },
+    {
+      "series_number": "TREND-14",
+      "topic": "Sleep Deprivation and Memory",
+      "source": "nih_news",
+      "source_url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFBqWHJTRGo3MTFNWGNRTHlOc0hVUXE3VWkteTFzcWVEQmhNV0xYd0JydkJQMThzeUJGTExEaDJvbWE0NVd4TVpYSlhzTUdpTWZOb2RQdXFqOWFXOTUwTXc?oc=5",
+      "trend_score": 7,
+      "fetched_at": "2026-09-25T20:13:51.261956+00:00"
+    },
+    {
+      "series_number": "TREND-15",
+      "topic": "\u201cHeads Up\u201d for Creatine Supplementation and its Potential Applications for Brain Health and Function",
+      "source": "nih_news",
+      "source_url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBrQjdOb055UmpYV0xIQ2JTakE1R244SGRhOVBuWVh4Z0Rvc1BoLWJkelV1S0ZPSFpMSjFMUXYwQlI2dUVoSU0yN3JZN1F2bExSWWl0VU1GMnd5YXlJSWVR?oc=5",
+      "trend_score": 7,
+      "fetched_at": "2026-09-25T20:13:51.261960+00:00"
+    },
+    {
+      "series_number": "TREND-16",
       "topic": "How does inadequate sleep affect health?",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNNlg4eFlrdUlHazVGeklkOXU5TEhNQmkzTW50eUx2WnAtTllyM2xxNTVveGNoNkY4WDFwdkJLTi02M0ZqNEFLOXo1UmNRQS1qdFFTZmR2dE5oNWdBWExkdFYydE1WMnBKbnJZTFBpRWZYTWNUNXp0R1RocHJLem9iQVpR?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-25T08:40:59.691690+00:00"
+      "fetched_at": "2026-09-25T20:13:51.261963+00:00"
     },
     {
-      "series_number": "TREND-11",
+      "series_number": "TREND-17",
+      "topic": "Short sleep duration is associated with reduced leptin, elevated ghrelin, and increased body mass index",
+      "source": "nih_news",
+      "source_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE8tVGdhTklWUWN3cTZZZlVsd2RGa1Fkc1E1NFBMTkIzUmNDR3R6eFY4TzNzVFR6SDl1NlNULVlrNFViNFNPa0F3ZUxWMGFfUFBjVkVF?oc=5",
+      "trend_score": 7,
+      "fetched_at": "2026-09-25T20:13:51.261967+00:00"
+    },
+    {
+      "series_number": "TREND-18",
       "topic": "Chapter 12 Memory Impairments Associated with Stress and Aging",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5TOGM1Um1Pb2hYTnVSazcyNk1hTlYyTU9iaVF1MWV4YkphdG84d0h5bDRfR2NYT0VGQ2llTTFHTVFqOC1Gb0VYdlVDQ3RTQmpaN2VtdXJB?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-25T08:40:59.691694+00:00"
+      "fetched_at": "2026-09-25T20:13:51.261970+00:00"
     },
     {
-      "series_number": "TREND-12",
+      "series_number": "TREND-19",
       "topic": "Sleep drives metabolite clearance from the adult brain",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9NZjM0RXNpeE1raVlFclJ6ZTdqQ0dKLURSYUJnREd1TWNzZFhQTHExRUtCdElrY3ZEci1menRHSFNrUVp3RWxzSjJOSHNwZ3BEZ2pR?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-25T08:40:59.691698+00:00"
+      "fetched_at": "2026-09-25T20:13:51.261973+00:00"
     },
     {
-      "series_number": "TREND-13",
+      "series_number": "TREND-20",
       "topic": "The Global Problem of Insufficient Sleep and Its Serious Public Health Implications",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE0tN29MTjFScHctZlFWck5IWjNxeHh6VEgyeDhvVUJIcVAxamFPdW90ZWJyVVoyWlNwWF9oaGNJNjhnLUota2w4dlBvVlowcDUtUEtIMnpEWVE5UkdkWGc?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-25T08:40:59.691703+00:00"
+      "fetched_at": "2026-09-25T20:13:51.261976+00:00"
     },
     {
-      "series_number": "TREND-14",
+      "series_number": "TREND-21",
       "topic": "The Role of Slow Wave Sleep in Memory Processing",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9WRmlzS2dpNjc5dExPbzh1bTYwcWp4RTFCQ2dMWkY1LXl5MlFEb3hvREhjYWp0bFJMYjlhdG02ZmFId2lvQnBEdEl2bEJkZU9XZTJ5OVVMcFBBTFNsWWc?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-25T08:40:59.691707+00:00"
+      "fetched_at": "2026-09-25T20:13:51.261979+00:00"
     },
     {
-      "series_number": "TREND-15",
+      "series_number": "TREND-22",
       "topic": "Good Sleep for Good Health",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFA1eVJpLUkxXzI0Q3VqTEQ2NmMyQUEwMWxHbVBiekNsS0lZUVVfRG9US09Yb0JwVnZtSVN1dElFZkV6RXZGYkJ1OEZ6TUUwQnVjUVJ4Z3hKaEtoRF96VEhhcERwN1BwdUZvWW5j?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-09-25T08:40:59.691710+00:00"
+      "fetched_at": "2026-09-25T20:13:51.261981+00:00"
     },
     {
-      "series_number": "TREND-16",
-      "topic": "Improving sleep quality leads to better mental health",
-      "source": "nih_news",
-      "source_url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1MUElwNUdiWU9MaHltZGxHem40VDJBQWh5ZE13S040bUNTbm5NNlRkUUJDUnEtWlpXUUg0VVdhcW4yWHRPTmtpSmJ4N3VWbG1acmt3MWNJazQtOHB0V3c?oc=5",
-      "trend_score": 7,
-      "fetched_at": "2026-09-25T08:40:59.691714+00:00"
-    },
-    {
-      "series_number": "TREND-17",
-      "topic": "A Prospective Cohort Study of Adolescents' Memory Performance and Individual Brain Dose of Microwave Radiation from Wireless Communication",
-      "source": "nih_news",
-      "source_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFAtSHRsZDZTemNPOWNSWXE0MzlWeGtLOWZuOG1oODRLU1A2NC1wQThZeWR5TGFmcGlCMVdxNVBQdC1tM1MyRjRUNk5HT3FpZlVSaE1V?oc=5",
-      "trend_score": 7,
-      "fetched_at": "2026-09-25T08:40:59.691719+00:00"
-    },
-    {
-      "series_number": "TREND-18",
-      "topic": "Children's sleep linked to brain development",
-      "source": "nih_news",
-      "source_url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQTDhDZks5aHpLM0hCaFgtU2lIZFBna2JEd1BDWlVlM2o4WTcyWlBMNjRNcE9OYXRucHZBb0hXeUJXd0FuZEQ4dURQbzA4NThUY2ZrblNHaGpnT0hxX3FhSEhfVWg5M3ZLM2tNdHF6X0ZlcjJwVTUxSXNET1ZKS2RNUHVzSlk0WExlZjhtc2laZTlFeXpMYjRjSg?oc=5",
-      "trend_score": 7,
-      "fetched_at": "2026-09-25T08:40:59.691723+00:00"
-    },
-    {
-      "series_number": "TREND-19",
-      "topic": "National Institutes of Health Sleep Research Plan",
-      "source": "nih_news",
-      "source_url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE53enZ5SXoxLTU0ckV6aFdyQ2JzQm4tMVVHYzdUZEVacWpBSGxsM1BERnpmWVdHVGxuYkJsLXhhaXhFSmgwVjROVmRfbjc5dU82bG45NmJKbVg?oc=5",
-      "trend_score": 7,
-      "fetched_at": "2026-09-25T08:40:59.691727+00:00"
-    },
-    {
-      "series_number": "TREND-20",
-      "topic": "When what you see doesn\u2019t make sense, your brain does something remarkable",
+      "series_number": "TREND-23",
+      "topic": "New study suggests the aging brain is adapting, not declining",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE90YThiaXY0aGFPdHpVVXZWZmNTT3ZhaHdYT0xvYUVRak9FcjVVR1RhaVlNekZyb2Qwdm5FcjBxWUk0V0RqbG52Nlo4Wl9CTk12U0VNRFVpOFUycTVLRWdRb0l2SHdPQ1hRUExPWjdYdw?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQLVJ2QkZsRkRVam1DTjJLVzZ0dnY0TV9GUUdESHhzMGpVR2pVZ0pSRml4VVo3SXVhSEJTQVFzYnRKNFNvRUJTS01PNGU1VlJhWElzdnBIZ1FtNDhYakR5MGdZRVg1RVBNNFNzTnhuUlYway1XUnhIT0pFSGJMaTBwYUVEMHJjNGdPUkUzZDFDQTRGRExVVGRXTjhoZnVsZHZZWTlCcHJKMA?oc=5",
       "trend_score": 4,
-      "fetched_at": "2026-09-25T08:40:59.691733+00:00"
+      "fetched_at": "2026-09-25T20:13:51.261984+00:00"
     },
     {
-      "series_number": "TREND-21",
+      "series_number": "TREND-24",
+      "topic": "What regular music practice means for a developing brain",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQM2RvY051c2V6T0NSc01GamdxVUJpdDlqdWEydXBUSUpMS0RRSXNDcEsxamVZcGt6Y3h6TTJrekFTTi13UTFHaUVhaER0NWxQbUlSSGlTbi1IRWh3M0dmX3hzNFB3N0ljTFBlcmE0RW00RUI5X0NFVWRfNTg0bFZXV1EtMF8xbDVxMmJv?oc=5",
+      "trend_score": 4,
+      "fetched_at": "2026-09-25T20:13:51.261987+00:00"
+    },
+    {
+      "series_number": "TREND-25",
+      "topic": "Melatonin Use Linked to Small REM Sleep Reduction in Children",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQSTlnaDlEZE1KNVA0TUE3V185Rm5sQ2s1T3ZwMFNTUzAta2NUeVZVcFB1eFBkUzd3bUwtMm5IdTRtMEFYZTlqVmI4VV9USkJVcE05R19aRFZGcTJjWEdFNmEzMG1kVE04ajllSEhMZDJUdHg3cVBZLWRJVk9fZk9IOUxuTjRmZ1paal9QdnpLOGs?oc=5",
+      "trend_score": 4,
+      "fetched_at": "2026-09-25T20:13:51.261992+00:00"
+    },
+    {
+      "series_number": "TREND-26",
       "topic": "Sleep payments",
       "source": "google_news_us",
       "source_url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNOTlRZVBaZGlrSER5ZVZxRnBuSGt4cXdXTXpTb2VEOHl6UklPUTBHdU92elh6dzl2aXNxZ2pxUmwxSXdvUkpHcGhGaFBqaXhXM3VsYlFtZTdhcUxQUmtiSU1xLS12c3lRc1dYR0tQektZaXZPOTQwYWp0U3pmRGstOUtDZ05Ed0VBUHJGUDV0SEI5bFZOal9OSDhHRlVkYWE1eUVjNm5QQlNkajBy?oc=5",
       "trend_score": 4,
-      "fetched_at": "2026-09-25T08:40:59.691737+00:00"
-    },
-    {
-      "series_number": "TREND-22",
-      "topic": "The lipidomic architecture of the mouse brain",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5sVkdySzg4WlFLZWtuTjFzRFZzbU1EejJKMkNfX05RY0d4LXVRbnp1VVJob0pRTFNseXdvSURtYWpLQnlmRXBQdmpsc3NZY0JYcjFLMk1xWTU5RE85eHdV?oc=5",
-      "trend_score": 4,
-      "fetched_at": "2026-09-25T08:40:59.691746+00:00"
-    },
-    {
-      "series_number": "TREND-23",
-      "topic": "Bridging disciplines to decode the brain",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOaXdjbHBHTDdxb19iQW8xS3BlUFh6OWpnSzB2OUktM29jbGNGVUFwRHhQWloxNEVNOWtmSzA4VjFCMzVsbERvUGp5dGVaQlFwV0lWWW0zRi1zOGtiQUV0RlZvVXlvNnpJU1I2dEVpUDNDSWVzNHZvTVp2MHhSNTlvOW5EazNSY2tG?oc=5",
-      "trend_score": 4,
-      "fetched_at": "2026-09-25T08:40:59.691750+00:00"
-    },
-    {
-      "series_number": "TREND-24",
-      "topic": "Teen Discovered With a Memory More Powerful Than 99.9% of The Population",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQbHN0VUY3dEpXOVJlTHpGckhpcmxlOGM4ZjFacEV0bE5UaEdvenFiT04tSjNuOFV3UzcxU2RZYkRsalVqM00zcDlxUHlKbGVEamFWTFdzSEVyN3hTQ3VMVGhNdFZJQWVrRXpxa0drOHZWUTU2bTBJaWxjMlh2c3VJRUhOeW9BalFCUXhEME5SNl9VUDdPb1VBOVk3VzZxZHoxR2c?oc=5",
-      "trend_score": 4,
-      "fetched_at": "2026-09-25T08:40:59.691754+00:00"
-    },
-    {
-      "series_number": "TREND-25",
-      "topic": "Investors Are Betting On Devices That Connect the Brain to Computers",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQNldUY1RCNlpaeGsyVjNQTW1rcWtXRWRCZWVJRE02dWZUVVFXazZ6ZzhELXZETjJRRXZmZTIyaW5zY2pLNlJBR29vZlFRcEdacm9tMG5ZSzl6ODMyLWNaUTBUN1hLT2F4dFluNm4tbl9DelIyQnBTX0tRQ21hOFFXZDZ5X1dTeVBjOUF0dW1CTVQ2bkRLbW1hRVRydWpuWk0?oc=5",
-      "trend_score": 4,
-      "fetched_at": "2026-09-25T08:40:59.691759+00:00"
-    },
-    {
-      "series_number": "TREND-26",
-      "topic": "The secret conversation between your brain and gut",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOc1lITmI2amhON1g0bjBxdUpyMHdTcXVKVkc5NldlaFNkY0R5SmRUVW1sS3ZNem11ZjZjbjZqb2MtSXRvZ3FtSEl0T2tfMU9MNl9zVzRkZ0JPZF9leXpRTEI5eGw0d1FSY0NibjZOaUFmN2h3UkZCWTlRcklCR3RXUnRRWHl2MWV2?oc=5",
-      "trend_score": 4,
-      "fetched_at": "2026-09-25T08:40:59.691764+00:00"
+      "fetched_at": "2026-09-25T20:13:51.261995+00:00"
     },
     {
       "series_number": "TREND-27",
-      "topic": "New UC Davis center seeks better brain tumor treatments for people and pets",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNc3l1VXR3c0FfVFZMcjkyWGl0aTBGTFg4c3pmbTB4YU15RHI5UFZvVk5OR0ozMm1jNlZQYW5BRk91NFVyZmMtUm4teXhHcGZwVWxtWlUxTFd3TFZMT280SC1NM0drdG9uXzNyY2RDTTdjQ0FfSVdobUJ5d0JHU0FOd2l1TXpVRmZEUE9NS0NBZDFNTFF2dzVqU2tJQzlhMzRfZ2hnbm5GZElEQXR0YTlXZ0pVMjIyZG02Z0ZLd25wMXhSWFkzRTJOTDgwcE9KUQ?oc=5",
-      "trend_score": 4,
-      "fetched_at": "2026-09-25T08:40:59.691769+00:00"
-    },
-    {
-      "series_number": "TREND-28",
-      "topic": "Restoring the river\u2019s memory",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNTEowWDczNDBMdW1NS3pzQkdURTQ1bENDc1NpYjh4WEIyVWNhaTNCc05LdlNTdzk0SXRqVzNONzJ5bTBWX0YyTmV3a1BhTnFBTnhiSFV3Q3kzcGNKNEtwZE9FeDR6QkNfUzNFU0pFREp4TXJaM0w1eWdYQUl5bDYwRmIyOEdXWmZXMDAxamF4aXhyb3RRVnY2eEhncVl0NE84S21nMlRn?oc=5",
-      "trend_score": 4,
-      "fetched_at": "2026-09-25T08:40:59.691774+00:00"
-    },
-    {
-      "series_number": "TREND-29",
-      "topic": "Investigating brain stimulation as an alternative to medication in the treatment of epilepsy",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOak5YWkgwRWx2WDVRM1ZVbXJydkJRMVc4NkRRSnZpakpyNTZkQUMzR2lGcWowX0hwVDQwLTQtYnhEMkJGTUd6dGhXSW1fWFBvNVREUGdqV3ZBUjlGdlRqbU11Nkh0NEtYZzBvOG1lVHlkcVhGZFQ1SDRqbDRHamVldXR1LTlYLWZGNTdmOW1VMlFKZEVlRmc?oc=5",
-      "trend_score": 4,
-      "fetched_at": "2026-09-25T08:40:59.691779+00:00"
-    },
-    {
-      "series_number": "TREND-30",
       "topic": "More REM sleep linked to lower risk of 83 diseases",
       "source": "google_news_us",
       "source_url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5NcnY0ZkRKdklDU3lBbzBDTFNzVlE3T2Y0NFRWYmdFb21ON0NLV2lxVC02bjZkYy14clhveWRDdEUwOUFvLXhndmx6dTJPMEJsMUZvSGlGczhhbTBhSURFRHI1WWFTNVhOSW9OWmFkVQ?oc=5",
       "trend_score": 4,
-      "fetched_at": "2026-09-25T08:40:59.691783+00:00"
+      "fetched_at": "2026-09-25T20:13:51.261998+00:00"
+    },
+    {
+      "series_number": "TREND-28",
+      "topic": "The lipidomic architecture of the mouse brain",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5sVkdySzg4WlFLZWtuTjFzRFZzbU1EejJKMkNfX05RY0d4LXVRbnp1VVJob0pRTFNseXdvSURtYWpLQnlmRXBQdmpsc3NZY0JYcjFLMk1xWTU5RE85eHdV?oc=5",
+      "trend_score": 4,
+      "fetched_at": "2026-09-25T20:13:51.262001+00:00"
+    },
+    {
+      "series_number": "TREND-29",
+      "topic": "Newfound brain circuit coordinates eating and energy burning when temperatures drop",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOY0tTaHhZS293dFVlb2xHVHNZd2szSmpoN0tSdEJFUFFRbkJzUHRxUEh4WkhIRlY5OTkyZjg4c0doUndRQjJFMURyLXNKdjE4NS1oQXpkVmdHS0w1RTF2U01BbE5fZ1hKREtoT3J4UUZNRHl2WkV4eHdsVXphN3VKOE9od1A1NTI1eDBfUzhITQ?oc=5",
+      "trend_score": 4,
+      "fetched_at": "2026-09-25T20:13:51.262005+00:00"
+    },
+    {
+      "series_number": "TREND-30",
+      "topic": "Brain activity measure gives insight into depression",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1Qd2JObHNsSWRoOEtPekY2eElVMWkxNTM4Q2EwTEJJYzBPcWQ5eDU0ZXhxSVpBR2pBamVOTW9HN0tVLWZkbXlhYXE3VG1MakZULWVuUWExNjl6V2xyTGpkSFJOSWZERkhOMmVhYmFQVmxkd0FGeXc?oc=5",
+      "trend_score": 4,
+      "fetched_at": "2026-09-25T20:13:51.262008+00:00"
     }
   ],
   "source_errors": []
