@@ -1844,7 +1844,7 @@
   },
   {
     "created_at": "2026-09-25T20:15:21.326594+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Here's how food impacts your brain health",
     "title": "Here's how food impacts your brain health",
     "video_path": "output/mr_nextep_short.mp4",
@@ -1876,6 +1876,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "91cc56c240a6ae66f306ea6f634d2b42f6ac0c5c43684e500f4f9ef175d12c26",
     "body": "Your snack decides your next memory Food can trigger memory encoding Why blueberries act so fast? Flavonoids spark dopamine release Brain tags the moment Fast signaling bypasses digestion Boost recall before a test Your next memory starts with a bite",
-    "text": "Here's how food impacts your brain health Your snack decides your next memory Food can trigger memory encoding Why blueberries act so fast? Flavonoids spark dopamine release Brain tags the moment Fast signaling bypasses digestion Boost recall before a test Your next memory starts with a bite"
+    "text": "Here's how food impacts your brain health Your snack decides your next memory Food can trigger memory encoding Why blueberries act so fast? Flavonoids spark dopamine release Brain tags the moment Fast signaling bypasses digestion Boost recall before a test Your next memory starts with a bite",
+    "youtube_video_id": "VTvEcbMrNQ8",
+    "url": "https://youtu.be/VTvEcbMrNQ8",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "published",
+        "id": "4376563309230822",
+        "format": "reels"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18140165125657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
+      }
+    }
   }
 ]
