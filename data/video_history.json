@@ -1794,7 +1794,7 @@
   },
   {
     "created_at": "2026-09-25T08:42:52.832497+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Sensory neuronal mTORC1 kinase signaling establishes neuroimmune memory that initiates allergic immunity",
     "title": "Sensory neuronal mTORC1 kinase signaling establishes neuroimmune memory that initiates allergic immunity",
     "video_path": "output/mr_nextep_short.mp4",
@@ -1826,6 +1826,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "0b0ac71d0366f4e50a4f0936fefe163d02ca37c2855db816027750d2c74ef2e1",
     "body": "Your brain stores sneezes Neurons can flag allergens But neurons aren't immune cells mTORC1 flips a memory switch Next exposure equals overdrive Brain‑immune bridge via cytokines Your brain decides the allergy That’s why sneezes feel familiar",
-    "text": "Sensory neuronal mTORC1 kinase signaling establishes neuroimmune memory that initiates allergic immunity Your brain stores sneezes Neurons can flag allergens But neurons aren't immune cells mTORC1 flips a memory switch Next exposure equals overdrive Brain‑immune bridge via cytokines Your brain decides the allergy That’s why sneezes feel familiar"
+    "text": "Sensory neuronal mTORC1 kinase signaling establishes neuroimmune memory that initiates allergic immunity Your brain stores sneezes Neurons can flag allergens But neurons aren't immune cells mTORC1 flips a memory switch Next exposure equals overdrive Brain‑immune bridge via cytokines Your brain decides the allergy That’s why sneezes feel familiar",
+    "youtube_video_id": "UTZXZgyahRI",
+    "url": "https://youtu.be/UTZXZgyahRI",
+    "caption_track": "failed: <HttpError 403 when requesting https://youtube.googleapis.com/upload/youtube/v3/captions?part=snippet&alt=json&uploadType=multipart returned \"The permissions associated with the request are not sufficient to upload the caption track. The request might not be properly authorized.\". Details: \"[{'message': 'The permissions associated with the request are not sufficient to upload the caption track. The request might not be properly authorized.', 'domain': 'youtube.caption', 'reason': 'forbidden', 'location': 'id', 'locationType': 'parameter'}]\">",
+    "meta": {
+      "facebook": {
+        "status": "published",
+        "id": "2322198738547256",
+        "format": "reels"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18140070178657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
+      }
+    }
   }
 ]
