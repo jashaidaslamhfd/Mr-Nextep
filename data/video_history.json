@@ -1791,5 +1791,41 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18139995880657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
       }
     }
+  },
+  {
+    "created_at": "2026-09-25T08:42:52.832497+00:00",
+    "status": "pending",
+    "topic": "Sensory neuronal mTORC1 kinase signaling establishes neuroimmune memory that initiates allergic immunity",
+    "title": "Sensory neuronal mTORC1 kinase signaling establishes neuroimmune memory that initiates allergic immunity",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "f0de4235f7bed78274cbe0f6981f12716df33dc0b706b356bcbc0f231e90069e",
+      "282fb10adabdf110daae814bbbbacc4332cd72ba4a423d922a749249cb3b37ae",
+      "a3436488e5c20cd4d4107622c12c837b0746136c6d9363ad880f21baa7437be4",
+      "3b02b6751bae16ff016cda01f614e207c21f19721e2a95515c6a220f024dc03e",
+      "9acd2e355e57a60883f4c33c8590e772269d36969ee279fb2738bcbd875f7d0d",
+      "e85a4e2d8b8ee49205958c5dcf1378c245a053ee7cd41df8f1f1bda0072c6fda",
+      "d7f21307c95af125dcc24aa3b33dbd48e3ffedbdaf43041e5301a41ed13fcb20",
+      "0fbe85dc7e40781e3261b975771090e540a293998ecdec3df7f92178faeadcdf"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 22.519002,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "0b0ac71d0366f4e50a4f0936fefe163d02ca37c2855db816027750d2c74ef2e1",
+    "body": "Your brain stores sneezes Neurons can flag allergens But neurons aren't immune cells mTORC1 flips a memory switch Next exposure equals overdrive Brain‑immune bridge via cytokines Your brain decides the allergy That’s why sneezes feel familiar",
+    "text": "Sensory neuronal mTORC1 kinase signaling establishes neuroimmune memory that initiates allergic immunity Your brain stores sneezes Neurons can flag allergens But neurons aren't immune cells mTORC1 flips a memory switch Next exposure equals overdrive Brain‑immune bridge via cytokines Your brain decides the allergy That’s why sneezes feel familiar"
   }
 ]
