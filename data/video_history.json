@@ -1944,7 +1944,7 @@
   },
   {
     "created_at": "2026-09-26T19:33:37.864410+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Good Sleep for Good Health",
     "title": "Good Sleep for Good Health",
     "video_path": "output/mr_nextep_short.mp4",
@@ -1976,6 +1976,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "529d2a70c7cb08ccdf13ee6c5e1bd5ddf0a9c16af5917bf2e819cb5ee3226fe2",
     "body": "Your brain deletes last night’s memories Sleep isn’t just storing information It actually weakens fresh synapses Scientists call it synaptic downscaling That’s why bedtime study fades fast It clears noise for important memories Sleep works like a mental garbage collector Forget a fact? Thank your nightly cleanup",
-    "text": "Good Sleep for Good Health Your brain deletes last night’s memories Sleep isn’t just storing information It actually weakens fresh synapses Scientists call it synaptic downscaling That’s why bedtime study fades fast It clears noise for important memories Sleep works like a mental garbage collector Forget a fact? Thank your nightly cleanup"
+    "text": "Good Sleep for Good Health Your brain deletes last night’s memories Sleep isn’t just storing information It actually weakens fresh synapses Scientists call it synaptic downscaling That’s why bedtime study fades fast It clears noise for important memories Sleep works like a mental garbage collector Forget a fact? Thank your nightly cleanup",
+    "youtube_video_id": "8XpX5tsrkbE",
+    "url": "https://youtu.be/8XpX5tsrkbE",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "published",
+        "id": "2618643375249778",
+        "format": "reels"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18140333782657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
+      }
+    }
   }
 ]
