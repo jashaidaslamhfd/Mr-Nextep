@@ -1471,5 +1471,21 @@
     "title": "Here's how food impacts your brain health",
     "body": "Your snack decides your next memory Food can trigger memory encoding Why blueberries act so fast? Flavonoids spark dopamine release Brain tags the moment Fast signaling bypasses digestion Boost recall before a test Your next memory starts with a bite",
     "text": "Here's how food impacts your brain health Your snack decides your next memory Food can trigger memory encoding Why blueberries act so fast? Flavonoids spark dopamine release Brain tags the moment Fast signaling bypasses digestion Boost recall before a test Your next memory starts with a bite"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "0bee3346f23a90e3754b29924f91376f70bcc48ee4df8bec4351228d1fc1ad96",
+    "title": "Sleep drives metabolite clearance from the adult brain",
+    "body": "Your brain is a nightly garbage dump A hidden fluid sweeps toxins Works only during unconsciousness Cells swell, pathways open Sleep loss causes mental haze May protect against Alzheimer’s Sleep is essential brain maintenance Taking out the brain’s trash",
+    "text": "Sleep drives metabolite clearance from the adult brain Your brain is a nightly garbage dump A hidden fluid sweeps toxins Works only during unconsciousness Cells swell, pathways open Sleep loss causes mental haze May protect against Alzheimer’s Sleep is essential brain maintenance Taking out the brain’s trash"
   }
 ]

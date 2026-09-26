@@ -1891,5 +1891,41 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18140165125657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
       }
     }
+  },
+  {
+    "created_at": "2026-09-26T08:34:04.558633+00:00",
+    "status": "pending",
+    "topic": "Sleep drives metabolite clearance from the adult brain",
+    "title": "Sleep drives metabolite clearance from the adult brain",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "409a0aa7e15339b89884cd1c457cd031a7813c34ec8a25e11f237bf7ece458b4",
+      "4cab90e0ff878f0de7345f56e953ff72a160da925de206a4ce3cb99d4bb67c20",
+      "d77e8eac9c639c7449ff43735a8e994e189cd0c888e458d3e702e3dde026503e",
+      "9c2c58e12312f5f7a662f5d88f54d4f044926c0cfc27149cd3381031c1a8d736",
+      "42e0be56141b35fd584eee0f6de2f00f554b2450d8b3f74769fecf147ce2813a",
+      "faf0875e0b35523fb129b63c104e7e8361c2afa8c48c5ca9fe21f2dc70b11dc6",
+      "d0fe059ba77490b579665c8f354a07652f144c01b37a93eebf4e03e56d5800ac",
+      "5197832f71ba5e1c969117f2129b6f77b3cf870699a6eb4762809b1f4da882f9"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 22.520136,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "0bee3346f23a90e3754b29924f91376f70bcc48ee4df8bec4351228d1fc1ad96",
+    "body": "Your brain is a nightly garbage dump A hidden fluid sweeps toxins Works only during unconsciousness Cells swell, pathways open Sleep loss causes mental haze May protect against Alzheimer’s Sleep is essential brain maintenance Taking out the brain’s trash",
+    "text": "Sleep drives metabolite clearance from the adult brain Your brain is a nightly garbage dump A hidden fluid sweeps toxins Works only during unconsciousness Cells swell, pathways open Sleep loss causes mental haze May protect against Alzheimer’s Sleep is essential brain maintenance Taking out the brain’s trash"
   }
 ]
