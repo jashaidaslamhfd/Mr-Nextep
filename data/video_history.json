@@ -1894,7 +1894,7 @@
   },
   {
     "created_at": "2026-09-26T08:34:04.558633+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Sleep drives metabolite clearance from the adult brain",
     "title": "Sleep drives metabolite clearance from the adult brain",
     "video_path": "output/mr_nextep_short.mp4",
@@ -1926,6 +1926,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "0bee3346f23a90e3754b29924f91376f70bcc48ee4df8bec4351228d1fc1ad96",
     "body": "Your brain is a nightly garbage dump A hidden fluid sweeps toxins Works only during unconsciousness Cells swell, pathways open Sleep loss causes mental haze May protect against Alzheimer’s Sleep is essential brain maintenance Taking out the brain’s trash",
-    "text": "Sleep drives metabolite clearance from the adult brain Your brain is a nightly garbage dump A hidden fluid sweeps toxins Works only during unconsciousness Cells swell, pathways open Sleep loss causes mental haze May protect against Alzheimer’s Sleep is essential brain maintenance Taking out the brain’s trash"
+    "text": "Sleep drives metabolite clearance from the adult brain Your brain is a nightly garbage dump A hidden fluid sweeps toxins Works only during unconsciousness Cells swell, pathways open Sleep loss causes mental haze May protect against Alzheimer’s Sleep is essential brain maintenance Taking out the brain’s trash",
+    "youtube_video_id": "EVg1NKkNUls",
+    "url": "https://youtu.be/EVg1NKkNUls",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "published",
+        "id": "2270960773859309",
+        "format": "reels"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18140244868657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
+      }
+    }
   }
 ]
