@@ -1991,5 +1991,41 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18140333782657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
       }
     }
+  },
+  {
+    "created_at": "2026-09-26T23:59:42.777517+00:00",
+    "status": "pending",
+    "topic": "Improving sleep quality leads to better mental health",
+    "title": "Improving sleep quality leads to better mental health",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "e109edd7b04fa347678987b5fac551b3627b67c71c4125821fa1c22b68e97563",
+      "878f0957db355877a5e49ae0dbe3b179455ea19b61c3f40b983a180527ce2653",
+      "64b757f2c8b5c7fc734ea9690770a3f3e194cf04b9800b86120390e46a8e7a75",
+      "b12d2f5a9cb0fa2b5d108fa085cae640a85d20796a499cd18a014d4db69cb4c4",
+      "5538339b6a38c58295782faff641b2d29b80e684ba5ac947e256bc8405ce108a",
+      "39d63e218316b8e5d4187ceea8cb299fd374e1afbd704c3e53ab99342be11d91",
+      "78f96ca0d9faee48bfb2f18589ea7ef53e23cff9f579b7a2700a02b593462218",
+      "f0002cbe36952f14eb6b3ee3d36595cac83baad77fab9ad1d09f24c74504705d"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 24.022177,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "5abb3b6e0be184502f357f59c6bf8ecc3c7b832597827ac314fe8951df8b8048",
+    "body": "Your brain cleans itself while you sleep Deep sleep opens a waste‑clearance highway Why does cleaning change your mood? Glymphatic system: brain's nightly fluid pump Slowed cleaning fuels anxiety spikes Missing REM cuts clearance forty percent Sleep = natural mood‑reset button Now you know why eight hours matter",
+    "text": "Improving sleep quality leads to better mental health Your brain cleans itself while you sleep Deep sleep opens a waste‑clearance highway Why does cleaning change your mood? Glymphatic system: brain's nightly fluid pump Slowed cleaning fuels anxiety spikes Missing REM cuts clearance forty percent Sleep = natural mood‑reset button Now you know why eight hours matter"
   }
 ]

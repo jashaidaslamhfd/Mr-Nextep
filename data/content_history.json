@@ -1503,5 +1503,21 @@
     "title": "Good Sleep for Good Health",
     "body": "Your brain deletes last night’s memories Sleep isn’t just storing information It actually weakens fresh synapses Scientists call it synaptic downscaling That’s why bedtime study fades fast It clears noise for important memories Sleep works like a mental garbage collector Forget a fact? Thank your nightly cleanup",
     "text": "Good Sleep for Good Health Your brain deletes last night’s memories Sleep isn’t just storing information It actually weakens fresh synapses Scientists call it synaptic downscaling That’s why bedtime study fades fast It clears noise for important memories Sleep works like a mental garbage collector Forget a fact? Thank your nightly cleanup"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "5abb3b6e0be184502f357f59c6bf8ecc3c7b832597827ac314fe8951df8b8048",
+    "title": "Improving sleep quality leads to better mental health",
+    "body": "Your brain cleans itself while you sleep Deep sleep opens a waste‑clearance highway Why does cleaning change your mood? Glymphatic system: brain's nightly fluid pump Slowed cleaning fuels anxiety spikes Missing REM cuts clearance forty percent Sleep = natural mood‑reset button Now you know why eight hours matter",
+    "text": "Improving sleep quality leads to better mental health Your brain cleans itself while you sleep Deep sleep opens a waste‑clearance highway Why does cleaning change your mood? Glymphatic system: brain's nightly fluid pump Slowed cleaning fuels anxiety spikes Missing REM cuts clearance forty percent Sleep = natural mood‑reset button Now you know why eight hours matter"
   }
 ]
