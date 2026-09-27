@@ -1519,5 +1519,21 @@
     "title": "Improving sleep quality leads to better mental health",
     "body": "Your brain cleans itself while you sleep Deep sleep opens a waste‑clearance highway Why does cleaning change your mood? Glymphatic system: brain's nightly fluid pump Slowed cleaning fuels anxiety spikes Missing REM cuts clearance forty percent Sleep = natural mood‑reset button Now you know why eight hours matter",
     "text": "Improving sleep quality leads to better mental health Your brain cleans itself while you sleep Deep sleep opens a waste‑clearance highway Why does cleaning change your mood? Glymphatic system: brain's nightly fluid pump Slowed cleaning fuels anxiety spikes Missing REM cuts clearance forty percent Sleep = natural mood‑reset button Now you know why eight hours matter"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "68528c10f336e56264abfb1389b1b84fc899782e1f47a62b48f17877eaf855cd",
+    "title": "Children's sleep linked to brain development",
+    "body": "One night can rewind brain growth Scans reveal hidden slowdown Missing deep slow‑wave sleep AI spots 15% hippocampal drop Predicts slower vocabulary growth Deep sleep runs only hours 30‑minute nap restores activity Missed night? Schedule a catch‑up nap",
+    "text": "Children's sleep linked to brain development One night can rewind brain growth Scans reveal hidden slowdown Missing deep slow‑wave sleep AI spots 15% hippocampal drop Predicts slower vocabulary growth Deep sleep runs only hours 30‑minute nap restores activity Missed night? Schedule a catch‑up nap"
   }
 ]
