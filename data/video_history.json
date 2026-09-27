@@ -1994,7 +1994,7 @@
   },
   {
     "created_at": "2026-09-26T23:59:42.777517+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Improving sleep quality leads to better mental health",
     "title": "Improving sleep quality leads to better mental health",
     "video_path": "output/mr_nextep_short.mp4",
@@ -2026,6 +2026,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "5abb3b6e0be184502f357f59c6bf8ecc3c7b832597827ac314fe8951df8b8048",
     "body": "Your brain cleans itself while you sleep Deep sleep opens a waste‑clearance highway Why does cleaning change your mood? Glymphatic system: brain's nightly fluid pump Slowed cleaning fuels anxiety spikes Missing REM cuts clearance forty percent Sleep = natural mood‑reset button Now you know why eight hours matter",
-    "text": "Improving sleep quality leads to better mental health Your brain cleans itself while you sleep Deep sleep opens a waste‑clearance highway Why does cleaning change your mood? Glymphatic system: brain's nightly fluid pump Slowed cleaning fuels anxiety spikes Missing REM cuts clearance forty percent Sleep = natural mood‑reset button Now you know why eight hours matter"
+    "text": "Improving sleep quality leads to better mental health Your brain cleans itself while you sleep Deep sleep opens a waste‑clearance highway Why does cleaning change your mood? Glymphatic system: brain's nightly fluid pump Slowed cleaning fuels anxiety spikes Missing REM cuts clearance forty percent Sleep = natural mood‑reset button Now you know why eight hours matter",
+    "youtube_video_id": "Q0y2PgaE9D4",
+    "url": "https://youtu.be/Q0y2PgaE9D4",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "published",
+        "id": "1630387508638100",
+        "format": "reels"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18140362771657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
+      }
+    }
   }
 ]
