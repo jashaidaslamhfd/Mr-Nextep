@@ -2091,5 +2091,41 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18140422396657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
       }
     }
+  },
+  {
+    "created_at": "2026-09-27T20:01:19.029526+00:00",
+    "status": "pending",
+    "topic": "Drinking Coffee Can Hurt Your Sleep",
+    "title": "Drinking Coffee Can Hurt Your Sleep",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "f35b3e8e867e549f692fe9a84855848a2e99b00ddd4e0e405e0470152fa2f074",
+      "5f1f440ebd554de34995eb4b6cc7e8334c8d7ef1cbb3d8cc1d5c6967735e30e0",
+      "b72989bb123c04488a867b0f0bd2642d53cdb1d7599a80c2aba38ea2ff776623",
+      "a6f2fbf27c0a35353d291ec06d3ec896ef41c9754547c7555040a43879ce334f",
+      "fc53225cc97c34175e6a9cb888adcddef192ae15ecee4fa0f76fa5bb3df46347",
+      "a16c1f83d4cd3bd2588cb2c6ea115ad582ae0d6a1b333adec1771852c5d68f3f",
+      "326b7a36449d8433932e2466847e1218e19a54095e74add3184c5327c29e140b",
+      "d49fae049ebb2defe00ee2b64bf4fe5bfb22adf4ed52e5b8277ca650006b40ba"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 22.509615,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "81344261ee7211a4c1ef38ae66b3b69c4395f236574b4d0dc8a8a9e78e66d0ae",
+    "body": "Your coffee is stealing tonight Caffeine blocks sleep chemical Brain thinks it's still day Your brain predicts wakefulness Melatonin release gets postponed Caffeine lingers for hours One afternoon sip cuts sleep Coffee hijacks your internal clock",
+    "text": "Drinking Coffee Can Hurt Your Sleep Your coffee is stealing tonight Caffeine blocks sleep chemical Brain thinks it's still day Your brain predicts wakefulness Melatonin release gets postponed Caffeine lingers for hours One afternoon sip cuts sleep Coffee hijacks your internal clock"
   }
 ]
