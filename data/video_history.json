@@ -2094,7 +2094,7 @@
   },
   {
     "created_at": "2026-09-27T20:01:19.029526+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Drinking Coffee Can Hurt Your Sleep",
     "title": "Drinking Coffee Can Hurt Your Sleep",
     "video_path": "output/mr_nextep_short.mp4",
@@ -2126,6 +2126,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "81344261ee7211a4c1ef38ae66b3b69c4395f236574b4d0dc8a8a9e78e66d0ae",
     "body": "Your coffee is stealing tonight Caffeine blocks sleep chemical Brain thinks it's still day Your brain predicts wakefulness Melatonin release gets postponed Caffeine lingers for hours One afternoon sip cuts sleep Coffee hijacks your internal clock",
-    "text": "Drinking Coffee Can Hurt Your Sleep Your coffee is stealing tonight Caffeine blocks sleep chemical Brain thinks it's still day Your brain predicts wakefulness Melatonin release gets postponed Caffeine lingers for hours One afternoon sip cuts sleep Coffee hijacks your internal clock"
+    "text": "Drinking Coffee Can Hurt Your Sleep Your coffee is stealing tonight Caffeine blocks sleep chemical Brain thinks it's still day Your brain predicts wakefulness Melatonin release gets postponed Caffeine lingers for hours One afternoon sip cuts sleep Coffee hijacks your internal clock",
+    "youtube_video_id": "ckHn6czgpMg",
+    "url": "https://youtu.be/ckHn6czgpMg",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "published",
+        "id": "1471542911471600",
+        "format": "reels"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18140511484657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
+      }
+    }
   }
 ]
