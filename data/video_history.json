@@ -2191,5 +2191,41 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18140532886657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
       }
     }
+  },
+  {
+    "created_at": "2026-09-28T09:35:49.958415+00:00",
+    "status": "pending",
+    "topic": "Brain stimulation could reshape how you learn new skills",
+    "title": "Brain stimulation could reshape how you learn new skills",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "17245cce4d467aaa603e4ae4153e607d1c39651452345042147f8e818b6421a8",
+      "a6f55bc5bcb281fe872f7c07e58be364c01a6518d3b1707754638e502ff13e25",
+      "3121190f969c3fa6df1f0a092bf9aaba6e4826f684f0ed76c5e58028fa9abcd8",
+      "67813e6d28e5e08df0315c258500d170b267bb4d09415770976c1540325f58b6",
+      "b14b07028e550540f84321d8e8f5ff6bab37d2489d5786bc3162d4338ed872ae",
+      "dea8f540cd52fbf6dafd01be9a0adefccb1317f7c054e210d8748ec7fc65ee67",
+      "2b94260b22ad785dc6f9f783599141d5873ab405dda0535c8d9d0af775834413",
+      "07cca2260dd47d28bc2e3f47600eed4b84ce037948a8fa25c8260d326e666a1b"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 22.510748,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "de435d2002e3bf38c2a70b2424355ef9ee52b1f1f71b3a2fa5e169b4383cb424",
+    "body": "Your brain can cheat learning Gentle current called tDCS Task feels familiar instantly Buzz mimics prediction error False confidence speeds real learning Excitability shift primes neural patterns A few minutes give head‑start Buzz creates mental rehearsal",
+    "text": "Brain stimulation could reshape how you learn new skills Your brain can cheat learning Gentle current called tDCS Task feels familiar instantly Buzz mimics prediction error False confidence speeds real learning Excitability shift primes neural patterns A few minutes give head‑start Buzz creates mental rehearsal"
   }
 ]

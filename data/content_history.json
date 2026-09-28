@@ -1567,5 +1567,21 @@
     "title": "Nap or quick workout? A doctor explains the cognitive benefits after sleep deprivation",
     "body": "Why a sprint outshines a nap 30 seconds can boost focus Naps can leave you groggy Norepinephrine drives alertness Problem‑solving spikes after exercise Brief stress resets the brain HIIT beats nap for sharpness Skip the pillow, jump in place",
     "text": "Nap or quick workout? A doctor explains the cognitive benefits after sleep deprivation Why a sprint outshines a nap 30 seconds can boost focus Naps can leave you groggy Norepinephrine drives alertness Problem‑solving spikes after exercise Brief stress resets the brain HIIT beats nap for sharpness Skip the pillow, jump in place"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "de435d2002e3bf38c2a70b2424355ef9ee52b1f1f71b3a2fa5e169b4383cb424",
+    "title": "Brain stimulation could reshape how you learn new skills",
+    "body": "Your brain can cheat learning Gentle current called tDCS Task feels familiar instantly Buzz mimics prediction error False confidence speeds real learning Excitability shift primes neural patterns A few minutes give head‑start Buzz creates mental rehearsal",
+    "text": "Brain stimulation could reshape how you learn new skills Your brain can cheat learning Gentle current called tDCS Task feels familiar instantly Buzz mimics prediction error False confidence speeds real learning Excitability shift primes neural patterns A few minutes give head‑start Buzz creates mental rehearsal"
   }
 ]
