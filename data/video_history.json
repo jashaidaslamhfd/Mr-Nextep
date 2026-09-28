@@ -2194,7 +2194,7 @@
   },
   {
     "created_at": "2026-09-28T09:35:49.958415+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Brain stimulation could reshape how you learn new skills",
     "title": "Brain stimulation could reshape how you learn new skills",
     "video_path": "output/mr_nextep_short.mp4",
@@ -2226,6 +2226,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "de435d2002e3bf38c2a70b2424355ef9ee52b1f1f71b3a2fa5e169b4383cb424",
     "body": "Your brain can cheat learning Gentle current called tDCS Task feels familiar instantly Buzz mimics prediction error False confidence speeds real learning Excitability shift primes neural patterns A few minutes give head‑start Buzz creates mental rehearsal",
-    "text": "Brain stimulation could reshape how you learn new skills Your brain can cheat learning Gentle current called tDCS Task feels familiar instantly Buzz mimics prediction error False confidence speeds real learning Excitability shift primes neural patterns A few minutes give head‑start Buzz creates mental rehearsal"
+    "text": "Brain stimulation could reshape how you learn new skills Your brain can cheat learning Gentle current called tDCS Task feels familiar instantly Buzz mimics prediction error False confidence speeds real learning Excitability shift primes neural patterns A few minutes give head‑start Buzz creates mental rehearsal",
+    "youtube_video_id": "Qhh3NB6VsMY",
+    "url": "https://youtu.be/Qhh3NB6VsMY",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "published",
+        "id": "957042636879566",
+        "format": "reels"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18140593396657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
+      }
+    }
   }
 ]
