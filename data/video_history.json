@@ -2241,5 +2241,41 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18140593396657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
       }
     }
+  },
+  {
+    "created_at": "2026-09-28T22:25:53.463662+00:00",
+    "status": "pending",
+    "topic": "Could the Mediterranean diet protect the brain through the gut?",
+    "title": "Could the Mediterranean diet protect the brain through the gut?",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "e26e1577ede9f06ed56069b45c5e667eaa7a5e4f4c1317da4d5887ae6e517df4",
+      "5999b07e391e0cf2e026ec47275dc2bc99d10fc67616b1f615f63ae5ea5340c3",
+      "80e122326dac7e342ac8585c104566ab82e2cf3d510e53d299355ae3fd9da6f3",
+      "0c0659f8812bcc801bb8f12b2628db455b76467921001209ae2c497b5091cac8",
+      "89b70c4f3cba229f6b176eb3c21f6317780a07a1131d87f67861b780fd6c1e2f",
+      "40026d864c5b6c4ed3dee3cea9ab49cc7c95495090249be1513f762cd90eb361",
+      "42f8a5ca224ca2c98f6eadffa09c78908d2f6b9f269d7054a6490e3b386fb345",
+      "a5bef0dc35a0f3449af5b33c365b6c044e5bfb04e9e20dbdd118cde989ba2db8"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 22.507755,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "5b167200c47fb6472b4bffa6388babc9d47cfcea005ad96456d8e4d1e55add8d",
+    "body": "Dinner might boost your brain Mediterranean foods flood your gut Sharp memories despite aging Fiber fuels hidden gut allies Bacteria brew brain‑fueling butyrate Butyrate upgrades brain wiring Salad may shield your mind Gut chemistry powers your brain",
+    "text": "Could the Mediterranean diet protect the brain through the gut? Dinner might boost your brain Mediterranean foods flood your gut Sharp memories despite aging Fiber fuels hidden gut allies Bacteria brew brain‑fueling butyrate Butyrate upgrades brain wiring Salad may shield your mind Gut chemistry powers your brain"
   }
 ]
