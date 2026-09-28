@@ -2141,5 +2141,41 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18140511484657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
       }
     }
+  },
+  {
+    "created_at": "2026-09-28T00:05:06.777103+00:00",
+    "status": "pending",
+    "topic": "Nap or quick workout? A doctor explains the cognitive benefits after sleep deprivation",
+    "title": "Nap or quick workout? A doctor explains the cognitive benefits after sleep deprivation",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "3784893603b767ddf57745b75f2b0335770a3ce0886c0bd14f2a2db11261539e",
+      "a1f3b24b57ade281055f0e9ab1b463dc5d54b5fdc367d065d9158cdc2554dbab",
+      "c923a25fb96b1ce72f4ce0bd2909e58724eb7c57c1521b23f8f880d89f3fe187",
+      "ad21d178fd046c236283fb574b837c15e9d033e886c8ec0790ce42a4762d49ee",
+      "400ce141b21f010d3736c68c699f697f2be4983b9221c836a80f105ed6e53c5d",
+      "c00b891e46a5eb71425ccc624997ff097e1d2dc37f05d328792790052055eb57",
+      "91fcca71d94f4c87c544dfab5e253a67e3cb8f4d878d9b32a1608961e837def1",
+      "cb084084f523c4b86417b221a74f3b9c62cf9af3f3aaf140084b047b48457111"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 22.507755,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "75a1cfe7616ecc51e5e9e077dcee85fe6bb070856802efbc20bb17628c1cd55c",
+    "body": "Why a sprint outshines a nap 30 seconds can boost focus Naps can leave you groggy Norepinephrine drives alertness Problem‑solving spikes after exercise Brief stress resets the brain HIIT beats nap for sharpness Skip the pillow, jump in place",
+    "text": "Nap or quick workout? A doctor explains the cognitive benefits after sleep deprivation Why a sprint outshines a nap 30 seconds can boost focus Naps can leave you groggy Norepinephrine drives alertness Problem‑solving spikes after exercise Brief stress resets the brain HIIT beats nap for sharpness Skip the pillow, jump in place"
   }
 ]
