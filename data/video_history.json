@@ -2291,5 +2291,41 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18140693968657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
       }
     }
+  },
+  {
+    "created_at": "2026-09-29T09:40:08.381728+00:00",
+    "status": "pending",
+    "topic": "Sleep",
+    "title": "Sleep",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "859cc8b06cd4234fc663f26a2ba4f169b498301258d5741506a7a648a93a5bad",
+      "1d97f346a90cba2b1b9fda4edb847e29d6d8556fcdcd5917005e9c430d8ad3be",
+      "48b844fb746f2a6013e7b71388d8874c6396fe03ec15d3db6e218420fd478b63",
+      "fa4add4f170fa8a7955cef8c4288e67a8c23aca197f3f6d2232ef30a2555272d",
+      "43688fe969ad2fe60fd227f19dfcec231ea6f9527be7fdae1e2d51f7befd58f0",
+      "36dea2dd342342a2988c258468778504c9e33e348c065e6db3ac6eeb11bf2c77",
+      "337255fa4ddad19688c2458c53573e127b024e67b0f9545ee118b3b37969c148",
+      "911de9e1012202770fa735010fcf1e53fc6e4dcad8cd5d3de5819c7b96366b68"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "archetype": "SLEEP_TERROR",
+    "width": 1080,
+    "height": 1920,
+    "duration": 22.511882,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "11935db42d703ec0c6062e7a2d4dc9dcf795f967982b6d78e19adce5f8b82f34",
+    "body": "Your brain hallucinates at night REM dreams feel hyper‑real Morning memory wipes clean Dreams = neural network noise Confidence tricks our brain Brain predicts, then fills Your night is a private AI Dreams are brain‑made AI glitches",
+    "text": "Sleep Your brain hallucinates at night REM dreams feel hyper‑real Morning memory wipes clean Dreams = neural network noise Confidence tricks our brain Brain predicts, then fills Your night is a private AI Dreams are brain‑made AI glitches"
   }
 ]
