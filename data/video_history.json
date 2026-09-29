@@ -2341,5 +2341,41 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18140761252657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
       }
     }
+  },
+  {
+    "created_at": "2026-09-29T21:16:26.515378+00:00",
+    "status": "pending",
+    "topic": "Alcohol and the Brain; The Next Alzheimer's Frontier; Mice With Human Brain Cells",
+    "title": "Alcohol and the Brain; The Next Alzheimer's Frontier; Mice With Human Brain Cells",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "d780eaabbbe6275dacf277e967162244ab136dc62af40ccaf6c0bcda998b2461",
+      "0286f0beb1cb805f98504cc15e996e15fabc3c720d8e1be7675e2ad515752da3",
+      "7161dafaec6e1c25b782b7833707e6548da0b949d9f5f273411e6a7ef379dd6d",
+      "19826f738ed2d4666369d146d2d4666e94de29f7a5316a7e5fcc806a0e10d363",
+      "330f192f4de12477fbe52e7753c1c14129eaebb87dd79bd31fe04ccfaac56ce9",
+      "dce8201bac612d5f4382ef9027b4c0809f145e6b87141acbd96e983d7c18bc33",
+      "4f64c391ac5a53222822b986807b659f9274d160951e8051f693015ed851aab1",
+      "c936483ceabab4e45610b6ad24de66ea4863511040e72f0a8fa8bafbef36e78b"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "archetype": "DARK_PSYCHOLOGY",
+    "width": 1080,
+    "height": 1920,
+    "duration": 22.501043,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "1b2c29ee18c5a87ee603161f2ee0e0baf437cc158f75121e3fba1796cdcf8cdb",
+    "body": "A nightcap can last a lifetime Meet the mice who drink like humans Alcohol kills brain cells, but why? A tiny mistake can lead to big problems The nightcap effect: a slow goodbye to memories The surprising truth about alcohol and brain cells A warning for party animals Rethinking a night out with friends",
+    "text": "Alcohol and the Brain; The Next Alzheimer's Frontier; Mice With Human Brain Cells A nightcap can last a lifetime Meet the mice who drink like humans Alcohol kills brain cells, but why? A tiny mistake can lead to big problems The nightcap effect: a slow goodbye to memories The surprising truth about alcohol and brain cells A warning for party animals Rethinking a night out with friends"
   }
 ]

@@ -1615,5 +1615,21 @@
     "title": "Sleep",
     "body": "Your brain hallucinates at night REM dreams feel hyper‑real Morning memory wipes clean Dreams = neural network noise Confidence tricks our brain Brain predicts, then fills Your night is a private AI Dreams are brain‑made AI glitches",
     "text": "Sleep Your brain hallucinates at night REM dreams feel hyper‑real Morning memory wipes clean Dreams = neural network noise Confidence tricks our brain Brain predicts, then fills Your night is a private AI Dreams are brain‑made AI glitches"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "1b2c29ee18c5a87ee603161f2ee0e0baf437cc158f75121e3fba1796cdcf8cdb",
+    "title": "Alcohol and the Brain; The Next Alzheimer's Frontier; Mice With Human Brain Cells",
+    "body": "A nightcap can last a lifetime Meet the mice who drink like humans Alcohol kills brain cells, but why? A tiny mistake can lead to big problems The nightcap effect: a slow goodbye to memories The surprising truth about alcohol and brain cells A warning for party animals Rethinking a night out with friends",
+    "text": "Alcohol and the Brain; The Next Alzheimer's Frontier; Mice With Human Brain Cells A nightcap can last a lifetime Meet the mice who drink like humans Alcohol kills brain cells, but why? A tiny mistake can lead to big problems The nightcap effect: a slow goodbye to memories The surprising truth about alcohol and brain cells A warning for party animals Rethinking a night out with friends"
   }
 ]
