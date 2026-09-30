@@ -2391,5 +2391,41 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18140860900657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
       }
     }
+  },
+  {
+    "created_at": "2026-09-30T09:33:48.852260+00:00",
+    "status": "pending",
+    "topic": "Will A.I. Make Your Brain Lazy? Here’s What the New Research Actually Shows.",
+    "title": "Will A.I. Make Your Brain Lazy? Here’s What the New Research Actually Shows.",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "bc0881e82395c9556d46c613efbf70c9caab0e437c473b2e182844149eaec694",
+      "99a6dd3b812f17169d9b2add068aa0891270ea09d3dae21f5978c1548f4152c2",
+      "a285ea1a54fd1d7e87925043198d32d009e1d724e193f1ba07e032b83755fb0c",
+      "e4b1f4249f43e85cce0ffba0b310eb88c91dc170884279bca6e68e26a0abfe3d",
+      "49ec7160cc3cb2e9b53c9b20eeabdb8b15ca650780456d5df25d6982329c7eb0",
+      "338a57ad9bc936de091e489f25dd245343873848decfea87abd0e0fb107540eb",
+      "834fd71155901d24b82f1e6c7946154c4a4cae8955800461bd58517f5ddab303",
+      "fbc04d1a047be3aa1b2cf7825eb502d39aacfce0a0a5966dabe7b7393c9674ff"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 22.515601,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "cf064ce2cd1f25704a47a354cd5393180f464ca9c4b320711477fca3d3c5b7d2",
+    "body": "Your phone just stole a memory We let AI store facts for us Is our brain getting lazy? Brain scans reveal surprising shift We become better at framing problems Offloading frees cognitive bandwidth AI reshapes—not reduces—our thinking Your phone isn’t stealing—just sharing",
+    "text": "Will A.I. Make Your Brain Lazy? Here’s What the New Research Actually Shows. Your phone just stole a memory We let AI store facts for us Is our brain getting lazy? Brain scans reveal surprising shift We become better at framing problems Offloading frees cognitive bandwidth AI reshapes—not reduces—our thinking Your phone isn’t stealing—just sharing"
   }
 ]
