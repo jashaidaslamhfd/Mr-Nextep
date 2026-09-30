@@ -2441,5 +2441,41 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18140934994657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
       }
     }
+  },
+  {
+    "created_at": "2026-09-30T21:13:10.994305+00:00",
+    "status": "pending",
+    "topic": "Splitting Radiation Into Several Sessions Reduced Recurrence of Large Brain Metastases",
+    "title": "Splitting Radiation Into Several Sessions Reduced Recurrence of Large Brain Metastases",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "254b4667d9b0fe75c267d5326fafe0bbf14e9b1ee53a31143cee3f24a8ba6fb0",
+      "c970ef31724676ecc472ec354b668b5f1ad3db73a87f514fedbf8d844e0e69c2",
+      "ed7297069a578f8c4684be56c4b2861b6d9ce0b2a252914688528fb48372b97e",
+      "7854ccb310d32a39d178be57291149db5c596d05c97870736df460256e1ecd4e",
+      "2b526dc56e2ab182b4096dd390e19734f6a54f5dc5fad46650c8aceadbf59d5c",
+      "a7717e3d1296b02beaa757d74e675e23c9d048c696869bd97cba555f08824008",
+      "e29bdf4e5b72ff037ce7dc630e7da83b00a9f585f438b83f6f02f1ee288e9172",
+      "829f13f9c9c2786897469709078df0f26f8f5fd3b3394d8e58b2e1863fcc8a9a"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 22.508481,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "45aff911f1b0ec539cec7212e8112890c3ea95e4b1b5df37fd50ec9d8bd08c23",
+    "body": "Radiation in tiny bursts? One big dose fails Splitting changes the outcome Brain's repair cycles matter Longer lives, fewer side effects Like spaced learning Brain timing fights cancer Tiny bursts beat big blast",
+    "text": "Splitting Radiation Into Several Sessions Reduced Recurrence of Large Brain Metastases Radiation in tiny bursts? One big dose fails Splitting changes the outcome Brain's repair cycles matter Longer lives, fewer side effects Like spaced learning Brain timing fights cancer Tiny bursts beat big blast"
   }
 ]
