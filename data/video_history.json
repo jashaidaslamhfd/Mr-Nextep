@@ -2394,7 +2394,7 @@
   },
   {
     "created_at": "2026-09-30T09:33:48.852260+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Will A.I. Make Your Brain Lazy? Here’s What the New Research Actually Shows.",
     "title": "Will A.I. Make Your Brain Lazy? Here’s What the New Research Actually Shows.",
     "video_path": "output/mr_nextep_short.mp4",
@@ -2426,6 +2426,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "cf064ce2cd1f25704a47a354cd5393180f464ca9c4b320711477fca3d3c5b7d2",
     "body": "Your phone just stole a memory We let AI store facts for us Is our brain getting lazy? Brain scans reveal surprising shift We become better at framing problems Offloading frees cognitive bandwidth AI reshapes—not reduces—our thinking Your phone isn’t stealing—just sharing",
-    "text": "Will A.I. Make Your Brain Lazy? Here’s What the New Research Actually Shows. Your phone just stole a memory We let AI store facts for us Is our brain getting lazy? Brain scans reveal surprising shift We become better at framing problems Offloading frees cognitive bandwidth AI reshapes—not reduces—our thinking Your phone isn’t stealing—just sharing"
+    "text": "Will A.I. Make Your Brain Lazy? Here’s What the New Research Actually Shows. Your phone just stole a memory We let AI store facts for us Is our brain getting lazy? Brain scans reveal surprising shift We become better at framing problems Offloading frees cognitive bandwidth AI reshapes—not reduces—our thinking Your phone isn’t stealing—just sharing",
+    "youtube_video_id": "5PoAsb86INc",
+    "url": "https://youtu.be/5PoAsb86INc",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "published",
+        "id": "2307365050025567",
+        "format": "reels"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18140934994657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
+      }
+    }
   }
 ]
