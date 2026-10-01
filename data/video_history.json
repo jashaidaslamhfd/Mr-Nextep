@@ -2494,7 +2494,7 @@
   },
   {
     "created_at": "2026-10-01T09:58:18.158882+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Army Nears Crucial Brain Health Testing Milestone",
     "title": "Army Nears Crucial Brain Health Testing Milestone",
     "video_path": "output/mr_nextep_short.mp4",
@@ -2526,6 +2526,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "22b4071e430d6d22ada511245b74834fc13c58582158e2dff4d74ef987aaf69f",
     "body": "Your brain is already spilling secrets Army's new AI scan predicts concussion Just seconds, but what does it see? AI hunts micro‑spikes in brain noise Soldiers cleared before injury worsens Pattern‑matching, not magic, drives prediction Early detection could save careers Your brain already whispered the warning",
-    "text": "Army Nears Crucial Brain Health Testing Milestone Your brain is already spilling secrets Army's new AI scan predicts concussion Just seconds, but what does it see? AI hunts micro‑spikes in brain noise Soldiers cleared before injury worsens Pattern‑matching, not magic, drives prediction Early detection could save careers Your brain already whispered the warning"
+    "text": "Army Nears Crucial Brain Health Testing Milestone Your brain is already spilling secrets Army's new AI scan predicts concussion Just seconds, but what does it see? AI hunts micro‑spikes in brain noise Soldiers cleared before injury worsens Pattern‑matching, not magic, drives prediction Early detection could save careers Your brain already whispered the warning",
+    "youtube_video_id": "YKfixnW7KA0",
+    "url": "https://youtu.be/YKfixnW7KA0",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "published",
+        "id": "2187041948511522",
+        "format": "reels"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18141110854657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
+      }
+    }
   }
 ]
