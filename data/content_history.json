@@ -1663,5 +1663,21 @@
     "title": "Splitting Radiation Into Several Sessions Reduced Recurrence of Large Brain Metastases",
     "body": "Radiation in tiny bursts? One big dose fails Splitting changes the outcome Brain's repair cycles matter Longer lives, fewer side effects Like spaced learning Brain timing fights cancer Tiny bursts beat big blast",
     "text": "Splitting Radiation Into Several Sessions Reduced Recurrence of Large Brain Metastases Radiation in tiny bursts? One big dose fails Splitting changes the outcome Brain's repair cycles matter Longer lives, fewer side effects Like spaced learning Brain timing fights cancer Tiny bursts beat big blast"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "22b4071e430d6d22ada511245b74834fc13c58582158e2dff4d74ef987aaf69f",
+    "title": "Army Nears Crucial Brain Health Testing Milestone",
+    "body": "Your brain is already spilling secrets Army's new AI scan predicts concussion Just seconds, but what does it see? AI hunts micro‑spikes in brain noise Soldiers cleared before injury worsens Pattern‑matching, not magic, drives prediction Early detection could save careers Your brain already whispered the warning",
+    "text": "Army Nears Crucial Brain Health Testing Milestone Your brain is already spilling secrets Army's new AI scan predicts concussion Just seconds, but what does it see? AI hunts micro‑spikes in brain noise Soldiers cleared before injury worsens Pattern‑matching, not magic, drives prediction Early detection could save careers Your brain already whispered the warning"
   }
 ]
