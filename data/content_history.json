@@ -1679,5 +1679,21 @@
     "title": "Army Nears Crucial Brain Health Testing Milestone",
     "body": "Your brain is already spilling secrets Army's new AI scan predicts concussion Just seconds, but what does it see? AI hunts micro‑spikes in brain noise Soldiers cleared before injury worsens Pattern‑matching, not magic, drives prediction Early detection could save careers Your brain already whispered the warning",
     "text": "Army Nears Crucial Brain Health Testing Milestone Your brain is already spilling secrets Army's new AI scan predicts concussion Just seconds, but what does it see? AI hunts micro‑spikes in brain noise Soldiers cleared before injury worsens Pattern‑matching, not magic, drives prediction Early detection could save careers Your brain already whispered the warning"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "4676f305330043593981009d1683031b87a57383bf1e3ac293f9359361ad4f7c",
+    "title": "Can dancing improve brain health?",
+    "body": "Your brain loves a misstep Why a slip feels rewarding It’s all about prediction errors Dopamine floods after surprise Memory and flexibility get a boost Same principle AI models use Dancing rewires faster than jogging So those missteps are the secret",
+    "text": "Can dancing improve brain health? Your brain loves a misstep Why a slip feels rewarding It’s all about prediction errors Dopamine floods after surprise Memory and flexibility get a boost Same principle AI models use Dancing rewires faster than jogging So those missteps are the secret"
   }
 ]

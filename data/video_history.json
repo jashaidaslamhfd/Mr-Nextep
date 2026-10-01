@@ -2541,5 +2541,41 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18141110854657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
       }
     }
+  },
+  {
+    "created_at": "2026-10-01T21:40:26.279577+00:00",
+    "status": "pending",
+    "topic": "Can dancing improve brain health?",
+    "title": "Can dancing improve brain health?",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "9b498302debffdb662e57e2b3b73ff3caa32e1d662d39c2b2cd6f5b0c5eea9bf",
+      "87d7fcc3b3187966e5d0f49f3a252ce5e37053dbb7903c87a8696563a3f4b54e",
+      "19a1c3b4e68bcabe1d53cae61981aeb8bbae17849af2e1a9f7606b7a79cb9e5b",
+      "a9501e18507a2c838c10c6a236d5494ffe17d597d18d546ab8d388734cae9b88",
+      "e8f3c32a212d32e2c1cb31923b9a566560631037cb2bdd3d8c08fa05a3f33e25",
+      "82b66686250f3c8193501eb8f19c66e28e401f7494ecbb5c991f6a5a6371e797",
+      "399a2c85ab88a72b35a266d653331bca5dddb5a8d652db830ebacd8b0ae4a328",
+      "2547b39d435176f697433610d0ae44a1a2be81b4e1d6ed07c0427f618307baf6"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 22.519002,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "4676f305330043593981009d1683031b87a57383bf1e3ac293f9359361ad4f7c",
+    "body": "Your brain loves a misstep Why a slip feels rewarding It’s all about prediction errors Dopamine floods after surprise Memory and flexibility get a boost Same principle AI models use Dancing rewires faster than jogging So those missteps are the secret",
+    "text": "Can dancing improve brain health? Your brain loves a misstep Why a slip feels rewarding It’s all about prediction errors Dopamine floods after surprise Memory and flexibility get a boost Same principle AI models use Dancing rewires faster than jogging So those missteps are the secret"
   }
 ]
