@@ -1711,5 +1711,21 @@
     "title": "Jim Ross can’t sleep at night due to ‘blistering headaches’ after brain surgery",
     "body": "Your brain fires pain alarms at night Even a veteran commentator feels it Why does the brain scream after healing? Inflammation triggers predictive pain signals No sleep clouds memory and mood Error‑monitoring misfires, creating headaches Calming inflammation restores sleep Night pain is a miswired alarm",
     "text": "Jim Ross can’t sleep at night due to ‘blistering headaches’ after brain surgery Your brain fires pain alarms at night Even a veteran commentator feels it Why does the brain scream after healing? Inflammation triggers predictive pain signals No sleep clouds memory and mood Error‑monitoring misfires, creating headaches Calming inflammation restores sleep Night pain is a miswired alarm"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "854968f8bc49e9f9b07cfba62f08e4a707e0b73f5038266f96ba782b2492d452",
+    "title": "Money is Americans’ top source of stress, and it’s taking a toll on their mental health",
+    "body": "Your bank account is screaming at you Money tops U.S. stress rankings Why a bill feels like danger? Brain treats loss as physical threat Stress spikes cortisol, harms sleep Amygdala fires on red balances Budget apps hijack ancient alarm Your account’s scream is survival",
+    "text": "Money is Americans’ top source of stress, and it’s taking a toll on their mental health Your bank account is screaming at you Money tops U.S. stress rankings Why a bill feels like danger? Brain treats loss as physical threat Stress spikes cortisol, harms sleep Amygdala fires on red balances Budget apps hijack ancient alarm Your account’s scream is survival"
   }
 ]

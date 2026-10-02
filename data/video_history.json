@@ -2641,5 +2641,41 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18141278032657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
       }
     }
+  },
+  {
+    "created_at": "2026-10-02T21:10:02.208736+00:00",
+    "status": "pending",
+    "topic": "Money is Americans’ top source of stress, and it’s taking a toll on their mental health",
+    "title": "Money is Americans’ top source of stress, and it’s taking a toll on their mental health",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "81de65331341106fbdc86adebfdc9c0a1a54f58783075faaed424a3f1aede855",
+      "7410623b353d9d11321e774c26a1226a6a21ef0f1557d50daccf9f99dd05e56a",
+      "43cc20080358492a2900b4c90a8a34e03ccbf6afc276db7d1b85be61e08f6339",
+      "02f019995de3657a30fe4029a86bb0675df6efe784f5b9ec30118c3430537c30",
+      "0af2a68b846e05a35b2571ce3a0771d7cfa65e1efbd1be9cc73b67bc00f8c0c9",
+      "295c4d85e77807841c4b87e43379a896bf1ec493f1718bac5237918167fd5555",
+      "c91e7d4891781eca5135a86b3fe48fa45475815d5a0de371d1c7766f33fddae9",
+      "cbec08dd08f1b896325f533ed549ade1387688be853af79198bc9495a5029f01"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 22.796916,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "854968f8bc49e9f9b07cfba62f08e4a707e0b73f5038266f96ba782b2492d452",
+    "body": "Your bank account is screaming at you Money tops U.S. stress rankings Why a bill feels like danger? Brain treats loss as physical threat Stress spikes cortisol, harms sleep Amygdala fires on red balances Budget apps hijack ancient alarm Your account’s scream is survival",
+    "text": "Money is Americans’ top source of stress, and it’s taking a toll on their mental health Your bank account is screaming at you Money tops U.S. stress rankings Why a bill feels like danger? Brain treats loss as physical threat Stress spikes cortisol, harms sleep Amygdala fires on red balances Budget apps hijack ancient alarm Your account’s scream is survival"
   }
 ]
