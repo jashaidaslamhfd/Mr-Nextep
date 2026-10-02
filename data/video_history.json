@@ -2594,7 +2594,7 @@
   },
   {
     "created_at": "2026-10-02T09:38:33.622373+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Jim Ross can’t sleep at night due to ‘blistering headaches’ after brain surgery",
     "title": "Jim Ross can’t sleep at night due to ‘blistering headaches’ after brain surgery",
     "video_path": "output/mr_nextep_short.mp4",
@@ -2626,6 +2626,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "7b13e23af89116d6feb76d1fe9253a487aa0840ad8687e468b72a95b6c65ccb0",
     "body": "Your brain fires pain alarms at night Even a veteran commentator feels it Why does the brain scream after healing? Inflammation triggers predictive pain signals No sleep clouds memory and mood Error‑monitoring misfires, creating headaches Calming inflammation restores sleep Night pain is a miswired alarm",
-    "text": "Jim Ross can’t sleep at night due to ‘blistering headaches’ after brain surgery Your brain fires pain alarms at night Even a veteran commentator feels it Why does the brain scream after healing? Inflammation triggers predictive pain signals No sleep clouds memory and mood Error‑monitoring misfires, creating headaches Calming inflammation restores sleep Night pain is a miswired alarm"
+    "text": "Jim Ross can’t sleep at night due to ‘blistering headaches’ after brain surgery Your brain fires pain alarms at night Even a veteran commentator feels it Why does the brain scream after healing? Inflammation triggers predictive pain signals No sleep clouds memory and mood Error‑monitoring misfires, creating headaches Calming inflammation restores sleep Night pain is a miswired alarm",
+    "youtube_video_id": "_ls8c_BXHHI",
+    "url": "https://youtu.be/_ls8c_BXHHI",
+    "caption_track": "failed: <HttpError 403 when requesting https://youtube.googleapis.com/upload/youtube/v3/captions?part=snippet&alt=json&uploadType=multipart returned \"The permissions associated with the request are not sufficient to upload the caption track. The request might not be properly authorized.\". Details: \"[{'message': 'The permissions associated with the request are not sufficient to upload the caption track. The request might not be properly authorized.', 'domain': 'youtube.caption', 'reason': 'forbidden', 'location': 'id', 'locationType': 'parameter'}]\">",
+    "meta": {
+      "facebook": {
+        "status": "published",
+        "id": "1799567287901608",
+        "format": "reels"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18141278032657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
+      }
+    }
   }
 ]
