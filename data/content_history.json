@@ -1695,5 +1695,21 @@
     "title": "Can dancing improve brain health?",
     "body": "Your brain loves a misstep Why a slip feels rewarding It’s all about prediction errors Dopamine floods after surprise Memory and flexibility get a boost Same principle AI models use Dancing rewires faster than jogging So those missteps are the secret",
     "text": "Can dancing improve brain health? Your brain loves a misstep Why a slip feels rewarding It’s all about prediction errors Dopamine floods after surprise Memory and flexibility get a boost Same principle AI models use Dancing rewires faster than jogging So those missteps are the secret"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "7b13e23af89116d6feb76d1fe9253a487aa0840ad8687e468b72a95b6c65ccb0",
+    "title": "Jim Ross can’t sleep at night due to ‘blistering headaches’ after brain surgery",
+    "body": "Your brain fires pain alarms at night Even a veteran commentator feels it Why does the brain scream after healing? Inflammation triggers predictive pain signals No sleep clouds memory and mood Error‑monitoring misfires, creating headaches Calming inflammation restores sleep Night pain is a miswired alarm",
+    "text": "Jim Ross can’t sleep at night due to ‘blistering headaches’ after brain surgery Your brain fires pain alarms at night Even a veteran commentator feels it Why does the brain scream after healing? Inflammation triggers predictive pain signals No sleep clouds memory and mood Error‑monitoring misfires, creating headaches Calming inflammation restores sleep Night pain is a miswired alarm"
   }
 ]

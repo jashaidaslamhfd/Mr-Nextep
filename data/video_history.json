@@ -2591,5 +2591,41 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18141203011657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
       }
     }
+  },
+  {
+    "created_at": "2026-10-02T09:38:33.622373+00:00",
+    "status": "pending",
+    "topic": "Jim Ross can’t sleep at night due to ‘blistering headaches’ after brain surgery",
+    "title": "Jim Ross can’t sleep at night due to ‘blistering headaches’ after brain surgery",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "e7ad6cd459f784c8da7e1f67517e0221abe82d4f9d2e67dfa8e0cb871b001d44",
+      "dea8c8a1c82934ad0f5f9bc355e4b0255f9fafdfc267433d4eea175c506e150c",
+      "c763b9707d5dccaa62324f2b17e572528242d7ec73699ae95efc6e8d02cfa14f",
+      "723b5ff0ef3a5b2418e67e92ac6672df1aa24a48329d5bea419bf2c67f9c7700",
+      "d29c90a206c380376fcd33d89fb308dffd0816aea1a3aaea8d7c68aab4c60ed9",
+      "79187254bd4299e108e26ab950a47c0bc25e00cb495980cb05ec462f11d301b9",
+      "5fc40a11c91c6704b267a2ca61d83746c95850be948d8dfac62ddb5c8c2c223b",
+      "74013d234eb14b868712d6f48d84c48ca4fe2a3a2fb8c95e6a44cefb0c1880d7"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 22.521995,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "7b13e23af89116d6feb76d1fe9253a487aa0840ad8687e468b72a95b6c65ccb0",
+    "body": "Your brain fires pain alarms at night Even a veteran commentator feels it Why does the brain scream after healing? Inflammation triggers predictive pain signals No sleep clouds memory and mood Error‑monitoring misfires, creating headaches Calming inflammation restores sleep Night pain is a miswired alarm",
+    "text": "Jim Ross can’t sleep at night due to ‘blistering headaches’ after brain surgery Your brain fires pain alarms at night Even a veteran commentator feels it Why does the brain scream after healing? Inflammation triggers predictive pain signals No sleep clouds memory and mood Error‑monitoring misfires, creating headaches Calming inflammation restores sleep Night pain is a miswired alarm"
   }
 ]
