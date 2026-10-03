@@ -2741,5 +2741,41 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18141449890657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
       }
     }
+  },
+  {
+    "created_at": "2026-10-03T19:44:00.409243+00:00",
+    "status": "pending",
+    "topic": "Effects of Creatine Supplementation on Brain Function and Health",
+    "title": "Effects of Creatine Supplementation on Brain Function and Health",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "57a57886c1334c7a8f5b1d3cd0eb464d85c8dca7ffef7eac41c4fc75548c4539",
+      "501882dc116a9c904d47f9a18bace3a7684edcc953fb90c7389bc9d624cb9a28",
+      "1a1c95974f47c2919b6f80abf0da063db17b404712a6fb2c7f2afa84ffdb9812",
+      "c1761c86696c239029d04f58e9797df26606b03f8573a87b4080b651dda8fb07",
+      "14324564ff326fd98da9ddf3726d3c465467b45def8463c44e7c6ba70074d1c6",
+      "0d98c07e4e02ec90fe9e06dee550bed5e68ef9ba3320952690221b39b05f7db2",
+      "e93cbc3d0a90b5aba512b9c6b0bd62b0c8d8e29c5dbe21aecfb9db8f3e170a55",
+      "9f81bf055fa992bf74f0b394e1500623c4c3995d4be853e17b6b493dc54fc350"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 22.509615,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "2697219a67f54d2a1f967d1bf3955b62742b9df506da75d8888766f229f15cbb",
+    "body": "Your brain's secret power source Creatine isn’t just for muscles What does brain creatine do? Brain’s instant energy buffer Boosts memory and mental stamina ATP recycling during mental work Upgrade your brain’s performance That hidden fuel powers thoughts too",
+    "text": "Effects of Creatine Supplementation on Brain Function and Health Your brain's secret power source Creatine isn’t just for muscles What does brain creatine do? Brain’s instant energy buffer Boosts memory and mental stamina ATP recycling during mental work Upgrade your brain’s performance That hidden fuel powers thoughts too"
   }
 ]

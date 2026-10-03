@@ -1743,5 +1743,21 @@
     "title": "Cognitive neuroscience perspective on memory",
     "body": "Your brain edits memories Recall triggers memory remodeling Instability seems risky Prediction errors rewrite details Your mind can adopt false details A brief window for editing AI hallucinations mimic this process Your brain, like AI, edits stories",
     "text": "Cognitive neuroscience perspective on memory Your brain edits memories Recall triggers memory remodeling Instability seems risky Prediction errors rewrite details Your mind can adopt false details A brief window for editing AI hallucinations mimic this process Your brain, like AI, edits stories"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "2697219a67f54d2a1f967d1bf3955b62742b9df506da75d8888766f229f15cbb",
+    "title": "Effects of Creatine Supplementation on Brain Function and Health",
+    "body": "Your brain's secret power source Creatine isn’t just for muscles What does brain creatine do? Brain’s instant energy buffer Boosts memory and mental stamina ATP recycling during mental work Upgrade your brain’s performance That hidden fuel powers thoughts too",
+    "text": "Effects of Creatine Supplementation on Brain Function and Health Your brain's secret power source Creatine isn’t just for muscles What does brain creatine do? Brain’s instant energy buffer Boosts memory and mental stamina ATP recycling during mental work Upgrade your brain’s performance That hidden fuel powers thoughts too"
   }
 ]
