@@ -2691,5 +2691,41 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18141371281657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
       }
     }
+  },
+  {
+    "created_at": "2026-10-03T09:01:31.931812+00:00",
+    "status": "pending",
+    "topic": "Cognitive neuroscience perspective on memory",
+    "title": "Cognitive neuroscience perspective on memory",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "3511ffef2a7f18ee6f194c0b24f99d467efa467970ef0da093e5d93f665a0689",
+      "fe9e1c013db216e6912e766cd6c489c6f05789e3e80d356596c07c93a8c437cb",
+      "698b0bfd81d9224ea63c5e37a894dfbcd6e472c541adc9f162b30b8596e4bf10",
+      "c6eaec6cb62ffbb2382e8c6b7925406ed8ccf12363757747fa18cf4343aa5075",
+      "0bc07661ced95f662bc2e440e9dbcbaae70c412a0e1dd167b0def653176ad908",
+      "e8ce0af718697bf69a59fe5fd613dcbcd1cd023d4575de1c8734a994f1e49118",
+      "41be34a79725bb5ed99a4353033adf504ec875c62ed4267048201d34ee7e13f0",
+      "43334b1b2d96ec0fa3a237e50e5e445ca88de1481345fed21769548e939cc971"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 22.504354,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "ae5c3e8ca4a0f84bc0793b0aa2b51c3a107f9fd81cec85aa2bbd6bc97dee902a",
+    "body": "Your brain edits memories Recall triggers memory remodeling Instability seems risky Prediction errors rewrite details Your mind can adopt false details A brief window for editing AI hallucinations mimic this process Your brain, like AI, edits stories",
+    "text": "Cognitive neuroscience perspective on memory Your brain edits memories Recall triggers memory remodeling Instability seems risky Prediction errors rewrite details Your mind can adopt false details A brief window for editing AI hallucinations mimic this process Your brain, like AI, edits stories"
   }
 ]

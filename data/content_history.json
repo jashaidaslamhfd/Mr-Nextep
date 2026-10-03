@@ -1727,5 +1727,21 @@
     "title": "Money is Americans’ top source of stress, and it’s taking a toll on their mental health",
     "body": "Your bank account is screaming at you Money tops U.S. stress rankings Why a bill feels like danger? Brain treats loss as physical threat Stress spikes cortisol, harms sleep Amygdala fires on red balances Budget apps hijack ancient alarm Your account’s scream is survival",
     "text": "Money is Americans’ top source of stress, and it’s taking a toll on their mental health Your bank account is screaming at you Money tops U.S. stress rankings Why a bill feels like danger? Brain treats loss as physical threat Stress spikes cortisol, harms sleep Amygdala fires on red balances Budget apps hijack ancient alarm Your account’s scream is survival"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "ae5c3e8ca4a0f84bc0793b0aa2b51c3a107f9fd81cec85aa2bbd6bc97dee902a",
+    "title": "Cognitive neuroscience perspective on memory",
+    "body": "Your brain edits memories Recall triggers memory remodeling Instability seems risky Prediction errors rewrite details Your mind can adopt false details A brief window for editing AI hallucinations mimic this process Your brain, like AI, edits stories",
+    "text": "Cognitive neuroscience perspective on memory Your brain edits memories Recall triggers memory remodeling Instability seems risky Prediction errors rewrite details Your mind can adopt false details A brief window for editing AI hallucinations mimic this process Your brain, like AI, edits stories"
   }
 ]
