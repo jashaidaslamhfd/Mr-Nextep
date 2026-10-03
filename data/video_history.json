@@ -2694,7 +2694,7 @@
   },
   {
     "created_at": "2026-10-03T09:01:31.931812+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Cognitive neuroscience perspective on memory",
     "title": "Cognitive neuroscience perspective on memory",
     "video_path": "output/mr_nextep_short.mp4",
@@ -2726,6 +2726,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "ae5c3e8ca4a0f84bc0793b0aa2b51c3a107f9fd81cec85aa2bbd6bc97dee902a",
     "body": "Your brain edits memories Recall triggers memory remodeling Instability seems risky Prediction errors rewrite details Your mind can adopt false details A brief window for editing AI hallucinations mimic this process Your brain, like AI, edits stories",
-    "text": "Cognitive neuroscience perspective on memory Your brain edits memories Recall triggers memory remodeling Instability seems risky Prediction errors rewrite details Your mind can adopt false details A brief window for editing AI hallucinations mimic this process Your brain, like AI, edits stories"
+    "text": "Cognitive neuroscience perspective on memory Your brain edits memories Recall triggers memory remodeling Instability seems risky Prediction errors rewrite details Your mind can adopt false details A brief window for editing AI hallucinations mimic this process Your brain, like AI, edits stories",
+    "youtube_video_id": "U-mQ2jKiP8A",
+    "url": "https://youtu.be/U-mQ2jKiP8A",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "published",
+        "id": "1400178128953700",
+        "format": "reels"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18141449890657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
+      }
+    }
   }
 ]
