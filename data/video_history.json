@@ -2894,7 +2894,7 @@
   },
   {
     "created_at": "2026-10-04T19:58:32.123066+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "The Global Problem of Insufficient Sleep and Its Serious Public Health Implications",
     "title": "The Global Problem of Insufficient Sleep and Its Serious Public Health Implications",
     "video_path": "output/mr_nextep_short.mp4",
@@ -2926,6 +2926,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "55733d17e0a9a3e856eb9a80b5792dcdcece8c58ab384846223b689d282d9e47",
     "body": "Sleep‑deprived brain trusts AI lies AI confidently gives wrong answers Sleep loss clouds judgment Error monitor goes offline Bad advice feels trustworthy Confidence tricks the brain Take a nap, regain skepticism Sleep saves you from AI lies",
-    "text": "The Global Problem of Insufficient Sleep and Its Serious Public Health Implications Sleep‑deprived brain trusts AI lies AI confidently gives wrong answers Sleep loss clouds judgment Error monitor goes offline Bad advice feels trustworthy Confidence tricks the brain Take a nap, regain skepticism Sleep saves you from AI lies"
+    "text": "The Global Problem of Insufficient Sleep and Its Serious Public Health Implications Sleep‑deprived brain trusts AI lies AI confidently gives wrong answers Sleep loss clouds judgment Error monitor goes offline Bad advice feels trustworthy Confidence tricks the brain Take a nap, regain skepticism Sleep saves you from AI lies",
+    "youtube_video_id": "gePlwrFu1vY",
+    "url": "https://youtu.be/gePlwrFu1vY",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "published",
+        "id": "1075664062025832",
+        "format": "reels"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18141725209657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
+      }
+    }
   }
 ]
