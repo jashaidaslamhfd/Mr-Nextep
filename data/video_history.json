@@ -2891,5 +2891,41 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18141636292657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
       }
     }
+  },
+  {
+    "created_at": "2026-10-04T19:58:32.123066+00:00",
+    "status": "pending",
+    "topic": "The Global Problem of Insufficient Sleep and Its Serious Public Health Implications",
+    "title": "The Global Problem of Insufficient Sleep and Its Serious Public Health Implications",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "de63dac34cb96b29f8b0753d85013b2898a7f62c7d0812dc4c8aa7b80d09df26",
+      "77c443f2e4f5666a7942b03707a14c14697e7af2f970cfbbce4d6ce7766d5939",
+      "a7b4a7fc90ade68444e8bb604f5fa85cec13de0eca9f3fc44beab141a8704df6",
+      "bcc64a9a48d6e2d3306f966d80f9bd887eec532cfa8c0c65044a1d4b7b353005",
+      "43a6a29b9d948078770b2cec86fce3383540e71237c0a9faef0073da59f5400c",
+      "765c9faee13950d6b04b46bd9efa07997bf11e6a89c378fcd007ae4ad70d8133",
+      "45592c48e87c1d28b7d52f0bbb7345a2c1580ca6e88b8f7681c04eb30d37d740",
+      "b3dfbdb15a9e76bc1542fb409c2fcdc585935a3a74985631784e15c315333a90"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "archetype": "SLEEP_TERROR",
+    "width": 1080,
+    "height": 1920,
+    "duration": 22.506621,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "55733d17e0a9a3e856eb9a80b5792dcdcece8c58ab384846223b689d282d9e47",
+    "body": "Sleep‑deprived brain trusts AI lies AI confidently gives wrong answers Sleep loss clouds judgment Error monitor goes offline Bad advice feels trustworthy Confidence tricks the brain Take a nap, regain skepticism Sleep saves you from AI lies",
+    "text": "The Global Problem of Insufficient Sleep and Its Serious Public Health Implications Sleep‑deprived brain trusts AI lies AI confidently gives wrong answers Sleep loss clouds judgment Error monitor goes offline Bad advice feels trustworthy Confidence tricks the brain Take a nap, regain skepticism Sleep saves you from AI lies"
   }
 ]

@@ -1791,5 +1791,21 @@
     "title": "Brain health consequences of digital technology use",
     "body": "Your phone is stealing your night Blue light tricks your brain Brain thinks it's still awake Reward spikes suppress melatonin Shallow sleep, fuzzy memory Phone habit cuts REM sleep Turn off, brain reboots Your night belongs to your phone",
     "text": "Brain health consequences of digital technology use Your phone is stealing your night Blue light tricks your brain Brain thinks it's still awake Reward spikes suppress melatonin Shallow sleep, fuzzy memory Phone habit cuts REM sleep Turn off, brain reboots Your night belongs to your phone"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "55733d17e0a9a3e856eb9a80b5792dcdcece8c58ab384846223b689d282d9e47",
+    "title": "The Global Problem of Insufficient Sleep and Its Serious Public Health Implications",
+    "body": "Sleep‑deprived brain trusts AI lies AI confidently gives wrong answers Sleep loss clouds judgment Error monitor goes offline Bad advice feels trustworthy Confidence tricks the brain Take a nap, regain skepticism Sleep saves you from AI lies",
+    "text": "The Global Problem of Insufficient Sleep and Its Serious Public Health Implications Sleep‑deprived brain trusts AI lies AI confidently gives wrong answers Sleep loss clouds judgment Error monitor goes offline Bad advice feels trustworthy Confidence tricks the brain Take a nap, regain skepticism Sleep saves you from AI lies"
   }
 ]
