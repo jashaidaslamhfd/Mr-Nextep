@@ -2791,5 +2791,41 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18141549085657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
       }
     }
+  },
+  {
+    "created_at": "2026-10-04T00:13:38.093449+00:00",
+    "status": "pending",
+    "topic": "“Heads Up” for Creatine Supplementation and its Potential Applications for Brain Health and Function",
+    "title": "“Heads Up” for Creatine Supplementation and its Potential Applications for Brain Health and Function",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "7ad6a624611e95a647a3769443f7c021d2aa5db22176a65d35b8c041ec5b1078",
+      "fd2c4fc2d155c3f3702dde4d8e78878cc2b927a2f16bc7ebc420d2774ff43a4b",
+      "e3c8e8829283f2b4acdb339b5587c1ba2777468e9764c46d99743133ee8bd069",
+      "82ff44c23032690cd8dbcdbdaaccf485ecbc3d788cf5a1520e686ea398a967f6",
+      "bee33bf6975ac8a773fc92ff8bba14cb374287faffff41f4f6b86979637b503b",
+      "77f0711a41b9475b4e0036434f6f958b7d5f81af0fb53d608850c2b1169fbee5",
+      "d54a139bcca963677cca2c876269bbeff7e4bf1d1cba57d2a380d07ce94ff432",
+      "8cac411f177a785b93311d0dfbe46faddbc5cafa5ddf7b990c68564ae1aef960"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "archetype": "BODY_ANOMALY",
+    "width": 1080,
+    "height": 1920,
+    "duration": 22.508889,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "267bde0590e126e5e4c4746ae467660aeca2a80f886219f8d1e2a6abe105100a",
+    "body": "Your brain runs on fuel too Creatine isn’t just for muscles Memory boost from a muscle pill? ATP: brain’s power source Sleep loss drains brain energy Creatine restores brain energy Sharper mind, less sleep needed Brain fog? Think creatine",
+    "text": "“Heads Up” for Creatine Supplementation and its Potential Applications for Brain Health and Function Your brain runs on fuel too Creatine isn’t just for muscles Memory boost from a muscle pill? ATP: brain’s power source Sleep loss drains brain energy Creatine restores brain energy Sharper mind, less sleep needed Brain fog? Think creatine"
   }
 ]
