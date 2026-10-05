@@ -2941,5 +2941,41 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18141725209657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
       }
     }
+  },
+  {
+    "created_at": "2026-10-05T00:20:10.556225+00:00",
+    "status": "pending",
+    "topic": "The Role of Slow Wave Sleep in Memory Processing",
+    "title": "The Role of Slow Wave Sleep in Memory Processing",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "3ea9c63b1e907f07ca074cc36f9a97c8f00be2457c235cc30c3afd26d4a19e75",
+      "3995813df3b3bdc8d658f94440be4553fea9a16d8671af3bc6c3fc10315ef260",
+      "45ba491db9833f65f85bbff0d70d6ec62f185c7d660cea2f22f5d3089a65ac15",
+      "d2b782d96e762dcc47f2381378367fcac9d756d4d99a402958b37a9262f3a10f",
+      "169747aa80b2b84a2fa1ccaf24d9bb33dd28865e030c7a241f038f8aa3f75692",
+      "604d2cac4a027279fab6184b01dc08871f095bf4fa168f8898300e0d2c5dcd2d",
+      "b77de117d66c38dbab50b0e9bd49a57375a1f7169fb4adecf9c9c2d8b2ff176c",
+      "8bbd3d11307199ab989459f5cb42a21c62adec4a25e86b04ad914f792188adb5"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "archetype": "SLEEP_TERROR",
+    "width": 1080,
+    "height": 1920,
+    "duration": 22.514467,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "b8898c232c5522a002d6cb4cbeb1c25d97392a7994e1817596aede8ba3033431",
+    "body": "Your brain edits memories overnight Deep sleep: the brain's night editor Erases some, strengthens others Neurons replay with noise You forget the boring parts Slow waves trigger down‑scaling Sharper recall of core Night edit explains changed memory",
+    "text": "The Role of Slow Wave Sleep in Memory Processing Your brain edits memories overnight Deep sleep: the brain's night editor Erases some, strengthens others Neurons replay with noise You forget the boring parts Slow waves trigger down‑scaling Sharper recall of core Night edit explains changed memory"
   }
 ]
