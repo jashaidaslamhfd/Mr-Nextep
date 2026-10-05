@@ -3044,7 +3044,7 @@
   },
   {
     "created_at": "2026-10-05T23:04:51.519600+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Scientists discover a human brain gene that can jump through DNA",
     "title": "Scientists discover a human brain gene that can jump through DNA",
     "video_path": "output/mr_nextep_short.mp4",
@@ -3076,6 +3076,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "0e29d2704b060833108645292237d392ed7fb06e5d162d348402c366bf6b4662",
     "body": "A gene that walks inside you Brain's tiny jumper discovered It moves without breaking the code It rides on RNA copies Neurons may rewrite their own instructions Could help lock in memories Your brain edits itself like software That explains why memories feel alive",
-    "text": "Scientists discover a human brain gene that can jump through DNA A gene that walks inside you Brain's tiny jumper discovered It moves without breaking the code It rides on RNA copies Neurons may rewrite their own instructions Could help lock in memories Your brain edits itself like software That explains why memories feel alive"
+    "text": "Scientists discover a human brain gene that can jump through DNA A gene that walks inside you Brain's tiny jumper discovered It moves without breaking the code It rides on RNA copies Neurons may rewrite their own instructions Could help lock in memories Your brain edits itself like software That explains why memories feel alive",
+    "youtube_video_id": "4aGIAAo3e80",
+    "url": "https://youtu.be/4aGIAAo3e80",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "published",
+        "id": "1127514033173679",
+        "format": "reels"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18141905692657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
+      }
+    }
   }
 ]
