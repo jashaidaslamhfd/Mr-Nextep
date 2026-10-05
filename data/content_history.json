@@ -1839,5 +1839,21 @@
     "title": "Brain tissue removed during surgery reveals potential way to curb inflammation linked to Alzheimer's",
     "body": "The surgeon cut out this secret A hidden molecule was found But it vanished in disease Why does loss matter? Could we restore the brake? Early experiments show promise A new therapeutic target emerges Your next scan might reveal it",
     "text": "Brain tissue removed during surgery reveals potential way to curb inflammation linked to Alzheimer's The surgeon cut out this secret A hidden molecule was found But it vanished in disease Why does loss matter? Could we restore the brake? Early experiments show promise A new therapeutic target emerges Your next scan might reveal it"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "0e29d2704b060833108645292237d392ed7fb06e5d162d348402c366bf6b4662",
+    "title": "Scientists discover a human brain gene that can jump through DNA",
+    "body": "A gene that walks inside you Brain's tiny jumper discovered It moves without breaking the code It rides on RNA copies Neurons may rewrite their own instructions Could help lock in memories Your brain edits itself like software That explains why memories feel alive",
+    "text": "Scientists discover a human brain gene that can jump through DNA A gene that walks inside you Brain's tiny jumper discovered It moves without breaking the code It rides on RNA copies Neurons may rewrite their own instructions Could help lock in memories Your brain edits itself like software That explains why memories feel alive"
   }
 ]

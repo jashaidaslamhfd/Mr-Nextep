@@ -3041,5 +3041,41 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18141811354657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
       }
     }
+  },
+  {
+    "created_at": "2026-10-05T23:04:51.519600+00:00",
+    "status": "pending",
+    "topic": "Scientists discover a human brain gene that can jump through DNA",
+    "title": "Scientists discover a human brain gene that can jump through DNA",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "d619a7856bf49d77438fa6a7edde866e0e961b65e40d1b06b2ea7c4b2579116c",
+      "5b28699f934f96e266d925e5bb7338ef4f38471743e030f38de5319c55e9e821",
+      "e662310b10b3e412879e015b11e452df20977d6cce0724bc6aafdc1d58f4447f",
+      "4fe02744c5cf3e9416d4bfdfa916eea298df4a888f2ac9ec49bd1684202a5181",
+      "474e03bc37c07c87c3bfc24c5eb978888c49abe9163b45d6221d07545dc9178d",
+      "e87abde4f2970de8c5904ebf70c7165af38964bb3f252dad6beceb8bc9223326",
+      "f405e0721c8bc3c7ab74e8669ea8e85cc6c26a770027bb5f46ab9fa3937e6453",
+      "9059366a6923fcf8d585ebf19446ce2cb20605f573a7901388a7f9e0412df33f"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 22.513741,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "0e29d2704b060833108645292237d392ed7fb06e5d162d348402c366bf6b4662",
+    "body": "A gene that walks inside you Brain's tiny jumper discovered It moves without breaking the code It rides on RNA copies Neurons may rewrite their own instructions Could help lock in memories Your brain edits itself like software That explains why memories feel alive",
+    "text": "Scientists discover a human brain gene that can jump through DNA A gene that walks inside you Brain's tiny jumper discovered It moves without breaking the code It rides on RNA copies Neurons may rewrite their own instructions Could help lock in memories Your brain edits itself like software That explains why memories feel alive"
   }
 ]
