@@ -2991,5 +2991,41 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18141749845657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
       }
     }
+  },
+  {
+    "created_at": "2026-10-05T10:14:31.150589+00:00",
+    "status": "pending",
+    "topic": "Brain tissue removed during surgery reveals potential way to curb inflammation linked to Alzheimer's",
+    "title": "Brain tissue removed during surgery reveals potential way to curb inflammation linked to Alzheimer's",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "93fa8076f35b1dfad3b47efa94fd92849ed4da9ecedabbf10a6078165691b68b",
+      "3365b9612c6782651ed50c1c17bd4e45f6b868ad3ac9efa509eb2b7dbac7169b",
+      "36048bb6cd976070a498545069d761b1994c5a646a3b98620ac03669401e21d6",
+      "f1b7eee6be9195ea8315149f079676f86e4a1fa4f7d64d19d9df3e71dbe63c94",
+      "9e2db5f5240acc3c8022feeb1875ddc621cf58df17bedf324cc0f8014e7d4187",
+      "3f12e9fa9797ce70c93f8014f7bcdd75627e5065316426964c4368a23c2af776",
+      "731197b2d45b4e1c3ce038d804e946b7d8899f6ea35a80153df5020041944f63",
+      "3b257766401b1df6f0e443f9463ecd2378167303374068e93233f778e6f58c9c"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 22.516735,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "85c21f5de0210a561939076f6f004ccf8e9d5d2b0f14330a7c760006859454be",
+    "body": "The surgeon cut out this secret A hidden molecule was found But it vanished in disease Why does loss matter? Could we restore the brake? Early experiments show promise A new therapeutic target emerges Your next scan might reveal it",
+    "text": "Brain tissue removed during surgery reveals potential way to curb inflammation linked to Alzheimer's The surgeon cut out this secret A hidden molecule was found But it vanished in disease Why does loss matter? Could we restore the brake? Early experiments show promise A new therapeutic target emerges Your next scan might reveal it"
   }
 ]

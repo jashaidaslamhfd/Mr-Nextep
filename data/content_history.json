@@ -1823,5 +1823,21 @@
     "title": "The Role of Slow Wave Sleep in Memory Processing",
     "body": "Your brain edits memories overnight Deep sleep: the brain's night editor Erases some, strengthens others Neurons replay with noise You forget the boring parts Slow waves trigger down‑scaling Sharper recall of core Night edit explains changed memory",
     "text": "The Role of Slow Wave Sleep in Memory Processing Your brain edits memories overnight Deep sleep: the brain's night editor Erases some, strengthens others Neurons replay with noise You forget the boring parts Slow waves trigger down‑scaling Sharper recall of core Night edit explains changed memory"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "85c21f5de0210a561939076f6f004ccf8e9d5d2b0f14330a7c760006859454be",
+    "title": "Brain tissue removed during surgery reveals potential way to curb inflammation linked to Alzheimer's",
+    "body": "The surgeon cut out this secret A hidden molecule was found But it vanished in disease Why does loss matter? Could we restore the brake? Early experiments show promise A new therapeutic target emerges Your next scan might reveal it",
+    "text": "Brain tissue removed during surgery reveals potential way to curb inflammation linked to Alzheimer's The surgeon cut out this secret A hidden molecule was found But it vanished in disease Why does loss matter? Could we restore the brake? Early experiments show promise A new therapeutic target emerges Your next scan might reveal it"
   }
 ]
