@@ -1871,5 +1871,21 @@
     "title": "Focused Ultrasound to Transform Brain Disease Treatment, Experts Say",
     "body": "Sound That Heals Your Brain? A tiny acoustic lens targets the brain. No pain, but neurons shift. A secret door for drugs. Tremors vanish in hours. Vibrations create microscopic pores. A silent surgical key. Your brain opens to a whisper.",
     "text": "Focused Ultrasound to Transform Brain Disease Treatment, Experts Say Sound That Heals Your Brain? A tiny acoustic lens targets the brain. No pain, but neurons shift. A secret door for drugs. Tremors vanish in hours. Vibrations create microscopic pores. A silent surgical key. Your brain opens to a whisper."
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "f4c28db39c35422315c099a89288ead7228b32af94fa6514764cab2d8a8ddd8f",
+    "title": "Associate professor of psychology brings evidence",
+    "body": "AI confidence tricks our brain Study: confidence boosts AI trust Even obvious errors felt right Confidence triggers authority response Bots exploit our authority bias Prefrontal shortcut to trust Confidence ≠ correctness, stay skeptical Your brain, not AI, fooled you",
+    "text": "Associate professor of psychology brings evidence AI confidence tricks our brain Study: confidence boosts AI trust Even obvious errors felt right Confidence triggers authority response Bots exploit our authority bias Prefrontal shortcut to trust Confidence ≠ correctness, stay skeptical Your brain, not AI, fooled you"
   }
 ]

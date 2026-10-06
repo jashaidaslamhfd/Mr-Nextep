@@ -3141,5 +3141,41 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18141970240657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
       }
     }
+  },
+  {
+    "created_at": "2026-10-06T21:27:44.694512+00:00",
+    "status": "pending",
+    "topic": "Associate professor of psychology brings evidence",
+    "title": "Associate professor of psychology brings evidence",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "31a2a8330c247a3830b6666cd21714046504ae23790bf9f0505e663f75c52e2b",
+      "fa042495b9dcd284ab0562a8aad6901e10654d78234fe020c34d7b24b609402a",
+      "ee3db5fcfa741dfe714fcb0f19740e297d7bef89273e2f647170e80716c2de12",
+      "175305be677758cfff1b48619df566771c225c812fb6c5b7aa5138602b2f0e61",
+      "94d333ca929dc642e5d1f04d0d560a01aba17acf7071b29aca814481e1afd387",
+      "34d57b2a3bdf2bad082f268ff97908ca1fa0731a7dd6c0d3df2ebb38c5fa6dd8",
+      "44f275b3a0630b27b7808b8a05122cd28fc9fb627eb53961b1c1748f95a844dc",
+      "fc74fe3d84b68294e80e391baafc8bd6ae805cddbc00c50e9fc0c73e35a4d4be"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 22.502902,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "f4c28db39c35422315c099a89288ead7228b32af94fa6514764cab2d8a8ddd8f",
+    "body": "AI confidence tricks our brain Study: confidence boosts AI trust Even obvious errors felt right Confidence triggers authority response Bots exploit our authority bias Prefrontal shortcut to trust Confidence ≠ correctness, stay skeptical Your brain, not AI, fooled you",
+    "text": "Associate professor of psychology brings evidence AI confidence tricks our brain Study: confidence boosts AI trust Even obvious errors felt right Confidence triggers authority response Bots exploit our authority bias Prefrontal shortcut to trust Confidence ≠ correctness, stay skeptical Your brain, not AI, fooled you"
   }
 ]
