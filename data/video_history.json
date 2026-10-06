@@ -3094,7 +3094,7 @@
   },
   {
     "created_at": "2026-10-06T09:59:29.926507+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Focused Ultrasound to Transform Brain Disease Treatment, Experts Say",
     "title": "Focused Ultrasound to Transform Brain Disease Treatment, Experts Say",
     "video_path": "output/mr_nextep_short.mp4",
@@ -3126,6 +3126,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "42ad25efe28614a253d2bf97079079dae73c62384170f03ea1a983e45a70d401",
     "body": "Sound That Heals Your Brain? A tiny acoustic lens targets the brain. No pain, but neurons shift. A secret door for drugs. Tremors vanish in hours. Vibrations create microscopic pores. A silent surgical key. Your brain opens to a whisper.",
-    "text": "Focused Ultrasound to Transform Brain Disease Treatment, Experts Say Sound That Heals Your Brain? A tiny acoustic lens targets the brain. No pain, but neurons shift. A secret door for drugs. Tremors vanish in hours. Vibrations create microscopic pores. A silent surgical key. Your brain opens to a whisper."
+    "text": "Focused Ultrasound to Transform Brain Disease Treatment, Experts Say Sound That Heals Your Brain? A tiny acoustic lens targets the brain. No pain, but neurons shift. A secret door for drugs. Tremors vanish in hours. Vibrations create microscopic pores. A silent surgical key. Your brain opens to a whisper.",
+    "youtube_video_id": "rtLb59sqM5E",
+    "url": "https://youtu.be/rtLb59sqM5E",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "published",
+        "id": "1128244473518614",
+        "format": "reels"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18141970240657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
+      }
+    }
   }
 ]
