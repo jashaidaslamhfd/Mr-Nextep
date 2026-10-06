@@ -1,22 +1,22 @@
 {
   "source": "Google Trends US + US science RSS",
-  "mined_at": "2026-10-05T23:02:59.456151+00:00",
+  "mined_at": "2026-10-06T09:57:37.301779+00:00",
   "topics": [
     {
       "series_number": "TREND-1",
-      "topic": "Local health officials stress safe sleep practices for infants",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxPSUZSUTlyVzVfRjRDWlY1OWxqLTdLSl9qaHpMYk5Mc0MxLXJPQmRadlIwbDZVRV8yVXVleE5ma2F2QkNESWJZcDItNUVtZV8wMURRcFR4MjA1eUlWdk0tb0xLLTIwNGJRYmdHT2dEV2tfRXAtcUQzOFRZb1E4Ni1ZNG1wRnROOTQxMnFsdnZHYW54b3kzYXdKVVcwREJTTk85blNad0dTRzFpbS15VWhrNnZKdlJvYXRMVXNRcjVzQWRSMTc3MnNidEY2WUhMNURyRmw5cXZIZw?oc=5",
-      "trend_score": 10,
-      "fetched_at": "2026-10-05T23:02:59.456004+00:00"
-    },
-    {
-      "series_number": "TREND-2",
       "topic": "Overnight Therapy? The Role of Sleep in Emotional Brain Processing",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9BSktHeEJiYzAyeFAxMERDeE5MSmJUSGxnWXFVQXRpSS1QRENacTkxUGFyeEwySjJoY2pSN3lXVHdEaHlQcVYzMHpJS2w4OHRLdnZucEZWR0x1clRhNmc?oc=5",
       "trend_score": 10,
-      "fetched_at": "2026-10-05T23:02:59.456019+00:00"
+      "fetched_at": "2026-10-06T09:57:37.301599+00:00"
+    },
+    {
+      "series_number": "TREND-2",
+      "topic": "How the brain uses memory to imagine what might have been",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOMjllcFM5WW9hS1hXNjdNSHdnY0dxLVhvMVBQZHVieWRSaDJuRjJLTXdZck80cVloYkx5WTVlc3BRNFhLY3JHMm4tRG9xUnI1V19lcVF0bDFwTEFXQlQ5bFMzVnZMb1AzMWxzano0MGdRbjlUREFxZmxyVkF1MVd1VE94Q3AyM0JCMWc0RnZGR1ZCOUNUekc5c0NuLUVrOWRnYXdB?oc=5",
+      "trend_score": 7,
+      "fetched_at": "2026-10-06T09:57:37.301615+00:00"
     },
     {
       "series_number": "TREND-3",
@@ -24,223 +24,223 @@
       "source": "google_news_us",
       "source_url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPaXBmalBGaDdtbUtMNC10MnBEYnliMDZTWVNrUC11SGxaMElYWUQ1cTlpcnEwQ1JvSWNmV3A0ZFFlR205NDkyZVdTM1czNHEwYnlBckx2LVpLWTh6QXd2dnh0LS1nbnZTbmdtNEVnTGI2eC1qOGdIV0VLWWp4TjM2V0xwM2tlendCbi1jWnJjb3h2ekpJbkFyN2dVbkVHd3hENkFLcWkza2w?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-10-05T23:02:59.456024+00:00"
+      "fetched_at": "2026-10-06T09:57:37.301621+00:00"
     },
     {
       "series_number": "TREND-4",
-      "topic": "How the brain uses memory to imagine what might have been",
+      "topic": "Permanent Daylight Saving Time Could Harm Sleep and Mental Health, Canadian Analysis Says",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOMjllcFM5WW9hS1hXNjdNSHdnY0dxLVhvMVBQZHVieWRSaDJuRjJLTXdZck80cVloYkx5WTVlc3BRNFhLY3JHMm4tRG9xUnI1V19lcVF0bDFwTEFXQlQ5bFMzVnZMb1AzMWxzano0MGdRbjlUREFxZmxyVkF1MVd1VE94Q3AyM0JCMWc0RnZGR1ZCOUNUekc5c0NuLUVrOWRnYXdB?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5BMzBNOVU5NlFFM1RZZk1wVnpfRUFWZkowODFyenBTQWs5dUxpS1hoQTVlU29uQWRveTBodmlpdGpWaGpMUFJIOGVCT2dtcDMtS0JkME9GYVdTd2tyVmdDUVRRZ3BzeFp2aWVfU0NwUVNRbDgtWGlDNXA2Yw?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-10-05T23:02:59.456029+00:00"
+      "fetched_at": "2026-10-06T09:57:37.301628+00:00"
     },
     {
       "series_number": "TREND-5",
-      "topic": "Going Through Menopause Earlier Could Mean This for Your Brain Health, Scientists Find",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQeEhwWjFvX3A4bTl0eDcwdjdhRGEzRmFIX3lnMVhEMHN3bVhfQmRlckt3eVY2RERrZ0xkVXFsRWEySFozNGRnVUUtTUZ6WFpBNnRvUklvT0YxTy12WS1faVpGcERHMjJjYW5nV1N2WnBqUnZ4VGFkdkNlQzk5WlQ4TnVXWQ?oc=5",
-      "trend_score": 7,
-      "fetched_at": "2026-10-05T23:02:59.456034+00:00"
-    },
-    {
-      "series_number": "TREND-6",
       "topic": "Here\u2019s Exactly How Often to Eat Fish to Support Brain Health, According to a Dietitian",
       "source": "google_news_us",
       "source_url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxONXg3R2FTaG5YRlBCamJzT2tSQ2wtTkR0N0FhLWo4TGtHenlOVzRnQzAzcGxnTmZlM3lqQ3AzUkRDU0JpbkJaZWFxN2FSX3o2ZHQyc2FlYlNKbnhRMUhRZ3pLdFJhaTNtM1g2RnluZ3c2aHFTTTEtRmtnZ3RVVUNJSzlueEllX0hCUEZpbFpUSks4dzhrNi1kejZNdGxYU3dyU1BFeW9WbDg2NEpiTVpSNA?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-10-05T23:02:59.456040+00:00"
+      "fetched_at": "2026-10-06T09:57:37.301643+00:00"
     },
     {
-      "series_number": "TREND-7",
-      "topic": "Louisiana health officials push to reduce sleep",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNeGxHQTZpLWVlckxjcVhublQ1V2pWWDNyOWJ2ZmhaNGJlZ1dDOUU0S2dNNHI3TnlWbmhFWFVBQmZoQm4zZTllUC12OWhfT3loSlcyZmlsbGRXRjlLLXdfRVlkUV9LWlpGdGpWb25td3dsa294VF9rZnNiWi1VTEd1bkpWeVVlUi1nZ2ZFM0JWZ2h4Zzh5NmUzM0h0LUU?oc=5",
-      "trend_score": 7,
-      "fetched_at": "2026-10-05T23:02:59.456044+00:00"
-    },
-    {
-      "series_number": "TREND-8",
-      "topic": "Brain & Behavior Research Foundation Congratulates Karl Deisseroth on Receiving the 2026 Nobel Prize in Physiology or Medicine",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiugJBVV95cUxPcUpUTDdLSnBmMnV1bjRZbEdCdVVoYzcxRUNQeDhxOTNnbWVvSUZCR0tQdkFRNmdma3NtX0hydUVUenZfa1EtcFZ5aUpKSjdlMjNuNGwxdHpVU2NPQmVxcGRzLTd2WEI1UnlLVlZCclBGU2hpeEt2YmM3NFlYMHJpVGFVOGhGUFNPa1VfRG1QQ1llVlhwaE9pcllxRDVXN09BMmlWblFmX0Q0aUU5NjFUSXVHTmh3TTdhX1FTS18xSmZDZnRwTWtwUXA3QWZNT0xqR2hhc1QxOHJVejViVlZIMjlpYWVmckFwcFRDZzFCTms4R3VwTTVHcU5CdF9uUVY0Y0dFT2xsZTFoMUU1bWRFTW5DakZsXzhNYll6aFp6bngtV09iTHAzUWF2Q2NZTFJublp6Mkw0eGJVUQ?oc=5",
-      "trend_score": 7,
-      "fetched_at": "2026-10-05T23:02:59.456050+00:00"
-    },
-    {
-      "series_number": "TREND-9",
-      "topic": "Environmental Toxins and Brain Health",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPRElWRUVDU1ZNbjZxQ1RfQmJoN3lTZmNpNlF2dnVlaUlLMXZqM195RWFPamczRF9NWnpGSlAyRUhiQVhpdzRXajVCeWFfUDFsUDFyMHk1dTRNdG4xM0lnU08xZzVHbmUtWkZneXM5Z2QtMTBzMl91R0RjX1ozQWcwakd3WGdFVElxNU1iby1NLXNManN3RkVrenlNUm90eU5YT19TaQ?oc=5",
-      "trend_score": 7,
-      "fetched_at": "2026-10-05T23:02:59.456054+00:00"
-    },
-    {
-      "series_number": "TREND-10",
-      "topic": "Why do we get sleepy? New study reveals brain cells that help drive sleep",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxONE9rTDZ3b3RvUlV1bER4WXhZTFQzbVpFSG1laTFLU0U5T0NRck5HQUN2TzE1cFdRLUZCcTJSbjQ2ZFVIcEdEVmZNRTRDaTh5aWFkc1IwRHM4aW8tRmF6OF9vNlZVSVB0LU92dTRVNTZ2TjAwUkROZXlWekQ0cFluUFpKa2F2ampYd2FWOWxSd3JaTTBKU213U2J1ZktkS3BLWWVLXzJReGduenlmSmdicw?oc=5",
-      "trend_score": 7,
-      "fetched_at": "2026-10-05T23:02:59.456059+00:00"
-    },
-    {
-      "series_number": "TREND-11",
-      "topic": "Cognitive neuroscience perspective on memory",
-      "source": "nih_news",
-      "source_url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE95RW1teUVLeTRVTk12YV9YeFlFbE9zb05MbWdXNTFaOUptMVVwZ3JYbVkxX3hFOHZkMkEwLWpsTXNOMG8tdGRNbnR4ajJYWUxsVDVIRnZzMlBqVHh1TXo4?oc=5",
-      "trend_score": 7,
-      "fetched_at": "2026-10-05T23:02:59.456063+00:00"
-    },
-    {
-      "series_number": "TREND-12",
+      "series_number": "TREND-6",
       "topic": "Sleep Deprivation and Memory",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFBqWHJTRGo3MTFNWGNRTHlOc0hVUXE3VWkteTFzcWVEQmhNV0xYd0JydkJQMThzeUJGTExEaDJvbWE0NVd4TVpYSlhzTUdpTWZOb2RQdXFqOWFXOTUwTXc?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-10-05T23:02:59.456066+00:00"
+      "fetched_at": "2026-10-06T09:57:37.301651+00:00"
     },
     {
-      "series_number": "TREND-13",
+      "series_number": "TREND-7",
       "topic": "The Role of Sleep and the Effects of Sleep Loss on Cognitive, Affective, and Behavioral Processes",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBFTG91U1JWWkJIWldjZ0JuRy1GdGRDYXcxQjJZM1BmdjFTTllOcjktOTlqaDNpZ2haZ2ZkZk0xbktiVjdYeUd0NnFnVThxX1I0Y1hFemhuMlJUZ1NGeS1z?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-10-05T23:02:59.456071+00:00"
+      "fetched_at": "2026-10-06T09:57:37.301660+00:00"
     },
     {
-      "series_number": "TREND-14",
+      "series_number": "TREND-8",
+      "topic": "Effects of creatine supplementation with and without exercise and diet intervention on body composition, cognitive function, and markers of health in middle",
+      "source": "nih_news",
+      "source_url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFA5QXNUUzZKMktDV3hLWV9KcmhCWmxWSU9DZE9Lc093WnFFZjVOaGx5cHgwdVZneTJQTFB3Wjh4WUg5aEVnNFNRdXczc3FOTGhZM1pMbmxPdzBwQTc1YnE0?oc=5",
+      "trend_score": 7,
+      "fetched_at": "2026-10-06T09:57:37.301670+00:00"
+    },
+    {
+      "series_number": "TREND-9",
       "topic": "Effects of Creatine Supplementation on Brain Function and Health",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5XcXJadkxHeVVuTmJFYVAyUFMyWFhzQjNVdnNTQThOVk94QVM2dFRWZWVaazh3OVVVcXpua3JtdEVhaTFoZzNoR0dkYmdmaVBpd3RN?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-10-05T23:02:59.456075+00:00"
+      "fetched_at": "2026-10-06T09:57:37.301676+00:00"
     },
     {
-      "series_number": "TREND-15",
+      "series_number": "TREND-10",
       "topic": "\u201cHeads Up\u201d for Creatine Supplementation and its Potential Applications for Brain Health and Function",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBrQjdOb055UmpYV0xIQ2JTakE1R244SGRhOVBuWVh4Z0Rvc1BoLWJkelV1S0ZPSFpMSjFMUXYwQlI2dUVoSU0yN3JZN1F2bExSWWl0VU1GMnd5YXlJSWVR?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-10-05T23:02:59.456081+00:00"
+      "fetched_at": "2026-10-06T09:57:37.301683+00:00"
     },
     {
-      "series_number": "TREND-16",
+      "series_number": "TREND-11",
       "topic": "Brain health consequences of digital technology use",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1LT0dNV3RZS1lQNWh2dnlXQW1YT1plZDA1blVOR0VmXzUxUklJekFPRms2aTFId3lLdUJOSHR1QW80N1RNaTVOWU1feWVURGhvcW1JTTEyWUhrSllfOXc?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-10-05T23:02:59.456085+00:00"
+      "fetched_at": "2026-10-06T09:57:37.301688+00:00"
     },
     {
-      "series_number": "TREND-17",
+      "series_number": "TREND-12",
       "topic": "Modulating stress and sleep through a multi",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1IUmt0WmliUUxkcVljczZiQWtVeGsyc2ZCY2dYRXNLSjRRUFp4UlVqN29JN3hwUmNRakpEWnBjSkthQVAySmhtb1pwR3NwaGVkUk1B?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-10-05T23:02:59.456089+00:00"
+      "fetched_at": "2026-10-06T09:57:37.301692+00:00"
     },
     {
-      "series_number": "TREND-18",
+      "series_number": "TREND-13",
       "topic": "How does inadequate sleep affect health?",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNNlg4eFlrdUlHazVGeklkOXU5TEhNQmkzTW50eUx2WnAtTllyM2xxNTVveGNoNkY4WDFwdkJLTi02M0ZqNEFLOXo1UmNRQS1qdFFTZmR2dE5oNWdBWExkdFYydE1WMnBKbnJZTFBpRWZYTWNUNXp0R1RocHJLem9iQVpR?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-10-05T23:02:59.456093+00:00"
+      "fetched_at": "2026-10-06T09:57:37.301697+00:00"
     },
     {
-      "series_number": "TREND-19",
+      "series_number": "TREND-14",
       "topic": "Short sleep duration is associated with reduced leptin, elevated ghrelin, and increased body mass index",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE8tVGdhTklWUWN3cTZZZlVsd2RGa1Fkc1E1NFBMTkIzUmNDR3R6eFY4TzNzVFR6SDl1NlNULVlrNFViNFNPa0F3ZUxWMGFfUFBjVkVF?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-10-05T23:02:59.456098+00:00"
+      "fetched_at": "2026-10-06T09:57:37.301701+00:00"
     },
     {
-      "series_number": "TREND-20",
+      "series_number": "TREND-15",
       "topic": "Sleep drives metabolite clearance from the adult brain",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9NZjM0RXNpeE1raVlFclJ6ZTdqQ0dKLURSYUJnREd1TWNzZFhQTHExRUtCdElrY3ZEci1menRHSFNrUVp3RWxzSjJOSHNwZ3BEZ2pR?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-10-05T23:02:59.456102+00:00"
+      "fetched_at": "2026-10-06T09:57:37.301705+00:00"
     },
     {
-      "series_number": "TREND-21",
+      "series_number": "TREND-16",
       "topic": "The Global Problem of Insufficient Sleep and Its Serious Public Health Implications",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE0tN29MTjFScHctZlFWck5IWjNxeHh6VEgyeDhvVUJIcVAxamFPdW90ZWJyVVoyWlNwWF9oaGNJNjhnLUota2w4dlBvVlowcDUtUEtIMnpEWVE5UkdkWGc?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-10-05T23:02:59.456106+00:00"
+      "fetched_at": "2026-10-06T09:57:37.301710+00:00"
     },
     {
-      "series_number": "TREND-22",
+      "series_number": "TREND-17",
       "topic": "The Role of Slow Wave Sleep in Memory Processing",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9WRmlzS2dpNjc5dExPbzh1bTYwcWp4RTFCQ2dMWkY1LXl5MlFEb3hvREhjYWp0bFJMYjlhdG02ZmFId2lvQnBEdEl2bEJkZU9XZTJ5OVVMcFBBTFNsWWc?oc=5",
       "trend_score": 7,
-      "fetched_at": "2026-10-05T23:02:59.456111+00:00"
+      "fetched_at": "2026-10-06T09:57:37.301714+00:00"
     },
     {
-      "series_number": "TREND-23",
-      "topic": "Nobel medicine prize goes to 3 scientists for research into brain activity",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBqbmxKR1JKNWdjaXByeW54ZlBkS1dtc3Rubk5GVzUxcVhkU2REU0YtcEVYMXFJb3RoblV0V19uN3J3ZUFiOUt2bjRUaFZpVWxBUU44bUpXc3hDek5sQXJVR3hMQXVVd2N5RmZTS1lDTl8?oc=5",
-      "trend_score": 4,
-      "fetched_at": "2026-10-05T23:02:59.456115+00:00"
-    },
-    {
-      "series_number": "TREND-24",
-      "topic": "Scientists discover a human brain gene that can jump through DNA",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBRdldDUzljS20teFA1VXoyM3ZmcldLclZpN2hvVFB1aEo4ZVd0aGREdTRDWml2bzh5VjE1SE8wd09fM2xHR0loRnRXeU9aU0JybnVPYVkyUkJUR2RTb2VuZVB0bFo5c3RxcjNRaDZsVQ?oc=5",
-      "trend_score": 4,
-      "fetched_at": "2026-10-05T23:02:59.456120+00:00"
-    },
-    {
-      "series_number": "TREND-25",
-      "topic": "US and German scientists win Nobel medicine prize for work on light and brain",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNQXo2cFZNQjV2OVJOVnRDUlIzR0VJazh3WWt0MXlQXzBkWXlPRG1RVzZtVWlvbmdZMXFBM08xQzR0ZVlVdGtYVm5Dd2ptcHVhZmp1RDFxQkkxUzV4V2FLWWtaNlRWY25MbDVJSGsxNlA0LUdfNkVBOXdDTUdrNDdSR2lNSHc2c2VBMW1iejZWZ0tNN1hiVjBTdC1xcWR1SnA0cTFlVVF0RFA1SGhLWHZzR0QwbWkzYWRiM2U5dmpHdnJ3UnJV?oc=5",
-      "trend_score": 4,
-      "fetched_at": "2026-10-05T23:02:59.456125+00:00"
-    },
-    {
-      "series_number": "TREND-26",
+      "series_number": "TREND-18",
       "topic": "The Nobel for medicine goes to lighting up the brain",
       "source": "google_news_us",
       "source_url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPcWNSWk1CY3RCZ1VFRFNHbU12TzNyXzlpbVlBMDZXYlFBYW9JOHRLeXB3NDNMZHdWYUNqNHY3VVJWeC15dWlsaGlmekQ5R0pJVk12cmRWZkhhOGM2MHhNNG1KR2pyUzN1Q2NtSVlyMC1aNEtfcnIyal94QjlwZFk3RHBUU242MENlRlhjNDVoLVk1V3otcXkyNmhOV1A0Uk9HaTg4ZTZiZjhac2lNVGpWYkpR?oc=5",
       "trend_score": 4,
-      "fetched_at": "2026-10-05T23:02:59.456130+00:00"
+      "fetched_at": "2026-10-06T09:57:37.301719+00:00"
     },
     {
-      "series_number": "TREND-27",
-      "topic": "Practicing the ABCD\u2019S of Infant Safe Sleep Saves Lives",
+      "series_number": "TREND-19",
+      "topic": "Scientists discover a human brain gene that can jump through DNA",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQZzUxZmR1MGtta1g1Mnh6RnRVd3Y2Z3ZPTFdTUkpzNDNNZDgzcDBPUDctS284RE1LdzNBQV9YUk52bGFPWnZjUEpicEFIMEV3bjlkdGZGMXZqVURsZ3ZWQlREcUVwS0tEN014cVRmTDN1TjFobzFJQWJlUzJfZU9nWk5HVG9qQXd0MWRWZUdYTmpTa3hvV3lWTEF5Qk04VGhBemltODQ5cmdhMjA4c1BuZU5JRzk4TldpNVRKMVctNEVpb3lq?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBRdldDUzljS20teFA1VXoyM3ZmcldLclZpN2hvVFB1aEo4ZVd0aGREdTRDWml2bzh5VjE1SE8wd09fM2xHR0loRnRXeU9aU0JybnVPYVkyUkJUR2RTb2VuZVB0bFo5c3RxcjNRaDZsVQ?oc=5",
       "trend_score": 4,
-      "fetched_at": "2026-10-05T23:02:59.456135+00:00"
+      "fetched_at": "2026-10-06T09:57:37.301724+00:00"
     },
     {
-      "series_number": "TREND-28",
-      "topic": "Brain\u2019s response to a stroke may advance tumor\u2019s progression",
+      "series_number": "TREND-20",
+      "topic": "Compressing bones releases molecules that ease traumatic brain injuries",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQZHF2WndZZ0lfclpUbkd5ejNXVUE1VlJ6V2FSRV9nNVpKeEFSV3FmM2NZQnBiMUwybmZFRHdGU2pqVlFtX19oOWV4S2NjM1lhdkFFMHJ0TmxtQlNxYkpNT1FkdXZBMFhzc1VXeHRrVUtrS1A3VkR0ZUd0U3l5c0NwRzdWSmlENmRzWDlGVVZYOHNJRnJmaDg0cDdsTjh6VTJWcXc?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPTENCTS00SFFxQ0t3bEhhVlQ5TEpyME90Y3NuV0Vwc1Jsek1UdjFuZlowSllLdlZsNlZfd1BYaGV5MFFGU2pYZEtCQnZqQ2pHZ2R1OF9uN2RTd2haQXVCUUluYlI3d0RpUFlRbFBLcERzd3NKd3FSNGxETnRHZU1ISTZWbWxZUXd0MXRNRG9COVZ0eHZKcW5UOFk0VGMxajhpU0Jmc2hORzl0bFJqdGoyaUliQWhIcDBx?oc=5",
       "trend_score": 4,
-      "fetched_at": "2026-10-05T23:02:59.456140+00:00"
+      "fetched_at": "2026-10-06T09:57:37.301729+00:00"
     },
     {
-      "series_number": "TREND-29",
+      "series_number": "TREND-21",
+      "topic": "Nobel medicine prize goes to 3 scientists for research into brain activity",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQUGxnWXlTXzktZ1JZYzNKZC1fR2NpajFNSXRUSktfbWw2ek1ZNkYzSktMTGNERlRwM1Jha0Q4dDI2NmhCR3p2Y2MxX3VlS05xejJfWnRfRWNxaF96WnVkNzNTdWZJYXdxdmF3aUV4MEJlUnVHZ0ZNUXdYMHR5VlBxaGg2MEluMWhkbVlfWHlGSGhQenpkaGNuVGdFZTkzSVBsWUVHWjVuQVN5dkXSAbABQVVfeXFMTm1zNEdSZHF6Mms2RndHYWVxOVJvRDdZNHl4YXdfUTJOVE4xYXdxb2N2Y3JYUjFKWS1jSnN6OHRPeHRMR3lnNFU5QWlkOXIzSS1fMFVZcTZCcjJoV00zc0NaTmZMdmxNX3oxUFdkVGVCSXRwckNLOFVUTWpDWDBhS3o0d01kNlJSODNpU0hZR3dUZWo4WmNDT2MydnZMTDFUdnoxRG93X0dZZ2JkVXFZN0s?oc=5",
+      "trend_score": 4,
+      "fetched_at": "2026-10-06T09:57:37.301733+00:00"
+    },
+    {
+      "series_number": "TREND-22",
+      "topic": "Hidden Part of the Brain Controls How We Prepare for Uncertainties",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQc0NmeURCcmRTSW1taVlKWmw3THlObmFTZG53cTI1eHZILV9pdFQtODQ2a1RFcHMycWRnQ1RiTVdpUkE4YmxoQ25KMDM4LXRkVGNuNjZfV21aVzJ1c0V1N3lhdEp2NzVmbWJBWmpaQUFOQmFQcGE4V25Iai1neG9qSnlIUFI?oc=5",
+      "trend_score": 4,
+      "fetched_at": "2026-10-06T09:57:37.301738+00:00"
+    },
+    {
+      "series_number": "TREND-23",
       "topic": "Nobel prize in medicine 2026 awarded for research into mysteries of brain",
       "source": "google_news_us",
       "source_url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPUHp4ZENrZUFEa0J2WnVzSkRWdTg4VmpISVJ2T0NqSXA2N3NzcnZZU0oxWW1tTGQ2S3g0bmNkeElPdTRBbGxoeFdxMWhBb3A5Z1pMNFZ2UUVHR3VhMlFuM3RPa0ZEa1NGSEZlb1FVSEN5WGJLNmpRdXVZSEE4Rnk0bjI2dDFKa2M?oc=5",
       "trend_score": 4,
-      "fetched_at": "2026-10-05T23:02:59.456145+00:00"
+      "fetched_at": "2026-10-06T09:57:37.301743+00:00"
+    },
+    {
+      "series_number": "TREND-24",
+      "topic": "2026 Nobel Prize in Medicine awarded for brain research tool called optogenetics",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOMTFCeXJMOFJ6WDhPVjdBV0thNW9pMkt6cUlCejlRUkk4WUtNd2VKT3lJM2xRcDhyUkx2Szhkc3Y3eTNickFwbFVCaUFTOFVxSVRyQUU5RTFWbEMxeFowc2pXQnRTaC0xd3FlZEFRS1FTejFvbHFVdnRXYk5xZGFnc0JJbTBKSXpvVlR5ZG13bjRIWUVmNDdwRmMxdw?oc=5",
+      "trend_score": 4,
+      "fetched_at": "2026-10-06T09:57:37.301748+00:00"
+    },
+    {
+      "series_number": "TREND-25",
+      "topic": "Focused Ultrasound to Transform Brain Disease Treatment, Experts Say",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOeVQ5VW16YXRhZWs1VWpTTUVlQjZnZHdIMmpIOE9oSWgxTlZkTFFGekRyVlZCcTNsSldHM1pITkZOZENleU5rNGc1T2FkT0hjU2l1NnRCQTg4SXYzUU8xaHlEZVRtUHZ4aElqbFNXbjlDVTcyNW9jS0RVVmZ1YXdtYndpLUxKc05jSlo0eEZydnVXc3V4WHAwR01iR09UdmM?oc=5",
+      "trend_score": 4,
+      "fetched_at": "2026-10-06T09:57:37.301753+00:00"
+    },
+    {
+      "series_number": "TREND-26",
+      "topic": "TD strategist on France bond stress and equity market divergence",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPd0lSbF9BQ3JtZk1ibUFGYlZhLWZrMWpUTkdpX19lOFBrd2h2bUQwb2U1S0JHX3dwU0NtSnZUSHFTdjBBZDlvZFh0bUpPck1MZ2JLanN2RElhbXNaaW1jWWtWbmhPS2ltVnlocVNtZFUtNFFQdnpwTUpteU5HaDNmaThNSGpoY0thdlFDa0JjYTNfV3lsTHdsQlJQdTBYM2NFRlcwNWw2ZmRfTGc?oc=5",
+      "trend_score": 4,
+      "fetched_at": "2026-10-06T09:57:37.301758+00:00"
+    },
+    {
+      "series_number": "TREND-27",
+      "topic": "Switching on brain cells",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1XVGJkRjN1SFZSMjBrdk02cjRYUVdtaVRabVdjUGN5d0F1bXluQzJhRFVYcmNIdHoyeG9URUJQOG9VQUp3ajhiUi05NDZHME5aT0paVEQ0cVc4T01kR1JNR0E3Vy1kV0R4V3pnajRvUWNDbEdhbGFldWhvNnVEdw?oc=5",
+      "trend_score": 4,
+      "fetched_at": "2026-10-06T09:57:37.301762+00:00"
+    },
+    {
+      "series_number": "TREND-28",
+      "topic": "US and German scientists win Nobel medicine prize for work on light and brain",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNQXo2cFZNQjV2OVJOVnRDUlIzR0VJazh3WWt0MXlQXzBkWXlPRG1RVzZtVWlvbmdZMXFBM08xQzR0ZVlVdGtYVm5Dd2ptcHVhZmp1RDFxQkkxUzV4V2FLWWtaNlRWY25MbDVJSGsxNlA0LUdfNkVBOXdDTUdrNDdSR2lNSHc2c2VBMW1iejZWZ0tNN1hiVjBTdC1xcWR1SnA0cTFlVVF0RFA1SGhLWHZzR0QwbWkzYWRiM2U5dmpHdnJ3UnJV?oc=5",
+      "trend_score": 4,
+      "fetched_at": "2026-10-06T09:57:37.301767+00:00"
+    },
+    {
+      "series_number": "TREND-29",
+      "topic": "The politics of losing sleep",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOYzBoYTZsc00yNkszSV9JR2ZCeWhfREhrLUdzTlVidmttcWw3dEI2NmxyTEp2UUp6anBiNVlJY0Q2aG9VX21fTFlJMVBoRVFpeXlnOWVlVlRIcWc5N2xzaDFFYWdKSE1BaE15RmRfTWNDLXNiWlctbWVGeC1uOVp2SmJLM1o?oc=5",
+      "trend_score": 4,
+      "fetched_at": "2026-10-06T09:57:37.301772+00:00"
     },
     {
       "series_number": "TREND-30",
-      "topic": "How light became a tool for studying the brain",
+      "topic": "San Diego heat wave makes it harder to sleep as overnight temperatures stay warm",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOajV2Y1pWNW1icUdEWjRYa3pRRWU0Y1BNU3QxeS1Kek5MUHRhSWFpQ0lNZ0NMMDhXdl96bk5GSnVfbnFpS2Y5UGRDZTVqUmZvUjNDX0xMUzNfdU1KVl9KV2ZUQkthUUIxdkNZSERtWW11RFJZRzBZekdOcGJTZmdtOHgxaEtpV0xxM0pTbXJObDc?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxQY25kdS1qdkZ4WG5YeWFGSVVmclVINk5xT2VDbUpKR0JxQzdsaFhQckRybFJ5STFIWWxYeVdKUzhrOXVVdXRHdWtNSERuR2xPNVpFOThUajYxSFE1ZjF6bUtwMkJPdHc3RjNJanRMT1JhbFlVTkc5R1hxYzhGWXFHUE9JMHo1eGVxUzlBSEVEWERybTIzc1dYQllzenZIUHUzTVltZ0p3aXFTX3M1OEhSV1FTTXNJSHNkWkVpUGtIbFZ3SGZVODExWHJsTW4wRFItWGpRNnlMdGRTelVWMHlGMDk2bUlvUXh3SEhKRnVudw?oc=5",
       "trend_score": 4,
-      "fetched_at": "2026-10-05T23:02:59.456149+00:00"
+      "fetched_at": "2026-10-06T09:57:37.301776+00:00"
     }
   ],
   "source_errors": []
