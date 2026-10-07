@@ -473,8 +473,35 @@ class AgentBrain:
                 continue
             cap = s.get("caption", "")
             style_idx = i % len(cinematic_styles)
+            narration = str(s.get("narration", "")).strip()
+            # This is the stock-search fallback when the LLM does not return a
+            # visual_query. Keep the subject concrete and scene-specific.
+            visual_text = f"{cap} {narration}".lower()
+            keyword_map = (
+                ("ai", "artificial intelligence computer interface"),
+                ("chatbot", "person talking to AI chatbot on computer"),
+                ("memory", "human memory brain neural activity"),
+                ("sleep", "sleeping person brain waves at night"),
+                ("dream", "sleeping person dream visualization"),
+                ("voice", "human voice waveform smartphone"),
+                ("deepfake", "synthetic face digital media smartphone"),
+                ("trust", "person reacting to confident computer answer"),
+                ("confidence", "person trusting computer information"),
+                ("illusion", "optical illusion human eye close up"),
+                ("mirror", "person looking into mirror reflection"),
+                ("stress", "stressed person close up nervous system"),
+                ("brain", "human brain neural scan laboratory"),
+                ("neuron", "neurons firing brain scan"),
+                ("dopamine", "brain reward system neural activity"),
+            )
+            fallback_query = next((q for needle, q in keyword_map if needle in visual_text), None)
+            if not fallback_query:
+                fallback_query = " ".join(re.findall(r"[a-z]{4,}", visual_text)[:6])
+            s["visual_query"] = str(s.get("visual_query") or fallback_query or "science laboratory")
             s["visual_prompt"] = (
-                f"{cinematic_styles[style_idx]} — illustrating: {cap}. Archetype: {archetype}. Ultra-sharp 60fps cinematic feel."
+                f"{cinematic_styles[style_idx]} — illustrating: {cap}. "
+                f"Subject focus: {s['visual_query']}. Archetype: {archetype}. "
+                "Ultra-sharp 60fps cinematic feel."
             )
             s["camera_motion"] = ["SLOW_ZOOM_IN", "PAN_UP", "MACRO_DOLLY", "DYNAMIC_PULSE"][i % 4]
 
