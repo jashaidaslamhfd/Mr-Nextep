@@ -44,18 +44,27 @@ def _safe_name(text: str) -> str:
 
 
 def _clean_keywords(text: str) -> str:
-    """Extract 2-4 clean, high-signal keyword search terms."""
-    clean = re.sub(r"[^a-zA-Z\s]", " ", text).lower()
+    """Turn a scene-directed visual description into a specific stock-search query.
+
+    The old implementation kept only the first three words, which collapsed very
+    different scenes into generic searches such as "brain sleep" or "dark science".
+    Keep up to six high-signal terms and preserve the actual visual subject.
+    """
+    clean = re.sub(r"[^a-zA-Z0-9\s]", " ", text).lower()
     stop_words = {
         "the", "a", "an", "is", "are", "was", "were", "of", "and", "in", "to", "for",
         "with", "that", "this", "it", "at", "by", "from", "up", "about", "into", "over",
         "after", "scene", "video", "clip", "feel", "feeling", "completely", "very", "can",
-        "your", "you", "our", "their", "why", "how", "what", "when", "where", "does"
+        "your", "you", "our", "their", "why", "how", "what", "when", "where", "does",
+        "show", "showing", "illustrating", "cinematic", "photorealistic", "vertical",
+        "dark", "mysterious", "mystery", "ultra", "sharp", "macro", "8k", "60fps"
     }
     words = [w for w in clean.split() if len(w) > 2 and w not in stop_words]
+    # Preserve order but remove repeated words.
+    words = list(dict.fromkeys(words))
     if len(words) >= 2:
-        return " ".join(words[:3])
-    return "dark science"
+        return " ".join(words[:6])
+    return "science laboratory"
 
 
 def _fetch_wikimedia_candidates(query_terms: str, headers: dict) -> list[str]:
@@ -326,16 +335,17 @@ def download_clip(query: str, destination: Path, avoid_hashes: set[str] | None =
 
 
 def query_for_scene(scene: dict[str, str], scene_index: int = 1) -> str:
-    base = scene.get("visual_query") or scene.get("caption", "dark science")
-    variants = (
-        "silhouette slow motion",
-        "macro close up",
-        "night laboratory",
-        "shadows mysterious",
-        "brain scan neural",
-        "uncanny abstract",
-        "deep space cosmos",
-        "infinite loop geometry",
-    )
-    index = (int(hashlib.sha256(base.encode()).hexdigest()[:8], 16) + scene_index) % len(variants)
-    return f"{base} {variants[index]}"
+    """Build a scene-specific query; never fall back to a fixed generic visual."""
+    explicit = str(scene.get("visual_query") or "").strip()
+    if explicit:
+        return _clean_keywords(explicit)
+
+    # visual_prompt is produced by the agent for every scene. It is much more
+    # specific than a caption and prevents all scenes from becoming "brain stock".
+    prompt = str(scene.get("visual_prompt") or "").strip()
+    if prompt:
+        return _clean_keywords(prompt)
+
+    narration = str(scene.get("narration") or "").strip()
+    caption = str(scene.get("caption") or "").strip()
+    return _clean_keywords(f"{caption} {narration}")
