@@ -275,7 +275,8 @@ Do not reveal the complete explanation too early.
 Every 1–3 seconds, introduce a new detail, visual change opportunity, unanswered question, contradiction, escalation, or payoff.
 
 PACING AND SCENES
-Target approximately 18–22 seconds total narration.
+Target 45–55 spoken words across all 8 scenes, producing roughly 18–22 seconds at a natural US-English pace.
+Aim for 4–8 spoken words per scene, with Scene 1 around 5–8 words. Never pad narration to fill time.
 Use concise spoken US English, short punchy sentences, and simple explanations.
 Explain technical terminology naturally when it is necessary.
 Use exactly 8 scenes.
@@ -347,7 +348,8 @@ Before returning JSON, silently verify:
 - Claims about AI are responsible and evidence-aware
 - No invented facts or capabilities
 - US-English sounds natural
-- Narration targets 18–22 seconds
+- Narration is 45–55 total words, with 4–8 words per scene
+- Narration naturally targets 18–22 seconds without extreme speed-up
 - Content does not feel like a generic AI template
 - Every scene has a unique, concrete visual_query matching its narration
 - Visual queries are usable stock-video search phrases, not cinematic style descriptions
@@ -363,15 +365,26 @@ def _validate_script(result: Any) -> dict[str, Any]:
     scenes = result.get("scenes", [])
     if len(scenes) != 8:
         raise ValueError(f"expected exactly 8 scenes, got {len(scenes)}")
-    if any(not isinstance(s, dict) or not s.get("caption") or not s.get("narration") for s in scenes):
-        raise ValueError("every scene needs a non-empty caption and narration")
+    if any(not isinstance(s, dict) or not s.get("caption") or not s.get("narration") or not s.get("visual_query") for s in scenes):
+        raise ValueError("every scene needs caption, narration, and visual_query")
+    counts = [len(str(s.get("narration", "")).split()) for s in scenes]
+    if any(c < 4 or c > 8 for c in counts):
+        raise ValueError(f"each scene narration must be 4–8 words; got {counts}")
+    total_words = sum(counts)
+    if not 45 <= total_words <= 55:
+        raise ValueError(f"total narration must be 45–55 words; got {total_words}")
+    queries = [" ".join(str(s.get("visual_query", "")).lower().split()) for s in scenes]
+    if any(len(q.split()) < 4 or len(q.split()) > 8 for q in queries):
+        raise ValueError("every visual_query must contain 4–8 words")
+    if len(set(queries)) != 8:
+        raise ValueError("all 8 visual_query values must be unique")
     for s in scenes:
         w = str(s.get("caption", "")).split()
         if len(w) > 8:
             s["caption"] = " ".join(w[:8])
     c1_words = str(scenes[0].get("caption", "")).split()
-    if not (2 <= len(c1_words) <= 8):
-        raise ValueError("scene 1 caption must be 2-8 words")
+    if not (4 <= len(c1_words) <= 7):
+        raise ValueError("scene 1 caption must be 4–7 words")
     # Models sometimes return a natural interrogative title without the final
     # question mark. Normalize that harmless punctuation omission once instead
     # of burning all provider retries on it; substantive title problems still
