@@ -13,6 +13,7 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 
 from .config import Settings
+from .ai_visuals import enabled as ai_visuals_enabled, generate_scene_image
 from .visuals import download_clip, query_for_scene
 
 logger = logging.getLogger("mrnextep.media")
@@ -226,8 +227,23 @@ def render(script: dict, settings: Settings) -> Path:
             duration = _make_audio(str(scene.get("narration") or scene["caption"]), audio, duration)
 
         clip = scene_dir / f"clip_{index:02d}.mp4"
-        scene_query = query_for_scene(scene, scene_index=index)
-        download_clip(scene_query, clip, set(clip_hashes))
+        if ai_visuals_enabled():
+            try:
+                image = scene_dir / f"ai_scene_{index:02d}.jpg"
+                generate_scene_image(scene, index, image)
+                _run([
+                    "ffmpeg", "-y", "-loop", "1", "-i", str(image), "-t", f"{duration:.3f}",
+                    "-vf", "scale=1210:2152:force_original_aspect_ratio=increase,crop=1080:1920,zoompan=z='min(zoom+0.0009,1.08)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s=1080x1920:fps=30",
+                    "-an", "-c:v", "libx264", "-pix_fmt", "yuv420p", "-b:v", "6500k", str(clip)
+                ])
+                image.unlink(missing_ok=True)
+                logger.info("Scene %d uses AI-generated visual", index)
+            except Exception as exc:
+                logger.warning("AI visual generation failed for scene %d: %s; using stock fallback", index, exc)
+        if not clip.exists():
+            scene_query = query_for_scene(scene, scene_index=index)
+            download_clip(scene_query, clip, set(clip_hashes))
+            logger.info("Scene %d uses stock fallback visual", index)
         clip_hash = hashlib.sha256(clip.read_bytes()).hexdigest()
         clip_hashes.append(clip_hash)
 
