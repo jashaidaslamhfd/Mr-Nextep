@@ -42,7 +42,7 @@ jobs:
       PUBLISH_TIMEZONE: America/New_York
       YT_PRIVACY_STATUS: public
       YT_SCHEDULE_PUBLISH: "false"
-      MIN_PUBLISH_GAP_HOURS: "4.0"
+      MIN_PUBLISH_GAP_HOURS: "3.0"
       FORCE_PUBLISH: ${{ inputs.force_publish || 'false' }}
       DRY_RUN: ${{ inputs.dry_run || 'false' }}
       VIDEO_TOPIC: ${{ inputs.topic || '' }}
