@@ -211,8 +211,8 @@ def generate_us_hashtag_sets(topic: str, raw_tags: list[str], max_total: int = 8
             break
     # Broad/community tags are filler used only to round out remaining slots — never
     # allowed to crowd out topic-specific keywords the way the fixed 3+2 split used to.
-    broad_us = ["#USA", "#USATrends", "#TrendingNow"]
-    community = ["#learn", "#howto", "#facts"]
+    broad_us = []
+    community = []
 
     youtube_tags = ['#Shorts'] + niche[:4]
     meta_niche = niche[:6]
