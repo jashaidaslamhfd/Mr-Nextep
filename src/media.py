@@ -121,8 +121,8 @@ def _make_audio(text: str, path: Path, duration_hint: float) -> float:
     """Generate cinematic narration with edge-tts and master to -14 LUFS standard."""
     mp3 = path.with_suffix(".mp3")
     # Upgrade voice from monotonous GuyNeural to deep authoritative ChristopherNeural
-    voice = os.getenv("EDGE_US_VOICE", "en-US-ChristopherNeural")
-    rate = os.getenv("EDGE_US_RATE", "+8%")
+    voice = os.getenv("EDGE_US_VOICE", "en-US-AndrewNeural")
+    rate = os.getenv("EDGE_US_RATE", "+0%")
     pitch = os.getenv("EDGE_US_PITCH", "+0Hz")
 
     try:
@@ -135,7 +135,7 @@ def _make_audio(text: str, path: Path, duration_hint: float) -> float:
         # Master audio: EBU R128 (-14 LUFS standard for YouTube Shorts & Reels) + 80Hz bass boost
         _run([
             "ffmpeg", "-y", "-i", str(mp3),
-            "-af", "loudnorm=I=-14:LRA=7:TP=-1.5,equalizer=f=80:width_type=h:width=50:g=3",
+            "-af", "loudnorm=I=-14:LRA=7:TP=-1.5",
             "-ar", "44100",
             "-ac", "2",
             str(path)
@@ -209,7 +209,7 @@ def render(script: dict, settings: Settings) -> Path:
 
     for index, scene in enumerate(script["scenes"], 1):
         words = _display_words(scene)
-        duration = max(2.2, min(3.2, 0.38 * len(words)))
+        duration = max(1.8, min(3.0, 0.30 * len(words)))
         # Keep audio inside scene_dir, which is wiped per run; output/ root used to accumulate WAVs.
         audio = scene_dir / f"audio_{index:02d}.wav"
 
