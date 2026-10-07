@@ -16,6 +16,7 @@ import src
 
 MODULES = [
     "src.agent_brain",
+    "src.ai_visuals",
     "src.analytics",
     "src.avatar",
     "src.config",
