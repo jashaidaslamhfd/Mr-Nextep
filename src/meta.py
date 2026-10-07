@@ -77,13 +77,13 @@ def _wait_until_ready(session: requests.Session, media_id: str, token: str) -> N
         status_resp = _get(
             session,
             f"{GRAPH_BASE}/{media_id}",
-            params={"access_token": token, "fields": "status_code,status,error_message"},
+            params={"access_token": token, "fields": "status_code,status"},
         )
         last_status = status_resp.get("status_code", "")
         if last_status == "FINISHED":
             return
         if last_status in {"ERROR", "EXPIRED"}:
-            error_msg = status_resp.get("error_message") or status_resp.get("status") or "no error details"
+            error_msg = status_resp.get("status") or "no error details"
             raise RuntimeError(f"Instagram media processing failed: {last_status} ({error_msg})")
         logger.debug(
             "Instagram processing status %s for container %s. Sleeping 10s", last_status, media_id
