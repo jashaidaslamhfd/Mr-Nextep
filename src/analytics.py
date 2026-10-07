@@ -213,7 +213,7 @@ def fetch_channel_performance(
     service: Any | None = None,
     today: date | None = None,
 ) -> ChannelPerformance:
-    """Pull real per-video retention and views from the YouTube Analytics API.
+    """Pull real per-video retention and views from the YouTube Analytics API for US viewers only.
 
     `service` and `today` are injectable so this is testable without network access or a
     frozen clock.
@@ -234,7 +234,8 @@ def fetch_channel_performance(
                 startDate=start.isoformat(),
                 endDate=end.isoformat(),
                 metrics="views,averageViewPercentage,averageViewDuration",
-                dimensions="video",
+                dimensions="video,country",
+                filters="country==US",
                 sort="-views",
                 maxResults=200,
             )
@@ -259,17 +260,21 @@ def fetch_channel_performance(
 
     videos: list[VideoPerformance] = []
     for row in rows:
-        # Row order follows the dimensions+metrics request: video, views, avgViewPct, avgViewDur
-        if not isinstance(row, list) or len(row) < 4:
+        # Row order follows dimensions video,country + metrics. The country is fixed to US by the filter:
+        # video, country, views, avgViewPct, avgViewDur
+        if not isinstance(row, list) or len(row) < 5:
             raise AnalyticsError(f"unexpected analytics row shape: {row!r}")
         video_id = str(row[0])
+        country = str(row[1] or "")
+        if country != "US":
+            continue
         videos.append(
             VideoPerformance(
                 video_id=video_id,
                 title="",  # filled by enrich_titles; Analytics API does not return titles
-                views=int(row[1] or 0),
-                average_view_percentage=float(row[2] or 0.0) / 100.0,
-                average_view_duration_seconds=float(row[3] or 0.0),
+                views=int(row[2] or 0),
+                average_view_percentage=float(row[3] or 0.0) / 100.0,
+                average_view_duration_seconds=float(row[4] or 0.0),
             )
         )
 
