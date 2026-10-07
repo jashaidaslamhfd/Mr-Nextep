@@ -279,7 +279,9 @@ Target approximately 18–22 seconds total narration.
 Use concise spoken US English, short punchy sentences, and simple explanations.
 Explain technical terminology naturally when it is necessary.
 Use exactly 8 scenes.
-Every scene must contain non-empty caption and narration strings.
+Every scene must contain non-empty caption, narration, and a scene-specific visual_query.
+The visual_query must describe the actual subject/action visible in that scene in 4–8 simple English words, suitable for searching a stock-video library. Do NOT use generic terms such as dark science, cinematic, mystery, brain footage, abstract, or stock footage unless they are the actual subject.
+Each of the 8 visual_query values must be meaningfully different from the others and must match the exact scene narration.
 Scene 1 caption must be 4–7 words and function as the strongest scroll-stop phrase.
 All other captions must be 8 words or fewer.
 Captions must complement the narration rather than duplicate it, and must be readable instantly on a mobile screen.
@@ -322,7 +324,8 @@ Required structure:
   "scenes": [
     {{
       "caption": "...",
-      "narration": "..."
+      "narration": "...",
+      "visual_query": "specific visible subject or action"
     }}
   ]
 }}
@@ -346,6 +349,8 @@ Before returning JSON, silently verify:
 - US-English sounds natural
 - Narration targets 18–22 seconds
 - Content does not feel like a generic AI template
+- Every scene has a unique, concrete visual_query matching its narration
+- Visual queries are usable stock-video search phrases, not cinematic style descriptions
 
 Return JSON only.
 """
