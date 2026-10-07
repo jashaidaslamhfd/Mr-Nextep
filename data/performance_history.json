@@ -1,175 +1,563 @@
 {
-  "start_date": "2026-06-06",
-  "end_date": "2026-09-11",
-  "covered_through": "2026-09-09",
+  "start_date": "2026-07-08",
+  "end_date": "2026-10-06",
+  "covered_through": "2026-10-06",
+  "videos_with_data": 79,
+  "median_retention": 0.3774,
+  "median_views": 103.0,
   "videos": [
-    {
-      "video_id": "LIHZLv8a9ps",
-      "title": "Your Knees Cracking When you Move",
-      "views": 1125,
-      "average_view_percentage": 0.3333,
-      "average_view_duration_seconds": 10.0
-    },
-    {
-      "video_id": "KbNYV-0mX_4",
-      "title": "Why Your Baby Memory Lost — The Science Behind It",
-      "views": 1122,
-      "average_view_percentage": 0.4146,
-      "average_view_duration_seconds": 17.0
-    },
-    {
-      "video_id": "qy9GhQJ8Gyc",
-      "title": "Why Your Brain Freeze — The Surprising Truth",
-      "views": 990,
-      "average_view_percentage": 0.3243,
-      "average_view_duration_seconds": 12.0
-    },
-    {
-      "video_id": "2dBMH64Fyms",
-      "title": "Why Your Cold Hands — The Real Reason",
-      "views": 907,
-      "average_view_percentage": 0.3125,
-      "average_view_duration_seconds": 10.0
-    },
-    {
-      "video_id": "xEFEjJBP--E",
-      "title": "Losing Taste Sensation After Hot Coffee",
-      "views": 882,
-      "average_view_percentage": 0.3056,
-      "average_view_duration_seconds": 11.0
-    },
-    {
-      "video_id": "_hGrosRB02o",
-      "title": "Why Your Cold Tip Nose — What Your Brain Is Doing",
-      "views": 874,
-      "average_view_percentage": 0.4412,
-      "average_view_duration_seconds": 15.0
-    },
     {
       "video_id": "K6Nv4cFRjrE",
       "title": "Why Your Body Freezes When You're Scared",
-      "views": 841,
-      "average_view_percentage": 0.4194,
+      "views": 766,
+      "average_view_percentage": 0.44670000000000004,
       "average_view_duration_seconds": 13.0
     },
     {
       "video_id": "1Z9bg95d3pY",
       "title": "Why Your Gag Reflex — The Surprising Truth",
-      "views": 831,
-      "average_view_percentage": 0.3947,
+      "views": 686,
+      "average_view_percentage": 0.40909999999999996,
       "average_view_duration_seconds": 15.0
-    },
-    {
-      "video_id": "rZSy22pplJc",
-      "title": "Why Your Body Freezes When Scared — The Real Reason",
-      "views": 828,
-      "average_view_percentage": 0.4286,
-      "average_view_duration_seconds": 12.0
-    },
-    {
-      "video_id": "E51ps3tWO6s",
-      "title": "Why do Your Fingers Wrinkle in Water?",
-      "views": 826,
-      "average_view_percentage": 0.2326,
-      "average_view_duration_seconds": 10.0
     },
     {
       "video_id": "IgJc5YtvLeY",
       "title": "Your Foot Falling Asleep and Feeling Numb",
-      "views": 799,
-      "average_view_percentage": 0.3889,
-      "average_view_duration_seconds": 14.0
-    },
-    {
-      "video_id": "hTDfqIbjQXk",
-      "title": "Why Your Body Does This: Dry Mouth",
-      "views": 794,
-      "average_view_percentage": 0.2683,
-      "average_view_duration_seconds": 11.0
-    },
-    {
-      "video_id": "FPyokHKdhNk",
-      "title": "Why Your Body Freezing When Scared — The Real Reason",
-      "views": 786,
-      "average_view_percentage": 0.375,
-      "average_view_duration_seconds": 12.0
-    },
-    {
-      "video_id": "QVLAgCpKa1M",
-      "title": "Your Ears Ringing in Absolute Silence",
-      "views": 730,
-      "average_view_percentage": 0.3421,
-      "average_view_duration_seconds": 13.0
-    },
-    {
-      "video_id": "pYnoyM6RWMY",
-      "title": "Why Your Cold Sweat — What Your Brain Is Doing",
-      "views": 727,
-      "average_view_percentage": 0.3784,
-      "average_view_duration_seconds": 14.0
-    },
-    {
-      "video_id": "agWKyQDzqWw",
-      "title": "Why Your Yawn — A Hidden Body Signal",
-      "views": 700,
-      "average_view_percentage": 0.55,
-      "average_view_duration_seconds": 11.0
-    },
-    {
-      "video_id": "L3idewWMmPU",
-      "title": "Why Your Yawning Spreading — What Your Brain Is Doing",
-      "views": 666,
-      "average_view_percentage": 0.3333,
+      "views": 609,
+      "average_view_percentage": 0.3754,
       "average_view_duration_seconds": 13.0
     },
     {
       "video_id": "NNVgyS0NF4U",
       "title": "Brushing Back Teeth Triggering a Sudden Gag",
-      "views": 658,
-      "average_view_percentage": 0.2564,
+      "views": 572,
+      "average_view_percentage": 0.2614,
       "average_view_duration_seconds": 10.0
     },
     {
-      "video_id": "mYmKt3MpBrY",
-      "title": "After 35, Your Brain Does This Automatically #BrainHealth",
-      "views": 652,
-      "average_view_percentage": 0.3947,
-      "average_view_duration_seconds": 15.0
-    },
-    {
-      "video_id": "nM-1t8agPN8",
-      "title": "Why Your Nervous Shivers — Why It Actually Happens",
-      "views": 651,
-      "average_view_percentage": 0.2857,
-      "average_view_duration_seconds": 12.0
+      "video_id": "rZSy22pplJc",
+      "title": "Why Your Body Freezes When Scared — The Real Reason",
+      "views": 533,
+      "average_view_percentage": 0.5318,
+      "average_view_duration_seconds": 14.0
     },
     {
       "video_id": "9vhDcenzpm0",
       "title": "Why Babies Grab Your Finger",
-      "views": 619,
-      "average_view_percentage": 0.3793,
-      "average_view_duration_seconds": 11.0
-    },
-    {
-      "video_id": "OCBe2PMAnyY",
-      "title": "Why Your Body Shakes When Sleeping",
-      "views": 607,
-      "average_view_percentage": 0.6071,
-      "average_view_duration_seconds": 17.0
-    },
-    {
-      "video_id": "tyPk5Wt1Xqg",
-      "title": "Feeling Lightheaded Right After Standing Up Fast",
-      "views": 564,
-      "average_view_percentage": 0.3056,
+      "views": 518,
+      "average_view_percentage": 0.3874,
       "average_view_duration_seconds": 11.0
     },
     {
       "video_id": "61v15_ZDCJg",
       "title": "Why Your Body Freezes When Scared At Night",
-      "views": 536,
-      "average_view_percentage": 0.5,
+      "views": 488,
+      "average_view_percentage": 0.5186999999999999,
       "average_view_duration_seconds": 18.0
+    },
+    {
+      "video_id": "hTDfqIbjQXk",
+      "title": "Why Your Body Does This: Dry Mouth",
+      "views": 467,
+      "average_view_percentage": 0.2784,
+      "average_view_duration_seconds": 11.0
+    },
+    {
+      "video_id": "kyIwxWp7514",
+      "title": "Your brain predicts words faster than AI #Shorts",
+      "views": 411,
+      "average_view_percentage": 0.4043,
+      "average_view_duration_seconds": 11.0
+    },
+    {
+      "video_id": "QVLAgCpKa1M",
+      "title": "Your Ears Ringing in Absolute Silence",
+      "views": 365,
+      "average_view_percentage": 0.34619999999999995,
+      "average_view_duration_seconds": 13.0
+    },
+    {
+      "video_id": "GRtz51Buu80",
+      "title": "Why Your Body Paralyzes When you Sleep",
+      "views": 360,
+      "average_view_percentage": 0.4568,
+      "average_view_duration_seconds": 13.0
+    },
+    {
+      "video_id": "FPyokHKdhNk",
+      "title": "Why Your Body Freezing When Scared — The Real Reason",
+      "views": 344,
+      "average_view_percentage": 0.4514,
+      "average_view_duration_seconds": 14.0
+    },
+    {
+      "video_id": "E51ps3tWO6s",
+      "title": "Why do Your Fingers Wrinkle in Water?",
+      "views": 308,
+      "average_view_percentage": 0.2525,
+      "average_view_duration_seconds": 10.0
+    },
+    {
+      "video_id": "sUmRUfWOYdw",
+      "title": "Why Your Freeze Up When Sleep — The Science Behind It",
+      "views": 306,
+      "average_view_percentage": 0.4208,
+      "average_view_duration_seconds": 13.0
+    },
+    {
+      "video_id": "xEFEjJBP--E",
+      "title": "Losing Taste Sensation After Hot Coffee",
+      "views": 296,
+      "average_view_percentage": 0.2889,
+      "average_view_duration_seconds": 10.0
+    },
+    {
+      "video_id": "8ctGnCPjkxo",
+      "title": "Why AI faces feel like old memories? #Shorts",
+      "views": 221,
+      "average_view_percentage": 0.34869999999999995,
+      "average_view_duration_seconds": 8.0
+    },
+    {
+      "video_id": "OCBe2PMAnyY",
+      "title": "Why Your Body Shakes When Sleeping",
+      "views": 213,
+      "average_view_percentage": 0.38,
+      "average_view_duration_seconds": 10.0
+    },
+    {
+      "video_id": "tqU2D7g19kU",
+      "title": "Why Your Body Goes Numb When you Wake",
+      "views": 210,
+      "average_view_percentage": 0.3934,
+      "average_view_duration_seconds": 11.0
+    },
+    {
+      "video_id": "focYBww7N7U",
+      "title": "How Artificial Memories Form Inside Your Mind 🧠",
+      "views": 197,
+      "average_view_percentage": 0.49060000000000004,
+      "average_view_duration_seconds": 14.0
+    },
+    {
+      "video_id": "XqbHV1qeL5M",
+      "title": "Why Your Owlman Sighting — a Hidden Body",
+      "views": 191,
+      "average_view_percentage": 1.4213999999999998,
+      "average_view_duration_seconds": 41.0
+    },
+    {
+      "video_id": "v85oMhi4crM",
+      "title": "How One Missed Night of Sleep Slows Child Brain?",
+      "views": 189,
+      "average_view_percentage": 0.3779,
+      "average_view_duration_seconds": 8.0
+    },
+    {
+      "video_id": "jTTIhhw5w3M",
+      "title": "Why a quick sprint beats a nap for a tired brain?",
+      "views": 188,
+      "average_view_percentage": 0.6156,
+      "average_view_duration_seconds": 14.0
+    },
+    {
+      "video_id": "_hGrosRB02o",
+      "title": "Why Your Cold Tip Nose — What Your Brain Is Doing",
+      "views": 181,
+      "average_view_percentage": 0.8301000000000001,
+      "average_view_duration_seconds": 28.0
+    },
+    {
+      "video_id": "SBH0c1ChGzA",
+      "title": "Why do déjà vu moments feel so real #shorts",
+      "views": 174,
+      "average_view_percentage": 0.2952,
+      "average_view_duration_seconds": 7.0
+    },
+    {
+      "video_id": "EVg1NKkNUls",
+      "title": "Your brain’s nightly trash run explained #Shorts",
+      "views": 160,
+      "average_view_percentage": 0.5368999999999999,
+      "average_view_duration_seconds": 12.0
+    },
+    {
+      "video_id": "R_UohzlKxjY",
+      "title": "The Extreme Cold Reflex That Saves Your Life 🌊",
+      "views": 142,
+      "average_view_percentage": 0.3519,
+      "average_view_duration_seconds": 10.0
+    },
+    {
+      "video_id": "LIHZLv8a9ps",
+      "title": "Why Your Knees Crack When You Squat 🦵",
+      "views": 138,
+      "average_view_percentage": 0.34840000000000004,
+      "average_view_duration_seconds": 10.0
+    },
+    {
+      "video_id": "Dt27o9oeMDk",
+      "title": "Why Your Peak-End Memory — The Real Reason",
+      "views": 134,
+      "average_view_percentage": 0.4456,
+      "average_view_duration_seconds": 11.0
+    },
+    {
+      "video_id": "c3IiKsrTUMs",
+      "title": "When a Mouse Gets Human Neurons, Things Shift?",
+      "views": 127,
+      "average_view_percentage": 0.7506,
+      "average_view_duration_seconds": 17.0
+    },
+    {
+      "video_id": "QDrUftgxMqs",
+      "title": "Why Sleeping Less Than 6 Hours Makes You Hungry",
+      "views": 121,
+      "average_view_percentage": 0.6959000000000001,
+      "average_view_duration_seconds": 19.0
+    },
+    {
+      "video_id": "KytnrV4NPr4",
+      "title": "Why Déjà Vu Moments Feel Terrifyingly Real 👁️",
+      "views": 120,
+      "average_view_percentage": 0.41600000000000004,
+      "average_view_duration_seconds": 12.0
+    },
+    {
+      "video_id": "qKRpi98nPSA",
+      "title": "How a US Chip Plant Could Make AI Feel Smarter?",
+      "views": 116,
+      "average_view_percentage": 0.6024,
+      "average_view_duration_seconds": 13.0
+    },
+    {
+      "video_id": "Rrh9qUe8kcY",
+      "title": "Why Your Freeze Under Pressure — The Real Reason",
+      "views": 116,
+      "average_view_percentage": 0.30079999999999996,
+      "average_view_duration_seconds": 9.0
+    },
+    {
+      "video_id": "ZW9UEi5MmUY",
+      "title": "Why Your Body Stiffens When you Don't Sleep",
+      "views": 114,
+      "average_view_percentage": 0.2796,
+      "average_view_duration_seconds": 9.0
+    },
+    {
+      "video_id": "nvPkQwsw5HI",
+      "title": "What Chronic Stress Secretly Does To Memory 🤯",
+      "views": 112,
+      "average_view_percentage": 0.3354,
+      "average_view_duration_seconds": 9.0
+    },
+    {
+      "video_id": "GRt5WedPBLo",
+      "title": "Why Your Body Does This: Doorway Effect",
+      "views": 111,
+      "average_view_percentage": 0.2655,
+      "average_view_duration_seconds": 11.0
+    },
+    {
+      "video_id": "_C20nA1aPf4",
+      "title": "Why Your Body Does This: the Deadly Secret",
+      "views": 108,
+      "average_view_percentage": 0.6825,
+      "average_view_duration_seconds": 34.0
+    },
+    {
+      "video_id": "s2Qh-Gv3_2Q",
+      "title": "Why Your Eyes See More Greens Than — The Science Behind It",
+      "views": 105,
+      "average_view_percentage": 0.46590000000000004,
+      "average_view_duration_seconds": 13.0
+    },
+    {
+      "video_id": "2dBMH64Fyms",
+      "title": "Why Your Hands Are Always Ice Cold ❄️",
+      "views": 104,
+      "average_view_percentage": 0.29460000000000003,
+      "average_view_duration_seconds": 9.0
+    },
+    {
+      "video_id": "aoIDDc3gE78",
+      "title": "Why Your Voice Sounds 'Wrong' — The Surprising Truth",
+      "views": 103,
+      "average_view_percentage": 0.37070000000000003,
+      "average_view_duration_seconds": 10.0
+    },
+    {
+      "video_id": "tyPk5Wt1Xqg",
+      "title": "Feeling Lightheaded Right After Standing Up Fast",
+      "views": 101,
+      "average_view_percentage": 0.3119,
+      "average_view_duration_seconds": 11.0
+    },
+    {
+      "video_id": "l55bWW8KXK8",
+      "title": "Why does your body jolt as you fall asleep?",
+      "views": 100,
+      "average_view_percentage": 0.46240000000000003,
+      "average_view_duration_seconds": 10.0
+    },
+    {
+      "video_id": "PnkbMy_9GIw",
+      "title": "The hidden brain boost in your workout powder",
+      "views": 98,
+      "average_view_percentage": 0.4594,
+      "average_view_duration_seconds": 10.0
+    },
+    {
+      "video_id": "cIeVNQJQCJM",
+      "title": "Why Your Heart Stops Racing At — Why It Actually Happens",
+      "views": 97,
+      "average_view_percentage": 0.5059,
+      "average_view_duration_seconds": 13.0
+    },
+    {
+      "video_id": "pYnoyM6RWMY",
+      "title": "Why Your Cold Sweat — What Your Brain Is Doing",
+      "views": 93,
+      "average_view_percentage": 0.3933,
+      "average_view_duration_seconds": 14.0
+    },
+    {
+      "video_id": "1oOe38CfjBs",
+      "title": "Why a 'White Noise' Room Feels Creepy",
+      "views": 88,
+      "average_view_percentage": 0.3446,
+      "average_view_duration_seconds": 8.0
+    },
+    {
+      "video_id": "FimJdODHVvc",
+      "title": "Why Your Body Jerking As Fall — A Hidden Body Signal",
+      "views": 84,
+      "average_view_percentage": 0.39030000000000004,
+      "average_view_duration_seconds": 11.0
+    },
+    {
+      "video_id": "qy9GhQJ8Gyc",
+      "title": "Why Brain Freeze Actually Happens in 5 Seconds 🍦",
+      "views": 83,
+      "average_view_percentage": 0.26899999999999996,
+      "average_view_duration_seconds": 9.0
+    },
+    {
+      "video_id": "nM-1t8agPN8",
+      "title": "Why Your Nervous Shivers — Why It Actually Happens",
+      "views": 75,
+      "average_view_percentage": 0.3774,
+      "average_view_duration_seconds": 15.0
+    },
+    {
+      "video_id": "ed031j4Pgy8",
+      "title": "Having a 5-second Song Loop Stuck in Your",
+      "views": 71,
+      "average_view_percentage": 0.3106,
+      "average_view_duration_seconds": 12.0
+    },
+    {
+      "video_id": "XNaeAp-3gbY",
+      "title": "Why Your Hands Shake When Nervous",
+      "views": 68,
+      "average_view_percentage": 0.3428,
+      "average_view_duration_seconds": 10.0
+    },
+    {
+      "video_id": "XCUNM30ET_8",
+      "title": "Why Your Sudden Charley Horse Cramp — A Hidden Body Signal",
+      "views": 66,
+      "average_view_percentage": 0.3625,
+      "average_view_duration_seconds": 15.0
+    },
+    {
+      "video_id": "mWnKEZll6jA",
+      "title": "Why Your Body Freezes When you Feel Scared",
+      "views": 63,
+      "average_view_percentage": 0.41200000000000003,
+      "average_view_duration_seconds": 12.0
+    },
+    {
+      "video_id": "Lppqw0Jri30",
+      "title": "The Music Playing in Your Head",
+      "views": 60,
+      "average_view_percentage": 0.2213,
+      "average_view_duration_seconds": 7.0
+    },
+    {
+      "video_id": "cuAY2Lzf0u4",
+      "title": "Why do déjà vu moments feel so real?",
+      "views": 60,
+      "average_view_percentage": 0.4989,
+      "average_view_duration_seconds": 11.0
+    },
+    {
+      "video_id": "BM-L8hYHHeA",
+      "title": "When AI Sleep Scores Trick Your Brain? #Shorts",
+      "views": 55,
+      "average_view_percentage": 0.2965,
+      "average_view_duration_seconds": 8.0
+    },
+    {
+      "video_id": "L3idewWMmPU",
+      "title": "Why Your Yawning Spreading — What Your Brain Is Doing",
+      "views": 52,
+      "average_view_percentage": 0.2849,
+      "average_view_duration_seconds": 11.0
+    },
+    {
+      "video_id": "tl7QdjkJJDo",
+      "title": "Your Brain Erases Emotional Trauma While Sleeping",
+      "views": 52,
+      "average_view_percentage": 0.36579999999999996,
+      "average_view_duration_seconds": 10.0
+    },
+    {
+      "video_id": "gP1DPuhQ_3s",
+      "title": "Why Your Body Twitches Time — The Real Reason",
+      "views": 52,
+      "average_view_percentage": 0.4407,
+      "average_view_duration_seconds": 14.0
+    },
+    {
+      "video_id": "N0KzcFuz9-M",
+      "title": "How a Charity Walk Might Rewire Injured Brains?",
+      "views": 47,
+      "average_view_percentage": 0.29469999999999996,
+      "average_view_duration_seconds": 6.0
+    },
+    {
+      "video_id": "gDZNVADEakY",
+      "title": "Feeling Like You've Lived an Exact New Moment",
+      "views": 45,
+      "average_view_percentage": 0.2445,
+      "average_view_duration_seconds": 9.0
+    },
+    {
+      "video_id": "8YahcJdzI7I",
+      "title": "Your phone’s nightlight is ruining your memory",
+      "views": 43,
+      "average_view_percentage": 0.3765,
+      "average_view_duration_seconds": 8.0
+    },
+    {
+      "video_id": "fH6RPrKiiNw",
+      "title": "When a damaged brain starts making up reality?",
+      "views": 41,
+      "average_view_percentage": 0.6086,
+      "average_view_duration_seconds": 13.0
+    },
+    {
+      "video_id": "Qhh3NB6VsMY",
+      "title": "A tiny buzz tricks your brain into learning faster",
+      "views": 39,
+      "average_view_percentage": 0.6815000000000001,
+      "average_view_duration_seconds": 15.0
+    },
+    {
+      "video_id": "A5qCcmdfpIY",
+      "title": "How a Dance Misstep Supercharges Your Brain?",
+      "views": 38,
+      "average_view_percentage": 0.2915,
+      "average_view_duration_seconds": 6.0
+    },
+    {
+      "video_id": "noqU5MhjY3c",
+      "title": "Eat This To Shield Your Brain From Aging 🫐",
+      "views": 36,
+      "average_view_percentage": 0.4182,
+      "average_view_duration_seconds": 12.0
+    },
+    {
+      "video_id": "GC8edOg5src",
+      "title": "Why Sleeping In On Weekends Destroys Energy 😴",
+      "views": 36,
+      "average_view_percentage": 0.5943999999999999,
+      "average_view_duration_seconds": 17.0
+    },
+    {
+      "video_id": "5PoAsb86INc",
+      "title": "How AI Changes What Your Brain Remembers? #Shorts",
+      "views": 34,
+      "average_view_percentage": 0.2938,
+      "average_view_duration_seconds": 6.0
+    },
+    {
+      "video_id": "VzOMr3qUmMA",
+      "title": "The Psychological Trick That Controls Crowds 👁️",
+      "views": 34,
+      "average_view_percentage": 0.46270000000000006,
+      "average_view_duration_seconds": 13.0
+    },
+    {
+      "video_id": "Vky0CmJdjig",
+      "title": "Why Your Body Shakes At — Why It Actually Happens",
+      "views": 33,
+      "average_view_percentage": 0.2962,
+      "average_view_duration_seconds": 9.0
+    },
+    {
+      "video_id": "AbAXF8oHhp0",
+      "title": "Your Hands Wrinkling in Water",
+      "views": 31,
+      "average_view_percentage": 0.1754,
+      "average_view_duration_seconds": 7.0
+    },
+    {
+      "video_id": "kq5xEAGb2Rc",
+      "title": "Why Your Body Does This: Heartbeat Secrets",
+      "views": 30,
+      "average_view_percentage": 0.2851,
+      "average_view_duration_seconds": 13.0
+    },
+    {
+      "video_id": "fi5iTUYFmSA",
+      "title": "The Framing Effect",
+      "views": 25,
+      "average_view_percentage": 0.3589,
+      "average_view_duration_seconds": 11.0
+    },
+    {
+      "video_id": "I7HzeifKgAU",
+      "title": "How a Brain Injury Mirrors AI Hallucinations?",
+      "views": 25,
+      "average_view_percentage": 0.4092,
+      "average_view_duration_seconds": 9.0
+    },
+    {
+      "video_id": "7IfJ25s1zSo",
+      "title": "The Gut Brain Connection",
+      "views": 24,
+      "average_view_percentage": 0.5005,
+      "average_view_duration_seconds": 14.0
+    },
+    {
+      "video_id": "VTvEcbMrNQ8",
+      "title": "How a Handful of Berries Can Boost Your Memory?",
+      "views": 0,
+      "average_view_percentage": 0.0,
+      "average_view_duration_seconds": 0.0
+    },
+    {
+      "video_id": "L8b5dyLwnqY",
+      "title": "When crowds and AI share the same illusion?",
+      "views": 0,
+      "average_view_percentage": 0.0,
+      "average_view_duration_seconds": 0.0
+    },
+    {
+      "video_id": "Mc_KsQZw25E",
+      "title": "Why High Achievers Suddenly Burn Out",
+      "views": 0,
+      "average_view_percentage": 0.0,
+      "average_view_duration_seconds": 0.0
+    },
+    {
+      "video_id": "H7HDSb0yX5A",
+      "title": "Why you Hear Your Heartbeat At Night",
+      "views": 0,
+      "average_view_percentage": 0.0,
+      "average_view_duration_seconds": 0.0
     }
   ]
 }

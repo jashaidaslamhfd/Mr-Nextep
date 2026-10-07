@@ -3241,5 +3241,41 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18142133749657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
       }
     }
+  },
+  {
+    "created_at": "2026-10-07T18:58:00.592013+00:00",
+    "status": "pending",
+    "topic": "Maturation of the adolescent brain",
+    "title": "Maturation of the adolescent brain",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "f0d9fe23fdfef52aaed3701452b9f13dcdff4d2d99667235ea65c8294276ae2c",
+      "5fd52fea3dd938e97b42d834222d240c31c370fe8fa3f8cfa7445825922c8d37",
+      "3736fec1505b7121b9713d9267125b968435af285ebe44951818a28593fb21cf",
+      "c56d43d53e8af9318dfcee8edaceebe8971e2fef643103f8365a6276a07a49ad",
+      "443e127b9bec7faec37da6be9c67889dfd730207d02d0ad840416961ebdb635e",
+      "7e972e3b0331627c643ee47bee3efcb825320e9665bed3d05c6a3b60975a5182",
+      "1be5c6ef1f2650feae0757f815a96a73795fa1234d267b7d765fd0cf868434bf",
+      "37e7f7b10e45a7575d76fc092d1bca1834f5a11c0259f1a3eb5851672cfe89ef"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "2 similar past video(s) retained 48%, at or above the 30% floor",
+      "channel_median_retention": 0.3774,
+      "neighbour_median_retention": 0.47995,
+      "neighbours_considered": 2
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.270703,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "3bdf87e00fbe61b278ce080c6924d687040eec501462e569995acebd78e14f9c",
+    "body": "Teen brain still runs on beta Reward spikes, control lags behind Risk feels exciting, not risky Dual‑system gap explained Binge, drama, ignoring warnings Pruning noisy connections continues Fast learning, poor risk judgment Beta brain needs adult patches",
+    "text": "Maturation of the adolescent brain Teen brain still runs on beta Reward spikes, control lags behind Risk feels exciting, not risky Dual‑system gap explained Binge, drama, ignoring warnings Pruning noisy connections continues Fast learning, poor risk judgment Beta brain needs adult patches"
   }
 ]

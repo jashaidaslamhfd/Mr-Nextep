@@ -1903,5 +1903,21 @@
     "title": "Micron Stock Drops. Why It Needs a Memory Price Test.",
     "body": "Your brain is buying Micron Shares plunged, investors still hold Why cling to losing stocks? Recency bias tricks memory Bias inflates memory chip demand Brain fills chart gaps Test of our memory bias Is your brain buying again?",
     "text": "Micron Stock Drops. Why It Needs a Memory Price Test. Your brain is buying Micron Shares plunged, investors still hold Why cling to losing stocks? Recency bias tricks memory Bias inflates memory chip demand Brain fills chart gaps Test of our memory bias Is your brain buying again?"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "2 similar past video(s) retained 48%, at or above the 30% floor",
+      "channel_median_retention": 0.3774,
+      "neighbour_median_retention": 0.47995,
+      "neighbours_considered": 2
+    },
+    "fingerprint": "3bdf87e00fbe61b278ce080c6924d687040eec501462e569995acebd78e14f9c",
+    "title": "Maturation of the adolescent brain",
+    "body": "Teen brain still runs on beta Reward spikes, control lags behind Risk feels exciting, not risky Dual‑system gap explained Binge, drama, ignoring warnings Pruning noisy connections continues Fast learning, poor risk judgment Beta brain needs adult patches",
+    "text": "Maturation of the adolescent brain Teen brain still runs on beta Reward spikes, control lags behind Risk feels exciting, not risky Dual‑system gap explained Binge, drama, ignoring warnings Pruning noisy connections continues Fast learning, poor risk judgment Beta brain needs adult patches"
   }
 ]
