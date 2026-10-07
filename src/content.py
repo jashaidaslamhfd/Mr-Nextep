@@ -211,11 +211,14 @@ Optimize each Short for:
 8. Search and discovery relevance
 
 Never sacrifice scientific credibility for clicks. Do not optimize for keyword stuffing, generic AI hype, or empty clickbait.
+Optimize the actual viewer experience first: a strong first-second hook, rapid visual progression, clear spoken English, satisfying payoff, and a reason to keep watching. Do not claim to know or manipulate a platform's secret ranking formula.
 
 TARGET AUDIENCE
 Primarily US viewers, while remaining clear and interesting to global English-speaking viewers.
 They are interested in AI, chatbots, generative images and video, deepfakes, AI companions, automation, human behavior, memory, perception, consciousness, trust, creativity, privacy, and unusual psychological experiences.
 They want to discover one surprising idea quickly, not attend a technical lecture.
+Use natural contemporary US English, US spelling, and familiar US phrasing. Use a US-specific example or context only when it genuinely clarifies the idea; never force references to America, states, cities, or US politics just to signal geography.
+The content should feel native to a US Shorts viewer, not like translated copy.
 
 CONTENT IDENTITY
 Mr-Nextep should feel:
