@@ -16,7 +16,7 @@ logger = logging.getLogger("mrnextep.visuals")
 API = "https://commons.wikimedia.org/w/api.php"
 ARCHIVE_SEARCH = "https://archive.org/advancedsearch.php"
 MAX_CLIP_BYTES = 45_000_000
-MAX_CANDIDATES = 16
+MAX_CANDIDATES = 24
 CLIP_SECONDS = 8
 
 GRADE_FILTER = (
@@ -139,7 +139,12 @@ def _fetch_pexels_candidates(keywords: str) -> list[str]:
     try:
         resp = requests.get(
             "https://api.pexels.com/videos/search",
-            params={"query": keywords, "orientation": "portrait", "per_page": 15},
+            params={
+                "query": keywords,
+                "orientation": "portrait",
+                "per_page": 15,
+                "page": (int(hashlib.sha256(f"{os.getenv('GITHUB_RUN_ID', 'local')}:{keywords}".encode()).hexdigest()[:6], 16) % 5) + 1,
+            },
             headers={"Authorization": key, "User-Agent": "Mr-Nextep/2.0"},
             timeout=20,
         )
@@ -164,7 +169,13 @@ def _fetch_pixabay_candidates(keywords: str) -> list[str]:
     try:
         resp = requests.get(
             "https://pixabay.com/api/videos/",
-            params={"key": key, "q": keywords, "video_type": "film", "per_page": 15},
+            params={
+                "key": key,
+                "q": keywords,
+                "video_type": "film",
+                "per_page": 15,
+                "page": (int(hashlib.sha256(f"{os.getenv('GITHUB_RUN_ID', 'local')}:{keywords}".encode()).hexdigest()[:6], 16) % 5) + 1,
+            },
             headers={"User-Agent": "Mr-Nextep/2.0"},
             timeout=20,
         )
@@ -285,17 +296,26 @@ def download_clip(query: str, destination: Path, avoid_hashes: set[str] | None =
         if c and c not in seen:
             seen.add(c)
             deduped.append(c)
-    candidates = deduped[:MAX_CANDIDATES]
+    # Do not truncate before history filtering: a fresh clip may be candidate #17.
+    candidates = deduped
 
     try:
         history_path = Path(os.getenv("DATA_DIR", "data")) / "clip_history.json"
         history = json.loads(history_path.read_text(encoding="utf-8"))
-        used_urls = {row.get("source_url") for row in history if isinstance(row, dict)}
-        candidates = [url for url in candidates if url not in used_urls] or candidates
+        used_urls = {
+            str(row.get("source_url", "")).strip()
+            for row in history
+            if isinstance(row, dict) and str(row.get("source_url", "")).strip()
+        }
+        before = len(candidates)
+        candidates = [url for url in candidates if url not in used_urls]
+        logger.info("Stock diversity filter removed %d previously used source clips", before - len(candidates))
     except FileNotFoundError:
         logger.info("No clip history yet; not filtering previously used clips")
     except (OSError, ValueError, TypeError, json.JSONDecodeError):
         logger.warning("Could not read clip history; not filtering previously used clips", exc_info=True)
+
+    candidates = candidates[:MAX_CANDIDATES]
 
     if not candidates:
         for topic in GUARANTEED_TOPICS:
