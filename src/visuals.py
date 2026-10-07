@@ -299,6 +299,7 @@ def download_clip(query: str, destination: Path, avoid_hashes: set[str] | None =
     # Do not truncate before history filtering: a fresh clip may be candidate #17.
     candidates = deduped
 
+    used_urls: set[str] = set()
     try:
         history_path = Path(os.getenv("DATA_DIR", "data")) / "clip_history.json"
         history = json.loads(history_path.read_text(encoding="utf-8"))
@@ -321,7 +322,7 @@ def download_clip(query: str, destination: Path, avoid_hashes: set[str] | None =
         for topic in GUARANTEED_TOPICS:
             extra = _fetch_wikimedia_candidates(topic, headers)
             if extra:
-                candidates.extend([u for u in extra if u not in seen])
+                candidates.extend([u for u in extra if u not in seen and u not in used_urls])
             if candidates:
                 break
 
