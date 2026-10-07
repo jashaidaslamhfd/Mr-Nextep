@@ -41,8 +41,8 @@ def _valid_payload(title: str = "Why does silence feel loud?") -> dict:
         "description": "A short explainer about why total silence can feel loud to your brain.",
         "tags": ["dark science", "silence", "loud silence", "psychology facts", "brain glitch", "why silence feels loud"],
         "scenes": [
-            {"caption": "Your brain hides this signal", "narration": "Narration one.", "visual_query": "silent brain scan"},
-            *[{"caption": f"Scene {i} caption here", "narration": f"Narration {i}.", "visual_query": f"brain scene {i}"} for i in range(2, 9)],
+            {"caption": "Your brain hides this signal", "narration": "Narration one explains the hidden signal.", "visual_query": "silent brain scan"},
+            *[{"caption": f"Scene {i} caption here", "narration": f"Scene {i} explains the brain signal.", "visual_query": f"brain scene {i}"} for i in range(2, 9)],
         ],
     }
 
