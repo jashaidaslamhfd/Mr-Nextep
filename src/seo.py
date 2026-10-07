@@ -10,43 +10,41 @@ def build_packages(script: dict[str, Any]) -> dict[str, dict[str, Any]]:
     description = str(script.get("description", "")).strip()
     tags = [str(tag).strip().lower() for tag in script.get("tags", []) if str(tag).strip()]
 
-    # US-focused title for Shorts (mobile-friendly under ~50 chars)
+    # Keep the core metadata US-English and platform-specific without artificial
+    # location stuffing. Geography should come from the actual audience/topic fit.
     yt_title = us_title_for_short(raw_title, max_chars=50)
-
-    # Build US-focused hashtag clusters
     tag_sets = generate_us_hashtag_sets(raw_title, tags, max_total=8)
 
-    # YouTube description: strong hook + search-friendly keywords
-    # Keep first line compelling for Suggested/Watch Next; include keywords and location where appropriate.
-    yt_description_hook = f"{description}\n\nWatch till the end for the quick solution — made for viewers in the USA."
-    yt_description_tags = " ".join(tag_sets["youtube_tags"]) if tag_sets.get("youtube_tags") else "#Shorts"
+    youtube_tags = tag_sets.get("youtube_tags", []) or ["#Shorts"]
+    yt_description = description
+    if youtube_tags:
+        yt_description += "\n\n" + " ".join(youtube_tags)
 
-    # Meta caption: strong first line before the cut, CTA, and mixed hashtag strategy
-    first_line = raw_title.rstrip("?.!") + " — you won't believe this"
-    cta = "\n\nTell us: did you know this? Comment below 👇 and share with someone in the US who needs to see this."
-    meta_caption = first_line + "\n\n" + description + cta
-
+    # Meta gets a shorter, native caption: strong first line, useful context,
+    # and only topic-relevant hashtags. No fake urgency or engagement bait.
     meta_hashtags = tag_sets.get("meta_tags", [])
-    # Reels-specific discovery tag, so the Instagram package is not just a Facebook copy.
-    instagram_hashtags = ["#Reels"] + [t for t in meta_hashtags if t.lower() != "#reels"]
-    # Facebook video posts also benefit from a few keyword hashtags in the description —
-    # previously this package carried none at all (title + plain description only),
-    # so Facebook's own keyword/topic matching had nothing to key off of.
+    instagram_hashtags = ["#Reels"] + [
+        t for t in meta_hashtags if t.lower() != "#reels"
+    ]
+    instagram_hashtags = instagram_hashtags[:8]
     facebook_hashtags = " ".join(meta_hashtags[:5])
 
     return {
         "youtube": {
             "title": yt_title,
-            "description": (yt_description_hook + "\n\n" + yt_description_tags)[:5000],
-            "tags": [t.lstrip('#') for t in tag_sets.get("youtube_tags", [])],
+            "description": yt_description[:5000],
+            "tags": [t.lstrip("#") for t in youtube_tags],
         },
         "facebook": {
             "title": raw_title[:255],
-            "description": (description + "\n\nFollow for more US-focused short explainers.\n\n" + facebook_hashtags)[:3000],
-            "tags": [t.lstrip('#') for t in meta_hashtags],
+            "description": (
+                description
+                + ("\n\n" + facebook_hashtags if facebook_hashtags else "")
+            )[:3000],
+            "tags": [t.lstrip("#") for t in meta_hashtags],
         },
         "instagram": {
-            "caption": (meta_caption)[:2200],
+            "caption": description[:2200],
             "hashtags": instagram_hashtags,
         },
     }
