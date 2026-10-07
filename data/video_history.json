@@ -3191,5 +3191,41 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/18142060165657824?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4&fields=status_code%2Cstatus%2Cerror_message"
       }
     }
+  },
+  {
+    "created_at": "2026-10-07T10:04:34.162676+00:00",
+    "status": "pending",
+    "topic": "Micron Stock Drops. Why It Needs a Memory Price Test.",
+    "title": "Micron Stock Drops. Why It Needs a Memory Price Test.",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "b87eec89a209a254f3618a3d171456598dd01de4ce33e4ff7c649875de43238c",
+      "168140d2f936d5d873dd127742078a90a5111ebf57a93f758aceaaae3484d258",
+      "ca5204a7edc49fc7464a86c8db620eaffb67633d15434dd1a884cf49ae45333c",
+      "8cb650fc0add6d150fb3c9eaf8e4ec842b6b081e098c05f4555bc148d8f857d2",
+      "a7f292e9290dd234f25dd5d49685364abd070b7e13861c558b24ffa7feb0ada4",
+      "5622fefdbd96251fbb57105374a90c9cd92118a6cf64e4b991ee737d2a4ecd72",
+      "5248afae864bb1ed7a2f5de43695c9749ea918b7ece460d82442647cd4c5789f",
+      "25e44085af508775acbd58814d9132ad0006dfce5b262ac7591dd6483e47aec7"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37670000000000003,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "archetype": "DARK_PSYCHOLOGY",
+    "width": 1080,
+    "height": 1920,
+    "duration": 22.514875,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "fc791cfcbf0b93f0d0e1a0e57f0ca56229c1510d166b712618c2ed8ddcb051c7",
+    "body": "Your brain is buying Micron Shares plunged, investors still hold Why cling to losing stocks? Recency bias tricks memory Bias inflates memory chip demand Brain fills chart gaps Test of our memory bias Is your brain buying again?",
+    "text": "Micron Stock Drops. Why It Needs a Memory Price Test. Your brain is buying Micron Shares plunged, investors still hold Why cling to losing stocks? Recency bias tricks memory Bias inflates memory chip demand Brain fills chart gaps Test of our memory bias Is your brain buying again?"
   }
 ]
