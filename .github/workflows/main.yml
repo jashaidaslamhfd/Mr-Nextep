@@ -18,14 +18,16 @@ on:
         type: string
         default: ""
   schedule:
-    # US audience is 64.7%+ of views. Published directly to public at peak US engagement
-    # windows, spaced with at least 5 hours gap to prevent algorithm cannibalization:
-    #   17:00 UTC = 1:00 PM US Eastern / 10:00 AM US Pacific (US Lunch Peak)
-    #   22:00 UTC = 6:00 PM US Eastern / 3:00 PM US Pacific (US Evening / Commute Peak)
-    #   03:00 UTC = 11:00 PM US Eastern / 8:00 PM US Pacific (US West Coast Prime / Bedtime Peak)
+    # Direct-publication windows for the US audience.
+    # GitHub cron is UTC; these slots intentionally overlap US lunch/afternoon/evening
+    # in both daylight and standard time:
+    #   17:00 UTC -> 12:00 ET / 1:00 PM ET (DST)
+    #   22:00 UTC -> 17:00 ET / 6:00 PM ET (DST)
+    #   01:00 UTC -> 20:00 ET / 9:00 PM ET (DST)
+    # YouTube scheduling is disabled: the upload itself becomes PUBLIC immediately.
     - cron: "0 17 * * *"
     - cron: "0 22 * * *"
-    - cron: "0 3 * * *"
+    - cron: "0 1 * * *"
 permissions:
   contents: write
 concurrency:
@@ -76,23 +78,19 @@ jobs:
       - name: Run preflight
         run: python scripts/preflight.py
       - name: Refresh YouTube performance feedback
-        # Analytics are the actual feedback loop: recent retention/views should influence
-        # the next script. A missing analytics scope must not stop a production upload.
         continue-on-error: true
         run: |
           if ! python scripts/pull_analytics.py --lookback-days 90; then
             echo "::warning title=Analytics::Analytics refresh failed; continuing with the last known performance cache"
           fi
       - name: Refresh USA trend queue
-        # Keep the topic queue tightly aligned with the channel niche. A fetch failure
-        # leaves the last known good queue in place.
         run: |
           if ! python scripts/fetch_usa_trends.py --output data/search_demand_queue_us.json --limit 30; then
             echo "::warning title=Trend queue::Trend refresh failed; continuing with the existing queue"
           fi
       - name: Run regression tests
         run: python -m pytest -q
-      - name: Generate, validate and direct-publish to YouTube
+      - name: Generate, validate and direct-publish to YouTube and Meta
         run: python -m src.main
       - name: Upload debug artifact
         if: always()
