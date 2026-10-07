@@ -71,9 +71,17 @@ jobs:
         run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
       - name: Run preflight
         run: python scripts/preflight.py
+      - name: Refresh YouTube performance feedback
+        # Analytics are the actual feedback loop: recent retention/views should influence
+        # the next script. A missing analytics scope must not stop a production upload.
+        continue-on-error: true
+        run: |
+          if ! python scripts/pull_analytics.py --lookback-days 90; then
+            echo "::warning title=Analytics::Analytics refresh failed; continuing with the last known performance cache"
+          fi
       - name: Refresh USA trend queue
-        # Previously suffixed with `|| true`, which hid a stale queue completely.
-        # A fetch failure is now visible as a warning without failing the run.
+        # Keep the topic queue tightly aligned with the channel niche. A fetch failure
+        # leaves the last known good queue in place.
         run: |
           if ! python scripts/fetch_usa_trends.py --output data/search_demand_queue_us.json --limit 30; then
             echo "::warning title=Trend queue::Trend refresh failed; continuing with the existing queue"
