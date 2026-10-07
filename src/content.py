@@ -433,10 +433,14 @@ def _validate_script(result: Any) -> dict[str, Any]:
         if dw not in tags:
             tags.append(dw)
 
-    defaults = ["dark science", "psychology facts", "brain mystery", "mind glitch", "human behavior", "curiosity"]
-    for d in defaults:
-        if len(tags) < 8 and d not in tags:
-            tags.append(d)
+    # Do not pad metadata with the same generic keywords on every upload.
+    # Remaining tags come from the actual narration so title, description and tags stay aligned.
+    scene_blob = " ".join(str(scene.get("narration", "")) for scene in scenes).lower()
+    for word in _keyword_words(scene_blob):
+        if len(tags) >= 10:
+            break
+        if word not in tags and len(word) >= 4:
+            tags.append(word)
 
     result["description"] = description
     result["tags"] = tags[:15]
