@@ -181,7 +181,7 @@ class _FakeService:
 
 
 def test_fetch_parses_rows_and_converts_percentage():
-    service = _FakeService([["abc123", 826, 22.2, 5.4], ["def456", 619, 41.0, 8.1]])
+    service = _FakeService([["abc123", "US", 826, 22.2, 5.4], ["def456", "US", 619, 41.0, 8.1]])
     result = fetch_channel_performance(
         lookback_days=28, service=service, today=date(2026, 9, 12)
     )
