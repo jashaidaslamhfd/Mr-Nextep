@@ -12,8 +12,9 @@ from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
 
+from .ai_visuals import enabled as ai_visuals_enabled
+from .ai_visuals import generate_scene_image
 from .config import Settings
-from .ai_visuals import enabled as ai_visuals_enabled, generate_scene_image
 from .visuals import download_clip, query_for_scene
 
 logger = logging.getLogger("mrnextep.media")
