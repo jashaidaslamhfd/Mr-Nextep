@@ -263,6 +263,7 @@ def run() -> dict:
             str(topic_index_path),
             str(trend_index_path),
             str(queue_path),
+            str(performance_path),
         ],
         "chore: reserve generated video state",
     )
