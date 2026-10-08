@@ -3397,7 +3397,7 @@
   },
   {
     "created_at": "2026-10-08T21:50:14.580096+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Generation of Neurons in the Adult Brain",
     "title": "Generation of Neurons in the Adult Brain",
     "video_path": "output/mr_nextep_short.mp4",
@@ -3429,6 +3429,19 @@
     "retention_proxy": 0.9,
     "fingerprint": "99c0d1740201138139bbb0ca351590060632485906008751e2d5191dbe717f47",
     "body": "Your brain is adding new cells Adults grow fresh hippocampal neurons New cells send noisy signals Brain rewires, overlapping old and new You may recall events never lived Pattern separation tangled by excess Learning can blur older memories Those cells cause misremembered songs",
-    "text": "Generation of Neurons in the Adult Brain Your brain is adding new cells Adults grow fresh hippocampal neurons New cells send noisy signals Brain rewires, overlapping old and new You may recall events never lived Pattern separation tangled by excess Learning can blur older memories Those cells cause misremembered songs"
+    "text": "Generation of Neurons in the Adult Brain Your brain is adding new cells Adults grow fresh hippocampal neurons New cells send noisy signals Brain rewires, overlapping old and new You may recall events never lived Pattern separation tangled by excess Learning can blur older memories Those cells cause misremembered songs",
+    "youtube_video_id": "weK9D4kzzKI",
+    "url": "https://youtu.be/weK9D4kzzKI",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "error",
+        "reason": "500 Server Error: Internal Server Error for url: https://graph.facebook.com/v21.0/1122980080905302/videos?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "500 Server Error: Internal Server Error for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      }
+    }
   }
 ]
