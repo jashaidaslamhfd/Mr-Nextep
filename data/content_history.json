@@ -1919,5 +1919,21 @@
     "title": "Maturation of the adolescent brain",
     "body": "Teen brain still runs on beta Reward spikes, control lags behind Risk feels exciting, not risky Dual‑system gap explained Binge, drama, ignoring warnings Pruning noisy connections continues Fast learning, poor risk judgment Beta brain needs adult patches",
     "text": "Maturation of the adolescent brain Teen brain still runs on beta Reward spikes, control lags behind Risk feels exciting, not risky Dual‑system gap explained Binge, drama, ignoring warnings Pruning noisy connections continues Fast learning, poor risk judgment Beta brain needs adult patches"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "1 similar past video(s) retained 50%, at or above the 30% floor",
+      "channel_median_retention": 0.3774,
+      "neighbour_median_retention": 0.5005,
+      "neighbours_considered": 1
+    },
+    "fingerprint": "ef96f41975a9dd139253ea3a31dcfc1ec50e50ada642516347b72cb11e259f57",
+    "title": "Brain Donation",
+    "body": "Your brain can train AI Dead tissue fuels groundbreaking research Why does AI crave real brains? Scanning neurons builds a wiring map Map helps AI spot Alzheimer’s early AI sees patterns doctors overlook One brain can predict disease Your donation could protect others",
+    "text": "Brain Donation Your brain can train AI Dead tissue fuels groundbreaking research Why does AI crave real brains? Scanning neurons builds a wiring map Map helps AI spot Alzheimer’s early AI sees patterns doctors overlook One brain can predict disease Your donation could protect others"
   }
 ]

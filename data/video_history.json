@@ -3292,5 +3292,41 @@
         "source_url": "https://github.com/jashaidaslamhfd/Mr-Nextep/releases/download/short-37670479296/mr_nextep_short.mp4"
       }
     }
+  },
+  {
+    "created_at": "2026-10-08T01:24:48.511817+00:00",
+    "status": "pending",
+    "topic": "Brain Donation",
+    "title": "Brain Donation",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "34bcd51f1d9689aad2b7e10ffdfd996502c95e3ed962ed344a0c2821867bdff9",
+      "795331680d93e6f6df66b8f7466081ef915b892341bc728c370610eeb47e0a08",
+      "c76bc5058ac79cadd7baa53b61d3e7ddb6790743fcad25459c5c8420981ecbe4",
+      "ccf491086931a3339e2e7473488b3026b55e9fe9f25d2ab025a4af1e3bb50c67",
+      "17fb8485beb10740bae0968e8431576986aee125924e7ea046197d8af7ec1e4b",
+      "af4f1e1e9df000adc5ce510787bf484278b145bddf68c9288db0a0b2193612c1",
+      "1f3841db1b9b265c760d321e65fd2f915f4a2aa3f0bbb03897ec6cb5a28c736e",
+      "ed4db2a9c4b2ebcfc222173c23da8c9547380bf24afbc212503a7f4975e87d44"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "1 similar past video(s) retained 50%, at or above the 30% floor",
+      "channel_median_retention": 0.3774,
+      "neighbour_median_retention": 0.5005,
+      "neighbours_considered": 1
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 21.10585,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "ef96f41975a9dd139253ea3a31dcfc1ec50e50ada642516347b72cb11e259f57",
+    "body": "Your brain can train AI Dead tissue fuels groundbreaking research Why does AI crave real brains? Scanning neurons builds a wiring map Map helps AI spot Alzheimer’s early AI sees patterns doctors overlook One brain can predict disease Your donation could protect others",
+    "text": "Brain Donation Your brain can train AI Dead tissue fuels groundbreaking research Why does AI crave real brains? Scanning neurons builds a wiring map Map helps AI spot Alzheimer’s early AI sees patterns doctors overlook One brain can predict disease Your donation could protect others"
   }
 ]
