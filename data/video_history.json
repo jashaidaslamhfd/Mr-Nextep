@@ -3295,7 +3295,7 @@
   },
   {
     "created_at": "2026-10-08T01:24:48.511817+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Brain Donation",
     "title": "Brain Donation",
     "video_path": "output/mr_nextep_short.mp4",
@@ -3327,6 +3327,21 @@
     "retention_proxy": 0.9,
     "fingerprint": "ef96f41975a9dd139253ea3a31dcfc1ec50e50ada642516347b72cb11e259f57",
     "body": "Your brain can train AI Dead tissue fuels groundbreaking research Why does AI crave real brains? Scanning neurons builds a wiring map Map helps AI spot Alzheimer’s early AI sees patterns doctors overlook One brain can predict disease Your donation could protect others",
-    "text": "Brain Donation Your brain can train AI Dead tissue fuels groundbreaking research Why does AI crave real brains? Scanning neurons builds a wiring map Map helps AI spot Alzheimer’s early AI sees patterns doctors overlook One brain can predict disease Your donation could protect others"
+    "text": "Brain Donation Your brain can train AI Dead tissue fuels groundbreaking research Why does AI crave real brains? Scanning neurons builds a wiring map Map helps AI spot Alzheimer’s early AI sees patterns doctors overlook One brain can predict disease Your donation could protect others",
+    "youtube_video_id": "g1NyQb6w1yY",
+    "url": "https://youtu.be/g1NyQb6w1yY",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "published",
+        "id": "2161730451083440",
+        "format": "reels"
+      },
+      "instagram": {
+        "status": "published",
+        "id": "18129780613793275",
+        "source_url": "https://github.com/jashaidaslamhfd/Mr-Nextep/releases/download/short-37712617340/mr_nextep_short.mp4"
+      }
+    }
   }
 ]
