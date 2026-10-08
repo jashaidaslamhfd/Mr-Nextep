@@ -1951,5 +1951,21 @@
     "title": "Brain Stimulation Therapies",
     "body": "One pulse erased his terror Noninvasive brain stimulation explained How can a zap work? It scrambles memory pathways Nightmare disappears instantly AI finds each brain's hotspot Precise pulses rewrite fear A buzz can reset you",
     "text": "Brain Stimulation Therapies One pulse erased his terror Noninvasive brain stimulation explained How can a zap work? It scrambles memory pathways Nightmare disappears instantly AI finds each brain's hotspot Precise pulses rewrite fear A buzz can reset you"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "2 similar past video(s) retained 48%, at or above the 30% floor",
+      "channel_median_retention": 0.3774,
+      "neighbour_median_retention": 0.47995,
+      "neighbours_considered": 2
+    },
+    "fingerprint": "99c0d1740201138139bbb0ca351590060632485906008751e2d5191dbe717f47",
+    "title": "Generation of Neurons in the Adult Brain",
+    "body": "Your brain is adding new cells Adults grow fresh hippocampal neurons New cells send noisy signals Brain rewires, overlapping old and new You may recall events never lived Pattern separation tangled by excess Learning can blur older memories Those cells cause misremembered songs",
+    "text": "Generation of Neurons in the Adult Brain Your brain is adding new cells Adults grow fresh hippocampal neurons New cells send noisy signals Brain rewires, overlapping old and new You may recall events never lived Pattern separation tangled by excess Learning can blur older memories Those cells cause misremembered songs"
   }
 ]

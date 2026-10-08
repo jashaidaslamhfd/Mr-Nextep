@@ -3394,5 +3394,41 @@
         "source_url": "https://github.com/jashaidaslamhfd/Mr-Nextep/releases/download/short-37742195539/mr_nextep_short.mp4"
       }
     }
+  },
+  {
+    "created_at": "2026-10-08T21:50:14.580096+00:00",
+    "status": "pending",
+    "topic": "Generation of Neurons in the Adult Brain",
+    "title": "Generation of Neurons in the Adult Brain",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "ed93c1702273a1f4fdb59f3e7b839d1f5f8ca67326ec91d0a7763b639b982253",
+      "26d9b0f308fb505eedd8e439bb467cf7607dda47171905d5187b24bc5a75757d",
+      "de3836a777b6b062c506b4476b7a9c45ca3f10b12403b64a426313d16d467564",
+      "14c6464a1a86d87ce633cf3fabf96ad819315f5e32bd00c61d818935ccdf5b38",
+      "6f4b916f396aaef0360ddd47032845222ab0c2b071ea97942aa8cba3ccabd255",
+      "da08a3f43cbc4d31286c02f14e4ff55dece17b84bc257646706457d805f378b4",
+      "2519114e4e571c69c969f05103bcc1bfaed31e64d7e80495e70008eab1347e66",
+      "6d3da6dc2a196be455d5a0c39e277ac65b86db3abf6fe137c59ebdefa5df2d09"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "2 similar past video(s) retained 48%, at or above the 30% floor",
+      "channel_median_retention": 0.3774,
+      "neighbour_median_retention": 0.47995,
+      "neighbours_considered": 2
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.272562,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "99c0d1740201138139bbb0ca351590060632485906008751e2d5191dbe717f47",
+    "body": "Your brain is adding new cells Adults grow fresh hippocampal neurons New cells send noisy signals Brain rewires, overlapping old and new You may recall events never lived Pattern separation tangled by excess Learning can blur older memories Those cells cause misremembered songs",
+    "text": "Generation of Neurons in the Adult Brain Your brain is adding new cells Adults grow fresh hippocampal neurons New cells send noisy signals Brain rewires, overlapping old and new You may recall events never lived Pattern separation tangled by excess Learning can blur older memories Those cells cause misremembered songs"
   }
 ]
