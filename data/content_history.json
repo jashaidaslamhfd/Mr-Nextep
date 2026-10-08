@@ -1935,5 +1935,21 @@
     "title": "Brain Donation",
     "body": "Your brain can train AI Dead tissue fuels groundbreaking research Why does AI crave real brains? Scanning neurons builds a wiring map Map helps AI spot Alzheimer’s early AI sees patterns doctors overlook One brain can predict disease Your donation could protect others",
     "text": "Brain Donation Your brain can train AI Dead tissue fuels groundbreaking research Why does AI crave real brains? Scanning neurons builds a wiring map Map helps AI spot Alzheimer’s early AI sees patterns doctors overlook One brain can predict disease Your donation could protect others"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.3774,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "44831cd5738a45ae03572bc0bc444cb06085a0120d3ef0826566c02b5a2896e5",
+    "title": "Brain Stimulation Therapies",
+    "body": "One pulse erased his terror Noninvasive brain stimulation explained How can a zap work? It scrambles memory pathways Nightmare disappears instantly AI finds each brain's hotspot Precise pulses rewrite fear A buzz can reset you",
+    "text": "Brain Stimulation Therapies One pulse erased his terror Noninvasive brain stimulation explained How can a zap work? It scrambles memory pathways Nightmare disappears instantly AI finds each brain's hotspot Precise pulses rewrite fear A buzz can reset you"
   }
 ]

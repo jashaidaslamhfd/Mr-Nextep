@@ -1,6 +1,6 @@
 {
   "source": "Google Trends US + US AI/science/psychology RSS",
-  "mined_at": "2026-10-08T01:23:15.789403+00:00",
+  "mined_at": "2026-10-08T07:15:10.082714+00:00",
   "topics": [
     {
       "series_number": "TREND-1",
@@ -8,7 +8,7 @@
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9BSktHeEJiYzAyeFAxMERDeE5MSmJUSGxnWXFVQXRpSS1QRENacTkxUGFyeEwySjJoY2pSN3lXVHdEaHlQcVYzMHpJS2w4OHRLdnZucEZWR0x1clRhNmc?oc=5",
       "trend_score": 17,
-      "fetched_at": "2026-10-08T01:23:15.789403+00:00"
+      "fetched_at": "2026-10-08T07:15:10.082714+00:00"
     },
     {
       "series_number": "TREND-2",
@@ -16,7 +16,7 @@
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1CTnRLamR4U1U0VlpaZVNOVzBucWNSc25YQmlZYXg5OEYzWXNFd2lRQmd5LVI3TGdEYl9GMTROdHJ5ZFJFb0FvWkU4YV9Kb2wtTlZB?oc=5",
       "trend_score": 17,
-      "fetched_at": "2026-10-08T01:23:15.789403+00:00"
+      "fetched_at": "2026-10-08T07:15:10.082714+00:00"
     },
     {
       "series_number": "TREND-3",
@@ -24,7 +24,7 @@
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTFBwOFE0Qi1BdDVZQ0xCM0JMdjZJck50bHV6WHE5bm5yejhXVFl1NEZrZGRXWDdISVlnUHpEMjJaNGF4SUNDTXVldUgzUXlTVnROdEttdGVGZw?oc=5",
       "trend_score": 13,
-      "fetched_at": "2026-10-08T01:23:15.789403+00:00"
+      "fetched_at": "2026-10-08T07:15:10.082714+00:00"
     },
     {
       "series_number": "TREND-4",
@@ -32,79 +32,79 @@
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9NZjM0RXNpeE1raVlFclJ6ZTdqQ0dKLURSYUJnREd1TWNzZFhQTHExRUtCdElrY3ZEci1menRHSFNrUVp3RWxzSjJOSHNwZ3BEZ2pR?oc=5",
       "trend_score": 13,
-      "fetched_at": "2026-10-08T01:23:15.789403+00:00"
+      "fetched_at": "2026-10-08T07:15:10.082714+00:00"
     },
     {
       "series_number": "TREND-5",
-      "topic": "OpenAI Wants ChatGPT to Stop Looking Like a Chatbot",
+      "topic": "Samsung\u2019s Record $80 Billion Profit Beats Estimates as AI Memory Demand Surges",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNUlZxMlZVS2I5Qjlycllwek5rUUtLVzBsaVZaNnV3MVFtc25GMTR5SGVBTU9fUXhIcEtMbWxRbUJKWTJSWFJBZkhPNmtma1JQQjRkTm5pdGpKU0hQSzA1VU5SMkpmazExTnUyMEc5MXB0MFpma2dUZmdlTjdJNG41N0JaYTNMaHNsZUE?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPdmhZdWVOQmdmYVE3aWdoYmE4N1BSbExqLXJ5RFg5a3BUYlVwZy1lNnp5MkQzM3BQZ3kxUXJHNXgzZjJ5ZmJfY2prRUZueFFrOEZZbUJwckFCbTduRVgtUUlWdlA3UzVjNnREaTlOWjBRUWN5cnhESkdONEw4LW9KamJObWxnRWFjRlZTZHg3QkFjMXBNSXlURVlHbjdYZ0k4TFdHTnZn?oc=5",
       "trend_score": 9,
-      "fetched_at": "2026-10-08T01:23:15.789403+00:00"
+      "fetched_at": "2026-10-08T07:15:10.082714+00:00"
     },
     {
       "series_number": "TREND-6",
+      "topic": "What Scholasticism Can Teach Us About AI Consciousness",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQc1lXOEpUSVdfbHBCSmgyY0EzcW9XR3dXYWo5TllzekxKWkFBbzZaYy1iVmZXNkxJcWp1LWhMdFVYZzNQUmtfSDBtd2xEOC1RRUtBRFF2MDUweTFQenNEM2lmWVoyNWF5WHhuMURDRkctMmpkLUtZbEdWVS1fbW1OVHI1VjNHZw?oc=5",
+      "trend_score": 9,
+      "fetched_at": "2026-10-08T07:15:10.082714+00:00"
+    },
+    {
+      "series_number": "TREND-7",
+      "topic": "Samsung's Q3 Profit Guidance Tops Analyst Estimates As AI Demand Outstrips Memory Supply",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOZFVCaE5vNXRRTW41bmRDMHlqTk1WaG81enZFLXhNVEJOUU5qVGNxNmFNRUx1cEFoaERvenhRVXBQaTl0S212Rjk4QXRIZ3NlNHBuYS1sVzNZT3I5MHhfank0Z2hxb25Xa1Fxc2k3RVhmMVVIQWpYOVpodDdJUXBtU1BocDBtRzFDQkszZDJRWkFGTUppb1VMUzc5Wjk?oc=5",
+      "trend_score": 9,
+      "fetched_at": "2026-10-08T07:15:10.082714+00:00"
+    },
+    {
+      "series_number": "TREND-8",
+      "topic": "Elvaris AI Advances Artificial Intelligence Innovation as Businesses Enter a New Era of Digital Transformation",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMitwJBVV95cUxQZG9nd3ZNUmhJRnpUZHRLZEhZbzdtem9naDU4NV91N2Z0aWRpOVFLTzkzWlh2c2gtcjd4Smw1Z1NLampkMEVTWURoOTBINnA0ZFZVb3pVd0xnQjBHRmdDQi1FSEFONkt4R2QzczRjOTZmUE1KSEFLWUM0VUUxcXBYRzRFdGY5SnMxWEZNak56dnJ0MzFzc2QteTkzTFdGSWNLaXVQajVhSXIwOXZ0RXVGNFpFM3lNSnNKVTlyVGY1b0FmNzVWRXNqdEU1a1llZFVRRWt4R2dUZEg0cEhWUEtEX1RUQ3pEcGlla1dLR3dRZXNEazBoTnZhdG9IWUoxWjBzTENkYmV2RENmRDBaYzlaOWlsNWIyelVKeGg1S21zVXIxekIzdTVBdTlXV05oaXFWNGVBWXBJRQ?oc=5",
+      "trend_score": 9,
+      "fetched_at": "2026-10-08T07:15:10.082714+00:00"
+    },
+    {
+      "series_number": "TREND-9",
       "topic": "OPM Launches AI Chatbot for Federal Workforce Data",
       "source": "google_news_us",
       "source_url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNNlRYTFBDaXpSYTFwN2xJZnZuaUVMSC12ZXBRVExyaURxaW02eVlEdDI4X2RzMVlmTWthaGlPTURWbUxUR0hOcS1Gd0RlRWxETjlYbTA0My1QYTlwMmg3b2FzTVdBU1FHWGJrSllGTnl1VGxFUVdtWTNvUFpJdzNGa2hyVmd4NS1uckhzOFd3?oc=5",
       "trend_score": 9,
-      "fetched_at": "2026-10-08T01:23:15.789403+00:00"
-    },
-    {
-      "series_number": "TREND-7",
-      "topic": "Answering Key Questions About AI Consciousness That\u2019s In The Spotlight Right Now",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPa0hvbnd5TldTRkFWZVFUTjE4dWpldUxJanRpcG0yWm5CR290Y0o3cmFwcV9qU1VYTnVCVGJMVFFad29kczJ0M1VNanJVZmFYTlZpY2NXaHJENlhfNDBKU1RSbXUtVjdqMzcyeTlTOXhTekQ5TDFQUHNfZVNab25wRVh2bnd4SWhhMzFFQ1NUbEItNndZcExMbnhIa3ltVGZkbU10MXctSUNuRktwNU1HalFmQzhCQ3pPVkUwMERSUkx3RVhMVzY2Nzgyaw?oc=5",
-      "trend_score": 9,
-      "fetched_at": "2026-10-08T01:23:15.789403+00:00"
-    },
-    {
-      "series_number": "TREND-8",
-      "topic": "Artificial intelligence (AI)",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxPY0tUN2UzUG1uNXhVbzllbkR4a1F0OG9FTjNwS1VmV0tzSWhXN0NYNlBQd0VkV1g1dUgtek1mVUx1eEdjXzRaa0hkWkNRNlhUOUpaMy1ERE5qMEpOYmloMHhyQkhJVU9hREttR0w5RURIOEJYbkI3YWNEMUpWOFF1T253OXdBXzQ0MXhhM2Z6R3NnR3J2dmNraGdVeEV3OS1wZmpQd1NyU2pQMnRWbndfN25uY3dxZ0V0MnBZQTVWTERzbldTUmt2Ukh1YzhIWDVlNFBsZWdqSQ?oc=5",
-      "trend_score": 9,
-      "fetched_at": "2026-10-08T01:23:15.789403+00:00"
-    },
-    {
-      "series_number": "TREND-9",
-      "topic": "Anthropic's AI Consciousness Push Confronts Religious Leaders With Questions About Personhood",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPSU1MM3dRNVdfMlpqMGxZT3Mwcmk0ZFFacDU5QWhaZ01fNm11d2xlQnNxSmZZMHU2YWZhaHlCeXZCN00xcmZocHFnTmZCbUVCOEtxSy03VUFfXzJFa0hVQm9DTzN4SU1jQ0ZuWkhsTnllYVUtdmFxNWE3QnNlZFc1aVdiU3FwM3lnSHFuc3NWWEhmTmpWLXY3N1hEY2RNUExjby11NGxtRXhHLS1tZlNQb1phYnlzc2xpRWc1eUlR?oc=5",
-      "trend_score": 9,
-      "fetched_at": "2026-10-08T01:23:15.789403+00:00"
+      "fetched_at": "2026-10-08T07:15:10.082714+00:00"
     },
     {
       "series_number": "TREND-10",
+      "topic": "Is Anyone Home? Answering Ten Vital Questions About AI Consciousness",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPa0hvbnd5TldTRkFWZVFUTjE4dWpldUxJanRpcG0yWm5CR290Y0o3cmFwcV9qU1VYTnVCVGJMVFFad29kczJ0M1VNanJVZmFYTlZpY2NXaHJENlhfNDBKU1RSbXUtVjdqMzcyeTlTOXhTekQ5TDFQUHNfZVNab25wRVh2bnd4SWhhMzFFQ1NUbEItNndZcExMbnhIa3ltVGZkbU10MXctSUNuRktwNU1HalFmQzhCQ3pPVkUwMERSUkx3RVhMVzY2Nzgyaw?oc=5",
+      "trend_score": 9,
+      "fetched_at": "2026-10-08T07:15:10.082714+00:00"
+    },
+    {
+      "series_number": "TREND-11",
       "topic": "Rethinking Artificial Intelligence within Pharma Supply Chains",
       "source": "google_news_us",
       "source_url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNelVmWDhFS0RfSWdrZTluYnJPYk1DRzlCYnZvTGk2Z3N2cGs2eUoySWVDWU16Q3g1OVFCWE9Tdjc3Rnp6TndQaXUzRHZxNlJKUFhIaGlLdXRpR2hjejN5ODhqYXhYX1pwQ3o0eU5iMHFvYkZpUzVnQUNyRVU0UnZiTXdxUUlHMU5KaWY5TmR4bFJYNG9mZy1LdQ?oc=5",
       "trend_score": 9,
-      "fetched_at": "2026-10-08T01:23:15.789403+00:00"
+      "fetched_at": "2026-10-08T07:15:10.082714+00:00"
     },
     {
-      "series_number": "TREND-11",
+      "series_number": "TREND-12",
       "topic": "UA Little Rock hosts AI InTheRock for Machine Learning and Production Discussion",
       "source": "google_news_us",
       "source_url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOZ3RNV0pXZkhNUkVMeFZDT3RQOV9ZMHRMdnF2dGZiNHhxY2RpZ21UbDR3VTZ4Q1lpN0w2U2hhT09vdmo0TG9PRGJTRDFkVWRtZktHd1hZTnBiNlNobVJVaG4zWVNOUWU2UmNhSUdZb1VhZFU0T05GV3EydjFFbGJ3bDBEandTNTJ1M0NFMFcyYXptOUxSOHNWV0tqbU81cVpLYlRQcU51QzBaZkwzN2s1NnRRSTY?oc=5",
       "trend_score": 9,
-      "fetched_at": "2026-10-08T01:23:15.789403+00:00"
+      "fetched_at": "2026-10-08T07:15:10.082714+00:00"
     },
     {
-      "series_number": "TREND-12",
+      "series_number": "TREND-13",
       "topic": "New AI Can Figure Out What You\u2019re Thinking About From a Brain Scan",
       "source": "google_news_us",
       "source_url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9CcE1lR1dvLWRsZTltT21Ra2Q0TmZZc1MyTVNuWTdVSnpIbTl6R2I5MDMyR3I2NngxQ2hHR3dfX1padDNmdDU5ZElNY0lxbFJqUmQ1Szh5Uk8zRnVrYXJpRmI3US15b1NhNDRxSnktdVhhSnlScjQ1eQ?oc=5",
       "trend_score": 9,
-      "fetched_at": "2026-10-08T01:23:15.789403+00:00"
-    },
-    {
-      "series_number": "TREND-13",
-      "topic": "Stanford neuroscientist Andrew Huberman says the real AI arms race is about controlling your brain",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNX1RfNzdVd1lvbkZxOW9SVmZCUzRKczZrUXJNdmUxWHdkSTMtbm5pNWdvQmRYelRaNG0yMndGNXF3aWNLNEtPNG5jZTQxTWU5Tm9iUnpfUi16c3U4cUk4YW51WHViVTJkWGJ1aTZFOG1RbHFBNzF5UFhYbXdpQldqSklmRS1vVnRQQTFJR3ZOc00xM0ZNZjdJSDZQeVM1dUFycnZReA?oc=5",
-      "trend_score": 9,
-      "fetched_at": "2026-10-08T01:23:15.789403+00:00"
+      "fetched_at": "2026-10-08T07:15:10.082714+00:00"
     },
     {
       "series_number": "TREND-14",
@@ -112,7 +112,7 @@
       "source": "google_news_us",
       "source_url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPUFJZZTQ3b0I2MEJGUFFJQWs2aU5iLWZJQVRoX0t3RVRiUjNwMEZlRTZ2MnB2SldyLW1CMWZyN1RFZVFPcGNWWl9GYVgwUmd3YWRTRFU5SE15Y2I3dnpkRmRQNmlWdWFpMDJhbE44UVRIU3FiQTZCSXk4S0JlYVR0NUUyMDNaSjQxYUJ4LWEyZkFrSXdVRGhVTkc2NXZMbVV5OGhUVll5MmdtaGcyYlFoYlN1cFFsT3BoS3YwX2dCODF5QmNxUERfRTdRMlpYcWRPS2xOQVRKbi0?oc=5",
       "trend_score": 9,
-      "fetched_at": "2026-10-08T01:23:15.789403+00:00"
+      "fetched_at": "2026-10-08T07:15:10.082714+00:00"
     },
     {
       "series_number": "TREND-15",
@@ -120,15 +120,15 @@
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxNZW5iZUVRSFFRMTRZVWF6R0hyclNuY0VnU1E2R2drWnZOa1hNcEVpN2ZkYVBPNUtXNHNIZHlsX2dIN1VyYnV3VVVhOWFHR2IwSGlQQ29VM0g5d044V19CeDlWckdQUlZfa04xaG1WRklOT0YxUURPejFfTU1SaVFGOGNtS0ozT1kwbHVmZ0VfYTh1SGUwYVJnV01aZmFmN1ZIcG43NDV3WXJUcERTWDFsOFJoMjZXeDFFQmQ0X0RWWndyODRRbWlwelVrNkNua2VQN0VpOTd5YklXUjhSeGtSWFB3?oc=5",
       "trend_score": 9,
-      "fetched_at": "2026-10-08T01:23:15.789403+00:00"
+      "fetched_at": "2026-10-08T07:15:10.082714+00:00"
     },
     {
       "series_number": "TREND-16",
-      "topic": "New study suggests brain function reduced by LLM use",
+      "topic": "Micron target lifted to $3000 by DA Davidson on AI memory demand (MU",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPdkI5VG11Rl8yU1R5S1YtNnJCenppTVRwVi1ZYUwtUHptQ1M4T2ctV1NYZThxNHI1SlB0Nng4MEQ5UG5vMGc3angwWFpMZ0N2ejhRbHc2aEo3NXVnc0xYLUhLZkdkZENHU19nTlhpbEZYb21sWGNtLVZOMGw2bDRzcTVJb1B2SGh0RVQ0ZG5CYw?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOY0VLVllxLWNDcFg2QV9Xb1UyRTh1ajFIdEprZFVkSFNMUGoyS2NCZDNfUW1MVFlTTTQwVFhCeGZfOHJrdzZLbzRwUTNRNDJGeHJhcHlWVnl3SVJPOEM1Y25tSk1nbkp0WG9LZEdXTzhWQ3NldGxtZWRkV01NR3gzZ0FwTVJWY0ZUdGZpeGFSbTJ6WmhPQ2lSMzNDbEVGbkUzRWs4N3Zn?oc=5",
       "trend_score": 9,
-      "fetched_at": "2026-10-08T01:23:15.789403+00:00"
+      "fetched_at": "2026-10-08T07:15:10.082714+00:00"
     },
     {
       "series_number": "TREND-17",
@@ -136,7 +136,7 @@
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPZ0paa2pwX25IRExxSFBKdXhKZWFLXzhBd21vR0tRdWFkNC1fZ2VCaGlvVFJYa01uMklwTHd6UlcxOFRRY0I4Y0xSRlZ0c3FVZEw5SllDQmd0UTduajJFekNwS1V1OVc2ZHdpLTJjQ3lHSEtRbFlUUWVQTzhJTFlha1lva0w1S3R4TGROdzZZWHZTNHdHNHVJd0RpWUtSUFdPZW9N?oc=5",
       "trend_score": 9,
-      "fetched_at": "2026-10-08T01:23:15.789403+00:00"
+      "fetched_at": "2026-10-08T07:15:10.082714+00:00"
     },
     {
       "series_number": "TREND-18",
@@ -144,7 +144,7 @@
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPVmx2RnNFLTJzTlZpUEFyRE1Tc3Eyb3NlM192R213WU9GRUMwWUdYY0UxREItTHZpcFE1NjNvR2pLeHZIRXVxenRMMEhja1Fta0hRcDB2YVRRU0VVbDBSQkpZZG1iWjBLTTlWSHRqenJweHJjUmhnX0EtVjlBSDBFWnRKbmhnczZaTVRrNHpUU0lOUzBpQ1l6NnI5OUZ1blhmQWR3?oc=5",
       "trend_score": 9,
-      "fetched_at": "2026-10-08T01:23:15.789403+00:00"
+      "fetched_at": "2026-10-08T07:15:10.082714+00:00"
     },
     {
       "series_number": "TREND-19",
@@ -152,7 +152,7 @@
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMioAJBVV95cUxPMng3N3BGWkFmR1J1NTM5cUJuWEFHbnEzS2tGMFJoaW9NUUNhWjhIbkhxSWxnX1R4dThJQ25JYjJsN0c0OUszZzRXWkJxX0U2dUFFWGxwYWs1NjZIYVdMS1B0RHZ0U3FjXzByUjJYZ2Uya0l4SURnNk03cGJCRV9JcmlidHYwZDB6RkJqSmdscVVIRWx3UDhWOFlWSzJaYWJEUUxqaEJlc0JVQ1VJbWNtRnEwUzhSazBMaGlKc19DY1d4VlFoWWlCQ0U5N1YtZklFSkdzTU1qUUU5Z1ZZN3M2MFpVMC1RdzUzVlFTZkkyNVBoLUhncXBZbF9MYWxxMDNXRWh3d09xMDY1ZkZvTVJTS1owMm9HcWo3SVEwSVhsaXM?oc=5",
       "trend_score": 9,
-      "fetched_at": "2026-10-08T01:23:15.789403+00:00"
+      "fetched_at": "2026-10-08T07:15:10.082714+00:00"
     },
     {
       "series_number": "TREND-20",
@@ -160,7 +160,7 @@
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMioAJBVV95cUxPZVhqMXJyMkQ3ci12V0EwNTE1TFhqZjg5NXNFSmJJLVpSdHNIb0VjeHdLMV9GYU1ORUpBQ0owRlZtbnc4SW9mcG9fM3RNS25TWTI0UVo2NlZVajY1TWVDV2VxX0tWVEYwdEM3N0RCUjVEMVNCSVFmNTAtQ05IMXZFZEo5RVJIZVJCVllPVE1nQ1luRndyZUttb2FNRk1icEpQZHgwQ01PeTRzWC1lVEQ4aHdlQUxDX0MtR3RGQVAtZlBTSkZMWjRyUXJGckcyN3Y5VFN1aU9zUjkyMUFIWDBPNWJISGk3N1ctN09ZYVhLcDR0WTduRG45QjlMVk8wamhLMXhQMnJ0WVdWazNWZXdmUC1LQVZfb1YyR3pyRGgteXI?oc=5",
       "trend_score": 9,
-      "fetched_at": "2026-10-08T01:23:15.789403+00:00"
+      "fetched_at": "2026-10-08T07:15:10.082714+00:00"
     },
     {
       "series_number": "TREND-21",
@@ -168,7 +168,7 @@
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE13ci1kSGZtXzBYaHkybjNxMXFXdjdETmZhMUdQVmNLSEJFazEwbFlobWFyNnhmT242UWI1OXdYYlVDck9kN0stX0NrVGJ3WGQyTGpj?oc=5",
       "trend_score": 9,
-      "fetched_at": "2026-10-08T01:23:15.789403+00:00"
+      "fetched_at": "2026-10-08T07:15:10.082714+00:00"
     },
     {
       "series_number": "TREND-22",
@@ -176,7 +176,7 @@
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5YQVlRVG9qcEdLcHJRQmN3ekpMaWo0U2JUb3gwUW5oeHpwSkFGWFFGcUlac2dPZ05CV0NnZ3N1YkFIaDJhemlJTzZyUThrWlNKUTVWdWpSMUtwQUxBUzlB?oc=5",
       "trend_score": 9,
-      "fetched_at": "2026-10-08T01:23:15.789403+00:00"
+      "fetched_at": "2026-10-08T07:15:10.082714+00:00"
     },
     {
       "series_number": "TREND-23",
@@ -184,7 +184,7 @@
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE8tcG0yRmZjQlpiMldxNDdYcGRGUVl4U1hKLWJ1aTBUZHZ2NWlxTkQ0a3BKaVlSNm5jalRTVi1oSkllMTAxQzVGNlkzQzE1alpUZlBfemI5NlNnWmw0RXc?oc=5",
       "trend_score": 9,
-      "fetched_at": "2026-10-08T01:23:15.789403+00:00"
+      "fetched_at": "2026-10-08T07:15:10.082714+00:00"
     },
     {
       "series_number": "TREND-24",
@@ -192,7 +192,7 @@
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1lYi0zaElJT3VpdTJkUnRHYUluV2dXSGpBSmtuN0Mxa1JsWHdxbkxOLVhHVzAxTURYRFItdDlpX2tGSWltU1htMHBCUVdJbnBFbGt5M2NiTmcwbzF6SVE?oc=5",
       "trend_score": 9,
-      "fetched_at": "2026-10-08T01:23:15.789403+00:00"
+      "fetched_at": "2026-10-08T07:15:10.082714+00:00"
     },
     {
       "series_number": "TREND-25",
@@ -200,7 +200,7 @@
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1RZXYyakRtazVsYy1nckhUUlZjWUk0TndzQ3FqQU1aM3BjaUZnbHlWLUJJMTNWY0lJWnRLcjFVZUxSZzd5NXU0VGlwZGtTTWRfYzljY1J2RlQ0ZUZKREE?oc=5",
       "trend_score": 9,
-      "fetched_at": "2026-10-08T01:23:15.789403+00:00"
+      "fetched_at": "2026-10-08T07:15:10.082714+00:00"
     },
     {
       "series_number": "TREND-26",
@@ -208,7 +208,7 @@
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9WRmlzS2dpNjc5dExPbzh1bTYwcWp4RTFCQ2dMWkY1LXl5MlFEb3hvREhjYWp0bFJMYjlhdG02ZmFId2lvQnBEdEl2bEJkZU9XZTJ5OVVMcFBBTFNsWWc?oc=5",
       "trend_score": 9,
-      "fetched_at": "2026-10-08T01:23:15.789403+00:00"
+      "fetched_at": "2026-10-08T07:15:10.082714+00:00"
     },
     {
       "series_number": "TREND-27",
@@ -216,7 +216,7 @@
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1uVENJU1hxd1l3S1U4REtvZE1ONmhXRUxOWHFyYldIcDlFYnhZUG80S2IzVmhhVEhhUXFLREh3QjhReG42SXI0UFI5TXYxWF81bllOM0Nlakh5Y2YtVGZF?oc=5",
       "trend_score": 9,
-      "fetched_at": "2026-10-08T01:23:15.789403+00:00"
+      "fetched_at": "2026-10-08T07:15:10.082714+00:00"
     },
     {
       "series_number": "TREND-28",
@@ -224,7 +224,7 @@
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPTlo0ZFdtTDVNdmlnU0VNb1ZrcWZZdE9nbWVwamIyRGdMd3BFX1lXWHZGZ1F5ekkxbXFYMDA4Y1NnVUpCTndxSXRoX21fODZCY1A0b3k5SUIwSVRmVXhMMEtpc0NVRzladzcxX0xPOVhnYkw1MUdCcF9udFVud01MS3RiUjI4c3pNZDFjRlJsYm1ncER0bDZGV1E3NzZGZVFQZXZvZW9R?oc=5",
       "trend_score": 9,
-      "fetched_at": "2026-10-08T01:23:15.789403+00:00"
+      "fetched_at": "2026-10-08T07:15:10.082714+00:00"
     },
     {
       "series_number": "TREND-29",
@@ -232,7 +232,7 @@
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNNmp5bHc4Q3Q1YjgzaUxfY2kxeHhmRmdjbGZhN09iak1DcXhXZkNwWXFuYkdkcThDNjNFNkVGVGFQOHUwY05oSlNUZGJKR3J2ZDJrMmpMOXZWb2h5TFNEVVFFM2xreFNNMXdNUXJodFVWaXdNNnVZVk9WbnlHcENYLTVvaE5hbnE4bkxQNA?oc=5",
       "trend_score": 9,
-      "fetched_at": "2026-10-08T01:23:15.789403+00:00"
+      "fetched_at": "2026-10-08T07:15:10.082714+00:00"
     },
     {
       "series_number": "TREND-30",
@@ -240,7 +240,7 @@
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQNy1tc2pGRDRtMDlsaDBFazFwRW5wTElabk5IWFloTFZsUWFadmpiYjcxc2FyR1J6anZwWHU0aktLcGNpTm1VXy1EOXY1V3poZV95MnBlYUJJQkRyZW5raXBJQmNFYUNHdkQ2bTFidVJDZS1SR3hVNmRXOWFJdGtzTGMyVy1weHhKRGxfS2NEQjlzOTdWM2hmZm9R?oc=5",
       "trend_score": 9,
-      "fetched_at": "2026-10-08T01:23:15.789403+00:00"
+      "fetched_at": "2026-10-08T07:15:10.082714+00:00"
     }
   ],
   "source_errors": []

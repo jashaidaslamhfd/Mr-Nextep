@@ -3343,5 +3343,41 @@
         "source_url": "https://github.com/jashaidaslamhfd/Mr-Nextep/releases/download/short-37712617340/mr_nextep_short.mp4"
       }
     }
+  },
+  {
+    "created_at": "2026-10-08T07:17:04.520182+00:00",
+    "status": "pending",
+    "topic": "Brain Stimulation Therapies",
+    "title": "Brain Stimulation Therapies",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "99f90c4ce13a3ef03582345b93a2534d1e8d448adae3152e1f56667faf7a3842",
+      "2cefc5532da984490e387932141936d46defd2c77469653ce0aff180cb489cea",
+      "d21a90e095192c50253845673c84157782529913a01f2d3fbb03089951404772",
+      "372d38054ebf6bab69a07eb208fdfc9b6d17887fc5637db5538b862e379f1e58",
+      "45026589bc9b8202563fb4519d4740d1292ce551e15580d43265d9de3cc79fba",
+      "932f02b16527e46803806cb74de04c04c1365df342a90710cccb585b78eb0048",
+      "ef2a4833e9d8b6605362537955b23970f6ced5c278b0cd6e7750bfbfe705caa6",
+      "8a099c095fb887ace7717d3c04aba21fa294de5bfc113535621ee599328636a2"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.3774,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 21.637347,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "44831cd5738a45ae03572bc0bc444cb06085a0120d3ef0826566c02b5a2896e5",
+    "body": "One pulse erased his terror Noninvasive brain stimulation explained How can a zap work? It scrambles memory pathways Nightmare disappears instantly AI finds each brain's hotspot Precise pulses rewrite fear A buzz can reset you",
+    "text": "Brain Stimulation Therapies One pulse erased his terror Noninvasive brain stimulation explained How can a zap work? It scrambles memory pathways Nightmare disappears instantly AI finds each brain's hotspot Precise pulses rewrite fear A buzz can reset you"
   }
 ]
