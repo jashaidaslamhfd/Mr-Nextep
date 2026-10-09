@@ -3548,7 +3548,7 @@
   },
   {
     "created_at": "2026-10-09T21:27:47.207977+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Leaders from Microsoft and OpenAI Weigh in on Why Trust in AI is a New Competitive Advantage",
     "title": "Leaders from Microsoft and OpenAI Weigh in on Why Trust in AI is a New Competitive Advantage",
     "video_path": "output/mr_nextep_short.mp4",
@@ -3580,6 +3580,21 @@
     "retention_proxy": 0.9,
     "fingerprint": "4cfcbb14290b1e6f761eea44c609406773aaff31ea7c7e300e63a3e77e237c3a",
     "body": "AI typo earned unexpected loyalty Trust is the new competitive moat Why does a mistake boost trust? Confidence signals competence to our brain Bold errors can feel trustworthy AI can be tuned for confidence Companies weaponize confidence bias That typo? Strategic trust in action",
-    "text": "Leaders from Microsoft and OpenAI Weigh in on Why Trust in AI is a New Competitive Advantage AI typo earned unexpected loyalty Trust is the new competitive moat Why does a mistake boost trust? Confidence signals competence to our brain Bold errors can feel trustworthy AI can be tuned for confidence Companies weaponize confidence bias That typo? Strategic trust in action"
+    "text": "Leaders from Microsoft and OpenAI Weigh in on Why Trust in AI is a New Competitive Advantage AI typo earned unexpected loyalty Trust is the new competitive moat Why does a mistake boost trust? Confidence signals competence to our brain Bold errors can feel trustworthy AI can be tuned for confidence Companies weaponize confidence bias That typo? Strategic trust in action",
+    "youtube_video_id": "XiXsiEVFzN8",
+    "url": "https://youtu.be/XiXsiEVFzN8",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "published",
+        "id": "1840006160577550",
+        "format": "reels"
+      },
+      "instagram": {
+        "status": "published",
+        "id": "18113043659156621",
+        "source_url": "https://github.com/jashaidaslamhfd/Mr-Nextep/releases/download/short-37993411260/mr_nextep_short.mp4"
+      }
+    }
   }
 ]
