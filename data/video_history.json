@@ -3443,5 +3443,41 @@
         "reason": "500 Server Error: Internal Server Error for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-10-09T01:34:08.022254+00:00",
+    "status": "pending",
+    "topic": "Anthropic bans 'cruel' behavior against its Claude AI",
+    "title": "Anthropic bans 'cruel' behavior against its Claude AI",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "eba3c6e42686620806fad085b2ecb4ac65798e5aa8734eb37d605771286e3a14",
+      "e6a563a45da5e1194f5bdaa5c4778cba5d11264617d75285c71d227537cdae4c",
+      "39046399c8013ce9bb20d6a4821012f40d5d86ed98f45a9c2a525bdc74d23222",
+      "a364f6a7282f8487e8f30d9b0664137112873ca502efb337aec541e9c055109a",
+      "977923e1901aa91c8b04612da7dabe3d799c889d4a8dec7e2c1b7548d2a4fa11",
+      "acf6d0d7e5e412dd6d4debb3090ecc5bae55901c78b52de01f9260f0e3139a76",
+      "9c5c263db13da3a566e773f384ce0f7b0766ab8500201352db31d2523ddd1237",
+      "187eae3a49f4e30c84f5ceea31ac06eda44c50038d59b6387d2ff653052562a8"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.3774,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 21.604898,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "c806858e23af7a138d2966a151beb813ff19ebf6add6feb3d6bb4763c68cbb79",
+    "body": "Ever felt guilty insulting a chatbot? AI platform blocks harsh language Machines don’t have emotions, right? Our brain blurs human‑AI lines Guilt drives digital etiquette Empathy circuit activated by AI The ban reflects human morality Your conscience, not Claude, is tested",
+    "text": "Anthropic bans 'cruel' behavior against its Claude AI Ever felt guilty insulting a chatbot? AI platform blocks harsh language Machines don’t have emotions, right? Our brain blurs human‑AI lines Guilt drives digital etiquette Empathy circuit activated by AI The ban reflects human morality Your conscience, not Claude, is tested"
   }
 ]

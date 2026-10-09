@@ -1,10 +1,10 @@
 {
-  "start_date": "2026-07-09",
-  "end_date": "2026-10-07",
-  "covered_through": "2026-10-07",
+  "start_date": "2026-07-10",
+  "end_date": "2026-10-08",
+  "covered_through": "2026-10-08",
   "videos_with_data": 79,
   "median_retention": 0.3774,
-  "median_views": 103.0,
+  "median_views": 101.0,
   "videos": [
     {
       "video_id": "K6Nv4cFRjrE",
@@ -224,18 +224,18 @@
       "average_view_duration_seconds": 12.0
     },
     {
-      "video_id": "qKRpi98nPSA",
-      "title": "How a US Chip Plant Could Make AI Feel Smarter?",
-      "views": 116,
-      "average_view_percentage": 0.6024,
-      "average_view_duration_seconds": 13.0
-    },
-    {
       "video_id": "Rrh9qUe8kcY",
       "title": "Why Your Freeze Under Pressure — The Real Reason",
       "views": 116,
       "average_view_percentage": 0.30079999999999996,
       "average_view_duration_seconds": 9.0
+    },
+    {
+      "video_id": "qKRpi98nPSA",
+      "title": "How a US Chip Plant Could Make AI Feel Smarter?",
+      "views": 116,
+      "average_view_percentage": 0.6024,
+      "average_view_duration_seconds": 13.0
     },
     {
       "video_id": "ZW9UEi5MmUY",
@@ -257,13 +257,6 @@
       "views": 111,
       "average_view_percentage": 0.2655,
       "average_view_duration_seconds": 11.0
-    },
-    {
-      "video_id": "_C20nA1aPf4",
-      "title": "Why Your Body Does This: the Deadly Secret",
-      "views": 108,
-      "average_view_percentage": 0.6825,
-      "average_view_duration_seconds": 34.0
     },
     {
       "video_id": "s2Qh-Gv3_2Q",
@@ -509,6 +502,13 @@
       "views": 30,
       "average_view_percentage": 0.2851,
       "average_view_duration_seconds": 13.0
+    },
+    {
+      "video_id": "_C20nA1aPf4",
+      "title": "Why Your Body Does This: the Deadly Secret",
+      "views": 29,
+      "average_view_percentage": 1.4053,
+      "average_view_duration_seconds": 70.0
     },
     {
       "video_id": "fi5iTUYFmSA",

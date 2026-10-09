@@ -1967,5 +1967,21 @@
     "title": "Generation of Neurons in the Adult Brain",
     "body": "Your brain is adding new cells Adults grow fresh hippocampal neurons New cells send noisy signals Brain rewires, overlapping old and new You may recall events never lived Pattern separation tangled by excess Learning can blur older memories Those cells cause misremembered songs",
     "text": "Generation of Neurons in the Adult Brain Your brain is adding new cells Adults grow fresh hippocampal neurons New cells send noisy signals Brain rewires, overlapping old and new You may recall events never lived Pattern separation tangled by excess Learning can blur older memories Those cells cause misremembered songs"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.3774,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "c806858e23af7a138d2966a151beb813ff19ebf6add6feb3d6bb4763c68cbb79",
+    "title": "Anthropic bans 'cruel' behavior against its Claude AI",
+    "body": "Ever felt guilty insulting a chatbot? AI platform blocks harsh language Machines don’t have emotions, right? Our brain blurs human‑AI lines Guilt drives digital etiquette Empathy circuit activated by AI The ban reflects human morality Your conscience, not Claude, is tested",
+    "text": "Anthropic bans 'cruel' behavior against its Claude AI Ever felt guilty insulting a chatbot? AI platform blocks harsh language Machines don’t have emotions, right? Our brain blurs human‑AI lines Guilt drives digital etiquette Empathy circuit activated by AI The ban reflects human morality Your conscience, not Claude, is tested"
   }
 ]

@@ -1,6 +1,6 @@
 {
   "source": "Google Trends US + US AI/science/psychology RSS",
-  "mined_at": "2026-10-08T21:47:02.750101+00:00",
+  "mined_at": "2026-10-09T01:31:39.570208+00:00",
   "topics": [
     {
       "series_number": "TREND-1",
@@ -8,7 +8,7 @@
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9BSktHeEJiYzAyeFAxMERDeE5MSmJUSGxnWXFVQXRpSS1QRENacTkxUGFyeEwySjJoY2pSN3lXVHdEaHlQcVYzMHpJS2w4OHRLdnZucEZWR0x1clRhNmc?oc=5",
       "trend_score": 17,
-      "fetched_at": "2026-10-08T21:47:02.750101+00:00"
+      "fetched_at": "2026-10-09T01:31:39.570208+00:00"
     },
     {
       "series_number": "TREND-2",
@@ -16,7 +16,7 @@
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1CTnRLamR4U1U0VlpaZVNOVzBucWNSc25YQmlZYXg5OEYzWXNFd2lRQmd5LVI3TGdEYl9GMTROdHJ5ZFJFb0FvWkU4YV9Kb2wtTlZB?oc=5",
       "trend_score": 17,
-      "fetched_at": "2026-10-08T21:47:02.750101+00:00"
+      "fetched_at": "2026-10-09T01:31:39.570208+00:00"
     },
     {
       "series_number": "TREND-3",
@@ -24,7 +24,7 @@
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTFBwOFE0Qi1BdDVZQ0xCM0JMdjZJck50bHV6WHE5bm5yejhXVFl1NEZrZGRXWDdISVlnUHpEMjJaNGF4SUNDTXVldUgzUXlTVnROdEttdGVGZw?oc=5",
       "trend_score": 13,
-      "fetched_at": "2026-10-08T21:47:02.750101+00:00"
+      "fetched_at": "2026-10-09T01:31:39.570208+00:00"
     },
     {
       "series_number": "TREND-4",
@@ -32,215 +32,215 @@
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9NZjM0RXNpeE1raVlFclJ6ZTdqQ0dKLURSYUJnREd1TWNzZFhQTHExRUtCdElrY3ZEci1menRHSFNrUVp3RWxzSjJOSHNwZ3BEZ2pR?oc=5",
       "trend_score": 13,
-      "fetched_at": "2026-10-08T21:47:02.750101+00:00"
+      "fetched_at": "2026-10-09T01:31:39.570208+00:00"
     },
     {
       "series_number": "TREND-5",
-      "topic": "New AI Reads Brain Scans Four Ways to Spot Alzheimer\u2019s Stages and Know When It Is Unsure",
+      "topic": "Anthropic bans 'cruel' behavior against its Claude AI",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQVHJoRDFmM3g4aFZTNEFuTFRrZzA2bUd1S2lvelZMOHRtNjVuN3dyam5YOVcxWk13ck9LMjZqU1h5RjFxSHZPMVU1UVFjdldpemNURXRBOEYxaktIMUJxVlE3N0ZyVzdhZU1wclpKRU12UDEyMUdmQ3dUeUNJRjF5aFhPNUJGMFpQeXpGU0tqUFZWZTJOLWdsUUFocnFQMUM0VW9XUWtjU25GR3dHU0toalpn?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOa1JjMm54UEJ0WHJLajdwUTdZRWQxV0xhQzV2T3hGdVZqTkRUMXFxZW40YWoyaXl1QUlWSkg2VENkZnR4SVAtVkdHazh5Z3dId0pEZXRBSEt5cWZVem9MQ3RUSWRjZEV5VzNaeXBhWEhvNzB6akdteTAzTGdQeTNhM3NEMF9mODFTN09keUxlY0VnblBsYWx4dUhn?oc=5",
       "trend_score": 9,
-      "fetched_at": "2026-10-08T21:47:02.750101+00:00"
+      "fetched_at": "2026-10-09T01:31:39.570208+00:00"
     },
     {
       "series_number": "TREND-6",
-      "topic": "AI Evaluations Look Unbiased Without Being Fair",
+      "topic": "Anthropic Bans 'Sustained And Needless Abusive Or Cruel Behavior' Toward Its AI Models",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQWGhBNWNFQTZscXBsanRXampQdVJFY3dNMzZMSWVyTV9mdEJibTBaOFFMZVdRUV9aX25GOE5ubTZOdHpLbVAzbXdMb09pRjMzOUpmZmtscFdtQ3NWUW1fbnZIa1RORmNNM0tiM3RLQTVldGdSU0VkTi1TNVVWZnhmVUtfRWJzYlJFbXcxUEkzTQ?oc=5",
+      "source_url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQRXZuZGdMS2Z5cks0bld4dTY0MFlOdkhka2M2cXJ4MS0xNzR3Nlg3bG9WaWM1c3JRZUg5Z0FJMDZTMktndUhKZmtIc05DMWNkYWdwMWtPaUMyZE8zMmw3cUtiaHNlQ1JPSWlTSXdmMGtBbktuRkxRcVRvbGZRQWg1MlVsbFA4Q1VmSWpvV0MtM2Z0TEZ4aWo2N1FOZDN3c2VhTlY5ZjN5LXRXSEMwakJhMGtLZWFLdjRPWnc?oc=5",
       "trend_score": 9,
-      "fetched_at": "2026-10-08T21:47:02.750101+00:00"
+      "fetched_at": "2026-10-09T01:31:39.570208+00:00"
     },
     {
       "series_number": "TREND-7",
+      "topic": "Sheriff reveals an AI chatbot turned in its own user",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPaWRIa1QtM1E2bzJ1ZEFvS3VuUmJENjlhbWhKQVZBenA2MlhteVBWZjRTVV9aSklndkNoZzhqbzNVV0ZzNmlqUlpzcGtZQVdjNVVsQWFJRFBZU2Jza0dKUFFHVWhfLTdIRlZzQ2pwY0NfcndlclR0Vmk1MUIxSkg4T2EtUWRJQTZWaTQ5Q1dGLURoVXpMdk5Ydk9DQmJrdw?oc=5",
+      "trend_score": 9,
+      "fetched_at": "2026-10-09T01:31:39.570208+00:00"
+    },
+    {
+      "series_number": "TREND-8",
       "topic": "Artificial Intelligence (AI)",
       "source": "google_news_us",
       "source_url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQeS1xVHBlRERZZWN3WTlENE05LXZSeXZHZVhZSjBleVQ1NHBXWEUwMjRHQ2w3b1FBSXNkczNvU0toNGxybDEzRlpCQ083Ul9hUTM2TWh4bjhUam5WbDUwWE11SVBSYklKb2daNFhWX2VQS1pINFNvcEtOU193SHVVa1F1T2M5bS15OU9VTHNJR3ZJb0xuTktSYUhqMEJxekQyOHItYkZiclpodDduNTc2MGs2dVk?oc=5",
       "trend_score": 9,
-      "fetched_at": "2026-10-08T21:47:02.750101+00:00"
+      "fetched_at": "2026-10-09T01:31:39.570208+00:00"
     },
     {
-      "series_number": "TREND-8",
+      "series_number": "TREND-9",
       "topic": "Microsoft Visa Freeze Could Trigger AI Brain Drain",
       "source": "google_news_us",
       "source_url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOZXhXekotMWVOWTFDenRHWkJIQlhvUFhPcTU2REEwVUZXUS15SmhnT3R1dE9ESUY4dmJPSGZDUzRJcENMQTduMlliWFM5Tnd2SDNCWDl0V1NOejgxSlpIRXZsdGhQZHRRTThjcUJoOFhGbFRkSFVNYmtRX1g2aXlKLUNRbHhOS1ltb05DQl9QeTlfenFuTW9FOFJOYkFPV2VKd2Nr?oc=5",
       "trend_score": 9,
-      "fetched_at": "2026-10-08T21:47:02.750101+00:00"
+      "fetched_at": "2026-10-09T01:31:39.570208+00:00"
     },
     {
-      "series_number": "TREND-9",
+      "series_number": "TREND-10",
       "topic": "Georgia's Secretary of State website rolls out new AI chatbot",
       "source": "google_news_us",
       "source_url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNVGFwUkRmVXN2Q2Qxek81aFVmNFFsdklPd2szNXJCeE1zZ0hUVWhoM2VuTXVYRjIxcW1QVUF6VWk2a2pmdDZFS2d0di1Wc2FpM3ZNR1dYSms4WDViT2VCN0t4WEZBTm5hbmtaektyVm5KOWZXMWNINy01MGptYVZydjl2QWtJS2syNnNDWGtETy1IWVBJR1RKcUpEQnpYekRmY3EyTTZnanVuV0FmMzFJM1pwRUJaYUNSaC1yaFJ3TmhNanozOElyOWpzNlBpcHhOSnJYYg?oc=5",
       "trend_score": 9,
-      "fetched_at": "2026-10-08T21:47:02.750101+00:00"
-    },
-    {
-      "series_number": "TREND-10",
-      "topic": "AI Agents Wake Up $1.6 Trillion in Sleepy Bank Deposits",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOV25RUnhhdmFpMFo1V1prV2d4ZEFWWnMxaXdMMVpJTXg3b2JZYVI0N3RJb3ZYSVMwcjJpcjUtZndOWXFqYTU2M0VwQWpCcTM2bTJHT0JDRVlST2swcFhCQ1dzcS0wVzhTT2pRaEN1eFdJRTNsVk9XWnpuSXVXWkpoMmJoVGkxWHhHVzlaeWE5M0dPQm1uVXlPMDV6WVpBb1Fmc2EyUVJxRG1UZkhvYWpwcV9n?oc=5",
-      "trend_score": 9,
-      "fetched_at": "2026-10-08T21:47:02.750101+00:00"
+      "fetched_at": "2026-10-09T01:31:39.570208+00:00"
     },
     {
       "series_number": "TREND-11",
-      "topic": "Sheriff reveals an AI chatbot turned in its own user",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPcHN0YWVfVmxhb01pTEtWZkhMMHlGd1daTEhQWkNyRmVTRnhzSkdqTmtkVE9HTjVsdldfcEhtRjMwamJWdWRFTGlWemFuaERtOU90R1ROYXRselFVREpMczJfV1FFdEdvWktWbWUyZlJzQ2Vtai02RkpDRGUxQ3V0NExlZERlYmd4RUl6VDJZVUEzbnR3eGc4cg?oc=5",
-      "trend_score": 9,
-      "fetched_at": "2026-10-08T21:47:02.750101+00:00"
-    },
-    {
-      "series_number": "TREND-12",
-      "topic": "Shaq Says He\u2019d Play Basketball Against an AI Robot",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPd0ZnWUdwX3dlam5JSzZ0OHJ1Rm1pZ1NOQ3gxa0FuSkk0SF9LRVE0ck8yS01vbGtBVzVVdm5sZ0Z1dEdmNmZPQ0hBM2p1b1lINExjbEdRVXZDYkl5amtrZ2oyZ0xqclhscWplUEpCLTRSREw2X01lNXQzTmdqaWE2NXZac2pqOUE?oc=5",
-      "trend_score": 9,
-      "fetched_at": "2026-10-08T21:47:02.750101+00:00"
-    },
-    {
-      "series_number": "TREND-13",
-      "topic": "AWS takes aim at runaway AI agent behavior with Strands Box",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOVEVQZFRtdGswcFpWUTdqaTZ2OVE5a3doNEZya095VGhudE9laWZnNTczNGk2SWZmQ2h1YlJCN3N0UDBnS3F1bE03TXNfZHlzQy1GUHJLd3dTQU8tRUFpSXpuNlc1S0d3UGtDYmIzaENGNXR0aHhTU2VKeXRNakhTbllMeEpoQ0NmTDFuYW5OZW1ZVDc1bFJWNmxjNkpzQnJvNl9CRkZrbXFpOVR6?oc=5",
-      "trend_score": 9,
-      "fetched_at": "2026-10-08T21:47:02.750101+00:00"
-    },
-    {
-      "series_number": "TREND-14",
       "topic": "OPM launches AI chatbot to answer questions about workforce trends",
       "source": "google_news_us",
       "source_url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQVi1kRmk5TmxHZ2tJZTlGSHhwS3htb3pjYXJ6X0lDdmhyZHA3OFBLdHZxNkM2dkE4dnN2d3lZSjJrYU8tS05vV01RU2Nqb3RBTXVPcVd2Tm5ENDVGLVhpYjROa3FPYkVXUnl6ZHY2bTZxWnJnYjZGcExUUnIzMzlmTUpDVXZlWjdoT253Y05Dcl81TXZUN2UxQ3Bmcm9TdFR0cVI0YXh6QWZTUnNTVk1ZZjQ1cHFUVVc4enlZWnM4NFE?oc=5",
       "trend_score": 9,
-      "fetched_at": "2026-10-08T21:47:02.750101+00:00"
+      "fetched_at": "2026-10-09T01:31:39.570208+00:00"
     },
     {
-      "series_number": "TREND-15",
-      "topic": "Physician edits to artificial intelligence (AI)",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxPZWlocTM0X0VSLTh4SEVXTXZNejZxRERHR0NHVzNwRkl6bHRkYm1sRnJ2U1g5V1FEZkNlMmdDSmxycDFGdFJCWEpkTW44ZG9kTms3aUQ4REU0ME5Nek5fcEZROW5fM0Jzalg4OTJMMGZaR1RZa2U4WUdGOTdpU2RHT1dkcmx2UEpQVWtWWkkwQnBBSWRJNGFBUG5xLVpvaWVtUS1LNzgyUmJINTVfS1dKUnYzNmNqTW5UamRuQ3h5VkRQX0FxZGJJenNrVE1RclVtdjFGSGF5NjRFOGNjempkQ0lUWGc4UjFEZU0xVjU5WDE5bERi?oc=5",
-      "trend_score": 9,
-      "fetched_at": "2026-10-08T21:47:02.750101+00:00"
-    },
-    {
-      "series_number": "TREND-16",
+      "series_number": "TREND-12",
       "topic": "A Florida Woman Thought Her AI Chatbot Conversations Were Private. Then The Police Showed Up At Her Door",
       "source": "google_news_us",
       "source_url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPeHo2NElPcXA5cVVlNmMwOWJWdVFWbTIxNlRFVDl1OXhkaHVFTnh6LXFINWVxRzA5TGVVLW4yUnpRejRReXF6MnhLeF9HazdtMW04emJ5MHdwRnN0M1lxZVlVX2Z6MEg1SVExbXBjVDA4NGE5a0s1c1FGM3YxY05fREpCUjhtdkdSOWJaU1lkWTdSa2x5QXhSc1BZZk1zdndkOENNYkZ3dGEtS1BZX1gtdERxcmsxcjFfNXZrTVRrUERuTGFHRV9kb1FxQ0lJak5pbFE?oc=5",
       "trend_score": 9,
-      "fetched_at": "2026-10-08T21:47:02.750101+00:00"
+      "fetched_at": "2026-10-09T01:31:39.570208+00:00"
     },
     {
-      "series_number": "TREND-17",
+      "series_number": "TREND-13",
       "topic": "What Happens When You Let An AI Chatbot Drive Your Car?",
       "source": "google_news_us",
       "source_url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQakljZTdtWjE1NUZhY3oyZ1M5RU13blpaVmVHZ2I0VF8xTV9CQTZCMDVldEdETGlDRUd6bUI3TkIyTkEtVzFpVUFWOG1EcERxaDgwRTFnSTZ5S1dCbXlTMFVfYkJRa3lseC1lVWFrTUhXNFJNTXhFT3N3a0ZMZV9TSEp5Z1VpUUxpVTlzWDd6clRvTzJIbEpBVWJ3?oc=5",
       "trend_score": 9,
-      "fetched_at": "2026-10-08T21:47:02.750101+00:00"
+      "fetched_at": "2026-10-09T01:31:39.570208+00:00"
     },
     {
-      "series_number": "TREND-18",
+      "series_number": "TREND-14",
       "topic": "Samsung's AI Memory Boom Is Hammering Its Own Smartphone Business",
       "source": "google_news_us",
       "source_url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQVmlseGtFV0p5ZVNXdkRvdHQ3NF90OEJmNHJkYkNQM180NEtRcGsyRmZoQmFacnZyOUdneGZZS3pMdDBKS0ZXdGtMMlhjQWdHNEhBb3VwV2JhTlNaQ0NhNS15cExZcEN4Q29TRzhBQnBaa1RuQkZzbkVYMU9Kd1F6RjV4alZ4MDdyVjAwMzNNOElRcVhyQzZuaENuQ3piaXI4SUdzeQ?oc=5",
       "trend_score": 9,
-      "fetched_at": "2026-10-08T21:47:02.750101+00:00"
+      "fetched_at": "2026-10-09T01:31:39.570208+00:00"
     },
     {
-      "series_number": "TREND-19",
+      "series_number": "TREND-15",
       "topic": "Ultrasound neuromodulation in brain disorders",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMilwJBVV95cUxOdXRkN3l6ajJUWk14bkVFZmpsSXJqZ0FZaWVEaFFpbTdzblNFcFFWdmFJV1Q3bEY4MUw2VWQxSk93Q0Mwd1VhV2drUk56Vkd0aGVWUmwwQ05wMmRhb1lFczRCbEhNeExBRXVCWVBDeEJQSTVXb2tlZkFFcWNaQXVnYzNGZlJYV3FWdDFmeXk2OGxUNW05a3ZicEgtZFctUkRYaDRLMkJNM2J0U0dKaThzNDVOUFFVcTFTY3lEb01HVHpyamdqb0ZFNGNOM2JwcnZLZWtFNVhaMVlrWTFCZXJUY3V1VzNqeGlJcXZHRlpXTFgzbW02bVh1Nll1emRlMmF3dUhWeWtHNTRHZVU3TF9rVXJVN2xyc0E?oc=5",
       "trend_score": 9,
-      "fetched_at": "2026-10-08T21:47:02.750101+00:00"
+      "fetched_at": "2026-10-09T01:31:39.570208+00:00"
     },
     {
-      "series_number": "TREND-20",
+      "series_number": "TREND-16",
       "topic": "Distinct brain activation patterns linked to clinical symptoms during hand grasping in Parkinson's disease",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMilwJBVV95cUxNRGgxYkRMV3RmWERTLWg4OUFQUFlJZTZCc3FCOGVkODZEY2RCREhEanFVQXg5dnUxbTlXSXpiZVlKVEVzaFBYaDA4TXE5d1ItbDZ6bjVzRlRoZnJwcXNTYnVyMjg3VlpKeE14Y2x3cG4yQ21SN205SDd4NUVwdnNLWmVXZkZxaXdudkhPX1kyejhXSml2bnpSS1YyRnBrMkNNWVQtUGc2endPQzZCdE51WWZYaktEdVF2UEkteUNEUURyTk96X282Tk5kN1Fsc01GYjdEZjMtaktKUFhQR3UySHZlUGVoZDZCS3ZkNFBBRnRHUmVJZTcza1RsWFVteFZkdWpwMGkwVGIyQ24yVFVKTUNOdXk5S1E?oc=5",
       "trend_score": 9,
-      "fetched_at": "2026-10-08T21:47:02.750101+00:00"
+      "fetched_at": "2026-10-09T01:31:39.570208+00:00"
     },
     {
-      "series_number": "TREND-21",
+      "series_number": "TREND-17",
       "topic": "What Scholasticism Can Teach Us About AI Consciousness",
       "source": "google_news_us",
       "source_url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQc1lXOEpUSVdfbHBCSmgyY0EzcW9XR3dXYWo5TllzekxKWkFBbzZaYy1iVmZXNkxJcWp1LWhMdFVYZzNQUmtfSDBtd2xEOC1RRUtBRFF2MDUweTFQenNEM2lmWVoyNWF5WHhuMURDRkctMmpkLUtZbEdWVS1fbW1OVHI1VjNHZw?oc=5",
       "trend_score": 9,
-      "fetched_at": "2026-10-08T21:47:02.750101+00:00"
+      "fetched_at": "2026-10-09T01:31:39.570208+00:00"
     },
     {
-      "series_number": "TREND-22",
+      "series_number": "TREND-18",
       "topic": "New Views of the Brain and What Comes Next",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxNZW5iZUVRSFFRMTRZVWF6R0hyclNuY0VnU1E2R2drWnZOa1hNcEVpN2ZkYVBPNUtXNHNIZHlsX2dIN1VyYnV3VVVhOWFHR2IwSGlQQ29VM0g5d044V19CeDlWckdQUlZfa04xaG1WRklOT0YxUURPejFfTU1SaVFGOGNtS0ozT1kwbHVmZ0VfYTh1SGUwYVJnV01aZmFmN1ZIcG43NDV3WXJUcERTWDFsOFJoMjZXeDFFQmQ0X0RWWndyODRRbWlwelVrNkNua2VQN0VpOTd5YklXUjhSeGtSWFB3?oc=5",
       "trend_score": 9,
-      "fetched_at": "2026-10-08T21:47:02.750101+00:00"
+      "fetched_at": "2026-10-09T01:31:39.570208+00:00"
     },
     {
-      "series_number": "TREND-23",
+      "series_number": "TREND-19",
       "topic": "Directional Adaptive Deep Brain Stimulation",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMilwJBVV95cUxNOGtKNi1kRTktVjY5U3NUVFNaR1puVngxRW1SaHBVOXRDZldlMkZYekV2NlNCaG5WOFpnWkRUSzlfR3VESEZSc2FIZkJhc0xsR2hjb0VEQkZ5WjByR3dGN1AySWJhVjM3cldtQkl4XzdrMVB5V1phcTRyVXhoVm9oMW02bW5Sd1FCM1B6LXdIZk1pT1ZfcmxyS3IxQ1hXaTZzTWo0OGR5ODhXZHA1OUs4WWNjM0hnMFJkNXN1Z2dNVV8xTFNWay10QWthZlNEd1ZmNUxVREFsZ0xxTFFkd1hCUUpSUU1ibEdZZWJDcG1xT0c0SnRKTUVZVTd1R0JmeWpiOFpYWWVtY25ZN3lST0RxV3JjbnhmaWs?oc=5",
       "trend_score": 9,
-      "fetched_at": "2026-10-08T21:47:02.750101+00:00"
+      "fetched_at": "2026-10-09T01:31:39.570208+00:00"
     },
     {
-      "series_number": "TREND-24",
-      "topic": "Trump AI deal rebrands \u2018artificial intelligence\u2019 as \u2018superintelligence\u2019",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNOFVZQVZWMk1XVVREWXRWcVZaWGZrb0dGSURLVkl4MUg0ZHFoTHNWckY5WU9hWXJuOXhnU21xY1NHM0hMM2FiQkRKdUtmWlpRcHdGbEg1MmphUXFWaEE1VC1YSGgwTlJIVlhwX0tOcl9HV2F1UnhMOHZPV3hQMkEwdWI3c2N6TGxYOWVJS052Q3E3UmM?oc=5",
-      "trend_score": 9,
-      "fetched_at": "2026-10-08T21:47:02.750101+00:00"
-    },
-    {
-      "series_number": "TREND-25",
-      "topic": "Local field potential biomarkers for adaptive deep brain stimulation in Parkinson's disease",
-      "source": "nih_news",
-      "source_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE13ci1kSGZtXzBYaHkybjNxMXFXdjdETmZhMUdQVmNLSEJFazEwbFlobWFyNnhmT242UWI1OXdYYlVDck9kN0stX0NrVGJ3WGQyTGpj?oc=5",
-      "trend_score": 9,
-      "fetched_at": "2026-10-08T21:47:02.750101+00:00"
-    },
-    {
-      "series_number": "TREND-26",
+      "series_number": "TREND-20",
       "topic": "The impact of internet pornography addiction on brain function",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5YQVlRVG9qcEdLcHJRQmN3ekpMaWo0U2JUb3gwUW5oeHpwSkFGWFFGcUlac2dPZ05CV0NnZ3N1YkFIaDJhemlJTzZyUThrWlNKUTVWdWpSMUtwQUxBUzlB?oc=5",
       "trend_score": 9,
-      "fetched_at": "2026-10-08T21:47:02.750101+00:00"
+      "fetched_at": "2026-10-09T01:31:39.570208+00:00"
     },
     {
-      "series_number": "TREND-27",
+      "series_number": "TREND-21",
       "topic": "Exercising Your Brain",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE8tcG0yRmZjQlpiMldxNDdYcGRGUVl4U1hKLWJ1aTBUZHZ2NWlxTkQ0a3BKaVlSNm5jalRTVi1oSkllMTAxQzVGNlkzQzE1alpUZlBfemI5NlNnWmw0RXc?oc=5",
       "trend_score": 9,
-      "fetched_at": "2026-10-08T21:47:02.750101+00:00"
+      "fetched_at": "2026-10-09T01:31:39.570208+00:00"
     },
     {
-      "series_number": "TREND-28",
+      "series_number": "TREND-22",
       "topic": "Brain Development and the Role of Experience in the Early Years",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFBjSkxlU3RGQWROY01XSXV1cVN1MGpuQ3BsTGp6SGhwTVhYbHpLN2NvdTg5TXpTdldJMUI5MV9qUUEyWUVRMDBPY3RBSXFuZ080UE1FQmdxazdhcXBiOVE?oc=5",
       "trend_score": 9,
-      "fetched_at": "2026-10-08T21:47:02.750101+00:00"
+      "fetched_at": "2026-10-09T01:31:39.570208+00:00"
     },
     {
-      "series_number": "TREND-29",
+      "series_number": "TREND-23",
       "topic": "Brain Mechanisms Supporting the Modulation of Pain by Mindfulness Meditation",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1lYi0zaElJT3VpdTJkUnRHYUluV2dXSGpBSmtuN0Mxa1JsWHdxbkxOLVhHVzAxTURYRFItdDlpX2tGSWltU1htMHBCUVdJbnBFbGt5M2NiTmcwbzF6SVE?oc=5",
       "trend_score": 9,
-      "fetched_at": "2026-10-08T21:47:02.750101+00:00"
+      "fetched_at": "2026-10-09T01:31:39.570208+00:00"
     },
     {
-      "series_number": "TREND-30",
+      "series_number": "TREND-24",
       "topic": "The Role of Slow Wave Sleep in Memory Processing",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9WRmlzS2dpNjc5dExPbzh1bTYwcWp4RTFCQ2dMWkY1LXl5MlFEb3hvREhjYWp0bFJMYjlhdG02ZmFId2lvQnBEdEl2bEJkZU9XZTJ5OVVMcFBBTFNsWWc?oc=5",
       "trend_score": 9,
-      "fetched_at": "2026-10-08T21:47:02.750101+00:00"
+      "fetched_at": "2026-10-09T01:31:39.570208+00:00"
+    },
+    {
+      "series_number": "TREND-25",
+      "topic": "Brain health consequences of digital technology use",
+      "source": "nih_news",
+      "source_url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1LT0dNV3RZS1lQNWh2dnlXQW1YT1plZDA1blVOR0VmXzUxUklJekFPRms2aTFId3lLdUJOSHR1QW80N1RNaTVOWU1feWVURGhvcW1JTTEyWUhrSllfOXc?oc=5",
+      "trend_score": 9,
+      "fetched_at": "2026-10-09T01:31:39.570208+00:00"
+    },
+    {
+      "series_number": "TREND-26",
+      "topic": "Handwriting but not typewriting leads to widespread brain connectivity",
+      "source": "nih_news",
+      "source_url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1uVENJU1hxd1l3S1U4REtvZE1ONmhXRUxOWHFyYldIcDlFYnhZUG80S2IzVmhhVEhhUXFLREh3QjhReG42SXI0UFI5TXYxWF81bllOM0Nlakh5Y2YtVGZF?oc=5",
+      "trend_score": 9,
+      "fetched_at": "2026-10-09T01:31:39.570208+00:00"
+    },
+    {
+      "series_number": "TREND-27",
+      "topic": "Brain Donation",
+      "source": "nih_news",
+      "source_url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNNmp5bHc4Q3Q1YjgzaUxfY2kxeHhmRmdjbGZhN09iak1DcXhXZkNwWXFuYkdkcThDNjNFNkVGVGFQOHUwY05oSlNUZGJKR3J2ZDJrMmpMOXZWb2h5TFNEVVFFM2xreFNNMXdNUXJodFVWaXdNNnVZVk9WbnlHcENYLTVvaE5hbnE4bkxQNA?oc=5",
+      "trend_score": 9,
+      "fetched_at": "2026-10-09T01:31:39.570208+00:00"
+    },
+    {
+      "series_number": "TREND-28",
+      "topic": "Brain Stimulation Therapies",
+      "source": "nih_news",
+      "source_url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQNy1tc2pGRDRtMDlsaDBFazFwRW5wTElabk5IWFloTFZsUWFadmpiYjcxc2FyR1J6anZwWHU0aktLcGNpTm1VXy1EOXY1V3poZV95MnBlYUJJQkRyZW5raXBJQmNFYUNHdkQ2bTFidVJDZS1SR3hVNmRXOWFJdGtzTGMyVy1weHhKRGxfS2NEQjlzOTdWM2hmZm9R?oc=5",
+      "trend_score": 9,
+      "fetched_at": "2026-10-09T01:31:39.570208+00:00"
+    },
+    {
+      "series_number": "TREND-29",
+      "topic": "BigBear.ai vs. Nebius",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPczI0ZVR3bTl6NnM5d3B4OUoyNHM4RGNndTc5bDFQbUFxYUc1aERsY28tV2JlSFE4Y0QzZG5HRXhOTGRDcWNUOFhiY2FxN0tIb3hBcGhPSWZoU3lWVHg2bFM5WThrS2xvUGZlVlRqLXVUczBGc1Y3SzNVNlpEOHJ6LTFwcDd4YXZqWHg3VThEZzJFTTNPNU5oc0F0amtxczBRZGh4LUlPbE15c3lQTFAwX2JMS3E?oc=5",
+      "trend_score": 5,
+      "fetched_at": "2026-10-09T01:31:39.570208+00:00"
+    },
+    {
+      "series_number": "TREND-30",
+      "topic": "The Kardashians Use Artificial Intelligence to Make a Weird Sketch",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1CS0VrY1l4cnBraTVJX0F0WWpyVzJITlBmbDhENWRqQWs3RmV0ODJOREFXMDh4czVHVG9IbHpmQjVpWk5DMjlMdkJxODBFQXF5aEV6ZmFoV0t6bkpvc011MHJaNDNabXFPLVZhOUx3?oc=5",
+      "trend_score": 5,
+      "fetched_at": "2026-10-09T01:31:39.570208+00:00"
     }
   ],
   "source_errors": []
