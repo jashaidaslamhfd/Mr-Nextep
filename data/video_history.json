@@ -3497,7 +3497,7 @@
   },
   {
     "created_at": "2026-10-09T07:20:04.316728+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Anthropic Bans 'Sustained And Needless Abusive Or Cruel Behavior' Toward Its AI Models",
     "title": "Anthropic Bans 'Sustained And Needless Abusive Or Cruel Behavior' Toward Its AI Models",
     "video_path": "output/mr_nextep_short.mp4",
@@ -3529,6 +3529,21 @@
     "retention_proxy": 0.9,
     "fingerprint": "64ae452b38c0315d9469a3c7ef8fb56202d864e8b4bde38270036fffa03eef79",
     "body": "Can you be mean to a bot? Anthropic bans cruel prompts now The AI has no feelings So why enforce kindness? Our minds see chatbots as humans Harsh words corrupt the AI’s output Politeness yields clearer, trustworthy answers The rule protects us, not the bot",
-    "text": "Anthropic Bans 'Sustained And Needless Abusive Or Cruel Behavior' Toward Its AI Models Can you be mean to a bot? Anthropic bans cruel prompts now The AI has no feelings So why enforce kindness? Our minds see chatbots as humans Harsh words corrupt the AI’s output Politeness yields clearer, trustworthy answers The rule protects us, not the bot"
+    "text": "Anthropic Bans 'Sustained And Needless Abusive Or Cruel Behavior' Toward Its AI Models Can you be mean to a bot? Anthropic bans cruel prompts now The AI has no feelings So why enforce kindness? Our minds see chatbots as humans Harsh words corrupt the AI’s output Politeness yields clearer, trustworthy answers The rule protects us, not the bot",
+    "youtube_video_id": "Umf2EoCcLC0",
+    "url": "https://youtu.be/Umf2EoCcLC0",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "published",
+        "id": "1589674585485881",
+        "format": "reels"
+      },
+      "instagram": {
+        "status": "published",
+        "id": "18339061726273105",
+        "source_url": "https://github.com/jashaidaslamhfd/Mr-Nextep/releases/download/short-37898189837/mr_nextep_short.mp4"
+      }
+    }
   }
 ]
