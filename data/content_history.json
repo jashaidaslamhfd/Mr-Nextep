@@ -1983,5 +1983,21 @@
     "title": "Anthropic bans 'cruel' behavior against its Claude AI",
     "body": "Ever felt guilty insulting a chatbot? AI platform blocks harsh language Machines don’t have emotions, right? Our brain blurs human‑AI lines Guilt drives digital etiquette Empathy circuit activated by AI The ban reflects human morality Your conscience, not Claude, is tested",
     "text": "Anthropic bans 'cruel' behavior against its Claude AI Ever felt guilty insulting a chatbot? AI platform blocks harsh language Machines don’t have emotions, right? Our brain blurs human‑AI lines Guilt drives digital etiquette Empathy circuit activated by AI The ban reflects human morality Your conscience, not Claude, is tested"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.3774,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "64ae452b38c0315d9469a3c7ef8fb56202d864e8b4bde38270036fffa03eef79",
+    "title": "Anthropic Bans 'Sustained And Needless Abusive Or Cruel Behavior' Toward Its AI Models",
+    "body": "Can you be mean to a bot? Anthropic bans cruel prompts now The AI has no feelings So why enforce kindness? Our minds see chatbots as humans Harsh words corrupt the AI’s output Politeness yields clearer, trustworthy answers The rule protects us, not the bot",
+    "text": "Anthropic Bans 'Sustained And Needless Abusive Or Cruel Behavior' Toward Its AI Models Can you be mean to a bot? Anthropic bans cruel prompts now The AI has no feelings So why enforce kindness? Our minds see chatbots as humans Harsh words corrupt the AI’s output Politeness yields clearer, trustworthy answers The rule protects us, not the bot"
   }
 ]

@@ -3494,5 +3494,41 @@
         "source_url": "https://github.com/jashaidaslamhfd/Mr-Nextep/releases/download/short-37870142699/mr_nextep_short.mp4"
       }
     }
+  },
+  {
+    "created_at": "2026-10-09T07:20:04.316728+00:00",
+    "status": "pending",
+    "topic": "Anthropic Bans 'Sustained And Needless Abusive Or Cruel Behavior' Toward Its AI Models",
+    "title": "Anthropic Bans 'Sustained And Needless Abusive Or Cruel Behavior' Toward Its AI Models",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "34d92cb5036c8df1130e10bec0c65057788ba897f51698b40d2d3015557c39ee",
+      "4fd67b0250ffb7631c6e359d8318864de0bccd6e0763ae5de039beea8abae412",
+      "82238227c23dd63e97afbbc354d9da0086fbe55dd8f3415c13a1d0c87194692e",
+      "2328b393b64b37789dd336a0523829771a3d697d96922e388dc5356ccc5e6f27",
+      "ab7f0d603a1943293876a865d13a497cf0245d5e3d2b3b19f2508e5212e933e5",
+      "5cc853264b3d271c5e1de78603a017966258e2f63c36139da9780e975ba1f1ad",
+      "f748b33be11258decfb083490a80614f645d387f79f3ce9d7003fd2ec23c82e9",
+      "525a0db81406decddefe6412919251d0f2b14af90abeec8422f6a8a51c4d4822"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.3774,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.7,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "64ae452b38c0315d9469a3c7ef8fb56202d864e8b4bde38270036fffa03eef79",
+    "body": "Can you be mean to a bot? Anthropic bans cruel prompts now The AI has no feelings So why enforce kindness? Our minds see chatbots as humans Harsh words corrupt the AI’s output Politeness yields clearer, trustworthy answers The rule protects us, not the bot",
+    "text": "Anthropic Bans 'Sustained And Needless Abusive Or Cruel Behavior' Toward Its AI Models Can you be mean to a bot? Anthropic bans cruel prompts now The AI has no feelings So why enforce kindness? Our minds see chatbots as humans Harsh words corrupt the AI’s output Politeness yields clearer, trustworthy answers The rule protects us, not the bot"
   }
 ]
