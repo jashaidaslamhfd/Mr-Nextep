@@ -3446,7 +3446,7 @@
   },
   {
     "created_at": "2026-10-09T01:34:08.022254+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Anthropic bans 'cruel' behavior against its Claude AI",
     "title": "Anthropic bans 'cruel' behavior against its Claude AI",
     "video_path": "output/mr_nextep_short.mp4",
@@ -3478,6 +3478,21 @@
     "retention_proxy": 0.9,
     "fingerprint": "c806858e23af7a138d2966a151beb813ff19ebf6add6feb3d6bb4763c68cbb79",
     "body": "Ever felt guilty insulting a chatbot? AI platform blocks harsh language Machines don’t have emotions, right? Our brain blurs human‑AI lines Guilt drives digital etiquette Empathy circuit activated by AI The ban reflects human morality Your conscience, not Claude, is tested",
-    "text": "Anthropic bans 'cruel' behavior against its Claude AI Ever felt guilty insulting a chatbot? AI platform blocks harsh language Machines don’t have emotions, right? Our brain blurs human‑AI lines Guilt drives digital etiquette Empathy circuit activated by AI The ban reflects human morality Your conscience, not Claude, is tested"
+    "text": "Anthropic bans 'cruel' behavior against its Claude AI Ever felt guilty insulting a chatbot? AI platform blocks harsh language Machines don’t have emotions, right? Our brain blurs human‑AI lines Guilt drives digital etiquette Empathy circuit activated by AI The ban reflects human morality Your conscience, not Claude, is tested",
+    "youtube_video_id": "57szLxQbsmc",
+    "url": "https://youtu.be/57szLxQbsmc",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "published",
+        "id": "1847395903284522",
+        "format": "reels"
+      },
+      "instagram": {
+        "status": "published",
+        "id": "18014188721755173",
+        "source_url": "https://github.com/jashaidaslamhfd/Mr-Nextep/releases/download/short-37870142699/mr_nextep_short.mp4"
+      }
+    }
   }
 ]
