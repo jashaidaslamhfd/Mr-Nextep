@@ -62,11 +62,11 @@ def build_hook_variations(topic: str) -> list[dict[str, Any]]:
     noun = re.sub(r"^(?:why\s+(?:does|do|is|are)|how\s+(?:does|do|is|are)|what\s+(?:makes|happens\s+when|does|do)|when|where|why|how|what|can|does|do)\s+", "", clean, flags=re.I)
     candidates = [
         {"style": "concrete_observation", "instruction": HOOK_STYLES["concrete_observation"],
-         "example": f"That strange moment when {noun.lower()} feels different."},
+         "example": f"The odd feeling behind {noun.lower()}."},
         {"style": "counterintuitive", "instruction": HOOK_STYLES["counterintuitive"],
-         "example": f"What seems obvious about {noun.lower()} may be misleading."},
+         "example": f"The obvious explanation for {noun.lower()} may be wrong."},
         {"style": "specific_question", "instruction": HOOK_STYLES["specific_question"],
-         "example": f"What actually causes {noun.lower()}?"},
+         "example": f"What explains the strange feeling behind {noun.lower()}?"},
     ]
     for item in candidates:
         words = _tokens(item["example"])
