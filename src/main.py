@@ -262,6 +262,8 @@ def run() -> dict:
 
         try:
             video = render(script, SETTINGS)
+            from .presentation import prepare_published_assets
+            presentation_assets = prepare_published_assets(video, script.get("title", ""), SETTINGS.output_dir)
             technical = validate(video, SETTINGS)
             guard_script = deepcopy(script)
             guard_script["title"] = topic
@@ -296,6 +298,7 @@ def run() -> dict:
         "topic": base_topic,
         "title": script["title"],
         "video_path": str(video),
+        "presentation_assets": presentation_assets,
         "clip_hashes": clip_hashes,
         "retention_verdict": retention_verdict,
         "growth_experiment": experiment,
