@@ -6,6 +6,7 @@ Only metrics fetched from YouTube Analytics are treated as measured performance.
 from __future__ import annotations
 
 import hashlib
+import json
 import re
 from collections import Counter
 from typing import Any
@@ -58,7 +59,7 @@ def topic_cluster(topic: str) -> str:
 def build_hook_variations(topic: str) -> list[dict[str, Any]]:
     """Return three safe candidate directions; scores are structural heuristics only."""
     clean = " ".join(str(topic or "").strip().rstrip("?.!").split())
-    noun = re.sub(r"^(why|how|what|when|where|can|does|do)\\s+", "", clean, flags=re.I)
+    noun = re.sub(r"^(?:why\\s+(?:does|do|is|are)|how\\s+(?:does|do|is|are)|what\\s+(?:makes|happens\\s+when|does|do)|when|where|why|how|what|can|does|do)\\s+", "", clean, flags=re.I)
     candidates = [
         {"style": "concrete_observation", "instruction": HOOK_STYLES["concrete_observation"],
          "example": f"That strange moment when {noun.lower()} feels different."},
@@ -70,7 +71,7 @@ def build_hook_variations(topic: str) -> list[dict[str, Any]]:
     for item in candidates:
         words = _tokens(item["example"])
         # Reward specificity and brevity, not emotional intensity or unsupported claims.
-        item["hook_heuristic_score"] = min(100, 35 + len(words) * 5 + min(15, len(_tokens(clean & item["example"] if False else clean))))
+        item["hook_heuristic_score"] = min(100, 35 + len(words) * 5 + min(15, len(_tokens(clean))))
         item["score_type"] = "heuristic_not_ctr"
     return sorted(candidates, key=lambda item: item["hook_heuristic_score"], reverse=True)
 
@@ -163,6 +164,30 @@ def rank_topic_candidates(
                                f"Novelty score {novelty_score:.0f}/100."],
         })
     return sorted(ranked, key=lambda item: item["growth_score"], reverse=True)
+
+
+def choose_growth_topic(
+    settings: Any,
+    performance: Any = None,
+    history: list[dict[str, Any]] | None = None,
+    excluded_topics: set[str] | None = None,
+) -> dict[str, Any] | None:
+    """Return the highest-ranked current trend candidate, or None when no queue exists."""
+    queue_path = settings.data_dir / "search_demand_queue_us.json"
+    if not queue_path.exists():
+        return None
+    try:
+        payload = json.loads(queue_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        # A bad queue should fall back to the existing topic rotation rather than stop publishing.
+        return None
+    candidates = payload.get("topics", []) if isinstance(payload, dict) else []
+    if not isinstance(candidates, list) or not candidates:
+        return None
+    ranked = rank_topic_candidates(
+        candidates, performance=performance, history=history, excluded_topics=excluded_topics
+    )
+    return ranked[0] if ranked else None
 
 
 def check_originality(script: dict[str, Any], history: list[dict[str, Any]]) -> dict[str, Any]:
