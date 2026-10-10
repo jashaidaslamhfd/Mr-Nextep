@@ -31,7 +31,7 @@ EXPERIMENT_ID = "hook-style-v1"
 _STOP = {
     "the", "and", "for", "with", "that", "this", "your", "you", "why", "what",
     "when", "where", "does", "how", "from", "into", "about", "are", "can",
-    "does", "have", "has", "was", "were", "their", "they", "then", "than",
+    "have", "has", "was", "were", "their", "they", "then", "than",
 }
 
 
@@ -93,7 +93,7 @@ def assign_hook_experiment(topic: str, history: list[dict[str, Any]]) -> dict[st
     minimum = min(counts[style] for style in styles)
     tied = [style for style in styles if counts[style] == minimum]
     # Deterministic tie-break means reruns don't silently re-randomize a selected variant.
-    digest = hashlib.sha256(f"{cluster}:{topic}".encode("utf-8")).hexdigest()
+    digest = hashlib.sha256(f"{cluster}:{topic}".encode()).hexdigest()
     variant = tied[int(digest[:8], 16) % len(tied)]
     return {
         "experiment_id": EXPERIMENT_ID,
