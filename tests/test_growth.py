@@ -32,6 +32,7 @@ def test_topic_ranking_uses_real_analytics_and_novelty():
     performance = ChannelPerformance(videos=[
         VideoPerformance("1", "Why Does Sleep Paralysis Happen", 1000, 0.48, 10.0),
         VideoPerformance("2", "Sleep Paralysis Explained", 800, 0.46, 9.0),
+        *[VideoPerformance(str(i), f"Unrelated topic {i}", 100, 0.30, 5.0) for i in range(3, 9)],
     ], start_date="2026-01-01", end_date="2026-09-01", covered_through="2026-09-01")
     ranked = rank_topic_candidates([
         {"topic": "Why does sleep paralysis happen?", "score": 60},
