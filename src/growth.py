@@ -211,8 +211,8 @@ def summarize_hook_experiments(performance: Any, history: list[dict[str, Any]]) 
 
     summary: dict[str, Any] = {}
     for variant, rows in buckets.items():
-        retentions = [float(getattr(row, "retention")) for row in rows if getattr(row, "retention", None) is not None]
-        views = [float(getattr(row, "views")) for row in rows if getattr(row, "views", None) is not None]
+        retentions = [float(row.retention) for row in rows if row.retention is not None]
+        views = [float(row.views) for row in rows if row.views is not None]
         summary[variant] = {
             "videos_with_data": len(rows),
             "median_retention": round(statistics.median(retentions), 4) if retentions else None,
