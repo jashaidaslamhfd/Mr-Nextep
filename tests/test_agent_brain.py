@@ -28,12 +28,13 @@ def test_agent_brain_generate_candidate_hooks_ranking():
     assert len(hooks) >= 1
     for h in hooks:
         assert "title" in h
-        assert "predicted_ctr" in h
+        assert "hook_heuristic_score" in h
+        assert 0 <= h["hook_heuristic_score"] <= 100
         assert len(h["title"]) <= SHORTS_TITLE_MAX_CHARS
         assert validate_short_title(h["title"]) == h["title"]
     # Verify ranking (highest CTR first)
     if len(hooks) > 1:
-        assert hooks[0]["predicted_ctr"] >= hooks[1]["predicted_ctr"]
+        assert hooks[0]["hook_heuristic_score"] >= hooks[1]["hook_heuristic_score"]
 
 
 def test_agent_brain_predict_retention():
@@ -54,6 +55,7 @@ def test_agent_brain_predict_retention():
     verdict = brain.predict_retention(valid_script)
     assert verdict["passed"] is True
     assert verdict["overall_score"] >= 0.75
+    assert verdict["score_type"] == "heuristic_structure_not_measured_retention"
     assert "hook_potency" in verdict
     assert "pacing_velocity" in verdict
     assert "loopback_seamlessness" in verdict
@@ -92,7 +94,7 @@ def test_agent_brain_sense_and_learn_cycle(tmp_path):
     ]
     signals = brain.sense(mock_perf)
     assert signals["sample_size"] == 2
-    assert signals["avg_view_rate"] == 1850.0
+    assert signals["average_views"] == 1850.0
 
     brain.learn({
         "title": "The Dark Science Of Sleep Paralysis #Shorts",
@@ -107,7 +109,7 @@ def test_agent_brain_audit_and_optimize():
     script = {
         "title": "Why Does Your Body Jolt?",
         "scenes": [
-            {"caption": "Body jolts.", "narration": "You are drifting to sleep when your body violently jolts awake."},
+            {"caption": "Your body suddenly jolts awake", "narration": "Your body jolts as sleep begins."},
             {"caption": "Sensory signal.", "narration": "Your sensory neurons misinterpret relaxing muscles as free fall."},
             {"caption": "Brainstem reflex.", "narration": "An ancient brainstem circuit seizes control before awareness reactivates."},
             {"caption": "Hypnic spasm.", "narration": "Neuroscientists classify this sudden misfire as a hypnic jerk."},
@@ -119,8 +121,8 @@ def test_agent_brain_audit_and_optimize():
     }
     audit = brain.audit_script(script)
     assert audit["passed"] is True
-    assert audit["predicted_str_pct"] >= 70.0
-    assert audit["predicted_apv_pct"] >= 90.0
+    assert audit["structural_quality_pct"] >= 70
+    assert audit["score_type"] == "heuristic_structure_not_measured_retention"
 
     optimized = brain.optimize_script(script)
     assert "visual_prompt" in optimized["scenes"][0]

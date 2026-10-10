@@ -88,18 +88,28 @@ def make_overlay(word: str, index: int, path: Path) -> None:
 
     # 2026 Viral Caption Styling: Vibrant Yellow & Cyan with heavy dark outline
     accent = (255, 230, 0) if index % 2 == 0 else (0, 240, 255)
-    f = font(108)
+    # Fit long words to the mobile-safe width instead of clipping them at screen edges.
+    label = str(word or "").upper()
+    font_size = 108
+    f = font(font_size)
+    max_text_width = int(W * 0.86)
+    while font_size > 56:
+        bounds = draw.textbbox((0, 0), label, font=f, stroke_width=7)
+        if bounds[2] - bounds[0] <= max_text_width:
+            break
+        font_size -= 4
+        f = font(font_size)
 
     # Position at 58% height (safe-zone: away from top channel header & bottom caption)
     x = W // 2
     y = int(H * 0.58)
 
     # Drop shadow for extra depth and separation against moving video
-    draw.text((x + 4, y + 6), word.upper(), font=f, fill=(0, 0, 0, 200), anchor="mm")
+    draw.text((x + 4, y + 6), label, font=f, fill=(0, 0, 0, 200), anchor="mm", stroke_width=7)
     # Heavy dark stroke so captions pop against both bright and dark backgrounds
     draw.text(
         (x, y),
-        word.upper(),
+        label,
         font=f,
         fill=accent,
         anchor="mm",

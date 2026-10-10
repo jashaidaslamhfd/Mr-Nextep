@@ -57,10 +57,10 @@ DEFAULT_MEMORY: dict[str, Any] = {
         "What Happens When Your Subconscious Glitches?",
     ],
     "channel_learnings": [
-        "Headlines with raw broken grammar collapse CTR; mobile curiosity gap under 48 chars drives 4.8x views.",
-        "Shorts with an immediate psychological hook within 1.8s achieve >72% view-through rate.",
-        "A seamless loop back from scene 8 into scene 1 multiplies completion rate by up to 1.35x.",
-        "Macro bioluminescent visual cues sustain viewer gaze significantly longer than stock slides.",
+        "Use actual YouTube Analytics as the source of truth; script heuristics are not viewer-retention measurements.",
+        "Prioritize a clear first-second hook, concrete scene changes, and a payoff that resolves the opening question.",
+        "Compare topic and hook patterns against measured results only when the sample size is sufficient.",
+        "Do not infer causation from views alone; review viewed-versus-swiped-away and audience-retention curves when available.",
     ],
 }
 
@@ -137,10 +137,10 @@ class AgentBrain:
         """Sense channel performance, extract learning signals, and recalibrate weights."""
         signals: dict[str, Any] = {
             "top_performing_topics": [],
-            "avg_view_rate": 0.0,
+            "average_views": 0.0,
             "sample_size": 0,
             "high_performing_keywords": [],
-            "retention_estimate": 0.72,
+            "median_retention": None,
         }
         if not performance_data:
             return signals
@@ -152,6 +152,9 @@ class AgentBrain:
             return signals
 
         signals["sample_size"] = len(videos)
+        measured_median = getattr(performance_data, "median_retention", None)
+        if isinstance(measured_median, (int, float)):
+            signals["median_retention"] = float(measured_median)
         view_counts: list[float] = []
         topic_scores: list[tuple[str, float]] = []
 
@@ -164,7 +167,7 @@ class AgentBrain:
 
         if view_counts:
             avg_views = sum(view_counts) / len(view_counts)
-            signals["avg_view_rate"] = avg_views
+            signals["average_views"] = avg_views
             topic_scores.sort(key=lambda x: x[1], reverse=True)
             top_topics = [t[0] for t in topic_scores[:5]]
             signals["top_performing_topics"] = top_topics
@@ -264,23 +267,30 @@ class AgentBrain:
             seen_titles.add(valid_title)
 
             char_len = len(valid_title)
-            length_penalty = max(0.0, (char_len - 38) * 0.015)
-            has_curiosity_word = any(
-                w in valid_title.lower()
-                for w in ("brain", "secret", "dark", "ignore", "never", "strange", "glitch", "feel", "silent", "terror")
-            )
-            curiosity_bonus = 0.12 if has_curiosity_word else 0.0
-            predicted_ctr = min(0.98, max(0.65, 0.88 + curiosity_bonus - length_penalty))
+            # Transparent editorial heuristic, not a forecast of actual click-through rate.
+            hook_score = 50
+            if 18 <= char_len <= 38:
+                hook_score += 15
+            elif char_len > 42:
+                hook_score -= min(20, char_len - 42)
+            title_lower = valid_title.lower()
+            if any(w in title_lower for w in ("brain", "memory", "voice", "face", "sleep", "ai", "mirror", "silence", "body")):
+                hook_score += 10
+            if valid_title.endswith("?"):
+                hook_score += 5
+            if any(phrase in title_lower for phrase in ("did you know", "you won't believe", "shocking truth")):
+                hook_score -= 20
+            hook_score = max(0, min(100, hook_score))
 
             scored.append({
                 "title": valid_title,
                 "char_count": char_len,
-                "predicted_ctr": round(predicted_ctr, 3),
+                "hook_heuristic_score": hook_score,
                 "archetype": c["archetype"],
                 "hook_type": c["hook_type"],
             })
 
-        scored.sort(key=lambda x: x["predicted_ctr"], reverse=True)
+        scored.sort(key=lambda x: x["hook_heuristic_score"], reverse=True)
         return scored[:count]
 
     def reason_title(self, raw_topic: str) -> str:
@@ -297,7 +307,7 @@ class AgentBrain:
         return "Why Your Brain Freezes Under Stress?"
 
     def predict_retention(self, script: dict[str, Any]) -> dict[str, Any]:
-        """Predict viewer retention, drop-off probability, and cognitive engagement."""
+        """Score script structure heuristically; this is not a prediction of real audience retention."""
         scenes = script.get("scenes", [])
         if len(scenes) != 8:
             return {
@@ -307,6 +317,8 @@ class AgentBrain:
                 "hook_potency": 0.30,
                 "pacing_velocity": 0.30,
                 "loopback_seamlessness": 0.30,
+                "structural_quality_pct": 40,
+                "score_type": "heuristic_structure_not_measured_retention",
             }
 
         scene1 = scenes[0]
@@ -315,14 +327,21 @@ class AgentBrain:
         c1_words = len(c1.split())
         n1_words = len(n1.split())
 
-        hook_score = 0.90
-        if not (2 <= c1_words <= 8):
-            hook_score -= 0.25
-        if not (6 <= n1_words <= 16):
-            hook_score -= 0.20
-        if any(w in (c1 + " " + n1).lower() for w in ("brain", "secret", "dark", "glitch", "signal", "mind", "freeze")):
+        hook_text = (c1 + " " + n1).lower()
+        hook_score = 0.65
+        if 4 <= c1_words <= 7:
+            hook_score += 0.12
+        else:
+            hook_score -= 0.15
+        if 4 <= n1_words <= 8:
+            hook_score += 0.10
+        else:
+            hook_score -= 0.15
+        if any(w in hook_text for w in ("brain", "secret", "glitch", "signal", "mind", "freeze", "suddenly", "never", "because", "but", "instead", "actually")):
             hook_score += 0.08
-        hook_potency = max(0.3, min(1.0, hook_score))
+        if any(phrase in hook_text for phrase in ("did you know", "have you ever wondered", "today we're going to", "in this video", "welcome to")):
+            hook_score -= 0.35
+        hook_potency = max(0.2, min(0.95, hook_score))
 
         narration_lengths = [len(str(s.get("narration", "")).split()) for s in scenes]
         avg_len = sum(narration_lengths) / len(narration_lengths)
@@ -333,11 +352,22 @@ class AgentBrain:
 
         scene8 = scenes[-1]
         n8 = str(scene8.get("narration", "")).lower()
-        loopback_score = 0.85
-        if any(w in n8 for w in ("which is why", "and that is why", "every time", "right now", "happens again")):
-            loopback_score = 0.97
-        elif any(w in n8 for w in ("the end", "subscribe", "like", "comment")):
-            loopback_score = 0.40
+        loop_stopwords = {
+            "your", "this", "that", "when", "what", "which", "because", "with", "from",
+            "into", "then", "they", "them", "have", "does", "will", "every", "time",
+            "just", "also", "very", "there", "here", "only", "really",
+        }
+        opening_terms = set(re.findall(r"[a-z]{4,}", (c1 + " " + n1).lower())) - loop_stopwords
+        ending_terms = set(re.findall(r"[a-z]{4,}", n8)) - loop_stopwords
+        common_terms = opening_terms & ending_terms
+        if common_terms:
+            loopback_score = 0.95
+        elif any(w in n8 for w in ("which is why", "and that is why", "every time", "right now", "happens again")):
+            loopback_score = 0.72
+        else:
+            loopback_score = 0.60
+        if any(w in n8 for w in ("the end", "subscribe", "like and subscribe", "comment below")):
+            loopback_score = 0.30
 
         overall_score = round(
             (hook_potency * 0.40) + (pacing_score * 0.35) + (loopback_score * 0.25), 3
@@ -347,14 +377,15 @@ class AgentBrain:
         if hook_potency < 0.80:
             recommendations.append("Sharpen Scene 1 hook: ensure caption is under 7 words and cuts straight to anomaly.")
         if pacing_score < 0.80:
-            recommendations.append("Smooth narration word budget: balance scene lengths between 8 and 13 words.")
+            recommendations.append("Tighten pacing: keep each scene to 4–8 spoken words and remove filler or repeated ideas.")
         if loopback_score < 0.80:
             recommendations.append("Enhance Scene 8 infinite loop phrasing to flow seamlessly into Scene 1 replay.")
 
         return {
             "passed": overall_score >= 0.75,
             "overall_score": overall_score,
-            "retention_index_pct": int(overall_score * 100),
+            "structural_quality_pct": int(overall_score * 100),
+            "score_type": "heuristic_structure_not_measured_retention",
             "hook_potency": round(hook_potency, 2),
             "pacing_velocity": round(pacing_score, 2),
             "loopback_seamlessness": round(loopback_score, 2),
@@ -378,16 +409,12 @@ class AgentBrain:
                     found_triggers.append(trig)
 
         neuro_score = round(min(1.0, len(found_triggers) / 4.0), 2)
-        str_pct = round(65.0 + (verdict["hook_potency"] * 25.0), 1)
-        apv_pct = round(80.0 + (verdict["overall_score"] * 30.0), 1)
-
         return {
             "neuro_score": neuro_score,
-            "retention_score": verdict["overall_score"],
-            "retention_index_pct": verdict["retention_index_pct"],
+            "structural_quality_score": verdict["overall_score"],
+            "structural_quality_pct": verdict["structural_quality_pct"],
+            "score_type": "heuristic_structure_not_measured_retention",
             "passed": verdict["passed"],
-            "predicted_str_pct": str_pct,
-            "predicted_apv_pct": apv_pct,
             "hook_potency": verdict["hook_potency"],
             "pacing_velocity": verdict["pacing_velocity"],
             "loopback_seamlessness": verdict["loopback_seamlessness"],
@@ -416,7 +443,7 @@ class AgentBrain:
         return script
 
     def simulate_retention_curve(self, script: dict[str, Any]) -> list[dict[str, Any]]:
-        """Synthesize second-by-second viewer retention curve from 0s to 18s."""
+        """Return an illustrative heuristic curve, never real or forecast audience analytics."""
         verdict = self.predict_retention(script)
         score = verdict.get("overall_score", 0.85)
         scenes = script.get("scenes", [])
@@ -448,7 +475,8 @@ class AgentBrain:
                 "second": sec,
                 "retention_pct": round(pct, 1),
                 "scene_index": scene_idx + 1,
-                "phase": phase
+                "phase": phase,
+                "simulation_only": True,
             })
         return points
     def enrich_visual_prompts(self, script: dict[str, Any]) -> dict[str, Any]:
