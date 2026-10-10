@@ -7,6 +7,7 @@ from src.growth import (
     check_claim_sources,
     check_originality,
     rank_topic_candidates,
+    summarize_hook_experiments,
 )
 
 
@@ -61,3 +62,21 @@ def test_originality_gate_rejects_duplicate_title_or_body():
     script = {"title": "Why do dreams feel real?", "scenes": [{"caption": "Your brain predicts dreams"}]}
     history = [{"title": "Why do dreams feel real?", "body": "Your brain predicts dreams"}]
     assert check_originality(script, history)["passed"] is False
+
+
+def test_experiment_summary_joins_real_analytics_by_video_id():
+    performance = ChannelPerformance(videos=[
+        VideoPerformance("video-a", "One", 100, 0.40, 8.0),
+        VideoPerformance("video-b", "Two", 200, 0.50, 10.0),
+        VideoPerformance("video-c", "Three", 300, 0.30, 6.0),
+    ])
+    history = [
+        {"youtube_video_id": "video-a", "growth_experiment": {"experiment_id": "hook-style-v1", "variant": "concrete_observation"}},
+        {"youtube_video_id": "video-b", "growth_experiment": {"experiment_id": "hook-style-v1", "variant": "concrete_observation"}},
+        {"youtube_video_id": "video-c", "growth_experiment": {"experiment_id": "hook-style-v1", "variant": "specific_question"}},
+    ]
+    summary = summarize_hook_experiments(performance, history)
+    assert summary["concrete_observation"]["videos_with_data"] == 2
+    assert summary["concrete_observation"]["median_retention"] == 0.45
+    assert summary["concrete_observation"]["sample_sufficient_for_comparison"] is False
+    assert summary["specific_question"]["median_views"] == 300.0
