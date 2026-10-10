@@ -50,7 +50,7 @@ The Analytics API needs a user-authorized refresh token with the read-only Analy
 1. In [Google Cloud Console](https://console.cloud.google.com/), select the project used by Mr-Nextep (or create one).
 2. Enable **YouTube Analytics API** and **YouTube Data API v3**.
 3. Configure the OAuth consent screen. If the app is in Testing mode, add the Google account that owns the channel as a test user.
-4. Create an OAuth client ID with application type **Desktop app**. Use the same client ID and client secret already configured for the production workflow, if available.
+4. Create an OAuth client ID with application type **Desktop app**. If the existing workflow OAuth client is already a Desktop app, you can reuse it; otherwise use this new client's ID and secret for the local consent flow.
 5. In a local, private checkout, place `GOOGLE_CLIENT_ID=...` and `GOOGLE_CLIENT_SECRET=...` in the ignored `.env` file. Do not commit it.
 6. Install dependencies and run:
    ```bash
@@ -58,7 +58,7 @@ The Analytics API needs a user-authorized refresh token with the read-only Analy
    python scripts/authorize_analytics.py
    ```
 7. Sign in to the Google account that owns the intended YouTube channel and approve the requested permissions. The helper saves credentials to `.secrets/youtube-oauth.json` with restrictive local permissions; `.secrets/` is ignored by Git.
-8. Open that local file and copy **only** its `refresh_token` value into GitHub: repository **Settings → Secrets and variables → Actions → REFRESH_TOKEN**. Keep `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` in their existing secrets. Do not paste the token into this conversation.
+8. Open that local file and copy **only** its `refresh_token` value into GitHub: repository **Settings → Secrets and variables → Actions → REFRESH_TOKEN**. If you created a new Desktop client, also update GitHub Actions secrets `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` to match it. Do not paste the token into this conversation.
 9. Run the workflow manually and inspect the “Refresh YouTube performance feedback” step. Successful output should report the number of videos with data and the measured median retention when at least eight videos have usable data.
 10. Delete the local `.secrets/youtube-oauth.json` after the GitHub secret is updated.
 
