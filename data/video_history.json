@@ -3596,5 +3596,41 @@
         "source_url": "https://github.com/jashaidaslamhfd/Mr-Nextep/releases/download/short-37993411260/mr_nextep_short.mp4"
       }
     }
+  },
+  {
+    "created_at": "2026-10-10T01:22:47.597660+00:00",
+    "status": "pending",
+    "topic": "OPM launches beta AI chatbot for federal workforce data",
+    "title": "OPM launches beta AI chatbot for federal workforce data",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "2aa6c9e5418470dfab5a34f1d848db00890d0def9abf535894ad95a882d4994f",
+      "e349c4028a772cdb447e80922c368ef3f442bfc4ee0a181efd180992c422a5d5",
+      "463272982285baf3022a6e23106a079dcd7ce51f6c1600996de7f23d923a3367",
+      "ad712fb621ea01c8a537d6ef72f08e39be08193cf62eb8c76bd70052ffaa0784",
+      "fed3791d7c18afa8a13014206382d7d5d1330b17fc43ae122e9be109ae12c460",
+      "d2f64dd4ff48115c4df49da2f4c68ae486e9e909acde5177582cd86855d31a63",
+      "415d69f98010886f63dcf5c11e7f36ed356ed2b8f99ec0dee7dfa378a276090c",
+      "114c26343eeb097ad0a6a39178cd512d653cc79b165e32737fb8be7b77b9c93e"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "c1dd1ba73ff41c0130b8074eb9102af002abc616d66b1d3b6fcd7966174968f0",
+    "body": "The new federal chatbot feels psychic It pulls every work record instantly Yet it never actually reads thoughts It uses pattern prediction, not mind reading Workers trust its answers over supervisors Brain sees confident AI as authority Its psychic vibe is just prediction Confidence tricks perception, making it feel psychic",
+    "text": "OPM launches beta AI chatbot for federal workforce data The new federal chatbot feels psychic It pulls every work record instantly Yet it never actually reads thoughts It uses pattern prediction, not mind reading Workers trust its answers over supervisors Brain sees confident AI as authority Its psychic vibe is just prediction Confidence tricks perception, making it feel psychic"
   }
 ]

@@ -2015,5 +2015,21 @@
     "title": "Leaders from Microsoft and OpenAI Weigh in on Why Trust in AI is a New Competitive Advantage",
     "body": "AI typo earned unexpected loyalty Trust is the new competitive moat Why does a mistake boost trust? Confidence signals competence to our brain Bold errors can feel trustworthy AI can be tuned for confidence Companies weaponize confidence bias That typo? Strategic trust in action",
     "text": "Leaders from Microsoft and OpenAI Weigh in on Why Trust in AI is a New Competitive Advantage AI typo earned unexpected loyalty Trust is the new competitive moat Why does a mistake boost trust? Confidence signals competence to our brain Bold errors can feel trustworthy AI can be tuned for confidence Companies weaponize confidence bias That typo? Strategic trust in action"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "c1dd1ba73ff41c0130b8074eb9102af002abc616d66b1d3b6fcd7966174968f0",
+    "title": "OPM launches beta AI chatbot for federal workforce data",
+    "body": "The new federal chatbot feels psychic It pulls every work record instantly Yet it never actually reads thoughts It uses pattern prediction, not mind reading Workers trust its answers over supervisors Brain sees confident AI as authority Its psychic vibe is just prediction Confidence tricks perception, making it feel psychic",
+    "text": "OPM launches beta AI chatbot for federal workforce data The new federal chatbot feels psychic It pulls every work record instantly Yet it never actually reads thoughts It uses pattern prediction, not mind reading Workers trust its answers over supervisors Brain sees confident AI as authority Its psychic vibe is just prediction Confidence tricks perception, making it feel psychic"
   }
 ]
