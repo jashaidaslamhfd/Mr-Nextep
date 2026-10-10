@@ -138,6 +138,30 @@ def _host_for_instagram(video: Path) -> str:
         return url
 
 
+
+def _set_facebook_thumbnail(session: requests.Session, video_id: str, thumbnail: Path, token: str) -> str:
+    """Set a custom Page video/Reel thumbnail when the Graph API permits it."""
+    if not video_id or not thumbnail.exists() or not token:
+        return "skipped: cover missing"
+    try:
+        with thumbnail.open("rb") as fh:
+            response = session.post(
+                f"{GRAPH_BASE}/{video_id}/thumbnails",
+                params={"access_token": token},
+                data={"is_preferred": "true"},
+                files={"source": (thumbnail.name, fh, "image/jpeg")},
+                timeout=60,
+            )
+        response.raise_for_status()
+        payload = response.json()
+        if payload.get("success") is False:
+            return "not_set: API did not confirm success"
+        return "uploaded"
+    except Exception as exc:
+        logger.warning("Facebook custom thumbnail unavailable for %s (%s)", video_id, type(exc).__name__)
+        return f"not_set: {type(exc).__name__}"
+
+
 def publish(video: Path, script: dict[str, Any], youtube_result: dict[str, Any]) -> dict[str, Any]:
     page_id = os.getenv("FACEBOOK_PAGE_ID", "").strip()
     token = os.getenv("FACEBOOK_ACCESS_TOKEN", "").strip()
@@ -190,6 +214,8 @@ def publish(video: Path, script: dict[str, Any], youtube_result: dict[str, Any])
                         timeout=60,
                     )
                     result["facebook"] = {"status": "published", "id": str(video_id), "format": "reels"}
+                    fb_cover = video.parent / "mr_nextep_thumb_facebook.jpg"
+                    result["facebook"]["thumbnail"] = _set_facebook_thumbnail(session, str(video_id), fb_cover, token)
                     fb_done = True
             except Exception as reels_exc:
                 logger.warning("Facebook Reels 3-phase upload unavailable (%s); falling back to page video", reels_exc)
@@ -201,7 +227,10 @@ def publish(video: Path, script: dict[str, Any], youtube_result: dict[str, Any])
                     params = {"access_token": token}
                     data = {"title": seo.get("facebook", {}).get("title", ""), "description": seo.get("facebook", {}).get("description", "")}
                     fb = _post(session, url, params=params, data=data, files=files, timeout=180)
-                    result["facebook"] = {"status": "published", "id": str(fb.get("id", ""))}
+                    fb_id = str(fb.get("id", ""))
+                    result["facebook"] = {"status": "published", "id": fb_id}
+                    fb_cover = video.parent / "mr_nextep_thumb_facebook.jpg"
+                    result["facebook"]["thumbnail"] = _set_facebook_thumbnail(session, fb_id, fb_cover, token)
         except Exception as exc:
             logger.exception("Facebook publish failed")
             result["facebook"] = {"status": "error", "reason": str(exc)}
@@ -233,8 +262,20 @@ def publish(video: Path, script: dict[str, Any], youtube_result: dict[str, Any])
             hashtags = sanitize_hashtags(hashtags, max_hashtags=10)
             caption_with_tags = caption + ("\n\n" + " ".join(hashtags) if hashtags else "")
 
+            # Instagram accepts a public cover_url for Reels. Host the platform-specific
+            # cover alongside the video on the same per-run GitHub release when possible.
+            cover_url = ""
+            cover_path = video.parent / "mr_nextep_thumb_instagram.jpg"
+            if cover_path.exists():
+                try:
+                    cover_url = _host_for_instagram(cover_path)
+                except Exception as cover_exc:
+                    logger.warning("Could not host Instagram cover (%s); platform will choose a frame", type(cover_exc).__name__)
+            media_data = {"media_type": "REELS", "video_url": public_url, "caption": caption_with_tags}
+            if cover_url:
+                media_data["cover_url"] = cover_url
             container = _post(session, f"{GRAPH_BASE}/{instagram_id}/media", params={"access_token": token},
-                              data={"media_type": "REELS", "video_url": public_url, "caption": caption_with_tags}, timeout=120)
+                              data=media_data, timeout=120)
             media_id = container.get("id")
             if not media_id:
                 raise RuntimeError("Instagram container creation did not return an id: " + str(container))
@@ -243,7 +284,10 @@ def publish(video: Path, script: dict[str, Any], youtube_result: dict[str, Any])
             # processing; a timeout now raises instead.
             _wait_until_ready(session, media_id, token)
             published = _post(session, f"{GRAPH_BASE}/{instagram_id}/media_publish", params={"access_token": token}, data={"creation_id": media_id})
-            result["instagram"] = {"status": "published", "id": str(published.get("id", "")), "source_url": public_url}
+            result["instagram"] = {
+                "status": "published", "id": str(published.get("id", "")), "source_url": public_url,
+                "thumbnail": "uploaded" if cover_url else "platform-selected: cover URL unavailable",
+            }
         except Exception as exc:
             logger.exception("Instagram publish failed")
             result["instagram"] = {"status": "error", "reason": str(exc)}
