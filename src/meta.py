@@ -15,6 +15,7 @@ Expect environment variables:
 from __future__ import annotations
 
 import logging
+import mimetypes
 import os
 import time
 from pathlib import Path
@@ -129,7 +130,7 @@ def _host_for_instagram(video: Path) -> str:
 
     upload_url = release["upload_url"].split("{")[0]
     with video.open("rb") as fh:
-        up = session.post(f"{upload_url}?name={video.name}", headers={**headers, "Content-Type": "video/mp4"}, data=fh, timeout=180)
+        up = session.post(f"{upload_url}?name={video.name}", headers={**headers, "Content-Type": mimetypes.guess_type(video.name)[0] or "application/octet-stream"}, data=fh, timeout=180)
         up.raise_for_status()
         payload = up.json()
         url = payload.get("browser_download_url")
