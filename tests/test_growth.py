@@ -10,6 +10,13 @@ from src.growth import (
 )
 
 
+def test_ai_cluster_uses_word_boundary_not_substring():
+    from src.growth import topic_cluster
+
+    assert topic_cluster("Why does your brain do this?") == "brain_behavior"
+    assert topic_cluster("Why do AI voice clones sound real?") == "ai_trust"
+
+
 def test_hook_variations_are_distinct_and_do_not_claim_ctr():
     variants = build_hook_variations("Why does your body jolt as you fall asleep?")
     assert len(variants) == 3
