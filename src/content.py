@@ -331,7 +331,7 @@ Required structure:
   "title": "...",
   "description": "...",
   "tags": ["...", "..."],
-  "sources": ["https://credible-source.example/path"],
+  "sources": [],
   "scenes": [
     {{
       "caption": "...",
