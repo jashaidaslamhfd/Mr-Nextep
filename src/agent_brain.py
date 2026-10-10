@@ -352,8 +352,13 @@ class AgentBrain:
 
         scene8 = scenes[-1]
         n8 = str(scene8.get("narration", "")).lower()
-        opening_terms = set(re.findall(r"[a-z]{4,}", (c1 + " " + n1).lower()))
-        ending_terms = set(re.findall(r"[a-z]{4,}", n8))
+        loop_stopwords = {
+            "your", "this", "that", "when", "what", "which", "because", "with", "from",
+            "into", "then", "they", "them", "have", "does", "will", "every", "time",
+            "just", "also", "very", "that", "there", "here", "only", "really",
+        }
+        opening_terms = set(re.findall(r"[a-z]{4,}", (c1 + " " + n1).lower())) - loop_stopwords
+        ending_terms = set(re.findall(r"[a-z]{4,}", n8)) - loop_stopwords
         common_terms = opening_terms & ending_terms
         if common_terms:
             loopback_score = 0.95
