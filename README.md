@@ -14,7 +14,9 @@ When Meta credentials are configured, the pipeline can publish to Facebook and I
 
 ## Retention and originality
 
-The pipeline cannot guarantee a particular audience-retention percentage. Structural checks (duration, scene count, captions, narration, and originality) are **not** measurements of viewer retention. Real YouTube Analytics data is fetched separately and used when enough historical data exists. When the analytics baseline is missing, retention is explicitly marked as ungrounded rather than presented as a measured score. Exact and near-duplicate scripts are checked using persistent content history and similarity rules.
+The pipeline cannot guarantee views, click-through rate, or audience retention. The agent's script-structure and hook scores are **heuristics only**, not forecasts of actual CTR or retention. Real YouTube Analytics is the source of truth when enough historical data exists. The generator is instructed to use a concrete first-second hook, new information in each scene, a mid-video re-hook, a clear payoff, and a natural loop; caption rendering automatically shrinks long words to fit the mobile-safe width. When the analytics baseline is missing, retention is marked as ungrounded rather than presented as a measured score. Exact and near-duplicate scripts are checked using persistent content history and similarity rules.
+
+The manual `VIDEO_TOPIC` input is a topic brief, not narration: the generated opening hook is preserved instead of being overwritten with a potentially long raw topic headline. Actual performance still depends on the audience, topic fit, delivery, and platform distribution.
 
 ## Local development
 
