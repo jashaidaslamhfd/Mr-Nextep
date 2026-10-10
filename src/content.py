@@ -275,7 +275,12 @@ Scene 8: create a natural loop-back that recontextualizes Scene 1.
 
 Every scene must add new information and make the next scene necessary.
 Do not reveal the complete explanation too early.
+Use a visible or verbal pattern interrupt in the first second; the opening should be a concrete contradiction, strange behavior, or relatable consequence, not a broad topic statement.
+Add a small unanswered question or surprising detail by scenes 2–3, a meaningful re-hook or reversal around scenes 4–5, and a clear payoff by scene 7.
+Scene 8 must resolve or reframe the opening in a way that naturally connects when the video loops; do not force a generic loop phrase if the topic does not support it.
 Every 1–3 seconds, introduce a new detail, visual change opportunity, unanswered question, contradiction, escalation, or payoff.
+Prefer concrete verbs and ordinary spoken language. Remove any sentence that merely repeats a prior scene, adds mood without information, or delays the answer.
+The visual for scene 1 must instantly communicate the anomaly even with sound off; later visuals must change meaningfully rather than repeat the same generic brain or dark-background shot.
 
 PACING AND SCENES
 Target 45–55 spoken words across all 8 scenes, producing roughly 18–22 seconds at a natural US-English pace.
