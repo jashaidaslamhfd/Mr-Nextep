@@ -35,6 +35,12 @@ from typing import Any
 
 log = logging.getLogger(__name__)
 
+# Analytics reports need their own read-only scope; Data API title lookup also needs youtube.readonly.
+ANALYTICS_SCOPES = [
+    "https://www.googleapis.com/auth/yt-analytics.readonly",
+    "https://www.googleapis.com/auth/youtube.readonly",
+]
+
 # A Short is ~20s. YouTube reports averageViewPercentage per video; the channel median is
 # a far more honest target than a hardcoded constant, because it adapts as the channel
 # improves instead of staying true forever.
@@ -205,7 +211,7 @@ def _analytics_service() -> Any:
 
     from .youtube import _load_credentials_from_env
 
-    return build("youtubeAnalytics", "v2", credentials=_load_credentials_from_env())
+    return build("youtubeAnalytics", "v2", credentials=_load_credentials_from_env(scopes=ANALYTICS_SCOPES))
 
 
 def fetch_channel_performance(
@@ -300,7 +306,7 @@ def enrich_titles(performance: ChannelPerformance, data_service: Any | None = No
 
         from .youtube import _load_credentials_from_env
 
-        data_service = build("youtube", "v3", credentials=_load_credentials_from_env())
+        data_service = build("youtube", "v3", credentials=_load_credentials_from_env(scopes=ANALYTICS_SCOPES))
 
     titles: dict[str, str] = {}
     ids = [v.video_id for v in performance.videos]
