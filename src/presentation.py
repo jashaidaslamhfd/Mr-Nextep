@@ -73,13 +73,13 @@ def add_subtle_background_music(video: Path) -> Path:
         _run([
             "ffmpeg", "-y", "-i", str(video), "-i", str(bed),
             "-filter_complex",
-            f"[0:a]volume=1.0[voice];[1:a]volume=0.035,afade=t=in:st=0:d=1.0,afade=t=out:st={fade_out_start:.3f}:d=1.5[bed];[voice][bed]amix=inputs=2:duration=first:dropout_transition=0[a]",
+            f"[0:a]volume=1.0[voice];[1:a]volume=0.12,afade=t=in:st=0:d=1.0,afade=t=out:st={fade_out_start:.3f}:d=1.5[bed];[voice][bed]amix=inputs=2:duration=first:dropout_transition=0:normalize=0[a]",
             "-map", "0:v", "-map", "[a]", "-c:v", "copy",
             "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart",
             str(temp_video),
         ])
         temp_video.replace(video)
-        log.info("Added subtle original ambient bed beneath narration (music mix level 3.5%%).")
+        log.info("Added subtle original ambient bed beneath narration (music mix level 12%%).")
         return video
     finally:
         bed.unlink(missing_ok=True)
