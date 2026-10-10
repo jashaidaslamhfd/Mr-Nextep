@@ -18,6 +18,13 @@ from .agent_brain import AgentBrain
 from .analytics import AnalyticsError, load_performance
 from .config import SETTINGS
 from .content import ContentGenerationError, choose_topic, generate_script
+from .growth import (
+    assign_hook_experiment,
+    build_hook_variations,
+    check_claim_sources,
+    check_originality,
+    choose_growth_topic,
+)
 from .guards import check_publish_gap, enforce, load_history, save_history
 from .media import render, validate
 from .meta import publish as publish_meta
@@ -154,15 +161,39 @@ def run() -> dict:
     agent_brain.sense(performance if performance else None)
 
     last_error: Exception | None = None
+    attempted_topics: set[str] = set()
     for attempt in range(SETTINGS.max_attempts):
-        base_topic = SETTINGS.topic or choose_topic(SETTINGS)
+        topic_candidate = None
+        if SETTINGS.topic:
+            base_topic = SETTINGS.topic
+        else:
+            topic_candidate = choose_growth_topic(
+                SETTINGS, performance=performance, history=published_history,
+                excluded_topics=attempted_topics,
+            )
+            base_topic = topic_candidate["topic"] if topic_candidate else choose_topic(SETTINGS)
         topic = f"{base_topic} — fresh angle {attempt + 1}" if SETTINGS.topic and attempt else base_topic
+        attempted_topics.add(base_topic.strip().lower())
+        experiment = assign_hook_experiment(topic, published_history)
+        hook_candidates = build_hook_variations(topic)
+        experiment["candidate_styles"] = [
+            {"style": item["style"], "hook_heuristic_score": item["hook_heuristic_score"]}
+            for item in hook_candidates
+        ]
         # A malformed or rate-limited LLM response must not forfeit the whole
         # scheduled slot. generate_script has its own response-level retries;
         # if those are exhausted, spend the remaining run budget on another
         # queued topic instead of failing immediately.
+        previous_hook_style = os.environ.get("MRNEXTEP_HOOK_STYLE")
+        os.environ["MRNEXTEP_HOOK_STYLE"] = experiment["variant"]
         try:
-            script = generate_script(topic, SETTINGS)
+            try:
+                script = generate_script(topic, SETTINGS)
+            finally:
+                if previous_hook_style is None:
+                    os.environ.pop("MRNEXTEP_HOOK_STYLE", None)
+                else:
+                    os.environ["MRNEXTEP_HOOK_STYLE"] = previous_hook_style
         except ContentGenerationError as exc:
             last_error = exc
             log.warning(
@@ -174,6 +205,20 @@ def run() -> dict:
                 exc,
             )
             continue
+
+        script["growth_experiment"] = experiment
+        claim_source_verdict = check_claim_sources(script)
+        if not claim_source_verdict["passed"]:
+            last_error = RuntimeError("Claim-source quality gate rejected the draft: " + claim_source_verdict["reason"])
+            log.warning("Attempt %d/%d rejected by claim-source gate: %s", attempt + 1, SETTINGS.max_attempts, last_error)
+            continue
+
+        originality_verdict = check_originality(script, history)
+        if not originality_verdict["passed"]:
+            last_error = RuntimeError("Originality quality gate rejected the draft: " + str(originality_verdict["reason"]))
+            log.warning("Attempt %d/%d rejected by originality gate: %s", attempt + 1, SETTINGS.max_attempts, last_error)
+            continue
+
         agent_brain.enrich_visual_prompts(script)
         retention_verdict = agent_brain.predict_retention(script)
         log.info(
@@ -242,6 +287,10 @@ def run() -> dict:
         "video_path": str(video),
         "clip_hashes": clip_hashes,
         "retention_verdict": retention_verdict,
+        "growth_experiment": experiment,
+        "topic_growth_ranking": topic_candidate,
+        "originality_verdict": originality_verdict,
+        "claim_source_verdict": claim_source_verdict,
         "archetype": agent_brain.select_archetype(script.get("title", base_topic)),
         **technical,
         **guard,
