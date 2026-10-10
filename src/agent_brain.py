@@ -327,14 +327,21 @@ class AgentBrain:
         c1_words = len(c1.split())
         n1_words = len(n1.split())
 
-        hook_score = 0.90
-        if not (2 <= c1_words <= 8):
-            hook_score -= 0.25
-        if not (6 <= n1_words <= 16):
-            hook_score -= 0.20
-        if any(w in (c1 + " " + n1).lower() for w in ("brain", "secret", "dark", "glitch", "signal", "mind", "freeze")):
+        hook_text = (c1 + " " + n1).lower()
+        hook_score = 0.65
+        if 4 <= c1_words <= 7:
+            hook_score += 0.12
+        else:
+            hook_score -= 0.15
+        if 4 <= n1_words <= 8:
+            hook_score += 0.10
+        else:
+            hook_score -= 0.15
+        if any(w in hook_text for w in ("brain", "secret", "glitch", "signal", "mind", "freeze", "suddenly", "never", "because", "but", "instead", "actually")):
             hook_score += 0.08
-        hook_potency = max(0.3, min(1.0, hook_score))
+        if any(phrase in hook_text for phrase in ("did you know", "have you ever wondered", "today we're going to", "in this video", "welcome to")):
+            hook_score -= 0.35
+        hook_potency = max(0.2, min(0.95, hook_score))
 
         narration_lengths = [len(str(s.get("narration", "")).split()) for s in scenes]
         avg_len = sum(narration_lengths) / len(narration_lengths)
@@ -345,11 +352,17 @@ class AgentBrain:
 
         scene8 = scenes[-1]
         n8 = str(scene8.get("narration", "")).lower()
-        loopback_score = 0.85
-        if any(w in n8 for w in ("which is why", "and that is why", "every time", "right now", "happens again")):
-            loopback_score = 0.97
-        elif any(w in n8 for w in ("the end", "subscribe", "like", "comment")):
-            loopback_score = 0.40
+        opening_terms = set(re.findall(r"[a-z]{4,}", (c1 + " " + n1).lower()))
+        ending_terms = set(re.findall(r"[a-z]{4,}", n8))
+        common_terms = opening_terms & ending_terms
+        if common_terms:
+            loopback_score = 0.95
+        elif any(w in n8 for w in ("which is why", "and that is why", "every time", "right now", "happens again")):
+            loopback_score = 0.72
+        else:
+            loopback_score = 0.60
+        if any(w in n8 for w in ("the end", "subscribe", "like and subscribe", "comment below")):
+            loopback_score = 0.30
 
         overall_score = round(
             (hook_potency * 0.40) + (pacing_score * 0.35) + (loopback_score * 0.25), 3
