@@ -24,6 +24,7 @@ from .growth import (
     check_claim_sources,
     check_originality,
     choose_growth_topic,
+    summarize_hook_experiments,
 )
 from .guards import check_publish_gap, enforce, load_history, save_history
 from .media import render, validate
@@ -156,6 +157,16 @@ def run() -> dict:
             }
             print(json.dumps(result, indent=2))
             return result
+
+    experiment_summary = summarize_hook_experiments(performance, published_history)
+    for variant, metrics in experiment_summary.items():
+        if metrics["videos_with_data"]:
+            retention = metrics["median_retention"]
+            retention_text = f"{retention:.0%}" if retention is not None else "n/a"
+            log.info(
+                "Hook experiment %s: %d videos with data, median retention %s, median views %s; descriptive only.",
+                variant, metrics["videos_with_data"], retention_text, metrics["median_views"],
+            )
 
     agent_brain = AgentBrain()
     agent_brain.sense(performance if performance else None)
