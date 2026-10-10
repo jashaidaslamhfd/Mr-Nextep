@@ -137,7 +137,7 @@ class AgentBrain:
         """Sense channel performance, extract learning signals, and recalibrate weights."""
         signals: dict[str, Any] = {
             "top_performing_topics": [],
-            "avg_view_rate": 0.0,
+            "average_views": 0.0,
             "sample_size": 0,
             "high_performing_keywords": [],
             "median_retention": None,
