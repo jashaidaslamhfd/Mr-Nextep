@@ -181,6 +181,18 @@ def run() -> dict:
             retention_verdict.get("structural_quality_pct", 0),
             "PASSED" if retention_verdict.get("passed") else "SUBOPTIMAL",
         )
+        if not retention_verdict.get("passed", False):
+            last_error = RuntimeError(
+                "Script structure heuristic rejected the draft: "
+                + "; ".join(retention_verdict.get("recommendations", []))
+            )
+            log.warning(
+                "Attempt %d/%d rejected by script-structure quality gate: %s",
+                attempt + 1,
+                SETTINGS.max_attempts,
+                last_error,
+            )
+            continue
 
         if metadata_collides(script, published_history, SETTINGS.duplicate_check_last):
             log.warning(
