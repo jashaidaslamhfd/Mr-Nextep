@@ -9,6 +9,23 @@ from src.content import fallback, generate_script
 from src.meta import publish
 
 
+class _PassingBrain:
+    """Keep render-failure tests focused on rendering, not the script-quality heuristic."""
+
+    def sense(self, performance_data=None):
+        return {}
+
+    def enrich_visual_prompts(self, script):
+        return script
+
+    def predict_retention(self, script):
+        return {
+            "passed": True,
+            "structural_quality_pct": 90,
+            "recommendations": [],
+        }
+
+
 class _DummySettings:
     max_attempts = 2
     topic = ""
@@ -27,6 +44,7 @@ class _DummySettings:
 
 def test_clip_exhaustion_preserves_actionable_error(monkeypatch):
     monkeypatch.setattr(main, "SETTINGS", _DummySettings())
+    monkeypatch.setattr(main, "AgentBrain", _PassingBrain)
     monkeypatch.setattr(main, "load_history", lambda path: [])
     monkeypatch.setattr(main, "choose_topic", lambda settings: "test topic")
     monkeypatch.setattr(main, "generate_script", lambda topic, settings: {"title": "t", "scenes": []})
@@ -45,6 +63,7 @@ def test_clip_exhaustion_preserves_actionable_error(monkeypatch):
 def test_dry_run_ignores_publish_gap(monkeypatch):
     settings = _DummySettings()
     monkeypatch.setattr(main, "SETTINGS", settings)
+    monkeypatch.setattr(main, "AgentBrain", _PassingBrain)
     monkeypatch.setattr(main, "load_history", lambda path: [{"created_at": "recent"}])
     monkeypatch.setattr(main, "check_publish_gap", lambda *args, **kwargs: (_ for _ in ()).throw(
         AssertionError("dry-run must not check the publish gap")
