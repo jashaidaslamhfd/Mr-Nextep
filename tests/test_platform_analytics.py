@@ -21,7 +21,10 @@ class FakeSession:
 
     def get(self, url, params, timeout):
         self.calls.append((url, params, timeout))
-        return next(self.responses)
+        try:
+            return next(self.responses)
+        except StopIteration:
+            return FakeResponse(400, {"error": {"message": "unsupported metric"}})
 
 
 def test_metric_value_accepts_scalar_and_breakdown_values():
