@@ -190,6 +190,40 @@ def choose_growth_topic(
     return ranked[0] if ranked else None
 
 
+
+def summarize_hook_experiments(performance: Any, history: list[dict[str, Any]]) -> dict[str, Any]:
+    """Join recorded experiment assignments to real Analytics rows by YouTube video ID."""
+    videos = getattr(performance, "videos", []) if performance is not None else []
+    measured = {str(getattr(video, "video_id", "")): video for video in videos}
+    buckets: dict[str, list[Any]] = {style: [] for style in HOOK_STYLES}
+    for row in history if isinstance(history, list) else []:
+        if not isinstance(row, dict):
+            continue
+        experiment = row.get("growth_experiment", {})
+        if experiment.get("experiment_id") != EXPERIMENT_ID:
+            continue
+        variant = experiment.get("variant")
+        video_id = str(row.get("youtube_video_id") or row.get("video_id") or "")
+        video = measured.get(video_id)
+        if variant in buckets and video is not None:
+            buckets[str(variant)].append(video)
+
+    summary: dict[str, Any] = {}
+    for variant, rows in buckets.items():
+        retentions = [float(getattr(row, "retention")) for row in rows if getattr(row, "retention", None) is not None]
+        views = [float(getattr(row, "views")) for row in rows if getattr(row, "views", None) is not None]
+        summary[variant] = {
+            "videos_with_data": len(rows),
+            "median_retention": round(__import__("statistics").median(retentions), 4) if retentions else None,
+            "median_views": round(__import__("statistics").median(views), 1) if views else None,
+            "sample_sufficient_for_comparison": len(rows) >= 3,
+            "interpretation": (
+                "Descriptive result only; topic, timing, and distribution may confound this between-video experiment."
+            ),
+        }
+    return summary
+
+
 def check_originality(script: dict[str, Any], history: list[dict[str, Any]]) -> dict[str, Any]:
     """Run the existing duplicate detector before the expensive render step."""
     reason = duplicate_reason(script, history or [])
