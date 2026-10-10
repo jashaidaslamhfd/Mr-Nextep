@@ -8,6 +8,7 @@ from __future__ import annotations
 import hashlib
 import json
 import re
+import statistics
 from collections import Counter
 from typing import Any
 
@@ -214,8 +215,8 @@ def summarize_hook_experiments(performance: Any, history: list[dict[str, Any]]) 
         views = [float(getattr(row, "views")) for row in rows if getattr(row, "views", None) is not None]
         summary[variant] = {
             "videos_with_data": len(rows),
-            "median_retention": round(__import__("statistics").median(retentions), 4) if retentions else None,
-            "median_views": round(__import__("statistics").median(views), 1) if views else None,
+            "median_retention": round(statistics.median(retentions), 4) if retentions else None,
+            "median_views": round(statistics.median(views), 1) if views else None,
             "sample_sufficient_for_comparison": len(rows) >= 3,
             "interpretation": (
                 "Descriptive result only; topic, timing, and distribution may confound this between-video experiment."
