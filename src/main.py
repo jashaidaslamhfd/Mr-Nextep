@@ -177,14 +177,10 @@ def run() -> dict:
         agent_brain.enrich_visual_prompts(script)
         retention_verdict = agent_brain.predict_retention(script)
         log.info(
-            "Agent Brain Retention Index: %d%% (Verdict: %s)",
-            retention_verdict.get("retention_index_pct", 0),
+            "Script-structure heuristic: %d%% (not measured retention; verdict: %s)",
+            retention_verdict.get("structural_quality_pct", 0),
             "PASSED" if retention_verdict.get("passed") else "SUBOPTIMAL",
         )
-        if SETTINGS.topic and script.get("scenes"):
-            # Keep the supplied topic in the opening narration, but preserve the model's
-            # curiosity title so repeated manual topics do not collide with history.
-            script["scenes"][0]["narration"] = base_topic
 
         if metadata_collides(script, published_history, SETTINGS.duplicate_check_last):
             log.warning(
