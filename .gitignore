@@ -1,4 +1,5 @@
 .env
+.secrets/
 .env.*
 !.env.example
 config/.env

@@ -9,6 +9,7 @@ from typing import Any
 from urllib.request import Request, urlopen
 
 from .config import Settings
+from .growth import HOOK_STYLES
 from .utils import SHORTS_TITLE_MAX_CHARS, TitleRejected, validate_short_title
 
 log = logging.getLogger(__name__)
@@ -246,7 +247,7 @@ Prefer:
 - Simple explanations of models, prompts, training, and hallucinations
 - The psychological effects of automation, surveillance, and synthetic media
 
-For current AI claims, use only information supported by the supplied topic. Do not invent product capabilities, launch details, studies, statistics, or incidents.
+For current AI claims, use only information supported by the supplied topic. Do not invent product capabilities, launch details, studies, statistics, or incidents. For precise numeric claims or claims attributed to a study, include at least one credible source URL in the sources array. Never invent a citation or source URL; if you cannot confidently identify a source, remove the precise claim.
 Do not combine multiple unrelated AI facts into one Short.
 
 HOOK
@@ -330,6 +331,7 @@ Required structure:
   "title": "...",
   "description": "...",
   "tags": ["...", "..."],
+  "sources": [],
   "scenes": [
     {{
       "caption": "...",
@@ -456,10 +458,16 @@ def _validate_script(result: Any) -> dict[str, Any]:
 
 
 def _request_script(topic: str, key: str, feedback: str | None = None) -> dict[str, Any]:
+    hook_style = os.getenv("MRNEXTEP_HOOK_STYLE", "concrete_observation").strip()
+    hook_instruction = HOOK_STYLES.get(hook_style, HOOK_STYLES["concrete_observation"])
     instruction = f"""Create one original Mr-Nextep YouTube Short about:
 
 TOPIC:
 {topic}
+
+CONTROLLED HOOK VARIANT: {hook_style}
+{hook_instruction}
+Use this hook style for Scene 1 while keeping every factual claim accurate. Do not include the variant name in the narration.
 
 Optimize in this priority order:
 

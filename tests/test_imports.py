@@ -21,6 +21,7 @@ MODULES = [
     "src.avatar",
     "src.config",
     "src.content",
+    "src.growth",
     "src.guards",
     "src.main",
     "src.media",
