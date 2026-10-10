@@ -377,7 +377,7 @@ class AgentBrain:
         if hook_potency < 0.80:
             recommendations.append("Sharpen Scene 1 hook: ensure caption is under 7 words and cuts straight to anomaly.")
         if pacing_score < 0.80:
-            recommendations.append("Smooth narration word budget: balance scene lengths between 8 and 13 words.")
+            recommendations.append("Tighten pacing: keep each scene to 4–8 spoken words and remove filler or repeated ideas.")
         if loopback_score < 0.80:
             recommendations.append("Enhance Scene 8 infinite loop phrasing to flow seamlessly into Scene 1 replay.")
 
