@@ -3650,7 +3650,7 @@
   },
   {
     "created_at": "2026-10-10T06:59:42.948900+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Grounded Reasoning and Artificial Intelligence for National Security (GRAINS) Workshop",
     "title": "Grounded Reasoning and Artificial Intelligence for National Security (GRAINS) Workshop",
     "video_path": "output/mr_nextep_short.mp4",
@@ -3682,6 +3682,21 @@
     "retention_proxy": 0.9,
     "fingerprint": "492cd41660cd7beefc82b7e33ee3a1749ac513bf75c348f76b6b6500ebc10ce6",
     "body": "AI warned of a phantom threat Sounds like a seasoned analyst Data never existed in reality GRAINS workshop showed grounded reasoning Resources deployed for nonexistent threat Brains trust confidence, even when wrong AI confidence tricks human judgment Confidence made the phantom feel real",
-    "text": "Grounded Reasoning and Artificial Intelligence for National Security (GRAINS) Workshop AI warned of a phantom threat Sounds like a seasoned analyst Data never existed in reality GRAINS workshop showed grounded reasoning Resources deployed for nonexistent threat Brains trust confidence, even when wrong AI confidence tricks human judgment Confidence made the phantom feel real"
+    "text": "Grounded Reasoning and Artificial Intelligence for National Security (GRAINS) Workshop AI warned of a phantom threat Sounds like a seasoned analyst Data never existed in reality GRAINS workshop showed grounded reasoning Resources deployed for nonexistent threat Brains trust confidence, even when wrong AI confidence tricks human judgment Confidence made the phantom feel real",
+    "youtube_video_id": "pU0_Tbe6Js8",
+    "url": "https://youtu.be/pU0_Tbe6Js8",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "published",
+        "id": "1807603147091053",
+        "format": "reels"
+      },
+      "instagram": {
+        "status": "published",
+        "id": "18168569596480788",
+        "source_url": "https://github.com/jashaidaslamhfd/Mr-Nextep/releases/download/short-38032583866/mr_nextep_short.mp4"
+      }
+    }
   }
 ]
