@@ -235,6 +235,21 @@ def upload(video: Path, script: dict[str, Any], settings) -> dict[str, Any]:
         vid = resp.get("id") or resp.get("videoId")
         logger.info("YouTube upload complete, id=%s", vid)
         result = {"status": "uploaded", "youtube_video_id": vid, "url": f"https://youtu.be/{vid}"}
+        # Thumbnail setting is best-effort: YouTube may reject custom thumbnails for some
+        # Shorts/channel states, so a thumbnail API error must not undo a successful upload.
+        thumbnail = Path(video).parent / "mr_nextep_thumb_youtube.jpg"
+        if vid and thumbnail.exists():
+            try:
+                youtube.thumbnails().set(
+                    videoId=vid,
+                    media_body=MediaFileUpload(str(thumbnail), mimetype="image/jpeg", resumable=False),
+                ).execute()
+                result["thumbnail"] = "uploaded"
+            except Exception as exc:
+                logger.warning("YouTube thumbnail upload unavailable (%s)", type(exc).__name__)
+                result["thumbnail"] = f"not_set: {type(exc).__name__}"
+        else:
+            result["thumbnail"] = "skipped: generated cover missing"
         # The caption track is a separate API call and is deliberately non-fatal: the video
         # is already public at this point, so failing the run over a missing caption track
         # would be worse than publishing without one. The failure is logged loudly instead.

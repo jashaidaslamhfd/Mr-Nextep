@@ -27,6 +27,7 @@ MODULES = [
     "src.media",
     "src.meta",
     "src.platform_analytics",
+    "src.presentation",
     "src.seo",
     "src.utils",
     "src.visuals",

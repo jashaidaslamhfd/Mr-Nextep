@@ -19,8 +19,8 @@ class Settings(BaseSettings):
     output_dir: Path = Field(default=Path("output"), validation_alias="OUTPUT_DIR")
     data_dir: Path = Field(default=Path("data"), validation_alias="DATA_DIR")
     dry_run: bool = Field(default=False, validation_alias="DRY_RUN")
-    privacy_status: str = Field(default="private", validation_alias="YT_PRIVACY_STATUS")
-    schedule_publish: bool = Field(default=True, validation_alias="YT_SCHEDULE_PUBLISH")
+    privacy_status: str = Field(default="public", validation_alias="YT_PRIVACY_STATUS")
+    schedule_publish: bool = Field(default=False, validation_alias="YT_SCHEDULE_PUBLISH")
     # Real channel median is ~38% viewed. Keep the production target tight.
     min_seconds: float = Field(default=17.5, validation_alias="TARGET_MIN_SECONDS")
     max_seconds: float = Field(default=23.0, validation_alias="TARGET_MAX_SECONDS")
