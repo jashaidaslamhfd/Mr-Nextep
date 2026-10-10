@@ -51,7 +51,7 @@ def topic_cluster(topic: str) -> str:
         "brain_behavior": ("brain", "neuron", "psychology", "behavior", "behaviour", "emotion", "consciousness"),
     }
     for cluster, terms in groups.items():
-        if any(term in text for term in terms):
+        if any((bool(re.search(r"\\bai\\b", text)) if term == "ai" else term in text) for term in terms):
             return cluster
     return "general_science"
 
