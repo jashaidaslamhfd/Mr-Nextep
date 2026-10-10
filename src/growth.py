@@ -51,7 +51,7 @@ def topic_cluster(topic: str) -> str:
         "brain_behavior": ("brain", "neuron", "psychology", "behavior", "behaviour", "emotion", "consciousness"),
     }
     for cluster, terms in groups.items():
-        if any((bool(re.search(r"\\bai\\b", text)) if term == "ai" else term in text) for term in terms):
+        if any((bool(re.search(r"\bai\b", text)) if term == "ai" else term in text) for term in terms):
             return cluster
     return "general_science"
 
@@ -209,7 +209,7 @@ def check_claim_sources(script: dict[str, Any]) -> dict[str, Any]:
     narration = " ".join(str(scene.get("narration", "")) for scene in script.get("scenes", []))
     precise_claim = bool(re.search(
         r"\b\d+(?:\.\d+)?\s?%|\b\d+(?:\.\d+)?\s?(?:million|billion|thousand)\b|"
-        r"\b(?:a study found|researchers proved|scientists proved|according to a study)\b",
+        r"\b(?:(?:a\s+)?study\s+(?:found|suggests?|shows?|discovered)|researchers?\s+(?:proved|found|reported|showed|discovered)|scientists?\s+(?:proved|found|reported|showed|discovered)|according to (?:research|a study))\b",
         narration, flags=re.I,
     ))
     sources = script.get("sources", [])
