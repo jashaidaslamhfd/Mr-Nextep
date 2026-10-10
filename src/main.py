@@ -29,6 +29,15 @@ logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
 
 def _git_persist(paths: list[str], message: str) -> None:
     """Best-effort state commit with rebase; never hide the production result."""
+    # Manual workflow_dispatch runs can target a feature branch. Never let a
+    # non-main run push generated state into production's main branch.
+    branch = subprocess.run(
+        ["git", "branch", "--show-current"], check=False, capture_output=True, text=True
+    )
+    if branch.returncode != 0 or branch.stdout.strip() != "main":
+        log.info("Skipping Git state persistence outside the main branch.")
+        return
+
     existing = [p for p in paths if Path(p).exists()]
     if not existing:
         return

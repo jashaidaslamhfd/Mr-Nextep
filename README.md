@@ -1,38 +1,44 @@
 # Mr-Nextep — Dark Science Shorts Factory
 
-Mr-Nextep is a clean US-English YouTube Shorts automation pipeline for dark science, psychology, mystery, and human-behavior topics. It generates a 15–30 second vertical Short, uses fast visual beats with one-word captions, validates the output, rejects duplicate content, and uploads it privately with an optional native YouTube publication time.
+Mr-Nextep is a US-English YouTube Shorts automation pipeline for dark science, psychology, mystery, AI, and human behavior. It generates a vertical video, validates content and media, checks for duplicate content, and publishes according to the GitHub Actions workflow.
 
-When Meta credentials are available, the same video is posted to Facebook first and Instagram after a **10-minute gap**. Instagram requires a publicly reachable HTTPS video URL (`PUBLIC_VIDEO_URL`); if it is unavailable, the pipeline records a safe skip instead of reporting a false post. Facebook and Instagram keep the same US-English content and duration policy as YouTube.
+## Publishing behavior
 
-Metadata is now platform-specific: YouTube receives a search-oriented title, tags, and Shorts hashtags; Facebook receives a discussion-oriented title and description; Instagram receives a concise Reels caption with a separate hashtag set. The video itself is shared, but SEO text is not copied across platforms.
+The scheduled production workflow has three UTC slots: **17:00, 22:00, and 01:00 UTC**. These correspond to **10:00 PM, 3:00 AM, and 6:00 AM Pakistan Standard Time (PKT)** respectively; the last slot falls on the following PKT calendar day. US Eastern time shifts with daylight saving time, so use the UTC cron as the source of truth.
 
-## Retention and originality gates
+The workflow currently sets `YT_PRIVACY_STATUS=public` and `YT_SCHEDULE_PUBLISH=false`. Therefore, a successful scheduled run makes the YouTube upload public immediately; it does **not** create a private upload with a future `publishAt` time. The minimum-publish-gap guard is configured to 3 hours, and production workflow runs are serialized to reduce concurrent state-write races. A manual run can use `dry_run=true` to render/check without publishing.
 
-The system cannot honestly guarantee that viewers will watch 70% of every video; actual retention is determined by the audience and YouTube distribution. It does enforce a **70%+ pre-publication retention proxy** based on short length, eight-scene structure, and hook shape. After publication, real YouTube retention is used for strategy decisions. Exact and near-duplicate scripts are rejected with a persistent content fingerprint and token-similarity check.
+## Meta publishing
 
-## Daily schedule
+When Meta credentials are configured, the pipeline can publish to Facebook and Instagram. Instagram publishing requires a publicly reachable HTTPS video URL in `PUBLIC_VIDEO_URL`; if required inputs are unavailable, the integration should report a skip/failure rather than claim a successful post. The configured Meta post gap and Instagram processing timeout are workflow settings; verify them against the platform's current API requirements before changing them.
 
-Analytics show **64.7% of views from the United States**, so the two observed traffic windows will now be tested daily: **11:00 PM PKT** (approximately 2:00 PM US Eastern) and **3:00 AM PKT** (approximately 6:00 PM US Eastern on the previous day). Each run starts **two hours before its target**, selects a topic, renders and validates one video, uploads it privately, and sets the exact YouTube `publishAt` time. Results should be compared after enough impressions accumulate rather than judged from one upload.
+## Retention and originality
 
-## Run locally
+The pipeline cannot guarantee a particular audience-retention percentage. Structural checks (duration, scene count, captions, narration, and originality) are **not** measurements of viewer retention. Real YouTube Analytics data is fetched separately and used when enough historical data exists. When the analytics baseline is missing, retention is explicitly marked as ungrounded rather than presented as a measured score. Exact and near-duplicate scripts are checked using persistent content history and similarity rules.
+
+## Local development
 
 ```bash
-python -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
 cp env.example .env
-PYTHONPATH=src DRY_RUN=true python src/main.py
+DRY_RUN=true python scripts/preflight.py
+DRY_RUN=true python -m src.main
 ```
+
+Install FFmpeg and ffprobe before running the media pipeline. Keep secrets in environment variables or GitHub Actions Secrets; do not commit `.env` files or API keys.
 
 ## Required GitHub Secrets
 
-`GROQ_API_KEY` or `OPENROUTER_API_KEY` may be retained for future LLM script adapters. YouTube upload requires `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, and `REFRESH_TOKEN`. Existing repository Secrets and Variables are intentionally not modified by this rebuild.
+For production YouTube publishing, configure `GROQ_API_KEY` or `OPENROUTER_API_KEY`, plus `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, and `REFRESH_TOKEN` (the supported `YT_*` aliases are also accepted for OAuth). Meta secrets are optional unless you intend to publish to those platforms. Never paste secrets into issues, logs, or chat.
 
-## Output standards
+## Output
 
-The renderer produces 1080×1920 video at 30fps with narration audio, 8 short visual caption beats, one word at a time, no caption box, and a final duration between 15 and 30 seconds. A failed quality gate stops upload.
+The workflow is configured for 1080×1920, 30 fps vertical video, with a target duration of approximately 17.5–23 seconds and eight visual/narration scenes. A failed quality gate should stop publication. Actual output dimensions and duration should be verified from the rendered file in CI.
 
-## Safety and state
+## Operational security and state
 
-The rebuild deletes old tracked source, documentation, generated models, and `data/` state, but preserves Git history, repository settings, GitHub Secrets, and GitHub Variables. New runtime state is written to `data/content_history.json` and `data/video_history.json`, while generated media remains in `output/`.
+A previously committed `config/.env` reportedly contained a Pixabay API key. Deleting the file does not remove it from Git history. **Revoke/rotate that key and update the GitHub Actions secret**; history cleanup is a separate, coordinated operation because rewriting history changes commit IDs. Runtime state is currently persisted to the repository by the production pipeline; this is operationally simple but adds noisy commits and should eventually move to external storage or a dedicated state branch.
 
 License: MIT.
