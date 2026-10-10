@@ -71,24 +71,28 @@ def _wait_until_ready(session: requests.Session, media_id: str, token: str) -> N
     with a container that actually finished processing.
     """
     timeout = max(120, int(os.getenv("INSTAGRAM_PROCESSING_TIMEOUT_SECONDS", "300")))
-    deadline = time.time() + timeout
+    poll_seconds = max(1, int(os.getenv("INSTAGRAM_PROCESSING_WAIT_SECONDS", "10")))
+    deadline = time.monotonic() + timeout
     last_status = ""
-    while time.time() < deadline:
+    while time.monotonic() < deadline:
         status_resp = _get(
             session,
             f"{GRAPH_BASE}/{media_id}",
             params={"access_token": token, "fields": "status_code,status"},
         )
-        last_status = status_resp.get("status_code", "")
+        last_status = str(status_resp.get("status_code") or "").upper()
         if last_status == "FINISHED":
             return
         if last_status in {"ERROR", "EXPIRED"}:
             error_msg = status_resp.get("status") or "no error details"
             raise RuntimeError(f"Instagram media processing failed: {last_status} ({error_msg})")
         logger.debug(
-            "Instagram processing status %s for container %s. Sleeping 10s", last_status, media_id
+            "Instagram processing status %s for container %s. Sleeping %ss",
+            last_status or "unknown",
+            media_id,
+            poll_seconds,
         )
-        time.sleep(10)
+        time.sleep(min(poll_seconds, max(0, deadline - time.monotonic())))
     raise TimeoutError(
         f"Instagram media processing timed out after {timeout}s for container {media_id} "
         f"(last status: {last_status or 'unknown'}); refusing to publish an unprocessed container"
