@@ -73,3 +73,20 @@ The workflow is configured for 1080×1920, 30 fps vertical video, with a target 
 A previously committed `config/.env` reportedly contained a Pixabay API key. Deleting the file does not remove it from Git history. **Revoke/rotate that key and update the GitHub Actions secret**; history cleanup is a separate, coordinated operation because rewriting history changes commit IDs. Runtime state is currently persisted to the repository by the production pipeline; this is operationally simple but adds noisy commits and should eventually move to external storage or a dedicated state branch.
 
 License: MIT.
+
+
+## Cross-platform analytics and weekly growth report
+
+The growth report workflow runs weekly (Monday 09:17 UTC) and can also be started from **Actions → Weekly cross-platform growth report → Run workflow**. It refreshes YouTube Analytics where the OAuth scope is authorized, collects available insights for Facebook Page video/Reel IDs and Instagram Reel media IDs in `data/video_history.json`, then uploads `weekly_growth_report.md` and `weekly_growth_report.json` as workflow artifacts. The report is available under the completed workflow run's **Artifacts** section; it does not commit analytics or reports back to `main`.
+
+Configure the existing Actions secrets `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `REFRESH_TOKEN`, `FACEBOOK_PAGE_ID`, `FACEBOOK_ACCESS_TOKEN`, and `INSTAGRAM_USER_ID`. Meta insights use the same Page access token as publishing. Having connected accounts does not itself guarantee insight permissions; Meta may reject metrics for some account types, media types, or API versions. Unsupported metrics are skipped individually, recorded as unavailable, and never represented as zero. Set repository variable `META_GRAPH_API_VERSION` to a currently supported Graph API version after checking the app's version support. The default is a fallback, not a guarantee that Meta still supports that version.
+
+The report compares each platform against its own median, because view counts and definitions differ across YouTube, Instagram and Facebook. It only emits relative winner/laggard suggestions after at least three measured view counts on that platform. These are diagnostic prompts, not causal claims or promises of reach. If there are no Meta analytics records, verify the object IDs in `data/video_history.json`, account/token permissions and Graph API version before treating the report as complete.
+
+Run locally:
+
+```bash
+python scripts/pull_platform_analytics.py --skip-meta
+```
+
+The script writes `data/meta_performance_history.json` plus `output/weekly_growth_report.md` and `.json`. Do not commit access tokens; the generated records contain metrics and IDs only.
