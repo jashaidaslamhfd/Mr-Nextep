@@ -109,7 +109,7 @@ def test_agent_brain_audit_and_optimize():
     script = {
         "title": "Why Does Your Body Jolt?",
         "scenes": [
-            {"caption": "Body jolts.", "narration": "You are drifting to sleep when your body violently jolts awake."},
+            {"caption": "Your body suddenly jolts awake", "narration": "Your body jolts as sleep begins."},
             {"caption": "Sensory signal.", "narration": "Your sensory neurons misinterpret relaxing muscles as free fall."},
             {"caption": "Brainstem reflex.", "narration": "An ancient brainstem circuit seizes control before awareness reactivates."},
             {"caption": "Hypnic spasm.", "narration": "Neuroscientists classify this sudden misfire as a hypnic jerk."},
