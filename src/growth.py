@@ -59,7 +59,7 @@ def topic_cluster(topic: str) -> str:
 def build_hook_variations(topic: str) -> list[dict[str, Any]]:
     """Return three safe candidate directions; scores are structural heuristics only."""
     clean = " ".join(str(topic or "").strip().rstrip("?.!").split())
-    noun = re.sub(r"^(?:why\\s+(?:does|do|is|are)|how\\s+(?:does|do|is|are)|what\\s+(?:makes|happens\\s+when|does|do)|when|where|why|how|what|can|does|do)\\s+", "", clean, flags=re.I)
+    noun = re.sub(r"^(?:why\s+(?:does|do|is|are)|how\s+(?:does|do|is|are)|what\s+(?:makes|happens\s+when|does|do)|when|where|why|how|what|can|does|do)\s+", "", clean, flags=re.I)
     candidates = [
         {"style": "concrete_observation", "instruction": HOOK_STYLES["concrete_observation"],
          "example": f"That strange moment when {noun.lower()} feels different."},
@@ -178,7 +178,7 @@ def choose_growth_topic(
         return None
     try:
         payload = json.loads(queue_path.read_text(encoding="utf-8"))
-    except (OSError, json.JSONDecodeError) as exc:
+    except (OSError, json.JSONDecodeError):
         # A bad queue should fall back to the existing topic rotation rather than stop publishing.
         return None
     candidates = payload.get("topics", []) if isinstance(payload, dict) else []
@@ -208,8 +208,8 @@ def check_claim_sources(script: dict[str, Any]) -> dict[str, Any]:
     """Require source URLs for numeric or study-attributed claims; this is not fact proof."""
     narration = " ".join(str(scene.get("narration", "")) for scene in script.get("scenes", []))
     precise_claim = bool(re.search(
-        r"\\b\\d+(?:\\.\\d+)?\\s?%|\\b\\d+(?:\\.\\d+)?\\s?(?:million|billion|thousand)\\b|"
-        r"\\b(?:a study found|researchers proved|scientists proved|according to a study)\\b",
+        r"\b\d+(?:\.\d+)?\s?%|\b\d+(?:\.\d+)?\s?(?:million|billion|thousand)\b|"
+        r"\b(?:a study found|researchers proved|scientists proved|according to a study)\b",
         narration, flags=re.I,
     ))
     sources = script.get("sources", [])
