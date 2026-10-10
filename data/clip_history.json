@@ -1,53 +1,5 @@
 [
   {
-    "hash": "bb550911159668e9a7db7d2cfd4f957614e6d2c797b356ed4d1cf02a682a9582",
-    "source_url": "https://videos.pexels.com/video-files/7057800/7057800-sd_240_426_24fps.mp4",
-    "title": "Short sleep duration is associated with reduced leptin, elevated ghrelin, and increased body mass index",
-    "created_at": "2026-09-13T21:54:33.738971+00:00"
-  },
-  {
-    "hash": "17a49dbf31e24ab3787189d13a5323e51d1d65f39cfbaaaa7c58eef2792f31ac",
-    "source_url": "https://videos.pexels.com/video-files/8321893/8321893-hd_1080_2048_25fps.mp4",
-    "title": "Short sleep duration is associated with reduced leptin, elevated ghrelin, and increased body mass index",
-    "created_at": "2026-09-13T21:54:33.738971+00:00"
-  },
-  {
-    "hash": "a5d747674a30e9bf1ef91a480edde8739c22c55e83744de3fac910dfda1f2d1d",
-    "source_url": "https://videos.pexels.com/video-files/7593912/7593912-hd_1080_1920_24fps.mp4",
-    "title": "Short sleep duration is associated with reduced leptin, elevated ghrelin, and increased body mass index",
-    "created_at": "2026-09-13T21:54:33.738971+00:00"
-  },
-  {
-    "hash": "4f5a7c0b257ca375bea9c9646865dea31c8895884b39a2fd97db52a53031e414",
-    "source_url": "https://videos.pexels.com/video-files/7593906/7593906-hd_1080_1920_24fps.mp4",
-    "title": "Short sleep duration is associated with reduced leptin, elevated ghrelin, and increased body mass index",
-    "created_at": "2026-09-13T21:54:33.738971+00:00"
-  },
-  {
-    "hash": "cfc577de159e9abf1ac3d6f0c9fd8948ebbc0168321de008944170b8ea216265",
-    "source_url": "https://videos.pexels.com/video-files/7938982/7938982-sd_360_640_24fps.mp4",
-    "title": "Chapter 12 Memory Impairments Associated with Stress and Aging",
-    "created_at": "2026-09-13T23:44:22.388556+00:00"
-  },
-  {
-    "hash": "f2b5a9d5eaba098596c3c91ec8c392ffbf346eaa617af0a3b522665703b728fa",
-    "source_url": "https://videos.pexels.com/video-files/8136212/8136212-sd_540_960_25fps.mp4",
-    "title": "Chapter 12 Memory Impairments Associated with Stress and Aging",
-    "created_at": "2026-09-13T23:44:22.388556+00:00"
-  },
-  {
-    "hash": "1c1c033f558bfef56f424ca8560f4c7a4ee80087feff479c38a0f625c23c3eb4",
-    "source_url": "https://cdn.pixabay.com/video/2020/04/08/35427-407130886_medium.mp4",
-    "title": "Chapter 12 Memory Impairments Associated with Stress and Aging",
-    "created_at": "2026-09-13T23:44:22.388556+00:00"
-  },
-  {
-    "hash": "0a3f1054bfe9aaa1ae03508d4a4d7b89a120e725511d45e7948c9b7c68aeaa0b",
-    "source_url": "https://videos.pexels.com/video-files/6294936/6294936-sd_506_960_25fps.mp4",
-    "title": "Chapter 12 Memory Impairments Associated with Stress and Aging",
-    "created_at": "2026-09-13T23:44:22.388556+00:00"
-  },
-  {
     "hash": "cc5df5867db72ff2f5e60e654f9c96177a667627dd83205c4fa17148d0b02b80",
     "source_url": "https://videos.pexels.com/video-files/38735389/16456562_360_640_25fps.mp4",
     "title": "Chapter 12 Memory Impairments Associated with Stress and Aging",
@@ -2998,5 +2950,53 @@
     "source_url": "https://videos.pexels.com/video-files/12893605/12893605-sd_540_960_24fps.mp4",
     "title": "OPM launches beta AI chatbot for federal workforce data",
     "created_at": "2026-10-10T01:22:47.597660+00:00"
+  },
+  {
+    "hash": "ac59fb9e2053ecd01ec496e4e407745a9870fa0768ab5c978f15b5c2ea08f62d",
+    "source_url": "https://cdn.pixabay.com/video/2022/07/05/123165-727221421_medium.mp4",
+    "title": "Grounded Reasoning and Artificial Intelligence for National Security (GRAINS) Workshop",
+    "created_at": "2026-10-10T06:59:42.948900+00:00"
+  },
+  {
+    "hash": "cffe7cb3cee65f8ce435c2cb2301d6cf14bdb619ca6b6b630686fd09f618b25a",
+    "source_url": "https://videos.pexels.com/video-files/31949195/13611551_360_640_30fps.mp4",
+    "title": "Grounded Reasoning and Artificial Intelligence for National Security (GRAINS) Workshop",
+    "created_at": "2026-10-10T06:59:42.948900+00:00"
+  },
+  {
+    "hash": "28c8ea19e2d0707dc09d6eb384c05cd4c1ba13964c048ec0beb7f335a04fa9cb",
+    "source_url": "https://videos.pexels.com/video-files/35635788/15102274_360_640_30fps.mp4",
+    "title": "Grounded Reasoning and Artificial Intelligence for National Security (GRAINS) Workshop",
+    "created_at": "2026-10-10T06:59:42.948900+00:00"
+  },
+  {
+    "hash": "b19801f02fdec7993410587165958bafbec0de9cf1b40705ad5da0fd2f457c6e",
+    "source_url": "https://videos.pexels.com/video-files/35606045/15089450_360_640_25fps.mp4",
+    "title": "Grounded Reasoning and Artificial Intelligence for National Security (GRAINS) Workshop",
+    "created_at": "2026-10-10T06:59:42.948900+00:00"
+  },
+  {
+    "hash": "bccd7d8e4905f058304498cf505b9e05b0830259bc64eb13e4b0d1f582a336fc",
+    "source_url": "https://videos.pexels.com/video-files/26093530/11931163_360_640_30fps.mp4",
+    "title": "Grounded Reasoning and Artificial Intelligence for National Security (GRAINS) Workshop",
+    "created_at": "2026-10-10T06:59:42.948900+00:00"
+  },
+  {
+    "hash": "a2ef5684c88fea030aa3aad5ce06c5aa9224328bd6475f3f0a8a63e6a8021d94",
+    "source_url": "https://cdn.pixabay.com/video/2022/10/16/135160-761273559_medium.mp4",
+    "title": "Grounded Reasoning and Artificial Intelligence for National Security (GRAINS) Workshop",
+    "created_at": "2026-10-10T06:59:42.948900+00:00"
+  },
+  {
+    "hash": "bef12ce8dc0fa42dbcdf3b97b51a1181282e1996c0acf96074b51fece50d13e0",
+    "source_url": "https://videos.pexels.com/video-files/8724219/8724219-hd_720_1366_25fps.mp4",
+    "title": "Grounded Reasoning and Artificial Intelligence for National Security (GRAINS) Workshop",
+    "created_at": "2026-10-10T06:59:42.948900+00:00"
+  },
+  {
+    "hash": "ad593cad52811180cf4647bdb1d7aa597de7f5da59964d0c83b0257e5d165e89",
+    "source_url": "https://cdn.pixabay.com/video/2024/12/15/246810_medium.mp4",
+    "title": "Grounded Reasoning and Artificial Intelligence for National Security (GRAINS) Workshop",
+    "created_at": "2026-10-10T06:59:42.948900+00:00"
   }
 ]

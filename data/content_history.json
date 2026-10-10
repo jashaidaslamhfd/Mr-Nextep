@@ -2031,5 +2031,21 @@
     "title": "OPM launches beta AI chatbot for federal workforce data",
     "body": "The new federal chatbot feels psychic It pulls every work record instantly Yet it never actually reads thoughts It uses pattern prediction, not mind reading Workers trust its answers over supervisors Brain sees confident AI as authority Its psychic vibe is just prediction Confidence tricks perception, making it feel psychic",
     "text": "OPM launches beta AI chatbot for federal workforce data The new federal chatbot feels psychic It pulls every work record instantly Yet it never actually reads thoughts It uses pattern prediction, not mind reading Workers trust its answers over supervisors Brain sees confident AI as authority Its psychic vibe is just prediction Confidence tricks perception, making it feel psychic"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "492cd41660cd7beefc82b7e33ee3a1749ac513bf75c348f76b6b6500ebc10ce6",
+    "title": "Grounded Reasoning and Artificial Intelligence for National Security (GRAINS) Workshop",
+    "body": "AI warned of a phantom threat Sounds like a seasoned analyst Data never existed in reality GRAINS workshop showed grounded reasoning Resources deployed for nonexistent threat Brains trust confidence, even when wrong AI confidence tricks human judgment Confidence made the phantom feel real",
+    "text": "Grounded Reasoning and Artificial Intelligence for National Security (GRAINS) Workshop AI warned of a phantom threat Sounds like a seasoned analyst Data never existed in reality GRAINS workshop showed grounded reasoning Resources deployed for nonexistent threat Brains trust confidence, even when wrong AI confidence tricks human judgment Confidence made the phantom feel real"
   }
 ]

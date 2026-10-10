@@ -3647,5 +3647,41 @@
         "source_url": "https://github.com/jashaidaslamhfd/Mr-Nextep/releases/download/short-38012792255/mr_nextep_short.mp4"
       }
     }
+  },
+  {
+    "created_at": "2026-10-10T06:59:42.948900+00:00",
+    "status": "pending",
+    "topic": "Grounded Reasoning and Artificial Intelligence for National Security (GRAINS) Workshop",
+    "title": "Grounded Reasoning and Artificial Intelligence for National Security (GRAINS) Workshop",
+    "video_path": "output/mr_nextep_short.mp4",
+    "clip_hashes": [
+      "ac59fb9e2053ecd01ec496e4e407745a9870fa0768ab5c978f15b5c2ea08f62d",
+      "cffe7cb3cee65f8ce435c2cb2301d6cf14bdb619ca6b6b630686fd09f618b25a",
+      "28c8ea19e2d0707dc09d6eb384c05cd4c1ba13964c048ec0beb7f335a04fa9cb",
+      "b19801f02fdec7993410587165958bafbec0de9cf1b40705ad5da0fd2f457c6e",
+      "bccd7d8e4905f058304498cf505b9e05b0830259bc64eb13e4b0d1f582a336fc",
+      "a2ef5684c88fea030aa3aad5ce06c5aa9224328bd6475f3f0a8a63e6a8021d94",
+      "bef12ce8dc0fa42dbcdf3b97b51a1181282e1996c0acf96074b51fece50d13e0",
+      "ad593cad52811180cf4647bdb1d7aa597de7f5da59964d0c83b0257e5d165e89"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 22.378639,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "492cd41660cd7beefc82b7e33ee3a1749ac513bf75c348f76b6b6500ebc10ce6",
+    "body": "AI warned of a phantom threat Sounds like a seasoned analyst Data never existed in reality GRAINS workshop showed grounded reasoning Resources deployed for nonexistent threat Brains trust confidence, even when wrong AI confidence tricks human judgment Confidence made the phantom feel real",
+    "text": "Grounded Reasoning and Artificial Intelligence for National Security (GRAINS) Workshop AI warned of a phantom threat Sounds like a seasoned analyst Data never existed in reality GRAINS workshop showed grounded reasoning Resources deployed for nonexistent threat Brains trust confidence, even when wrong AI confidence tricks human judgment Confidence made the phantom feel real"
   }
 ]
