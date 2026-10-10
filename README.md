@@ -90,3 +90,12 @@ python scripts/pull_platform_analytics.py --skip-meta
 ```
 
 The script writes `data/meta_performance_history.json` plus `output/weekly_growth_report.md` and `.json`. Do not commit access tokens; the generated records contain metrics and IDs only.
+
+
+## Immediate publishing, subtle background music and platform covers
+
+The production workflow is configured for **immediate public upload**: `YT_PRIVACY_STATUS=public` and `YT_SCHEDULE_PUBLISH=false`. The app settings now use the same defaults, so ordinary runs do not accidentally create private or scheduled videos. GitHub's own cron only controls when the production workflow starts; it does not schedule the uploaded video for a later YouTube publish time.
+
+Before upload, the renderer adds a subtle original ambient sound bed synthesized locally under the narration. It uses no downloaded commercial music track; the narration remains the foreground. Set `BACKGROUND_MUSIC_ENABLED=false` only if you deliberately want narration-only output.
+
+The production output includes separate cover assets: `mr_nextep_thumb_youtube.jpg` (1280×720 landscape), `mr_nextep_thumb_instagram.jpg` (1080×1920 vertical), and `mr_nextep_thumb_facebook.jpg` (1080×1920 vertical). The uploader attempts to set the YouTube thumbnail and Facebook video thumbnail when the API/account supports it; Instagram Reels receives a public `cover_url` when the image can be hosted. Thumbnail API rejection is recorded as a warning and does not turn a successful video upload into a failure. Platform APIs and account eligibility may still limit custom thumbnail support.
