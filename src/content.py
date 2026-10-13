@@ -484,6 +484,15 @@ First identify the most fascinating SPECIFIC angle within the topic.
 
 Build the Short around ONE central mystery.
 
+STRICT OUTPUT BUDGET — follow these mechanically, not approximately:
+- Return exactly 8 scene objects, numbered mentally 1 through 8. Never add a ninth scene.
+- Write narration as 8 short spoken lines, one per scene. Each line MUST contain 4–8 whitespace-separated words.
+- Aim for 6–7 words per line and 48–52 words total. Count each line before returning JSON.
+- If a line is too long, rewrite it shorter; do not ignore the limit.
+- Keep each visual_query to 4–8 words and make all eight distinct.
+- Return the JSON object only. No markdown fences, commentary, or extra keys.
+- Before responding, recount scenes and narration words. If any constraint fails, revise the draft internally.
+
 Do not write like a textbook.
 Do not summarize the topic.
 Turn the idea into a fast curiosity-driven story.
