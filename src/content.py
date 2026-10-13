@@ -5,7 +5,9 @@ import json
 import logging
 import os
 import re
+import time
 from typing import Any
+from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
 from .config import Settings
@@ -457,6 +459,38 @@ def _validate_script(result: Any) -> dict[str, Any]:
     return result
 
 
+def _read_json_with_retry(request: Request, timeout: int, provider: str) -> dict[str, Any]:
+    """Read a provider response with bounded retries for transient throttling/outages."""
+    last_error: Exception | None = None
+    for attempt in range(3):
+        try:
+            with urlopen(request, timeout=timeout) as response:
+                payload = json.loads(response.read().decode("utf-8"))
+            if not isinstance(payload, dict):
+                raise ValueError(f"{provider} returned a non-object response")
+            return payload
+        except HTTPError as exc:
+            last_error = exc
+            # Invalid credentials and bad requests will not improve by retrying.
+            if exc.code not in (408, 425, 429, 500, 502, 503, 504):
+                raise
+            retry_after = exc.headers.get("Retry-After", "") if exc.headers else ""
+            try:
+                delay = min(8.0, max(1.0, float(retry_after)))
+            except (TypeError, ValueError):
+                delay = float(2 ** attempt)
+            log.warning("%s returned HTTP %s; retry %d/2 in %.1fs", provider, exc.code, attempt + 1, delay)
+        except (URLError, TimeoutError, ConnectionError) as exc:
+            last_error = exc
+            delay = float(2 ** attempt)
+            log.warning("%s connection failed; retry %d/2 in %.1fs: %s", provider, attempt + 1, delay, exc)
+        if attempt < 2:
+            time.sleep(delay)
+    if last_error is not None:
+        raise last_error
+    raise RuntimeError(f"{provider} request failed without a response")
+
+
 def _request_script(topic: str, key: str, feedback: str | None = None) -> dict[str, Any]:
     hook_style = os.getenv("MRNEXTEP_HOOK_STYLE", "concrete_observation").strip()
     hook_instruction = HOOK_STYLES.get(hook_style, HOOK_STYLES["concrete_observation"])
@@ -528,13 +562,12 @@ Return only the required JSON."""
         method="POST"
     )
     try:
-        with urlopen(request, timeout=30) as response:
-            data = json.loads(response.read().decode())
+        data = _read_json_with_retry(request, 30, "Groq")
         raw_text = data["choices"][0]["message"]["content"].strip()
     except Exception as exc:
         openrouter_key = os.getenv("OPENROUTER_API_KEY", "").strip()
         if openrouter_key:
-            log.info("Groq request failed (%s); attempting fallback via OpenRouter...", exc)
+            log.warning("Groq request failed (%s); attempting OpenRouter fallback", exc)
             or_payload = dict(payload)
             or_payload["model"] = os.getenv("OPENROUTER_MODEL", "meta-llama/llama-3.1-8b-instruct")
             or_req = Request(
@@ -548,8 +581,7 @@ Return only the required JSON."""
                 },
                 method="POST",
             )
-            with urlopen(or_req, timeout=35) as or_resp:
-                data = json.loads(or_resp.read().decode())
+            data = _read_json_with_retry(or_req, 35, "OpenRouter")
             raw_text = data["choices"][0]["message"]["content"].strip()
         else:
             raise
