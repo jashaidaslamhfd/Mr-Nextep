@@ -47,6 +47,35 @@ def _valid_payload(title: str = "Why does silence feel loud?") -> dict:
     }
 
 
+def test_transient_provider_rate_limit_is_retried(monkeypatch):
+    from urllib.error import HTTPError
+    from urllib.request import Request
+
+    calls = {"count": 0}
+
+    class _Response:
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *args):
+            return False
+
+        def read(self):
+            return b'{"ok": true}'
+
+    def _urlopen(request, timeout=None):
+        calls["count"] += 1
+        if calls["count"] == 1:
+            raise HTTPError(request.full_url, 429, "Too Many Requests", {"Retry-After": "0"}, None)
+        return _Response()
+
+    monkeypatch.setattr(content, "urlopen", _urlopen)
+    monkeypatch.setattr(content.time, "sleep", lambda _seconds: None)
+    result = content._read_json_with_retry(Request("https://example.test"), 2, "test-provider")
+    assert result == {"ok": True}
+    assert calls["count"] == 2
+
+
 def test_missing_api_key_fails_the_run_instead_of_publishing_the_template(monkeypatch):
     monkeypatch.delenv("GROQ_API_KEY", raising=False)
     with pytest.raises(ContentGenerationError) as exc:
