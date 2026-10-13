@@ -13,43 +13,74 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from src.config import SETTINGS  # noqa: E402
 
 
+def _configured(env: Mapping[str, str], *names: str) -> bool:
+    """Return whether at least one accepted alias is non-empty, without exposing it."""
+    return any(str(env.get(name, "") or "").strip() for name in names)
+
+
 def collect_errors(
     settings: Any = SETTINGS,
     environ: Mapping[str, str] | None = None,
     which: Callable[[str], str | None] = shutil.which,
 ) -> list[str]:
-    """Return non-secret configuration/runtime errors without printing credentials."""
+    """Return actionable, non-secret configuration/runtime errors."""
     env = os.environ if environ is None else environ
     errors = list(settings.check_config())
 
     if not which("ffmpeg"):
-        errors.append("ffmpeg is required")
+        errors.append("ffmpeg is required but was not found on PATH")
     if not which("ffprobe"):
-        errors.append("ffprobe is required")
+        errors.append("ffprobe is required but was not found on PATH")
 
     if not settings.dry_run:
-        if not (env.get("GROQ_API_KEY", "").strip() or env.get("OPENROUTER_API_KEY", "").strip()):
-            errors.append("Configure GROQ_API_KEY or OPENROUTER_API_KEY for a production run")
-
-        client_id = env.get("GOOGLE_CLIENT_ID") or env.get("YT_CLIENT_ID")
-        client_secret = env.get("GOOGLE_CLIENT_SECRET") or env.get("YT_CLIENT_SECRET")
-        refresh_token = env.get("REFRESH_TOKEN") or env.get("YT_REFRESH_TOKEN")
-        if not all((client_id, client_secret, refresh_token)):
+        if not _configured(env, "GROQ_API_KEY", "OPENROUTER_API_KEY"):
             errors.append(
-                "YouTube OAuth credentials missing: configure GOOGLE_CLIENT_ID, "
-                "GOOGLE_CLIENT_SECRET and REFRESH_TOKEN (or their YT_* aliases)"
+                "Missing LLM provider credential: set GROQ_API_KEY or OPENROUTER_API_KEY "
+                "in repository Settings > Secrets and variables > Actions"
             )
 
-        facebook_page = env.get("FACEBOOK_PAGE_ID", "").strip()
-        facebook_token = env.get("FACEBOOK_ACCESS_TOKEN", "").strip()
-        if bool(facebook_page) != bool(facebook_token):
-            errors.append("Facebook publishing is partially configured: provide both FACEBOOK_PAGE_ID and FACEBOOK_ACCESS_TOKEN")
+        credential_groups = (
+            (("GOOGLE_CLIENT_ID", "YT_CLIENT_ID"), "Google OAuth client ID", "GOOGLE_CLIENT_ID or YT_CLIENT_ID"),
+            (("GOOGLE_CLIENT_SECRET", "YT_CLIENT_SECRET"), "Google OAuth client secret", "GOOGLE_CLIENT_SECRET or YT_CLIENT_SECRET"),
+            (("REFRESH_TOKEN", "YT_REFRESH_TOKEN"), "YouTube OAuth refresh token", "REFRESH_TOKEN or YT_REFRESH_TOKEN"),
+        )
+        missing = [
+            description
+            for aliases, description, _hint in credential_groups
+            if not _configured(env, *aliases)
+        ]
+        if missing:
+            hints = [
+                hint
+                for aliases, _description, hint in credential_groups
+                if not _configured(env, *aliases)
+            ]
+            errors.append(
+                "Missing YouTube OAuth credential(s): "
+                + ", ".join(missing)
+                + ". Configure "
+                + ", ".join(hints)
+                + " in repository Actions secrets."
+            )
 
-        instagram_id = env.get("INSTAGRAM_USER_ID", "").strip()
+        facebook_page = str(env.get("FACEBOOK_PAGE_ID", "") or "").strip()
+        facebook_token = str(env.get("FACEBOOK_ACCESS_TOKEN", "") or "").strip()
+        if bool(facebook_page) != bool(facebook_token):
+            errors.append(
+                "Facebook publishing is partially configured: provide both "
+                "FACEBOOK_PAGE_ID and FACEBOOK_ACCESS_TOKEN, or leave both empty"
+            )
+
+        instagram_id = str(env.get("INSTAGRAM_USER_ID", "") or "").strip()
         if instagram_id and not facebook_token:
-            errors.append("Instagram publishing requires FACEBOOK_ACCESS_TOKEN")
-        if instagram_id and not env.get("PUBLIC_VIDEO_URL", "").strip():
-            errors.append("INSTAGRAM_USER_ID is configured but PUBLIC_VIDEO_URL is missing")
+            errors.append(
+                "Instagram publishing is configured but FACEBOOK_ACCESS_TOKEN is empty"
+            )
+        if instagram_id and not str(env.get("PUBLIC_VIDEO_URL", "") or "").strip():
+            errors.append(
+                "INSTAGRAM_USER_ID is configured but PUBLIC_VIDEO_URL is empty; "
+                "Instagram publishing requires a reachable HTTPS video URL"
+            )
 
     return errors
 
