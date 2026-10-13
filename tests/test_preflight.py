@@ -89,3 +89,20 @@ def test_main_emits_machine_readable_json(monkeypatch, capsys) -> None:
     assert preflight.main() == 1
     output = json.loads(capsys.readouterr().out)
     assert output == {"ok": False, "errors": ["ffmpeg is required"]}
+
+def test_collect_errors_allows_instagram_release_hosting_without_public_video_url() -> None:
+    errors = preflight.collect_errors(
+        settings=FakeSettings(dry_run=False),
+        environ={
+            "GROQ_API_KEY": "provider-secret",
+            "GOOGLE_CLIENT_ID": "client-id",
+            "GOOGLE_CLIENT_SECRET": "client-secret",
+            "REFRESH_TOKEN": "refresh-token",
+            "INSTAGRAM_USER_ID": "instagram-id",
+            "FACEBOOK_ACCESS_TOKEN": "page-token",
+            # PUBLIC_VIDEO_URL intentionally omitted: src.meta hosts to a GitHub Release.
+        },
+        which=lambda name: f"/usr/bin/{name}",
+    )
+    assert errors == []
+
