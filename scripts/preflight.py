@@ -76,11 +76,9 @@ def collect_errors(
             errors.append(
                 "Instagram publishing is configured but FACEBOOK_ACCESS_TOKEN is empty"
             )
-        if instagram_id and not str(env.get("PUBLIC_VIDEO_URL", "") or "").strip():
-            errors.append(
-                "INSTAGRAM_USER_ID is configured but PUBLIC_VIDEO_URL is empty; "
-                "Instagram publishing requires a reachable HTTPS video URL"
-            )
+        # PUBLIC_VIDEO_URL is optional: src.meta.publish() hosts the rendered MP4
+        # on a per-run GitHub Release when no external HTTPS URL is configured.
+        # Keep the secret optional so a missing URL does not block YouTube/Facebook.
 
     return errors
 
