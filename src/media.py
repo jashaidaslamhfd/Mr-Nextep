@@ -6,6 +6,7 @@ import logging
 import os
 import shutil
 import subprocess
+import time
 import wave
 from functools import lru_cache
 from pathlib import Path
@@ -138,11 +139,31 @@ def _make_audio(text: str, path: Path, duration_hint: float) -> float:
     pitch = os.getenv("EDGE_US_PITCH", "+0Hz")
 
     try:
-        cmd = ["edge-tts", "--voice", voice, f"--rate={rate}", f"--pitch={pitch}", "--text", text, "--write-media", str(mp3)]
-        try:
-            _run(cmd)
-        except Exception:
-            _run(["edge-tts", "--voice", voice, f"--rate={rate}", "--text", text, "--write-media", str(mp3)])
+        # edge-tts can fail transiently when its streaming connection is interrupted.
+        # Retry with short backoff, then retry without pitch if the pitch option/server
+        # connection is the problem. Do not fail an entire video on one transient request.
+        last_tts_error = None
+        for attempt in range(3):
+            for include_pitch in (True, False):
+                cmd = ["edge-tts", "--voice", voice, f"--rate={rate}"]
+                if include_pitch:
+                    cmd.append(f"--pitch={pitch}")
+                cmd.extend(["--text", text, "--write-media", str(mp3)])
+                try:
+                    mp3.unlink(missing_ok=True)
+                    _run(cmd)
+                    if mp3.exists() and mp3.stat().st_size > 1024:
+                        last_tts_error = None
+                        break
+                    last_tts_error = RuntimeError("edge-tts produced no usable audio file")
+                except Exception as exc:
+                    last_tts_error = exc
+            if last_tts_error is None:
+                break
+            if attempt < 2:
+                time.sleep(1.5 * (attempt + 1))
+        if last_tts_error is not None:
+            raise last_tts_error
 
         # Master audio: EBU R128 (-14 LUFS standard for YouTube Shorts & Reels) + 80Hz bass boost
         _run([
