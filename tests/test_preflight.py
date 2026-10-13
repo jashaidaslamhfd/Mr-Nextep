@@ -99,6 +99,7 @@ def test_collect_errors_allows_instagram_release_hosting_without_public_video_ur
             "GOOGLE_CLIENT_SECRET": "client-secret",
             "REFRESH_TOKEN": "refresh-token",
             "INSTAGRAM_USER_ID": "instagram-id",
+            "FACEBOOK_PAGE_ID": "page-id",
             "FACEBOOK_ACCESS_TOKEN": "page-token",
             # PUBLIC_VIDEO_URL intentionally omitted: src.meta hosts to a GitHub Release.
         },
