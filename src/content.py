@@ -523,9 +523,14 @@ STRICT OUTPUT BUDGET — follow these mechanically, not approximately:
 - Write narration as 8 short spoken lines, one per scene. Each line MUST contain 4–8 whitespace-separated words.
 - Aim for 6–7 words per line and 48–52 words total. Count each line before returning JSON.
 - If a line is too long, rewrite it shorter; do not ignore the limit.
-- Keep each visual_query to 4–8 words and make all eight distinct.
+- Keep each visual_query to 4–8 concrete words and make all eight distinct.
+- Every scene must show a different, literal subject/action that matches its spoken line. Do not reuse generic brains, glowing heads, random code, abstract particles, or the same dark hallway unless the narration specifically calls for it.
+- Design the visual sequence as an edit: alternate wide/close-up/macro or point-of-view shots; include a visible action or camera movement in each query; make each shot understandable on a phone screen without text.
+- Scene 1 must show the hook's specific visual immediately. Scenes 2–6 should reveal new evidence or escalate the idea, Scene 7 should deliver the clearest explanation, and Scene 8 should pay off the opening mystery without repeating the hook.
+- Write for a human voice actor, not an essay: use contractions, everyday US phrasing, varied sentence rhythm, and punctuation that supports natural pauses. Avoid robotic repeated sentence patterns, filler, fake suspense, and unsupported scientific certainty.
+- Keep narration lines short enough to speak clearly in one breath; never sacrifice natural grammar just to hit a word count. If a line needs a pause, use a comma or em dash sparingly.
 - Return the JSON object only. No markdown fences, commentary, or extra keys.
-- Before responding, recount scenes and narration words. If any constraint fails, revise the draft internally.
+- Before responding, recount scenes, narration words, and visual variety. If any constraint fails, revise the draft internally.
 
 Do not write like a textbook.
 Do not summarize the topic.
