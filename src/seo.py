@@ -1,7 +1,8 @@
 from __future__ import annotations
 
-import re
 from typing import Any
+
+import re
 
 from .utils import us_title_for_short
 
@@ -17,9 +18,9 @@ _STOPWORDS = {
 
 def _clean_text(value: Any) -> str:
     text = str(value or "").strip()
-    text = re.sub(r"(?<!\w)#[A-Za-z0-9_]+", "", text)
-    text = re.sub(r"\s+", " ", text)
-    return text.strip(" \n\t-•")
+    text = re.sub(r"(?<!\\w)#[A-Za-z0-9_]+", "", text)
+    text = re.sub(r"\\s+", " ", text)
+    return text.strip(" \\n\\t-•")
 
 
 def _keywords(script: dict[str, Any], title: str, description: str) -> list[str]:
@@ -44,8 +45,8 @@ def _keywords(script: dict[str, Any], title: str, description: str) -> list[str]
             if isinstance(scene, dict)
         ),
     ])
-    for phrase in re.findall(r"[A-Za-z][A-Za-z0-9'-]*(?:\s+[A-Za-z][A-Za-z0-9'-]*){0,2}", source_text):
-        phrase = re.sub(r"\s+", " ", phrase).strip(" '-").lower()
+    for phrase in re.findall(r"[A-Za-z][A-Za-z0-9'-]*(?:\\s+[A-Za-z][A-Za-z0-9'-]*){0,2}", source_text):
+        phrase = re.sub(r"\\s+", " ", phrase).strip(" '-").lower()
         words = phrase.split()
         if not phrase or len(phrase) > 42 or all(w in _STOPWORDS for w in words):
             continue
@@ -57,7 +58,7 @@ def _keywords(script: dict[str, Any], title: str, description: str) -> list[str]
     seen: set[str] = set()
     for candidate in candidates:
         normalized = re.sub(r"[^a-z0-9 ]", "", candidate.lower()).strip()
-        normalized = re.sub(r"\s+", " ", normalized)
+        normalized = re.sub(r"\\s+", " ", normalized)
         if not normalized or normalized in seen or normalized in _STOPWORDS:
             continue
         seen.add(normalized)
@@ -97,7 +98,7 @@ def _base_description(script: dict[str, Any], title: str) -> str:
     )
     if narration:
         # Prefer an actual explanation from the script, not generic SEO boilerplate.
-        sentences = re.split(r"(?<=[.!?])\s+", narration)
+        sentences = re.split(r"(?<=[.!?])\\s+", narration)
         summary = " ".join(sentences[:2]).strip()
         return f"{title.rstrip('.!?')}. {summary}".strip()
     return title.rstrip(".!?") + ". A short, evidence-aware look at the idea behind this video."
@@ -124,12 +125,12 @@ def build_packages(script: dict[str, Any]) -> dict[str, dict[str, Any]]:
     # Put the subject and useful context first; hashtags are a small finishing detail.
     yt_description = base_description
     if yt_hashtags:
-        yt_description += "\n\n" + " ".join(yt_hashtags)
+        yt_description += "\\n\\n" + " ".join(yt_hashtags)
 
     # Facebook copy is conversational and self-contained; avoid stuffing tags into prose.
     fb_description = base_description
     if meta_hashtags:
-        fb_description += "\n\n" + " ".join(meta_hashtags[:4])
+        fb_description += "\\n\\n" + " ".join(meta_hashtags[:4])
 
     # Instagram captions lead with the topic, add a brief contextual line, then relevant tags.
     ig_caption = base_description
