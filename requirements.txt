@@ -11,3 +11,4 @@ requests==2.32.5
 pytest==8.4.2
 pydantic==2.13.5
 pydantic-settings==2.15.0
+gTTS==2.5.4
