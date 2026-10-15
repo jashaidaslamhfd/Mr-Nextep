@@ -116,9 +116,12 @@ def build_packages(script: dict[str, Any]) -> dict[str, dict[str, Any]]:
     meta_hashtags = _hashtags(keywords, 5)
     yt_hashtags = _hashtags(keywords, 2)
     yt_hashtags = ["#Shorts"] + [tag for tag in yt_hashtags if tag.lower() != "#shorts"]
-    instagram_hashtags = _hashtags(keywords, 5)
+    # Instagram Reels format tag is intentional platform metadata; keep it alongside topic-grounded tags.
+    instagram_hashtags = _hashtags(keywords, 4)
     if not instagram_hashtags:
         instagram_hashtags = ["#psychology", "#science"]
+    if "#reels" not in {tag.lower() for tag in instagram_hashtags}:
+        instagram_hashtags.append("#Reels")
 
     # Put the subject and useful context first; hashtags are a small finishing detail.
     yt_description = base_description
