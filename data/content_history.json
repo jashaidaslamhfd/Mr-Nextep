@@ -2047,5 +2047,21 @@
     "title": "Grounded Reasoning and Artificial Intelligence for National Security (GRAINS) Workshop",
     "body": "AI warned of a phantom threat Sounds like a seasoned analyst Data never existed in reality GRAINS workshop showed grounded reasoning Resources deployed for nonexistent threat Brains trust confidence, even when wrong AI confidence tricks human judgment Confidence made the phantom feel real",
     "text": "Grounded Reasoning and Artificial Intelligence for National Security (GRAINS) Workshop AI warned of a phantom threat Sounds like a seasoned analyst Data never existed in reality GRAINS workshop showed grounded reasoning Resources deployed for nonexistent threat Brains trust confidence, even when wrong AI confidence tricks human judgment Confidence made the phantom feel real"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "8f253ea9004986d81a1a45eb9ca992a5990bcafe637750e0174aa4be3f2a2183",
+    "title": "Brain Drain Is a Bigger Threat to National Cybersecurity Than AI",
+    "body": "AI scares you, talent shortage scares Missing expertise fuels every breach Researchers flee for foreign pay Knowledge powers defense, not gadgets Leaving creates critical security gaps AI can't replace human intuition Security hinges on human insight Protect brains, keep cyber safe",
+    "text": "Brain Drain Is a Bigger Threat to National Cybersecurity Than AI AI scares you, talent shortage scares Missing expertise fuels every breach Researchers flee for foreign pay Knowledge powers defense, not gadgets Leaving creates critical security gaps AI can't replace human intuition Security hinges on human insight Protect brains, keep cyber safe"
   }
 ]

@@ -3698,5 +3698,91 @@
         "source_url": "https://github.com/jashaidaslamhfd/Mr-Nextep/releases/download/short-38032583866/mr_nextep_short.mp4"
       }
     }
+  },
+  {
+    "created_at": "2026-10-15T15:20:24.804511+00:00",
+    "status": "pending",
+    "topic": "Brain Drain Is a Bigger Threat to National Cybersecurity Than AI",
+    "title": "Brain Drain Is a Bigger Threat to National Cybersecurity Than AI",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "2d348fa6c0bff0399e1b366965500e57fbfe846fef291d961243ab4f3da993af",
+      "57d239efb791403be44cc4e4ffd915c6e9049490e4124dd4913a09e0edb54875",
+      "b1ae37ea7d14144d8aa55a754764b705bab369a0df8f28bafe1783f0ed06a83a",
+      "0ea6b43c88d59c83c379f69e399ab3e4273d3ff8effd00e4ae7b2e192f933362",
+      "d5caf65d4c08697f32185032d77a0959a134c5a52399a8f92d4214d681aec7c1",
+      "f53638cf55e25201f59867154664cea90264bfade2b83d77c180d054f74378bf",
+      "542cd60379541c7dcb2c8928df297b6456d7f0bd594915fb0ee55fccee388f8f",
+      "d14deb201a071a7e9decf088fab8783cbb42a9466491cd57afc421d78a4c32c1"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "counterintuitive",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 91
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 91
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 86
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "Brain Drain Is a Bigger Threat to National Cybersecurity Than AI",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPZEFzQXJhYm1vUXZXMkZyanJ1NTJZNG11ZVZlR25RRTdnWWVwN3NYalpnWVJjTHd6Mjc1aF9RbEh2dTMyRFY5ZzFYR2xHRzZSd0xYb3dSWDFaeklaVU5xYzk2MzRfaHBZZXZMbjdrNVRoZVpEdnZIX1BXdDk2d1hMNUE0TXFLM0VTMFRwZmJIcGRadnA2cFdvODA5UQ?oc=5",
+      "published_at": "2026-10-15T14:41:27+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-10-15T15:17:15.692843+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "8f253ea9004986d81a1a45eb9ca992a5990bcafe637750e0174aa4be3f2a2183",
+    "body": "AI scares you, talent shortage scares Missing expertise fuels every breach Researchers flee for foreign pay Knowledge powers defense, not gadgets Leaving creates critical security gaps AI can't replace human intuition Security hinges on human insight Protect brains, keep cyber safe",
+    "text": "Brain Drain Is a Bigger Threat to National Cybersecurity Than AI AI scares you, talent shortage scares Missing expertise fuels every breach Researchers flee for foreign pay Knowledge powers defense, not gadgets Leaving creates critical security gaps AI can't replace human intuition Security hinges on human insight Protect brains, keep cyber safe"
   }
 ]
