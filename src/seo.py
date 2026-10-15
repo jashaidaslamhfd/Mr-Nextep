@@ -1,7 +1,8 @@
 from __future__ import annotations
 
-import re
 from typing import Any
+
+import re
 
 from .utils import us_title_for_short
 
