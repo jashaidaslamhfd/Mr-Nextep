@@ -133,10 +133,11 @@ def _run(command: list[str]) -> None:
 def _make_audio(text: str, path: Path, duration_hint: float) -> float:
     """Generate cinematic narration with edge-tts and master to -14 LUFS standard."""
     mp3 = path.with_suffix(".mp3")
-    # Upgrade voice from monotonous GuyNeural to deep authoritative ChristopherNeural
-    voice = os.getenv("EDGE_US_VOICE", "en-US-AndrewNeural")
-    rate = os.getenv("EDGE_US_RATE", "+0%")
-    pitch = os.getenv("EDGE_US_PITCH", "+0Hz")
+    # Default to a warm, conversational US voice and slightly relaxed pacing.
+    # These are defaults only: environment variables can still override them per channel.
+    voice = os.getenv("EDGE_US_VOICE", "en-US-ChristopherNeural")
+    rate = os.getenv("EDGE_US_RATE", "-4%")
+    pitch = os.getenv("EDGE_US_PITCH", "-1Hz")
 
     try:
         # edge-tts can fail transiently when its streaming connection is interrupted.
