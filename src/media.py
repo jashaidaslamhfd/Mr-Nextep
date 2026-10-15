@@ -163,7 +163,24 @@ def _make_audio(text: str, path: Path, duration_hint: float) -> float:
             if attempt < 2:
                 time.sleep(1.5 * (attempt + 1))
         if last_tts_error is not None:
-            raise last_tts_error
+            # Edge's online speech endpoint can intermittently reject/close websocket
+            # requests on hosted runners. Fall back to Google's public TTS endpoint so
+            # a transient Edge outage does not consume all ten full-video attempts.
+            try:
+                from gtts import gTTS
+                mp3.unlink(missing_ok=True)
+                gTTS(text=text, lang="en", tld="com", slow=False).save(str(mp3))
+                if not mp3.exists() or mp3.stat().st_size <= 1024:
+                    raise RuntimeError("gTTS fallback produced no usable audio")
+                logger.warning("Edge TTS unavailable; used US-English gTTS fallback for this scene")
+            except Exception as fallback_exc:
+                detail = getattr(last_tts_error, "stderr", b"")
+                if isinstance(detail, bytes):
+                    detail = detail.decode("utf-8", errors="replace")
+                raise RuntimeError(
+                    f"Edge TTS failed ({last_tts_error}); gTTS fallback failed ({fallback_exc}); "
+                    f"edge stderr: {str(detail)[-600:]}"
+                ) from fallback_exc
 
         # Master audio: EBU R128 (-14 LUFS standard for YouTube Shorts & Reels) + 80Hz bass boost
         _run([
