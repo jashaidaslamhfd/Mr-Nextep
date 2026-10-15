@@ -28,8 +28,9 @@ SOURCES = {
     "nih_news": "https://news.google.com/rss/search?q=site%3Anih.gov+(brain+OR+sleep+OR+memory+OR+psychology+OR+behavior+OR+neuroscience)&hl=en-US&gl=US&ceid=US:en",
 }
 CORE_KEYWORDS = (
-    "ai", "artificial intelligence", "chatbot", "chatbots", "deepfake",
-    "synthetic media", "voice clone", "machine learning", "robot", "algorithm",
+    "ai", "artificial intelligence", "generative ai", "ai mode", "super intelligence",
+    "superintelligence", "chatbot", "chatbots", "chatgpt", "openai", "anthropic", "claude",
+    "deepfake", "synthetic media", "voice clone", "machine learning", "robot", "algorithm",
     "brain", "neuron", "neuroscience", "memory", "dream", "sleep", "attention",
     "perception", "psychology", "behavior", "behaviour", "emotion", "consciousness",
     "subconscious", "illusion", "bias", "dopamine", "trust", "hallucination",
