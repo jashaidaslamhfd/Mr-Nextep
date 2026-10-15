@@ -1,8 +1,7 @@
 from __future__ import annotations
 
-from typing import Any
-
 import re
+from typing import Any
 
 from .utils import us_title_for_short
 
@@ -20,7 +19,7 @@ def _clean_text(value: Any) -> str:
     text = str(value or "").strip()
     text = re.sub(r"(?<!\w)#[A-Za-z0-9_]+", "", text)
     text = re.sub(r"\s+", " ", text)
-    return text.strip(" \\n\\t-•")
+    return text.strip().strip("-•").strip()
 
 
 def _keywords(script: dict[str, Any], title: str, description: str) -> list[str]:
@@ -125,12 +124,12 @@ def build_packages(script: dict[str, Any]) -> dict[str, dict[str, Any]]:
     # Put the subject and useful context first; hashtags are a small finishing detail.
     yt_description = base_description
     if yt_hashtags:
-        yt_description += "\\n\\n" + " ".join(yt_hashtags)
+        yt_description += "\n\n" + " ".join(yt_hashtags)
 
     # Facebook copy is conversational and self-contained; avoid stuffing tags into prose.
     fb_description = base_description
     if meta_hashtags:
-        fb_description += "\\n\\n" + " ".join(meta_hashtags[:4])
+        fb_description += "\n\n" + " ".join(meta_hashtags[:4])
 
     # Instagram captions lead with the topic, add a brief contextual line, then relevant tags.
     ig_caption = base_description
