@@ -479,11 +479,11 @@ def _read_json_with_retry(request: Request, timeout: int, provider: str) -> dict
                 delay = min(8.0, max(1.0, float(retry_after)))
             except (TypeError, ValueError):
                 delay = float(2 ** attempt)
-            log.warning("%s returned HTTP %s; retry %d/2 in %.1fs", provider, exc.code, attempt + 1, delay)
+            log.warning("%s returned HTTP %s; attempt %d/3; next retry in %.1fs", provider, exc.code, attempt + 1, delay)
         except (URLError, TimeoutError, ConnectionError) as exc:
             last_error = exc
             delay = float(2 ** attempt)
-            log.warning("%s connection failed; retry %d/2 in %.1fs: %s", provider, attempt + 1, delay, exc)
+            log.warning("%s connection failed; attempt %d/3; next retry in %.1fs: %s", provider, attempt + 1, delay, exc)
         if attempt < 2:
             time.sleep(delay)
     if last_error is not None:
