@@ -32,55 +32,109 @@ def font(size: int):
             return ImageFont.truetype(path, size)
     return ImageFont.load_default()
 
-def generate_cover_thumbnail(video: Path, title: str, output_path: Path) -> Path:
-    """Extract key visual frame and render high-CTR mobile thumbnail typography."""
-    temp_frame = output_path.with_suffix(".raw.jpg")
-    try:
-        subprocess.run(
-            [
-                "ffmpeg", "-y", "-ss", "00:00:01.500", "-i", str(video),
-                "-vframes", "1", "-q:v", "2", str(temp_frame),
-            ],
-            check=True,
-            capture_output=True,
-        )
-        if temp_frame.exists():
-            with Image.open(temp_frame).convert("RGBA") as img:
-                draw = ImageDraw.Draw(img)
-                f = font(108)
-                words = title.upper().split()
-                lines = []
-                curr = []
-                for w in words:
-                    curr.append(w)
-                    if len(curr) >= 3:
-                        lines.append(" ".join(curr))
-                        curr = []
-                if curr:
-                    lines.append(" ".join(curr))
+def _cover_text(title: str, max_words: int = 4) -> str:
+    """Create a short, legible cover hook from the actual video title."""
+    clean = " ".join(str(title or "").replace("#", "").split())
+    clean = clean.replace("—", " ").replace(":", " ")
+    words = clean.split() or ["DARK SCIENCE"]
+    return " ".join(words[:max_words]).upper()
 
-                start_y = int(H * 0.40)
-                for i, line in enumerate(lines[:3]):
-                    y = start_y + (i * 125)
-                    # Drop shadow
-                    draw.text((W // 2 + 5, y + 7), line, font=f, fill=(0, 0, 0, 240), anchor="mm")
-                    # Vibrant Gold Headline Text
-                    draw.text(
-                        (W // 2, y),
-                        line,
-                        font=f,
-                        fill=(255, 230, 0),
-                        anchor="mm",
-                        stroke_width=8,
-                        stroke_fill=(0, 0, 0, 255),
-                    )
-                img.convert("RGB").save(output_path, "JPEG", quality=95)
-    except Exception as exc:
-        logger.warning("Cover thumbnail generation skipped (%s)", exc)
-    finally:
-        temp_frame.unlink(missing_ok=True)
+
+def _render_cover(frame: Path, output_path: Path, title: str, size: tuple[int, int], max_words: int) -> Path:
+    """Render a platform-sized cover with mobile-safe typography and contrast."""
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    width, height = size
+    with Image.open(frame).convert("RGB") as source:
+        target_ratio = width / height
+        source_ratio = source.width / source.height
+        if source_ratio > target_ratio:
+            crop_width = int(source.height * target_ratio)
+            left = max(0, (source.width - crop_width) // 2)
+            source = source.crop((left, 0, left + crop_width, source.height))
+        else:
+            crop_height = int(source.width / target_ratio)
+            top = max(0, (source.height - crop_height) // 2)
+            source = source.crop((0, top, source.width, top + crop_height))
+        image = source.resize((width, height), Image.Resampling.LANCZOS).convert("RGBA")
+
+    # Gradient shade adds legibility without covering the whole image.
+    shade = Image.new("RGBA", (width, height), (0, 0, 0, 0))
+    shade_draw = ImageDraw.Draw(shade)
+    band = int(height * (0.46 if width > height else 0.38))
+    for y in range(band):
+        alpha = int(165 * (1 - y / max(1, band)))
+        shade_draw.line((0, y, width, y), fill=(0, 0, 0, alpha))
+    image = Image.alpha_composite(image, shade)
+    draw = ImageDraw.Draw(image)
+
+    label = _cover_text(title, max_words=max_words)
+    max_text_width = int(width * (0.86 if width > height else 0.82))
+    font_size = max(34, min(int(height * (0.115 if width > height else 0.073)), 120))
+    f = font(font_size)
+    stroke = max(3, font_size // 16)
+    while font_size > 28:
+        bounds = draw.textbbox((0, 0), label, font=f, stroke_width=stroke)
+        if bounds[2] - bounds[0] <= max_text_width:
+            break
+        font_size -= 3
+        f = font(font_size)
+        stroke = max(3, font_size // 16)
+
+    lines: list[str] = []
+    current = ""
+    for word in label.split():
+        trial = (current + " " + word).strip()
+        trial_width = draw.textbbox((0, 0), trial, font=f, stroke_width=stroke)[2]
+        if current and trial_width > max_text_width and len(lines) < 1:
+            lines.append(current)
+            current = word
+        else:
+            current = trial
+    if current:
+        lines.append(current)
+    lines = lines[:2]
+    line_height = int(font_size * 1.12)
+    center_y = int(height * (0.29 if width > height else 0.27))
+    first_y = center_y - (line_height * len(lines)) // 2
+    accent = (255, 225, 45, 255) if width > height else (255, 255, 255, 255)
+    for index, line in enumerate(lines):
+        y = first_y + index * line_height
+        draw.text((width // 2 + 3, y + 4), line, font=f, fill=(0, 0, 0, 230),
+                  anchor="mm", stroke_width=stroke + 2, stroke_fill=(0, 0, 0, 255))
+        draw.text((width // 2, y), line, font=f, fill=accent,
+                  anchor="mm", stroke_width=stroke, stroke_fill=(0, 0, 0, 255))
+
+    image.convert("RGB").save(output_path, "JPEG", quality=94, optimize=True)
     return output_path
 
+
+def generate_cover_thumbnails(video: Path, title: str, output_dir: Path) -> dict[str, Path]:
+    """Generate distinct covers for YouTube discovery and Meta Reels surfaces."""
+    frame = output_dir / "mr_nextep_thumb_source.jpg"
+    try:
+        subprocess.run(
+            ["ffmpeg", "-y", "-ss", "00:00:00.800", "-i", str(video),
+             "-frames:v", "1", "-q:v", "2", str(frame)],
+            check=True, capture_output=True,
+        )
+        if not frame.exists() or frame.stat().st_size < 1024:
+            raise RuntimeError("Could not extract a usable cover frame")
+        covers = {
+            "youtube": output_dir / "mr_nextep_thumb_youtube.jpg",
+            "facebook": output_dir / "mr_nextep_thumb_facebook.jpg",
+            "instagram": output_dir / "mr_nextep_thumb_instagram.jpg",
+        }
+        _render_cover(frame, covers["youtube"], title, (1280, 720), 4)
+        _render_cover(frame, covers["facebook"], title, (1080, 1920), 4)
+        _render_cover(frame, covers["instagram"], title, (1080, 1920), 3)
+        _render_cover(frame, output_dir / "mr_nextep_thumb.jpg", title, (1080, 1920), 4)
+        logger.info("Generated platform covers: YouTube 1280x720; Facebook/Instagram 1080x1920")
+        return covers
+    except Exception as exc:
+        logger.warning("Platform-specific cover generation failed (%s)", exc)
+        return {}
+    finally:
+        frame.unlink(missing_ok=True)
 
 def make_overlay(word: str, index: int, path: Path) -> None:
     """Render high-contrast, stroke-bordered text overlay optimized for phone screens."""
@@ -408,8 +462,8 @@ def render(script: dict, settings: Settings) -> Path:
     (settings.output_dir / "clip_hashes.json").write_text(json.dumps(clip_hashes), encoding="utf-8")
     # Caption track sits beside the video; youtube.upload attaches it after the video id exists.
     build_srt(caption_cues, settings.output_dir / "mr_nextep_short.srt")
-    # Render high-CTR mobile cover frame
-    generate_cover_thumbnail(video, script.get("title", ""), settings.output_dir / "mr_nextep_thumb.jpg")
+    # Create separate covers using the exact filenames expected by each uploader.
+    generate_cover_thumbnails(video, script.get("title", ""), settings.output_dir)
     return video
 
 def validate(video: Path, settings: Settings) -> dict[str, object]:
