@@ -3,7 +3,7 @@ from __future__ import annotations
 import re
 from typing import Any
 
-from .utils import sanitize_hashtags, us_title_for_short
+from .utils import us_title_for_short
 
 
 _STOPWORDS = {
