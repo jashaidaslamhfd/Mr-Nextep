@@ -144,13 +144,20 @@ def parse(raw: bytes, source: str) -> list[dict[str, str]]:
             out.append({"title": title, "url": v("link"), "published_at": date(v("pubDate")), "source": source})
     return out
 
+def _has_phrase(title: str, phrase: str) -> bool:
+    # Word boundaries prevent "ai" matching unrelated fragments such as "daily".
+    pattern = r"(?<![a-z0-9])" + re.escape(phrase).replace(r"\ ", r"\s+") + r"(?![a-z0-9])"
+    return re.search(pattern, title.lower()) is not None
+
+
 def score(row: dict[str, str]) -> int:
     title = row["title"].lower()
-    return sum(k in title for k in CORE_KEYWORDS) * 4 - sum(k in title for k in NOISE) * 10 + (2 if row["source"] == "google_trends_us" else 1)
+    return sum(_has_phrase(title, k) for k in CORE_KEYWORDS) * 4 - sum(_has_phrase(title, k) for k in NOISE) * 10 + (2 if row["source"] == "google_trends_us" else 1)
+
 
 def relevant(row: dict[str, str]) -> bool:
     title = row["title"].lower()
-    return any(k in title for k in CORE_KEYWORDS) and not any(k in title for k in NOISE)
+    return any(_has_phrase(title, k) for k in CORE_KEYWORDS) and not any(_has_phrase(title, k) for k in NOISE)
 
 def main() -> int:
     ap = argparse.ArgumentParser()
@@ -193,6 +200,7 @@ def main() -> int:
             "topic": row["title"],
             "source": row["source"],
             "source_url": row["url"],
+            "published_at": row.get("published_at", ""),
             "trend_score": score(row),
             "fetched_at": now,
         }
