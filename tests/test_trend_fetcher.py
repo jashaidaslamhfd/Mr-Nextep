@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import json
 from email.message import Message
-from pathlib import Path
 from urllib.error import HTTPError
 
 import pytest
