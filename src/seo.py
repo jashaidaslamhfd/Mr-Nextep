@@ -5,7 +5,6 @@ from typing import Any
 
 from .utils import us_title_for_short
 
-
 _STOPWORDS = {
     "the", "and", "for", "with", "that", "this", "from", "your", "you", "are",
     "was", "were", "why", "how", "what", "when", "does", "into", "about", "have",
