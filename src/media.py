@@ -276,7 +276,19 @@ def render(script: dict, settings: Settings) -> Path:
             duration = _make_audio(str(scene.get("narration") or scene["caption"]), audio, duration)
 
         clip = scene_dir / f"clip_{index:02d}.mp4"
-        if ai_visuals_enabled():
+        scene_query = query_for_scene(scene, scene_index=index)
+        # Use real motion footage at the opening and regularly through the Short.
+        # AI stills remain useful for hard-to-film concepts, but should not turn every
+        # scene into a slow zoom on a static image.
+        stock_first = index == 1 or index % 3 == 1
+        if stock_first:
+            try:
+                download_clip(scene_query, clip, set(clip_hashes))
+                logger.info("Scene %d uses moving stock footage (retention anchor)", index)
+            except Exception as exc:
+                logger.warning("Motion-footage lookup failed for scene %d: %s", index, exc)
+
+        if not clip.exists() and ai_visuals_enabled():
             try:
                 image = scene_dir / f"ai_scene_{index:02d}.jpg"
                 generate_scene_image(scene, index, image)
@@ -288,11 +300,18 @@ def render(script: dict, settings: Settings) -> Path:
                 image.unlink(missing_ok=True)
                 logger.info("Scene %d uses AI-generated visual", index)
             except Exception as exc:
-                logger.warning("AI visual generation failed for scene %d: %s; using stock fallback", index, exc)
+                logger.warning("AI visual generation failed for scene %d: %s", index, exc)
+
         if not clip.exists():
-            scene_query = query_for_scene(scene, scene_index=index)
-            download_clip(scene_query, clip, set(clip_hashes))
-            logger.info("Scene %d uses stock fallback visual", index)
+            try:
+                download_clip(scene_query, clip, set(clip_hashes))
+                logger.info("Scene %d uses stock fallback visual", index)
+            except Exception as exc:
+                raise RuntimeError(
+                    f"No usable scene visual for scene {index} ({scene_query!r}); "
+                    f"AI image generation and stock footage fallback failed: {exc}"
+                ) from exc
+
         clip_hash = hashlib.sha256(clip.read_bytes()).hexdigest()
         clip_hashes.append(clip_hash)
 
