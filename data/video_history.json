@@ -3998,5 +3998,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-10-16T05:46:40.376336+00:00",
+    "status": "pending",
+    "topic": "AI Chatbot Girlfriend Premium Vs Free Best PAId AI Girlfriend Pros and Cons",
+    "title": "AI Chatbot Girlfriend Premium Vs Free Best PAId AI Girlfriend Pros and Cons",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "423d2bc849cb831922b4b05323c304766220b09a4ff0edbda85fea14dfa7e729",
+      "9e48a765a232b6a250424d23bc9ab415265301356242b24e3f113f7825ddae0f",
+      "673e5c640347e09e510c4a10085a035bd5b73139653d81d7746b244bc7b00395",
+      "8657223f5e782314e4f4806552cb1efe7bc5a2b2232a67a4ee8c65b80f08c04f",
+      "9a69a799270fbc2389596ff4f1a2191a308b19ad526bb8f8477fa1b71f9b88b5",
+      "b7f53ee947ef8a7faa440729996f8de174e869a3f60945ed0b7a75d7c626370b",
+      "b017bb69516949cbd9a89710354da3e61e50a562c959c5cec9f63fb45bad2dad",
+      "fde51f8d7e8425574e6e271eac3194ea27c9ac49117b1d302042cc738efb8c94"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "counterintuitive",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 98
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-2",
+      "topic": "AI Chatbot Girlfriend Premium Vs Free Best PAId AI Girlfriend Pros and Cons",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMi4AJBVV95cUxPR05JX2lYeFFvVmVwczlaaVRVYzFMdEtxdXhBQ3dfaml6eFlyM1c3NURoaW5YNHhfQ2liWktEcVlheVBGcVB5MHlhdDl2UDJVQkN4RXNCWnNpQ3lmRlktR1N1WWdNQXJGMXd5cXY4M01RLWhmYXJKdUV4MTdFc3ZNVTJxbFMycHpoT3EtVnJnN21uRVM2cm9BVG1CT1ltQnZCa1REc1hWVEZxVndlNUJzaWF5T09YLVI0M09ZVkN4Y1d5Y0tWZk1sVjBIN3Z5VjlBeVRZbzFjVHFabmdRb2EtUm9ad3duUTlaemRkMk5LRVdzcmhMMEUzaVgzU3lHMjd2bS1McDdUdG1VY1B4eDlUcU04RFNWMmJZd0VCYUdURDRnNXpJeU1BZkNUVExtSzlneXE4dWExY05WdGRMeHFHd3FDMTl5Q0h5V1pBc0thdjN1MVY1LVdlYmZna05nUEN6?oc=5",
+      "published_at": "2026-10-15T22:57:03+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-10-16T05:43:49.810892+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "05f01f749c22b277d7b72a7942adb6718a33e9bf47c183eb4060b97903bb7e27",
+    "body": "Free bot feels more real Premium sounds perfect but feels stiff Cute errors make us smile Mistakes trigger empathy in our brain Premium hides doubt with confidence Confidence tricks us into intent Free feels genuine, paid feels scripted Choose imperfect love for real connection",
+    "text": "AI Chatbot Girlfriend Premium Vs Free Best PAId AI Girlfriend Pros and Cons Free bot feels more real Premium sounds perfect but feels stiff Cute errors make us smile Mistakes trigger empathy in our brain Premium hides doubt with confidence Confidence tricks us into intent Free feels genuine, paid feels scripted Choose imperfect love for real connection"
   }
 ]
