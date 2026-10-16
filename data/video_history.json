@@ -3898,5 +3898,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-10-16T00:00:01.588975+00:00",
+    "status": "pending",
+    "topic": "States sue AI giant OpenAI, saying its popular chatbot is hurting children and deceiving adults",
+    "title": "States sue AI giant OpenAI, saying its popular chatbot is hurting children and deceiving adults",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "154d50ed443dc85d02ed97159e7de43e98df56cc94aecc40fa05ffd9c3d303cc",
+      "a576735273e6ea76e6e617e99be0097b149d8dbe7943dca144a00c8f4f5a4977",
+      "cb84478a7041a503d24cb8543e95b15e872b683851498717c168755fdcc2f991",
+      "63e40899cbed4e90e5b01e5db1fbd8acb6e1e94ed646311699b719e3b1912470",
+      "ca854f7aa0f59a9d0ea81101a833b326a1eea9c7338c0db430bcfc1a74ac655b",
+      "00e4127bd5c3f3d6ea241622e9178137aa4348fc85c4e4c511bf929910dd1297",
+      "71278bf55640165d7cb417d67091ae87301eb56fade1dc5a675c6bb3d84bd1f7",
+      "762a1634ef84322623418e10c5017df6a90e07be064334a6f1a3f25a49b9028a"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "concrete_observation",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 100
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "States sue AI giant OpenAI, saying its popular chatbot is hurting children and deceiving adults",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPOFdMbjctMUxlYlQ0VnBoa3Jpc09HdE9CWlM5b1NjbzhLZ2YwWWUtbTVucWVuMDZwRWozUmNUajh4bm45MjlZY0xiVHdxczJHQW5UZG9NdXEzLUVQaFZlUTB6cW53bVg5MUdpWExJRU5aYzRwVjNTMkY3U0NycUpsaEhRaHZ0cEw3N0xoTFpCZWZTemdsYkFJcGVCVVNhMjVLdmhJZUMyWWd3YTQxemh3MmZ6UHZiZw?oc=5",
+      "published_at": "2026-10-15T22:26:00+00:00",
+      "trend_score": 13,
+      "fetched_at": "2026-10-15T23:57:33.939224+00:00",
+      "growth_score": 43.35,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 13/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "SLEEP_TERROR",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "ab36f7011d4b1f159ef049b27285aba19e4d37f414caa2209010beb24d61fa44",
+    "body": "Kid asks AI for bedtime story States say AI misleads families Children trust confident chatbot tone AI gives homework answers that sound right Adults believe AI health advice Confidence triggers trust shortcut Lawsuits push for AI warning labels Safer bedtime stories with AI limits",
+    "text": "States sue AI giant OpenAI, saying its popular chatbot is hurting children and deceiving adults Kid asks AI for bedtime story States say AI misleads families Children trust confident chatbot tone AI gives homework answers that sound right Adults believe AI health advice Confidence triggers trust shortcut Lawsuits push for AI warning labels Safer bedtime stories with AI limits"
   }
 ]

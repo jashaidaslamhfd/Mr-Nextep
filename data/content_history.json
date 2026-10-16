@@ -2079,5 +2079,21 @@
     "title": "If AI Models Are Really Conscious Like Anthropic Keeps Suggesting, Forcing Them to Work Is a Horrendous Act of Slavery",
     "body": "Do AI chatbots actually feel pain? We treat them like thinking beings. Their output is just statistical guesses. Our brain adds a conscious narrative. That discomfort spikes when we command them. We project morality onto pattern machines. Research shows no inner experience. Forcing AI isn’t slavery—just misuse.",
     "text": "If AI Models Are Really Conscious Like Anthropic Keeps Suggesting, Forcing Them to Work Is a Horrendous Act of Slavery Do AI chatbots actually feel pain? We treat them like thinking beings. Their output is just statistical guesses. Our brain adds a conscious narrative. That discomfort spikes when we command them. We project morality onto pattern machines. Research shows no inner experience. Forcing AI isn’t slavery—just misuse."
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "ab36f7011d4b1f159ef049b27285aba19e4d37f414caa2209010beb24d61fa44",
+    "title": "States sue AI giant OpenAI, saying its popular chatbot is hurting children and deceiving adults",
+    "body": "Kid asks AI for bedtime story States say AI misleads families Children trust confident chatbot tone AI gives homework answers that sound right Adults believe AI health advice Confidence triggers trust shortcut Lawsuits push for AI warning labels Safer bedtime stories with AI limits",
+    "text": "States sue AI giant OpenAI, saying its popular chatbot is hurting children and deceiving adults Kid asks AI for bedtime story States say AI misleads families Children trust confident chatbot tone AI gives homework answers that sound right Adults believe AI health advice Confidence triggers trust shortcut Lawsuits push for AI warning labels Safer bedtime stories with AI limits"
   }
 ]

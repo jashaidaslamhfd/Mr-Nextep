@@ -1,276 +1,276 @@
 {
   "source": "Google Trends US + US AI/science/psychology RSS",
-  "mined_at": "2026-10-15T20:10:26.065827+00:00",
+  "mined_at": "2026-10-15T23:57:33.939224+00:00",
   "topics": [
     {
       "series_number": "TREND-1",
+      "topic": "States sue AI giant OpenAI, saying its popular chatbot is hurting children and deceiving adults",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPOFdMbjctMUxlYlQ0VnBoa3Jpc09HdE9CWlM5b1NjbzhLZ2YwWWUtbTVucWVuMDZwRWozUmNUajh4bm45MjlZY0xiVHdxczJHQW5UZG9NdXEzLUVQaFZlUTB6cW53bVg5MUdpWExJRU5aYzRwVjNTMkY3U0NycUpsaEhRaHZ0cEw3N0xoTFpCZWZTemdsYkFJcGVCVVNhMjVLdmhJZUMyWWd3YTQxemh3MmZ6UHZiZw?oc=5",
+      "published_at": "2026-10-15T22:26:00+00:00",
+      "trend_score": 13,
+      "fetched_at": "2026-10-15T23:57:33.939224+00:00"
+    },
+    {
+      "series_number": "TREND-2",
+      "topic": "AI Chatbot Girlfriend Premium Vs Free Best PAId AI Girlfriend Pros and Cons",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMi4AJBVV95cUxPR05JX2lYeFFvVmVwczlaaVRVYzFMdEtxdXhBQ3dfaml6eFlyM1c3NURoaW5YNHhfQ2liWktEcVlheVBGcVB5MHlhdDl2UDJVQkN4RXNCWnNpQ3lmRlktR1N1WWdNQXJGMXd5cXY4M01RLWhmYXJKdUV4MTdFc3ZNVTJxbFMycHpoT3EtVnJnN21uRVM2cm9BVG1CT1ltQnZCa1REc1hWVEZxVndlNUJzaWF5T09YLVI0M09ZVkN4Y1d5Y0tWZk1sVjBIN3Z5VjlBeVRZbzFjVHFabmdRb2EtUm9ad3duUTlaemRkMk5LRVdzcmhMMEUzaVgzU3lHMjd2bS1McDdUdG1VY1B4eDlUcU04RFNWMmJZd0VCYUdURDRnNXpJeU1BZkNUVExtSzlneXE4dWExY05WdGRMeHFHd3FDMTl5Q0h5V1pBc0thdjN1MVY1LVdlYmZna05nUEN6?oc=5",
+      "published_at": "2026-10-15T22:57:03+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-10-15T23:57:33.939224+00:00"
+    },
+    {
+      "series_number": "TREND-3",
+      "topic": "ai chatbot 18 Character AI No Filter Alternatives With Privacy And Safety Features",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMiwAJBVV95cUxQUVdxazJIdjVudFJISnpYUE80SndDQlpaR0J1T2N4OWptWWlQT2ZxRHp4WW1oQzIySmZ3dzd6MlZoR3I2VXRFMTQzQnhhRGZrLUlZRHREVVUteks3bks3V2F4ZmV0NGw2ckRQLUE4Mnk5MUltMjNTMDJQODhhVFJ2bkh4cEtsdndkSXRWMHZSRkp6S2x4ekE0RFhfa2l1Z2V5WWlVRmRRWUdYZFlMZERXMHFmWWZWSGotMG1vSUlTNTRGY2tjTHNYVVBYZk01dXZteGtmSzgzRlZvakNUaVp4Zk1fUEZrcGJNcjFadTNYcnIzUjZsdFpxZXpjUURTcTZ2Q1BiY1EtNHZIVlBPajVyaE1xeGdJWVJjUkNmbzc5cjdyNzlYdkVPME9NT05JQUtKVjZaWEw1RGV0SVUtT0hLbA?oc=5",
+      "published_at": "2026-10-15T22:55:38+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-10-15T23:57:33.939224+00:00"
+    },
+    {
+      "series_number": "TREND-4",
+      "topic": "Senate poised to add Claude to staffers\u2019 AI tools",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQOEdYdXdudWxVSElEVjRJb1Q1T1FlQXZKNVVSUHRhS3hIeDZvNTlHSDJMNU1jSDk0SzVDWTdGd1NkX1JoMHA2bUthTkswZzdxMmxObG5vYVlQQTIwcHZEbE01dkpQOEpTOVR3ZlFQa1ZKLXpxY1M1dlN3YWVEeEpuTGtlY2I5UQ?oc=5",
+      "published_at": "2026-10-15T22:28:00+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-10-15T23:57:33.939224+00:00"
+    },
+    {
+      "series_number": "TREND-5",
+      "topic": "Character AI Similar Apps Best AI Girlfriend App Vs Free AI Chatbot USA",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMi0wJBVV95cUxOdlNVd3ZaZll0clozV1ZkTnlxb3AyNWIxR2FpSE13eXRuMkZEWjNfVVpuUXdDLWtJY0JfQVhjb1ZJMEpCWWlNT3o3UldZN2JRWGFGOU9CbnZRWjE4NS1mbGE3SUxBLU1SM1JFZEpPZHR0dWhoOUszZWhxMGdHWU9kTmZ5cVlKWS1ZUmNueDRoUzZZQ3hlb3hGQ3hQcVVwZnZqYXFCdl9SRFJLbm5RTjIzaE1NSENTLUhIOVVEMnhTYTc5eTdwc3l6THEwSlVVbTh4Y2dFelF6eTdScVVTN3lrZEhlUmFsSFR3c2JKSkdWMTdzNENjbmNWcDU3M0w3UkoydGF4UVhNbmtEWkM4d19zUVhhcnRvZWtNUUtCbEhhcF9DdWxORHlPYmtwYTZSMU1TY19OcDkxQndPaHJwZ0Z0LVpVQnZnNW1BN1JqS1VoM28tR0E?oc=5",
+      "published_at": "2026-10-15T22:06:08+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-10-15T23:57:33.939224+00:00"
+    },
+    {
+      "series_number": "TREND-6",
+      "topic": "AI Chatbot Girlfriend Limited Time Offer Best PAId AI Girlfriend App 2026 Worth It",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMi5AJBVV95cUxNVnJ1OTNjTjlpQ3F6WTJOS1hTa0k2c2lsNUd0aEhoOTFTcHlYcGRFX0E1eGlnMDViZG9GYVpSZXpWb0lDWnl1UHk5UzdXRW03eHpPUUI3U3lQOUNTZEJCMXp5Rm1jMGd1LV83VUZNcGE3VUI2aGhzMVFDU1dmcHIzQTJ1TjdoN19pUldGbkJJNVBsZExhUVRsUFE5T3l5VkQ0TVRfNU5QZzFXUkNscjdreG1NaVlDTkEtUV9LQ1NiR3Fpa21hTjVVYjI0VzJlTl82cEo2WnZQc1B5WlgwdmptdXhPcjBPdXFMXzJ2am80ZFZjMlZIcVB6aXprX3BnUFhWOV83N3JBRGdaQ09JeGdiS2RxQVVXWFowQk90c1h4WXVRcUVXQVN1MGpVdjltYWg5bzFoOGRsVjRRazdkNVJCMUFDMmh5YXl6YU9jVTFPTXVUQ3ltam83QzdsVUF3Ym5lQm4wbA?oc=5",
+      "published_at": "2026-10-15T22:05:55+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-10-15T23:57:33.939224+00:00"
+    },
+    {
+      "series_number": "TREND-7",
+      "topic": "AI Chatbot Girlfriend Pay With Paypal AI Girlfriend App Subscription Price Worth It",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMi4AJBVV95cUxNWkZ6aVRfM1hUS3VVNG5oazA1Q2Zvc3IyZWtuVE5KTG16VVBEN3dTVFAzaGFUeUJIZWo5eXZHMW5PSHd1MFdRSjk5cmNGckR0MXU1Q04xQTdWeUtkT2pzMktJanVtZ05aOTB4NWVWU3VwVl9LMzVINS1VXzZNRG5OWUNTZHNRT3ZTVS1YRW8tS211eWxqVS1NUWdEMTJNd19aVkx5UHhWMzlDSV9BSklXMjE1Sk5nZm1oN19sazU4Vzg0ZF9NWG1RWlpsSl9CS21zZ2hpMEJyT3ItbmxVblVRVlJRWnFYNnl0bGNoNGRfOWFwelJqbTRYMHVfMWVsRlNvbHJfc0Q0U3M2VG1zSDdhN3phRlF5SnhGQlh1cnRLcmlWTjYtT3EtWFNhZEFjbTdueWhUZnh0b3dCc1gzRG1wOEtPbWExeEZGUUpBMzFDU2RwUnBLc2tKS3NpVnBEdFRf?oc=5",
+      "published_at": "2026-10-15T22:04:10+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-10-15T23:57:33.939224+00:00"
+    },
+    {
+      "series_number": "TREND-8",
+      "topic": "Massachusetts AG Joins Effort to Protect AI Chatbot Data",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPMDNBR09TZS14a2hJSHdneVlyeEFPYnM4ay1jNTRxd3ZCYmVmTkdUVFduOWF1cU1fb1BhM3dncDZ1MEZDVjVKTWFfZTZyU1NYMW1TX0MyVTRmTy1WNE9hd28wcWxsM01rRThZbXVlOVlENjVlRU50OWpGMDR2b1dqWkUyOFh5MEtiT0FoZEdtcmx2WlZZbDl2WHhOSlRhc0UtcUtCMVRSSQ?oc=5",
+      "published_at": "2026-10-15T21:59:49+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-10-15T23:57:33.939224+00:00"
+    },
+    {
+      "series_number": "TREND-9",
+      "topic": "is ai girlfriend chatbot worth it ai girlfriend my experience for adults",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMi3gJBVV95cUxOS0dWeUVHNEZkNVRPWUZFcW1MRlh5cUZFRFRQbV93cW9IbXJ2T1BrazZzeFVwTnF1X0REWTUtWkl0UGl5Wm1UWldXbGJQeWpib2dTSWNXc2hCYjZWdHVMQXJzVlZWSWFmTmNWWUhkSUxvOUFBWHNlZC1iZ2dqSUwxWTZHQUdXLXh4QUI0aTBuaVRubThlZTJ5MGt4NUVHeUN4VlBBOUlCbnBMVWRYc013MWJuNWxObWlRaTFITDFxMTJNYzVGX25vVUthNHJ1R3ppeFpUcXZiOTJSak0xemNWLU9Cbm9xanJqMVNZNFo2bzFNWlNyQWhUbm16Ymg3bFdTR3ZRVFRaQUZscFVDRnJOX2tzZWN4aFYta2NKeTJqRXlNOU9jcEtvellZNElYZlRJQUVab1FBekdjUHBmelJPbjVVZjZoaVNMWGFodWV5ZjRURjJEVFZGMlB5Q1VUZw?oc=5",
+      "published_at": "2026-10-15T21:53:07+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-10-15T23:57:33.939224+00:00"
+    },
+    {
+      "series_number": "TREND-10",
+      "topic": "AI Chatbot Vs AI Girlfriend App Sites Like Character AI With Images",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMi2wJBVV95cUxOLTM3SUxmdTBhV2xvd1V3VDRTQ19EU2VsVVEyNVVodWFnUmI2ZTRIcG9xUlRzUU1La1BPdkVOSTRhN09VdmczeUtnc3ZOLUJBbklVbkpMUFdsM3JqMkRFc1NNQWRSQy1xdTlDZEZmZVlDenpvSXo0M2FOS3NEZ2lrMjFKRG9tV05JWkd6ZW9iZXdsVUVMVHhTLS1ybDJxbndSQmx0alBMWG4tcnEzVUVIbUgzQUMtUzZSYWV2M3h4WnNHb3VCOVJNWHFsNzU5VXFFWTd6WFhQNVdlNm5BR1lOWjFSWnNmYURGa3V3dGtqRlJQTUlXdkY0NjBRUlpma21VRjBQRXJCRzhNOHZYQ1hCUjBBUDJxejdGdTNobEZqSmpfMkVkUHl3Z2tyRzR3NHJBX0NGaEc2NXMtaGlvaFFBQTdla2wtSi1kUlM2OUdSdTBDN214WmdUdWpFSQ?oc=5",
+      "published_at": "2026-10-15T21:52:40+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-10-15T23:57:33.939224+00:00"
+    },
+    {
+      "series_number": "TREND-11",
+      "topic": "virtual girlfriend app ai chatbot dating for adults 18+ with privacy controls",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMizwJBVV95cUxOMHdOZG5OX3lfYXdBZC1hUEJXbEVYUTFYdUNlM2hOUDZJZGVPNHlzUGdjeUtlUlo2OXZJTmlaZEtYRVNnSTRrQlJHcVhXNzBXVlNaSjFjb3A2U0hTaHRWeHA3bHNXeERWbXBCVDlQMkVIZVhKS2dLajNrVEVoTmlrVlduakl1eHRzX2NOZjNMamNwOWg1b2ViZXBnOU1RN0xqQ1FObm9rMmdFQXVrSW9LcENkVU9MNW5XSklJbnlEUjEzQ3NrQ2p4LWNHZUdWblNGUExrSDFhT3oxa1pEdnhoQnhYS1ZmOHQxenF6YVFPVmhpZ3JBRjZKQ0NHVDBKNjAyQ0NTbWRQRm1WQVNROXBKa2R6QkU0bHVHQ2NGVmdWVkhYRmwxSlRWNWpyVFQ0MXMzUksycnZqR3JxTHM2NHE5Vzl2T0xxZkJKUlBMX1Ixaw?oc=5",
+      "published_at": "2026-10-15T21:48:44+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-10-15T23:57:33.939224+00:00"
+    },
+    {
+      "series_number": "TREND-12",
+      "topic": "ai chat sites no filter ai chatbot for fun for adults 18+ with privacy controls",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMi0AJBVV95cUxQR2pCZ3ZIYmVKU3NYUEU3N1Fsb0ZMMjZlRGUzS1lmWUdVcUpUN2gzbE9JLVhBOWFpbVUwZVBzTXdWSFJsUXlLV3I3b2s1WkFXa1Q3Z211eC1pRGc2T3JibGJFV2NGcS1Ta2NEY3FmYkhMYUQ2WmQ3WW1NZmlvcGQxUzlDZnFYUUdjUGFxSTBSaE81MElpenZFeEdrT1RDY2JybFU2amdDcEd4RGg0ZXR1MmNXOU13LXFOc1MtUkdoWnppdklGVjNoR052RHRxSlJEcEJpZWhHRnhSdmt2NjVwM053RHQ2YlAzbS02SUs4VGd1bHp1OEo3OXota1NmVEhYUmVjNjdWM3l0cUpWeVg2NHJZcTIzOFo3eXR6WGk1aFlEenpSWU1zbmxZYnY1SWN3Vk5pbTFDU3ROdlFpTm9PdFR4YjFEOGVVSnhIWkF2eE4?oc=5",
+      "published_at": "2026-10-15T21:43:28+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-10-15T23:57:33.939224+00:00"
+    },
+    {
+      "series_number": "TREND-13",
+      "topic": "AI Chatbot Vs AI Girlfriend App ChAI Alternative Reddit With Voice",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMi2wJBVV95cUxQOGdHNERSZDZYN1dlaVdMNXQ5U2RVcU9KTWlQckQ3LVRvSVVlMEJ5UUNkNWdSZG5jTlRfVzdacTlvdFhqNTlrZ1dvNzZrbmU4UnRiMS1ES0c0Y01tTHlMdFVLLWZmbnZYNmZydUJWR0N2MEU4eWtRcTU5SkFGSkhrMmQ5bzRQSkxKRktENk42YUt3aWFOelg1bHV2UUxWMDE0N1R4WWxkMTNxcWluQWQyOXJqWmdWZWg3SmdQMDZMbUdDOGVhZ1JUcWZtNzBlWVhsSlhWUFFHd2ItNzQ5TURNNFBocFhQdmxXR3dtMzRQVU44eTh1M3c3YjVvX0FmMi02bnFYQWdOOUFXeXhmVFd2Q0JuQ0V4UFkzWnJCUl9PYXUwT0FhczhDVms5S1dkZ29vdmN4ZHVVNEVvY292enEyTWQwTG9JTThlbEZpVU5rNmktS1lyU3pkUGlfMA?oc=5",
+      "published_at": "2026-10-15T21:28:38+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-10-15T23:57:33.939224+00:00"
+    },
+    {
+      "series_number": "TREND-14",
+      "topic": "nuke deep image ai best ai chatbot like character ai for adults 18+ with privacy controls",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMiygJBVV95cUxQMXQzQS1Nd2ZTOVRBeUp6OXl3NzRZTlFuMjBMcEc1enIzN0RrdUdTZWVSd25xUFR4dEFwU3ppUHpxM3lHSnFBeHhBSHFwWXpDSGFBOWNCN1p3RkRtU2QwYWEwX29rcGJSaXlYOUZ4V1puVC1iRWcwTG9TOXhkZ2E3dmdEU3NjaHVxalN0QWU1VkFWdEVqeWd2X2d1dUxBdjUyUW56dFUydnlrdzdlTXpMXzV2NTZVMmw2ZUxIeFFiekxiWjM4NzZudUpPQUhuUjZyZ25iWW4xLW9NMl9ONWJ0bjU2cFI2S1ZZUEJxcmRiX2hJcko5QWcwbnk2Qkk3QzY4cEhHYXVTQmV4WExOWGxsaXRPc1dvRVdmbzkwdEJqdFJTQnB6elNPX3NCYnJnMmFBNDd4SFo3bUhVd2pneV9mOGZWbk1ZQmdmeXc?oc=5",
+      "published_at": "2026-10-15T21:28:27+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-10-15T23:57:33.939224+00:00"
+    },
+    {
+      "series_number": "TREND-15",
+      "topic": "ai chatbot sexting ai character generator chat for adults 18+ with privacy controls",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMiygJBVV95cUxNblpEWFd1elVwTW8zQVBSM01hdC1hTEV6YVJ1dFJuUTYxYmREQ3lXM2g2cVVrVzU4VUp3MlNtMGxQaERQMWh6YUx6Zjh6RWxZTm1DVm5BQUl6WWpYYkJISl93b3AwamVka2Z4LXh3YklEXzZFWTRyS0V5cms0RXRIbC1mczdrcEdITUVtYlAwdmJ0MTUtdVBkWjFfaEFETEdlMGZDLTlVLTg4RW5tQWRwaDU1MGhDTDZsYXYtYm9mZEdEbG9FdUtYQURkellhMlpFU2t0LURSSTlBNWhsQ3BjY2ZGU2FiZ1ZJRnZaOGdZUjR5cEFVQ0RUSnppZk5lc0NoQWZPQ2l3N09aWWkxODhYQl9tQjJPYWJ6c3NkenowSGdmc3NRb2lWLVFkS2EySEl2WUlqNFpqTjJQb3d4M1lxRDBNNEZzZ3JRWXc?oc=5",
+      "published_at": "2026-10-15T21:27:43+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-10-15T23:57:33.939224+00:00"
+    },
+    {
+      "series_number": "TREND-16",
+      "topic": "chat with ai AI Chatbot 18 Online With Customizable Roleplay And Privacy Controls",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMivwJBVV95cUxNOHF3Ri1pSFE0a1FrS3BDVUI3ZS1la1Z0MzItSEZIak5RaGdLZFVVUmZ0TXI4Y3JiWDVkSDdfYzZVTmZ6d2tmbElGejEyS3d6dGNLRWd4eUNCXzNkNS1lbk1CVmROYkxwd3pRc3pGcVFMcVlTUEpKUFppeGxYS1d0MC15WkM1dUNGNDNhV18wSXBwbjhGM3lRaTRJc3ZrZ082RjRFLXdzbmY2a3hBb0U3SlhjNnVCMFF4Qk5tYWFYa0dEMVJUV3ZGVGpFcmdXeF9SQkpVZ3dHSXl1bnVLcEV4Nk1ha1lLdlZSYjRQRXhqY3Z4bHlvbFk2aE1ISVVmVlNUU0didHBCYmNlV1JnM0ZjZV9MVXhwX1RDUkhaUnZQdDdRbm01U19MM3VoYUVaTjJ3MDBMWjRudW9jYmE5SkNJ?oc=5",
+      "published_at": "2026-10-15T21:11:07+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-10-15T23:57:33.939224+00:00"
+    },
+    {
+      "series_number": "TREND-17",
+      "topic": "AI Chatbot Girlfriend Premium Vs Free AI Companion Black Friday Deal Worth It",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMi4wJBVV95cUxNcHM3QnpOeUpXZU9TRkFvTi1uRkRNekJBYzdKb3pXOTBzMWtzOEZMU0ZNY0NjeEYyQzBVS2NTWXhSTEhBekgyVWVZMzNNRS1lblVoRnE2VVJuQ0Z5M05aSEhKTnBvUWM5NzA0cjdwNHI5cjZQdjN6U0lBM1Roa2lqdXFtemVMTThFekFPWTI3SVVWc0JnOW42OE50anZWX1lGbDhnRzRDTFQtOHRrX193cG16VmZ5NTdpN2VHb2VPWDRZQjA4dGdFbE1mbndTTkpuQS1FcVRKOTEzelBybTd3WXdGWTBhQVFtaFZRTTRmbzIyV2VDdS12MDlfQU44ay02eklLS3d6WVNNdGdOd211U3h6YVUtQ3Q5SU8wYVJpS1JEYTEta1UwWDdHNDNramU5ZlBZMjk3aEdOdHZqQUo2aUpTU0tILUxjN0wyUVBEeTRLLUxkd0VWbGowdHNyb05Rd1dB?oc=5",
+      "published_at": "2026-10-15T21:04:02+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-10-15T23:57:33.939224+00:00"
+    },
+    {
+      "series_number": "TREND-18",
+      "topic": "OpenAI, Meta caution US judiciary about risk of 'deepfake' evidence",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPdVBjUDY1NEtsWk4xYnphdUJQSjdScU5TNHdPUk9iN3FibFNId2xOWDA4c1RHY2FodFJYdVl1ZzIybjBLc21FZXJxOXRmbjNsbFk4SDNIYzhDeWw4dEt6RkJhN3NJeHJqYVlVTlc5YnVZOHRyeWJIalRfaE5ER2tKRnRieXN4MVN2WkxFSmFvSFVBbUF6b0FHV0FoVTA5emZtRThLUlQ5VXQ4TndPU3FPRFpKMjg?oc=5",
+      "published_at": "2026-10-15T21:02:42+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-10-15T23:57:33.939224+00:00"
+    },
+    {
+      "series_number": "TREND-19",
+      "topic": "what is the best unfiltered ai chatbot ai characters to talk to for adults 18+ with privacy controls",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMi5AJBVV95cUxOdGRxOVZaY0hUd0JCbWREd2ItQWV0N3dHV3NTQ0JVdGgzbFpQeU5NM0NBVkpnYi11NU4tZFpxVmpGYmFiLWtQTUFoLVNucEdtNjJLaV9lTlBXV1lQT0dWNzRIallIRTIyc2pIRW1JWUFGakk5N252aElJUU45UVM3Y3pXMGhyTGlBdlV6WTJpU21yYmZSeVNFU1ByNlVWTU1iMUZLQ1UyM3BXUEZKRUE3aTV1NERWbmNncFBQTmVNYzhxaWlJR19nUVlqYVN5dm01a2RMeWlFUFlVYVpUWGpHcGZsTzMwS1IyWFBIYWRjajdfMFlHSnhna01SR2dwTEx0QnlGRENDdXVTMF9uTHh6aWZNVjRVdGtRSzJBM3dFTEhkUkxyTmF1QnppUkExMlNwVURHdWNyLTNQc1dSRXZScENCdERTRzd0NjBvcEhfU0pzN2FPcVU4S254OEd4R1g1bHlqRg?oc=5",
+      "published_at": "2026-10-15T20:41:53+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-10-15T23:57:33.939224+00:00"
+    },
+    {
+      "series_number": "TREND-20",
+      "topic": "ai video generator free no restrictions no sign up talking ai chatbot for adults 18+ with privacy controls",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMi9AJBVV95cUxOMW1ZbTNwY1BVSEFHcC1wQmlITkhXRTVNazV1a2Y0VUtIUGs0cWpSbFRnaDNIaVpWWDdzUlNpV3pOb1p2UW15ek9mR2E5UnJLLTJkYWx4bU9HbHVnNmp4c1hTb0FDUHdNS3lyU2lCaVRENXg3QU03Q0pPdUVhZEpRQTM5N2FVUXJqQmxOZjlISmdKUnQ3bEttWHJRQ0NLMlVUc253Z2hTWF9oTlNIS185b2JzRFlGbmRQRmZ3djZ1UTZINzhvd3U5MEhXVnM3OFJHRGFPQ0lGYUdndjlLdWc2cXpwUGFMUkNwY2h6b1NQQVc5YjRMMWItNWp5cjFWUjBseVZPa3FRaU1XbjE2Rmp1SnNrVEhqSFFSSGJ6WkZzYjEtUk9BVnpuaWxkNTMyNG9JTzdqMU9OZXo1QlF0SWFjRkpqSHhvb2p4N3pBNFZrOFdoQ1pINlIybGRIRVpwdnVyeXJBRURiQzl6Mm5LcGxWd0MtSkc?oc=5",
+      "published_at": "2026-10-15T20:39:45+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-10-15T23:57:33.939224+00:00"
+    },
+    {
+      "series_number": "TREND-21",
+      "topic": "ai chatbot unfiltered character ai chat no filter for adults 18+ with privacy controls",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMizgJBVV95cUxNVEJBTUZ1OTZub0VKdm9qVEVsSld5dWQyUHpUc3R2eWtKbzhBWm1iSGh3NVVIdXpJMC0xM0s1V0pKeDVuRlBhMVVXVVZHb080RmlCamFKQy1vMWs4V29xdDd2TUxZcVNoYThTbnl2bTZZdTBZb2R1TVEyc0tFbmIzNEJ2TnVzZ0VaLUlOZkJzUkhZaVB5azNpT0wwQzV0MmhLcGtpRjIxMGJRak1icUIzQ09pdnBfelZESkJhN0g5cnZkLU9FUC1IZkdTOGcxd0phZDA0cHFrSnN6ZTlZTUV4enBVNWo0WTFjMkYwVUM3LXZnWmFpU05ZQk5NR3hzNXpLUFpJS0hITmkxSkNuMUZRVlU3Y0xLSV9TNjh5Yzl2ZzdCZlJVQW5obkpnQzMwZlZiTm1HTGNNYkRjRmFLQmtFSkJGNms3ZHNSZGs2a0Z3?oc=5",
+      "published_at": "2026-10-15T20:35:07+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-10-15T23:57:33.939224+00:00"
+    },
+    {
+      "series_number": "TREND-22",
+      "topic": "ai chatbot dating ai girlfriend no restrictions free for adults 18+ with privacy controls",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMiyAJBVV95cUxQZjJwcXQzNzd5eUVCM3ZPMm8xblZ5MUZBdjg0RjdpT1o1UjJUMWlUdW5VTXJTMU9UajlIZ1dXVU9TcUN2dGlKcTJYWE96TjJhNlV3SUFLTHRRUm9OYzFjY3RYZVgtLWZKR285YVZhdkVSSzdiZEJ4SmJjZlN5N1FZRURJZlVZNEZTZFhOOTZXMkdZYTJFRlBKOXYwcTVWNTF6NENKYUZDOGRud2d5RzlxRDJKRHl4NnVNcWRJNktLaGF3Z2hvU29WNU5SbzFueGZtNkpQNF9pWVd1RGNmdHJNVWZVcUhjOFhsS1RacktpMi00a3NmUE5YbUFxMUxHNGdLamlsLVFMZkVlcDYxdXNsRFpkSzM5WFJ6TlZFX2IyRGotWkg3YU9TU25EN2FLZFFaa3lsQkZ2SVJpbElHTGZnczZBR0IwUUJu?oc=5",
+      "published_at": "2026-10-15T20:29:41+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-10-15T23:57:33.939224+00:00"
+    },
+    {
+      "series_number": "TREND-23",
+      "topic": "Trump\u2019s Move to Rename Artificial Intelligence to \u2018Super Intelligence\u2019 is About Much More Than It Seems",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1UNThCQTNqeTFtSnpoWTgxVnhqM2lUdGRNaU1mM091c3JBZEo4bmo1NzkyTEJjdGNWR3R5SVpSQ0JMQXJPM09fVV92bFJoSEdObl91bTFWaUhHZkdRR3ZsVkFFNXFjcVNFRjV6dHlmcw?oc=5",
+      "published_at": "2026-10-15T19:41:00+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-10-15T23:57:33.939224+00:00"
+    },
+    {
+      "series_number": "TREND-24",
+      "topic": "XCENA Showcases CXL Memory Innovations for AI Inference at OCP Global Summit 2026",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMihgJBVV95cUxOX25IX3NLTVpCVVVRNDFzSVRjaGpPYjR3OHlmZkhQdE54bXgzYWswNGt1UEZadVloNVpISnRnU0pmd2tfaW02aDE4bHExSzJrYl9mdVdDakQ1YWlCV2dJZEUzUFFsM0pfVnFqREJrUnRiZnU1SEVkMlZmU0RIZmxtdWNqaFFqQkdBRFRKTXNNR2syUzRTblNhdkhiV2lQX1RqdjZ5ZjVVWm1tUGV0cXVnWDRhYkUtZ2k0bVA3RnkxN29LcWVZNlRXQVM5cHJub2pBZF9laTI4TWxNSWs5TVpYazJuT0QtX2UzcWpqdUVZaEI3aTRjN21YQ3lFNWNybU9PV3E4bzlR?oc=5",
+      "published_at": "2026-10-15T18:00:08+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-10-15T23:57:33.939224+00:00"
+    },
+    {
+      "series_number": "TREND-25",
+      "topic": "US Treasury pushes global partners to rename AI as 'super intelligence'",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNNDhRZ0FsM05ZWGFISWtLaXVIam1VcVlxWUY0YlF6NUR1SF9FSnFKQnJwMU5pa2hZUG1ZalVtb1RmY19adW5LSnZhQ1pmNzhtX2tTeE9Lal9LX29iRkZsbHVlcWlLWEw2NW9iaGlrS19odFpadHRSak5VYXFfTWRaaUpjUVp0SEVlb0ZvdTBZLThVcVB0V0JSdEZyZnBrQk05dzgzWUR4Yi0?oc=5",
+      "published_at": "2026-10-15T15:48:59+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-10-15T23:57:33.939224+00:00"
+    },
+    {
+      "series_number": "TREND-26",
       "topic": "Brain Drain Is a Bigger Threat to National Cybersecurity Than AI",
       "source": "google_news_us",
       "source_url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPZEFzQXJhYm1vUXZXMkZyanJ1NTJZNG11ZVZlR25RRTdnWWVwN3NYalpnWVJjTHd6Mjc1aF9RbEh2dTMyRFY5ZzFYR2xHRzZSd0xYb3dSWDFaeklaVU5xYzk2MzRfaHBZZXZMbjdrNVRoZVpEdnZIX1BXdDk2d1hMNUE0TXFLM0VTMFRwZmJIcGRadnA2cFdvODA5UQ?oc=5",
       "published_at": "2026-10-15T14:41:27+00:00",
       "trend_score": 9,
-      "fetched_at": "2026-10-15T20:10:26.065827+00:00"
+      "fetched_at": "2026-10-15T23:57:33.939224+00:00"
     },
     {
-      "series_number": "TREND-2",
-      "topic": "If AI Models Are Really Conscious Like Anthropic Keeps Suggesting, Forcing Them to Work Is a Horrendous Act of Slavery",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNcTJQMWxJVjM5Rk5zLXFsUnpjWVU4NTlMZWJ1R2xkMmhJbjFyaWltYl9hRGVvanBQeUJocU5DNUh5SkhwWEZBR1ZCODJta2FtNkFYT3hERnFhenF5MVNvVU9YMzFZREdnR2pqT1hhVkVhT3R0QUg2aWFFVWtCUTdiRmhTWQ?oc=5",
-      "published_at": "2026-10-15T13:39:06+00:00",
-      "trend_score": 9,
-      "fetched_at": "2026-10-15T20:10:26.065827+00:00"
-    },
-    {
-      "series_number": "TREND-3",
+      "series_number": "TREND-27",
       "topic": "New AI project models human behavior to track epidemic spread",
       "source": "google_news_us",
       "source_url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPaHpjb1ItLTRUNWNBZzd0cWl2WWVHVmFhSmswNW9KOXUyQU9DaVAxb2x5YlJXS1V1a0U5Tl94WDkxUXk4TWxFOUoxZHNNU3VlX284cHpNSHZOSXlpc2tIenpvZFFZNEFpX1JQZktEQV93eE5kZVYyRFE4NXpsZ0FFRUwzTC1hZXI2TVJWczNMemxXSWpGUHRXY0ZkZGRGZC1qZjdGcG1qMU9rZXpQQkE?oc=5",
       "published_at": "2026-10-15T12:56:00+00:00",
       "trend_score": 9,
-      "fetched_at": "2026-10-15T20:10:26.065827+00:00"
+      "fetched_at": "2026-10-15T23:57:33.939224+00:00"
     },
     {
-      "series_number": "TREND-4",
-      "topic": "US Treasury pushes global partners to rename AI as 'super intelligence'",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNNDhRZ0FsM05ZWGFISWtLaXVIam1VcVlxWUY0YlF6NUR1SF9FSnFKQnJwMU5pa2hZUG1ZalVtb1RmY19adW5LSnZhQ1pmNzhtX2tTeE9Lal9LX29iRkZsbHVlcWlLWEw2NW9iaGlrS19odFpadHRSak5VYXFfTWRaaUpjUVp0SEVlb0ZvdTBZLThVcVB0V0JSdEZyZnBrQk05dzgzWUR4Yi0?oc=5",
-      "published_at": "2026-10-15T12:35:43+00:00",
-      "trend_score": 9,
-      "fetched_at": "2026-10-15T20:10:26.065827+00:00"
-    },
-    {
-      "series_number": "TREND-5",
-      "topic": "Anthropic\u2019s AI worm research raises new fears about smart device security",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNdFYtR2M5U2ZLTHJRamRPMk1UQm1Lb05jWjdTRUJCVEdJZnRRQ1p1ZzREeGZ3MGpoSVBHNTAxcUpfNGxBT01kVFVJb1AzXzVqZjNvTUZWc09WMHRFQi1NcVZsWnBDeGdoRVZtUDVsUTBDb1NUWEREZnV3SGRVWVdnaHdfTElaX2JvV21XYWdIcWRUdGxnR3Y0c0NaMU40NU1aa0g1VnFfSGZzMnVRRi03d2RPblRGOGc?oc=5",
-      "published_at": "2026-10-15T11:00:00+00:00",
-      "trend_score": 9,
-      "fetched_at": "2026-10-15T20:10:26.065827+00:00"
-    },
-    {
-      "series_number": "TREND-6",
-      "topic": "Rambus (RMBS) Puts AI Memory Narrative In Focus Following LPDDR6 PMIC Launch",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPVWlKY0NYb1FsUmd5VXhfOW9TR3RlTDgyaHFjOVB4MmppSzRORk5Lc2ZjRU5naU9xVE9wcDcyZnlHdGp5TEJYRWdKb0x5dXpYd0lfLVQ3N1VWaFpXSW1FR3Z0OEpKZk9jcEM5T09qQTZSTUU1QXcwcjB6VFo0UlVLZGhCcUdOWXo2bWhLUFpEU1VuTU4tT3hIWnZQcGdjMEs0VjhxNFBnMmFpeEhDd2xGQWpwYUNTU0lVTFM0cXZ3WmllRHdqSTg5X29nd9IB0AFBVV95cUxPOWNYVnhKTENwUEFDSTZxdDNYN1dhMTMzbXFRUUctWDBfWmdZcnhiOXE3SUhLMUVOdUZTQUU2a3haQXdhTE5CeGRPbWFkTU00ZWRrNGtqNnVpdWhjZTE5c21xcF9DMFFFcmZhVmZLWThKYS1wUHdwQV81dGViU1BGN1NCSGt6RWh3cmNMWjFZczlaNURQc0cwazFtS0tSXzRDUHFyNmhMVFZ3R1luVURlZllzbXktdW1RSUJqd1l3VkFLMUxnemp0d3hnSDd4WVda?oc=5",
-      "published_at": "2026-10-15T10:27:30+00:00",
-      "trend_score": 9,
-      "fetched_at": "2026-10-15T20:10:26.065827+00:00"
-    },
-    {
-      "series_number": "TREND-7",
-      "topic": "Anthropic wants to protect its AI",
+      "series_number": "TREND-28",
+      "topic": "Anthropic thinks its AI might be conscious. It has profound consequences for your life",
       "source": "google_news_us",
       "source_url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPNkFXVVJyYUU2Ry1qN2hheWdRRlRGb2pCZWY2VGdJRWVWTF9Md3dBbzN2dFROTnFFTFNLcHFRYU4zR0dpclduLUlYdHhJVnZMakZQQXZUQVlNTTVDV0lLU3BEdzFGd2hYQkdrWTQxdmpmRXNwVldSTTVfTzVEdjEzXy1PRVFLLTRaaW5LQg?oc=5",
       "published_at": "2026-10-15T10:00:00+00:00",
       "trend_score": 9,
-      "fetched_at": "2026-10-15T20:10:26.065827+00:00"
+      "fetched_at": "2026-10-15T23:57:33.939224+00:00"
     },
     {
-      "series_number": "TREND-8",
+      "series_number": "TREND-29",
       "topic": "Not Memory. Not Energy. This Is the Biggest Bottleneck in Artificial Intelligence, and These Are the Companies That Can Benefit.",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPLVc2Tmt1ZVFqYU9vdU4zRnc1OUpPa2VTTkh2QkJiM0NmX2tCWGc5bUlpaGtQcUdJMmxWeW5Jci1NZXRqcmIwTG9aamdGNHFPUWh6TjJwVXJNaGZmbk8tR24za2pDUmZKU3F5ZE5sTkh6b1hreFFqQ1V3NXBoWHlYNG5PbGtnbmpmVGNRMUJQMGRXOHR6WFh1Uw?oc=5",
-      "published_at": "2026-10-15T08:34:00+00:00",
+      "source_url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNMjF1S0pqYjE5Mk1zbW1QcHVaMm0zcmVrWjhNMnY0UERMbnFrYXpKeXVIbngwNTBxZWVJLUFzenFFQk4za1JOVnJwN1lPMmdvemFkbE5nQ29McnNjQ19qcXBWSFNaWDlnTkV1WGhWRW9JVm9ub2stRVk4UkdETVVMR1JJdW5lN0xiTXBHckNzOFZjN1AxR1RaVg?oc=5",
+      "published_at": "2026-10-15T09:14:00+00:00",
       "trend_score": 9,
-      "fetched_at": "2026-10-15T20:10:26.065827+00:00"
+      "fetched_at": "2026-10-15T23:57:33.939224+00:00"
     },
     {
-      "series_number": "TREND-9",
-      "topic": "How to Find an AI Chatbot Girlfriend 2026",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMijwJBVV95cUxNTktfclJ5QkpleXFXc3FaYjVrOV9lSGNxZzFSdE1TZWF2bG92bldYM3JKWDdzMEJDMUhjWmM1NDA5QmNwejFYTzNWU0NBYjNUMEV6c1RhcHpWNnFCcS1nYnI1SUFKR0loR2g0NEZMLTVNbkRXUlNBVnRNUHNRblBWemwxaVA5UmZiSzZHUW93c25EbHpCY0J6YVpIeTFHUlNQd1I2TTNpYmVUVTVuYjFpdklVLVdiYXl5cHVQYmJKNmdzaGozMy1GdEQ5R3FhS0hPZ2FEcGZLMzhSc2pYREtkQnJ4OHk3dWNneWZIa2ZqOWZGc2R4MFVGaGpRbUxRd1JsOTNVaUlwX0JmWkxFcXBn?oc=5",
-      "published_at": "2026-10-15T04:55:32+00:00",
-      "trend_score": 9,
-      "fetched_at": "2026-10-15T20:10:26.065827+00:00"
-    },
-    {
-      "series_number": "TREND-10",
-      "topic": "AI Chatbot Girlfriend Cost Vs Value Per Month",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMikAJBVV95cUxOOUJwS3JzOWZZQTFwR1dwYXhXalZabUhPc3ZISVk5YVVkYy1SNkdlV1RZZDNhZnY3bFZpUE1wcEdsczdLREptY2g2MjVsa0lZVDFtY083M21KSjdGSzhGcFYxRlBPQndZT1hnek5WRkVPY3B2T0c2Y2ppZUJ4R0RESTVMeGdvWnN5RkQwM3NZXzdmWl9WUW9JYW52UzEtOVVzdC1wd0xZVm1RaEhQS0dTdjZpNzdnMUV2aUpFMWNiWk9UU1hsa01zMGtLQkowWVZTOGVBVTVuR1dWZUI1aW5za1BWMnlJY3MzdEhKRVFMZUowVzdZYnhIV3ZBM21wdXpDbk40MWhtWFJZbGtNa2R6Rw?oc=5",
-      "published_at": "2026-10-15T04:55:22+00:00",
-      "trend_score": 9,
-      "fetched_at": "2026-10-15T20:10:26.065827+00:00"
-    },
-    {
-      "series_number": "TREND-11",
-      "topic": "How Much Does AI Chatbot Girlfriend Cost 2026",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMikAJBVV95cUxPZm1yZU5SbjdHc1pYeDlybnlxbV9DMDZ4T3MtR1dJaFRyTEgyR0hnWjYyRXJuS0dBTFRGVmh2RjhjNHRYVW9NUFFyWGJJRk9tUXRzRWFJczEwbkV2YlFIdmI4QU5uZ0JJVHpLTUczd0JmVnc0NnI4czVCSnBJNWM2RzdweVQ4SlA0ekFJSlVMQ09kREM3VWdPdEtMd1pQRmdPVzJTcWE2NVdxSHBGNXBxUGdzbVpUbjlVYk9lTEFwMk1zWUVTSDFUeHNnazlqS1pKRkJRdUxmamtzZURKb055c3FLQklFSkFfTzd4Vnc1RzhheUFZZTZ6eXUzTzhwQ2dKZ2RHSHBRNUZDVjMwYjd0Vg?oc=5",
-      "published_at": "2026-10-15T04:47:24+00:00",
-      "trend_score": 9,
-      "fetched_at": "2026-10-15T20:10:26.065827+00:00"
-    },
-    {
-      "series_number": "TREND-12",
-      "topic": "What Does AI Chatbot Girlfriend Cost Compared",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMikAJBVV95cUxORFZXb3RSajRvN0x6RFQxWER3YkpTbjNpblNIbk9IOEFlejJCUHdjb2phOXJmUlF0ejBFRlR5bm5zZm4yaWlOZEJLM2tWTGU3eXljd1ZuaDU3bnQ2LVoteFdUT1BnZHlPb0pPNmNud1Z5TzE5SGFld2lraFBFSG5vNEt3bHM3MmpHeDRrME5JM0xTelN6ay1lSW12MElfM1pWNEtNZi1VY1VuRlJZcTZobHJkMHFKNEJVOE5jNXVMa0tpZUtkbmFSeWZEdmstdE1CMjdVb1JjOHNqV0tvTXMwek1BTHpUNlJuNktYSHgtcWFTRTZkOTN5cVFwTzF5aW1jb2ZUX0hSOTRCaUk4V0pDSA?oc=5",
-      "published_at": "2026-10-15T04:47:02+00:00",
-      "trend_score": 9,
-      "fetched_at": "2026-10-15T20:10:26.065827+00:00"
-    },
-    {
-      "series_number": "TREND-13",
-      "topic": "AI Chatbot Girlfriend Cost Vs Value Explained",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMikAJBVV95cUxOYUpSb2dFb0FLQ2REdG55N01pRWdLeXdXdU8wSkcyeWU5QTVLRlVwTkM1YUJhelhpTFNTdFFIU1haXzZEejNiZTR2QXVoV0hkYmlWTFhicWtLUTRuVVlYRWtSN1Y3VTVLX2NtY09ZR3JjOS1XT0tVVG1Xd1Vmb3k5Q2VYcEpaVDVyQmQ5SXF0bjE4NE9HemhjNzVNS3EtRHl0R1V0ZWZuRGwwYVFVeEpLRHFhTTg5ZDh5NHFLMVFDa2JzVkUzYzk0Q1ZZRmRTN0JQNzlHaHBuVENGcUNmZ05OcnlKZnBTNFNKeW9IX0tOSXRtYWNoTUZfenFyVTJQMy1EZ25YSXRNcW9sQy1BX05RYg?oc=5",
-      "published_at": "2026-10-15T04:36:01+00:00",
-      "trend_score": 9,
-      "fetched_at": "2026-10-15T20:10:26.065827+00:00"
-    },
-    {
-      "series_number": "TREND-14",
+      "series_number": "TREND-30",
       "topic": "FSB finalises sound practices for the responsible adoption of artificial intelligence (AI)",
       "source": "google_news_us",
       "source_url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNYlowZTZteDU0NjQ1YU9jVWhWVi1WS2gzUlFyN1c0T01CTTBNb0tkeUZfdWJEQ09NNnUtV1VyQ0NDcC1pZ0VnUWt6MnB4cWxhMVJZdDc5SGdrR2I3clFHVHJLa1U4cVlYTXg2djVIVnR5ZU5Mb2VGOGI0aFZocWVFeWJyNWpHVnNYaWN2UW1RQzdKYVBZa1lwSWpVN2RocnpjbkVqdlNuakVxMC1yeEJTVUpBS0JZWVBJ?oc=5",
       "published_at": "2026-10-15T04:00:07+00:00",
       "trend_score": 9,
-      "fetched_at": "2026-10-15T20:10:26.065827+00:00"
-    },
-    {
-      "series_number": "TREND-15",
-      "topic": "Sound Practices for Responsible Adoption of Artificial Intelligence (AI)",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOTFl6MzRpNks5bGt0cE1adGdqbVhEX1hpUFBwSGlsSnhnM1FTd0RNUXVYZ3NqRjdrZDduazBRR1VFa2xhdElsdnRkTjlJLTI0VVlFMFFfd2RCOU1DM2RDUms0bmhLT0p3YVdIX0psdkFXT181dVM1TzBpS05LeHJvblRfXzY2V290TmRGUTNLWXFtOHB5d0RQaHFqckxfNzRjOXdyR0d2aFBud0tGRkVhQVQ0RnRnZ196czJSb2pobEpTeGpjLWR0ZFZSZWNwUVE?oc=5",
-      "published_at": "2026-10-15T04:00:07+00:00",
-      "trend_score": 9,
-      "fetched_at": "2026-10-15T20:10:26.065827+00:00"
-    },
-    {
-      "series_number": "TREND-16",
-      "topic": "Liquid cooling aside, AI memory and storage are the bottleneck",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQYVZYNmc1UVVuVEpjbEMtM01lNmlVTlNnYm0wbGw0dERablduN212ZGFGSXBCaGZNYTdocklfV0pTa0JYSnF2MUlXbkQ2clJULXRRM1JuYnlLZkF4b0pfOXpXUHZhYUZYZEhQOUQwSW5IaHVjZ1RlbzFJMk1mbmY2VnhqcmE1eVRZYkxoLVRJOFN3NGFTWXB3aERLM0Jfd2UxOS1CdXoyRmdiQQ?oc=5",
-      "published_at": "2026-10-15T03:41:00+00:00",
-      "trend_score": 9,
-      "fetched_at": "2026-10-15T20:10:26.065827+00:00"
-    },
-    {
-      "series_number": "TREND-17",
-      "topic": "Composable memory helps Microsoft tackle the AI memory crunch",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOMFZiNldhQjRJT0hXY08zeWU4SHlwTFo3c01vZ0VsN3RIYlp0aEhlTEd4b1liUE4xR1QwVngtQ1d3d1VJd20zLTZublNxd3Z6ektrbkp0blZ4clptd2pFNTBQeHRuOTNlVW5RSzF0MkVyc1lIVXFoUjhWY19pcjhEN3pjbFNZakpROERUSzBPVW9MWVJFR1piOTBWZTdvdlVEMllRWHdyTHJPQ1V6NHlpR0x1MDU?oc=5",
-      "published_at": "2026-10-14T22:19:00+00:00",
-      "trend_score": 9,
-      "fetched_at": "2026-10-15T20:10:26.065827+00:00"
-    },
-    {
-      "series_number": "TREND-18",
-      "topic": "best ai chatbot for deep conversations best virtual girlfriends with images ranked",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMi5AJBVV95cUxQNVpSOHlJTWc4clJxMG8xd2FRc0U0ejlEdmViVHY0M1BaVnRDRE5ZOGt1Q0h5aEZOZkdlYjNKRG4xYlhSMTY5d3gtYlFMWEt4VEQ5a2xGc0wzNEJOZlVaVk1ibG9yWHZUYTBDMHNJcGgzaFo1dFY2VGxfdTN2eDJxZ3EzQ2laOWNTb0lSSVNkOE5pcXh4U1RUTkFWcUoyRE9SODcwZU9pS2pqNENOMlQ5bm1ZdDN4a1ZOZFZYbF9tZDk3LWtucjVlQ3ZIT1dCSEpERVhZZEs3QXViUmw3TW5BMnFvQm4wMXNtQmNEV3dJTU53bmxteFZsWk9wNVlEaV80MFRtU1JTWnp3eUZMYnYzLXpHT1lPQTRyWVV4SmRPZDJWaFVyaTJlNm5MTVNpeEZZVXZXWHZqdkJ0d2FwWTJObXJwSVVqdzQ2NWYyTDM5R2E3cGZjZmJlemxIaEliT2RYNFlwSQ?oc=5",
-      "published_at": "2026-10-14T22:03:04+00:00",
-      "trend_score": 9,
-      "fetched_at": "2026-10-15T20:10:26.065827+00:00"
-    },
-    {
-      "series_number": "TREND-19",
-      "topic": "Denver AI Chatbot \u2018Sunny\u2019 May Go Dark After Contract Vote",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNVURBaEFTbHc1ZVlKNW1SYmUyZnc4ZGtjSzZWN1U2bXQ5eXN1SW1xMWRLUjl5V0hVSVlfREZ0VGhwNDFqWEdKYUZxZVo5alpBNzAyZ05KV1VhQmdqWGhTanlSVFFnQm8tRnR3czJWYVJYbG5PT0dNQ3lEbXVwRUpDQWpWVGpCcFAwVWVuRDFGQ0gxYktBQ1pndFpsci12UmhDdjBUczVB?oc=5",
-      "published_at": "2026-10-14T20:45:53+00:00",
-      "trend_score": 9,
-      "fetched_at": "2026-10-15T20:10:26.065827+00:00"
-    },
-    {
-      "series_number": "TREND-20",
-      "topic": "Denver\u2019s AI chatbot, Sunny, doesn\u2019t know the city council just doomed it",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1obF9EemYtX2xCSll4TVBKLXgtMjdkTWR1emQyS2h4SklIWnRaU2duQ2xiZFBaX0l5TFZhZW9oOW5oSW5zTGpjbzB6YmhZUHdyeEFMRTAwSFB5eFlsbHJqMW1oaHA2VkNtZWJj?oc=5",
-      "published_at": "2026-10-14T18:36:44+00:00",
-      "trend_score": 9,
-      "fetched_at": "2026-10-15T20:10:26.065827+00:00"
-    },
-    {
-      "series_number": "TREND-21",
-      "topic": "Marvell Technology (MRVL) Forms Security Group And Unveils Six Channel AI Memory",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQV05aUFBES3R3WlAwMUJCSno3LVhvRDhuc3ZfUjNKd1g0bTVXN3h0cENJTlYxWERqOXlNZ3B0WExMazRqYm41UDJPSzF5RnNVcEs0MTdNUVUxZGtxTm5ncDQ5Zl9QYXR1ajl5TWJhM2NneDh5SXNtazFjRzROUndtNWNlYXJmZmY2Mm96TXZoTDJPOVVyNGxKMXZTT0p1bm5GeUs1SQ?oc=5",
-      "published_at": "2026-10-14T18:17:43+00:00",
-      "trend_score": 9,
-      "fetched_at": "2026-10-15T20:10:26.065827+00:00"
-    },
-    {
-      "series_number": "TREND-22",
-      "topic": "AI Memory Chip Selloff Looks Overblown",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPZ2VVMDV1OTM5QUExZ082S1VQM3VLcG1tV0tpaFhzQXFOSXRnc3dyTzd3dTZJSldOdHBtSWVmc3VrazVzV2o4dkpBbF9aNzlGZXE3OTk2SndySjNMR2JHS014NFBYbzRfUUI4c0VNYldMcElxcXl2ZXc0MFluVEdYVlhFdXhFeFQ2eGdqZFNCLWZsSmtZTFNhXw?oc=5",
-      "published_at": "2026-10-14T14:09:00+00:00",
-      "trend_score": 9,
-      "fetched_at": "2026-10-15T20:10:26.065827+00:00"
-    },
-    {
-      "series_number": "TREND-23",
-      "topic": "Scientists are finding AI may make us remember things that never happened",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxONUp6RVZiZmYxYjBWLWFpNldiYlY1NWFFenNFVFNUaVZxVUo4LTRDZW15Yy1CeU9Wa0N5bjhobUNGVk1STzBtQ3NYeUtrb1drM0d6QUFDMFJoM3ZWQTh4U1ZKX2ZtaEVSeDYwTUg3QUU3WHdLa2pINWZQcnd5bVd1VldacV9OaGhKdVh0Ti02c0RueGxnQ2FKMmpnUzg5N2dzU1I1bW9yMENMSDEyOGdIblVlS013cnlMbEZ0N0dYSmc?oc=5",
-      "published_at": "2026-10-15T15:02:49+00:00",
-      "trend_score": 5,
-      "fetched_at": "2026-10-15T20:10:26.065827+00:00"
-    },
-    {
-      "series_number": "TREND-24",
-      "topic": "AstraZeneca bulks up MASH, cardio work in up to $1.5B AI partnership with insitro",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNXzQ5bmtOWlJkRkR6RjB4ZktsM3JIdjN0VXAwMFBrV1pnZzJGbG9FNjhGQXBEeWtaN2RqU3dKQlJiWWdnWXlIZElZdWlWN0FLLWExWktuRVZlRmRNd1RodUtvVWhYcVZLNlh3RXctS2tESG1zTTJEeWZFcXVMS2R6U2laSVFHdmdEcXBjSVFXbFFQZGFqMlNUdlFjVjlpUzRRY2F6VDJrTFg5VE9BMlNTbmJ6MA?oc=5",
-      "published_at": "2026-10-15T14:45:23+00:00",
-      "trend_score": 5,
-      "fetched_at": "2026-10-15T20:10:26.065827+00:00"
-    },
-    {
-      "series_number": "TREND-25",
-      "topic": "How Can We Apply Artificial Intelligence?",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE5TV0t6cXRMNlpGSmRYTU1hck9iYlA5RjdXelZmaW93M01tN0V2QWhudWV6WFZqLUQwd0VNdWljQkp5dFR3Zy0zWndDaUY?oc=5",
-      "published_at": "2026-10-15T14:45:12+00:00",
-      "trend_score": 5,
-      "fetched_at": "2026-10-15T20:10:26.065827+00:00"
-    },
-    {
-      "series_number": "TREND-26",
-      "topic": "North.cloud Raises $60M Series B to Unify Spend Intelligence and Enable Full Automation Across Cloud, AI, and Data",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMi-gFBVV95cUxNeDVucHJUcHhHd0JlRzJ6RXFjYWFneWcwSFRJbFFBVkE1TlJORi1JNWtLZjZnWTFzOTRyMlFScTBxUjVIWnI3czNteTRFa3VqaFZSbkFNeml1RnpJTnFVMEFza1NwRDVKeVpLWU5rNFA3R0RCWi11aHprQUZDQ2FKdUZ1akVqQjYwTDJpOVQyeUxtbkZITVp1bEVsbFJhNEUxX015WG40bzEwLUFBbm9SczJDWUtCRGNPdDJ0aW1xa2hEbG1DMEFnVUZ3cTBqMkVHXzd5Rm54YkJkNlp6RS15amZsVlRYZ1NqUFc3b1VuOEQtam5lZzRjdlBB?oc=5",
-      "published_at": "2026-10-15T14:00:00+00:00",
-      "trend_score": 5,
-      "fetched_at": "2026-10-15T20:10:26.065827+00:00"
-    },
-    {
-      "series_number": "TREND-27",
-      "topic": "Trump's AI task force to meet Thursday, FTC spokesperson says",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQYk5hWVlXdXcxNDRPVGZuR0hsRkY4UzIwZVdrUEthbDFKQndlVllrYjdzRnl6cWJrU3R5blRJczFhYVlkUjMtSEZwU2dnbGxpUC11ajFhM0RDMnhYWmtpYi1McXl4SEZ6ZHVoSmxscW9JMXljUndKRE5EMjN1QUZhMFlreVVpU25UTGlKODFYZFdGaTBqdEIyN09vRlZJZ1B3UXRr?oc=5",
-      "published_at": "2026-10-15T13:53:43+00:00",
-      "trend_score": 5,
-      "fetched_at": "2026-10-15T20:10:26.065827+00:00"
-    },
-    {
-      "series_number": "TREND-28",
-      "topic": "ServiceNow makes it easier to build AI agents, gives them verifiable identities",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOQXVZSjd6dGphQW9kd1QtaHdjWlV5X2N1TkJyNW4wOHhVQzhiNldwRGRUcHp5ZDU5TWNoOGhLLUQtQTZ5R1NNUkp3QjZ6OC01NjJDdEdZN3NTcV92QkJXZzlmZDB1SE9jQWNpMXJLaDBuOFlGS0J5V2tWTzJUYUExaVlZejZ5M3Z1NVdwMnhRZ2syZW4xMjYzWUZ0WVpyTEJXY0NhS2lDd25nLWQ3V0RrSEI4SUVFaUZpU1Aw?oc=5",
-      "published_at": "2026-10-15T13:50:03+00:00",
-      "trend_score": 5,
-      "fetched_at": "2026-10-15T20:10:26.065827+00:00"
-    },
-    {
-      "series_number": "TREND-29",
-      "topic": "Men Are Shaping the Future of AI. That Doesn't Mean They Know What They're Talking About",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPNjhNSjdmRTF6NVA5OGxwV3BwajBGcDVtZXNkdHBaenJqdjl5NmhWM0FpZkNIal9kaTNzdjZBb2puMzR3dHpheFFnN082OGIxd1dxaXBMRG1wemF6ZUswN3hGRW1Fcml3X056M2VMbkpONXF3c29CMjhwSGp0bnNDT2h4TXVYU05WUG1qdDd1bF9qOE1IR1BkaDNyTEY5V19wYTRrWWtSaVo0N1RoWDhvMS03clI1bms?oc=5",
-      "published_at": "2026-10-15T13:30:36+00:00",
-      "trend_score": 5,
-      "fetched_at": "2026-10-15T20:10:26.065827+00:00"
-    },
-    {
-      "series_number": "TREND-30",
-      "topic": "HarrisQuest MCP Launches, Putting Brand Intelligence Inside the AI You Already Use",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMingJBVV95cUxNTXdxR2NCZXR0X3hTSzFBWFZUMHVENWk3YmFYWXNSSjE1SzZBdTNPVUZfdzlpWVNueWdYLXhQRzlpOXhQQkl6MEFUTVJvdTg4cURkNmtWMEQ1eERBMG1nRGJZZ2R2TGVXQjhrWVV6Y2FOOXJhOFBMdTVDTFlsbDFwM0JIU2FQVzZCRll0eWZGYUVHeEJXdW1BZEkycmVfN2x2MzdvRTcyU2NCVWtUSGxobHhabzZZRHZQWU1QYVhQNEJ4YXQxMUk5cDVLSTlWYjNaVzYtUWVfZTNUbnhtMXIzTnNrbG9zMTBvVm81ci12MHd1aUVGd29FQjR1eXMzRUVPUHZTUW9QUnBHYTU1bUw3T2MwbENFVDhBZW1kSFFn?oc=5",
-      "published_at": "2026-10-15T13:04:05+00:00",
-      "trend_score": 5,
-      "fetched_at": "2026-10-15T20:10:26.065827+00:00"
+      "fetched_at": "2026-10-15T23:57:33.939224+00:00"
     }
   ],
   "source_errors": []
