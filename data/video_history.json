@@ -4501,7 +4501,7 @@
   },
   {
     "created_at": "2026-10-17T23:36:13.569508+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "ai ai Artificial Intelligence at Work aip ai",
     "title": "ai ai Artificial Intelligence at Work aip ai",
     "video_path": "output/mr_nextep_short.mp4",
@@ -4583,6 +4583,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "f1e33502497d87eb53540ab9fb0b1696534952392c268574669b0cedf2feb5c0",
     "body": "AI should speed work, right? It actually adds tiny delays. Because of hidden coordination steps. AI demands unnecessary confirmations. Each check forces a pause. Your brain splits focus between tool. AI saves minutes, costs seconds. That hidden cost slows work.",
-    "text": "ai ai Artificial Intelligence at Work aip ai AI should speed work, right? It actually adds tiny delays. Because of hidden coordination steps. AI demands unnecessary confirmations. Each check forces a pause. Your brain splits focus between tool. AI saves minutes, costs seconds. That hidden cost slows work."
+    "text": "ai ai Artificial Intelligence at Work aip ai AI should speed work, right? It actually adds tiny delays. Because of hidden coordination steps. AI demands unnecessary confirmations. Each check forces a pause. Your brain splits focus between tool. AI saves minutes, costs seconds. That hidden cost slows work.",
+    "youtube_video_id": "zgYOKkAboz4",
+    "url": "https://youtu.be/zgYOKkAboz4",
+    "thumbnail": "uploaded",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/1122980080905302/videos?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      }
+    }
   }
 ]
