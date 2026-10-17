@@ -2143,5 +2143,21 @@
     "title": "SDAIA and CST Launch 'It's AI' Campaign to Raise Awareness of Fake Clips and Deepfake Risks",
     "body": "Do warnings boost deepfake trust? Saudi agency launches awareness campaign People still believe the fake Labels act as credibility shortcuts Warnings can paradoxically increase belief Mind fills gaps with patterns Fluency feeling tricks acceptance Warnings may spread the fake",
     "text": "SDAIA and CST Launch 'It's AI' Campaign to Raise Awareness of Fake Clips and Deepfake Risks Do warnings boost deepfake trust? Saudi agency launches awareness campaign People still believe the fake Labels act as credibility shortcuts Warnings can paradoxically increase belief Mind fills gaps with patterns Fluency feeling tricks acceptance Warnings may spread the fake"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "431200d78ad86f35318fb9ac1c1b865f1aaf1bf1d26bfebcbe24367244463cf7",
+    "title": "Super Intelligence Force looking into Ai risks",
+    "body": "Why is the Super Force panicking? AI confidently mislabels a cat image It feels like deliberate deception Confidence outweighs facts for humans Brain treats smooth speech as truth Teams fear bias being weaponized worldwide AI can exploit confidence to deceive They monitor every confident AI output",
+    "text": "Super Intelligence Force looking into Ai risks Why is the Super Force panicking? AI confidently mislabels a cat image It feels like deliberate deception Confidence outweighs facts for humans Brain treats smooth speech as truth Teams fear bias being weaponized worldwide AI can exploit confidence to deceive They monitor every confident AI output"
   }
 ]
