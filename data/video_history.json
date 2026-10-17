@@ -4198,5 +4198,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-10-17T00:03:13.979186+00:00",
+    "status": "pending",
+    "topic": "SDAIA and CST Launch 'It's AI' Campaign to Raise Awareness of Fake Clips and Deepfake Risks",
+    "title": "SDAIA and CST Launch 'It's AI' Campaign to Raise Awareness of Fake Clips and Deepfake Risks",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "da0a5743795fc7005daa8bdaedbbfe6e6f42088b46addcefd74bc901eb392053",
+      "5e28707629bc5ffcd58e1cbba1f951d02e41bb6ce126dffababeb7ca300123e6",
+      "e48f04c349e33b64fc2cd69b9207059ba666fef6adc222cf4c5bf7197aaf1e05",
+      "82b213c7833a9e39287447864feca71526c219c196b4bfc6b33c4f9106ab7705",
+      "b678cc330704fd75701661619c22d1f06b491c532f811aaa828e2c8c82b8c7b5",
+      "f9cc9f60257ce76d95f3f87845f967e8acb2ede55d67f34fc861a10b7c735d64",
+      "02a9436f49018b23b66e67807bb1cb9a15c3fb4853356f78ff56e543dfb6be05",
+      "d27a875c925a05effae00279fef012a8df7d747bca1e38c5f5ebb68f53b735db"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "specific_question",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 100
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-3",
+      "topic": "SDAIA and CST Launch 'It's AI' Campaign to Raise Awareness of Fake Clips and Deepfake Risks",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOMGh5Qlh6UFZaUGtGeUR2VEhNMVFDb25wekQ4bVVfQlF3Y1FMVkxORDhJTm1QRWFHYnd6VHZWU1NlRzNsVHFNOVJKWENyOFJlNTEzNmQwaUZhYWVJT05oYlpoZDR3Skx6UnZiZ2Jrd3JhVkYwdE1EQzVXRFJpZUxLemp1VGVzNldhRDZmazFPbmhLMktuNlU1akxfek92X1VhRFVtOG9Dd3pqdVJTTnJORDN3alRTSTBxNXBZWURBQ3ZoZVdDOGhmUFRfczZ5eTJNa0E?oc=5",
+      "published_at": "2026-10-16T17:57:35+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-10-17T00:00:31.486761+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 1,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "a8cb6840547166bcb1afe39c1aeb577859aed641ce142b325560dc2cd42f311c",
+    "body": "Do warnings boost deepfake trust? Saudi agency launches awareness campaign People still believe the fake Labels act as credibility shortcuts Warnings can paradoxically increase belief Mind fills gaps with patterns Fluency feeling tricks acceptance Warnings may spread the fake",
+    "text": "SDAIA and CST Launch 'It's AI' Campaign to Raise Awareness of Fake Clips and Deepfake Risks Do warnings boost deepfake trust? Saudi agency launches awareness campaign People still believe the fake Labels act as credibility shortcuts Warnings can paradoxically increase belief Mind fills gaps with patterns Fluency feeling tricks acceptance Warnings may spread the fake"
   }
 ]

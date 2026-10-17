@@ -1,53 +1,5 @@
 [
   {
-    "hash": "aefff26cff52088ff4701130cca7b64db821f204e77a7158107caa3ea0d5a1db",
-    "source_url": "https://videos.pexels.com/video-files/7179778/7179778-sd_506_960_25fps.mp4",
-    "title": "AI vs. Human Intelligence",
-    "created_at": "2026-09-16T19:56:50.433801+00:00"
-  },
-  {
-    "hash": "7dd22ac44f3a44759cc84f21febceb833b02038a0755113e844110545fb31175",
-    "source_url": "https://videos.pexels.com/video-files/8266177/8266177-hd_720_1280_25fps.mp4",
-    "title": "AI vs. Human Intelligence",
-    "created_at": "2026-09-16T19:56:50.433801+00:00"
-  },
-  {
-    "hash": "ab2aa40a3a6f705dff6cd1cd550260b7c4ecff3fe4101bfe99895238efc33f45",
-    "source_url": "https://videos.pexels.com/video-files/6084023/6084023-sd_540_960_25fps.mp4",
-    "title": "AI vs. Human Intelligence",
-    "created_at": "2026-09-16T19:56:50.433801+00:00"
-  },
-  {
-    "hash": "e4553ef329ef871f9f9af8994e67eafc27a4ef8eb61ee0f795e30a8ff202b130",
-    "source_url": "https://videos.pexels.com/video-files/34214298/14501503_360_640_60fps.mp4",
-    "title": "AI vs. Human Intelligence",
-    "created_at": "2026-09-16T19:56:50.433801+00:00"
-  },
-  {
-    "hash": "bc641c524f13acef3180e13a5abe99b4cf5b5462ef805440a9584f839be96222",
-    "source_url": "https://videos.pexels.com/video-files/6297782/6297782-hd_720_1280_24fps.mp4",
-    "title": "Stanford Medicine team creates advanced model for studying brain development, disorders",
-    "created_at": "2026-09-18T02:42:39.244466+00:00"
-  },
-  {
-    "hash": "7edaa9040bd1ad097d2771ecdf5c5e5df077ca42db96116b63be6fa2d1f722f5",
-    "source_url": "https://videos.pexels.com/video-files/7267525/7267525-hd_720_1280_24fps.mp4",
-    "title": "Stanford Medicine team creates advanced model for studying brain development, disorders",
-    "created_at": "2026-09-18T02:42:39.244466+00:00"
-  },
-  {
-    "hash": "51bb8ac9446b89b5abb2028785fa76b4ceee06f38cdabbea7ca576104b293bcf",
-    "source_url": "https://videos.pexels.com/video-files/5090777/5090777-hd_1080_2048_25fps.mp4",
-    "title": "Stanford Medicine team creates advanced model for studying brain development, disorders",
-    "created_at": "2026-09-18T02:42:39.244466+00:00"
-  },
-  {
-    "hash": "a4db187e9ffa2a222d19ee4acef4e53fb907d495d5389eb90f0e5777be0c97f9",
-    "source_url": "https://videos.pexels.com/video-files/5036385/5036385-sd_338_640_25fps.mp4",
-    "title": "Stanford Medicine team creates advanced model for studying brain development, disorders",
-    "created_at": "2026-09-18T02:42:39.244466+00:00"
-  },
-  {
     "hash": "71f2915d3f03e3fb67c627d3b27d29a0f8e408bbc8c4a1ce6c9294b76cec0068",
     "source_url": "https://cdn.pixabay.com/video/2016/02/29/2337-157269912_medium.mp4",
     "title": "Stanford Medicine team creates advanced model for studying brain development, disorders",
@@ -2998,5 +2950,53 @@
     "source_url": "https://cdn.pixabay.com/video/2023/07/31/174008-850361316_medium.mp4",
     "title": "Pennsylvania Seeks AI Chatbot Data Protections in Bankruptcy",
     "created_at": "2026-10-16T19:50:26.287564+00:00"
+  },
+  {
+    "hash": "da0a5743795fc7005daa8bdaedbbfe6e6f42088b46addcefd74bc901eb392053",
+    "source_url": "https://cdn.pixabay.com/video/2020/06/17/42408-431511624_medium.mp4",
+    "title": "SDAIA and CST Launch 'It's AI' Campaign to Raise Awareness of Fake Clips and Deepfake Risks",
+    "created_at": "2026-10-17T00:03:13.979186+00:00"
+  },
+  {
+    "hash": "5e28707629bc5ffcd58e1cbba1f951d02e41bb6ce126dffababeb7ca300123e6",
+    "source_url": "https://cdn.pixabay.com/video/2021/07/05/80314-572395729_medium.mp4",
+    "title": "SDAIA and CST Launch 'It's AI' Campaign to Raise Awareness of Fake Clips and Deepfake Risks",
+    "created_at": "2026-10-17T00:03:13.979186+00:00"
+  },
+  {
+    "hash": "e48f04c349e33b64fc2cd69b9207059ba666fef6adc222cf4c5bf7197aaf1e05",
+    "source_url": "https://videos.pexels.com/video-files/8724226/8724226-hd_720_1366_25fps.mp4",
+    "title": "SDAIA and CST Launch 'It's AI' Campaign to Raise Awareness of Fake Clips and Deepfake Risks",
+    "created_at": "2026-10-17T00:03:13.979186+00:00"
+  },
+  {
+    "hash": "82b213c7833a9e39287447864feca71526c219c196b4bfc6b33c4f9106ab7705",
+    "source_url": "https://videos.pexels.com/video-files/35050095/14847541_360_640_50fps.mp4",
+    "title": "SDAIA and CST Launch 'It's AI' Campaign to Raise Awareness of Fake Clips and Deepfake Risks",
+    "created_at": "2026-10-17T00:03:13.979186+00:00"
+  },
+  {
+    "hash": "b678cc330704fd75701661619c22d1f06b491c532f811aaa828e2c8c82b8c7b5",
+    "source_url": "https://videos.pexels.com/video-files/28144914/12309736_360_640_60fps.mp4",
+    "title": "SDAIA and CST Launch 'It's AI' Campaign to Raise Awareness of Fake Clips and Deepfake Risks",
+    "created_at": "2026-10-17T00:03:13.979186+00:00"
+  },
+  {
+    "hash": "f9cc9f60257ce76d95f3f87845f967e8acb2ede55d67f34fc861a10b7c735d64",
+    "source_url": "https://videos.pexels.com/video-files/28203566/12326884_360_640_30fps.mp4",
+    "title": "SDAIA and CST Launch 'It's AI' Campaign to Raise Awareness of Fake Clips and Deepfake Risks",
+    "created_at": "2026-10-17T00:03:13.979186+00:00"
+  },
+  {
+    "hash": "02a9436f49018b23b66e67807bb1cb9a15c3fb4853356f78ff56e543dfb6be05",
+    "source_url": "https://videos.pexels.com/video-files/30728865/13145939_360_640_30fps.mp4",
+    "title": "SDAIA and CST Launch 'It's AI' Campaign to Raise Awareness of Fake Clips and Deepfake Risks",
+    "created_at": "2026-10-17T00:03:13.979186+00:00"
+  },
+  {
+    "hash": "d27a875c925a05effae00279fef012a8df7d747bca1e38c5f5ebb68f53b735db",
+    "source_url": "https://videos.pexels.com/video-files/18130530/18130530-sd_540_960_30fps.mp4",
+    "title": "SDAIA and CST Launch 'It's AI' Campaign to Raise Awareness of Fake Clips and Deepfake Risks",
+    "created_at": "2026-10-17T00:03:13.979186+00:00"
   }
 ]

@@ -2127,5 +2127,21 @@
     "title": "Pennsylvania Seeks AI Chatbot Data Protections in Bankruptcy",
     "body": "Shared debts with a chatbot Chatbot replies like a lawyer Every detail gets stored forever State worries about data leaks Bankruptcy case draws creditor attention Lawmakers push privacy shields Chatbots learn from every sentence Your debt stays private, even chatting",
     "text": "Pennsylvania Seeks AI Chatbot Data Protections in Bankruptcy Shared debts with a chatbot Chatbot replies like a lawyer Every detail gets stored forever State worries about data leaks Bankruptcy case draws creditor attention Lawmakers push privacy shields Chatbots learn from every sentence Your debt stays private, even chatting"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "a8cb6840547166bcb1afe39c1aeb577859aed641ce142b325560dc2cd42f311c",
+    "title": "SDAIA and CST Launch 'It's AI' Campaign to Raise Awareness of Fake Clips and Deepfake Risks",
+    "body": "Do warnings boost deepfake trust? Saudi agency launches awareness campaign People still believe the fake Labels act as credibility shortcuts Warnings can paradoxically increase belief Mind fills gaps with patterns Fluency feeling tricks acceptance Warnings may spread the fake",
+    "text": "SDAIA and CST Launch 'It's AI' Campaign to Raise Awareness of Fake Clips and Deepfake Risks Do warnings boost deepfake trust? Saudi agency launches awareness campaign People still believe the fake Labels act as credibility shortcuts Warnings can paradoxically increase belief Mind fills gaps with patterns Fluency feeling tricks acceptance Warnings may spread the fake"
   }
 ]
