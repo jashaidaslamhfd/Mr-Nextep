@@ -2175,5 +2175,21 @@
     "title": "What Will Change If You Use An AI Chatbot Instead Of Google Search?",
     "body": "Chatbot answers like a friend Google would list many results Friendly tone builds instant trust It’s only predicting based on data Fluent text feels intentional We accept advice without checking Decisions speed up, bias stays hidden Chat changes how we think",
     "text": "What Will Change If You Use An AI Chatbot Instead Of Google Search? Chatbot answers like a friend Google would list many results Friendly tone builds instant trust It’s only predicting based on data Fluent text feels intentional We accept advice without checking Decisions speed up, bias stays hidden Chat changes how we think"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "f1e33502497d87eb53540ab9fb0b1696534952392c268574669b0cedf2feb5c0",
+    "title": "ai ai Artificial Intelligence at Work aip ai",
+    "body": "AI should speed work, right? It actually adds tiny delays. Because of hidden coordination steps. AI demands unnecessary confirmations. Each check forces a pause. Your brain splits focus between tool. AI saves minutes, costs seconds. That hidden cost slows work.",
+    "text": "ai ai Artificial Intelligence at Work aip ai AI should speed work, right? It actually adds tiny delays. Because of hidden coordination steps. AI demands unnecessary confirmations. Each check forces a pause. Your brain splits focus between tool. AI saves minutes, costs seconds. That hidden cost slows work."
   }
 ]

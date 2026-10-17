@@ -4498,5 +4498,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-10-17T23:36:13.569508+00:00",
+    "status": "pending",
+    "topic": "ai ai Artificial Intelligence at Work aip ai",
+    "title": "ai ai Artificial Intelligence at Work aip ai",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "d54bc44ed8c624b50b6e9ba0d09ecd0c625151f1462fc94ef039c37cbba91819",
+      "6e9427d50234645a23bd8ff4b3cf9b5d69e265487676d4e28704ee89aa39c026",
+      "69d1c6b6133bf900ceeaebada6ae603afa637679c31ba604ba3a8beacb7f8478",
+      "f2a95e0d83f0d54955dfd811f715b35da7b321eda3d2a18c9f80f67391a54f03",
+      "3577a71633047f994b2c476c75ee06ffff207822014773b8b869f5822a9f5652",
+      "b35822929fc7575f4a8f1c46080e85a3b66535f9695b64a987e16a9e79eec8cf",
+      "b401739e83733fa923fefa3d54626adf437f08c845115f34ca34a34a5cdc5021",
+      "8b513bd9b43e40ce8f5918fa95b5aed673e2f93397804c2a9da5fd0a1f24351e"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "counterintuitive",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 79
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 79
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 74
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-4",
+      "topic": "ai ai Artificial Intelligence at Work aip ai",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMikAJBVV95cUxNU09TQndxQlFxSzNRYUpxN0lEQXhnSEUtV2V1OFNkLUZqclgxZlZadlh6TmdOTlJFWDdINzBsclR4QkhtWVJnd0lFU0hNTFFSRVQ1NjBxZmNBMmNzUXliWW1MVTByOS1WcGFyb2Fsd0Zqc2x2R050NGtQMk1KRVpxSmQ1QlYzLWJjT1U4VkNRclFlOG5Bb0FoeUpjeERiRWMzMm1FSVotaE9EYnhrUEg0dV81WXdZZ1A5Nl8zRVROYTJOUWs4NXI4U0I3RDFmSjRDenJSSkl2VnVsZmdIeTRaa2tnOVZCZWlIWDZsNTY2SmMzd3JMU04yUnp0OVR1enNfY3VTaUpNcjdEZmJscDdrdA?oc=5",
+      "published_at": "2026-10-17T09:46:36+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-10-17T23:33:26.427868+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "f1e33502497d87eb53540ab9fb0b1696534952392c268574669b0cedf2feb5c0",
+    "body": "AI should speed work, right? It actually adds tiny delays. Because of hidden coordination steps. AI demands unnecessary confirmations. Each check forces a pause. Your brain splits focus between tool. AI saves minutes, costs seconds. That hidden cost slows work.",
+    "text": "ai ai Artificial Intelligence at Work aip ai AI should speed work, right? It actually adds tiny delays. Because of hidden coordination steps. AI demands unnecessary confirmations. Each check forces a pause. Your brain splits focus between tool. AI saves minutes, costs seconds. That hidden cost slows work."
   }
 ]
