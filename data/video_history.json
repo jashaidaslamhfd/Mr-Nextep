@@ -4398,5 +4398,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-10-17T19:03:09.863303+00:00",
+    "status": "pending",
+    "topic": "What Will Change If You Use An AI Chatbot Instead Of Google Search?",
+    "title": "What Will Change If You Use An AI Chatbot Instead Of Google Search?",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "ee45c792a012d21ecfdc6732ab753388948e3b226dca39fb37b6d0a0212236d2",
+      "dd72df3f39036807a12246ee4b1d3d6f822f1ba0117be884ba5cc7e52faee783",
+      "a94d930d5ce758741f25da2e97355b59590067bc65d76abff035443af2c61c5c",
+      "807d3dbdea212a00206ac88ec2a3198f4f223906076f9967a891eb5363c501c6",
+      "4769d9f861a315f49691b4e86d34548643aa1a28099ec699928dc364a1af2a7a",
+      "0e8ca7d0ff659b0b8424cc83e4b2a34ed2adf82aeb43e977aedf2bd013facab2",
+      "c633723b39e3d5daf266c1d525367e7bd066337af15184655e52882504ce4a8d",
+      "ec9f317b739a0ec879b0879c6a7a65123fd4b4a592a8618d56bf1625a7099070"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "concrete_observation",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 97
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 97
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 92
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-2",
+      "topic": "What Will Change If You Use An AI Chatbot Instead Of Google Search?",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQMHNMQUc3dHlnVXN1UngyUVh2NmRIRnU0Ujg1cDdNdDVIeGxMajV2YW5WV0haenFqSUVLZ3o0alJROV9oOFRjTlNRdXlsekNQUDVmSThSS0FhcTZma2N4SU8wek5oaVJsLUpya3hITFNZN2cxdzljREdqRnB1TWFldWNmYnk1MkRPMGVLa1VNaXZrQQ?oc=5",
+      "published_at": "2026-10-17T17:17:00+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-10-17T19:00:30.526472+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "b50f5033590d81a153cfa551c27c0d3d7a918fe7c29a50ea31b905514a695035",
+    "body": "Chatbot answers like a friend Google would list many results Friendly tone builds instant trust It’s only predicting based on data Fluent text feels intentional We accept advice without checking Decisions speed up, bias stays hidden Chat changes how we think",
+    "text": "What Will Change If You Use An AI Chatbot Instead Of Google Search? Chatbot answers like a friend Google would list many results Friendly tone builds instant trust It’s only predicting based on data Fluent text feels intentional We accept advice without checking Decisions speed up, bias stays hidden Chat changes how we think"
   }
 ]

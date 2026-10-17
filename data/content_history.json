@@ -2159,5 +2159,21 @@
     "title": "Super Intelligence Force looking into Ai risks",
     "body": "Why is the Super Force panicking? AI confidently mislabels a cat image It feels like deliberate deception Confidence outweighs facts for humans Brain treats smooth speech as truth Teams fear bias being weaponized worldwide AI can exploit confidence to deceive They monitor every confident AI output",
     "text": "Super Intelligence Force looking into Ai risks Why is the Super Force panicking? AI confidently mislabels a cat image It feels like deliberate deception Confidence outweighs facts for humans Brain treats smooth speech as truth Teams fear bias being weaponized worldwide AI can exploit confidence to deceive They monitor every confident AI output"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "b50f5033590d81a153cfa551c27c0d3d7a918fe7c29a50ea31b905514a695035",
+    "title": "What Will Change If You Use An AI Chatbot Instead Of Google Search?",
+    "body": "Chatbot answers like a friend Google would list many results Friendly tone builds instant trust It’s only predicting based on data Fluent text feels intentional We accept advice without checking Decisions speed up, bias stays hidden Chat changes how we think",
+    "text": "What Will Change If You Use An AI Chatbot Instead Of Google Search? Chatbot answers like a friend Google would list many results Friendly tone builds instant trust It’s only predicting based on data Fluent text feels intentional We accept advice without checking Decisions speed up, bias stays hidden Chat changes how we think"
   }
 ]
