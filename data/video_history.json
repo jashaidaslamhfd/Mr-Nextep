@@ -4701,7 +4701,7 @@
   },
   {
     "created_at": "2026-10-18T19:15:31.095657+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Israeli AI firms train NVIDIA models to resist hackers and dangerous chatbot behavior",
     "title": "Israeli AI firms train NVIDIA models to resist hackers and dangerous chatbot behavior",
     "video_path": "output/mr_nextep_short.mp4",
@@ -4783,6 +4783,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "8b95ebbd144fb245e6aa4495e51eba70ee4dd3954d1818d641af1c16c60ad0e8",
     "body": "More data ≠ safer AI Israeli team flips the script Training models with real hacker attacks AI learns to say no Chatbots refuse dangerous prompts instantly Defensive training blocks hidden backdoors Safety from teaching refusal, not data Your next bot may just say ‘I can’t’",
-    "text": "Israeli AI firms train NVIDIA models to resist hackers and dangerous chatbot behavior More data ≠ safer AI Israeli team flips the script Training models with real hacker attacks AI learns to say no Chatbots refuse dangerous prompts instantly Defensive training blocks hidden backdoors Safety from teaching refusal, not data Your next bot may just say ‘I can’t’"
+    "text": "Israeli AI firms train NVIDIA models to resist hackers and dangerous chatbot behavior More data ≠ safer AI Israeli team flips the script Training models with real hacker attacks AI learns to say no Chatbots refuse dangerous prompts instantly Defensive training blocks hidden backdoors Safety from teaching refusal, not data Your next bot may just say ‘I can’t’",
+    "youtube_video_id": "QYjlAcnaSZE",
+    "url": "https://youtu.be/QYjlAcnaSZE",
+    "thumbnail": "uploaded",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/1122980080905302/videos?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      }
+    }
   }
 ]
