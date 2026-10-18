@@ -4801,7 +4801,7 @@
   },
   {
     "created_at": "2026-10-18T23:48:24.839738+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Wisconsin files legal action alleging AI chatbot posed 'serious safety risks'",
     "title": "Wisconsin files legal action alleging AI chatbot posed 'serious safety risks'",
     "video_path": "output/mr_nextep_short.mp4",
@@ -4883,6 +4883,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "5968a5142952dbfad3f0ed39deb9053ac2384d63021ab628e9b0f00090d655be",
     "body": "Chatbot’s simple advice after fever Wisconsin says reply is dangerous State files lawsuit against AI firm Bot trained on unfiltered internet User’s health harmed by advice AI guesses words, not truth Law treats AI like product ‘Just water’ may be illegal",
-    "text": "Wisconsin files legal action alleging AI chatbot posed 'serious safety risks' Chatbot’s simple advice after fever Wisconsin says reply is dangerous State files lawsuit against AI firm Bot trained on unfiltered internet User’s health harmed by advice AI guesses words, not truth Law treats AI like product ‘Just water’ may be illegal"
+    "text": "Wisconsin files legal action alleging AI chatbot posed 'serious safety risks' Chatbot’s simple advice after fever Wisconsin says reply is dangerous State files lawsuit against AI firm Bot trained on unfiltered internet User’s health harmed by advice AI guesses words, not truth Law treats AI like product ‘Just water’ may be illegal",
+    "youtube_video_id": "4Lv_I-1Y5Co",
+    "url": "https://youtu.be/4Lv_I-1Y5Co",
+    "thumbnail": "uploaded",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/1122980080905302/videos?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      }
+    }
   }
 ]
