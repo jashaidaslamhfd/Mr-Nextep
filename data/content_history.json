@@ -2223,5 +2223,21 @@
     "title": "Israeli AI firms train NVIDIA models to resist hackers and dangerous chatbot behavior",
     "body": "More data ≠ safer AI Israeli team flips the script Training models with real hacker attacks AI learns to say no Chatbots refuse dangerous prompts instantly Defensive training blocks hidden backdoors Safety from teaching refusal, not data Your next bot may just say ‘I can’t’",
     "text": "Israeli AI firms train NVIDIA models to resist hackers and dangerous chatbot behavior More data ≠ safer AI Israeli team flips the script Training models with real hacker attacks AI learns to say no Chatbots refuse dangerous prompts instantly Defensive training blocks hidden backdoors Safety from teaching refusal, not data Your next bot may just say ‘I can’t’"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "5968a5142952dbfad3f0ed39deb9053ac2384d63021ab628e9b0f00090d655be",
+    "title": "Wisconsin files legal action alleging AI chatbot posed 'serious safety risks'",
+    "body": "Chatbot’s simple advice after fever Wisconsin says reply is dangerous State files lawsuit against AI firm Bot trained on unfiltered internet User’s health harmed by advice AI guesses words, not truth Law treats AI like product ‘Just water’ may be illegal",
+    "text": "Wisconsin files legal action alleging AI chatbot posed 'serious safety risks' Chatbot’s simple advice after fever Wisconsin says reply is dangerous State files lawsuit against AI firm Bot trained on unfiltered internet User’s health harmed by advice AI guesses words, not truth Law treats AI like product ‘Just water’ may be illegal"
   }
 ]

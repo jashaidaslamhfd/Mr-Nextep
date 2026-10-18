@@ -4798,5 +4798,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-10-18T23:48:24.839738+00:00",
+    "status": "pending",
+    "topic": "Wisconsin files legal action alleging AI chatbot posed 'serious safety risks'",
+    "title": "Wisconsin files legal action alleging AI chatbot posed 'serious safety risks'",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "93f1a2d53ff888847a35307fa2e2b24ed95f7f0054c7999c0e3e267b750af035",
+      "ac67d8060ec8b1019ab5b90677a0cb8544400f06300cc0934ff08030f461505c",
+      "f37e7a21862c4b6a966eebaa9e756ba92f303951124149a8bc61a0f878c3dccd",
+      "be117ebef840aaff9a76d7f435d3d87a6a8e4b62779cb86bc52328f55e5ba9ea",
+      "9226c0135e212934ade7fe62c944a0e77cf57ed963ff953c28877aafd118e726",
+      "fe410a9604c6c21d6329e7318e7f6d20d7482e901bcccfc5cff32029d6a16d55",
+      "f5a6de8a46d0695764aa7716c3bf4d74f8746e0c84bf3ef16bc2806d619b872c",
+      "5db204125c773b20f57fa25f8c74b27157f7e9a325175a17c426da5fd8581254"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "concrete_observation",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 100
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-3",
+      "topic": "Wisconsin files legal action alleging AI chatbot posed 'serious safety risks'",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNNUtVenlUNzlUWWVJTTdIMVR6Z0Qxd001ZU9ESUtraWV6WGI5eHJyNGJScGZGYUgxRXY3bjlTLUNtVlBKVVVUQm44ZWduelp1YnNJTm9XbVItaExtcTBSWE9JQzVvaW5iNS1fd2NhNERiMkd1S1ptTGlzOFBBdGN3eDVOclNlS0xzUWJwWTFPdHRlbnNkeHY0ZGR6ZzBwby1vdFFmZUpMS3g1M1dlckR1TWtadS12TkRHR0RBVHhPZmozd3VIM1ZUdWRQSF9iSVBvMVgwNU5ZUkd2UGxYSUFz?oc=5",
+      "published_at": "2026-10-18T16:25:00+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-10-18T23:45:46.417690+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "5968a5142952dbfad3f0ed39deb9053ac2384d63021ab628e9b0f00090d655be",
+    "body": "Chatbot’s simple advice after fever Wisconsin says reply is dangerous State files lawsuit against AI firm Bot trained on unfiltered internet User’s health harmed by advice AI guesses words, not truth Law treats AI like product ‘Just water’ may be illegal",
+    "text": "Wisconsin files legal action alleging AI chatbot posed 'serious safety risks' Chatbot’s simple advice after fever Wisconsin says reply is dangerous State files lawsuit against AI firm Bot trained on unfiltered internet User’s health harmed by advice AI guesses words, not truth Law treats AI like product ‘Just water’ may be illegal"
   }
 ]
