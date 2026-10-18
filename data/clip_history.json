@@ -1,53 +1,5 @@
 [
   {
-    "hash": "2c9dcab3bf2cb38f3d2269adc5a4ff652515e19d2f839a0c86ec82841d690a66",
-    "source_url": "https://videos.pexels.com/video-files/16561468/16561468-hd_720_1280_30fps.mp4",
-    "title": "When the eyes play tricks, the brain builds consensus",
-    "created_at": "2026-09-18T23:43:13.382964+00:00"
-  },
-  {
-    "hash": "082f14b0b9f1da15b36f9b2c464ea3c7ef3967c897c7cd1e0c14d752e07dfeb1",
-    "source_url": "https://videos.pexels.com/video-files/18069786/18069786-sd_240_426_30fps.mp4",
-    "title": "When the eyes play tricks, the brain builds consensus",
-    "created_at": "2026-09-18T23:43:13.382964+00:00"
-  },
-  {
-    "hash": "4be0ff91f91cc4c855eb03b563fa6866fa07d867416ed0a0b28a50f88225cc54",
-    "source_url": "https://cdn.pixabay.com/video/2015/11/27/1409-147170113_medium.mp4",
-    "title": "When the eyes play tricks, the brain builds consensus",
-    "created_at": "2026-09-18T23:43:13.382964+00:00"
-  },
-  {
-    "hash": "b327a559efc6e5766c7f1e54fcb7bbf85cdbe4fac8f6f2b9bd7f8c7806afb6a3",
-    "source_url": "https://videos.pexels.com/video-files/7092139/7092139-hd_1080_1920_30fps.mp4",
-    "title": "When the eyes play tricks, the brain builds consensus",
-    "created_at": "2026-09-18T23:43:13.382964+00:00"
-  },
-  {
-    "hash": "5b933cc1b076c5083fd22801f8d43bc50fe88f3ac64fbb1cb851b88606419256",
-    "source_url": "https://videos.pexels.com/video-files/36144397/15328195_360_640_60fps.mp4",
-    "title": "Disney actress talks of brain injury. What 'Jessie' star is dealing with",
-    "created_at": "2026-09-19T07:58:29.823017+00:00"
-  },
-  {
-    "hash": "a3a217b34855d13620d603f27fd628a57f375e161232702241ac84e55b3ab41c",
-    "source_url": "https://videos.pexels.com/video-files/7132063/7132063-hd_720_1366_30fps.mp4",
-    "title": "Disney actress talks of brain injury. What 'Jessie' star is dealing with",
-    "created_at": "2026-09-19T07:58:29.823017+00:00"
-  },
-  {
-    "hash": "d5c1bc3db2d7351af5aed356588446cc0321ccccf87e92ef6ead523a86886a46",
-    "source_url": "https://videos.pexels.com/video-files/39347351/16747699_360_640_30fps.mp4",
-    "title": "Disney actress talks of brain injury. What 'Jessie' star is dealing with",
-    "created_at": "2026-09-19T07:58:29.823017+00:00"
-  },
-  {
-    "hash": "58496e2b67560b56e5170f9a03c143ce674a48b518ae7494b8de706ed8215386",
-    "source_url": "https://videos.pexels.com/video-files/8375762/8375762-hd_720_1366_25fps.mp4",
-    "title": "Disney actress talks of brain injury. What 'Jessie' star is dealing with",
-    "created_at": "2026-09-19T07:58:29.823017+00:00"
-  },
-  {
     "hash": "6e43b1b2f43c66d3abc3220343a90dfae3306df7bf4bf12dd33c5272e5dd7679",
     "source_url": "https://videos.pexels.com/video-files/7480844/7480844-hd_1080_1920_25fps.mp4",
     "title": "Disney actress talks of brain injury. What 'Jessie' star is dealing with",
@@ -2998,5 +2950,53 @@
     "source_url": "https://videos.pexels.com/video-files/7223989/7223989-hd_720_1366_25fps.mp4",
     "title": "AI rapidly improving, could vastly boost U.S. GDP, Anthropic's Clark tells policymakers",
     "created_at": "2026-10-18T05:45:18.433062+00:00"
+  },
+  {
+    "hash": "87855d08b39ca78e8ba126fe7deca87d8eb6b3796c2235036eda8503b6bd7cf9",
+    "source_url": "https://cdn.pixabay.com/video/2017/07/23/10822-226624975_medium.mp4",
+    "title": "Israeli AI firms train NVIDIA models to resist hackers and dangerous chatbot behavior",
+    "created_at": "2026-10-18T19:15:31.095657+00:00"
+  },
+  {
+    "hash": "9ccc90c6071004b55dc1d2b05f9c48f4a2a4e2acffb13bed2ce10f3df8da2bf6",
+    "source_url": "https://videos.pexels.com/video-files/35544532/15058204_360_640_25fps.mp4",
+    "title": "Israeli AI firms train NVIDIA models to resist hackers and dangerous chatbot behavior",
+    "created_at": "2026-10-18T19:15:31.095657+00:00"
+  },
+  {
+    "hash": "57f7a5222830dfedc0de866bea77534ec9fa1e2f28e0d4511ba783a2fdbd4a7f",
+    "source_url": "https://videos.pexels.com/video-files/39892776/17017336_360_640_60fps.mp4",
+    "title": "Israeli AI firms train NVIDIA models to resist hackers and dangerous chatbot behavior",
+    "created_at": "2026-10-18T19:15:31.095657+00:00"
+  },
+  {
+    "hash": "538244908cb2e890a15f1a420b3a9eedb896108dff320bdc21b2c94a006aece8",
+    "source_url": "https://cdn.pixabay.com/video/2015/10/16/1046-142621379_medium.mp4",
+    "title": "Israeli AI firms train NVIDIA models to resist hackers and dangerous chatbot behavior",
+    "created_at": "2026-10-18T19:15:31.095657+00:00"
+  },
+  {
+    "hash": "156a2ec852f69aa3eb2377869f2e6cbe86bd65a8eb7d57ee04721571616d85e8",
+    "source_url": "https://cdn.pixabay.com/video/2022/08/15/127943-739712358_medium.mp4",
+    "title": "Israeli AI firms train NVIDIA models to resist hackers and dangerous chatbot behavior",
+    "created_at": "2026-10-18T19:15:31.095657+00:00"
+  },
+  {
+    "hash": "7c87390de7b48d050bc5a59a22cca69d2c62e00ecc4cde7a7dc536fc636eb2e9",
+    "source_url": "https://cdn.pixabay.com/video/2026/04/28/349388_medium.mp4",
+    "title": "Israeli AI firms train NVIDIA models to resist hackers and dangerous chatbot behavior",
+    "created_at": "2026-10-18T19:15:31.095657+00:00"
+  },
+  {
+    "hash": "8f6c0e4e8ab20d5c97d022cfa3fdccf41fdef2e4d942c0c07aabd261e90cc912",
+    "source_url": "https://cdn.pixabay.com/video/2020/02/27/32937-395456375_medium.mp4",
+    "title": "Israeli AI firms train NVIDIA models to resist hackers and dangerous chatbot behavior",
+    "created_at": "2026-10-18T19:15:31.095657+00:00"
+  },
+  {
+    "hash": "fa09aaf5e30892e6b91e4eb1b9dcb3c591bbcf8158d0100143d214f62c2a3bfa",
+    "source_url": "https://cdn.pixabay.com/video/2019/04/05/22599-328624855_medium.mp4",
+    "title": "Israeli AI firms train NVIDIA models to resist hackers and dangerous chatbot behavior",
+    "created_at": "2026-10-18T19:15:31.095657+00:00"
   }
 ]

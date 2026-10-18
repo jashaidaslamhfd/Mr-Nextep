@@ -2207,5 +2207,21 @@
     "title": "AI rapidly improving, could vastly boost U.S. GDP, Anthropic's Clark tells policymakers",
     "body": "AI adding trillions to GDP? Policymakers hear bold forecast Anthropic’s Clark predicts sky‑rocket growth Rapid model improvements fuel optimism Economists warn of hidden bottlenecks AI automates high‑value, complex tasks Expertise automation multiplies output instantly Your paycheck may soon reflect AI",
     "text": "AI rapidly improving, could vastly boost U.S. GDP, Anthropic's Clark tells policymakers AI adding trillions to GDP? Policymakers hear bold forecast Anthropic’s Clark predicts sky‑rocket growth Rapid model improvements fuel optimism Economists warn of hidden bottlenecks AI automates high‑value, complex tasks Expertise automation multiplies output instantly Your paycheck may soon reflect AI"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "8b95ebbd144fb245e6aa4495e51eba70ee4dd3954d1818d641af1c16c60ad0e8",
+    "title": "Israeli AI firms train NVIDIA models to resist hackers and dangerous chatbot behavior",
+    "body": "More data ≠ safer AI Israeli team flips the script Training models with real hacker attacks AI learns to say no Chatbots refuse dangerous prompts instantly Defensive training blocks hidden backdoors Safety from teaching refusal, not data Your next bot may just say ‘I can’t’",
+    "text": "Israeli AI firms train NVIDIA models to resist hackers and dangerous chatbot behavior More data ≠ safer AI Israeli team flips the script Training models with real hacker attacks AI learns to say no Chatbots refuse dangerous prompts instantly Defensive training blocks hidden backdoors Safety from teaching refusal, not data Your next bot may just say ‘I can’t’"
   }
 ]
