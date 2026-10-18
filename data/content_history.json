@@ -2191,5 +2191,21 @@
     "title": "ai ai Artificial Intelligence at Work aip ai",
     "body": "AI should speed work, right? It actually adds tiny delays. Because of hidden coordination steps. AI demands unnecessary confirmations. Each check forces a pause. Your brain splits focus between tool. AI saves minutes, costs seconds. That hidden cost slows work.",
     "text": "ai ai Artificial Intelligence at Work aip ai AI should speed work, right? It actually adds tiny delays. Because of hidden coordination steps. AI demands unnecessary confirmations. Each check forces a pause. Your brain splits focus between tool. AI saves minutes, costs seconds. That hidden cost slows work."
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "a6d2bba9aea617a2b66a841c7f183b8b5ad426de053a1de3ece47b1fdae9fd39",
+    "title": "AI rapidly improving, could vastly boost U.S. GDP, Anthropic's Clark tells policymakers",
+    "body": "AI adding trillions to GDP? Policymakers hear bold forecast Anthropic’s Clark predicts sky‑rocket growth Rapid model improvements fuel optimism Economists warn of hidden bottlenecks AI automates high‑value, complex tasks Expertise automation multiplies output instantly Your paycheck may soon reflect AI",
+    "text": "AI rapidly improving, could vastly boost U.S. GDP, Anthropic's Clark tells policymakers AI adding trillions to GDP? Policymakers hear bold forecast Anthropic’s Clark predicts sky‑rocket growth Rapid model improvements fuel optimism Economists warn of hidden bottlenecks AI automates high‑value, complex tasks Expertise automation multiplies output instantly Your paycheck may soon reflect AI"
   }
 ]
