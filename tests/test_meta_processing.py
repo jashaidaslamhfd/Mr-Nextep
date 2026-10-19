@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import pytest
+import requests
 
 from src import meta
 
@@ -59,6 +60,6 @@ def test_meta_post_does_not_retry_non_idempotent_publish(monkeypatch):
             return Response()
 
     session = Session()
-    with pytest.raises(Exception):
+    with pytest.raises(requests.HTTPError):
         meta._post(session, "https://graph.example/media_publish", params={"access_token": "secret"})
     assert session.calls == 1
