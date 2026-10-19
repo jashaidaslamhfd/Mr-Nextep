@@ -15,13 +15,6 @@ jobs:
       - name: Install ffmpeg
         run: sudo apt-get update -y && sudo apt-get install -y ffmpeg
       - name: Set up avatar models (OpenVoice + SadTalker)
-        run: bash scripts/setup_avatar_models.sh 2>&1 | tee data/_avatar_test_setup.log
-      - name: Upload setup log for private debugging
-        if: always()
-        uses: actions/upload-artifact@v7
-        with:
-          name: avatar-setup-log
-          path: data/_avatar_test_setup.log
-          if-no-files-found: ignore
+        run: |\n          if ! bash scripts/setup_avatar_models.sh > /tmp/mrnextep-avatar-setup.log 2>&1; then\n            echo "::error::Avatar model setup failed; detailed logs were suppressed to avoid exposing credentials."\n            exit 1\n          fi
       - name: Run avatar pipeline test
         run: python scripts/test_avatar_pipeline.py
