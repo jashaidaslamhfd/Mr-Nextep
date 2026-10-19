@@ -80,6 +80,11 @@ def _resolve_upload_status(upload_result: dict, dry_run: bool) -> str:
     return "failed"
 
 
+def _meta_publish_enabled() -> bool:
+    """Return whether external Meta publication is explicitly enabled."""
+    return str(os.getenv("META_PUBLISH_ENABLED", "true")).strip().lower() in {"true", "1", "yes"}
+
+
 def _normalize(text: str) -> str:
     return (text or "").strip().lower()
 
@@ -374,8 +379,7 @@ def run() -> dict:
             result["meta"] = {"status": "skipped", "reason": "dry_run"}
         elif pipeline_status == "uploaded":
             result["status"] = "uploaded"
-            meta_enabled = str(os.getenv("META_PUBLISH_ENABLED", "true")).strip().lower() in {"true", "1", "yes"}
-            if meta_enabled:
+            if _meta_publish_enabled():
                 try:
                     result["meta"] = publish_meta(video, script, result)
                     agent_brain.learn(result)
