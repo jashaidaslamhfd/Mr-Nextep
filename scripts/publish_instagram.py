@@ -12,7 +12,7 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
-from src.utils import redact_secrets
+from src.utils import redact_secrets  # noqa: E402
 
 GRAPH_API_VERSION = os.getenv('META_GRAPH_API_VERSION', 'v21.0')
 GRAPH = f'https://graph.facebook.com/{GRAPH_API_VERSION}'
