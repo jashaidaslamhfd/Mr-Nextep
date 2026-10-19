@@ -13,20 +13,25 @@ on:
         required: true
         default: false
 
+permissions:
+  contents: read
+
 jobs:
   retrofit:
-    if: ${{ !inputs.apply_changes || inputs.confirm_changes }}
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: Reject unconfirmed live changes
+        if: ${{ inputs.apply_changes && !inputs.confirm_changes }}
+        run: |
+          echo "::error::Live metadata changes require both confirmation inputs."
+          exit 1
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.11"
       - name: Install dependencies
-        run: pip install google-api-python-client google-auth-oauthlib requests
-      - name: Run optimize in preview mode
+        run: python -m pip install google-api-python-client google-auth-oauthlib requests
+      - name: Preview metadata changes
         if: ${{ !inputs.apply_changes }}
         env:
           GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
@@ -37,7 +42,7 @@ jobs:
           FACEBOOK_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID }}
           INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
         run: python scripts/optimize_mrnextep_videos.py
-      - name: Run confirmed live metadata update
+      - name: Apply confirmed live metadata changes
         if: ${{ inputs.apply_changes && inputs.confirm_changes }}
         env:
           GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
