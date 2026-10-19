@@ -35,8 +35,11 @@ jobs:
     env:
       CHANNEL_LANGUAGE: en-US
       PUBLISH_TIMEZONE: America/New_York
-      # Safe default: uploads remain private until a human explicitly approves publication.\n      YT_PRIVACY_STATUS: private
-      YT_SCHEDULE_PUBLISH: "false"\n      # Do not cross-post publicly before the publication review gate.\n      META_PUBLISH_ENABLED: "false"
+      # Safe default: uploads remain private until a human explicitly approves publication.
+      YT_PRIVACY_STATUS: private
+      YT_SCHEDULE_PUBLISH: "false"
+      # Do not cross-post publicly before the publication review gate.
+      META_PUBLISH_ENABLED: "false"
       BACKGROUND_MUSIC_ENABLED: "true"
       MIN_PUBLISH_GAP_HOURS: "3.0"
       FORCE_PUBLISH: ${{ inputs.force_publish || 'false' }}
@@ -94,7 +97,7 @@ jobs:
           fi
       - name: Run regression tests
         run: python -m pytest -q
-      - name: Generate, validate and direct-publish to YouTube and Meta
+      - name: Generate, validate and upload a private YouTube draft (Meta disabled by default)
         run: python -m src.main
       - name: Upload debug artifact
         if: always()
