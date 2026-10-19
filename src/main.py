@@ -70,6 +70,16 @@ def _git_persist(paths: list[str], message: str) -> None:
             log.warning("State rebase failed: %s", pull.stderr[-500:])
 
 
+def _resolve_upload_status(upload_result: dict, dry_run: bool) -> str:
+    """Return a truthful pipeline status from the uploader's result contract."""
+    status = str(upload_result.get("status", "")).strip().lower()
+    if dry_run or status == "dry_run":
+        return "dry_run"
+    if status == "uploaded" and str(upload_result.get("youtube_video_id", "")).strip():
+        return "uploaded"
+    return "failed"
+
+
 def _normalize(text: str) -> str:
     return (text or "").strip().lower()
 
@@ -356,11 +366,11 @@ def run() -> dict:
 
         # The uploader is the source of truth. Never convert dry-run/skipped results
         # into "uploaded"; downstream gap checks and analytics depend on this status.
-        upload_status = str(upload_result.get("status", "")).strip().lower()
-        if SETTINGS.dry_run or upload_status == "dry_run":
+        pipeline_status = _resolve_upload_status(upload_result, SETTINGS.dry_run)
+        if pipeline_status == "dry_run":
             result["status"] = "dry_run"
             result["meta"] = {"status": "skipped", "reason": "dry_run"}
-        elif upload_status == "uploaded" and result.get("youtube_video_id"):
+        elif pipeline_status == "uploaded":
             result["status"] = "uploaded"
             try:
                 result["meta"] = publish_meta(video, script, result)
@@ -369,6 +379,7 @@ def run() -> dict:
                 log.exception("Meta publishing failed after YouTube upload; preserving YouTube result")
                 result["meta"] = {"status": "error", "reason": str(exc)}
         else:
+            upload_status = str(upload_result.get("status", "")).strip().lower()
             raise RuntimeError(
                 "Uploader did not confirm a successful YouTube upload "
                 f"(status={upload_status or 'missing'}, video_id_present={bool(result.get('youtube_video_id'))})"
