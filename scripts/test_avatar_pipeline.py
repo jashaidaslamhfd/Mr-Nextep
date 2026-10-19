@@ -11,7 +11,7 @@ Commits these results back to the branch so they can be pulled and reviewed.
 from __future__ import annotations
 
 import json
-import subprocess
+import os
 import sys
 import time
 from pathlib import Path
@@ -40,10 +40,18 @@ def main() -> None:
     result: dict = {"text": TEST_TEXT}
     t0 = time.time()
 
+    face_path = Path(os.getenv("AVATAR_FACE_PATH", str(Path.home() / ".mrnextep" / "avatar" / "face.png"))).expanduser()
+    voice_path = Path(os.getenv("AVATAR_VOICE_SAMPLE_PATH", str(Path.home() / ".mrnextep" / "avatar" / "voice_sample.m4a"))).expanduser()
+    if not face_path.is_file() or not voice_path.is_file():
+        raise SystemExit(
+            "Private avatar assets are required. Set AVATAR_FACE_PATH and "
+            "AVATAR_VOICE_SAMPLE_PATH to local files outside the public repository."
+        )
+
     try:
         cloned_audio = clone_voice(
             TEST_TEXT,
-            REPO_ROOT / "assets" / "avatar" / "voice_sample.m4a",
+            voice_path,
             out_dir / "cloned_voice.wav",
         )
         result["voice_clone_seconds"] = round(time.time() - t0, 1)
@@ -56,7 +64,7 @@ def main() -> None:
     t1 = time.time()
     try:
         video_path = generate_avatar_video(
-            REPO_ROOT / "assets" / "avatar" / "face.png",
+            face_path,
             cloned_audio,
             out_dir / "sadtalker_output",
         )
@@ -72,16 +80,6 @@ def main() -> None:
     (out_dir / "result.json").write_text(json.dumps(result, indent=2))
     print(json.dumps(result, indent=2))
 
-    subprocess.run(["git", "config", "user.name", "github-actions[bot]"], check=False)
-    subprocess.run(
-        ["git", "config", "user.email", "41898282+github-actions[bot]@users.noreply.github.com"],
-        check=False,
-    )
-    subprocess.run(["git", "add", "-f", "data/_avatar_test/result.json"], check=False)
-    if (out_dir / "avatar_preview.jpg").exists():
-        subprocess.run(["git", "add", "-f", "data/_avatar_test/avatar_preview.jpg"], check=False)
-    subprocess.run(["git", "commit", "-m", "chore: avatar pipeline test result"], check=False)
-    subprocess.run(["git", "push", "origin", "HEAD"], check=False)
 
 
 if __name__ == "__main__":
