@@ -145,7 +145,6 @@ def optimize_youtube(youtube, dry_run: bool = True):
                 continue
             item = items[0]
             snippet = item["snippet"]
-            status = item.get("status", {})
 
             old_title = snippet.get("title", "")
             snippet["title"] = meta["title"]
