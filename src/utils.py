@@ -23,12 +23,15 @@ import requests
 from googleapiclient.errors import HttpError
 from requests.exceptions import RequestException
 
-_SECRET_VALUE_RE = re.compile(r"(?i)(access_token|refresh_token|client_secret|api[_-]?key|token|authorization)(\s*[=:]\s*)([^&\s,;\"'<>]+)")
+_SECRET_VALUE_RE = re.compile(r"""(?i)((?:access_token|refresh_token|client_secret|api[_-]?key|token|authorization)\s*[=:]\s*["']?)([^&\s,;"'<>]+)""")
+_AUTH_BEARER_RE = re.compile(r"(?i)(authorization\s*[:=]\s*bearer\s+)[^\s,;]+")
 
 
 def redact_secrets(value: object) -> str:
     """Redact credential values from API URLs, exceptions, and response text."""
-    return _SECRET_VALUE_RE.sub(lambda match: f"{match.group(1)}{match.group(2)}[REDACTED]", str(value))
+    text = str(value)
+    text = _AUTH_BEARER_RE.sub(r"\1[REDACTED]", text)
+    return _SECRET_VALUE_RE.sub(r"\1[REDACTED]", text)
 
 
 logger = logging.getLogger("mrnextep.utils")
