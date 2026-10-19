@@ -9,6 +9,8 @@ from youtube_inputs import require_video_ids
 
 
 def main() -> int:
+    if os.getenv('CONFIRM_SCHEDULE_CHANGE', '').strip().lower() not in {'true', '1', 'yes'}:
+        raise SystemExit('Scheduling changes require CONFIRM_SCHEDULE_CHANGE=true')
     ids = require_video_ids(os.getenv('UNSCHEDULE_IDS', ''))
     refresh_token = (os.getenv('REFRESH_TOKEN') or os.getenv('YT_REFRESH_TOKEN', '')).strip()
     client_id = (os.getenv('GOOGLE_CLIENT_ID') or os.getenv('YT_CLIENT_ID', '')).strip()
