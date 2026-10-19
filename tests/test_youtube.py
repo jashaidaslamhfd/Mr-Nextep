@@ -28,13 +28,13 @@ def test_public_is_only_used_when_explicitly_configured():
     assert body["status"]["privacyStatus"] == "public"
 
 
-def test_default_upload_is_public_and_not_scheduled(monkeypatch):
+def test_default_upload_is_private_and_not_scheduled(monkeypatch):
     monkeypatch.delenv("YT_PRIVACY_STATUS", raising=False)
     settings = Settings()
-    assert settings.privacy_status == "public"
+    assert settings.privacy_status == "private"
     assert settings.schedule_publish is False
     body = build_upload_body(_script(), settings)
-    assert body["status"]["privacyStatus"] == "public"
+    assert body["status"]["privacyStatus"] == "private"
     assert "publishAt" not in body["status"]
 
 
