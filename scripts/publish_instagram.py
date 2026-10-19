@@ -56,7 +56,7 @@ def wait_until_ready(media_id: str, token: str, timeout: int | None = None, wait
             return
         if status in {'ERROR', 'EXPIRED'}:
             error_msg = data.get('error_message') or data.get('status') or 'no error details'
-            raise RuntimeError(f'Instagram media processing failed: {status} ({error_msg})')
+            raise RuntimeError(f'Instagram media processing failed: {status} ({redact_secrets(error_msg)})')
         time.sleep(wait_seconds)
     raise TimeoutError('Instagram media processing timed out')
 
