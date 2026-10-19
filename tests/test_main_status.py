@@ -19,8 +19,10 @@ def test_meta_publishing_is_disabled_when_review_gate_is_closed(monkeypatch) -> 
     assert _meta_publish_enabled() is False
 
 
-def test_meta_publishing_requires_explicit_opt_out_only(monkeypatch) -> None:
+def test_meta_publishing_is_opt_in_by_default(monkeypatch) -> None:
     monkeypatch.delenv("META_PUBLISH_ENABLED", raising=False)
+    assert _meta_publish_enabled() is False
+    monkeypatch.setenv("META_PUBLISH_ENABLED", "true")
     assert _meta_publish_enabled() is True
     monkeypatch.setenv("META_PUBLISH_ENABLED", "0")
     assert _meta_publish_enabled() is False
