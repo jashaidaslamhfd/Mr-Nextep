@@ -23,7 +23,7 @@ import requests
 from googleapiclient.errors import HttpError
 from requests.exceptions import RequestException
 
-_SECRET_VALUE_RE = re.compile(r"""(?i)((?:access_token|refresh_token|client_secret|api[_-]?key|token|authorization)\s*[=:]\s*["']?)([^&\s,;"'<>]+)""")
+_SECRET_VALUE_RE = re.compile(r"""(?i)((?:access_token|refresh_token|client_secret|api[_-]?key|token|authorization)\s*["']?\s*[=:]\s*["']?)([^&\s,;"'<>]+)""")
 _AUTH_BEARER_RE = re.compile(r"(?i)(authorization\s*[:=]\s*bearer\s+)[^\s,;]+")
 
 
