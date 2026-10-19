@@ -270,15 +270,14 @@ def revert_updates(youtube, video_history_path: Path, revert_count: int | None =
             time.sleep(sleep_between)
         except HttpError as he:
             logger.error("YouTube HttpError reverting %s: %s", vid, redact_secrets(he))
-            video_history.append({"platform": "youtube", "id": vid, "reverted": False, "error": str(he), "timestamp": time.time()})
+            video_history.append({"platform": "youtube", "id": vid, "reverted": False, "error": redact_secrets(he), "timestamp": time.time()})
             time.sleep(5)
         except Exception as ex:
             logger.error("Unexpected error reverting %s: %s", vid, redact_secrets(ex))
-            video_history.append({"platform": "youtube", "id": vid, "reverted": False, "error": str(ex), "timestamp": time.time()})
+            video_history.append({"platform": "youtube", "id": vid, "reverted": False, "error": redact_secrets(ex), "timestamp": time.time()})
             time.sleep(5)
 
     if not dry_run:
-        if not dry_run:
         save_history(video_history_path, video_history)
     logger.info("Revert run complete. Applied %d reverts.", applied)
 
@@ -354,13 +353,12 @@ def meta_attempt_update(fb_token: str, facebook_page_id: str, instagram_id: str,
                 applied += 1
             except Exception as ex:
                 logger.error("Failed to update FB %s: %s", fb_id, redact_secrets(ex))
-                video_history.append({"platform": "facebook", "id": fb_id, "updated": False, "error": resp.text if resp is not None else str(ex), "timestamp": time.time()})
+                video_history.append({"platform": "facebook", "id": fb_id, "updated": False, "error": redact_secrets(resp.text if resp is not None else ex), "timestamp": time.time()})
                 if resp is not None and resp.status_code in (400, 403):
                     logger.warning("Facebook API may restrict editing video metadata for published videos. Check Page permissions and API docs.")
                 time.sleep(2)
 
     if not dry_run:
-        if not dry_run:
         save_history(video_history_path, video_history)
     logger.info("Meta repair run complete. Applied %d updates (planned %d).", applied, len(candidates))
 
