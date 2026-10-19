@@ -436,7 +436,11 @@ def run() -> dict:
         video_history_path.write_text(
             json.dumps(video_history[-500:], ensure_ascii=False, indent=2), encoding="utf-8"
         )
-        _git_persist([str(video_history_path)], "chore: finalize generated video state")
+        if not _git_persist([str(video_history_path)], "chore: finalize generated video state"):
+            raise RuntimeError(
+                "Upload completed, but final publishing state could not be persisted to origin/main; "
+                "inspect YouTube Studio and the Actions log before retrying"
+            )
     print(json.dumps(result, indent=2))
     return result
 
