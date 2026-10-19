@@ -1,12 +1,13 @@
 from __future__ import annotations
 
-import json
 import logging
 import os
-from pathlib import Path
+import re
 
 logger = logging.getLogger("mrnextep.make_public")
 logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
+
+_VIDEO_ID = re.compile(r"^[A-Za-z0-9_-]{11}$")
 
 
 def get_youtube():
@@ -32,19 +33,36 @@ def get_youtube():
     return build("youtube", "v3", credentials=creds, cache_discovery=False)
 
 
+def validate_video_ids(video_ids: list[str]) -> list[str]:
+    """Validate and de-duplicate explicit IDs before any API mutation."""
+    validated: list[str] = []
+    seen: set[str] = set()
+    for raw in video_ids:
+        video_id = str(raw or "").strip()
+        if not _VIDEO_ID.fullmatch(video_id):
+            raise ValueError("Every VIDEO_IDS item must be an 11-character YouTube video ID")
+        if video_id not in seen:
+            validated.append(video_id)
+            seen.add(video_id)
+    if not validated:
+        raise ValueError("VIDEO_IDS must contain at least one explicit YouTube video ID")
+    return validated
+
+
 def make_videos_public(video_ids: list[str]) -> list[dict]:
+    ids = validate_video_ids(video_ids)
     yt = get_youtube()
     results = []
-    for vid in video_ids:
+    for vid in ids:
         try:
             res = yt.videos().list(part="snippet,status", id=vid).execute()
             items = res.get("items", [])
             if not items:
-                logger.warning("[%s] Video not found", vid)
+                logger.error("[%s] Video not found or inaccessible", vid)
                 results.append({"video_id": vid, "status": "not_found"})
                 continue
             item = items[0]
-            curr_status = item["status"]
+            curr_status = item.get("status", {})
             current_privacy = curr_status.get("privacyStatus")
             has_publish_at = "publishAt" in curr_status
 
@@ -63,34 +81,37 @@ def make_videos_public(video_ids: list[str]) -> list[dict]:
             yt.videos().update(part="status", body=status_body).execute()
             logger.info("[%s] Successfully transitioned to PUBLIC!", vid)
             results.append({"video_id": vid, "status": "transitioned_to_public"})
-        except Exception as e:
-            logger.error("[%s] Error transitioning to public: %s", vid, e)
-            results.append({"video_id": vid, "status": "error", "error": str(e)})
+        except Exception as exc:
+            logger.error("[%s] Error transitioning to public: %s", vid, exc)
+            results.append({"video_id": vid, "status": "error", "error": str(exc)})
     return results
 
 
 def main() -> int:
-    ids_raw = os.getenv("VIDEO_IDS", "").strip()
-    if ids_raw:
-        ids = [v.strip() for v in ids_raw.split(",") if v.strip()]
-    else:
-        history_path = Path("data/video_history.json")
-        ids = []
-        if history_path.exists():
-            try:
-                hist = json.loads(history_path.read_text(encoding="utf-8"))
-                for item in reversed(hist[-15:]):
-                    yid = item.get("youtube_video_id")
-                    if yid and yid not in ids:
-                        ids.append(yid)
-            except Exception as e:
-                logger.warning("Could not parse video_history.json: %s", e)
-    if not ids:
-        logger.info("No video IDs provided or found in video_history.json")
-        return 0
+    # Publishing is irreversible from the user's perspective (notifications and views may
+    # already occur). Require both a deliberate confirmation and explicit IDs. Never scan
+    # recent history implicitly: a missing input must not publish a batch by accident.
+    if os.getenv("CONFIRM_PUBLICATION", "").strip().lower() not in {"true", "1", "yes"}:
+        logger.error("Refusing to publish: set CONFIRM_PUBLICATION=true to confirm the action.")
+        return 2
 
-    logger.info("Processing %d videos for immediate public status: %s", len(ids), ids)
-    make_videos_public(ids)
+    ids_raw = os.getenv("VIDEO_IDS", "").strip()
+    if not ids_raw:
+        logger.error("Refusing to publish: VIDEO_IDS must explicitly list the intended videos.")
+        return 2
+    try:
+        ids = validate_video_ids(ids_raw.split(","))
+    except ValueError as exc:
+        logger.error("Invalid VIDEO_IDS: %s", exc)
+        return 2
+
+    logger.info("Processing %d explicitly selected video(s) for immediate public status.", len(ids))
+    results = make_videos_public(ids)
+    print(__import__("json").dumps({"results": results}, ensure_ascii=False, sort_keys=True))
+    failures = [item for item in results if item["status"] not in {"already_public", "transitioned_to_public"}]
+    if failures:
+        logger.error("%d of %d video(s) failed to become public.", len(failures), len(results))
+        return 1
     return 0
 
 
