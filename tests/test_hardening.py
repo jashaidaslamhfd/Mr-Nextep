@@ -93,3 +93,9 @@ def test_repair_script_refuses_apply_without_confirmation(monkeypatch):
     with pytest.raises(SystemExit) as exc:
         repair.main()
     assert exc.value.code == 2
+
+def test_redaction_covers_quoted_json_and_bearer_tokens():
+    from src.utils import redact_secrets
+
+    assert "json-secret" not in redact_secrets('{"access_token": "json-secret"}')
+    assert "bearer-secret" not in redact_secrets("Authorization: Bearer bearer-secret")
