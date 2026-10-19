@@ -278,6 +278,7 @@ def revert_updates(youtube, video_history_path: Path, revert_count: int | None =
             time.sleep(5)
 
     if not dry_run:
+        if not dry_run:
         save_history(video_history_path, video_history)
     logger.info("Revert run complete. Applied %d reverts.", applied)
 
@@ -359,6 +360,7 @@ def meta_attempt_update(fb_token: str, facebook_page_id: str, instagram_id: str,
                 time.sleep(2)
 
     if not dry_run:
+        if not dry_run:
         save_history(video_history_path, video_history)
     logger.info("Meta repair run complete. Applied %d updates (planned %d).", applied, len(candidates))
 
