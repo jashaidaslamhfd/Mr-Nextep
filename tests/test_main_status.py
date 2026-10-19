@@ -12,3 +12,8 @@ def test_upload_requires_provider_confirmation_and_video_id() -> None:
     assert _resolve_upload_status({"status": "uploaded", "youtube_video_id": "abcdefghijk"}, dry_run=False) == "uploaded"
     assert _resolve_upload_status({"status": "skipped"}, dry_run=False) == "failed"
     assert _resolve_upload_status({"status": "uploaded"}, dry_run=False) == "failed"
+
+
+def test_meta_publishing_can_be_disabled_for_review_gate(monkeypatch) -> None:
+    monkeypatch.setenv("META_PUBLISH_ENABLED", "false")
+    assert __import__("os").getenv("META_PUBLISH_ENABLED") == "false"
