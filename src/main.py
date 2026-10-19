@@ -105,7 +105,7 @@ def _resolve_upload_status(upload_result: dict, dry_run: bool) -> str:
 
 def _meta_publish_enabled() -> bool:
     """Return whether external Meta publication is explicitly enabled."""
-    return str(os.getenv("META_PUBLISH_ENABLED", "true")).strip().lower() in {"true", "1", "yes"}
+    return str(os.getenv("META_PUBLISH_ENABLED", "false")).strip().lower() in {"true", "1", "yes"}
 
 
 def _normalize(text: str) -> str:
