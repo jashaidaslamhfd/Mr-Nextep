@@ -18,13 +18,8 @@ on:
         type: string
         default: ""
   schedule:
-    # Direct-publication windows for the US audience.
-    # GitHub cron is UTC; these slots intentionally overlap US lunch/afternoon/evening
-    # in both daylight and standard time:
-    #   17:00 UTC -> 12:00 ET / 1:00 PM ET (DST)
-    #   22:00 UTC -> 17:00 ET / 6:00 PM ET (DST)
-    #   01:00 UTC -> 20:00 ET / 9:00 PM ET (DST)
-    # YouTube scheduling is disabled: the upload itself becomes PUBLIC immediately.
+    # Generate/review windows for the US audience. YouTube uploads remain private
+    # until an operator explicitly selects IDs in the make-public workflow.
     - cron: "0 17 * * *"
     - cron: "0 22 * * *"
     - cron: "0 1 * * *"
