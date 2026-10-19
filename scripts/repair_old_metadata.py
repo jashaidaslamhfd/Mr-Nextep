@@ -216,8 +216,9 @@ def plan_and_apply_updates(youtube, video_ids: list[str], dry_run: bool = True, 
             video_history.append({"platform": "youtube", "id": vid, "updated": False, "error": redact_secrets(ex), "timestamp": time.time()})
             time.sleep(5)
 
-    save_history(video_history_path, video_history)
-    logger.info("Finished. Applied %d updates (planned %d). History saved to %s", applied, len(updates), video_history_path)
+    if not dry_run:
+        save_history(video_history_path, video_history)
+    logger.info("Finished. Applied %d updates (planned %d). History %s", applied, len(updates), "saved to " + str(video_history_path) if not dry_run else "not changed in dry-run mode")
 
 
 def revert_updates(youtube, video_history_path: Path, revert_count: int | None = None, revert_ids: list[str] | None = None, dry_run: bool = True, sleep_between: float = 2.0):
@@ -271,7 +272,8 @@ def revert_updates(youtube, video_history_path: Path, revert_count: int | None =
             video_history.append({"platform": "youtube", "id": vid, "reverted": False, "error": str(ex), "timestamp": time.time()})
             time.sleep(5)
 
-    save_history(video_history_path, video_history)
+    if not dry_run:
+        save_history(video_history_path, video_history)
     logger.info("Revert run complete. Applied %d reverts.", applied)
 
 
@@ -351,7 +353,8 @@ def meta_attempt_update(fb_token: str, facebook_page_id: str, instagram_id: str,
                     logger.warning("Facebook API may restrict editing video metadata for published videos. Check Page permissions and API docs.")
                 time.sleep(2)
 
-    save_history(video_history_path, video_history)
+    if not dry_run:
+        save_history(video_history_path, video_history)
     logger.info("Meta repair run complete. Applied %d updates (planned %d).", applied, len(candidates))
 
 
