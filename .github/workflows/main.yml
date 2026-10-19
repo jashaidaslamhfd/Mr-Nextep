@@ -99,10 +99,3 @@ jobs:
         run: python -m pytest -q
       - name: Generate, validate and upload a private YouTube draft (Meta disabled by default)
         run: python -m src.main
-      - name: Upload debug artifact
-        if: always()
-        uses: actions/upload-artifact@v7
-        with:
-          name: mr-nextep-output
-          if-no-files-found: ignore
-          path: output/
