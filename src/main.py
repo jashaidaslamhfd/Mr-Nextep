@@ -349,15 +349,30 @@ def run() -> dict:
     )
 
     try:
-        result.update(upload(video, script, SETTINGS))
-        if not SETTINGS.dry_run:
+        upload_result = upload(video, script, SETTINGS)
+        if not isinstance(upload_result, dict):
+            raise RuntimeError("Uploader returned an invalid result payload")
+        result.update(upload_result)
+
+        # The uploader is the source of truth. Never convert dry-run/skipped results
+        # into "uploaded"; downstream gap checks and analytics depend on this status.
+        upload_status = str(upload_result.get("status", "")).strip().lower()
+        if SETTINGS.dry_run or upload_status == "dry_run":
+            result["status"] = "dry_run"
+            result["meta"] = {"status": "skipped", "reason": "dry_run"}
+        elif upload_status == "uploaded" and result.get("youtube_video_id"):
+            result["status"] = "uploaded"
             try:
                 result["meta"] = publish_meta(video, script, result)
                 agent_brain.learn(result)
             except Exception as exc:
                 log.exception("Meta publishing failed after YouTube upload; preserving YouTube result")
                 result["meta"] = {"status": "error", "reason": str(exc)}
-        result["status"] = "uploaded"
+        else:
+            raise RuntimeError(
+                "Uploader did not confirm a successful YouTube upload "
+                f"(status={upload_status or 'missing'}, video_id_present={bool(result.get('youtube_video_id'))})"
+            )
     except Exception as exc:
         result["status"] = "failed"
         result["error"] = str(exc)
