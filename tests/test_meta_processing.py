@@ -42,3 +42,23 @@ def test_instagram_polling_normalizes_status_case(monkeypatch) -> None:
     monkeypatch.setattr(meta, "_get", lambda *args, **kwargs: next(responses))
 
     meta._wait_until_ready(FakeSession(), "container-3", "token")
+
+
+def test_meta_post_does_not_retry_non_idempotent_publish(monkeypatch):
+    class Response:
+        status_code = 400
+        text = "bad request"
+        def raise_for_status(self):
+            import requests
+            raise requests.HTTPError("bad request", response=self)
+
+    class Session:
+        calls = 0
+        def post(self, *args, **kwargs):
+            self.calls += 1
+            return Response()
+
+    session = Session()
+    with pytest.raises(Exception):
+        meta._post(session, "https://graph.example/media_publish", params={"access_token": "secret"})
+    assert session.calls == 1
