@@ -2,12 +2,12 @@
 Repair and update old metadata to match US-targeting SEO rules.
 
 Usage:
-  python src/repair_old_metadata.py [--dry-run] [--confirm] [--max-updates N]
-  python src/repair_old_metadata.py --revert --revert-count N
+  python scripts/repair_old_metadata.py [--dry-run] [--apply --confirm] [--max-updates N]
+  python scripts/repair_old_metadata.py --revert --revert-count N --apply --confirm
 
 Notes:
 - By default runs in dry-run mode and prints proposed changes.
-- Use --confirm to apply changes for real. Use --max-updates to limit updates per run.
+- Use --apply --confirm to apply changes for real. Use --max-updates to limit updates per run.
 - Requires YouTube OAuth credentials in environment (REFRESH_TOKEN, GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET).
 - For Meta updates, set FACEBOOK_ACCESS_TOKEN, FACEBOOK_PAGE_ID, INSTAGRAM_USER_ID if available.
 
@@ -36,10 +36,10 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
-from src.config import SETTINGS
-from src.guards import load_history, save_history
-from src.seo import build_packages
-from src.utils import redact_secrets, retry_on_exception, sanitize_hashtags
+from src.config import SETTINGS  # noqa: E402
+from src.guards import load_history, save_history  # noqa: E402
+from src.seo import build_packages  # noqa: E402
+from src.utils import redact_secrets, retry_on_exception, sanitize_hashtags  # noqa: E402
 
 logger = logging.getLogger("mrnextep.repair")
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
