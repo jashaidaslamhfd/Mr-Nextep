@@ -23,6 +23,14 @@ import requests
 from googleapiclient.errors import HttpError
 from requests.exceptions import RequestException
 
+_SECRET_VALUE_RE = re.compile(r"(?i)(access_token|refresh_token|client_secret|api[_-]?key|token|authorization)(\\s*[=:]\\s*)([^&\\s,;\"'<>]+)")
+
+
+def redact_secrets(value: object) -> str:
+    """Redact credential values from API URLs, exceptions, and response text."""
+    return _SECRET_VALUE_RE.sub(lambda match: f"{match.group(1)}{match.group(2)}[REDACTED]", str(value))
+
+
 logger = logging.getLogger("mrnextep.utils")
 
 
@@ -36,11 +44,16 @@ def backoff_with_jitter(attempt: int, base: float = 1.0, cap: float = 60.0) -> f
 
 def http_status_of(exc: Exception) -> int | None:
     """Best-effort HTTP status extraction from a googleapiclient HttpError."""
-    if not isinstance(exc, HttpError):
-        return None
+    if isinstance(exc, HttpError):
+        try:
+            return int(getattr(exc, "status_code", None) or exc.resp.status)
+        except Exception:
+            return None
+    response = getattr(exc, "response", None)
+    status = getattr(response, "status_code", None)
     try:
-        return int(getattr(exc, "status_code", None) or exc.resp.status)
-    except Exception:
+        return int(status) if status is not None else None
+    except (TypeError, ValueError):
         return None
 
 
@@ -54,7 +67,7 @@ def is_transient_http_error(exc: Exception) -> bool:
     """
     status = http_status_of(exc)
     if status is not None:
-        if 500 <= status < 600 or status == 429:
+        if 500 <= status < 600 or status in (408, 429):
             return True
         if status == 403:
             detail = ""
@@ -69,7 +82,7 @@ def is_transient_http_error(exc: Exception) -> bool:
             )
             return False
         return False
-    return isinstance(exc, RequestException)
+    if isinstance(exc, requests.HTTPError):\n        return False\n    return isinstance(exc, RequestException)
 
 
 def retry_on_exception(max_attempts: int = 5, allowed_exceptions: Iterable[type] = (Exception,)):
@@ -100,7 +113,7 @@ def retry_on_exception(max_attempts: int = 5, allowed_exceptions: Iterable[type]
                                 transient = True
                                 break
 
-                    logger.warning("Exception on attempt %d/%d: %s (transient=%s)", attempt, max_attempts, exc, transient)
+                    logger.warning("Exception on attempt %d/%d: %s (transient=%s)", attempt, max_attempts, redact_secrets(exc), transient)
                     if attempt >= max_attempts or not transient:
                         logger.exception("Giving up after attempt %d", attempt)
                         raise
