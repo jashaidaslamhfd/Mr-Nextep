@@ -180,6 +180,7 @@ def publish(video: Path, script: dict[str, Any], youtube_result: dict[str, Any])
             # fall back to standard page video upload if Page token lacks Reels permissions.
             init_url = f"{GRAPH_BASE}/{page_id}/video_reels"
             fb_done = False
+            video_id = None
             try:
                 init_res = _post(
                     session,
@@ -218,7 +219,14 @@ def publish(video: Path, script: dict[str, Any], youtube_result: dict[str, Any])
                     result["facebook"]["thumbnail"] = _set_facebook_thumbnail(session, str(video_id), fb_cover, token)
                     fb_done = True
             except Exception as reels_exc:
-                logger.warning("Facebook Reels 3-phase upload unavailable (%s); falling back to page video", redact_secrets(reels_exc))
+                if video_id:
+                    # Once Meta allocated a Reel ID, the upload/finish outcome may be
+                    # uncertain. A fallback upload could create a duplicate public post.
+                    raise RuntimeError(
+                        "Facebook Reels upload outcome is uncertain after initialization; "
+                        "fallback upload was blocked to avoid duplicates. Check the Page before retrying."
+                    ) from None
+                logger.warning("Facebook Reels initialization failed (%s); falling back to page video", redact_secrets(reels_exc))
 
             if not fb_done:
                 url = f"{GRAPH_BASE}/{page_id}/videos"
