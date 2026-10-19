@@ -21,4 +21,4 @@ This branch implements code-level safeguards for high-risk publishing and operat
 
 Pipeline state is currently committed back to `main` by `src/main.py::_git_persist`. Moving state to a durable external store or dedicated state branch needs migration, concurrency and recovery tests; it is intentionally not mixed into this correctness/security patch.
 
-The production workflow's immediate-public behavior is preserved because it is an existing product setting. If scheduled videos should be private until a review step, change `YT_PRIVACY_STATUS` / `YT_SCHEDULE_PUBLISH` in the production workflow as a deliberate policy decision.
+The production workflow now defaults to private YouTube uploads and disables Meta cross-posting until the operator intentionally opens the review gate. After validating content and credentials, the owner may deliberately enable the intended distribution policy.
