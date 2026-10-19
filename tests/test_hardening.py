@@ -3,8 +3,8 @@ from __future__ import annotations
 import importlib.util
 from pathlib import Path
 
-import requests
 import pytest
+import requests
 
 from scripts.youtube_inputs import require_publish_at, require_video_id, require_video_ids
 from src.config import Settings
