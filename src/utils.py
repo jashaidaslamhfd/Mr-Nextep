@@ -23,7 +23,7 @@ import requests
 from googleapiclient.errors import HttpError
 from requests.exceptions import RequestException
 
-_SECRET_VALUE_RE = re.compile(r"(?i)(access_token|refresh_token|client_secret|api[_-]?key|token|authorization)(\\s*[=:]\\s*)([^&\\s,;\"'<>]+)")
+_SECRET_VALUE_RE = re.compile(r"(?i)(access_token|refresh_token|client_secret|api[_-]?key|token|authorization)(\s*[=:]\s*)([^&\s,;\"'<>]+)")
 
 
 def redact_secrets(value: object) -> str:
@@ -72,9 +72,9 @@ def is_transient_http_error(exc: Exception) -> bool:
         if status == 403:
             detail = ""
             try:
-                detail = (exc.content or b"").decode("utf-8", "replace")[:300]
+                detail = redact_secrets((exc.content or b"").decode("utf-8", "replace")[:300])
             except Exception:
-                detail = str(exc)[:300]
+                detail = redact_secrets(str(exc)[:300])
             logger.error(
                 "HTTP 403 from the API is treated as permanent (usually quota or permissions), "
                 "not retried. Detail: %s",
@@ -82,7 +82,9 @@ def is_transient_http_error(exc: Exception) -> bool:
             )
             return False
         return False
-    if isinstance(exc, requests.HTTPError):\n        return False\n    return isinstance(exc, RequestException)
+    if isinstance(exc, requests.HTTPError):
+        return False
+    return isinstance(exc, RequestException)
 
 
 def retry_on_exception(max_attempts: int = 5, allowed_exceptions: Iterable[type] = (Exception,)):
