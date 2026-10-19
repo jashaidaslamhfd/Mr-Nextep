@@ -320,43 +320,45 @@ def run() -> dict:
         **guard,
     }
 
-    # Persist the reservation before any external upload. A later run can reject it.
-    history.append(guard)
-    save_history(history_path, history)
-    clip_history_path = SETTINGS.data_dir / "clip_history.json"
-    clip_history = load_history(clip_history_path)
-    clip_history.extend(
-        {
-            "hash": h,
-            "source_url": source_urls[i] if i < len(source_urls) else "",
-            "title": result["title"],
-            "created_at": created_at,
-        }
-        for i, h in enumerate(clip_hashes)
-    )
-    clip_history_path.write_text(
-        json.dumps(clip_history[-500:], ensure_ascii=False, indent=2), encoding="utf-8"
-    )
     video_history = published_history
-    video_history.append(result)
-    video_history_path.write_text(
-        json.dumps(video_history[-500:], ensure_ascii=False, indent=2), encoding="utf-8"
-    )
-    topic_index_path = SETTINGS.data_dir / "topic_index.json"
-    trend_index_path = SETTINGS.data_dir / "trend_topic_index.json"
-    queue_path = SETTINGS.data_dir / "search_demand_queue_us.json"
-    _git_persist(
-        [
-            str(history_path),
-            str(clip_history_path),
-            str(video_history_path),
-            str(topic_index_path),
-            str(trend_index_path),
-            str(queue_path),
-            str(performance_path),
-        ],
-        "chore: reserve generated video state",
-    )
+    if not SETTINGS.dry_run:
+        # Persist the reservation before any external upload. A later run can reject it.
+        history.append(guard)
+        save_history(history_path, history)
+        clip_history_path = SETTINGS.data_dir / "clip_history.json"
+        clip_history = load_history(clip_history_path)
+        clip_history.extend(
+            {
+                "hash": h,
+                "source_url": source_urls[i] if i < len(source_urls) else "",
+                "title": result["title"],
+                "created_at": created_at,
+            }
+            for i, h in enumerate(clip_hashes)
+        )
+        clip_history_path.write_text(
+            json.dumps(clip_history[-500:], ensure_ascii=False, indent=2), encoding="utf-8"
+        )
+        video_history.append(result)
+        video_history_path.write_text(
+            json.dumps(video_history[-500:], ensure_ascii=False, indent=2), encoding="utf-8"
+        )
+        topic_index_path = SETTINGS.data_dir / "topic_index.json"
+        trend_index_path = SETTINGS.data_dir / "trend_topic_index.json"
+        queue_path = SETTINGS.data_dir / "search_demand_queue_us.json"
+        _git_persist(
+            [
+                str(history_path),
+                str(clip_history_path),
+                str(video_history_path),
+                str(topic_index_path),
+                str(trend_index_path),
+                str(queue_path),
+                str(performance_path),
+            ],
+            "chore: reserve generated video state",
+        )
+
 
     try:
         upload_result = upload(video, script, SETTINGS)
@@ -387,19 +389,21 @@ def run() -> dict:
     except Exception as exc:
         result["status"] = "failed"
         result["error"] = str(exc)
+        if not SETTINGS.dry_run and video_history:
+            video_history[-1] = result
+            video_history_path.write_text(
+                json.dumps(video_history[-500:], ensure_ascii=False, indent=2), encoding="utf-8"
+            )
+            _git_persist([str(video_history_path)], "chore: mark generated video upload failed")
+        log.exception("Upload failed; failed state committed for recovery")
+        raise
+
+    if not SETTINGS.dry_run and video_history:
         video_history[-1] = result
         video_history_path.write_text(
             json.dumps(video_history[-500:], ensure_ascii=False, indent=2), encoding="utf-8"
         )
-        _git_persist([str(video_history_path)], "chore: mark generated video upload failed")
-        log.exception("Upload failed; failed state committed for recovery")
-        raise
-
-    video_history[-1] = result
-    video_history_path.write_text(
-        json.dumps(video_history[-500:], ensure_ascii=False, indent=2), encoding="utf-8"
-    )
-    _git_persist([str(video_history_path)], "chore: finalize generated video state")
+        _git_persist([str(video_history_path)], "chore: finalize generated video state")
     print(json.dumps(result, indent=2))
     return result
 
