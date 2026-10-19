@@ -117,7 +117,7 @@ def retry_on_exception(max_attempts: int = 5, allowed_exceptions: Iterable[type]
 
                     logger.warning("Exception on attempt %d/%d: %s (transient=%s)", attempt, max_attempts, redact_secrets(exc), transient)
                     if attempt >= max_attempts or not transient:
-                        logger.exception("Giving up after attempt %d", attempt)
+                        logger.error("Giving up after attempt %d: %s", attempt, redact_secrets(exc))
                         raise
                     wait = backoff_with_jitter(attempt)
                     logger.info("Sleeping %.1f seconds before retrying...", wait)
