@@ -34,7 +34,7 @@ from googleapiclient.errors import HttpError
 from src.config import SETTINGS
 from src.guards import load_history, save_history
 from src.seo import build_packages
-from src.utils import retry_on_exception, sanitize_hashtags
+from src.utils import redact_secrets, retry_on_exception, sanitize_hashtags
 
 logger = logging.getLogger("mrnextep.repair")
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
@@ -207,13 +207,13 @@ def plan_and_apply_updates(youtube, video_ids: list[str], dry_run: bool = True, 
             applied += 1
             time.sleep(sleep_between)
         except HttpError as he:
-            logger.exception("YouTube HttpError updating %s: %s", vid, he)
-            entry = {"platform": "youtube", "id": vid, "updated": False, "error": str(he), "timestamp": time.time()}
+            logger.error("YouTube HttpError updating %s: %s", vid, redact_secrets(he))
+            entry = {"platform": "youtube", "id": vid, "updated": False, "error": redact_secrets(he), "timestamp": time.time()}
             video_history.append(entry)
             time.sleep(5)
         except Exception as ex:
-            logger.exception("Unexpected error updating %s: %s", vid, ex)
-            video_history.append({"platform": "youtube", "id": vid, "updated": False, "error": str(ex), "timestamp": time.time()})
+            logger.error("Unexpected error updating %s: %s", vid, redact_secrets(ex))
+            video_history.append({"platform": "youtube", "id": vid, "updated": False, "error": redact_secrets(ex), "timestamp": time.time()})
             time.sleep(5)
 
     save_history(video_history_path, video_history)
@@ -263,11 +263,11 @@ def revert_updates(youtube, video_history_path: Path, revert_count: int | None =
             applied += 1
             time.sleep(sleep_between)
         except HttpError as he:
-            logger.exception("YouTube HttpError reverting %s: %s", vid, he)
+            logger.error("YouTube HttpError reverting %s: %s", vid, redact_secrets(he))
             video_history.append({"platform": "youtube", "id": vid, "reverted": False, "error": str(he), "timestamp": time.time()})
             time.sleep(5)
         except Exception as ex:
-            logger.exception("Unexpected error reverting %s: %s", vid, ex)
+            logger.error("Unexpected error reverting %s: %s", vid, redact_secrets(ex))
             video_history.append({"platform": "youtube", "id": vid, "reverted": False, "error": str(ex), "timestamp": time.time()})
             time.sleep(5)
 
@@ -322,8 +322,8 @@ def meta_attempt_update(fb_token: str, facebook_page_id: str, instagram_id: str,
                 video_history.append({"platform": "instagram", "id": ig_id, "updated": True, "response": resp.json(), "timestamp": time.time()})
                 applied += 1
             except Exception as ex:
-                logger.exception("Failed to update IG %s: %s", ig_id, ex)
-                video_history.append({"platform": "instagram", "id": ig_id, "updated": False, "error": resp.text if resp is not None else str(ex), "timestamp": time.time()})
+                logger.error("Failed to update IG %s: %s", ig_id, redact_secrets(ex))
+                video_history.append({"platform": "instagram", "id": ig_id, "updated": False, "error": redact_secrets(resp.text if resp is not None else ex), "timestamp": time.time()})
                 if resp is not None and resp.status_code in (400, 403):
                     logger.warning("Instagram API may not allow caption edits programmatically for this media. Consider reposting as fallback.")
                 time.sleep(2)
@@ -345,7 +345,7 @@ def meta_attempt_update(fb_token: str, facebook_page_id: str, instagram_id: str,
                 video_history.append({"platform": "facebook", "id": fb_id, "updated": True, "response": resp.json(), "timestamp": time.time()})
                 applied += 1
             except Exception as ex:
-                logger.exception("Failed to update FB %s: %s", fb_id, ex)
+                logger.error("Failed to update FB %s: %s", fb_id, redact_secrets(ex))
                 video_history.append({"platform": "facebook", "id": fb_id, "updated": False, "error": resp.text if resp is not None else str(ex), "timestamp": time.time()})
                 if resp is not None and resp.status_code in (400, 403):
                     logger.warning("Facebook API may restrict editing video metadata for published videos. Check Page permissions and API docs.")
@@ -357,8 +357,13 @@ def meta_attempt_update(fb_token: str, facebook_page_id: str, instagram_id: str,
 
 def main():
     parser = argparse.ArgumentParser(description="Repair old metadata for YouTube/Meta to US-targeted SEO")
-    parser.add_argument("--dry-run", action="store_true", help="Do not apply changes, only log planned updates")
-    parser.add_argument("--confirm", action="store_true", help="If set, apply changes (requires --dry-run to be false)")
+    mode = parser.add_mutually_exclusive_group()
+    mode.add_argument("--dry-run", dest="dry_run", action="store_true", default=True,
+                      help="Preview changes only (default)")
+    mode.add_argument("--apply", dest="dry_run", action="store_false",
+                      help="Allow live changes; must be combined with --confirm")
+    parser.add_argument("--confirm", action="store_true",
+                        help="Explicitly confirm live YouTube/Meta metadata changes; requires --apply")
     parser.add_argument("--max-updates", type=int, default=10, help="Maximum number of videos to update in this run")
     parser.add_argument("--sleep", type=float, default=2.0, help="Seconds to sleep between updates")
     parser.add_argument("--revert", action="store_true", help="Revert previously applied updates using backups in video_history.json")
@@ -366,12 +371,12 @@ def main():
     parser.add_argument("--revert-ids", type=str, help="Comma-separated video ids to revert")
     args = parser.parse_args()
 
+    if not args.dry_run and not args.confirm:
+        parser.error("live changes require both --apply and --confirm")
     if args.confirm and args.dry_run:
-        logger.error("--confirm cannot be used with --dry-run. To apply changes, run without --dry-run and with --confirm flag.")
-        return
-
-    if args.confirm:
-        logger.warning("Live mode enabled. This script will modify remote video metadata. Proceed with caution.")
+        parser.error("--confirm cannot be used with --dry-run; use --apply --confirm")
+    if not args.dry_run:
+        logger.warning("LIVE MODE: remote metadata changes are explicitly enabled by --apply --confirm.")
 
     SETTINGS.ensure_dirs()
     video_history_path = SETTINGS.data_dir / "video_history.json"
@@ -380,7 +385,7 @@ def main():
         creds = _load_youtube_creds()
         youtube = build("youtube", "v3", credentials=creds, cache_discovery=False)
     except Exception as exc:
-        logger.exception("Failed to initialize YouTube client: %s", exc)
+        logger.error("Failed to initialize YouTube client: %s", redact_secrets(exc))
         return
 
     if args.revert:
