@@ -5001,7 +5001,7 @@
   },
   {
     "created_at": "2026-10-19T21:22:53.347518+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Circle and Proof Help Businesses Trust AI Agent Transactions",
     "title": "Circle and Proof Help Businesses Trust AI Agent Transactions",
     "video_path": "output/mr_nextep_short.mp4",
@@ -5083,6 +5083,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "958334149240ea01bc535da64ba19d644e625ae4234bdb3ee06c48fd3334198e",
     "body": "AI needs human approval? Proof circle beats approval Businesses show cryptic badge Zero‑knowledge proof displayed AI follows compliance rules Users can’t see the math Brains trust visible symbols Circle seals trust, not oversight",
-    "text": "Circle and Proof Help Businesses Trust AI Agent Transactions AI needs human approval? Proof circle beats approval Businesses show cryptic badge Zero‑knowledge proof displayed AI follows compliance rules Users can’t see the math Brains trust visible symbols Circle seals trust, not oversight"
+    "text": "Circle and Proof Help Businesses Trust AI Agent Transactions AI needs human approval? Proof circle beats approval Businesses show cryptic badge Zero‑knowledge proof displayed AI follows compliance rules Users can’t see the math Brains trust visible symbols Circle seals trust, not oversight",
+    "youtube_video_id": "3LL0vKopvVI",
+    "url": "https://youtu.be/3LL0vKopvVI",
+    "thumbnail": "uploaded",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/1122980080905302/videos?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      }
+    }
   }
 ]
