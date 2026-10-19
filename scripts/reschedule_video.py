@@ -9,6 +9,8 @@ from youtube_inputs import require_publish_at, require_video_id
 
 
 def main() -> int:
+    if os.getenv('CONFIRM_SCHEDULE_CHANGE', '').strip().lower() not in {'true', '1', 'yes'}:
+        raise SystemExit('Scheduling changes require CONFIRM_SCHEDULE_CHANGE=true')
     video_id = require_video_id(os.getenv('VIDEO_ID', ''))
     publish_at = require_publish_at(os.getenv('PUBLISH_AT', ''))
     refresh_token = (os.getenv('REFRESH_TOKEN') or os.getenv('YT_REFRESH_TOKEN', '')).strip()
