@@ -35,39 +35,62 @@ log = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
 
 
-def _git_persist(paths: list[str], message: str) -> None:
-    """Best-effort state commit with rebase; never hide the production result."""
-    # Manual workflow_dispatch runs can target a feature branch. Never let a
-    # non-main run push generated state into production's main branch.
+def _git_persist(paths: list[str], message: str) -> bool:
+    """Persist pipeline state and report whether the remote state is durable.
+
+    A failed state push must not be silently treated as success: the next ephemeral
+    runner would otherwise lose deduplication and publish-gap history. Feature-branch
+    runs deliberately skip this production-only persistence path.
+    """
     branch = subprocess.run(
         ["git", "branch", "--show-current"], check=False, capture_output=True, text=True
     )
-    if branch.returncode != 0 or branch.stdout.strip() != "main":
+    if branch.returncode != 0:
+        log.error("Unable to determine current Git branch; state was not persisted.")
+        return False
+    if branch.stdout.strip() != "main":
         log.info("Skipping Git state persistence outside the main branch.")
-        return
+        return True
 
     existing = [p for p in paths if Path(p).exists()]
     if not existing:
-        return
-    subprocess.run(["git", "config", "user.name", "github-actions[bot]"], check=False)
-    subprocess.run(
+        return True
+
+    commands = [
+        ["git", "config", "user.name", "github-actions[bot]"],
         ["git", "config", "user.email", "41898282+github-actions[bot]@users.noreply.github.com"],
-        check=False,
+        ["git", "add", "-f", *existing],
+    ]
+    for command in commands:
+        completed = subprocess.run(command, check=False, capture_output=True, text=True)
+        if completed.returncode != 0:
+            log.error("State persistence command failed (%s): %s", command[1], completed.stderr[-500:])
+            return False
+
+    commit = subprocess.run(
+        ["git", "commit", "-m", message], check=False, capture_output=True, text=True
     )
-    subprocess.run(["git", "add", "-f", *existing], check=False)
-    commit = subprocess.run(["git", "commit", "-m", message], check=False, capture_output=True, text=True)
-    if commit.returncode == 0:
-        pull = subprocess.run(
-            ["git", "pull", "--rebase", "origin", "main"], check=False, capture_output=True, text=True
-        )
-        if pull.returncode == 0:
-            pushed = subprocess.run(
-                ["git", "push", "origin", "HEAD:main"], check=False, capture_output=True, text=True
-            )
-            if pushed.returncode != 0:
-                log.warning("State push failed: %s", pushed.stderr[-500:])
-        else:
-            log.warning("State rebase failed: %s", pull.stderr[-500:])
+    if commit.returncode != 0:
+        combined = f"{commit.stdout}\n{commit.stderr}".lower()
+        if "nothing to commit" in combined:
+            return True
+        log.error("State commit failed: %s", commit.stderr[-500:])
+        return False
+
+    pull = subprocess.run(
+        ["git", "pull", "--rebase", "origin", "main"], check=False, capture_output=True, text=True
+    )
+    if pull.returncode != 0:
+        log.error("State rebase failed; remote state may be stale: %s", pull.stderr[-500:])
+        return False
+
+    pushed = subprocess.run(
+        ["git", "push", "origin", "HEAD:main"], check=False, capture_output=True, text=True
+    )
+    if pushed.returncode != 0:
+        log.error("State push failed; remote state may be stale: %s", pushed.stderr[-500:])
+        return False
+    return True
 
 
 def _resolve_upload_status(upload_result: dict, dry_run: bool) -> str:
@@ -351,7 +374,7 @@ def run() -> dict:
         topic_index_path = SETTINGS.data_dir / "topic_index.json"
         trend_index_path = SETTINGS.data_dir / "trend_topic_index.json"
         queue_path = SETTINGS.data_dir / "search_demand_queue_us.json"
-        _git_persist(
+        persisted = _git_persist(
             [
                 str(history_path),
                 str(clip_history_path),
@@ -363,6 +386,8 @@ def run() -> dict:
             ],
             "chore: reserve generated video state",
         )
+        if not persisted:
+            raise RuntimeError("Could not persist publishing reservation to origin/main; refusing external upload")
 
 
     try:
