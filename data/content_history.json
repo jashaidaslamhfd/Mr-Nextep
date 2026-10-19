@@ -2255,5 +2255,21 @@
     "title": "Anthropic Takes Its AI Safety Proposals to Capitol Hill",
     "body": "Anthropic's surprise Capitol pitch They unveiled a safety playbook Lawmakers leaned in, curious Pitch felt more like marketing Confidence tricks our brain's trust We lower guard when AI sounds sure Bold forecasts replace hard data Surety won the lobby’s victory",
     "text": "Anthropic Takes Its AI Safety Proposals to Capitol Hill Anthropic's surprise Capitol pitch They unveiled a safety playbook Lawmakers leaned in, curious Pitch felt more like marketing Confidence tricks our brain's trust We lower guard when AI sounds sure Bold forecasts replace hard data Surety won the lobby’s victory"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "958334149240ea01bc535da64ba19d644e625ae4234bdb3ee06c48fd3334198e",
+    "title": "Circle and Proof Help Businesses Trust AI Agent Transactions",
+    "body": "AI needs human approval? Proof circle beats approval Businesses show cryptic badge Zero‑knowledge proof displayed AI follows compliance rules Users can’t see the math Brains trust visible symbols Circle seals trust, not oversight",
+    "text": "Circle and Proof Help Businesses Trust AI Agent Transactions AI needs human approval? Proof circle beats approval Businesses show cryptic badge Zero‑knowledge proof displayed AI follows compliance rules Users can’t see the math Brains trust visible symbols Circle seals trust, not oversight"
   }
 ]

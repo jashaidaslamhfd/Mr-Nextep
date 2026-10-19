@@ -4998,5 +4998,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-10-19T21:22:53.347518+00:00",
+    "status": "pending",
+    "topic": "Circle and Proof Help Businesses Trust AI Agent Transactions",
+    "title": "Circle and Proof Help Businesses Trust AI Agent Transactions",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "04173dc598cf6c520a44dc845951329c418f9bf5ffef984f9068dd810fc05f51",
+      "f7b497ff695c52b48de9393c7bc9846a56373079e3d1e2f829219a6e63a9fbc8",
+      "83a692a5140e6abc3bc235da5998f3c3884cfa68a2f8d2b60b1f23c9d4910e58",
+      "00ae6fbe10d5cd0b87c600216615838db04a5170b378e11ead61bfab60efdaed",
+      "9278424ba9712c1b1402fdb47023be60692332f4a622f34ebd2e2b9e18261b16",
+      "4cbc61062fb07cdf49f0b59d0af4d532341d32d90cf1e7ff1ec683f5736a8d1a",
+      "e9266648a8c4b896ca2824d180f0fdd3f311c8995afdaf0baeee30c06c720c56",
+      "7b39f1e167eb7aebbcd38eeb67170e3177b4c043cc0d5bde97aefd80043ecd40"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "counterintuitive",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 97
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 97
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 92
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "Circle and Proof Help Businesses Trust AI Agent Transactions",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOSzhrOTZMMUxIcDJGQnhLY0YzLWdKbDhPWDR5WjdmWWdkcGdETlR4OEFRUUR0elN1THh6SHUtX3JjWEx6MVREQ2dwVDNOYUtNb0x6MGY1WHpzZlZJZ3daM01oeUkzODZvX1g3OTVDMlg3RWVMd2ZuS2N0dTFGNW8tZS1pUXpUN0cwdGhXWElCUUQxQnkzSWhzVEdGUWVOdUpoUWMzYWt3NTRBZ1lleURsSXNCOVl3SXJ4X1E?oc=5",
+      "published_at": "2026-10-19T20:19:18+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-10-19T21:20:09.221180+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 22.766667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "958334149240ea01bc535da64ba19d644e625ae4234bdb3ee06c48fd3334198e",
+    "body": "AI needs human approval? Proof circle beats approval Businesses show cryptic badge Zero‑knowledge proof displayed AI follows compliance rules Users can’t see the math Brains trust visible symbols Circle seals trust, not oversight",
+    "text": "Circle and Proof Help Businesses Trust AI Agent Transactions AI needs human approval? Proof circle beats approval Businesses show cryptic badge Zero‑knowledge proof displayed AI follows compliance rules Users can’t see the math Brains trust visible symbols Circle seals trust, not oversight"
   }
 ]
