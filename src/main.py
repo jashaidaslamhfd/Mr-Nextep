@@ -374,12 +374,16 @@ def run() -> dict:
             result["meta"] = {"status": "skipped", "reason": "dry_run"}
         elif pipeline_status == "uploaded":
             result["status"] = "uploaded"
-            try:
-                result["meta"] = publish_meta(video, script, result)
-                agent_brain.learn(result)
-            except Exception as exc:
-                log.exception("Meta publishing failed after YouTube upload; preserving YouTube result")
-                result["meta"] = {"status": "error", "reason": str(exc)}
+            meta_enabled = str(os.getenv("META_PUBLISH_ENABLED", "true")).strip().lower() in {"true", "1", "yes"}
+            if meta_enabled:
+                try:
+                    result["meta"] = publish_meta(video, script, result)
+                    agent_brain.learn(result)
+                except Exception as exc:
+                    log.exception("Meta publishing failed after YouTube upload; preserving YouTube result")
+                    result["meta"] = {"status": "error", "reason": str(exc)}
+            else:
+                result["meta"] = {"status": "skipped", "reason": "META_PUBLISH_ENABLED is false"}
         else:
             upload_status = str(upload_result.get("status", "")).strip().lower()
             raise RuntimeError(
