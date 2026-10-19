@@ -120,14 +120,27 @@ def retention_proxy(script: dict[str, Any], duration: float) -> float:
 structural_conformance = retention_proxy
 
 def load_history(path: Path) -> list[dict[str, Any]]:
+    """Load history safely; only a genuinely missing file means an empty history.
+
+    Corrupt, unreadable, or incorrectly shaped history must stop production rather
+    than silently disabling duplicate and publish-gap protection.
+    """
+    if not path.exists():
+        return []
     try:
         value = json.loads(path.read_text(encoding="utf-8"))
-        return value if isinstance(value, list) else []
-    except (OSError, ValueError, TypeError, json.JSONDecodeError): return []
+    except (OSError, ValueError, TypeError) as exc:
+        raise RuntimeError(f"History file is unreadable or invalid JSON: {path}") from exc
+    if not isinstance(value, list) or any(not isinstance(item, dict) for item in value):
+        raise RuntimeError(f"History file must contain a JSON array of objects: {path}")
+    return value
 
 def save_history(path: Path, history: list[dict[str, Any]]) -> None:
+    """Atomically replace history so interruption cannot leave truncated JSON."""
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(history[-500:], indent=2, ensure_ascii=False), encoding="utf-8")
+    temp_path = path.with_name(path.name + ".tmp")
+    temp_path.write_text(json.dumps(history[-500:], indent=2, ensure_ascii=False), encoding="utf-8")
+    temp_path.replace(path)
 
 def enforce(
     script: dict[str, Any],
