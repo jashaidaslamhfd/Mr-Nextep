@@ -1,6 +1,6 @@
 # Deep-audit remediation status
 
-This branch implements code-level safeguards for two high-risk audit findings.
+This branch implements code-level safeguards for high-risk publishing and operational audit findings.
 
 ## Implemented here
 
