@@ -4898,5 +4898,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-10-19T06:00:35.803809+00:00",
+    "status": "pending",
+    "topic": "Anthropic Takes Its AI Safety Proposals to Capitol Hill",
+    "title": "Anthropic Takes Its AI Safety Proposals to Capitol Hill",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "2d529326df5d090378a3ccdb757c9b41853dd88c462ffda96db4dd3ccc358133",
+      "68588118410a316d0f0e2f103ca6dcb9ce47313f44622076a38fb65b110b34cb",
+      "9a6026e5a7c774e386821b65532203873fabc79988361316f36ddc9e01e3d4e8",
+      "6d0c22e1f8f47a5991e333b169c3ab7ad0ed8d4a9ed23a3f482cae6ed3cc2c08",
+      "97974442084cc32e281d8ad6eef51d49b052ec8bf7bdb7230940aa1f5e3272fc",
+      "52fde474b9f97e6266632882cd158280df7531d0891e7583abda43fb6098260e",
+      "a9a444b909a67649ab2d1a2531411e9457a75ee87c219948a8427a9e1b73ec6f",
+      "2061963c57f6427850c80b882fa9758270f6736d0455647b84697e74222edc0e"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "specific_question",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 97
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 97
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 92
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-2",
+      "topic": "Anthropic Takes Its AI Safety Proposals to Capitol Hill",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNeFNrVTI0LUJlVDFHcjJHUXVUcko4bkF2QXJaeVlhWThyWFBrb1V2ZngyWFFyUkNyRDJGRTlkY0FPVzhFcEIxeTB3ZEMwM2p2VFlFM0FVRHowV29mZXplaXp5dkd1OUZ4WlE5TGZvdkNvbFdpQ2szd2MxaWpGQW1HN2pVSDFXZk5NamZuUlpCWVhLV1hObjdGVDFNR19wRmg3SUszbV91aXR4NWUzUjdjS1pDYw?oc=5",
+      "published_at": "2026-10-19T01:53:03+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-10-19T05:58:29.075078+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "776129cfaeb50ea679c63125bee5f0e352ab69d10d71356308b6848b49a999c9",
+    "body": "Anthropic's surprise Capitol pitch They unveiled a safety playbook Lawmakers leaned in, curious Pitch felt more like marketing Confidence tricks our brain's trust We lower guard when AI sounds sure Bold forecasts replace hard data Surety won the lobby’s victory",
+    "text": "Anthropic Takes Its AI Safety Proposals to Capitol Hill Anthropic's surprise Capitol pitch They unveiled a safety playbook Lawmakers leaned in, curious Pitch felt more like marketing Confidence tricks our brain's trust We lower guard when AI sounds sure Bold forecasts replace hard data Surety won the lobby’s victory"
   }
 ]

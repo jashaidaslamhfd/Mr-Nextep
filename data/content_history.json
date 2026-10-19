@@ -2239,5 +2239,21 @@
     "title": "Wisconsin files legal action alleging AI chatbot posed 'serious safety risks'",
     "body": "Chatbot’s simple advice after fever Wisconsin says reply is dangerous State files lawsuit against AI firm Bot trained on unfiltered internet User’s health harmed by advice AI guesses words, not truth Law treats AI like product ‘Just water’ may be illegal",
     "text": "Wisconsin files legal action alleging AI chatbot posed 'serious safety risks' Chatbot’s simple advice after fever Wisconsin says reply is dangerous State files lawsuit against AI firm Bot trained on unfiltered internet User’s health harmed by advice AI guesses words, not truth Law treats AI like product ‘Just water’ may be illegal"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "776129cfaeb50ea679c63125bee5f0e352ab69d10d71356308b6848b49a999c9",
+    "title": "Anthropic Takes Its AI Safety Proposals to Capitol Hill",
+    "body": "Anthropic's surprise Capitol pitch They unveiled a safety playbook Lawmakers leaned in, curious Pitch felt more like marketing Confidence tricks our brain's trust We lower guard when AI sounds sure Bold forecasts replace hard data Surety won the lobby’s victory",
+    "text": "Anthropic Takes Its AI Safety Proposals to Capitol Hill Anthropic's surprise Capitol pitch They unveiled a safety playbook Lawmakers leaned in, curious Pitch felt more like marketing Confidence tricks our brain's trust We lower guard when AI sounds sure Bold forecasts replace hard data Surety won the lobby’s victory"
   }
 ]

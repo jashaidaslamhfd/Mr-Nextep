@@ -1,53 +1,5 @@
 [
   {
-    "hash": "3bba77d6d7cae85d245f9ea585ecbfa153ce3c76a81880cd5adbbd8f88aece72",
-    "source_url": "https://videos.pexels.com/video-files/6222726/6222726-hd_1080_1920_25fps.mp4",
-    "title": "Mice with human brain cells offer a tool to study disease. Ethicists ask",
-    "created_at": "2026-09-19T19:10:05.862114+00:00"
-  },
-  {
-    "hash": "f78db37b1ed6b4ced043ae87500654a5199a5b25bb48e5c076dfa0b40ce0355f",
-    "source_url": "https://videos.pexels.com/video-files/5741025/5741025-sd_240_426_30fps.mp4",
-    "title": "Mice with human brain cells offer a tool to study disease. Ethicists ask",
-    "created_at": "2026-09-19T19:10:05.862114+00:00"
-  },
-  {
-    "hash": "fb57cdfad687f327c64780230ec136c3d9ca7f3e7713397cd2362ed7bbf4043b",
-    "source_url": "https://videos.pexels.com/video-files/34265740/14518460_360_640_25fps.mp4",
-    "title": "Mice with human brain cells offer a tool to study disease. Ethicists ask",
-    "created_at": "2026-09-19T19:10:05.862114+00:00"
-  },
-  {
-    "hash": "b9c1eec514a876debf372280674cfc818d28b8bd8a654c14f0307fa15ed9294c",
-    "source_url": "https://videos.pexels.com/video-files/7606624/7606624-sd_540_960_30fps.mp4",
-    "title": "Mice with human brain cells offer a tool to study disease. Ethicists ask",
-    "created_at": "2026-09-19T19:10:05.862114+00:00"
-  },
-  {
-    "hash": "7fb8c8429bdb50c2150f71da54979a7b9c488ae85d129205d1d026761df149d7",
-    "source_url": "https://videos.pexels.com/video-files/7299411/7299411-hd_720_1280_30fps.mp4",
-    "title": "Could brain",
-    "created_at": "2026-09-19T23:43:53.347251+00:00"
-  },
-  {
-    "hash": "7412ee0dc3653989018d0ba452149f847c27086a69330a0ffedaf1bf75648559",
-    "source_url": "https://videos.pexels.com/video-files/3805870/3805870-hd_720_1366_50fps.mp4",
-    "title": "Could brain",
-    "created_at": "2026-09-19T23:43:53.347251+00:00"
-  },
-  {
-    "hash": "7561717879c4d5c09cef4202c787fe90301b1affa03cf2fac3104d256579ac7b",
-    "source_url": "https://videos.pexels.com/video-files/9786230/9786230-sd_506_960_25fps.mp4",
-    "title": "Could brain",
-    "created_at": "2026-09-19T23:43:53.347251+00:00"
-  },
-  {
-    "hash": "daecacd31adc32939d6756fd37f68ecd9f2d17633d155fc8a56a2b0f11a844f7",
-    "source_url": "https://videos.pexels.com/video-files/16727460/16727460-sd_540_960_30fps.mp4",
-    "title": "Could brain",
-    "created_at": "2026-09-19T23:43:53.347251+00:00"
-  },
-  {
     "hash": "50f62340c27aeb0778025bd999ac114f154358ac4f98d55c6c3ab68eb242a850",
     "source_url": "https://videos.pexels.com/video-files/8455759/8455759-hd_1080_2048_25fps.mp4",
     "title": "Could brain",
@@ -2998,5 +2950,53 @@
     "source_url": "https://videos.pexels.com/video-files/15283161/15283161-sd_540_960_30fps.mp4",
     "title": "Wisconsin files legal action alleging AI chatbot posed 'serious safety risks'",
     "created_at": "2026-10-18T23:48:24.839738+00:00"
+  },
+  {
+    "hash": "2d529326df5d090378a3ccdb757c9b41853dd88c462ffda96db4dd3ccc358133",
+    "source_url": "https://cdn.pixabay.com/video/2022/12/01/141204-777517691_medium.mp4",
+    "title": "Anthropic Takes Its AI Safety Proposals to Capitol Hill",
+    "created_at": "2026-10-19T06:00:35.803809+00:00"
+  },
+  {
+    "hash": "68588118410a316d0f0e2f103ca6dcb9ce47313f44622076a38fb65b110b34cb",
+    "source_url": "https://cdn.pixabay.com/video/2024/12/06/245204_medium.mp4",
+    "title": "Anthropic Takes Its AI Safety Proposals to Capitol Hill",
+    "created_at": "2026-10-19T06:00:35.803809+00:00"
+  },
+  {
+    "hash": "9a6026e5a7c774e386821b65532203873fabc79988361316f36ddc9e01e3d4e8",
+    "source_url": "https://videos.pexels.com/video-files/8731410/8731410-hd_720_1280_25fps.mp4",
+    "title": "Anthropic Takes Its AI Safety Proposals to Capitol Hill",
+    "created_at": "2026-10-19T06:00:35.803809+00:00"
+  },
+  {
+    "hash": "6d0c22e1f8f47a5991e333b169c3ab7ad0ed8d4a9ed23a3f482cae6ed3cc2c08",
+    "source_url": "https://videos.pexels.com/video-files/8344344/8344344-hd_1080_1920_25fps.mp4",
+    "title": "Anthropic Takes Its AI Safety Proposals to Capitol Hill",
+    "created_at": "2026-10-19T06:00:35.803809+00:00"
+  },
+  {
+    "hash": "97974442084cc32e281d8ad6eef51d49b052ec8bf7bdb7230940aa1f5e3272fc",
+    "source_url": "https://videos.pexels.com/video-files/35163081/14895114_360_640_30fps.mp4",
+    "title": "Anthropic Takes Its AI Safety Proposals to Capitol Hill",
+    "created_at": "2026-10-19T06:00:35.803809+00:00"
+  },
+  {
+    "hash": "52fde474b9f97e6266632882cd158280df7531d0891e7583abda43fb6098260e",
+    "source_url": "https://cdn.pixabay.com/video/2024/11/05/239979_medium.mp4",
+    "title": "Anthropic Takes Its AI Safety Proposals to Capitol Hill",
+    "created_at": "2026-10-19T06:00:35.803809+00:00"
+  },
+  {
+    "hash": "a9a444b909a67649ab2d1a2531411e9457a75ee87c219948a8427a9e1b73ec6f",
+    "source_url": "https://videos.pexels.com/video-files/8141706/8141706-hd_1080_1920_25fps.mp4",
+    "title": "Anthropic Takes Its AI Safety Proposals to Capitol Hill",
+    "created_at": "2026-10-19T06:00:35.803809+00:00"
+  },
+  {
+    "hash": "2061963c57f6427850c80b882fa9758270f6736d0455647b84697e74222edc0e",
+    "source_url": "https://cdn.pixabay.com/video/2023/06/18/167735-837429013_medium.mp4",
+    "title": "Anthropic Takes Its AI Safety Proposals to Capitol Hill",
+    "created_at": "2026-10-19T06:00:35.803809+00:00"
   }
 ]
