@@ -3,11 +3,14 @@ Upgrades titles, descriptions, and hashtags for maximum Shorts feed algorithmic 
 """
 from __future__ import annotations
 
+import argparse
 import json
 import logging
 import os
 import time
 from pathlib import Path
+
+from src.utils import redact_secrets
 
 logger = logging.getLogger("mrnextep.optimizer")
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
@@ -131,7 +134,7 @@ def get_youtube():
     return build("youtube", "v3", credentials=credentials, cache_discovery=False)
 
 
-def optimize_youtube(youtube):
+def optimize_youtube(youtube, dry_run: bool = True):
     logger.info("=== Starting YouTube Metadata Retrofit ===")
     for vid, meta in WINNING_METADATA_MAP.items():
         try:
@@ -149,27 +152,19 @@ def optimize_youtube(youtube):
             snippet["tags"] = meta["tags"]
             snippet["description"] = meta["description"]
 
-            # Also ensure video is public if scheduled/unlisted
-            update_body = {
-                "id": vid,
-                "snippet": snippet
-            }
-            if status.get("privacyStatus") == "private" and status.get("publishAt"):
-                logger.info("[%s] Removing private schedule, transitioning to PUBLIC!", vid)
-                status_update = {
-                    "privacyStatus": "public"
-                }
-                youtube.videos().update(part="snippet,status", body={"id": vid, "snippet": snippet, "status": status_update}).execute()
-            else:
-                youtube.videos().update(part="snippet", body=update_body).execute()
+            update_body = {"id": vid, "snippet": snippet}
+            if dry_run:
+                logger.info("[DRY RUN] Would update metadata for %s: '%s' -> '%s'", vid, old_title, meta["title"])
+                continue
 
-            logger.info("[%s] Successfully updated: '%s' -> '%s'", vid, old_title, meta["title"])
-            time.sleep(1.0)
+            # Metadata retrofit must never alter privacy or cancel a scheduled publish.
+            youtube.videos().update(part="snippet", body=update_body).execute()
+            logger.info("[%s] Successfully updated metadata: '%s' -> '%s'", vid, old_title, meta["title"])
         except Exception as e:
-            logger.error("[%s] Error updating YouTube video: %s", vid, e)
+            logger.error("[%s] Error updating YouTube video: %s", vid, redact_secrets(e))
 
 
-def optimize_meta():
+def optimize_meta(dry_run: bool = True):
     logger.info("=== Starting Meta (Facebook Page) Metadata Retrofit ===")
     fb_token = os.environ.get("FACEBOOK_ACCESS_TOKEN") or os.environ.get("FB_ACCESS_TOKEN")
     if not fb_token:
@@ -207,6 +202,9 @@ def optimize_meta():
         if yt_id in WINNING_METADATA_MAP:
             winning = WINNING_METADATA_MAP[yt_id]
             logger.info("Updating Facebook Reel/Video %s (YT: %s)...", fb_id, yt_id)
+            if dry_run:
+                logger.info("[DRY RUN] Would update Facebook metadata for %s", fb_id)
+                continue
             try:
                 url = f"https://graph.facebook.com/v21.0/{fb_id}"
                 data = {
@@ -218,24 +216,33 @@ def optimize_meta():
                 if resp.status_code == 200:
                     logger.info("Facebook video %s updated successfully: %s", fb_id, resp.json())
                 else:
-                    logger.warning("Facebook update for %s returned %d: %s", fb_id, resp.status_code, resp.text)
+                    logger.warning("Facebook update for %s returned %d: %s", fb_id, resp.status_code, redact_secrets(resp.text))
             except Exception as ex:
-                logger.error("Error updating Facebook video %s: %s", fb_id, ex)
+                logger.error("Error updating Facebook video %s: %s", fb_id, redact_secrets(ex))
             time.sleep(1.0)
 
 
 def main():
+    parser = argparse.ArgumentParser(description="Preview or apply winning metadata changes")
+    parser.add_argument("--apply", action="store_true", help="Allow live remote metadata changes")
+    parser.add_argument("--confirm", action="store_true", help="Confirm live metadata changes")
+    args = parser.parse_args()
+    if args.apply != args.confirm:
+        parser.error("live changes require both --apply and --confirm")
+    dry_run = not args.apply
+    logger.info("DRY RUN: no remote metadata will change." if dry_run else
+                "LIVE MODE: applying metadata only; privacy/scheduling will not change.")
+
     try:
         yt = get_youtube()
-        optimize_youtube(yt)
+        optimize_youtube(yt, dry_run=dry_run)
     except Exception as e:
-        logger.error("YouTube optimization failed: %s", e)
+        logger.error("YouTube optimization failed: %s", redact_secrets(e))
 
     try:
-        optimize_meta()
+        optimize_meta(dry_run=dry_run)
     except Exception as e:
-        logger.error("Meta optimization failed: %s", e)
-
+        logger.error("Meta optimization failed: %s", redact_secrets(e))
 
 if __name__ == "__main__":
     main()
