@@ -5198,5 +5198,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-10-20T05:56:15.291266+00:00",
+    "status": "pending",
+    "topic": "Your AI Memory Keeps You Tied to One Chatbot",
+    "title": "Your AI Memory Keeps You Tied to One Chatbot",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "e03682fc0c2f1f6c0086304a15c2edc9e46e29b04e77e4d0f10e40692a2a1dc7",
+      "c0baf24fd49b139b15a7fc3f7ec4554eda57ec811e529fa228654e5db621db1f",
+      "550f6c355f21e4f5e7d2364e2d74258f0151b35d83e8b1b59a4698b98727be2a",
+      "25d58f077977eb47432537c7c4f27f4e5cbdc25727343b128712852d90f6f137",
+      "ecdc46afb70429f838a56657fbb34e6faaf16803b4a22abab9cfd35290e25124",
+      "2131f5acb9d6ff845204cf1e3ef03c2a57aa9e0f1ce8c02ec1ad7d005f79c870",
+      "e2cb418f1c5280826a0253bc21f7c82f7022c7ddaacacfcc3166bcefc892d469",
+      "13a7cdbc91a7e4ebead221afe8c87a0e6b99ee9a15c369a8c2c244b3f76aaf85"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "1 similar past video(s) retained 38%, at or above the 30% floor",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": 0.3765,
+      "neighbours_considered": 1
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "concrete_observation",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 85
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 85
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 80
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "Your AI Memory Keeps You Tied to One Chatbot",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE0zdW5jNFcxbXp2NUg2cTFCQ1A1cmFqSElvOGl1Q3ZCcHRtYjN3OG9HV1pZS0hsV0VJbUgyRVktSEtQUmhyQmRVSy1hWXRINXFLNnhyaDhvVVVFWTJRRzdjVjBpLUdibGxuMUZBMg?oc=5",
+      "published_at": "2026-10-19T21:36:00+00:00",
+      "trend_score": 13,
+      "fetched_at": "2026-10-20T05:53:03.019467+00:00",
+      "growth_score": 43.35,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 13/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "28d8e0ade08d78bd66bcf930343a22873823a6a2f6525803db52ca490b5b7858",
+    "body": "Bot replies with yesterday’s inside joke Chat pulls unseen jokes from memory It seems eerily personal each reply Bot recycles your own conversation snippets Stuck with one AI forever Models retain short-term dialogue history Memory bias keeps you in loop Your chat history anchors your AI choice",
+    "text": "Your AI Memory Keeps You Tied to One Chatbot Bot replies with yesterday’s inside joke Chat pulls unseen jokes from memory It seems eerily personal each reply Bot recycles your own conversation snippets Stuck with one AI forever Models retain short-term dialogue history Memory bias keeps you in loop Your chat history anchors your AI choice"
   }
 ]

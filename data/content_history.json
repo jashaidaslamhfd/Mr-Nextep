@@ -2287,5 +2287,21 @@
     "title": "Why Is Micron Technology (MU) Betting More On AI Memory Than Smartphones?",
     "body": "Phone stuck on loading wheel Micron chips cause the lag AI needs terabytes of memory Images flood memory lanes quickly Data centers pay extra for speed Phones can't match that bandwidth AI profits push Micron's focus Your lag shows AI memory race",
     "text": "Why Is Micron Technology (MU) Betting More On AI Memory Than Smartphones? Phone stuck on loading wheel Micron chips cause the lag AI needs terabytes of memory Images flood memory lanes quickly Data centers pay extra for speed Phones can't match that bandwidth AI profits push Micron's focus Your lag shows AI memory race"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "1 similar past video(s) retained 38%, at or above the 30% floor",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": 0.3765,
+      "neighbours_considered": 1
+    },
+    "fingerprint": "28d8e0ade08d78bd66bcf930343a22873823a6a2f6525803db52ca490b5b7858",
+    "title": "Your AI Memory Keeps You Tied to One Chatbot",
+    "body": "Bot replies with yesterday’s inside joke Chat pulls unseen jokes from memory It seems eerily personal each reply Bot recycles your own conversation snippets Stuck with one AI forever Models retain short-term dialogue history Memory bias keeps you in loop Your chat history anchors your AI choice",
+    "text": "Your AI Memory Keeps You Tied to One Chatbot Bot replies with yesterday’s inside joke Chat pulls unseen jokes from memory It seems eerily personal each reply Bot recycles your own conversation snippets Stuck with one AI forever Models retain short-term dialogue history Memory bias keeps you in loop Your chat history anchors your AI choice"
   }
 ]
