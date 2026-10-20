@@ -70,7 +70,7 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - name: Restore trend feed cache
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: data/trend_source_cache
           key: mr-nextep-trend-rss-${{ runner.os }}-${{ github.run_id }}
