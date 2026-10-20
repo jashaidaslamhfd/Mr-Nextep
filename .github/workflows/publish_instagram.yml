@@ -10,6 +10,13 @@ on:
         description: Instagram Reel caption
         required: true
         type: string
+      confirm_publish:
+        description: Confirm this Reel should be published publicly
+        required: true
+        type: boolean
+        default: false
+permissions:
+  contents: read
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -20,9 +27,15 @@ jobs:
       INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
       FACEBOOK_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
       INSTAGRAM_PROCESSING_WAIT_SECONDS: "60"
+      CONFIRM_PUBLISH: ${{ inputs.confirm_publish }}
     steps:
+      - name: Require explicit publication confirmation
+        if: ${{ !inputs.confirm_publish }}
+        run: |
+          echo "::error::Set confirm_publish=true to publish a public Instagram Reel."
+          exit 1
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v7
         with: {python-version: "3.11"}
-      - run: pip install -r requirements.txt
+      - run: python -m pip install -r requirements.txt
       - run: python scripts/publish_instagram.py

@@ -17,6 +17,13 @@ on:
         required: false
         type: string
         default: ""
+      confirm_change:
+        description: Confirm scheduling changes to the selected videos
+        required: true
+        type: boolean
+        default: false
+permissions:
+  contents: read
 jobs:
   reschedule:
     runs-on: ubuntu-latest
@@ -24,17 +31,23 @@ jobs:
       VIDEO_ID: ${{ inputs.video_id }}
       PUBLISH_AT: ${{ inputs.publish_at }}
       UNSCHEDULE_IDS: ${{ inputs.unschedule_ids }}
+      CONFIRM_SCHEDULE_CHANGE: ${{ inputs.confirm_change }}
       GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
       GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
       REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
     steps:
+      - name: Require explicit confirmation
+        if: ${{ !inputs.confirm_change }}
+        run: |
+          echo "::error::Set confirm_change=true before rescheduling or unscheduling videos."
+          exit 1
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v7
         with: {python-version: "3.11"}
-      - run: pip install -r requirements.txt
+      - run: python -m pip install -r requirements.txt
       - name: Reschedule video
-        if: inputs.video_id != ''
+        if: ${{ inputs.video_id != '' }}
         run: python scripts/reschedule_video.py
       - name: Remove publication time from duplicate videos
-        if: inputs.unschedule_ids != ''
+        if: ${{ inputs.unschedule_ids != '' }}
         run: python scripts/unschedule_videos.py

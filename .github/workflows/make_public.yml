@@ -3,9 +3,14 @@ name: Instant Make Public
 on:
   workflow_dispatch:
     inputs:
+      confirm_publication:
+        description: "Confirm that the selected videos should become public immediately"
+        required: true
+        type: boolean
+        default: false
       video_ids:
-        description: "Comma-separated YouTube video IDs to make public immediately (leave empty to scan recent uploads)"
-        required: false
+        description: "Explicit comma-separated YouTube video IDs to make public immediately"
+        required: true
         type: string
         default: ""
 
@@ -32,4 +37,5 @@ jobs:
           GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
           REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
           VIDEO_IDS: ${{ inputs.video_ids }}
+          CONFIRM_PUBLICATION: ${{ inputs.confirm_publication }}
         run: python scripts/make_public.py

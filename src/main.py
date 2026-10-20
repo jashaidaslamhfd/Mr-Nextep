@@ -35,39 +35,77 @@ log = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
 
 
-def _git_persist(paths: list[str], message: str) -> None:
-    """Best-effort state commit with rebase; never hide the production result."""
-    # Manual workflow_dispatch runs can target a feature branch. Never let a
-    # non-main run push generated state into production's main branch.
+def _git_persist(paths: list[str], message: str) -> bool:
+    """Persist pipeline state and report whether the remote state is durable.
+
+    A failed state push must not be silently treated as success: the next ephemeral
+    runner would otherwise lose deduplication and publish-gap history. Feature-branch
+    runs deliberately skip this production-only persistence path.
+    """
     branch = subprocess.run(
         ["git", "branch", "--show-current"], check=False, capture_output=True, text=True
     )
-    if branch.returncode != 0 or branch.stdout.strip() != "main":
+    if branch.returncode != 0:
+        log.error("Unable to determine current Git branch; state was not persisted.")
+        return False
+    if branch.stdout.strip() != "main":
         log.info("Skipping Git state persistence outside the main branch.")
-        return
+        return True
 
     existing = [p for p in paths if Path(p).exists()]
     if not existing:
-        return
-    subprocess.run(["git", "config", "user.name", "github-actions[bot]"], check=False)
-    subprocess.run(
+        return True
+
+    commands = [
+        ["git", "config", "user.name", "github-actions[bot]"],
         ["git", "config", "user.email", "41898282+github-actions[bot]@users.noreply.github.com"],
-        check=False,
+        ["git", "add", "-f", *existing],
+    ]
+    for command in commands:
+        completed = subprocess.run(command, check=False, capture_output=True, text=True)
+        if completed.returncode != 0:
+            log.error("State persistence command failed (%s): %s", command[1], completed.stderr[-500:])
+            return False
+
+    commit = subprocess.run(
+        ["git", "commit", "-m", message], check=False, capture_output=True, text=True
     )
-    subprocess.run(["git", "add", "-f", *existing], check=False)
-    commit = subprocess.run(["git", "commit", "-m", message], check=False, capture_output=True, text=True)
-    if commit.returncode == 0:
-        pull = subprocess.run(
-            ["git", "pull", "--rebase", "origin", "main"], check=False, capture_output=True, text=True
-        )
-        if pull.returncode == 0:
-            pushed = subprocess.run(
-                ["git", "push", "origin", "HEAD:main"], check=False, capture_output=True, text=True
-            )
-            if pushed.returncode != 0:
-                log.warning("State push failed: %s", pushed.stderr[-500:])
-        else:
-            log.warning("State rebase failed: %s", pull.stderr[-500:])
+    if commit.returncode != 0:
+        combined = f"{commit.stdout}\n{commit.stderr}".lower()
+        if "nothing to commit" in combined:
+            return True
+        log.error("State commit failed: %s", commit.stderr[-500:])
+        return False
+
+    pull = subprocess.run(
+        ["git", "pull", "--rebase", "origin", "main"], check=False, capture_output=True, text=True
+    )
+    if pull.returncode != 0:
+        log.error("State rebase failed; remote state may be stale: %s", pull.stderr[-500:])
+        return False
+
+    pushed = subprocess.run(
+        ["git", "push", "origin", "HEAD:main"], check=False, capture_output=True, text=True
+    )
+    if pushed.returncode != 0:
+        log.error("State push failed; remote state may be stale: %s", pushed.stderr[-500:])
+        return False
+    return True
+
+
+def _resolve_upload_status(upload_result: dict, dry_run: bool) -> str:
+    """Return a truthful pipeline status from the uploader's result contract."""
+    status = str(upload_result.get("status", "")).strip().lower()
+    if dry_run or status == "dry_run":
+        return "dry_run"
+    if status == "uploaded" and str(upload_result.get("youtube_video_id", "")).strip():
+        return "uploaded"
+    return "failed"
+
+
+def _meta_publish_enabled() -> bool:
+    """Return whether external Meta publication is explicitly enabled."""
+    return str(os.getenv("META_PUBLISH_ENABLED", "false")).strip().lower() in {"true", "1", "yes"}
 
 
 def _normalize(text: str) -> str:
@@ -310,70 +348,99 @@ def run() -> dict:
         **guard,
     }
 
-    # Persist the reservation before any external upload. A later run can reject it.
-    history.append(guard)
-    save_history(history_path, history)
-    clip_history_path = SETTINGS.data_dir / "clip_history.json"
-    clip_history = load_history(clip_history_path)
-    clip_history.extend(
-        {
-            "hash": h,
-            "source_url": source_urls[i] if i < len(source_urls) else "",
-            "title": result["title"],
-            "created_at": created_at,
-        }
-        for i, h in enumerate(clip_hashes)
-    )
-    clip_history_path.write_text(
-        json.dumps(clip_history[-500:], ensure_ascii=False, indent=2), encoding="utf-8"
-    )
     video_history = published_history
-    video_history.append(result)
-    video_history_path.write_text(
-        json.dumps(video_history[-500:], ensure_ascii=False, indent=2), encoding="utf-8"
-    )
-    topic_index_path = SETTINGS.data_dir / "topic_index.json"
-    trend_index_path = SETTINGS.data_dir / "trend_topic_index.json"
-    queue_path = SETTINGS.data_dir / "search_demand_queue_us.json"
-    _git_persist(
-        [
-            str(history_path),
-            str(clip_history_path),
-            str(video_history_path),
-            str(topic_index_path),
-            str(trend_index_path),
-            str(queue_path),
-            str(performance_path),
-        ],
-        "chore: reserve generated video state",
-    )
+    if not SETTINGS.dry_run:
+        # Persist the reservation before any external upload. A later run can reject it.
+        history.append(guard)
+        save_history(history_path, history)
+        clip_history_path = SETTINGS.data_dir / "clip_history.json"
+        clip_history = load_history(clip_history_path)
+        clip_history.extend(
+            {
+                "hash": h,
+                "source_url": source_urls[i] if i < len(source_urls) else "",
+                "title": result["title"],
+                "created_at": created_at,
+            }
+            for i, h in enumerate(clip_hashes)
+        )
+        clip_history_path.write_text(
+            json.dumps(clip_history[-500:], ensure_ascii=False, indent=2), encoding="utf-8"
+        )
+        video_history.append(result)
+        video_history_path.write_text(
+            json.dumps(video_history[-500:], ensure_ascii=False, indent=2), encoding="utf-8"
+        )
+        topic_index_path = SETTINGS.data_dir / "topic_index.json"
+        trend_index_path = SETTINGS.data_dir / "trend_topic_index.json"
+        queue_path = SETTINGS.data_dir / "search_demand_queue_us.json"
+        persisted = _git_persist(
+            [
+                str(history_path),
+                str(clip_history_path),
+                str(video_history_path),
+                str(topic_index_path),
+                str(trend_index_path),
+                str(queue_path),
+                str(performance_path),
+            ],
+            "chore: reserve generated video state",
+        )
+        if not persisted:
+            raise RuntimeError("Could not persist publishing reservation to origin/main; refusing external upload")
+
 
     try:
-        result.update(upload(video, script, SETTINGS))
-        if not SETTINGS.dry_run:
-            try:
-                result["meta"] = publish_meta(video, script, result)
-                agent_brain.learn(result)
-            except Exception as exc:
-                log.exception("Meta publishing failed after YouTube upload; preserving YouTube result")
-                result["meta"] = {"status": "error", "reason": str(exc)}
-        result["status"] = "uploaded"
+        upload_result = upload(video, script, SETTINGS)
+        if not isinstance(upload_result, dict):
+            raise RuntimeError("Uploader returned an invalid result payload")
+        result.update(upload_result)
+
+        # The uploader is the source of truth. Never convert dry-run/skipped results
+        # into "uploaded"; downstream gap checks and analytics depend on this status.
+        pipeline_status = _resolve_upload_status(upload_result, SETTINGS.dry_run)
+        if pipeline_status == "dry_run":
+            result["status"] = "dry_run"
+            result["meta"] = {"status": "skipped", "reason": "dry_run"}
+        elif pipeline_status == "uploaded":
+            result["status"] = "uploaded"
+            if _meta_publish_enabled():
+                try:
+                    result["meta"] = publish_meta(video, script, result)
+                    agent_brain.learn(result)
+                except Exception as exc:
+                    log.exception("Meta publishing failed after YouTube upload; preserving YouTube result")
+                    result["meta"] = {"status": "error", "reason": str(exc)}
+            else:
+                result["meta"] = {"status": "skipped", "reason": "META_PUBLISH_ENABLED is false"}
+        else:
+            upload_status = str(upload_result.get("status", "")).strip().lower()
+            raise RuntimeError(
+                "Uploader did not confirm a successful YouTube upload "
+                f"(status={upload_status or 'missing'}, video_id_present={bool(result.get('youtube_video_id'))})"
+            )
     except Exception as exc:
         result["status"] = "failed"
         result["error"] = str(exc)
+        if not SETTINGS.dry_run and video_history:
+            video_history[-1] = result
+            video_history_path.write_text(
+                json.dumps(video_history[-500:], ensure_ascii=False, indent=2), encoding="utf-8"
+            )
+            _git_persist([str(video_history_path)], "chore: mark generated video upload failed")
+        log.exception("Upload failed; failed state committed for recovery")
+        raise
+
+    if not SETTINGS.dry_run and video_history:
         video_history[-1] = result
         video_history_path.write_text(
             json.dumps(video_history[-500:], ensure_ascii=False, indent=2), encoding="utf-8"
         )
-        _git_persist([str(video_history_path)], "chore: mark generated video upload failed")
-        log.exception("Upload failed; failed state committed for recovery")
-        raise
-
-    video_history[-1] = result
-    video_history_path.write_text(
-        json.dumps(video_history[-500:], ensure_ascii=False, indent=2), encoding="utf-8"
-    )
-    _git_persist([str(video_history_path)], "chore: finalize generated video state")
+        if not _git_persist([str(video_history_path)], "chore: finalize generated video state"):
+            raise RuntimeError(
+                "Upload completed, but final publishing state could not be persisted to origin/main; "
+                "inspect YouTube Studio and the Actions log before retrying"
+            )
     print(json.dumps(result, indent=2))
     return result
 

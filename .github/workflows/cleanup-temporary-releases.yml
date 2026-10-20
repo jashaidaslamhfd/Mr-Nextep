@@ -1,0 +1,59 @@
+name: Cleanup temporary Meta hosting releases
+
+on:
+  schedule:
+    - cron: "23 4 * * 0"
+  workflow_dispatch:
+    inputs:
+      retention_days:
+        description: "Delete temporary short-* prereleases older than this many days"
+        required: true
+        type: number
+        default: 14
+
+permissions:
+  contents: write
+
+concurrency:
+  group: temporary-release-cleanup
+  cancel-in-progress: false
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Delete expired temporary video-hosting releases
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPOSITORY: ${{ github.repository }}
+          RETENTION_DAYS: ${{ inputs.retention_days || 14 }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if ! [[ "$RETENTION_DAYS" =~ ^[0-9]+$ ]] || (( RETENTION_DAYS < 7 )); then
+            echo "::error::retention_days must be an integer >= 7"
+            exit 2
+          fi
+
+          cutoff=$(( $(date -u +%s) - RETENTION_DAYS * 86400 ))
+          count=0
+          while IFS=$'\t' read -r release_id tag_name created_at; do
+            [[ -n "$release_id" && -n "$tag_name" && -n "$created_at" ]] || continue
+            created_epoch=$(date -u -d "$created_at" +%s)
+            (( created_epoch < cutoff )) || continue
+
+            echo "Deleting expired temporary release $tag_name (id=$release_id)"
+            gh api --method DELETE "repos/$REPOSITORY/releases/$release_id"
+            # The release is already removed; tag deletion is best-effort because
+            # a maintainer may have independently removed it.
+            gh api --method DELETE "repos/$REPOSITORY/git/refs/tags/$tag_name" || true
+            count=$((count + 1))
+          done < <(
+            gh api --paginate "repos/$REPOSITORY/releases?per_page=100" --jq '
+              .[] |
+              select(.prerelease == true and (.tag_name | startswith("short-"))) |
+              [.id, .tag_name, .created_at] | @tsv
+            '
+          )
+          echo "Expired temporary releases removed: $count"

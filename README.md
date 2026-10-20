@@ -6,7 +6,7 @@ Mr-Nextep is a US-English YouTube Shorts automation pipeline for dark science, p
 
 The scheduled production workflow has three UTC slots: **17:00, 22:00, and 01:00 UTC**. These correspond to **10:00 PM, 3:00 AM, and 6:00 AM Pakistan Standard Time (PKT)** respectively; the last slot falls on the following PKT calendar day. US Eastern time shifts with daylight saving time, so use the UTC cron as the source of truth.
 
-The workflow currently sets `YT_PRIVACY_STATUS=public` and `YT_SCHEDULE_PUBLISH=false`. Therefore, a successful scheduled run makes the YouTube upload public immediately; it does **not** create a private upload with a future `publishAt` time. The minimum-publish-gap guard is configured to 3 hours, and production workflow runs are serialized to reduce concurrent state-write races. A manual run can use `dry_run=true` to render/check without publishing.
+Production workflow uploads default to `YT_PRIVACY_STATUS=private`; `YT_SCHEDULE_PUBLISH=false` means a successful run creates a private upload for review, not an immediate public post. Meta cross-posting is disabled by default (`META_PUBLISH_ENABLED=false`). Use the explicit make-public workflow only for reviewed video IDs. Locally, `DRY_RUN` defaults to `true`; real uploads require an explicit environment override. The minimum-publish-gap guard is configured to 3 hours, and production workflow runs are serialized to reduce concurrent state-write races.
 
 ## Meta publishing
 
@@ -94,7 +94,7 @@ The script writes `data/meta_performance_history.json` plus `output/weekly_growt
 
 ## Immediate publishing, subtle background music and platform covers
 
-The production workflow is configured for **immediate public upload**: `YT_PRIVACY_STATUS=public` and `YT_SCHEDULE_PUBLISH=false`. The app settings now use the same defaults, so ordinary runs do not accidentally create private or scheduled videos. GitHub's own cron only controls when the production workflow starts; it does not schedule the uploaded video for a later YouTube publish time.
+The production workflow is configured for **private-by-default review**: `YT_PRIVACY_STATUS=private`, `YT_SCHEDULE_PUBLISH=false`, and `META_PUBLISH_ENABLED=false`. Local app settings default to dry-run and private uploads. Public distribution is a separate, explicit operator action through the make-public workflow after reviewing selected video IDs. GitHub's cron controls when the generation workflow starts; it does not schedule public release on YouTube.
 
 Before upload, the renderer adds a subtle original ambient sound bed synthesized locally under the narration. It uses no downloaded commercial music track; the narration remains the foreground. Set `BACKGROUND_MUSIC_ENABLED=false` only if you deliberately want narration-only output.
 

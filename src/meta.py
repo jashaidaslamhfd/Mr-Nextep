@@ -24,7 +24,7 @@ from urllib.parse import urlparse
 
 import requests
 
-from .utils import requests_session_with_retries, retry_on_exception, sanitize_hashtags
+from .utils import redact_secrets, requests_session_with_retries, retry_on_exception, sanitize_hashtags
 
 logger = logging.getLogger("mrnextep.meta")
 
@@ -41,14 +41,13 @@ def _is_valid_public_video_url(url: str) -> bool:
     return p.scheme in ("https",) and bool(p.netloc)
 
 
-@retry_on_exception(max_attempts=4)
 def _post(session: requests.Session, url: str, params: dict = None, data: dict = None, files: dict = None, timeout: int = 90) -> dict:
     params = params or {}
     resp = session.post(url, params=params, data=data, files=files, timeout=timeout)
     try:
         resp.raise_for_status()
     except requests.HTTPError:
-        logger.error("POST %s failed: status=%s body=%s", url, resp.status_code, resp.text)
+        logger.error("POST %s failed: status=%s body=%s", redact_secrets(url), resp.status_code, redact_secrets(resp.text))
         raise
     return resp.json()
 
@@ -60,7 +59,7 @@ def _get(session: requests.Session, url: str, params: dict = None, timeout: int 
     try:
         resp.raise_for_status()
     except requests.HTTPError:
-        logger.error("GET %s failed: status=%s body=%s", url, resp.status_code, resp.text)
+        logger.error("GET %s failed: status=%s body=%s", redact_secrets(url), resp.status_code, redact_secrets(resp.text))
         raise
     return resp.json()
 
@@ -181,6 +180,7 @@ def publish(video: Path, script: dict[str, Any], youtube_result: dict[str, Any])
             # fall back to standard page video upload if Page token lacks Reels permissions.
             init_url = f"{GRAPH_BASE}/{page_id}/video_reels"
             fb_done = False
+            video_id = None
             try:
                 init_res = _post(
                     session,
@@ -219,7 +219,14 @@ def publish(video: Path, script: dict[str, Any], youtube_result: dict[str, Any])
                     result["facebook"]["thumbnail"] = _set_facebook_thumbnail(session, str(video_id), fb_cover, token)
                     fb_done = True
             except Exception as reels_exc:
-                logger.warning("Facebook Reels 3-phase upload unavailable (%s); falling back to page video", reels_exc)
+                if video_id:
+                    # Once Meta allocated a Reel ID, the upload/finish outcome may be
+                    # uncertain. A fallback upload could create a duplicate public post.
+                    raise RuntimeError(
+                        "Facebook Reels upload outcome is uncertain after initialization; "
+                        "fallback upload was blocked to avoid duplicates. Check the Page before retrying."
+                    ) from None
+                logger.warning("Facebook Reels initialization failed (%s); falling back to page video", redact_secrets(reels_exc))
 
             if not fb_done:
                 url = f"{GRAPH_BASE}/{page_id}/videos"
@@ -233,8 +240,8 @@ def publish(video: Path, script: dict[str, Any], youtube_result: dict[str, Any])
                     fb_cover = video.parent / "mr_nextep_thumb_facebook.jpg"
                     result["facebook"]["thumbnail"] = _set_facebook_thumbnail(session, fb_id, fb_cover, token)
         except Exception as exc:
-            logger.exception("Facebook publish failed")
-            result["facebook"] = {"status": "error", "reason": str(exc)}
+            logger.error("Facebook publish failed: %s", redact_secrets(exc))
+            result["facebook"] = {"status": "error", "reason": redact_secrets(exc)}
 
     # Instagram flow: use PUBLIC_VIDEO_URL (hosted) or host on GitHub releases
     public_url = os.getenv("PUBLIC_VIDEO_URL", "").strip()
@@ -244,7 +251,7 @@ def publish(video: Path, script: dict[str, Any], youtube_result: dict[str, Any])
             public_url = _host_for_instagram(video)
             logger.info("Hosted video for Instagram at %s", public_url)
         except Exception as exc:
-            logger.exception("Failed to host video for Instagram: %s", exc)
+            logger.error("Failed to host video for Instagram: %s", redact_secrets(exc))
             public_url = ""
 
     if instagram_id and token and public_url:
@@ -290,8 +297,8 @@ def publish(video: Path, script: dict[str, Any], youtube_result: dict[str, Any])
                 "thumbnail": "uploaded" if cover_url else "platform-selected: cover URL unavailable",
             }
         except Exception as exc:
-            logger.exception("Instagram publish failed")
-            result["instagram"] = {"status": "error", "reason": str(exc)}
+            logger.error("Instagram publish failed: %s", redact_secrets(exc))
+            result["instagram"] = {"status": "error", "reason": redact_secrets(exc)}
     else:
         # reasons for skipping are included explicitly to help debugging
         skip_reason = []

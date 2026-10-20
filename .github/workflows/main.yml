@@ -18,13 +18,8 @@ on:
         type: string
         default: ""
   schedule:
-    # Direct-publication windows for the US audience.
-    # GitHub cron is UTC; these slots intentionally overlap US lunch/afternoon/evening
-    # in both daylight and standard time:
-    #   17:00 UTC -> 12:00 ET / 1:00 PM ET (DST)
-    #   22:00 UTC -> 17:00 ET / 6:00 PM ET (DST)
-    #   01:00 UTC -> 20:00 ET / 9:00 PM ET (DST)
-    # YouTube scheduling is disabled: the upload itself becomes PUBLIC immediately.
+    # Generate/review windows for the US audience. YouTube uploads remain private
+    # until an operator explicitly selects IDs in the make-public workflow.
     - cron: "0 17 * * *"
     - cron: "0 22 * * *"
     - cron: "0 1 * * *"
@@ -40,8 +35,11 @@ jobs:
     env:
       CHANNEL_LANGUAGE: en-US
       PUBLISH_TIMEZONE: America/New_York
-      YT_PRIVACY_STATUS: public
+      # Safe default: uploads remain private until a human explicitly approves publication.
+      YT_PRIVACY_STATUS: private
       YT_SCHEDULE_PUBLISH: "false"
+      # Do not cross-post publicly before the publication review gate.
+      META_PUBLISH_ENABLED: "false"
       BACKGROUND_MUSIC_ENABLED: "true"
       MIN_PUBLISH_GAP_HOURS: "3.0"
       FORCE_PUBLISH: ${{ inputs.force_publish || 'false' }}
@@ -99,12 +97,5 @@ jobs:
           fi
       - name: Run regression tests
         run: python -m pytest -q
-      - name: Generate, validate and direct-publish to YouTube and Meta
+      - name: Generate, validate and upload a private YouTube draft (Meta disabled by default)
         run: python -m src.main
-      - name: Upload debug artifact
-        if: always()
-        uses: actions/upload-artifact@v7
-        with:
-          name: mr-nextep-output
-          if-no-files-found: ignore
-          path: output/

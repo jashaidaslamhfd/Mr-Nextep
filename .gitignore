@@ -15,3 +15,7 @@ data/*
 # OpenVoice/SadTalker are cloned + have multi-GB checkpoints downloaded at
 # runtime by scripts/setup_avatar_models.sh — never committed.
 third_party/
+
+# Personal biometric assets and generated avatar test output stay local/private.
+assets/avatar/
+data/_avatar_test/
