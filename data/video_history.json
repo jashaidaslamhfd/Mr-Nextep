@@ -5201,7 +5201,7 @@
   },
   {
     "created_at": "2026-10-20T05:56:15.291266+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Your AI Memory Keeps You Tied to One Chatbot",
     "title": "Your AI Memory Keeps You Tied to One Chatbot",
     "video_path": "output/mr_nextep_short.mp4",
@@ -5283,6 +5283,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "28d8e0ade08d78bd66bcf930343a22873823a6a2f6525803db52ca490b5b7858",
     "body": "Bot replies with yesterday’s inside joke Chat pulls unseen jokes from memory It seems eerily personal each reply Bot recycles your own conversation snippets Stuck with one AI forever Models retain short-term dialogue history Memory bias keeps you in loop Your chat history anchors your AI choice",
-    "text": "Your AI Memory Keeps You Tied to One Chatbot Bot replies with yesterday’s inside joke Chat pulls unseen jokes from memory It seems eerily personal each reply Bot recycles your own conversation snippets Stuck with one AI forever Models retain short-term dialogue history Memory bias keeps you in loop Your chat history anchors your AI choice"
+    "text": "Your AI Memory Keeps You Tied to One Chatbot Bot replies with yesterday’s inside joke Chat pulls unseen jokes from memory It seems eerily personal each reply Bot recycles your own conversation snippets Stuck with one AI forever Models retain short-term dialogue history Memory bias keeps you in loop Your chat history anchors your AI choice",
+    "youtube_video_id": "JdIZ3ix0uGM",
+    "url": "https://youtu.be/JdIZ3ix0uGM",
+    "thumbnail": "uploaded",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/1122980080905302/videos?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      }
+    }
   }
 ]
