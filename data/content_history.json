@@ -2303,5 +2303,21 @@
     "title": "Your AI Memory Keeps You Tied to One Chatbot",
     "body": "Bot replies with yesterday’s inside joke Chat pulls unseen jokes from memory It seems eerily personal each reply Bot recycles your own conversation snippets Stuck with one AI forever Models retain short-term dialogue history Memory bias keeps you in loop Your chat history anchors your AI choice",
     "text": "Your AI Memory Keeps You Tied to One Chatbot Bot replies with yesterday’s inside joke Chat pulls unseen jokes from memory It seems eerily personal each reply Bot recycles your own conversation snippets Stuck with one AI forever Models retain short-term dialogue history Memory bias keeps you in loop Your chat history anchors your AI choice"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "2 similar past video(s) retained 45%, at or above the 30% floor",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": 0.45485,
+      "neighbours_considered": 2
+    },
+    "fingerprint": "5658d7b588642bc6ada83163b7e8394a0729c2dd0ca3162cc2f6f6b34c804d3c",
+    "title": "Brain",
+    "body": "Your brain hears songs in static Mind fills empty sounds with patterns This is auditory pareidolia Brain predicts using past listening Random noise matches known melodies Prediction loop tricks what you hear You swear you heard a chorus But no music was actually there",
+    "text": "Brain Your brain hears songs in static Mind fills empty sounds with patterns This is auditory pareidolia Brain predicts using past listening Random noise matches known melodies Prediction loop tricks what you hear You swear you heard a chorus But no music was actually there"
   }
 ]
