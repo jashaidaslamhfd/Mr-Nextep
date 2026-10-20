@@ -2271,5 +2271,21 @@
     "title": "Circle and Proof Help Businesses Trust AI Agent Transactions",
     "body": "AI needs human approval? Proof circle beats approval Businesses show cryptic badge Zero‑knowledge proof displayed AI follows compliance rules Users can’t see the math Brains trust visible symbols Circle seals trust, not oversight",
     "text": "Circle and Proof Help Businesses Trust AI Agent Transactions AI needs human approval? Proof circle beats approval Businesses show cryptic badge Zero‑knowledge proof displayed AI follows compliance rules Users can’t see the math Brains trust visible symbols Circle seals trust, not oversight"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "1 similar past video(s) retained 47%, at or above the 30% floor",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": 0.46590000000000004,
+      "neighbours_considered": 1
+    },
+    "fingerprint": "a7f1e45db49e7e3040309a07a303dacb6a30fba5cfb42bf90874eb9119d80e25",
+    "title": "Why Is Micron Technology (MU) Betting More On AI Memory Than Smartphones?",
+    "body": "Phone stuck on loading wheel Micron chips cause the lag AI needs terabytes of memory Images flood memory lanes quickly Data centers pay extra for speed Phones can't match that bandwidth AI profits push Micron's focus Your lag shows AI memory race",
+    "text": "Why Is Micron Technology (MU) Betting More On AI Memory Than Smartphones? Phone stuck on loading wheel Micron chips cause the lag AI needs terabytes of memory Images flood memory lanes quickly Data centers pay extra for speed Phones can't match that bandwidth AI profits push Micron's focus Your lag shows AI memory race"
   }
 ]

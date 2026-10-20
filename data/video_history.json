@@ -5098,5 +5098,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-10-20T00:49:29.911810+00:00",
+    "status": "pending",
+    "topic": "Why Is Micron Technology (MU) Betting More On AI Memory Than Smartphones?",
+    "title": "Why Is Micron Technology (MU) Betting More On AI Memory Than Smartphones?",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "6d7e670e28416a2b8a6302553ec3b854b77b6417cbee9373c6cd6647cdf82e85",
+      "3fc5ed6dbf867734649025cd2b880cd0b81a8a15f739169d67b7590aa2c2b2eb",
+      "31ba0a2cd54558c0fb67717d44d1a7ccf48ffadaa8c24ffafb496dfa047a3ebe",
+      "b3473e52e595c2ddd89c153c6a8ce16a6e1fc737acf528cf5199b8a92563a578",
+      "62c956b76df2d1d87c678bdb403e967dd13094d762f5612cdb329d3139f9d947",
+      "6e9274fbf327d62c581b6bc5a0ff2aff5b6fe895e094e3aee26a3a55f867ac1d",
+      "52d5e2304d85285187acba3847597fe6e56504cef17146ddb60eb2e9e2830663",
+      "ebde9c27b531161df792ef0eb4073e044fb265e42d08b0b2752565bf920ba926"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "1 similar past video(s) retained 47%, at or above the 30% floor",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": 0.46590000000000004,
+      "neighbours_considered": 1
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "concrete_observation",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 91
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 91
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 86
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-2",
+      "topic": "Why Is Micron Technology (MU) Betting More On AI Memory Than Smartphones?",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQc2VhYXFVYjJwd2pfM25TN2F1X1dTNmtBdFpJelAzYkxXUHNCR1I0M3ZpSGVHVERzSEZFQmdhSl9YRTYwVUtJeGFwQjVzRHdUQlB6eVdYZlh3dFpfSEs5RTlseTdoT1BnSk1BWS1mbnZiNFF1dVRpYzhTUjRPNVlubWRGQXUzeERkYnhmeTJTVkhWUEhJaHVnQUtkeUo?oc=5",
+      "published_at": "2026-10-19T17:09:20+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-10-20T00:46:30.017885+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "DARK_PSYCHOLOGY",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "a7f1e45db49e7e3040309a07a303dacb6a30fba5cfb42bf90874eb9119d80e25",
+    "body": "Phone stuck on loading wheel Micron chips cause the lag AI needs terabytes of memory Images flood memory lanes quickly Data centers pay extra for speed Phones can't match that bandwidth AI profits push Micron's focus Your lag shows AI memory race",
+    "text": "Why Is Micron Technology (MU) Betting More On AI Memory Than Smartphones? Phone stuck on loading wheel Micron chips cause the lag AI needs terabytes of memory Images flood memory lanes quickly Data centers pay extra for speed Phones can't match that bandwidth AI profits push Micron's focus Your lag shows AI memory race"
   }
 ]
