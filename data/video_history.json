@@ -5598,5 +5598,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-10-21T20:29:31.871932+00:00",
+    "status": "pending",
+    "topic": "Former Harvard AI Adviser Joins Anthropic Oversight Trust Weeks After Stepping Down",
+    "title": "Former Harvard AI Adviser Joins Anthropic Oversight Trust Weeks After Stepping Down",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "bb0ab88dbcefe6e8040602f452762895734b701cf4844e10831a12ee6c2edd94",
+      "2a25b94228c19552c83424059ca7a56bdfca687209e1607a89c0655410dc32a4",
+      "a6306042ae09c0ba4e0d80ffe55a207f2250b1c3e04ea019f059b0c5d4e9e29b",
+      "a9308ddb07633b38c16b4fa32d6f24664bc6ae3186809ef65cfa900b7060503d",
+      "ad83543b3407ceb58611c016bf5b69b686a2c13da34b60e98940620de0589610",
+      "6b2cc6f1cb95dcc5802c7362576ce047f8c2fa1ea73dd5ad943df87c0b85e5aa",
+      "3974ec6e647072a9fcba0744ca1e8a1f2c3ef32f4fd794c88d0c0af56a555827",
+      "98424942b32d59b1d4ce5db57cb029bae4f9360c1b7433749694b7de80aef9d1"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "concrete_observation",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 100
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "Former Harvard AI Adviser Joins Anthropic Oversight Trust Weeks After Stepping Down",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNbXRYQjdhSnU4R2ZRMjZFVXJXM0ZfS3dJdTN3TnVDWGhHX0hCb2Q1QlZjQVZWMWtJbXJXV0M4aFZkaTBwcUhDN3BJanNSaE90QmNaanlhNGw5QVE4M25vR21GV0VYWldhbXpqc1NIYkl5aEpudnQ3b1RmY3BxTFJUVXU4WQ?oc=5",
+      "published_at": "2026-10-21T19:59:25+00:00",
+      "trend_score": 13,
+      "fetched_at": "2026-10-21T20:26:53.228666+00:00",
+      "growth_score": 43.35,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 13/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "ccf0aa66b6a2c7944796b41aa4144166e48ec6629960902bf56f3849c173d302",
+    "body": "Harvard AI adviser resigns suddenly Same name reappears hours later Now on Anthropic oversight board Why return to AI governance? He claims insider trust matters Insiders may skew policy decisions Paradox: stepping down, still influencing Power loops back faster than expected",
+    "text": "Former Harvard AI Adviser Joins Anthropic Oversight Trust Weeks After Stepping Down Harvard AI adviser resigns suddenly Same name reappears hours later Now on Anthropic oversight board Why return to AI governance? He claims insider trust matters Insiders may skew policy decisions Paradox: stepping down, still influencing Power loops back faster than expected"
   }
 ]

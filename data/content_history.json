@@ -2351,5 +2351,21 @@
     "title": "North Dakota lawmakers consider rules for AI chatbots and children",
     "body": "Kids trust bots over teachers Confidence tricks young judgment Kids follow chatbot advice Harmless jokes shift opinions Lawmakers fear hidden influence Proposed age limits and disclosures Transparency rarely changes trust Kids still believe bots",
     "text": "North Dakota lawmakers consider rules for AI chatbots and children Kids trust bots over teachers Confidence tricks young judgment Kids follow chatbot advice Harmless jokes shift opinions Lawmakers fear hidden influence Proposed age limits and disclosures Transparency rarely changes trust Kids still believe bots"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "ccf0aa66b6a2c7944796b41aa4144166e48ec6629960902bf56f3849c173d302",
+    "title": "Former Harvard AI Adviser Joins Anthropic Oversight Trust Weeks After Stepping Down",
+    "body": "Harvard AI adviser resigns suddenly Same name reappears hours later Now on Anthropic oversight board Why return to AI governance? He claims insider trust matters Insiders may skew policy decisions Paradox: stepping down, still influencing Power loops back faster than expected",
+    "text": "Former Harvard AI Adviser Joins Anthropic Oversight Trust Weeks After Stepping Down Harvard AI adviser resigns suddenly Same name reappears hours later Now on Anthropic oversight board Why return to AI governance? He claims insider trust matters Insiders may skew policy decisions Paradox: stepping down, still influencing Power loops back faster than expected"
   }
 ]
