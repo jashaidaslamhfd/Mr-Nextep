@@ -5601,7 +5601,7 @@
   },
   {
     "created_at": "2026-10-21T20:29:31.871932+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Former Harvard AI Adviser Joins Anthropic Oversight Trust Weeks After Stepping Down",
     "title": "Former Harvard AI Adviser Joins Anthropic Oversight Trust Weeks After Stepping Down",
     "video_path": "output/mr_nextep_short.mp4",
@@ -5683,6 +5683,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "ccf0aa66b6a2c7944796b41aa4144166e48ec6629960902bf56f3849c173d302",
     "body": "Harvard AI adviser resigns suddenly Same name reappears hours later Now on Anthropic oversight board Why return to AI governance? He claims insider trust matters Insiders may skew policy decisions Paradox: stepping down, still influencing Power loops back faster than expected",
-    "text": "Former Harvard AI Adviser Joins Anthropic Oversight Trust Weeks After Stepping Down Harvard AI adviser resigns suddenly Same name reappears hours later Now on Anthropic oversight board Why return to AI governance? He claims insider trust matters Insiders may skew policy decisions Paradox: stepping down, still influencing Power loops back faster than expected"
+    "text": "Former Harvard AI Adviser Joins Anthropic Oversight Trust Weeks After Stepping Down Harvard AI adviser resigns suddenly Same name reappears hours later Now on Anthropic oversight board Why return to AI governance? He claims insider trust matters Insiders may skew policy decisions Paradox: stepping down, still influencing Power loops back faster than expected",
+    "youtube_video_id": "V8gsO2nYQlI",
+    "url": "https://youtu.be/V8gsO2nYQlI",
+    "thumbnail": "uploaded",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/1122980080905302/videos?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      }
+    }
   }
 ]
