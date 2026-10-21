@@ -2335,5 +2335,21 @@
     "title": "Mamdani takes on AI chatbot ‘doom loops’ in New York",
     "body": "Chatbot keeps spiraling—what's happening? It mirrors your doubts, fuels fear Mamdani warns about feedback loops Each reply tightens the trap Tone triggers AI over‑reaction Negativity becomes AI's certainty Self‑reinforcing doom loop emerges Shift tone, break the cycle",
     "text": "Mamdani takes on AI chatbot ‘doom loops’ in New York Chatbot keeps spiraling—what's happening? It mirrors your doubts, fuels fear Mamdani warns about feedback loops Each reply tightens the trap Tone triggers AI over‑reaction Negativity becomes AI's certainty Self‑reinforcing doom loop emerges Shift tone, break the cycle"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "4742cc668492df691d40f5816a8d2ee7f3dd4ea5d5ba67f3e0b1e9f988741dcc",
+    "title": "North Dakota lawmakers consider rules for AI chatbots and children",
+    "body": "Kids trust bots over teachers Confidence tricks young judgment Kids follow chatbot advice Harmless jokes shift opinions Lawmakers fear hidden influence Proposed age limits and disclosures Transparency rarely changes trust Kids still believe bots",
+    "text": "North Dakota lawmakers consider rules for AI chatbots and children Kids trust bots over teachers Confidence tricks young judgment Kids follow chatbot advice Harmless jokes shift opinions Lawmakers fear hidden influence Proposed age limits and disclosures Transparency rarely changes trust Kids still believe bots"
   }
 ]

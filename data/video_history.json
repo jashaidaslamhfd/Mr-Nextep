@@ -5498,5 +5498,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-10-21T05:56:58.195830+00:00",
+    "status": "pending",
+    "topic": "North Dakota lawmakers consider rules for AI chatbots and children",
+    "title": "North Dakota lawmakers consider rules for AI chatbots and children",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "9109d9602d8f5ccde33213ec1ff1ba39c47dd681129a8328f96d1fbfaa90728d",
+      "4cdf2905f04b1aaaa6a29b4f8e88b87a5c45f57f920df21895410bdaf371115b",
+      "7ad06c7677f9941ad4507e052f7aee1a8865b44a023debdd40d10d823850f711",
+      "d2d6bc6d1dd1742267b34647ca8d95b47117fd9363edd07b30d660fc0532e092",
+      "be83adc2ae4d74d0a7056392fc3cf9defab3163141c25e84e8d6615445f442ff",
+      "8d6e9656a05d21f1fd6b10f43478e6fc7c8fe60708870097520aca365d009652",
+      "fca7668690dea5e15b5433cee3996d64e8f5ab281aeab00095b9376081d31b16",
+      "782f741b177c178e173e1edcf9f24a36a9412d5f7c9bf139fb00e546104bbeb3"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "counterintuitive",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 97
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 97
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 92
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "North Dakota lawmakers consider rules for AI chatbots and children",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNS0FZSkdyTS0xZTdGRm01S2RTNEljRUtSR2xoRktIT0FRakZ4bW41cUMwNXVkRWVMbmVSNUloSG5KUWhXeTVWR1duZDhoSk81TTN1dXAzQzZQbThxV21CWURnalJndTJfNml2d2FCRVFjclUwWDVlOWQ2d29XZWFPMl9YaHlBdTNib21tRVZUT0V5dE1qR1JvZ0FXWTdnZWw4NjZpSDlTbGxuMjdL?oc=5",
+      "published_at": "2026-10-21T00:40:42+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-10-21T05:54:06.509188+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "Source URL supplied; source content still requires review.",
+      "source_count": 1,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "4742cc668492df691d40f5816a8d2ee7f3dd4ea5d5ba67f3e0b1e9f988741dcc",
+    "body": "Kids trust bots over teachers Confidence tricks young judgment Kids follow chatbot advice Harmless jokes shift opinions Lawmakers fear hidden influence Proposed age limits and disclosures Transparency rarely changes trust Kids still believe bots",
+    "text": "North Dakota lawmakers consider rules for AI chatbots and children Kids trust bots over teachers Confidence tricks young judgment Kids follow chatbot advice Harmless jokes shift opinions Lawmakers fear hidden influence Proposed age limits and disclosures Transparency rarely changes trust Kids still believe bots"
   }
 ]
