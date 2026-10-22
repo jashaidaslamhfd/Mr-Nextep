@@ -1,53 +1,5 @@
 [
   {
-    "hash": "73a5da74bf35f14e8c0840d544bff326b2ea5a7eb0940d0e9a2e16c16601109e",
-    "source_url": "https://videos.pexels.com/video-files/31840178/13564591_360_640_30fps.mp4",
-    "title": "Brain Health Rooms Give Students Space to Pause, Regulate and Return",
-    "created_at": "2026-09-22T20:02:46.308647+00:00"
-  },
-  {
-    "hash": "0124aeea0dc319f8aa0a8c44776e1bdf761f996fd605c86498aba7baca19e4c2",
-    "source_url": "https://videos.pexels.com/video-files/34342666/14549251_360_640_30fps.mp4",
-    "title": "Brain Health Rooms Give Students Space to Pause, Regulate and Return",
-    "created_at": "2026-09-22T20:02:46.308647+00:00"
-  },
-  {
-    "hash": "8c8694756392a056f9db46863efc8fb186a7ffdb29a07f3e6358ec79fdc4ee53",
-    "source_url": "https://videos.pexels.com/video-files/8965049/8965049-hd_720_1280_30fps.mp4",
-    "title": "Brain Health Rooms Give Students Space to Pause, Regulate and Return",
-    "created_at": "2026-09-22T20:02:46.308647+00:00"
-  },
-  {
-    "hash": "f68bd20edce2d7ae17c144572aaf6313793db533d274565bd08ed4290e183433",
-    "source_url": "https://videos.pexels.com/video-files/7695752/7695752-sd_540_960_24fps.mp4",
-    "title": "Brain Health Rooms Give Students Space to Pause, Regulate and Return",
-    "created_at": "2026-09-22T20:02:46.308647+00:00"
-  },
-  {
-    "hash": "24608bd81a722afe20c28ac62a0a93038a2e0f743018ab1d6977c3bfb445fb8d",
-    "source_url": "https://videos.pexels.com/video-files/16134872/16134872-sd_540_960_30fps.mp4",
-    "title": "Heart attack deaths down 90%, but experts warn stress, poor sleep are fueling other heart conditions",
-    "created_at": "2026-09-23T19:02:16.157012+00:00"
-  },
-  {
-    "hash": "3b07fa9baf09affa9dd19a5fed0bce61cc7f7fbeb3317f919531af117496d45a",
-    "source_url": "https://videos.pexels.com/video-files/6974192/6974192-sd_360_640_25fps.mp4",
-    "title": "Heart attack deaths down 90%, but experts warn stress, poor sleep are fueling other heart conditions",
-    "created_at": "2026-09-23T19:02:16.157012+00:00"
-  },
-  {
-    "hash": "049aaa21005e1b64736e53db043b7f505c7fce535b79257d5423c040a065a19b",
-    "source_url": "https://cdn.pixabay.com/video/2023/01/05/145381-786670439_medium.mp4",
-    "title": "Heart attack deaths down 90%, but experts warn stress, poor sleep are fueling other heart conditions",
-    "created_at": "2026-09-23T19:02:16.157012+00:00"
-  },
-  {
-    "hash": "08e50793e62459baf1bc0d1d3b8b6efff42f23660bc72b0731de7b90fb27a6ed",
-    "source_url": "https://videos.pexels.com/video-files/4057152/4057152-hd_720_1366_50fps.mp4",
-    "title": "Heart attack deaths down 90%, but experts warn stress, poor sleep are fueling other heart conditions",
-    "created_at": "2026-09-23T19:02:16.157012+00:00"
-  },
-  {
     "hash": "6cb7962a72154dc70e707f7420a60e10304f9a1ab6b828aede4982249b9c105d",
     "source_url": "https://videos.pexels.com/video-files/38284236/16256680_360_640_60fps.mp4",
     "title": "Heart attack deaths down 90%, but experts warn stress, poor sleep are fueling other heart conditions",
@@ -2998,5 +2950,53 @@
     "source_url": "https://cdn.pixabay.com/video/2015/10/16/1035-142621331_medium.mp4",
     "title": "Former Harvard AI Adviser Joins Anthropic Oversight Trust Weeks After Stepping Down",
     "created_at": "2026-10-21T20:29:31.871932+00:00"
+  },
+  {
+    "hash": "899eecc1f270db776f6f7c50cfaca89e871cce94172cf93544cff7f2585bc497",
+    "source_url": "https://videos.pexels.com/video-files/7966950/7966950-sd_360_640_25fps.mp4",
+    "title": "Generative AI Is Erasing Behavioral Tells, Weakening Behavior",
+    "created_at": "2026-10-22T00:19:58.384146+00:00"
+  },
+  {
+    "hash": "677d181a22ee60578d6eef0dbd365f79f9cf1e85e5faf48410884efa5dcefcc2",
+    "source_url": "https://videos.pexels.com/video-files/5082599/5082599-hd_720_1366_25fps.mp4",
+    "title": "Generative AI Is Erasing Behavioral Tells, Weakening Behavior",
+    "created_at": "2026-10-22T00:19:58.384146+00:00"
+  },
+  {
+    "hash": "020519108315032bd226614d406fae2653ae088594c4beb431ba458cc68c4876",
+    "source_url": "https://videos.pexels.com/video-files/36641400/15534060_360_640_30fps.mp4",
+    "title": "Generative AI Is Erasing Behavioral Tells, Weakening Behavior",
+    "created_at": "2026-10-22T00:19:58.384146+00:00"
+  },
+  {
+    "hash": "c2407fc015d34c83294e2431d5883cec4bb81c133d2e2d2e9e780bf150bd66ae",
+    "source_url": "https://cdn.pixabay.com/video/2022/12/20/143645-784138067_medium.mp4",
+    "title": "Generative AI Is Erasing Behavioral Tells, Weakening Behavior",
+    "created_at": "2026-10-22T00:19:58.384146+00:00"
+  },
+  {
+    "hash": "d24316bfab546a7f5e443f993daa7b9ad169c161b5f687e2c552d6cc993c1805",
+    "source_url": "https://videos.pexels.com/video-files/8724414/8724414-hd_1080_2048_25fps.mp4",
+    "title": "Generative AI Is Erasing Behavioral Tells, Weakening Behavior",
+    "created_at": "2026-10-22T00:19:58.384146+00:00"
+  },
+  {
+    "hash": "b3ab866bf49f501621888ca455309aac64e33ea0dc9f0b91f8285e23387d3f15",
+    "source_url": "https://videos.pexels.com/video-files/5473802/5473802-sd_338_640_25fps.mp4",
+    "title": "Generative AI Is Erasing Behavioral Tells, Weakening Behavior",
+    "created_at": "2026-10-22T00:19:58.384146+00:00"
+  },
+  {
+    "hash": "c3b8ce1b01d075fb5aa5f9512de4f046f0b08c4539a4db3116e24c9e4be0d6a8",
+    "source_url": "https://videos.pexels.com/video-files/38410501/16310012_360_640_25fps.mp4",
+    "title": "Generative AI Is Erasing Behavioral Tells, Weakening Behavior",
+    "created_at": "2026-10-22T00:19:58.384146+00:00"
+  },
+  {
+    "hash": "cc10b0b248c6717a93f661a4b149665b836f695a8c2f775ce21d0a3259810284",
+    "source_url": "https://videos.pexels.com/video-files/5848517/5848517-sd_360_640_24fps.mp4",
+    "title": "Generative AI Is Erasing Behavioral Tells, Weakening Behavior",
+    "created_at": "2026-10-22T00:19:58.384146+00:00"
   }
 ]

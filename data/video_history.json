@@ -5698,5 +5698,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-10-22T00:19:58.384146+00:00",
+    "status": "pending",
+    "topic": "Generative AI Is Erasing Behavioral Tells, Weakening Behavior",
+    "title": "Generative AI Is Erasing Behavioral Tells, Weakening Behavior",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "899eecc1f270db776f6f7c50cfaca89e871cce94172cf93544cff7f2585bc497",
+      "677d181a22ee60578d6eef0dbd365f79f9cf1e85e5faf48410884efa5dcefcc2",
+      "020519108315032bd226614d406fae2653ae088594c4beb431ba458cc68c4876",
+      "c2407fc015d34c83294e2431d5883cec4bb81c133d2e2d2e9e780bf150bd66ae",
+      "d24316bfab546a7f5e443f993daa7b9ad169c161b5f687e2c552d6cc993c1805",
+      "b3ab866bf49f501621888ca455309aac64e33ea0dc9f0b91f8285e23387d3f15",
+      "c3b8ce1b01d075fb5aa5f9512de4f046f0b08c4539a4db3116e24c9e4be0d6a8",
+      "cc10b0b248c6717a93f661a4b149665b836f695a8c2f775ce21d0a3259810284"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "counterintuitive",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 91
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 91
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 86
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-2",
+      "topic": "Generative AI Is Erasing Behavioral Tells, Weakening Behavior",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE16XzN2UFlJdHNoUWVJMlZkV2FtZEx6VkZVb3R4Nko5QkpqeDU4YVNiN0E5QkhiS2xYelJWNHBzb1oyNkt2YkMzMlBQVnFUb0FNUmg1SmNZTlRJR0ZNdDVfUHc5U202V2VrWW9LdGtEbzhmRVJwQlF0RHlXWVZmejA?oc=5",
+      "published_at": "2026-10-21T11:53:00+00:00",
+      "trend_score": 13,
+      "fetched_at": "2026-10-22T00:17:33.946802+00:00",
+      "growth_score": 43.35,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 13/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "DARK_PSYCHOLOGY",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "3086e6808c3dc5e2e56d78f3d049351ab0ab7126594388d3e19fe4ae96df18f4",
+    "body": "AI dulls our social instincts Chatbots hide natural conversation gaps Micro‑tics slip past unnoticed Silence teaches brain pattern reading Real faces become confusing AI erases hesitation from output Cues vanish, intuition weakens AI makes us feel less human",
+    "text": "Generative AI Is Erasing Behavioral Tells, Weakening Behavior AI dulls our social instincts Chatbots hide natural conversation gaps Micro‑tics slip past unnoticed Silence teaches brain pattern reading Real faces become confusing AI erases hesitation from output Cues vanish, intuition weakens AI makes us feel less human"
   }
 ]
