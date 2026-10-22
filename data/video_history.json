@@ -5798,5 +5798,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-10-22T06:00:03.981806+00:00",
+    "status": "pending",
+    "topic": "Anthropic announces preview of Claude Duet, a personal AI agent to take on Muse, Dots",
+    "title": "Anthropic announces preview of Claude Duet, a personal AI agent to take on Muse, Dots",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "c1044130d565ff4ef6f489797bcd96828ed7fdae2d450a9ac3aff05a95b0517d",
+      "6cd5c627add8d0b529c85ba7624e676bfb0f0315f51cb8fad5fe6a555034a099",
+      "36f41c9ea5a0ca51e62caeefd48898455ded31ef38dc3574dce84e33ec72996d",
+      "e632b3958e637523f0399fa5230f60c749b4a56d37877e68fe806fd2258cdd73",
+      "3ae06b264a919418863016fc0ac348303031d15701fb816a6a7e9026f1365b0e",
+      "4822749259c220db6d99ed900672c13a3d9949c8a89d51c1b3880914621d7570",
+      "c6064c380c4f5229025d3c8b5232072ddade1f07867d463d901d7f6481467a02",
+      "fd5535193ccd0098ae5ea2bcfa2fa0f4b6ea3e840517c2273a5fb3974012a764"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "specific_question",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 100
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "Anthropic announces preview of Claude Duet, a personal AI agent to take on Muse, Dots",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNSFZYTW81ai1KaU91ZGZUV1VlUkFrRkVfWVpraWlRMl9rWXJnUXV2cnZ3dlFBUUtCeldidHR0MVhJdmY3MGVzSzZDYnYxODNQNXdxS1Z5ZVNIcHd4bklybjBOR3hQeEhwUkFBVW1WdVA1Q0V2WTZfbFAwSVdPcVRKdG5jc3dhYzZiYm01X1hqbDR2ZlVtblF6NmZUWVV0TFlVSkZJWHJUeG_SAa4BQVVfeXFMUDZ1eGN2Uncyczl3by1yNFAxQlJfd2JmSDBaX05QaEpFb0tGY3FJWGY4R2RzcXBRMXRYdzFhTWFIVEluT0I5MExZZG9hX3U0MXliVFJYS3hxN0FtME5obUdWOW9CZTBYdkpsVXFHN2d1VXp2VVI2NG5BNFF4MkEwLTlmZkVWZ016RkRtRHNsUi1RSEVERG1SNzB2aFlVLXFNSF80dEtDUnNZN05RSlh3?oc=5",
+      "published_at": "2026-10-21T21:42:54+00:00",
+      "trend_score": 13,
+      "fetched_at": "2026-10-22T05:57:48.505692+00:00",
+      "growth_score": 43.35,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 13/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "DARK_PSYCHOLOGY",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "578f6501e0ac4900151a725f7c2774a15d9705506f6ddf3a404231b409de40dc",
+    "body": "Claude Duet claims you’re remembered Feels like a personal memory buddy Only sees what you type now Anthropic hides a context cache Yesterday’s chat slides into today Tricks you into feeling understood Brain fills gaps, creates illusion Claude isn’t psychic—just context‑savvy",
+    "text": "Anthropic announces preview of Claude Duet, a personal AI agent to take on Muse, Dots Claude Duet claims you’re remembered Feels like a personal memory buddy Only sees what you type now Anthropic hides a context cache Yesterday’s chat slides into today Tricks you into feeling understood Brain fills gaps, creates illusion Claude isn’t psychic—just context‑savvy"
   }
 ]
