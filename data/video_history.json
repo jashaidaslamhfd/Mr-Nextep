@@ -5898,5 +5898,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-10-22T20:26:15.142792+00:00",
+    "status": "pending",
+    "topic": "Micron reveals DDR6, LPDDR6, HBM and NAND roadmap as AI memory demand keeps climbing",
+    "title": "Micron reveals DDR6, LPDDR6, HBM and NAND roadmap as AI memory demand keeps climbing",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "2b3cca441b1db8a026d97e82e63fff89927a0a7316180cbff8907027f3d701ba",
+      "cbd4fdc67c1015ef4b3dd1d948830e3d8c03be34434771578125453bc7b6681a",
+      "58cc09e4ee2a885e1f2f2e590c1ee072fec1b09234722cf2180235c3162c1c36",
+      "26ef4763b625e28a19847e6e6c7b680594d0b8b36f04239cbf89df422ff6efea",
+      "b2ce359de36d5318f472829c810fc49cb2223aace1037a93d62acc14ec671502",
+      "9e20ac109c50896f2314de03b1a090e0cd2e0c14e26a03707a6feb29b7c76cb9",
+      "a195c1eec46d7953d5d2ac8d39bb43c488fbce22e5922ff889d0e3d0a2a1c8d6",
+      "2e34ce1f37195dc4bcdbf435cdd371051c442ffc6439c00e35f5e9624de2ffc1"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "concrete_observation",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 100
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "Micron reveals DDR6, LPDDR6, HBM and NAND roadmap as AI memory demand keeps climbing",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQS3NON2tYM2ZCMnUxdlFoMHNmNkVLUzB0OW52cHNDTGF0ODJiNEo1ZUJIbHY0RlFlTXdCUkJIMHNGMHBHTkVhTmkwMjg1bElGWENpUjZDQ0QyeUNfOTJZdWQtaEhxVFFiX3B6ZzYzVlpUWl9yNGoyWUh2UldyT3AxWnY2ZHRENG9BbkhIamNfZVdjSzF2ai1MemQ2Nk5JdFZVXzdIT3ZMSDN1Qk5BSFJtNTM5Ykx5OUJjUWNVWlJIazBFY1hjSngxeHF1aw?oc=5",
+      "published_at": "2026-10-22T18:35:13+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-10-22T20:24:01.731671+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "645cacc53a6b6dc03be4932b258200a5959ce6ff4ac1f090716a7c9474ae6586",
+    "body": "Phone freezes on your selfie AI models need massive parameters DDR4 can't feed the demand DDR6 doubles the data highway Data moves faster than thoughts Latency still tricks our brain Brain fills gaps, expects smoothness Upgraded memory feels like magic",
+    "text": "Micron reveals DDR6, LPDDR6, HBM and NAND roadmap as AI memory demand keeps climbing Phone freezes on your selfie AI models need massive parameters DDR4 can't feed the demand DDR6 doubles the data highway Data moves faster than thoughts Latency still tricks our brain Brain fills gaps, expects smoothness Upgraded memory feels like magic"
   }
 ]
