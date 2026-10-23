@@ -2431,5 +2431,21 @@
     "title": "PerturbAI and OpenAI Launch AI Reasoning Agents for Biomedical Discovery",
     "body": "How does a bot discover drugs? Virtual experiments run without a lab No bench, just endless data streams AI rewrites protein interaction maps instantly Scientists call it clever pattern matching Predicts binding where none actually exist Treats chemistry like a spoken language Discovery becomes a statistical surprise",
     "text": "PerturbAI and OpenAI Launch AI Reasoning Agents for Biomedical Discovery How does a bot discover drugs? Virtual experiments run without a lab No bench, just endless data streams AI rewrites protein interaction maps instantly Scientists call it clever pattern matching Predicts binding where none actually exist Treats chemistry like a spoken language Discovery becomes a statistical surprise"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "1211b9369f92775b63ca589fa4ba162f207b7436e6306d10ab9b214abc447691",
+    "title": "AC Psychology Club hosts panel on AI prevalence",
+    "body": "They swear they trust friends Poll says AI leads Most pick bots for help Bot sounds sure, even if wrong Confidence equals competence in our minds Fluent speech feels like truth Panel shows AI sways choices Question the voice, not the source",
+    "text": "AC Psychology Club hosts panel on AI prevalence They swear they trust friends Poll says AI leads Most pick bots for help Bot sounds sure, even if wrong Confidence equals competence in our minds Fluent speech feels like truth Panel shows AI sways choices Question the voice, not the source"
   }
 ]

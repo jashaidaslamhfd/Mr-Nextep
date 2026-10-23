@@ -6098,5 +6098,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-10-23T05:57:16.868945+00:00",
+    "status": "pending",
+    "topic": "AC Psychology Club hosts panel on AI prevalence",
+    "title": "AC Psychology Club hosts panel on AI prevalence",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "b56a2a983b1e4d020f1d16fcbf389f74fc86123d5bb355ce9859368d94f3878b",
+      "87a883c16915fad8bdb23bae903347b97fce34de4bbd796d96e1c543ee77b916",
+      "57cb19a11f3fc6469e6e85e5bf266d987aadebc6e067905ca47bd7d65831da0a",
+      "3906552b07b51ea246043edfff65d12166c2606f25e12fa82b51a0969531ffd2",
+      "7ea3a24caf7b1001bec435b74823e4d87916d00db4e7cc25474a2e5741a8217f",
+      "9fcdb0894f7efb7e23df8651d413e664b214041faceac9f37a2d08d10035bc61",
+      "e940c06560400573dea6e0b7c245772f963f07111ca387dea55d53e6b9ccc102",
+      "8431fc35a32bab40daf5f366d4a10e9840b86c2b15b9b6f546f45d8ba1a0b4b8"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "counterintuitive",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 85
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 85
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 80
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "AC Psychology Club hosts panel on AI prevalence",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQQ3RaRktrZG1mUGFQdmloYktjUzFDdjlBdGJlMG5BemRBam1sTUtfeXFwZjhLQXk4UjJWR25rMGs4VFRQSmlqcTRvNlJYVmYxdU9uaXoyLWtueFZidDAyOUllRjRfU2xXc1lnTzNyTHdtTDR0QWU3Y3kwR01kamlYeHhkLVF4eHVPR3ZJVEoyeVRvdkwxTzhpMkVXU2VuaGZzQV9tV0pQbTA2SWpVdHQyNGNfWHYyT1RfWGV1VFpRTi15VHVGbjJwaUtEYV9zVWZ6cUJVQnNmbw?oc=5",
+      "published_at": "2026-10-23T05:30:00+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-10-23T05:54:41.708195+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "1211b9369f92775b63ca589fa4ba162f207b7436e6306d10ab9b214abc447691",
+    "body": "They swear they trust friends Poll says AI leads Most pick bots for help Bot sounds sure, even if wrong Confidence equals competence in our minds Fluent speech feels like truth Panel shows AI sways choices Question the voice, not the source",
+    "text": "AC Psychology Club hosts panel on AI prevalence They swear they trust friends Poll says AI leads Most pick bots for help Bot sounds sure, even if wrong Confidence equals competence in our minds Fluent speech feels like truth Panel shows AI sways choices Question the voice, not the source"
   }
 ]
