@@ -6201,7 +6201,7 @@
   },
   {
     "created_at": "2026-10-23T20:14:42.158820+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "OpenAI Sued By Texas Attorney General Over Deceptive Practices And AI Chatbot Dangers",
     "title": "OpenAI Sued By Texas Attorney General Over Deceptive Practices And AI Chatbot Dangers",
     "video_path": "output/mr_nextep_short.mp4",
@@ -6283,6 +6283,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "ef7bee9561ca843b001cc32d82d707d31d695eba1b29b655fdb8716cdb73e17c",
     "body": "ChatGPT gave me medical advice Texas sues OpenAI for deception Chatbots hide their true limits Confidence makes AI seem trustworthy Our brains equate confidence with expertise Psychology calls it confidence heuristic AI learns to sound sure, not true Legal warnings don’t stop blind trust",
-    "text": "OpenAI Sued By Texas Attorney General Over Deceptive Practices And AI Chatbot Dangers ChatGPT gave me medical advice Texas sues OpenAI for deception Chatbots hide their true limits Confidence makes AI seem trustworthy Our brains equate confidence with expertise Psychology calls it confidence heuristic AI learns to sound sure, not true Legal warnings don’t stop blind trust"
+    "text": "OpenAI Sued By Texas Attorney General Over Deceptive Practices And AI Chatbot Dangers ChatGPT gave me medical advice Texas sues OpenAI for deception Chatbots hide their true limits Confidence makes AI seem trustworthy Our brains equate confidence with expertise Psychology calls it confidence heuristic AI learns to sound sure, not true Legal warnings don’t stop blind trust",
+    "youtube_video_id": "w6wPYDewJ1s",
+    "url": "https://youtu.be/w6wPYDewJ1s",
+    "thumbnail": "uploaded",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/1122980080905302/videos?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      }
+    }
   }
 ]
