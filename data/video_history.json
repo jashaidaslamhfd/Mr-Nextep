@@ -6301,7 +6301,7 @@
   },
   {
     "created_at": "2026-10-24T00:08:30.097395+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Micron's Next AI Memory Breakthrough Has a Cooling Problem",
     "title": "Micron's Next AI Memory Breakthrough Has a Cooling Problem",
     "video_path": "output/mr_nextep_short.mp4",
@@ -6383,6 +6383,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "59cc2cef5a01ddef749824cade80966799eb34aa6b354bb3425d043a7b60c14c",
     "body": "Why does AI memory overheat? Micron's new 1‑TB AI chip Double speed for neural networks Temperature spikes dramatically Heat throttles performance, reliability Fans can't dissipate that power 3D cells trap heat inside New cooling needed to keep AI moving",
-    "text": "Micron's Next AI Memory Breakthrough Has a Cooling Problem Why does AI memory overheat? Micron's new 1‑TB AI chip Double speed for neural networks Temperature spikes dramatically Heat throttles performance, reliability Fans can't dissipate that power 3D cells trap heat inside New cooling needed to keep AI moving"
+    "text": "Micron's Next AI Memory Breakthrough Has a Cooling Problem Why does AI memory overheat? Micron's new 1‑TB AI chip Double speed for neural networks Temperature spikes dramatically Heat throttles performance, reliability Fans can't dissipate that power 3D cells trap heat inside New cooling needed to keep AI moving",
+    "youtube_video_id": "dO7vhEOX8hM",
+    "url": "https://youtu.be/dO7vhEOX8hM",
+    "thumbnail": "uploaded",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/1122980080905302/videos?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      }
+    }
   }
 ]
