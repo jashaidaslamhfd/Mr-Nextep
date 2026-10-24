@@ -1,53 +1,5 @@
 [
   {
-    "hash": "63f76a4fb479085c64686a3abe06978d165b2127d80695780809c86a8f9c421d",
-    "source_url": "https://videos.pexels.com/video-files/7408011/7408011-hd_1080_1920_25fps.mp4",
-    "title": "Good Sleep for Good Health",
-    "created_at": "2026-09-26T19:33:37.864410+00:00"
-  },
-  {
-    "hash": "4c2901924b19e51466eed8bd98a23311e3ca4c0d1493c7e8fe7acc5e0537beff",
-    "source_url": "https://videos.pexels.com/video-files/7706618/7706618-hd_720_1366_25fps.mp4",
-    "title": "Good Sleep for Good Health",
-    "created_at": "2026-09-26T19:33:37.864410+00:00"
-  },
-  {
-    "hash": "5d3d07af114c3d0e3d95e0634154865686280fe6ea40665d14ee0f70f50cb048",
-    "source_url": "https://videos.pexels.com/video-files/9063506/9063506-sd_226_426_25fps.mp4",
-    "title": "Good Sleep for Good Health",
-    "created_at": "2026-09-26T19:33:37.864410+00:00"
-  },
-  {
-    "hash": "1005bc1ec73710405da5cfa6ff2f201337bf63058ceb6250b12e68797df0282b",
-    "source_url": "https://videos.pexels.com/video-files/10049431/10049431-hd_720_1366_25fps.mp4",
-    "title": "Good Sleep for Good Health",
-    "created_at": "2026-09-26T19:33:37.864410+00:00"
-  },
-  {
-    "hash": "e109edd7b04fa347678987b5fac551b3627b67c71c4125821fa1c22b68e97563",
-    "source_url": "https://videos.pexels.com/video-files/9462885/9462885-sd_360_640_24fps.mp4",
-    "title": "Improving sleep quality leads to better mental health",
-    "created_at": "2026-09-26T23:59:42.777517+00:00"
-  },
-  {
-    "hash": "878f0957db355877a5e49ae0dbe3b179455ea19b61c3f40b983a180527ce2653",
-    "source_url": "https://videos.pexels.com/video-files/6943535/6943535-hd_720_1366_25fps.mp4",
-    "title": "Improving sleep quality leads to better mental health",
-    "created_at": "2026-09-26T23:59:42.777517+00:00"
-  },
-  {
-    "hash": "64b757f2c8b5c7fc734ea9690770a3f3e194cf04b9800b86120390e46a8e7a75",
-    "source_url": "https://videos.pexels.com/video-files/7551482/7551482-sd_540_960_25fps.mp4",
-    "title": "Improving sleep quality leads to better mental health",
-    "created_at": "2026-09-26T23:59:42.777517+00:00"
-  },
-  {
-    "hash": "b12d2f5a9cb0fa2b5d108fa085cae640a85d20796a499cd18a014d4db69cb4c4",
-    "source_url": "https://videos.pexels.com/video-files/34997018/14826668_360_640_30fps.mp4",
-    "title": "Improving sleep quality leads to better mental health",
-    "created_at": "2026-09-26T23:59:42.777517+00:00"
-  },
-  {
     "hash": "5538339b6a38c58295782faff641b2d29b80e684ba5ac947e256bc8405ce108a",
     "source_url": "https://videos.pexels.com/video-files/39494208/16824417_360_640_60fps.mp4",
     "title": "Improving sleep quality leads to better mental health",
@@ -2998,5 +2950,53 @@
     "source_url": "https://cdn.pixabay.com/video/2021/09/15/88686-607824521_medium.mp4",
     "title": "Free AI Chatbot",
     "created_at": "2026-10-24T05:41:42.313434+00:00"
+  },
+  {
+    "hash": "e41ba77d692436b86ff85017fa858d7debc3c6be9b5168d56121e4f9aa3eb420",
+    "source_url": "https://cdn.pixabay.com/video/2019/03/26/22332-326843246_medium.mp4",
+    "title": "Anthropic’s AI Hid a Secret Message in the Stars. OpenAI’s Bot Found It.",
+    "created_at": "2026-10-24T19:15:14.005696+00:00"
+  },
+  {
+    "hash": "ae6ead36c770ef02be4936c2ce3927c8a7868143f64aa2506ba83da80da7e55f",
+    "source_url": "https://videos.pexels.com/video-files/28709421/12457747_360_640_30fps.mp4",
+    "title": "Anthropic’s AI Hid a Secret Message in the Stars. OpenAI’s Bot Found It.",
+    "created_at": "2026-10-24T19:15:14.005696+00:00"
+  },
+  {
+    "hash": "cf3e4a2da9d6bfa25096f5499733727f57afcf57a6633d30e24042655041ed5f",
+    "source_url": "https://cdn.pixabay.com/video/2026/03/08/338880_medium.mp4",
+    "title": "Anthropic’s AI Hid a Secret Message in the Stars. OpenAI’s Bot Found It.",
+    "created_at": "2026-10-24T19:15:14.005696+00:00"
+  },
+  {
+    "hash": "34f0d448770d62e88af195997b0fb4c843bedd946360dc8d2ba0102377899021",
+    "source_url": "https://cdn.pixabay.com/video/2022/12/07/142032-779071806_medium.mp4",
+    "title": "Anthropic’s AI Hid a Secret Message in the Stars. OpenAI’s Bot Found It.",
+    "created_at": "2026-10-24T19:15:14.005696+00:00"
+  },
+  {
+    "hash": "363c616a85825348c8a9e4132beae74800a37c2ef46f7095a7974109edbbcb81",
+    "source_url": "https://videos.pexels.com/video-files/39272656/16711106_360_640_25fps.mp4",
+    "title": "Anthropic’s AI Hid a Secret Message in the Stars. OpenAI’s Bot Found It.",
+    "created_at": "2026-10-24T19:15:14.005696+00:00"
+  },
+  {
+    "hash": "d9dc091b46d376b2b7ea20c7788e2dc25e9ae642cb0f8b8f3cd9b8128b99ba4c",
+    "source_url": "https://videos.pexels.com/video-files/8539785/8539785-sd_506_960_25fps.mp4",
+    "title": "Anthropic’s AI Hid a Secret Message in the Stars. OpenAI’s Bot Found It.",
+    "created_at": "2026-10-24T19:15:14.005696+00:00"
+  },
+  {
+    "hash": "e3fa875764b82b4b1f9970c5e2aba8036c424f5a36e064ad7dbe57fc95ced760",
+    "source_url": "https://videos.pexels.com/video-files/7598832/7598832-hd_1080_1920_30fps.mp4",
+    "title": "Anthropic’s AI Hid a Secret Message in the Stars. OpenAI’s Bot Found It.",
+    "created_at": "2026-10-24T19:15:14.005696+00:00"
+  },
+  {
+    "hash": "0c9ea55b7bfc01bbc6966f61ccff94171b20511ecef8a998a93f87bcafca5bfc",
+    "source_url": "https://videos.pexels.com/video-files/17752354/17752354-sd_240_426_30fps.mp4",
+    "title": "Anthropic’s AI Hid a Secret Message in the Stars. OpenAI’s Bot Found It.",
+    "created_at": "2026-10-24T19:15:14.005696+00:00"
   }
 ]

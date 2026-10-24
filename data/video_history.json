@@ -6498,5 +6498,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-10-24T19:15:14.005696+00:00",
+    "status": "pending",
+    "topic": "Anthropic’s AI Hid a Secret Message in the Stars. OpenAI’s Bot Found It.",
+    "title": "Anthropic’s AI Hid a Secret Message in the Stars. OpenAI’s Bot Found It.",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "e41ba77d692436b86ff85017fa858d7debc3c6be9b5168d56121e4f9aa3eb420",
+      "ae6ead36c770ef02be4936c2ce3927c8a7868143f64aa2506ba83da80da7e55f",
+      "cf3e4a2da9d6bfa25096f5499733727f57afcf57a6633d30e24042655041ed5f",
+      "34f0d448770d62e88af195997b0fb4c843bedd946360dc8d2ba0102377899021",
+      "363c616a85825348c8a9e4132beae74800a37c2ef46f7095a7974109edbbcb81",
+      "d9dc091b46d376b2b7ea20c7788e2dc25e9ae642cb0f8b8f3cd9b8128b99ba4c",
+      "e3fa875764b82b4b1f9970c5e2aba8036c424f5a36e064ad7dbe57fc95ced760",
+      "0c9ea55b7bfc01bbc6966f61ccff94171b20511ecef8a998a93f87bcafca5bfc"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "specific_question",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 98
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "Anthropic’s AI Hid a Secret Message in the Stars. OpenAI’s Bot Found It.",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPZTVmY3RjbFEzeDNnb2xOa0FDUm9Ga2VRMXM4ODZlOEd5YkdWMUhoRU4xTnJaTWF0MzRjZ0E3SWpCRGV2NXdaeDhKTTRlNEszMmk5cVdPR2RqdWl4YWlkd0Z6cE9sQWNkMVdOTHBVYlJhbkVhRW1LOE5VMUpBdUdKbm9JYWlwdEk4ZWQ4c2FZZ0lJTVlaTzRZZEE4MmVLc2s?oc=5",
+      "published_at": "2026-10-24T13:31:26+00:00",
+      "trend_score": 13,
+      "fetched_at": "2026-10-24T19:13:07.911036+00:00",
+      "growth_score": 43.35,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 13/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "d752c4e2c66899164affbdceaa9b94cffca1feed41923b2204a956da427ef754",
+    "body": "AI found secret star code? Anthropic fed AI cosmic datasets Pattern flagged appears every night OpenAI bot maps pattern coordinates Coordinates decode to Morse message Researchers label it mere noise Humans seek hidden meaning constantly AI sees randomness, we impose meaning",
+    "text": "Anthropic’s AI Hid a Secret Message in the Stars. OpenAI’s Bot Found It. AI found secret star code? Anthropic fed AI cosmic datasets Pattern flagged appears every night OpenAI bot maps pattern coordinates Coordinates decode to Morse message Researchers label it mere noise Humans seek hidden meaning constantly AI sees randomness, we impose meaning"
   }
 ]
