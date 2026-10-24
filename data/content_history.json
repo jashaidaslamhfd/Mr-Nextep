@@ -2463,5 +2463,21 @@
     "title": "OpenAI Sued By Texas Attorney General Over Deceptive Practices And AI Chatbot Dangers",
     "body": "ChatGPT gave me medical advice Texas sues OpenAI for deception Chatbots hide their true limits Confidence makes AI seem trustworthy Our brains equate confidence with expertise Psychology calls it confidence heuristic AI learns to sound sure, not true Legal warnings don’t stop blind trust",
     "text": "OpenAI Sued By Texas Attorney General Over Deceptive Practices And AI Chatbot Dangers ChatGPT gave me medical advice Texas sues OpenAI for deception Chatbots hide their true limits Confidence makes AI seem trustworthy Our brains equate confidence with expertise Psychology calls it confidence heuristic AI learns to sound sure, not true Legal warnings don’t stop blind trust"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "59cc2cef5a01ddef749824cade80966799eb34aa6b354bb3425d043a7b60c14c",
+    "title": "Micron's Next AI Memory Breakthrough Has a Cooling Problem",
+    "body": "Why does AI memory overheat? Micron's new 1‑TB AI chip Double speed for neural networks Temperature spikes dramatically Heat throttles performance, reliability Fans can't dissipate that power 3D cells trap heat inside New cooling needed to keep AI moving",
+    "text": "Micron's Next AI Memory Breakthrough Has a Cooling Problem Why does AI memory overheat? Micron's new 1‑TB AI chip Double speed for neural networks Temperature spikes dramatically Heat throttles performance, reliability Fans can't dissipate that power 3D cells trap heat inside New cooling needed to keep AI moving"
   }
 ]

@@ -6298,5 +6298,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-10-24T00:08:30.097395+00:00",
+    "status": "pending",
+    "topic": "Micron's Next AI Memory Breakthrough Has a Cooling Problem",
+    "title": "Micron's Next AI Memory Breakthrough Has a Cooling Problem",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "f2305c118db6877c883c9a42ea84eb906ddf44ed2e64ea59df8a5d1d1d8112f0",
+      "b25cf9e90d8ee2fe9779c361ed3d3a50555a5f5d10893d463a8c313c3136fd6c",
+      "cd6baaef19378ae5d32a1613644316998938822f85d8769cde35fb65ee420647",
+      "1ff2c708be10d795cdcb37f218a2f57230b31c699a239e2093c855baafa262a7",
+      "a96909944416bf4d68d7361ea684481b28db4817c619180b47299241f8cbdb0f",
+      "36f77c3499279d79a7c3ce7cb9dfc5058bea3f5af4decf83effec0e21176af88",
+      "515aecbcebb5779b83dac8c408a6617235d7cc67359e968d181eb1991e01c2d2",
+      "3ccc6dbef1c3ba5e3f9fcb15d48bd632e6a560bb34dd0b0cef156187488ce9b7"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "specific_question",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 91
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 91
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 86
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-3",
+      "topic": "Micron's Next AI Memory Breakthrough Has a Cooling Problem",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPX1VoNmgyRjB0MWdNMkY5UWd1dEpGbVAyc2tFMXUyTm9YMjNaSU9iYVhVZnlBaDV2N2xYSkhjVXBCc04zNXZpSUhXb3FPcFg2dG5LbVViZFpvaGMxTnA3VHN4WFpENlFKbWJCMGdVTTFIU3FFTWpGSkNiZnVsck9UVDc3UndWZ0xrYnhmRjlPMWczY3ZicXVuNlRXWkxwdw?oc=5",
+      "published_at": "2026-10-23T18:45:58+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-10-24T00:06:17.101783+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "DARK_PSYCHOLOGY",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "59cc2cef5a01ddef749824cade80966799eb34aa6b354bb3425d043a7b60c14c",
+    "body": "Why does AI memory overheat? Micron's new 1‑TB AI chip Double speed for neural networks Temperature spikes dramatically Heat throttles performance, reliability Fans can't dissipate that power 3D cells trap heat inside New cooling needed to keep AI moving",
+    "text": "Micron's Next AI Memory Breakthrough Has a Cooling Problem Why does AI memory overheat? Micron's new 1‑TB AI chip Double speed for neural networks Temperature spikes dramatically Heat throttles performance, reliability Fans can't dissipate that power 3D cells trap heat inside New cooling needed to keep AI moving"
   }
 ]
