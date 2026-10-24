@@ -6598,5 +6598,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-10-24T23:52:34.720836+00:00",
+    "status": "pending",
+    "topic": "San Antonio researchers use AI to detect brain injuries in veterans",
+    "title": "San Antonio researchers use AI to detect brain injuries in veterans",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "d5ebac55bb4cf54f3d79ad0aa1d2ac6dcb6de887f5a24136fa9ef654dab593d9",
+      "f4f49110be928fd156974042abab92efc0321bd1aa099347d72ae2a1ff21fb5a",
+      "375f32592fb1a9f1a9d4dc5c83e9f96ee9e316a3a24e1b423fb3e2788dddaca7",
+      "69366ea4c4933e347842c720f6527ef7845bdad64b6dde19b93bad29e68f58e7",
+      "ea1a7c3554dbcb32bd7d143c045d158d11752842d2345aa02fe265b51ab8a7b9",
+      "8e9ac980dfae4d277dd633c24b96f0cf028c0150fd25174cee36d8c8e25240cb",
+      "4076160b5c88d6e8bb5cb8cbedfd43d19c69a5c11e688db4209cbf135d2cfe1a",
+      "6997b6a74cd5bae08cc2b102ee9d05f5bdaade223072784bdbec67522c0d8afd"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "counterintuitive",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 98
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-2",
+      "topic": "San Antonio researchers use AI to detect brain injuries in veterans",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOSks4WjZyUk8xNWtaVl9WdjlfcEpOWjdMMjZIYWxRYjBVdVMtODVyT28yWmh3ZWlOZHczU2VtV3gtQ0ZoNkZkU19STkxFVXJ6OXBDMmtGZW9QYU1YYlQ5Z3FmV1ZQMUkzaXdPcDJVdWhaWlNPTEZCV3RZVmdKdTlrV00wc2pGWTNxaDVKcnAxdUxtRnA0VEREOU8wNkUtNzFsYnc?oc=5",
+      "published_at": "2026-10-24T19:00:00+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-10-24T23:50:13.619114+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "fb946bb04653aa2fea9d4d371c0ba09860e94602a4b4b61c32c6b7b328bac8dd",
+    "body": "Clean scan, hidden injury—AI sees AI scans subtle patterns invisible to eyes Predicts future symptoms from one scan Trained on thousands of veteran scans Missed injuries become treatable thanks AI detects micro‑hemorrhages invisible otherwise Better outcomes, fewer missed brain injuries AI sees what eyes miss",
+    "text": "San Antonio researchers use AI to detect brain injuries in veterans Clean scan, hidden injury—AI sees AI scans subtle patterns invisible to eyes Predicts future symptoms from one scan Trained on thousands of veteran scans Missed injuries become treatable thanks AI detects micro‑hemorrhages invisible otherwise Better outcomes, fewer missed brain injuries AI sees what eyes miss"
   }
 ]

@@ -1,53 +1,5 @@
 [
   {
-    "hash": "5538339b6a38c58295782faff641b2d29b80e684ba5ac947e256bc8405ce108a",
-    "source_url": "https://videos.pexels.com/video-files/39494208/16824417_360_640_60fps.mp4",
-    "title": "Improving sleep quality leads to better mental health",
-    "created_at": "2026-09-26T23:59:42.777517+00:00"
-  },
-  {
-    "hash": "39d63e218316b8e5d4187ceea8cb299fd374e1afbd704c3e53ab99342be11d91",
-    "source_url": "https://videos.pexels.com/video-files/6208367/6208367-sd_226_426_25fps.mp4",
-    "title": "Improving sleep quality leads to better mental health",
-    "created_at": "2026-09-26T23:59:42.777517+00:00"
-  },
-  {
-    "hash": "78f96ca0d9faee48bfb2f18589ea7ef53e23cff9f579b7a2700a02b593462218",
-    "source_url": "https://videos.pexels.com/video-files/9615485/9615485-sd_506_960_25fps.mp4",
-    "title": "Improving sleep quality leads to better mental health",
-    "created_at": "2026-09-26T23:59:42.777517+00:00"
-  },
-  {
-    "hash": "f0002cbe36952f14eb6b3ee3d36595cac83baad77fab9ad1d09f24c74504705d",
-    "source_url": "https://videos.pexels.com/video-files/8688893/8688893-hd_1080_1920_25fps.mp4",
-    "title": "Improving sleep quality leads to better mental health",
-    "created_at": "2026-09-26T23:59:42.777517+00:00"
-  },
-  {
-    "hash": "fe664d6cab9a9acb0c9cc6ad2d1c7f8204e867d5189911f8f6289e9e7ca174ea",
-    "source_url": "https://videos.pexels.com/video-files/10378614/10378614-sd_506_960_25fps.mp4",
-    "title": "Children's sleep linked to brain development",
-    "created_at": "2026-09-27T09:07:38.005459+00:00"
-  },
-  {
-    "hash": "508ae2618c4ec393607912bba9892a2ab11ee60c395f7b2eccfceb1d4e96e505",
-    "source_url": "https://videos.pexels.com/video-files/35149398/14890444_360_640_25fps.mp4",
-    "title": "Children's sleep linked to brain development",
-    "created_at": "2026-09-27T09:07:38.005459+00:00"
-  },
-  {
-    "hash": "4cb37de81e6600787368a592ebfa2dac3ef684179475ce5af36926bc89cbaa72",
-    "source_url": "https://videos.pexels.com/video-files/8496769/8496769-sd_540_960_25fps.mp4",
-    "title": "Children's sleep linked to brain development",
-    "created_at": "2026-09-27T09:07:38.005459+00:00"
-  },
-  {
-    "hash": "b0c8920529700b11343446c769895dbe1b895e3b6d39e62337237de9919fa7ea",
-    "source_url": "https://videos.pexels.com/video-files/18764493/18764493-sd_240_426_30fps.mp4",
-    "title": "Children's sleep linked to brain development",
-    "created_at": "2026-09-27T09:07:38.005459+00:00"
-  },
-  {
     "hash": "16359998ffa1606b9c231912bd1d70f35492d0a43259af4b8eff4d7f5c41a4db",
     "source_url": "https://videos.pexels.com/video-files/6944429/6944429-hd_720_1280_24fps.mp4",
     "title": "Children's sleep linked to brain development",
@@ -2998,5 +2950,53 @@
     "source_url": "https://videos.pexels.com/video-files/17752354/17752354-sd_240_426_30fps.mp4",
     "title": "Anthropic’s AI Hid a Secret Message in the Stars. OpenAI’s Bot Found It.",
     "created_at": "2026-10-24T19:15:14.005696+00:00"
+  },
+  {
+    "hash": "d5ebac55bb4cf54f3d79ad0aa1d2ac6dcb6de887f5a24136fa9ef654dab593d9",
+    "source_url": "https://cdn.pixabay.com/video/2020/05/23/39930-424022897_medium.mp4",
+    "title": "San Antonio researchers use AI to detect brain injuries in veterans",
+    "created_at": "2026-10-24T23:52:34.720836+00:00"
+  },
+  {
+    "hash": "f4f49110be928fd156974042abab92efc0321bd1aa099347d72ae2a1ff21fb5a",
+    "source_url": "https://videos.pexels.com/video-files/29669602/12762749_360_640_24fps.mp4",
+    "title": "San Antonio researchers use AI to detect brain injuries in veterans",
+    "created_at": "2026-10-24T23:52:34.720836+00:00"
+  },
+  {
+    "hash": "375f32592fb1a9f1a9d4dc5c83e9f96ee9e316a3a24e1b423fb3e2788dddaca7",
+    "source_url": "https://videos.pexels.com/video-files/7172599/7172599-sd_360_640_30fps.mp4",
+    "title": "San Antonio researchers use AI to detect brain injuries in veterans",
+    "created_at": "2026-10-24T23:52:34.720836+00:00"
+  },
+  {
+    "hash": "69366ea4c4933e347842c720f6527ef7845bdad64b6dde19b93bad29e68f58e7",
+    "source_url": "https://videos.pexels.com/video-files/5377775/5377775-hd_1080_1920_25fps.mp4",
+    "title": "San Antonio researchers use AI to detect brain injuries in veterans",
+    "created_at": "2026-10-24T23:52:34.720836+00:00"
+  },
+  {
+    "hash": "ea1a7c3554dbcb32bd7d143c045d158d11752842d2345aa02fe265b51ab8a7b9",
+    "source_url": "https://cdn.pixabay.com/video/2022/10/07/133898-758336558_medium.mp4",
+    "title": "San Antonio researchers use AI to detect brain injuries in veterans",
+    "created_at": "2026-10-24T23:52:34.720836+00:00"
+  },
+  {
+    "hash": "8e9ac980dfae4d277dd633c24b96f0cf028c0150fd25174cee36d8c8e25240cb",
+    "source_url": "https://cdn.pixabay.com/video/2021/01/31/63680-507811716_medium.mp4",
+    "title": "San Antonio researchers use AI to detect brain injuries in veterans",
+    "created_at": "2026-10-24T23:52:34.720836+00:00"
+  },
+  {
+    "hash": "4076160b5c88d6e8bb5cb8cbedfd43d19c69a5c11e688db4209cbf135d2cfe1a",
+    "source_url": "https://videos.pexels.com/video-files/8297903/8297903-sd_360_640_30fps.mp4",
+    "title": "San Antonio researchers use AI to detect brain injuries in veterans",
+    "created_at": "2026-10-24T23:52:34.720836+00:00"
+  },
+  {
+    "hash": "6997b6a74cd5bae08cc2b102ee9d05f5bdaade223072784bdbec67522c0d8afd",
+    "source_url": "https://videos.pexels.com/video-files/7230298/7230298-sd_360_640_25fps.mp4",
+    "title": "San Antonio researchers use AI to detect brain injuries in veterans",
+    "created_at": "2026-10-24T23:52:34.720836+00:00"
   }
 ]

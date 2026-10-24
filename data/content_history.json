@@ -2511,5 +2511,21 @@
     "title": "Anthropic’s AI Hid a Secret Message in the Stars. OpenAI’s Bot Found It.",
     "body": "AI found secret star code? Anthropic fed AI cosmic datasets Pattern flagged appears every night OpenAI bot maps pattern coordinates Coordinates decode to Morse message Researchers label it mere noise Humans seek hidden meaning constantly AI sees randomness, we impose meaning",
     "text": "Anthropic’s AI Hid a Secret Message in the Stars. OpenAI’s Bot Found It. AI found secret star code? Anthropic fed AI cosmic datasets Pattern flagged appears every night OpenAI bot maps pattern coordinates Coordinates decode to Morse message Researchers label it mere noise Humans seek hidden meaning constantly AI sees randomness, we impose meaning"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "fb946bb04653aa2fea9d4d371c0ba09860e94602a4b4b61c32c6b7b328bac8dd",
+    "title": "San Antonio researchers use AI to detect brain injuries in veterans",
+    "body": "Clean scan, hidden injury—AI sees AI scans subtle patterns invisible to eyes Predicts future symptoms from one scan Trained on thousands of veteran scans Missed injuries become treatable thanks AI detects micro‑hemorrhages invisible otherwise Better outcomes, fewer missed brain injuries AI sees what eyes miss",
+    "text": "San Antonio researchers use AI to detect brain injuries in veterans Clean scan, hidden injury—AI sees AI scans subtle patterns invisible to eyes Predicts future symptoms from one scan Trained on thousands of veteran scans Missed injuries become treatable thanks AI detects micro‑hemorrhages invisible otherwise Better outcomes, fewer missed brain injuries AI sees what eyes miss"
   }
 ]
