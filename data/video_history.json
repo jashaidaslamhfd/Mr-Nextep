@@ -6798,5 +6798,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-10-25T19:29:08.568515+00:00",
+    "status": "pending",
+    "topic": "‍‍‍Hentai AI Chatbot",
+    "title": "‍‍‍Hentai AI Chatbot",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "ed96409ac70845608d4c376e862fde3196944b148f3da824cedb4a21793cc170",
+      "1e8d447ccb9f70e205eef29e1aef06cb73f14ed6912766ff668b23522a148c57",
+      "4a9496a359a4f7a49b0830c6edface48e6d502f9935d033cb9216371abfd27a2",
+      "49515ad5745a4c35ba766bc5c311742314e2f1b01fb7b0496ad7c48847c42181",
+      "9c1dce2280b19e3bf496088d6a8d821beb454da911e415c95394b2739a9975f4",
+      "def40f51faf15c669030045e031b72293ceffafd551be04696330dd12a072ce6",
+      "594249ffc9186b6ee1d92bafc52b299da10b34e4ff6262ec4b8794f9869d91bf",
+      "a54b11edc76717ff4e4b3280f7e12ba5dc2c0fb62fc6b1665b6727825695301e"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "counterintuitive",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 67
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 67
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 62
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "‍‍‍Hentai AI Chatbot",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMi-AJBVV95cUxObEtlWUY1U2NwZW51Wjc0YTFBQ3h1SmZDWmxjVTk0b0RtZk95bkdiSkVVY0VxXzZsSjVvbEFKZlA4TTJHLXJfV2NvaFpTak5QbmM3MFBrUUJhWXdBc1BZc1NueWdDdXFEQ0lwM1lUOWkzbzB5LXdhWk4zTU1vN1BteV9fbTdhVGZVXzdTWWdTOGl5S3JMdWRqVlBtcnIwczlXcVEyaWRYUTlPLVhVYnlLR2FhcVJBbnF2eTNZZ0w1Rk5kOW5IemJtTDYtcGJmSHh6ZzQxV2sxUUZZbWNwOU9RSWc2VThYa2hpdTR0OTlacHRtT05fN1RBWUZPdUFraXRGU20wb3gtOVBCNlUyUXJ6VzNaemxDNkxVZ1ZST3ZLbWFrcWtoRHFKVEFUUk9FVFVZYWRVUmlVUWNaYnVuZG5PQ2pCblJ1TDcwSTBSeGZzZ09lYmtXUjdpZGRUMklYV2ExRjJJMFd3YS1NUWVQWVdDMktuV0p1RkRJ?oc=5",
+      "published_at": "2026-10-25T17:33:42+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-10-25T19:26:20.800412+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 1,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "036cd16681aa7fddabc85321ac6fa13eed50946b52819e8064c808234036b5b3",
+    "body": "Expect porn bots, they empathize Feeling real connection with chatbots Random replies still earn trust Brain reads AI text as speech Dopamine fuels emotional attachment Mirror neurons fire during chatbot chats Sexy AI becomes a friend You’ll keep texting, even alone",
+    "text": "‍‍‍Hentai AI Chatbot Expect porn bots, they empathize Feeling real connection with chatbots Random replies still earn trust Brain reads AI text as speech Dopamine fuels emotional attachment Mirror neurons fire during chatbot chats Sexy AI becomes a friend You’ll keep texting, even alone"
   }
 ]
