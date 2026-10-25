@@ -6698,5 +6698,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-10-25T05:55:51.351130+00:00",
+    "status": "pending",
+    "topic": "Decades Ahead of the YouTube and AI Chatbot Era, She Was Experimenting Through Art",
+    "title": "Decades Ahead of the YouTube and AI Chatbot Era, She Was Experimenting Through Art",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "7b922581839b3b0c998a3ea82a1efe595038b1be45c822fe7ce00bc1d0366ebf",
+      "9f7440950bea1a40605265150bb6ed0ac5ced0a71db7e8ea6150dfd760cf69de",
+      "52f8414c8bd0949a7ace59de08e5d83d0cf7774210b5e90e8ba2dcd246775638",
+      "e3617af48e9cd2c44326ef6ea2bf96b4b10db18bede19f7c7b89bb02cbd50c8f",
+      "c4a3743114df99eaab66c1f1ac6845aeb78b2033b1837ef8632b7b570e326a7f",
+      "6bc6e794960c82f391ff7c228f00bd5f6f07b18325664419c288c2d5ff1953ef",
+      "ae852507d1102712fe6b9662311a8316b2b80f501eec725d1a22ddcc04e23dea",
+      "ee529414524ca6e2c5ae0d3a64bec311a41f0324a474310c067511590f18a01b"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "concrete_observation",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 100
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "Decades Ahead of the YouTube and AI Chatbot Era, She Was Experimenting Through Art",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1MN0lScGx6TjBTNDUzaGhQZGdnT2tpaElqdjlVZjZtb05INlRCOWVfSHpSTTJSZUZwUF93TDdMS3g0Mk82Mjd2aW5fSkRHX0RROWc?oc=5",
+      "published_at": "2026-10-25T05:35:04+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-10-25T05:53:38.593316+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "48d6176d73cff1f5bc3973011d01cc124b3c8b5278a8269212bfefce30a17583",
+    "body": "Your face, painted perfectly Created decades before digital tools She studied brain prediction tricks Colors layered to guide perception Mind fills blanks, sees yourself AI now does it instantly Both rely on predictive coding That uncanny feeling still lingers",
+    "text": "Decades Ahead of the YouTube and AI Chatbot Era, She Was Experimenting Through Art Your face, painted perfectly Created decades before digital tools She studied brain prediction tricks Colors layered to guide perception Mind fills blanks, sees yourself AI now does it instantly Both rely on predictive coding That uncanny feeling still lingers"
   }
 ]
