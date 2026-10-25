@@ -6898,5 +6898,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-10-25T23:41:48.012603+00:00",
+    "status": "pending",
+    "topic": "Kenya Champions Responsible Military Artificial Intelligence (AI) to Shape Global Security",
+    "title": "Kenya Champions Responsible Military Artificial Intelligence (AI) to Shape Global Security",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "5233b35a76b7ee56f4b0db3eb58316d4c1d85902d9c16ca9f6e3086cfbcb7e94",
+      "abcc77e57f085263a2a4df9887ff341a8657430ee5d8455b7411c02e5b2a6dda",
+      "e91c3ad71eefe00e0d9740c234bb7f294b678ccdc3b5e335cd920a5cf5241a49",
+      "6bf4542be01bef33cab3c275429c6e52c174956710adfaa6969294ed50876dba",
+      "e860aaf867296d55e4a3e70058a6346a51e23260ace77112bf00b14326ca338f",
+      "0e34b932dc72700d45333f43597ee839055dbb7aa7fd3ac91f882cac991a74a7",
+      "43e110ff4b23059085b0e60af4d39c52a62dca9a8ed952f543d6f0db0c4e7f24",
+      "8e209f59d2fa1729a393fbe399711231d8e42b7256ddb9bea5ee2d2c3636b257"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "specific_question",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 100
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-2",
+      "topic": "Kenya Champions Responsible Military Artificial Intelligence (AI) to Shape Global Security",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOMDVlMzg3VXdKTmpNX1ZTRzJJVVJhaW1aQm1SM0dzb1htbW56VmNsekE0UmxNX2FaVFdPZmo2Z1dQTVY4ZzdKY2hiYzNyY3YtcXA4Tjd0OERxbFZ0ampPSWhnRTV0cHBhN1VBbXYyVllvMnJPY1FPQ1lnRXo5UVdGWUJMMU9HWlJRS1JKTTEzczRKUnhydDZmZ3ZmNzI4dGgzRDVRYnlQOFlBWV8wVXAzeQ?oc=5",
+      "published_at": "2026-10-25T16:16:22+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-10-25T23:39:00.813749+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "4ca4dd47235fae721774f702af65ed59d8f969b5efca83e1a3fc0583cb863709",
+    "body": "War robot obeying rules? Kenyan AI watchdog built in labs System flags lethal choices instantly Learns from historic combat blunders Humans still give final go Researchers call it human‑in‑the‑loop Cuts civilian casualties dramatically Robot follows law, not chaos",
+    "text": "Kenya Champions Responsible Military Artificial Intelligence (AI) to Shape Global Security War robot obeying rules? Kenyan AI watchdog built in labs System flags lethal choices instantly Learns from historic combat blunders Humans still give final go Researchers call it human‑in‑the‑loop Cuts civilian casualties dramatically Robot follows law, not chaos"
   }
 ]
