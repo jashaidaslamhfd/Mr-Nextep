@@ -7098,5 +7098,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-10-26T21:30:44.097346+00:00",
+    "status": "pending",
+    "topic": "Anthropic, the AI Company Behind Popular Chatbot Claude, Could Soon Be Worth $2 Trillion",
+    "title": "Anthropic, the AI Company Behind Popular Chatbot Claude, Could Soon Be Worth $2 Trillion",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "46777ad5f1bf6dd89c4b5ab7df9e78841bef8c52c06f0bdbde607d6e32258f2c",
+      "7298ce9425b2398ee51fab58f5c0fb38099b436ce91af502120a618d4830026e",
+      "fda65679b82f49404503d917aee4f550fee211d7dcf70f5f618c04b33c17858b",
+      "7b795da66c66ac30dd7fbfe1dd59b7639ecdc371697495abd2b9f9ec548fe00a",
+      "2b00f93d74be493ca2ce70962197693b216e505a0a0aa2e83a7ad936c2e8b55f",
+      "a3436488e5c20cd4d4107622c12c837b0746136c6d9363ad880f21baa7437be4",
+      "252a9b46cd04af637477c252fb6317d55d4c3d7f76c5ad187b88e530fef3f183",
+      "d37f3fb150b1ad28168fa9d5e1ae779cce63d9547b306bcc46a11f18072ccc6d"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "counterintuitive",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 100
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "Anthropic, the AI Company Behind Popular Chatbot Claude, Could Soon Be Worth $2 Trillion",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNdjlFenVjY185TXhpcldvZGZGbGNxTDBnZ0xJSEZNSS1SVHVKVmlIMXU3YXhhSnZ3eUttRGtKbHo1TzlxWHpvQlJLYi05blhLcW82b3Brbkt4Sjh3REFyaDBTSHY5eUpkcmphMlVpV1NldzRUWDJnU0hqNnFtTGZzNWthSk1oY1ZyYkRocWpvR0YxQlZxVHBxSTc4S3VRb3lQ?oc=5",
+      "published_at": "2026-10-26T16:48:41+00:00",
+      "trend_score": 17,
+      "fetched_at": "2026-10-26T21:27:37.365867+00:00",
+      "growth_score": 45.15,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 17/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "8279b69b8ef330cb0cc63cc56e9b2fb250d9fb4009324421a00026d1c81b169e",
+    "body": "Chatbot looks cheap, right? Anthropic raised billions recently Investors price it at two trillion More value than major tech giants Why would a bot command that? It predicts human intent with precision Predictions translate into huge licensing revenue Cheap bot fuels trillion‑dollar dreams",
+    "text": "Anthropic, the AI Company Behind Popular Chatbot Claude, Could Soon Be Worth $2 Trillion Chatbot looks cheap, right? Anthropic raised billions recently Investors price it at two trillion More value than major tech giants Why would a bot command that? It predicts human intent with precision Predictions translate into huge licensing revenue Cheap bot fuels trillion‑dollar dreams"
   }
 ]

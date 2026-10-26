@@ -1,276 +1,276 @@
 {
   "source": "Google Trends US + US AI/science/psychology RSS",
-  "mined_at": "2026-10-26T05:58:24.823270+00:00",
+  "mined_at": "2026-10-26T21:27:37.365867+00:00",
   "topics": [
     {
       "series_number": "TREND-1",
-      "topic": "$89K AI robot unleashed in NYC park to learn human behavior",
+      "topic": "Anthropic, the AI Company Behind Popular Chatbot Claude, Could Soon Be Worth $2 Trillion",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNQXlVdlEzQWEwTHJuVVZVaXl3YmJaa2stdHBUMmM3RUo2VWNUOXRRN2ZlR1ZlZ0p2RnlfV1VlbDhrYmJ3ZWNxQTV1M3k5QXNjUzdCTFZldTRTZmhRWWQ1b04zVzhVcDNvblhtRmoyTi1USU53a1BSYjJ1MnExdmdMbFZ6ZVR3d2NmYjhDMXNIaTA4RDl4S083QTJuVzJLZw?oc=5",
-      "published_at": "2026-10-26T01:14:00+00:00",
-      "trend_score": 13,
-      "fetched_at": "2026-10-26T05:58:24.823270+00:00"
+      "source_url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNdjlFenVjY185TXhpcldvZGZGbGNxTDBnZ0xJSEZNSS1SVHVKVmlIMXU3YXhhSnZ3eUttRGtKbHo1TzlxWHpvQlJLYi05blhLcW82b3Brbkt4Sjh3REFyaDBTSHY5eUpkcmphMlVpV1NldzRUWDJnU0hqNnFtTGZzNWthSk1oY1ZyYkRocWpvR0YxQlZxVHBxSTc4S3VRb3lQ?oc=5",
+      "published_at": "2026-10-26T16:48:41+00:00",
+      "trend_score": 17,
+      "fetched_at": "2026-10-26T21:27:37.365867+00:00"
     },
     {
       "series_number": "TREND-2",
-      "topic": "Anthropic, an artificial intelligence (AI) company, is facing a copyright lawsuit over allegations t..",
+      "topic": "Anthropic\u2019s Claude AI model accessed Georgia voter data in US",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFB5NWhxdVA3R1R2ZkJtYkNtVjBUZl9ZZGljbktvYkpLWVUyODBIODdYRHhTaFp1SDlZbnF6cjVxREpQRlVzV0hlTFJQd2cyRWs?oc=5",
-      "published_at": "2026-10-26T00:40:50+00:00",
+      "source_url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPWUJzcmZKYjhVN2dtZm5OZmNpUzVrdEUzMlRPV0wwYkRxZkp0ZkZDVEozLWtYOHZDeVdoZ2d2djFIaENOdmRaRlVGeGo5SDRZSzhXYzZuekh0d2dES0REZGc5ZXB6MnJfWXJGakxuWnRRRFc5SmlIbzFxQTFLTmttRXB4MEhablk3Wlp6OFg1bnRvTVNsNHV4NDJpUW5ZcTAxZVpObm4yQzJlb0tGR0U2MA?oc=5",
+      "published_at": "2026-10-26T16:42:00+00:00",
       "trend_score": 13,
-      "fetched_at": "2026-10-26T05:58:24.823270+00:00"
+      "fetched_at": "2026-10-26T21:27:37.365867+00:00"
     },
     {
       "series_number": "TREND-3",
-      "topic": "Private AI Chatbot",
+      "topic": "Sam Altman on RSI, AI Consciousness, OpenAI\u2019s New Hardware (Transcript)",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNN3B4RExBRnptNWJHMVJyMnNzY3RFaWtLaHV2a2czT2dnS042dVBQLWFlWXNOR0gyc3pBNk9aUm9BbmZoZV96N0tsUHhnYlIzWmQ3bVYxYmlBQ0xrQy05ZU9JX3BUdEROTGVxMmw3UEFOYkR6SlJHVWlfeEQtOEdiNkIydHJuLXlyQjB5ZHR1X05xbHJr?oc=5",
-      "published_at": "2026-10-26T05:47:06+00:00",
-      "trend_score": 9,
-      "fetched_at": "2026-10-26T05:58:24.823270+00:00"
+      "source_url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOSHVyZ0xhdHdGRzVtYmxSdWYyc3plbTgwcG11SERrS3JBTHFXR09ydGZPUXZpQ1ZMN0tndjN4YWJZVEpfSUU0aG1qeDFmUDQ4VWJLcllxRkltUGNkaGR0cDN1WEItQVpfdFRlV2Fyd0ZWRXQzbGJ2ZlFRaVhrZ0tnVXVDc2drU0FzRjBSbVg3bXZqZVp5?oc=5",
+      "published_at": "2026-10-26T07:06:43+00:00",
+      "trend_score": 13,
+      "fetched_at": "2026-10-26T21:27:37.365867+00:00"
     },
     {
       "series_number": "TREND-4",
-      "topic": "Anthropic\u2019s IPO Stares Down a Wobbly AI Trade",
+      "topic": "Montgomery County launches AI chatbot to answer voter questions in more than 70 languages",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPNk40eHhhZjI0X0U1LXRTRjhNUU55UkE4Z185X3VnS0M5N1plSUxZOWhOWURfQS1YUVJZdVRVekY4SldtS1dNaHVEYWpfN0l4MFJRb1c5ZUN3Z2lubTRqT3JQRkx0RWNSNkVfLW8zYzBJYS16T0NoUzJkU3d4WnB1Y0NwRy1kcHJoanJlMU1PLUJzQVNkLVB5cVBnOE9WTi1sRWNvVWRRZnJMbmt3djBaUA?oc=5",
-      "published_at": "2026-10-26T04:01:00+00:00",
+      "source_url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNRS12b3JJN2FRV0RxVlBiXy14bkFDcW1WZktMUUE2RDVBZTA1OUgyOTJtVDI4SDc4U0RwQVJNeUxvT0FfbGhFX1FYVEFUbjV1OGhWeWhMWjVISXhnMC02aDBjRkl2TmNKVTVUUVJrWU5kZXJrNHl1RlVVM0pIcVhSVG1EOGxadW1iclJ2VHBlaUJmM1U2eEVCc2xvZ3Z0THlDbFd3S3FRY2R4cWFVai1Z0gG0AUFVX3lxTFAwWkpSNzBiaG5ZRG9heW9td1JnNEY4NmhIM0xXU0ZkcnR5aHFqdzhNc3pDUEZoOE42WlQ0Z3F3c3phZHZwSGFCNF9XRmxxcnh4NjVKNFFLal9Wb3JqbDhZeTNUN0ltRldUdzRkc2k4RmQwaTRUZ0pWSnRoM21OVGFlZHBFaGk1eXVOUktCVjMtZE9pU3JtZWlhczlKbVRQZzdlVFZSTUpuWHVQcmJwZi1vcHppdg?oc=5",
+      "published_at": "2026-10-26T21:12:44+00:00",
       "trend_score": 9,
-      "fetched_at": "2026-10-26T05:58:24.823270+00:00"
+      "fetched_at": "2026-10-26T21:27:37.365867+00:00"
     },
     {
       "series_number": "TREND-5",
-      "topic": "Cassava Artificial Intelligence AI deploys NVIDIA Nemotron to accelerate agentic AI adoption across its markets",
+      "topic": "Memory Titans Test AI Demand While Bubble Fears Transfix Markets",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxNb3VNbk8zelVQVGZxS05SZm82N1hTY0FTa0JXR3BQR0RUclp3WFJjc1hTMzhCeFBrb092eHpIN2tydmEwUlRMVkJzOHBUSTA0Y1pwdVVnZDM4VU91Y2k1ZnNzN3F0cWhWMXFrM00yTTktelc2QjJHY3FVcmVmeTlKY1RFZ1BiM0tHdi03S0FsTmZlQXdDc2xYYll5SUVUOHZTRTRKQTNJNjhBTUlKZVpfOGNSTDdGcnZSQUwxdk12SWE1Skc4VjlQdC1tcm1ORS1sTkdMdDdBZHVQYzBWalhZWHk5RVl5aDhxeVE?oc=5",
-      "published_at": "2026-10-26T03:19:02+00:00",
+      "source_url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQR1NNS1ZjY0QxRUJaLXBTSkNHenBNQU8ySk1rT0FhbmItdVEyZFJhamF3OFdFb2kzZ0EtUW1ZV0g2SDM1cVI2TXdTMjJSNFJRZjM0NXZKbEs5OUFNZjgtSGN0RUpRemdKM2FVbzJxTm1rQkVGdldVdDdORFl0UWRDRzhNeURmWWlBUmpveXNOZk95TjBGa1dSYVB6VHJYUkdxVXptYjRtWVVfX1hTa01vTHhwa2c3QQ?oc=5",
+      "published_at": "2026-10-26T21:00:00+00:00",
       "trend_score": 9,
-      "fetched_at": "2026-10-26T05:58:24.823270+00:00"
+      "fetched_at": "2026-10-26T21:27:37.365867+00:00"
     },
     {
       "series_number": "TREND-6",
-      "topic": "Noeul, a manufacturer of artificial intelligence (AI)",
+      "topic": "The Artificial Intelligence (AI)",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE8xckEwLXpVcXk1RHRSUWVpU0ZVZDBKZDF1eDdtQURSVW8yaG9CZHBaM0xHa2JWOTIxSm9jbkhVYlBhdFRnUE1Rb1JLTjNrUGc?oc=5",
-      "published_at": "2026-10-26T02:06:23+00:00",
+      "source_url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNdXRpQ0N1T3VKMmtPbG53ME9YdElDVG1xOUhRZ2k4Y3FTbU40RmF5RDh6dXJwQTBuSllOeE8xeUFfYWlFaVVhN09PUmFmb2E4bzhER0pzTTE0REQ2RVNYTXNNaGxpZjFEaUpROGxIZVdwRk5hQ3M2QXh0VzBTLWFUejY4T0pFS0ZIVUFlU2FfNXRZNG1Ic0ZHVno3d0ludTFWVGY2SlRlaFZJTFhIU2FLNUN3Z2VzY00?oc=5",
+      "published_at": "2026-10-26T17:54:02+00:00",
       "trend_score": 9,
-      "fetched_at": "2026-10-26T05:58:24.823270+00:00"
+      "fetched_at": "2026-10-26T21:27:37.365867+00:00"
     },
     {
       "series_number": "TREND-7",
-      "topic": "Medical artificial intelligence (AI) company Lunit hit the upper limit in early trading on the news",
+      "topic": "Michigan seeks consumer protections as AI chatbot company files for bankruptcy",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1tY0xaLW82U0JfWV8zT01CQVV2NktMbmdhcFFxbndUZ1NDQ3FlQm56eDlGdjU4WEsySmtQX1lUSGpCRnZKcW1qN1drQTN3ZEE?oc=5",
-      "published_at": "2026-10-26T02:06:12+00:00",
+      "source_url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxONDVIWU96anFFd29NU3Y1U0RHay1ZTnloYWFFMzljZFRYc1RoM3VVQWtKc3ZEYTdldC14UUVreUhreWJtYnRHZTJpbnNuc3c0MXhQYWZkVi1jbjFKSU1oX1l3T2ptNVR0dUc0LUFHU3Vwd0VidG5WTW5HYklSTkhMRC1ucmo1cmRvV0xzMUVvZXloMkF0M2F5VUl5M2M1WXZ0ZWZhSGEydE41Q0Y5d2prc1Y3N2twRHBQS0ZsN05CZm4ydw?oc=5",
+      "published_at": "2026-10-26T16:18:02+00:00",
       "trend_score": 9,
-      "fetched_at": "2026-10-26T05:58:24.823270+00:00"
+      "fetched_at": "2026-10-26T21:27:37.365867+00:00"
     },
     {
       "series_number": "TREND-8",
-      "topic": "Samsung, SK hynix Poised for Record Q3 Profits, Riding AI Memory Boom",
+      "topic": "AI giant Anthropic files for an IPO that could break records",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE5jaDVJTHVYUEw4aWtrYUVuTVREUmloNTZZclpTdldjUmZRVW1KTzRTdXpzVG1nX0hOYjNPNUdpcXk0RGExY3lGTzhwUmRMY1FpTGo0eU5LMnV4OEpBMk5YRGlCVXo0VmFrRDYycHAtRVc0Vjhq?oc=5",
-      "published_at": "2026-10-26T00:33:15+00:00",
+      "source_url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOZWRLbnU1SW5mV0hFN0luc05jT3VYaU4yTEc2MVdvTGpZUnVkcXJsTElPZUNWNEM0TDZBalFMYWhEeHVNY2hUYjB2cUhBYUEtV3BCT1JLQjF0ZnBmNkJkY3FGamZBdlJmS2hVV21neFJHblpROHZYTVN2OFU3LTZ5Zy14ZGdQMjcz?oc=5",
+      "published_at": "2026-10-26T14:16:23+00:00",
       "trend_score": 9,
-      "fetched_at": "2026-10-26T05:58:24.823270+00:00"
+      "fetched_at": "2026-10-26T21:27:37.365867+00:00"
     },
     {
       "series_number": "TREND-9",
-      "topic": "OpenAI Training AI in Systems Shut Off From Web Access",
+      "topic": "Anthropic files for potentially the biggest IPO ever as CEO warns of risk to humanity from AI",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNZUpDV0tUemtrRklOVENMNjBQVjQ5YXFrXzY5Z2pZYWVrYkFKbVJGMFJHWVE4TjBDUXp5Z2F0T2JRWTRPYlozbHdMaTM1NUZKUGdPcU1jYWhxalgxem9sT2xTbWpydVFYYWZBdEJnZkw2OEwwXzluMWVzVVlvM19nUVRSbmZpeXQ2aDFPOFVFS0c5NDUyQWo4ZGhtRXVlMHBBZjNmaVVEcUZnaFQtaHlrU1hR?oc=5",
-      "published_at": "2026-10-25T23:34:45+00:00",
+      "source_url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPNlh5REtLQ3ZiYnhaV0ZnZXRhMVkwV282YXN2ODFlQjA4NWx4UHdUWlNwV1lXZnFHcDZ2S2NkMGF3VnVkczNGb1NVQnJNSk5XdEIyTHZRTUlGYlFVSXpadjNTT0VsVjhMUUxqRExWOEdENGM3bl9HUmJ5eEwzT0Jhc2xRNzdfX1RpV3VVcjNxYjM?oc=5",
+      "published_at": "2026-10-26T13:16:45+00:00",
       "trend_score": 9,
-      "fetched_at": "2026-10-26T05:58:24.823270+00:00"
+      "fetched_at": "2026-10-26T21:27:37.365867+00:00"
     },
     {
       "series_number": "TREND-10",
-      "topic": "Satya Nadella Says Microsoft Is Rebuilding Around AI Agents as Trump Pushes \u2018Super Intelligence\u2019",
+      "topic": "Anthropic files for IPO, touting AI's ability to \"improve how humans live\"",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOSktxVGNHWWl6RDMxRDBsSnlqMXljdXd0UFV0LWpLNVA1SGtGbG1fbGpycVN2c0pqN013WmxqM3JvWE9aU0tYckJmUEVOaDNiNmNsUlpsSkRhZno2NkJHZjNhM2JHdUh1UmxVRjBIMkFqV0lqS2R2endBaUxVRWZnQzAwb3RnZnAwLW53Qm04aTVsZGJXXzJsSlNIdmtCVjh2dWtjYm9n?oc=5",
-      "published_at": "2026-10-25T23:30:05+00:00",
+      "source_url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBZSlY5T3JkOG5YNHVNTDNhWGV2Q3dnVjdLX29OUWRGSllaT3p3NmFKUlFZdzM4NTJ3SzJKcWJMa1UxS1dHLXRrLVpGN1JhTXBfZ0xEdk5FODZQZzVpTWdBbHlubWlMX2dZQkM4?oc=5",
+      "published_at": "2026-10-26T13:16:00+00:00",
       "trend_score": 9,
-      "fetched_at": "2026-10-26T05:58:24.823270+00:00"
+      "fetched_at": "2026-10-26T21:27:37.365867+00:00"
     },
     {
       "series_number": "TREND-11",
-      "topic": "Treat a Deadly Brain Tumor Before It Recurs? This AI Tool May Help",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQS2o5SHFvMVp1bHJYNnNtWURFNHNMVEFHeDhtTmxocG5xeWxxUEtCdVp1d2FvRGZ3QkthNGxWQmk0bnVqYjFZc25WS3NBdVdBRXpaX2VqNXdXVFZWTU52SjZTQW1TdV9tLTM0X3ViOUZJNDZ0QVN3eG54ZEhXU0JZeGVJTEpvR0hJbVRGTHNR?oc=5",
-      "published_at": "2026-10-25T21:39:07+00:00",
-      "trend_score": 9,
-      "fetched_at": "2026-10-26T05:58:24.823270+00:00"
-    },
-    {
-      "series_number": "TREND-12",
-      "topic": "Free AI Chatbot Ireland",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBEaFgyMUdBblExTTg2cTZJNHdSQXB1d2JWalhPOHFFVGdaNUVKSGFiWmdtLWd6NnN2T1BOUjU0cnRXUUtfNElpQXBjbVRad1ZqSTJZM3hFUXY0enRMY0lUZEpfSU4wbjJnempPS3JyU0hoVk51bzdMMlB4U3Y?oc=5",
-      "published_at": "2026-10-25T21:29:18+00:00",
-      "trend_score": 9,
-      "fetched_at": "2026-10-26T05:58:24.823270+00:00"
-    },
-    {
-      "series_number": "TREND-13",
-      "topic": "Anthropic sued for allegedly using 274 Elvis Presley songs to train AI models",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNelFOZFdTZmw2a1FtcjAxZk5lYktWT09FRTRaT0g0MmFrRFpHX0dIbk1IeVJNYmxVVlhBZHRYWk1YZzFHRjh0N29jSEdWd2s3OEJrcFM4SW9Tb29tLTQ5VjJaQ3BFQThpRXNJUzVPbXcwOElvcVJUNl9aZE1SaWVZTTR1VTYtcHNGZVdjU2t4MVItd2ZKYlhZZGd3cw?oc=5",
-      "published_at": "2026-10-25T18:41:00+00:00",
-      "trend_score": 9,
-      "fetched_at": "2026-10-26T05:58:24.823270+00:00"
-    },
-    {
-      "series_number": "TREND-14",
-      "topic": "Nature Article Denies AI Consciousness",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE1nSG5vVlltRlppaEdmN2pHYlNacTFXTkhOSHVzUWVJYk9KczIzVDFveWtDalVSckpteVhOSjlPOE9aUjhjTjFTZEhiVlRpazZBaUhvMGRzSGoyaU5odW9LUWVTcUxVQ3RYeEZDemkwUzhkNEdsMXV5TTN3?oc=5",
-      "published_at": "2026-10-25T12:25:58+00:00",
-      "trend_score": 9,
-      "fetched_at": "2026-10-26T05:58:24.823270+00:00"
-    },
-    {
-      "series_number": "TREND-15",
       "topic": "MRI of brain metastases in the era of immunotherapy, targeted agents, and artificial intelligence",
       "source": "nih_news",
       "source_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9OTXpQUmVVZmlLbHdpbl9BUUhnS0h5VGZNVklYTTRUSjdjSzhDNXR2RkFjZ0NiczRUU2hwN0o2NGk3TjA4VTBNWERNbmV1VzhFRHNv?oc=5",
       "published_at": "2026-10-24T07:00:00+00:00",
       "trend_score": 9,
-      "fetched_at": "2026-10-26T05:58:24.823270+00:00"
+      "fetched_at": "2026-10-26T21:27:37.365867+00:00"
+    },
+    {
+      "series_number": "TREND-12",
+      "topic": "Anthropic reveals $80 billion loss, surging revenue as it prepares to go public",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNNmtiU2pPX05WX0lNRndwX1E5VkZ5ejV6azhBVUpfWWJMM1RMeHcycHo5OGcyemtKZUVWOFdwQ3FYUW1zR2N0eEFqUEJPZ09JSkU0NzNZQzExX1FuMjRXaUtyODNSeDlRdWpsLVItdE01YXhwc0JreW5veWdHSUJXRjI5c0hTa0pmQ0ZKYzlVZGhKbmNmdlN6QTJjX3dRZU93LWZpVFc1UWppSEl5UlVrWnQ4SWsybkE?oc=5",
+      "published_at": "2026-10-26T21:00:41+00:00",
+      "trend_score": 5,
+      "fetched_at": "2026-10-26T21:27:37.365867+00:00"
+    },
+    {
+      "series_number": "TREND-13",
+      "topic": "Using artificial intelligence may seem free, but it isn\u2019t",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxNZkFwSjhVTmRZWDBNQkcwbldEUUJMelZmYUxUM0JZNmQ5eFNjcHk4R0JXTlRmcWVqc1h2OVVZM0JCMGlTWVhjRHkwWmtodzVtWGhvRUFzWE9pc2xFSm9CYmQwamNCWU50U3BhRVhJN1djNXVDNGpJUnpGQ2tjbmtFOGlSSkVnWVVyT0tVRUI2UUh1YURYNnN1VWg2Y2xocTFDZlFMcWxZc1JsbkxyXzNzUnVLZzAyeGktUnRRUjBXZVQ5YV92SHFyd25WeWFBcDVZY3l0UHZMWlEwQk5RZEtaTGxLamVQZ2RKTVN5SQ?oc=5",
+      "published_at": "2026-10-26T20:39:25+00:00",
+      "trend_score": 5,
+      "fetched_at": "2026-10-26T21:27:37.365867+00:00"
+    },
+    {
+      "series_number": "TREND-14",
+      "topic": "Artificial Intelligence at MassMutual",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE92OUNXeHgxbjJER1FWMUlqVXdLOV9xdUhuNkdYbDVlcjNlYXUtRDA3Ykp4V0xiaW85SEhhZXNtVEtuS0djXzJySHVaZk9HQmVWMlYyVDVzbmRjMks3TkUzTjFWLVIwWXRMZ080aXBIRDdTMTNFcFVPbF9n?oc=5",
+      "published_at": "2026-10-26T20:37:11+00:00",
+      "trend_score": 5,
+      "fetched_at": "2026-10-26T21:27:37.365867+00:00"
+    },
+    {
+      "series_number": "TREND-15",
+      "topic": "UnitedHealthcare expands AI companion Avery to 21M members",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNZXIxQzdhOGNnTXVnWFVnVkt6TzFscUtSTWRkVjZWTXRiUEQ1TWNUOEptSlBKblpmZmJBX1NCRHFCMW55TXJkal9OWkNYMlA4R2E1LTVsMDVjR0JfOGthS3doeVp1VkJLeDh3b1hGd2g0Skc0UkdBODRHLXM5Z1h1N2VGZ2JPM1MzaTVVeUVreTc0Z3N2RzV0N1Y2VQ?oc=5",
+      "published_at": "2026-10-26T20:32:43+00:00",
+      "trend_score": 5,
+      "fetched_at": "2026-10-26T21:27:37.365867+00:00"
     },
     {
       "series_number": "TREND-16",
-      "topic": "OpenAI says it will no longer train its AI models on the live internet, citing \u201csignificant risks\u201d",
+      "topic": "Virtual session to discuss how hospitals put AI governance into practice",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOZFJYWGNtWXRnNTVYSlV2QWpHaEstdS1tVEljMThVeEF2SnU5MnBkeXBrSUVVSHFuQXN6SjhWMWIySnAzYTNrbGlRZS1mazktVXF6bU80dU5WZi1hcG9MdWpUSVh0SlkyS2dYWXAybHBsMnpxT3ZXTFJoSm5fRHpQSzVsSnRaclpvU0o4N3pqcGJpaDRvUzdRT3YyaXg3TlNmM2tYY3RPcGhYYTNIUXQ1ZWZ4VHlVZ183N3hrSThibFVPZWFiTXlFYWZR?oc=5",
-      "published_at": "2026-10-23T23:05:49+00:00",
-      "trend_score": 9,
-      "fetched_at": "2026-10-26T05:58:24.823270+00:00"
+      "source_url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNTlNYSHZCTUVKc3JMbU1uV0Y4dDljcDZtUGRCTFlpTF9zTFNrYzRIbmhZdlhtdFduUWJBRGpKRWtqaEhoR2haTGltNnhERHk1OHdJTzhjX2F2NERXOTdYSFFTTnVmdk4yV2JGQUhFeWRZNWFRTmlhMFN0ZlZNN1VUMGJ2SEotM2RMbVlxaUcwajVkRUNqNHpSOXJrcm5wNEZyOXNheFlQajU4NXAwS0E?oc=5",
+      "published_at": "2026-10-26T20:25:56+00:00",
+      "trend_score": 5,
+      "fetched_at": "2026-10-26T21:27:37.365867+00:00"
     },
     {
       "series_number": "TREND-17",
-      "topic": "An AI chatbot files for bankruptcy. Is it a bad omen for the industry?",
+      "topic": "Pennsylvania House passes bill requiring AI disclosure in healthcare",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQUTVTNldsSEdVamsxdmExY1NMQVpiaGd5YzJTb3h5MlE3MzRlLU5VTnRqRHBRMU9lZndHZ3JiT2Npd25ySkNJYXVnYVUzR2hLR01CaTlKS3pVMnpDdlBYS3I5bVk1MDJqSTFRa0ZzZGFVWnk3YjJrZVo5d0F2c3VqaXdGRlNPNjZ5N3NRYTZ6MlN1VHRNRXRhc0JVRXN0UjBRUUtsd21ocW15VEJCZEpCYVdfUQ?oc=5",
-      "published_at": "2026-10-21T08:40:59+00:00",
-      "trend_score": 9,
-      "fetched_at": "2026-10-26T05:58:24.823270+00:00"
+      "source_url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPNldOMU1fVnBUR2h1NENOUUtDUHFtQnVHaVRub0cwX3pxZnpUd0N5ZGI1ZkZROGJtUi1vNGNEUUdoRUt3WlJWZkNodHdqckw5c0ZiTmRyME1jYzdxZnFpNEFsdk1zSEluUkxjaWFsYlRaUlZRTE5JUmVNTjkyU0FCSk9sSTBhRzkzelhmUFZxQ0p0OWQ2OGZIc0N1MVdGdFJZM1dINFBvd1lMSWpCbnQtZzJ0OFRmRUlzT3hmWU5HRGpTU3RW?oc=5",
+      "published_at": "2026-10-26T20:18:53+00:00",
+      "trend_score": 5,
+      "fetched_at": "2026-10-26T21:27:37.365867+00:00"
     },
     {
       "series_number": "TREND-18",
-      "topic": "INTERPOL launches public awareness campaign highlighting risk of AI deepfake scams",
+      "topic": "Microsoft offers a quarter of its global workforce voluntary buyouts as AI spending accelerates",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxNc1Q4U2d1aWdJQ3A0azQtXzRoNkI2cTRvNS1CQ3JkbHBxWFBuTHlOa0VnNDZ0cEw2NzloUHBTdjlCZmFpYjJJT1Fad1FCalpfNkJaUlV4dTlIQm1Kb0VGaDZpSXlWVVRYdmlxN1V5d2FudkZPTkNjMlJiRzdNcVB4UkFQUmkzekpKWFVwVWpLQXctUkFqdmQ2dVc0QlVjZVZJUmNJWDFwcWhDMnpMN1VXOEEwSmJycWNUSjhhOElwVmdOc21QR2xrU2NvOC1VQUxjNGxIa2RaNnJ1NzhGZDVrQzVKQWw2dw?oc=5",
-      "published_at": "2026-10-19T08:04:32+00:00",
-      "trend_score": 9,
-      "fetched_at": "2026-10-26T05:58:24.823270+00:00"
+      "source_url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQZGtURXVTRHNZZ0lUbzJ2MDdFNWFnOFlFaVhScTh3ZGtMbENJY2ZqWkd0WmttcENiYk50LWJYRnc0ZkNuTE50NlJmTXNOVnFNZmRrZV94bFZjVnpxUjZ6bEd3bWFQM3YxcjBXcmltcVYwVE4wazZmYUgwZ293T0ZVUW8xWnFucDh6VFA0N2l6R1FyU1RJSDdVbUIzelFlTmpFdjNDWC01MWtzVmgzOUY5aGpvMmQ3X0FTUmRPVA?oc=5",
+      "published_at": "2026-10-26T19:41:15+00:00",
+      "trend_score": 5,
+      "fetched_at": "2026-10-26T21:27:37.365867+00:00"
     },
     {
       "series_number": "TREND-19",
-      "topic": "charlize theron optical illusion outfit",
-      "source": "google_trends_us",
-      "source_url": "https://trends.google.com/trending/rss?geo=US",
-      "published_at": "2026-10-26T05:20:00+00:00",
-      "trend_score": 6,
-      "fetched_at": "2026-10-26T05:58:24.823270+00:00"
+      "topic": "Entrepreneur wins $50,000 at University of Arkansas at Little Rock artificial intelligence pitch competition",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQSFkzZHNWZ3dUYVMzcWt5V3oteG1tV01zdGxZRnBTZzc2dFQ2Qmlvb0FVSllzdUY0VWdsR2JlMl95UDBick05SWlveHdrWkZqU0hQbGR4bURSRWZTaXo3WTY0OGtvS1VYdnJUZU9pYldjN1p6QmJKdF8tVlpMNmdlcGJraDlIZmV5dzdjbzBicGx0WVdZZGxIag?oc=5",
+      "published_at": "2026-10-26T18:40:00+00:00",
+      "trend_score": 5,
+      "fetched_at": "2026-10-26T21:27:37.365867+00:00"
     },
     {
       "series_number": "TREND-20",
-      "topic": "HKEX Launches Artificial Intelligence and Semiconductor Indices",
+      "topic": "UNESCO supports the ethical use of artificial intelligence in Mongolian journalism",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQT1VRNTZ6NE5zZVc2aTBCY18yYW5JRGE5RnJQQjJ6Tm5xNWxnS2xjSFoyZi1rTGdiQVU0NUhUeDRVNWNMb2kzbjZtaFNkMi1CeUdOalpESFFkdllSbndEY2tzN3ZHNmsyT2FnMjhhWW1aTlNvUUU4YmVULVQ5ZjBheUgtVThLSTlIMFFwektfY1pkaGlZNW13S3VNR05VLTVXN3IzY0w5cnVPckRXdEdZLWRJTFQ0SDNRSHhmOUxzdnN3dw?oc=5",
-      "published_at": "2026-10-26T05:49:00+00:00",
+      "source_url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNQUNScjNaYjZjSWpINi1tc3ZXeVo2WDU0MFB2VnBzNG5hcWFnUTFHUFpIQTQ3ZnZVaExOOXZBVmw1MGtybG81bF8tQ3lENXY3eV9aZU5qQnFiOElPc1RhRklzdVlkTXkxVW1mVjc5NlV2MGgtWTUyTTRaM2hfbkRSeGZJQUhSbUozU2g1bllwTDNFZm5teEZzNkUzaFB2cV9PM0x4b2NINm9PVVU?oc=5",
+      "published_at": "2026-10-26T18:10:56+00:00",
       "trend_score": 5,
-      "fetched_at": "2026-10-26T05:58:24.823270+00:00"
+      "fetched_at": "2026-10-26T21:27:37.365867+00:00"
     },
     {
       "series_number": "TREND-21",
-      "topic": "From Carnegie to Claude",
+      "topic": "Detailed Report on the Artificial Intelligence",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxPQVZsT0ZOaV9uc1lDSEhfdkJSUmhLMFV1T0w2U2RCd0t4WjdDa055ZENBMHg5dkxoTTNlVnpkdUc0WEltLU9wRTBta3I0RHhkeEd0TUM3dDR6LWhKckpRb2xDR1NVMjNjS1RtejJ0ZFJKOVNaZVUzVFU5MVpZVkprWm1VekhLclY5ZGg4UzR1ZVVmVnotZ3ZlUXRiaUoxY0N0QS1XcUxqZkdlcks1T0ZiLURuQzh0Y1VNTnlBeXZHOFBobW5FM29fbXZ3SEN3Vk5qUWxLWHJ4cjkxVUHSAeABQVVfeXFMT1J4ZmNXTFoyR0dOcFloOXAycXMxVUtaZ1ZnQUMtc0EwVDF2OTBma3pndTh5Z1B4RkhVOEY5RlEtZjdMa21VRjljZWlJVU5BLUgtcklya0xuV3JOcGZhZ3RrTDZqR00zLWRTaHMzY3FFVFNrdlpoNnpZYURGUUxUQmF4Q3JOWkY5dGU2Y2dpdW1ROVNIc3pobmVrU0xQV3ZLRVUtUU55Nk5oZWdrNWxGa1g0RHNMMVo1dnU2SWNvVnl6eC1odk1XWnZ1aXByc196XzNQNFhhelY5ZFVLZGVRY1o?oc=5",
-      "published_at": "2026-10-26T05:32:09+00:00",
+      "source_url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQR3RIWnNqdEV2dzV5eTh2d3ptaC1GOWNtVWhUUnduU0g1NDBfbk13bFowWlE3NWV2cXFoYUdEM2prYXFZR1ZvRkktSEtHYnZDdmFYV3VoenRsVndBOG1OS090TmtCTlpyb2pLYnl0VDQyZ2Z3enh2cXduVHBtNmp0RmNzd2d3QTVZbUtkWVlZd3kzb2xIXzJZSDlmcmFaSVBIT002MldLenpLQWc?oc=5",
+      "published_at": "2026-10-26T17:54:03+00:00",
       "trend_score": 5,
-      "fetched_at": "2026-10-26T05:58:24.823270+00:00"
+      "fetched_at": "2026-10-26T21:27:37.365867+00:00"
     },
     {
       "series_number": "TREND-22",
-      "topic": "Sherlocq Recognised as a Technology Leader in Regulatory Intelligence in \u2018AI in Risk & Compliance 2026 Report\u2019",
+      "topic": "IBM Integration Intelligence Hub gives AI the context to act, not just access",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxPYTNBcGstX29xT2V3dWw0ajFSMlM2eW5IMERfN0FxTHk1ZnNacXJiMS1reVlxM1BCdjFfSzZvUjBpZnJLUTRmOWNNTWthb2dRbXVMWVp4QmlhVWRDSE9DN0xHZllNVWNTaGtRMzltWXAyRDJFSXdXWFVSaFItRUYwTjF2Q2xMV0trTnZrN1pObFlmTlRsc3JaOGpTTGNSWHpTbDg0NUlyUlppVkdWSGRSS1ltVl9MaGlUaEF3dkxfdlM5MXhybmhLT2VjM2twTHV2cG8xd2NUZlZWZHdJbG5Cc21jQkx5dnIt?oc=5",
-      "published_at": "2026-10-26T05:30:00+00:00",
+      "source_url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNdmZHa0k3TDBmNmVYZEd1bGdKWUdjOEhuLUFwaXkyV2dtYjQ2ZjJ6cG5tbGk4UExJY2RrWTB0cHlLb2VFbWRrOXRjbEJpaURueTRZbmVqTDcwUFRGZGVLQUtSTjVXX2d1RWh6dEpMRS1hODFqT3R5enJQVk1nODlpa1p3R2xqRVpxSDdUTlA1WC1kNk1XNVgtdFdNczBFcEhzN2l0Q05YSC1ZMWpSNi1sQnZGTmw?oc=5",
+      "published_at": "2026-10-26T17:45:36+00:00",
       "trend_score": 5,
-      "fetched_at": "2026-10-26T05:58:24.823270+00:00"
+      "fetched_at": "2026-10-26T21:27:37.365867+00:00"
     },
     {
       "series_number": "TREND-23",
-      "topic": "Advanced Brain Ageing Associated with Migraine and Post",
-      "source": "nih_news",
-      "source_url": "https://news.google.com/rss/articles/CBMitgJBVV95cUxQbFpLZFozRVNqV0Q4b21Nb1lvWkhMWmJmTDdpenRBYUNFY01pZnUwcV9Db2RlOHpYRUdQQUZnOVFCTWZhMG5hN2x6aTlUc0s5NFdGTnlqS2o2cmFlUXQ4djhCRTVXLUUxeGVQN1I3LWpVbzB6bWZwYTFobWhBaFh2SDV2TmctdEdzRWpjUUdhSDk5UTZYTHNOVGJrQmRmWG9fajBDUzlDc0w1LTNGN21mTjVNTFBCb2FfalFzMjl4T0hWbXhzRXdsSjZtalFmTGNyUjZzdkNWZ1JSbG5JSzgzTEJ6UG1kcC1NTmxfVTlsNE1IeVNNMmlFcDhTc1p4eDhMZnEyTU0wdEJaUlFMRUdCbWRTeVdPcnBlREJHcFdrU3phZldxLUUwc1RSeUNHV1oxY1M4ckFn?oc=5",
-      "published_at": "2026-10-26T05:05:19+00:00",
+      "topic": "Microsoft offers buyouts to 60,000 workers as it pours money into AI",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQMXJHaTJ5V1ZSN0VTUnlTaWg2a01sU21ybHExWjdCVDdEcU1QSUF0ZlVDRnd4NjRHOU1fdFl4SlNMc1hhQnN4ZDNiNi1JV2JJZmZ4S0N0SmdRVklSbjFQMnJqMnZjTy1WVTV4SGFZWnVDai1SaGw3RWJxbXR4NDZ6bTFtVUk4YjVvcFJIaHMwend2R1VoQ0JZeQ?oc=5",
+      "published_at": "2026-10-26T17:39:00+00:00",
       "trend_score": 5,
-      "fetched_at": "2026-10-26T05:58:24.823270+00:00"
+      "fetched_at": "2026-10-26T21:27:37.365867+00:00"
     },
     {
       "series_number": "TREND-24",
-      "topic": "Inside the biggest feud in artificial intelligence",
+      "topic": "Artificial intelligence is inflating medical bills",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQeWVlanJfeUI0LTFlTmxtX3VVYURzMUdnLUtOS1VueW5iWTkxSVhNQkRWaGd1Ulhhc1l2M1MtNGVQLUphcHVjZ2cyd1E2aXhYYmE3bVlLb1RoS0gxdHdGWTU1TlJPeF8tejJ6Q1dKMm1Oc3dqWTZ2MHcwT01keXc4NkF4Qko1c2wyOU5jNFVoczdtSjYzdDlqZXpIRDkzQQ?oc=5",
-      "published_at": "2026-10-26T05:00:00+00:00",
+      "source_url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPd2w0NzRoWVJsa016NHZIc1VPVGZJeWNGd3JVakVfQzM4NG9IS3BFMF9nTkhNc2swUEtUQXRLMjB1b3I2RmdJZ3FQcUpNQUlOWjl1dkwtZnFTN1dSNDZ2RHY1ZnpfR0RTcE92M1d4VndNU0xBdzhRTlhOMThndEVLZmFiVWJyTXQ1ZUMxNGRwSnF4UFdBMTBySFlPZll2bmhGTVVDR1hzb1U4eGZUbDdwX1Vxand3ajdKVXlfZnlB?oc=5",
+      "published_at": "2026-10-26T17:28:00+00:00",
       "trend_score": 5,
-      "fetched_at": "2026-10-26T05:58:24.823270+00:00"
+      "fetched_at": "2026-10-26T21:27:37.365867+00:00"
     },
     {
       "series_number": "TREND-25",
-      "topic": "A study warns of the risks of relying on artificial intelligence to help the blind and visually impaired",
+      "topic": "As the US and China form AI blocs, countries are increasingly torn between them",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxOV1k2N0FtUXhDdVM2N3lTdkhpTG5RU0k5b0htSjZrNHczZnVuMl93cUxxZnY0VDZ4NDQ3MUlfbHA1XzdpT2kxVkFRamQwSW0tekozMTE3Nk5kVnFneVdOQkFnRWhLS01Gazl4MFlmZTlMMldzdkVray15QnlCRUlkVVJaTmRERUVZSmVfeXgwdENOLVhvUWU2TW1ncHRRZmk4em9MUWZBajVjVHNFZFJ2eE1VTHM3d19mYVR3Q2YzMDV3YjFGSVc4RFpwWTZKMHI3RjBYUVBSMnNOVmdMRjh6enc0WUh3cEsxM3Z2SWFuLURObWhHX3dWQXUtSmQ?oc=5",
-      "published_at": "2026-10-26T04:59:28+00:00",
+      "source_url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1hNDdwZENpQ29pWHJBczFkZXkxeU42WG1vWU1JX0IyZlIxaVczMkpsd1FnUTFoeDltVF9mcHFfejBvZ3JyUm5VUUY1QW1BQWpsSzBWbDl3cFA4bDFJZGQ1TC1ZS0NCZWZIX1liUlVB?oc=5",
+      "published_at": "2026-10-26T17:21:08+00:00",
       "trend_score": 5,
-      "fetched_at": "2026-10-26T05:58:24.823270+00:00"
+      "fetched_at": "2026-10-26T21:27:37.365867+00:00"
     },
     {
       "series_number": "TREND-26",
-      "topic": "SK Hynix Leveraged Funds to Be Delisted in US as AI Rally Cools",
+      "topic": "Cleveland Clinic and Dyania\u2019s Work on AI in Clinical Trial Matching Earns 2026 Gartner Eye on Innovation Award",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNdjFkb2lzQWp0RVhLeW4xek1mdk00blExYWVfYk9EZVZzS05pNWJydkpPaHBmcEJSYjg1SGZ5Ukl1Wk9YbUlFaHpzUXdCcTdGSHg0X0EwSTRJSEFsbGwxZDdVeEg5NUJScXlGSmpKT3FsM3MxN3IzZHg5eV9HWWtCVzJUNVM3YlZkT3NTYnVoamE4NHZtSXBiN1l4c0ZBWXdYNDJuRWNhUUNuMDBDS1ZCQTQ5VU4?oc=5",
-      "published_at": "2026-10-26T04:33:00+00:00",
+      "source_url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxQOEM1UUR4RVpFbUttY2hFRmhUc1Flall5bHFHYkhJcXNad2dkNVQzbVdIbmdSaWlDZ0VnT0NqcWhadEZhTUR5T0dnU1REMHF5M3RyZ1VrRjBrUk1VbnFPXzJDWmNoa0xNdWRKV2lDOTJnNElsaXhSRDFrdE1VWXBPU2l4MUsyTVZPUWU0ODE1X2d3Q3JmSWZ2WUpndWktUlRMUUxlNmlucmVoZHBxZkE2SjBmTmhFR2w4NjFKSlYyTTVNM0VOdUVueGhBVDRrU1NDUEU2Y1F5d3VTbFJ4V1J5R1ZXMk5NT29vUFNrN0p3?oc=5",
+      "published_at": "2026-10-26T17:11:23+00:00",
       "trend_score": 5,
-      "fetched_at": "2026-10-26T05:58:24.823270+00:00"
+      "fetched_at": "2026-10-26T21:27:37.365867+00:00"
     },
     {
       "series_number": "TREND-27",
-      "topic": "Transparency Needed as Southeast Asia Pushes Ahead on AI",
+      "topic": "Tech providers offer new AI agents for freight companies & more",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPaE9jVnFUWnQxeV9iTk41aUk0UWNGT0U3WlFyQkhGNjc4Z0FvQVVncGFtQjdpbUZkT3VPRzRRMlJoalpta2x6bnkxQjBfMndpMGdXZXBwRzhuaDRKVjJUNVFPbl96N0Z5bjJKVmJsZW13c01TNGV1LS1aOWRVOFpYa3BGSi0yNDdNWFVDYmVvaXBzQ3Zta3R0bklTWWN0dw?oc=5",
-      "published_at": "2026-10-26T04:00:00+00:00",
+      "source_url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxOTmstUmJ6UkNVVEE1NUFPbFlBMUJhZXRULXNjNlhSa2JLc0o2WGN5RmlydEd3RzNfa1RUeHlnZ1huUEkxUmVQVi11NVEtZHRpdHFVWUU2R19VWk5CcTV6Y081bHZPcnRHc2JDMUZGNU1zTkY5dGpGbldLY2dEQmxDZk45TDhTUzhrSFVwVnhPN2FWTTJhRS1VWHYwNER4emdIdUI3Y1NOOVJmbzVfMDI4ekhUaFk3MkN1cTdMejV1NmhnSXNkNFJ6MjJYbmFOOU44S0dHNA?oc=5",
+      "published_at": "2026-10-26T17:11:22+00:00",
       "trend_score": 5,
-      "fetched_at": "2026-10-26T05:58:24.823270+00:00"
+      "fetched_at": "2026-10-26T21:27:37.365867+00:00"
     },
     {
       "series_number": "TREND-28",
-      "topic": "Musk Claims SpaceX Closed $40 Billion Debt Deal for AI Chips",
+      "topic": "Unconventional AI buys Israeli chip startup NeuReality to speed product development",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPbVAyZmZTRzViZmxwNzRUSGd5MXpWNlRFLWlzT3RBMWx2cUhhaFhXUGRHeHRjam9LUldoZUpJNnVyTk9JcGdzVC1FTzNhQWVnWUJlV2hEZ1lFRzR6aE1TWXFiUG1tYWF1c3FjX00tX3FoMXk5bUtrNm1Sd2k3QTd1b0dYUUlhbHBJRDRabHg5VmdyLTV5TXRtZ1ZMWmJIeF9iYWh5T1dqMUZYbkF0ZlVBaWtn?oc=5",
-      "published_at": "2026-10-26T03:54:00+00:00",
+      "source_url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQU1FHdFMxQmVxandsdXFSYTBuVzBGUklybTJrbUpRZ3JaOHRoSmFKNFFxMTJJdTFmc1h2SmU0YzRweGszTm4takFQMmo2WWNpZkQzNlo1dHItQW9tOEFfMFFCcXI1aUFTcG5ENEVxSlRLUmVlUXFEUFp4TGxEQjFSQmFwaFNJSzAwdXdPTUpTQUN2a3pVWW5Kd1NkTFlRN1c4aXJqai1KQjFaWnFYck4wYV9DQjdhYVRVTDNEdU9fSmx6ZWc?oc=5",
+      "published_at": "2026-10-26T16:21:01+00:00",
       "trend_score": 5,
-      "fetched_at": "2026-10-26T05:58:24.823270+00:00"
+      "fetched_at": "2026-10-26T21:27:37.365867+00:00"
     },
     {
       "series_number": "TREND-29",
-      "topic": "MODA working on better social media AI disclosure",
+      "topic": "Inside the biggest feud in artificial intelligence",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBYSDh3UnVNV0NWd3NqMUMwYUZoa1c2M3hWU1FMSmlrWFAydVF5RkNPTXFFZ2VMTjJaNnI2UGZNRjZVMlpVdjNqRC13Y0NDSDFuWEtfenFhV3RCbXVBNXlSZ3FjQXFjTjlSNlhvNWhvWnExWm5QOWN1Y1Jn?oc=5",
-      "published_at": "2026-10-26T03:06:04+00:00",
+      "source_url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQeWVlanJfeUI0LTFlTmxtX3VVYURzMUdnLUtOS1VueW5iWTkxSVhNQkRWaGd1Ulhhc1l2M1MtNGVQLUphcHVjZ2cyd1E2aXhYYmE3bVlLb1RoS0gxdHdGWTU1TlJPeF8tejJ6Q1dKMm1Oc3dqWTZ2MHcwT01keXc4NkF4Qko1c2wyOU5jNFVoczdtSjYzdDlqZXpIRDkzQQ?oc=5",
+      "published_at": "2026-10-26T16:11:42+00:00",
       "trend_score": 5,
-      "fetched_at": "2026-10-26T05:58:24.823270+00:00"
+      "fetched_at": "2026-10-26T21:27:37.365867+00:00"
     },
     {
       "series_number": "TREND-30",
-      "topic": "Microsoft AI Agents",
+      "topic": "Microsoft offers voluntary buyouts to 60,000 employees as AI leads to efficiency push",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPOUQ4NkdmaEF6TW9IcVAwSDNLTDBUWXhmNUFWR2VNUUFtLVlVSnRvWHlXTlFTb2NYOWQtblpFM0NRdE5URUwzdGYwTzAwTG5VT2xmUS1ZWkJkTTFRbW5RYzZ0TEpNUmcxSGNtQVhaSHhLYVBCazlLOXh0NklsVGV5QjhtS1lNWWl5cHhqYWNVTQ?oc=5",
-      "published_at": "2026-10-26T01:47:41+00:00",
+      "source_url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9nNklNQlZSV0JkMk95ODdwQ3Fac1ZNbHJWMUFsMjIwbFB1UndnS29RNFNNcXN6X3FGVEx4dEFYWWtnQkhwMU5SQ1NHa2ZmVDZlMmZfT0F4VHRfelNCOWFvYnBwMV9SWkVMZ1pRTTNwNTh2NzNTWXlwVdIBfkFVX3lxTE5LZTNUMTJWT0hXQ2xBU2otcjZSWUQ5YkVrY1NJSkQxZ01BNHBrMnlSOEpIQ0tuVTZmb0dJZFA4MUluS3BHeUR3cVQxS3Q5VVVXN3hpWnVZMExOUDBiUHZra2tWM3VhWVBJVXBudEVXdDRCcC1iMk9hY2ZaM0FBZw?oc=5",
+      "published_at": "2026-10-26T15:52:10+00:00",
       "trend_score": 5,
-      "fetched_at": "2026-10-26T05:58:24.823270+00:00"
+      "fetched_at": "2026-10-26T21:27:37.365867+00:00"
     }
   ],
   "source_errors": []
