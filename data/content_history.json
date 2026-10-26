@@ -2575,5 +2575,21 @@
     "title": "Kenya Champions Responsible Military Artificial Intelligence (AI) to Shape Global Security",
     "body": "War robot obeying rules? Kenyan AI watchdog built in labs System flags lethal choices instantly Learns from historic combat blunders Humans still give final go Researchers call it human‑in‑the‑loop Cuts civilian casualties dramatically Robot follows law, not chaos",
     "text": "Kenya Champions Responsible Military Artificial Intelligence (AI) to Shape Global Security War robot obeying rules? Kenyan AI watchdog built in labs System flags lethal choices instantly Learns from historic combat blunders Humans still give final go Researchers call it human‑in‑the‑loop Cuts civilian casualties dramatically Robot follows law, not chaos"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "d4582780b221bf98f020cf866fa1177e84da9b5ea17aead9730a30a1f30f3fbe",
+    "title": "Inside the biggest feud in artificial intelligence",
+    "body": "Two AI answers clash on screen One says Sydney, other says Canberra Scrolling reveals the same question Developers tweet, defending their models Online feud splits users into camps Researchers point to training data differences Models output confident, conflicting answers Your phone shows bias, not truth",
+    "text": "Inside the biggest feud in artificial intelligence Two AI answers clash on screen One says Sydney, other says Canberra Scrolling reveals the same question Developers tweet, defending their models Online feud splits users into camps Researchers point to training data differences Models output confident, conflicting answers Your phone shows bias, not truth"
   }
 ]

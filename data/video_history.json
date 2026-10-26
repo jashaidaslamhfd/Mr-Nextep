@@ -6998,5 +6998,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-10-26T06:00:30.682226+00:00",
+    "status": "pending",
+    "topic": "Inside the biggest feud in artificial intelligence",
+    "title": "Inside the biggest feud in artificial intelligence",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "c51f41d480f701d784f51b4988fe1e613853cf3e2986186b3286a23a9f308a9f",
+      "9a581ac97ba2e609820fe55d950e853ffe85ff288b37385924cb134355a9e7ae",
+      "a6fab54b01286a9bc8c5b1f3efd105fff72d66e57532d99515fd0827aa02523c",
+      "0097c8d7bf651990e1860e81553574ffb5b028df51f272c7105a9a2a80830ce4",
+      "c4a9448d9c35f4f486cc0fbbd8eec4105d22f705e7143726b6aeb2fbb7d122e8",
+      "53334683452bc36b9c140ad0d4aa5383ac263af7e632a30d5b57278007c6982c",
+      "47e1fbeec85af612c4660c0aa18c64dda7c293422fa59d48d078a2ba1b0177ec",
+      "3b039518cab3e366445048eddee512f6f0526c2a17362b82176c10b2b44e85ef"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "concrete_observation",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 85
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 85
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 80
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-24",
+      "topic": "Inside the biggest feud in artificial intelligence",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQeWVlanJfeUI0LTFlTmxtX3VVYURzMUdnLUtOS1VueW5iWTkxSVhNQkRWaGd1Ulhhc1l2M1MtNGVQLUphcHVjZ2cyd1E2aXhYYmE3bVlLb1RoS0gxdHdGWTU1TlJPeF8tejJ6Q1dKMm1Oc3dqWTZ2MHcwT01keXc4NkF4Qko1c2wyOU5jNFVoczdtSjYzdDlqZXpIRDkzQQ?oc=5",
+      "published_at": "2026-10-26T05:00:00+00:00",
+      "trend_score": 5,
+      "fetched_at": "2026-10-26T05:58:24.823270+00:00",
+      "growth_score": 45.72,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 5/100.",
+        "Similar measured videos retained 49%; channel median 38%.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "d4582780b221bf98f020cf866fa1177e84da9b5ea17aead9730a30a1f30f3fbe",
+    "body": "Two AI answers clash on screen One says Sydney, other says Canberra Scrolling reveals the same question Developers tweet, defending their models Online feud splits users into camps Researchers point to training data differences Models output confident, conflicting answers Your phone shows bias, not truth",
+    "text": "Inside the biggest feud in artificial intelligence Two AI answers clash on screen One says Sydney, other says Canberra Scrolling reveals the same question Developers tweet, defending their models Online feud splits users into camps Researchers point to training data differences Models output confident, conflicting answers Your phone shows bias, not truth"
   }
 ]
