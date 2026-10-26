@@ -7001,7 +7001,7 @@
   },
   {
     "created_at": "2026-10-26T06:00:30.682226+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Inside the biggest feud in artificial intelligence",
     "title": "Inside the biggest feud in artificial intelligence",
     "video_path": "output/mr_nextep_short.mp4",
@@ -7083,6 +7083,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "d4582780b221bf98f020cf866fa1177e84da9b5ea17aead9730a30a1f30f3fbe",
     "body": "Two AI answers clash on screen One says Sydney, other says Canberra Scrolling reveals the same question Developers tweet, defending their models Online feud splits users into camps Researchers point to training data differences Models output confident, conflicting answers Your phone shows bias, not truth",
-    "text": "Inside the biggest feud in artificial intelligence Two AI answers clash on screen One says Sydney, other says Canberra Scrolling reveals the same question Developers tweet, defending their models Online feud splits users into camps Researchers point to training data differences Models output confident, conflicting answers Your phone shows bias, not truth"
+    "text": "Inside the biggest feud in artificial intelligence Two AI answers clash on screen One says Sydney, other says Canberra Scrolling reveals the same question Developers tweet, defending their models Online feud splits users into camps Researchers point to training data differences Models output confident, conflicting answers Your phone shows bias, not truth",
+    "youtube_video_id": "7lHrIHMGaeE",
+    "url": "https://youtu.be/7lHrIHMGaeE",
+    "thumbnail": "uploaded",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/1122980080905302/videos?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      }
+    }
   }
 ]
