@@ -7401,7 +7401,7 @@
   },
   {
     "created_at": "2026-10-27T21:09:58.864146+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Trump Wants to Ban Use of the Term 'Artificial Intelligence' and 'AI'",
     "title": "Trump Wants to Ban Use of the Term 'Artificial Intelligence' and 'AI'",
     "video_path": "output/mr_nextep_short.mp4",
@@ -7483,6 +7483,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "3c5a056e133096aaea9f91e7ce192b74d2e95561581d9f2f08ab492a40e89500",
     "body": "Trump's AI ban headline pops up Sounds like a censorship stunt Why police a word, not tech? Language shapes trust in machines Banned terms feel oddly powerful Ban could actually boost AI hype Naming fuels curiosity, not fear Watch the words, not the tech",
-    "text": "Trump Wants to Ban Use of the Term 'Artificial Intelligence' and 'AI' Trump's AI ban headline pops up Sounds like a censorship stunt Why police a word, not tech? Language shapes trust in machines Banned terms feel oddly powerful Ban could actually boost AI hype Naming fuels curiosity, not fear Watch the words, not the tech"
+    "text": "Trump Wants to Ban Use of the Term 'Artificial Intelligence' and 'AI' Trump's AI ban headline pops up Sounds like a censorship stunt Why police a word, not tech? Language shapes trust in machines Banned terms feel oddly powerful Ban could actually boost AI hype Naming fuels curiosity, not fear Watch the words, not the tech",
+    "youtube_video_id": "rUPy9UCG3bo",
+    "url": "https://youtu.be/rUPy9UCG3bo",
+    "thumbnail": "uploaded",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/1122980080905302/videos?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      }
+    }
   }
 ]
