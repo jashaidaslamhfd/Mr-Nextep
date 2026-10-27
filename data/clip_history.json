@@ -1,53 +1,5 @@
 [
   {
-    "hash": "43688fe969ad2fe60fd227f19dfcec231ea6f9527be7fdae1e2d51f7befd58f0",
-    "source_url": "https://videos.pexels.com/video-files/10198623/10198623-hd_1080_2048_30fps.mp4",
-    "title": "Sleep",
-    "created_at": "2026-09-29T09:40:08.381728+00:00"
-  },
-  {
-    "hash": "36dea2dd342342a2988c258468778504c9e33e348c065e6db3ac6eeb11bf2c77",
-    "source_url": "https://videos.pexels.com/video-files/7183208/7183208-sd_338_640_25fps.mp4",
-    "title": "Sleep",
-    "created_at": "2026-09-29T09:40:08.381728+00:00"
-  },
-  {
-    "hash": "337255fa4ddad19688c2458c53573e127b024e67b0f9545ee118b3b37969c148",
-    "source_url": "https://videos.pexels.com/video-files/35772987/15166461_360_640_60fps.mp4",
-    "title": "Sleep",
-    "created_at": "2026-09-29T09:40:08.381728+00:00"
-  },
-  {
-    "hash": "911de9e1012202770fa735010fcf1e53fc6e4dcad8cd5d3de5819c7b96366b68",
-    "source_url": "https://videos.pexels.com/video-files/8263485/8263485-sd_338_640_25fps.mp4",
-    "title": "Sleep",
-    "created_at": "2026-09-29T09:40:08.381728+00:00"
-  },
-  {
-    "hash": "d780eaabbbe6275dacf277e967162244ab136dc62af40ccaf6c0bcda998b2461",
-    "source_url": "https://videos.pexels.com/video-files/7265903/7265903-hd_1080_2048_25fps.mp4",
-    "title": "Alcohol and the Brain; The Next Alzheimer's Frontier; Mice With Human Brain Cells",
-    "created_at": "2026-09-29T21:16:26.515378+00:00"
-  },
-  {
-    "hash": "0286f0beb1cb805f98504cc15e996e15fabc3c720d8e1be7675e2ad515752da3",
-    "source_url": "https://videos.pexels.com/video-files/6869565/6869565-hd_1080_2048_25fps.mp4",
-    "title": "Alcohol and the Brain; The Next Alzheimer's Frontier; Mice With Human Brain Cells",
-    "created_at": "2026-09-29T21:16:26.515378+00:00"
-  },
-  {
-    "hash": "7161dafaec6e1c25b782b7833707e6548da0b949d9f5f273411e6a7ef379dd6d",
-    "source_url": "https://videos.pexels.com/video-files/7270490/7270490-sd_240_426_25fps.mp4",
-    "title": "Alcohol and the Brain; The Next Alzheimer's Frontier; Mice With Human Brain Cells",
-    "created_at": "2026-09-29T21:16:26.515378+00:00"
-  },
-  {
-    "hash": "19826f738ed2d4666369d146d2d4666e94de29f7a5316a7e5fcc806a0e10d363",
-    "source_url": "https://videos.pexels.com/video-files/30288568/12983851_360_640_60fps.mp4",
-    "title": "Alcohol and the Brain; The Next Alzheimer's Frontier; Mice With Human Brain Cells",
-    "created_at": "2026-09-29T21:16:26.515378+00:00"
-  },
-  {
     "hash": "330f192f4de12477fbe52e7753c1c14129eaebb87dd79bd31fe04ccfaac56ce9",
     "source_url": "https://videos.pexels.com/video-files/17037261/17037261-hd_720_1280_30fps.mp4",
     "title": "Alcohol and the Brain; The Next Alzheimer's Frontier; Mice With Human Brain Cells",
@@ -2998,5 +2950,53 @@
     "source_url": "https://videos.pexels.com/video-files/6650589/6650589-hd_720_1280_60fps.mp4",
     "title": "Anthropic, the AI Company Behind Popular Chatbot Claude, Could Soon Be Worth $2 Trillion",
     "created_at": "2026-10-26T21:30:44.097346+00:00"
+  },
+  {
+    "hash": "5c4d6f1bd332ba338ec52fbe868e2553e429936b353e70240868eac8f34c56f2",
+    "source_url": "https://videos.pexels.com/video-files/5077073/5077073-sd_338_640_25fps.mp4",
+    "title": "Anthropic’s Claude AI model accessed Georgia voter data in US",
+    "created_at": "2026-10-27T01:00:42.143504+00:00"
+  },
+  {
+    "hash": "33ab511bf15dae50ad335937bf06a5b22ee3ead930a9eee5898fbed558aba8de",
+    "source_url": "https://cdn.pixabay.com/video/2019/06/18/24527-343454446_medium.mp4",
+    "title": "Anthropic’s Claude AI model accessed Georgia voter data in US",
+    "created_at": "2026-10-27T01:00:42.143504+00:00"
+  },
+  {
+    "hash": "78afaa9f6196cf79fa16cf681a4027fd87e57538027df03e7ea88be845644cd0",
+    "source_url": "https://videos.pexels.com/video-files/8337693/8337693-hd_1080_1920_30fps.mp4",
+    "title": "Anthropic’s Claude AI model accessed Georgia voter data in US",
+    "created_at": "2026-10-27T01:00:42.143504+00:00"
+  },
+  {
+    "hash": "ad725c73de98add9e1e41f7b9ff6ae39bcf740c37f96fd8a745346cd4058a499",
+    "source_url": "https://videos.pexels.com/video-files/36879758/15623059_360_640_25fps.mp4",
+    "title": "Anthropic’s Claude AI model accessed Georgia voter data in US",
+    "created_at": "2026-10-27T01:00:42.143504+00:00"
+  },
+  {
+    "hash": "58f876e9c0e61284dd558bdbcca58144ed2d167a08a2e0b4557aa43eb19b932b",
+    "source_url": "https://videos.pexels.com/video-files/16561467/16561467-hd_1080_1920_30fps.mp4",
+    "title": "Anthropic’s Claude AI model accessed Georgia voter data in US",
+    "created_at": "2026-10-27T01:00:42.143504+00:00"
+  },
+  {
+    "hash": "9fafff27f4d813d4faff207aa8e0c08bddbd83d7cdaf6af83f895de564a5509a",
+    "source_url": "https://cdn.pixabay.com/video/2020/10/19/52823-471089056_medium.mp4",
+    "title": "Anthropic’s Claude AI model accessed Georgia voter data in US",
+    "created_at": "2026-10-27T01:00:42.143504+00:00"
+  },
+  {
+    "hash": "d7ad9106364521c515d84e2eebbc1a6dba5ac948321f62078b7cd0556b0c65de",
+    "source_url": "https://videos.pexels.com/video-files/8847765/8847765-sd_240_426_25fps.mp4",
+    "title": "Anthropic’s Claude AI model accessed Georgia voter data in US",
+    "created_at": "2026-10-27T01:00:42.143504+00:00"
+  },
+  {
+    "hash": "a74252c5b1d518bb9096f96aa75378c0a90f18761cb7f2f961b22de6dbe47885",
+    "source_url": "https://videos.pexels.com/video-files/8992783/8992783-sd_360_640_30fps.mp4",
+    "title": "Anthropic’s Claude AI model accessed Georgia voter data in US",
+    "created_at": "2026-10-27T01:00:42.143504+00:00"
   }
 ]

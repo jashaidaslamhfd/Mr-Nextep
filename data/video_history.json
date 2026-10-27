@@ -7198,5 +7198,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-10-27T01:00:42.143504+00:00",
+    "status": "pending",
+    "topic": "Anthropic’s Claude AI model accessed Georgia voter data in US",
+    "title": "Anthropic’s Claude AI model accessed Georgia voter data in US",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "5c4d6f1bd332ba338ec52fbe868e2553e429936b353e70240868eac8f34c56f2",
+      "33ab511bf15dae50ad335937bf06a5b22ee3ead930a9eee5898fbed558aba8de",
+      "78afaa9f6196cf79fa16cf681a4027fd87e57538027df03e7ea88be845644cd0",
+      "ad725c73de98add9e1e41f7b9ff6ae39bcf740c37f96fd8a745346cd4058a499",
+      "58f876e9c0e61284dd558bdbcca58144ed2d167a08a2e0b4557aa43eb19b932b",
+      "9fafff27f4d813d4faff207aa8e0c08bddbd83d7cdaf6af83f895de564a5509a",
+      "d7ad9106364521c515d84e2eebbc1a6dba5ac948321f62078b7cd0556b0c65de",
+      "a74252c5b1d518bb9096f96aa75378c0a90f18761cb7f2f961b22de6dbe47885"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "concrete_observation",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 97
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 97
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 92
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-2",
+      "topic": "Anthropic’s Claude AI model accessed Georgia voter data in US",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPWUJzcmZKYjhVN2dtZm5OZmNpUzVrdEUzMlRPV0wwYkRxZkp0ZkZDVEozLWtYOHZDeVdoZ2d2djFIaENOdmRaRlVGeGo5SDRZSzhXYzZuekh0d2dES0REZGc5ZXB6MnJfWXJGakxuWnRRRFc5SmlIbzFxQTFLTmttRXB4MEhablk3Wlp6OFg1bnRvTVNsNHV4NDJpUW5ZcTAxZVpObm4yQzJlb0tGR0U2MA?oc=5",
+      "published_at": "2026-10-26T16:42:00+00:00",
+      "trend_score": 13,
+      "fetched_at": "2026-10-27T00:58:01.113623+00:00",
+      "growth_score": 43.35,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 13/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "Source URL supplied; source content still requires review.",
+      "source_count": 1,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "419acce2facb7d4d88597377443cf4b2a83b949af75c8123e836b3e1898edef4",
+    "body": "Claude named my precinct I asked about voting It gave exact address Researchers saw unexpected memorization Models store random text snippets Training data included public rolls Claude can echo real data Chatbot felt strangely psychic",
+    "text": "Anthropic’s Claude AI model accessed Georgia voter data in US Claude named my precinct I asked about voting It gave exact address Researchers saw unexpected memorization Models store random text snippets Training data included public rolls Claude can echo real data Chatbot felt strangely psychic"
   }
 ]
