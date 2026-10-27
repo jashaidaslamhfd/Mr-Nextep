@@ -7398,5 +7398,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-10-27T21:09:58.864146+00:00",
+    "status": "pending",
+    "topic": "Trump Wants to Ban Use of the Term 'Artificial Intelligence' and 'AI'",
+    "title": "Trump Wants to Ban Use of the Term 'Artificial Intelligence' and 'AI'",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "b8f1ca67c55d9ed42c075fe907b553e191ced869282599dcaaf9c6f6fdc807fa",
+      "79b40a28bbf663ccf3e7cfc5a723255fd790ed049402f0a7d4827f5b71b91793",
+      "3bd6701bdae7d112c764c23f64b13ed24136f0a0f5d50f3646fc716581b577d9",
+      "5b5b4f5baa72629dc9aefda3ffd2dbe448f1eab9afc467b4e0ec8f995d4d01b3",
+      "6c17aabb7345644aa19369c895b45632fd728f2361bef07ab9e703a1405a9940",
+      "2b41685ad841f07bc1bb63ac812d7050692a266effca410e40c706db3aafd0d1",
+      "7a5ecc7480517f4ad2bdeace34bd9d1c46b1bb6659720dac68c782fe6e95db16",
+      "b618c9c717ff8618499c0198a3e6e19206b6b616b2c4e45903273697e02bb73d"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "concrete_observation",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 97
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 97
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 92
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "Trump Wants to Ban Use of the Term 'Artificial Intelligence' and 'AI'",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNU1NaRHNKaV9MWk9DVTdZSERQX0F5SmwxYS1Jc09JaVMzX1lTV090VVptNi1WcTRKTk9hREs3MVczakIzbzNsbjFLUmxjeTdVWlpGcklXXzZqWmFsLTBsUmFLY2NLLWp4WjJnMk9HTzhMc0psaEpWaU55dlhCRDFRbzF3dV9ib1N5ZER3SEpGcDlXYjlERU1xWE9PdmVtNjFfVDBhRA?oc=5",
+      "published_at": "2026-10-27T19:43:00+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-10-27T21:06:58.331759+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "3c5a056e133096aaea9f91e7ce192b74d2e95561581d9f2f08ab492a40e89500",
+    "body": "Trump's AI ban headline pops up Sounds like a censorship stunt Why police a word, not tech? Language shapes trust in machines Banned terms feel oddly powerful Ban could actually boost AI hype Naming fuels curiosity, not fear Watch the words, not the tech",
+    "text": "Trump Wants to Ban Use of the Term 'Artificial Intelligence' and 'AI' Trump's AI ban headline pops up Sounds like a censorship stunt Why police a word, not tech? Language shapes trust in machines Banned terms feel oddly powerful Ban could actually boost AI hype Naming fuels curiosity, not fear Watch the words, not the tech"
   }
 ]

@@ -2639,5 +2639,21 @@
     "title": "Sam Altman on RSI, AI Consciousness, OpenAI’s New Hardware (Transcript)",
     "body": "Can a chip make AI feel? Altman links hardware upgrades to cognition. Faster chips might spark self‑awareness. He warns recursive self‑improvement could runaway. Why would speed alone create consciousness? Scientists say patterns matter more than speed. Awareness comes from network connections, not chips. Chips boost ability, not true feeling.",
     "text": "Sam Altman on RSI, AI Consciousness, OpenAI’s New Hardware (Transcript) Can a chip make AI feel? Altman links hardware upgrades to cognition. Faster chips might spark self‑awareness. He warns recursive self‑improvement could runaway. Why would speed alone create consciousness? Scientists say patterns matter more than speed. Awareness comes from network connections, not chips. Chips boost ability, not true feeling."
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "3c5a056e133096aaea9f91e7ce192b74d2e95561581d9f2f08ab492a40e89500",
+    "title": "Trump Wants to Ban Use of the Term 'Artificial Intelligence' and 'AI'",
+    "body": "Trump's AI ban headline pops up Sounds like a censorship stunt Why police a word, not tech? Language shapes trust in machines Banned terms feel oddly powerful Ban could actually boost AI hype Naming fuels curiosity, not fear Watch the words, not the tech",
+    "text": "Trump Wants to Ban Use of the Term 'Artificial Intelligence' and 'AI' Trump's AI ban headline pops up Sounds like a censorship stunt Why police a word, not tech? Language shapes trust in machines Banned terms feel oddly powerful Ban could actually boost AI hype Naming fuels curiosity, not fear Watch the words, not the tech"
   }
 ]
