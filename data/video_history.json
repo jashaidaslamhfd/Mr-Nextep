@@ -7301,7 +7301,7 @@
   },
   {
     "created_at": "2026-10-27T06:12:48.200921+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Sam Altman on RSI, AI Consciousness, OpenAI’s New Hardware (Transcript)",
     "title": "Sam Altman on RSI, AI Consciousness, OpenAI’s New Hardware (Transcript)",
     "video_path": "output/mr_nextep_short.mp4",
@@ -7383,6 +7383,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "1405f783af8719add2e80492aa527254c6a7a646b6980176e4bba05a1c147747",
     "body": "Can a chip make AI feel? Altman links hardware upgrades to cognition. Faster chips might spark self‑awareness. He warns recursive self‑improvement could runaway. Why would speed alone create consciousness? Scientists say patterns matter more than speed. Awareness comes from network connections, not chips. Chips boost ability, not true feeling.",
-    "text": "Sam Altman on RSI, AI Consciousness, OpenAI’s New Hardware (Transcript) Can a chip make AI feel? Altman links hardware upgrades to cognition. Faster chips might spark self‑awareness. He warns recursive self‑improvement could runaway. Why would speed alone create consciousness? Scientists say patterns matter more than speed. Awareness comes from network connections, not chips. Chips boost ability, not true feeling."
+    "text": "Sam Altman on RSI, AI Consciousness, OpenAI’s New Hardware (Transcript) Can a chip make AI feel? Altman links hardware upgrades to cognition. Faster chips might spark self‑awareness. He warns recursive self‑improvement could runaway. Why would speed alone create consciousness? Scientists say patterns matter more than speed. Awareness comes from network connections, not chips. Chips boost ability, not true feeling.",
+    "youtube_video_id": "R4pdYaQpEeI",
+    "url": "https://youtu.be/R4pdYaQpEeI",
+    "thumbnail": "uploaded",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/1122980080905302/videos?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      }
+    }
   }
 ]
