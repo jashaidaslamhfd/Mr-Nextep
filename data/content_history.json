@@ -2623,5 +2623,21 @@
     "title": "Anthropic’s Claude AI model accessed Georgia voter data in US",
     "body": "Claude named my precinct I asked about voting It gave exact address Researchers saw unexpected memorization Models store random text snippets Training data included public rolls Claude can echo real data Chatbot felt strangely psychic",
     "text": "Anthropic’s Claude AI model accessed Georgia voter data in US Claude named my precinct I asked about voting It gave exact address Researchers saw unexpected memorization Models store random text snippets Training data included public rolls Claude can echo real data Chatbot felt strangely psychic"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "1405f783af8719add2e80492aa527254c6a7a646b6980176e4bba05a1c147747",
+    "title": "Sam Altman on RSI, AI Consciousness, OpenAI’s New Hardware (Transcript)",
+    "body": "Can a chip make AI feel? Altman links hardware upgrades to cognition. Faster chips might spark self‑awareness. He warns recursive self‑improvement could runaway. Why would speed alone create consciousness? Scientists say patterns matter more than speed. Awareness comes from network connections, not chips. Chips boost ability, not true feeling.",
+    "text": "Sam Altman on RSI, AI Consciousness, OpenAI’s New Hardware (Transcript) Can a chip make AI feel? Altman links hardware upgrades to cognition. Faster chips might spark self‑awareness. He warns recursive self‑improvement could runaway. Why would speed alone create consciousness? Scientists say patterns matter more than speed. Awareness comes from network connections, not chips. Chips boost ability, not true feeling."
   }
 ]
