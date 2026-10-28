@@ -7698,5 +7698,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-10-28T21:31:32.831671+00:00",
+    "status": "pending",
+    "topic": "Is AI Conscious, and Can It Feel Pain?",
+    "title": "Is AI Conscious, and Can It Feel Pain?",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "94181bb321ac8b84137e4c7bfa8922e4cfa2032cf421810859dffafc11579116",
+      "29535690ca69a39ce3b63d85205fa3e2a0afde89c2215b440c170071569b6d42",
+      "9c5a2b2515eff5d175a646b4a5e817603bbcd10af11a346d00f1965adc2514dc",
+      "a7cc6812669d7e4be1dd9944e03b0bd60852a28b67a57a6af7ad3da676d23b23",
+      "704608cb45ecb9772d03e4ac0ca6a5189fe82be88997aaa460a3a9065cb1023a",
+      "fedc0f103d0c76641cf07ee29781ac8bcb66dabdf207cafd8e397f0f0bfa3fc2",
+      "9d8ff2612efe51a8fb999672e3e3cb3b2df4bf1c2f425a9bed2b9c64ac6d3c52",
+      "3c6a38db23f6459b5f657e04a0546b35ecc9d0e242b096f2424cfb439830b340"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "counterintuitive",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 73
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 73
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 68
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-17",
+      "topic": "Is AI Conscious, and Can It Feel Pain?",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQYmpRd3VHeDdtNmh4WEY5NDB3ZmJ5bnFsNV9nMVNEUWtHMzhXbmxXOS03Y2ZfbDJyVW52YWRtVEtjbEFFSGwzTVYtaUREY3FpaG9KWFFNVzQ0aFc4dldWNjRibGdIdi1PQ1hUVDJzS2I5MDhxTDJqemFlYmg4eUNNSTd4YklJR3dVaFYyT0QwUFFrOWlo?oc=5",
+      "published_at": "2026-10-28T21:24:38+00:00",
+      "trend_score": 5,
+      "fetched_at": "2026-10-28T21:29:26.798831+00:00",
+      "growth_score": 46.15,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 5/100.",
+        "Similar measured videos retained 50%; channel median 38%.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "17692ad72e8d5dcaaf8c06f899d273942659d05cc233e1277354b25e0432d6ca",
+    "body": "AI says 'ouch' but feels nothing It’s just pattern prediction, not feeling Our brains read words as emotions Language triggers sensation in human minds AI has no nerves or hormones Only reproducing learned responses, nothing more The pain you hear is an illusion Your mind creates feeling, AI doesn’t",
+    "text": "Is AI Conscious, and Can It Feel Pain? AI says 'ouch' but feels nothing It’s just pattern prediction, not feeling Our brains read words as emotions Language triggers sensation in human minds AI has no nerves or hormones Only reproducing learned responses, nothing more The pain you hear is an illusion Your mind creates feeling, AI doesn’t"
   }
 ]

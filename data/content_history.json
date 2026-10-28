@@ -2687,5 +2687,21 @@
     "title": "Trump wants to ban term ‘AI’ in favor of ‘Super Intelligence’",
     "body": "What if AI becomes Super Intelligence? Trump proposes banning the word AI He suggests 'Super Intelligence' instead Why change a neutral term? Words shape how we trust tech Scientists call it framing effect Rename could boost acceptance, not clarity So the name change is strategic",
     "text": "Trump wants to ban term ‘AI’ in favor of ‘Super Intelligence’ What if AI becomes Super Intelligence? Trump proposes banning the word AI He suggests 'Super Intelligence' instead Why change a neutral term? Words shape how we trust tech Scientists call it framing effect Rename could boost acceptance, not clarity So the name change is strategic"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "17692ad72e8d5dcaaf8c06f899d273942659d05cc233e1277354b25e0432d6ca",
+    "title": "Is AI Conscious, and Can It Feel Pain?",
+    "body": "AI says 'ouch' but feels nothing It’s just pattern prediction, not feeling Our brains read words as emotions Language triggers sensation in human minds AI has no nerves or hormones Only reproducing learned responses, nothing more The pain you hear is an illusion Your mind creates feeling, AI doesn’t",
+    "text": "Is AI Conscious, and Can It Feel Pain? AI says 'ouch' but feels nothing It’s just pattern prediction, not feeling Our brains read words as emotions Language triggers sensation in human minds AI has no nerves or hormones Only reproducing learned responses, nothing more The pain you hear is an illusion Your mind creates feeling, AI doesn’t"
   }
 ]
