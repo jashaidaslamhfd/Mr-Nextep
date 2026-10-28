@@ -7701,7 +7701,7 @@
   },
   {
     "created_at": "2026-10-28T21:31:32.831671+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Is AI Conscious, and Can It Feel Pain?",
     "title": "Is AI Conscious, and Can It Feel Pain?",
     "video_path": "output/mr_nextep_short.mp4",
@@ -7783,6 +7783,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "17692ad72e8d5dcaaf8c06f899d273942659d05cc233e1277354b25e0432d6ca",
     "body": "AI says 'ouch' but feels nothing It’s just pattern prediction, not feeling Our brains read words as emotions Language triggers sensation in human minds AI has no nerves or hormones Only reproducing learned responses, nothing more The pain you hear is an illusion Your mind creates feeling, AI doesn’t",
-    "text": "Is AI Conscious, and Can It Feel Pain? AI says 'ouch' but feels nothing It’s just pattern prediction, not feeling Our brains read words as emotions Language triggers sensation in human minds AI has no nerves or hormones Only reproducing learned responses, nothing more The pain you hear is an illusion Your mind creates feeling, AI doesn’t"
+    "text": "Is AI Conscious, and Can It Feel Pain? AI says 'ouch' but feels nothing It’s just pattern prediction, not feeling Our brains read words as emotions Language triggers sensation in human minds AI has no nerves or hormones Only reproducing learned responses, nothing more The pain you hear is an illusion Your mind creates feeling, AI doesn’t",
+    "youtube_video_id": "n4xINobAIs4",
+    "url": "https://youtu.be/n4xINobAIs4",
+    "thumbnail": "uploaded",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/1122980080905302/videos?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      }
+    }
   }
 ]
