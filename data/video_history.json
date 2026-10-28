@@ -7501,7 +7501,7 @@
   },
   {
     "created_at": "2026-10-28T00:51:16.067663+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Anthropic Expands Claude Advisor Tool With New Partners",
     "title": "Anthropic Expands Claude Advisor Tool With New Partners",
     "video_path": "output/mr_nextep_short.mp4",
@@ -7583,6 +7583,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "508e39df522b1cd18bb9220f9981d14b9cba31c37f1b6f49d7c78ccb210f93c0",
     "body": "Claude sounds like a real expert New partners join Claude's advice engine Partner data feeds directly into replies Authority makes us trust advice Claude copies partners' confident tone Prompts are fine‑tuned for tone Trust boost is intentional design Now you know Claude’s expert feel",
-    "text": "Anthropic Expands Claude Advisor Tool With New Partners Claude sounds like a real expert New partners join Claude's advice engine Partner data feeds directly into replies Authority makes us trust advice Claude copies partners' confident tone Prompts are fine‑tuned for tone Trust boost is intentional design Now you know Claude’s expert feel"
+    "text": "Anthropic Expands Claude Advisor Tool With New Partners Claude sounds like a real expert New partners join Claude's advice engine Partner data feeds directly into replies Authority makes us trust advice Claude copies partners' confident tone Prompts are fine‑tuned for tone Trust boost is intentional design Now you know Claude’s expert feel",
+    "youtube_video_id": "kE6DKFObNzI",
+    "url": "https://youtu.be/kE6DKFObNzI",
+    "thumbnail": "uploaded",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/1122980080905302/videos?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      }
+    }
   }
 ]
