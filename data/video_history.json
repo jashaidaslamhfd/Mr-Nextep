@@ -7598,5 +7598,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-10-28T06:50:31.068857+00:00",
+    "status": "pending",
+    "topic": "Trump wants to ban term ‘AI’ in favor of ‘Super Intelligence’",
+    "title": "Trump wants to ban term ‘AI’ in favor of ‘Super Intelligence’",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "e5e38d31a3639b978ef631cc9ee0faadbf249646023e2ee768ed466f0970df4f",
+      "6bf9511b52b2674eb7514e42ad20bfca66998ca2c9c57c2ebd7c42c585aa7836",
+      "bae0d6d5b71c03435b036ce44e9a7a8f978bee7f69bfd00af1fc0723bd08a1a8",
+      "019d56fb1659ad7366321fb00fc17ef9036226434073f189c40b4e3ae17e507d",
+      "84fc5ac4dfa45251a77f389823afa99579e87f8d36cc980dc812a8e5f7e895ea",
+      "5621fd1cb54a054ccad60a7adfc55ca440689af8e66753bedfba42b7c7706286",
+      "40760e3f559a77f63fb186a052ed786ecd386f38fb6c2771341838fe2be52d58",
+      "7e4682864968c122278ee79d050a5d99ba7d315a5b935e12ea09200810d0abf2"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "specific_question",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 97
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 97
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 92
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "Trump wants to ban term ‘AI’ in favor of ‘Super Intelligence’",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQS044SDQyUm1fVGloT3FoTWNpZjVWQXNwMnRwSkw2ZU1kRzExWjFMeDBDemdqWDR6TzFPMkwyVjNPWkxwd2xvZnpfYWNodVlmX2p6SkRoWUVUT0REWTlFN1l3bnVNdWdIaWozUGRiNU1NOWhZNllxM2F1U3J2bHBFVzlUR3YwMDJ2Y0pjOTgzUFJsQmZnV2fSAZYBQVVfeXFMT3A5azdLcHBqY2FfT3VTMl9yOWJLT3NhT1dMRTdVb3JhcE9rNjFvUXdlMGtUUzY3U29hQ05ISlNTZlR3THdpYWlxMHhxMVJ1RklBaUtNRVJMRFRIS21LY3hiOWVOVTR4N2JhbDc5WGxQYkZOaEw2LXhkR21rc3I2UmFvYS1pT1BKbDg3dkpyUGo1WnIxVVNn?oc=5",
+      "published_at": "2026-10-28T06:16:52+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-10-28T06:47:29.417863+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "e788b5ca79dfa848ae2aae8467dd6959c0ad7e2dd5f8ebcdf175c02f253efff1",
+    "body": "What if AI becomes Super Intelligence? Trump proposes banning the word AI He suggests 'Super Intelligence' instead Why change a neutral term? Words shape how we trust tech Scientists call it framing effect Rename could boost acceptance, not clarity So the name change is strategic",
+    "text": "Trump wants to ban term ‘AI’ in favor of ‘Super Intelligence’ What if AI becomes Super Intelligence? Trump proposes banning the word AI He suggests 'Super Intelligence' instead Why change a neutral term? Words shape how we trust tech Scientists call it framing effect Rename could boost acceptance, not clarity So the name change is strategic"
   }
 ]
