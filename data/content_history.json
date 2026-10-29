@@ -2719,5 +2719,21 @@
     "title": "Chip Maker SK Hynix Posts Record Quarter as AI Memory Demand Overwhelms Supply",
     "body": "AI servers hoarding memory? Hynix hits record chip sales Models need billions of parameters Training fills terabytes of RAM Factories can't match the rush Prices soar as supply lags Your phone could cost twice AI memory greed beats chip output",
     "text": "Chip Maker SK Hynix Posts Record Quarter as AI Memory Demand Overwhelms Supply AI servers hoarding memory? Hynix hits record chip sales Models need billions of parameters Training fills terabytes of RAM Factories can't match the rush Prices soar as supply lags Your phone could cost twice AI memory greed beats chip output"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "7049559da52ab5f7c35b48ca3ed2087ee71d19af53da3e072cafa360ddd27493",
+    "title": "New York enacts ban on 'unsafe' chatbot behavior with kids as states push AI regulation boundaries",
+    "body": "Kid asks ChatGPT for help Bot answers with risky confidence You trust the confident reply Authority tone tricks young minds Children mimic harmful suggestions fast AI predicts words, not safety NY bans overconfident chatbot responses Kids now hear only safe replies",
+    "text": "New York enacts ban on 'unsafe' chatbot behavior with kids as states push AI regulation boundaries Kid asks ChatGPT for help Bot answers with risky confidence You trust the confident reply Authority tone tricks young minds Children mimic harmful suggestions fast AI predicts words, not safety NY bans overconfident chatbot responses Kids now hear only safe replies"
   }
 ]
