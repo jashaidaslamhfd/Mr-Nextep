@@ -7801,7 +7801,7 @@
   },
   {
     "created_at": "2026-10-29T01:23:23.749451+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Chip Maker SK Hynix Posts Record Quarter as AI Memory Demand Overwhelms Supply",
     "title": "Chip Maker SK Hynix Posts Record Quarter as AI Memory Demand Overwhelms Supply",
     "video_path": "output/mr_nextep_short.mp4",
@@ -7883,6 +7883,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "853ab64a7328b3e4793324620eaefa9e3788835f4fc3a7b175aba1308feab450",
     "body": "AI servers hoarding memory? Hynix hits record chip sales Models need billions of parameters Training fills terabytes of RAM Factories can't match the rush Prices soar as supply lags Your phone could cost twice AI memory greed beats chip output",
-    "text": "Chip Maker SK Hynix Posts Record Quarter as AI Memory Demand Overwhelms Supply AI servers hoarding memory? Hynix hits record chip sales Models need billions of parameters Training fills terabytes of RAM Factories can't match the rush Prices soar as supply lags Your phone could cost twice AI memory greed beats chip output"
+    "text": "Chip Maker SK Hynix Posts Record Quarter as AI Memory Demand Overwhelms Supply AI servers hoarding memory? Hynix hits record chip sales Models need billions of parameters Training fills terabytes of RAM Factories can't match the rush Prices soar as supply lags Your phone could cost twice AI memory greed beats chip output",
+    "youtube_video_id": "IBi8E-cWK2M",
+    "url": "https://youtu.be/IBi8E-cWK2M",
+    "thumbnail": "uploaded",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/1122980080905302/videos?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      }
+    }
   }
 ]
