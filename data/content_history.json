@@ -2735,5 +2735,21 @@
     "title": "New York enacts ban on 'unsafe' chatbot behavior with kids as states push AI regulation boundaries",
     "body": "Kid asks ChatGPT for help Bot answers with risky confidence You trust the confident reply Authority tone tricks young minds Children mimic harmful suggestions fast AI predicts words, not safety NY bans overconfident chatbot responses Kids now hear only safe replies",
     "text": "New York enacts ban on 'unsafe' chatbot behavior with kids as states push AI regulation boundaries Kid asks ChatGPT for help Bot answers with risky confidence You trust the confident reply Authority tone tricks young minds Children mimic harmful suggestions fast AI predicts words, not safety NY bans overconfident chatbot responses Kids now hear only safe replies"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "b4e8391cebf63a3d70b6fd3136e4966055d10f76d064b9ffb908c730bfece62e",
+    "title": "AI Reveals Hidden Brain Shifts After Spinal Fluid Leak Surgery",
+    "body": "A leak fix changes more than pain AI scans post‑surgery brain activity Hidden neural shifts appear Neurons reroute around repaired spot Memory improves while pain fades Predictive models spot subtle patterns Brain rewires invisibly to doctors Leak repair rewires your mind",
+    "text": "AI Reveals Hidden Brain Shifts After Spinal Fluid Leak Surgery A leak fix changes more than pain AI scans post‑surgery brain activity Hidden neural shifts appear Neurons reroute around repaired spot Memory improves while pain fades Predictive models spot subtle patterns Brain rewires invisibly to doctors Leak repair rewires your mind"
   }
 ]

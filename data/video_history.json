@@ -7998,5 +7998,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-10-29T21:35:57.717343+00:00",
+    "status": "pending",
+    "topic": "AI Reveals Hidden Brain Shifts After Spinal Fluid Leak Surgery",
+    "title": "AI Reveals Hidden Brain Shifts After Spinal Fluid Leak Surgery",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "158f051bf00f90c0bc420a3d0f3a4dc85f82e9b222647650ec577ea169afae54",
+      "e28f87b93289edde58dbb0ddf44e2e37e53cb77e07ada7954fe1c937a3b02ccf",
+      "81cf3ee04900ccf7b19803b1ccec7d34dde1befd2ccb8440a2e01e49eaa350f9",
+      "3a4529b30154f5d8e0ce85f7df6437a852a9e5f6d4e74d385d4d2d790293ec44",
+      "8fa45f4dcc94bb3f08e19c4e2ca1b25a4ca1d3066111c29cf8c4c5007cacf709",
+      "ac80a76effc6143e8e8b16192de29276af0d59cc3ecb6178a6691e4b7da638c3",
+      "0c4723739502f234401593bab54b1d7f44c65e7ec2fab2da248ff9750ec96e97",
+      "23179476e64edffa49970c09a7ca627edd2e432b2409276f6f6b15f401d415ea"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "counterintuitive",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 100
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-3",
+      "topic": "AI Reveals Hidden Brain Shifts After Spinal Fluid Leak Surgery",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQcXhxYkZfNzNPaEFRLUE0NnQyV1RqS0g3TFgzU0RJNDFuSmxOZDBNN01uREdrRHZtS1JFYzNSaE9uNFZ3ODNkb3pGOHp5Q2JHN2dVMk9ZU0lld05yTE9FYzBvZEx1Q0x5YnFKTUxrRjZvT2JPd3k1Zm1CZGZjWXZXMjhRZlFGRGE0aVdQNnY2RFI?oc=5",
+      "published_at": "2026-10-29T21:22:33+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-10-29T21:32:14.032253+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "b4e8391cebf63a3d70b6fd3136e4966055d10f76d064b9ffb908c730bfece62e",
+    "body": "A leak fix changes more than pain AI scans post‑surgery brain activity Hidden neural shifts appear Neurons reroute around repaired spot Memory improves while pain fades Predictive models spot subtle patterns Brain rewires invisibly to doctors Leak repair rewires your mind",
+    "text": "AI Reveals Hidden Brain Shifts After Spinal Fluid Leak Surgery A leak fix changes more than pain AI scans post‑surgery brain activity Hidden neural shifts appear Neurons reroute around repaired spot Memory improves while pain fades Predictive models spot subtle patterns Brain rewires invisibly to doctors Leak repair rewires your mind"
   }
 ]
