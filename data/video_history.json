@@ -8001,7 +8001,7 @@
   },
   {
     "created_at": "2026-10-29T21:35:57.717343+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "AI Reveals Hidden Brain Shifts After Spinal Fluid Leak Surgery",
     "title": "AI Reveals Hidden Brain Shifts After Spinal Fluid Leak Surgery",
     "video_path": "output/mr_nextep_short.mp4",
@@ -8083,6 +8083,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "b4e8391cebf63a3d70b6fd3136e4966055d10f76d064b9ffb908c730bfece62e",
     "body": "A leak fix changes more than pain AI scans post‑surgery brain activity Hidden neural shifts appear Neurons reroute around repaired spot Memory improves while pain fades Predictive models spot subtle patterns Brain rewires invisibly to doctors Leak repair rewires your mind",
-    "text": "AI Reveals Hidden Brain Shifts After Spinal Fluid Leak Surgery A leak fix changes more than pain AI scans post‑surgery brain activity Hidden neural shifts appear Neurons reroute around repaired spot Memory improves while pain fades Predictive models spot subtle patterns Brain rewires invisibly to doctors Leak repair rewires your mind"
+    "text": "AI Reveals Hidden Brain Shifts After Spinal Fluid Leak Surgery A leak fix changes more than pain AI scans post‑surgery brain activity Hidden neural shifts appear Neurons reroute around repaired spot Memory improves while pain fades Predictive models spot subtle patterns Brain rewires invisibly to doctors Leak repair rewires your mind",
+    "youtube_video_id": "SpE-fEINEhU",
+    "url": "https://youtu.be/SpE-fEINEhU",
+    "thumbnail": "uploaded",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/1122980080905302/videos?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      }
+    }
   }
 ]
