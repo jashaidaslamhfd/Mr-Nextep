@@ -7798,5 +7798,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-10-29T01:23:23.749451+00:00",
+    "status": "pending",
+    "topic": "Chip Maker SK Hynix Posts Record Quarter as AI Memory Demand Overwhelms Supply",
+    "title": "Chip Maker SK Hynix Posts Record Quarter as AI Memory Demand Overwhelms Supply",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "8fbdc2e7b0a8c55b96f442f1fe6f07c259b795359022eec40f3c12efcc7419a1",
+      "9649dff737788b6c5b368268fcc102f3463f732c5d2b9aa200e4e044ffb08862",
+      "8eeb531e10339489f099cebb41335269bfbe45601e6243d79d10dff97d7c342a",
+      "8c73ccb75dd5a1890782d8a2de93f389620d4def6a50ce1cf15635f9e4ae23b1",
+      "e52b4af0da94a6f056e04c8f92a5e535f894806eee1cf4da01d17cc0759de97d",
+      "ffb855d60b54eac65371f73952e612444070ad60601a03b278ca2b6f993a93b3",
+      "ff415c2839eb15fdc2bc25f6b98a1f74b7084633460122d54a85f45780a9dcfc",
+      "de6022d0a7637599fc7e6d30c5a4eb8364015c0b2d22e1291dde3945cc8b71b3"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "specific_question",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 100
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "Chip Maker SK Hynix Posts Record Quarter as AI Memory Demand Overwhelms Supply",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9ta3FaYnIxbFJjVnl2MlJZc3BrZHJjM21RYlRCOHJaXzc2cXNHTUVWdnlaR2J2R3VGcVRfbFhVb2RYOVFYcUlleDduVzg5UEVMbDBpbWJDQ2dSb2tXOGpHUXRCTE9TcGhqN1FkRFJubThBUUU3?oc=5",
+      "published_at": "2026-10-28T21:16:03+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-10-29T01:20:13.734054+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 1,
+      "verified": false
+    },
+    "archetype": "DARK_PSYCHOLOGY",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "853ab64a7328b3e4793324620eaefa9e3788835f4fc3a7b175aba1308feab450",
+    "body": "AI servers hoarding memory? Hynix hits record chip sales Models need billions of parameters Training fills terabytes of RAM Factories can't match the rush Prices soar as supply lags Your phone could cost twice AI memory greed beats chip output",
+    "text": "Chip Maker SK Hynix Posts Record Quarter as AI Memory Demand Overwhelms Supply AI servers hoarding memory? Hynix hits record chip sales Models need billions of parameters Training fills terabytes of RAM Factories can't match the rush Prices soar as supply lags Your phone could cost twice AI memory greed beats chip output"
   }
 ]

@@ -2703,5 +2703,21 @@
     "title": "Is AI Conscious, and Can It Feel Pain?",
     "body": "AI says 'ouch' but feels nothing It’s just pattern prediction, not feeling Our brains read words as emotions Language triggers sensation in human minds AI has no nerves or hormones Only reproducing learned responses, nothing more The pain you hear is an illusion Your mind creates feeling, AI doesn’t",
     "text": "Is AI Conscious, and Can It Feel Pain? AI says 'ouch' but feels nothing It’s just pattern prediction, not feeling Our brains read words as emotions Language triggers sensation in human minds AI has no nerves or hormones Only reproducing learned responses, nothing more The pain you hear is an illusion Your mind creates feeling, AI doesn’t"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "853ab64a7328b3e4793324620eaefa9e3788835f4fc3a7b175aba1308feab450",
+    "title": "Chip Maker SK Hynix Posts Record Quarter as AI Memory Demand Overwhelms Supply",
+    "body": "AI servers hoarding memory? Hynix hits record chip sales Models need billions of parameters Training fills terabytes of RAM Factories can't match the rush Prices soar as supply lags Your phone could cost twice AI memory greed beats chip output",
+    "text": "Chip Maker SK Hynix Posts Record Quarter as AI Memory Demand Overwhelms Supply AI servers hoarding memory? Hynix hits record chip sales Models need billions of parameters Training fills terabytes of RAM Factories can't match the rush Prices soar as supply lags Your phone could cost twice AI memory greed beats chip output"
   }
 ]
