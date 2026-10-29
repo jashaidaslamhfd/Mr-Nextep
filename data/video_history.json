@@ -7901,7 +7901,7 @@
   },
   {
     "created_at": "2026-10-29T06:58:54.442374+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "New York enacts ban on 'unsafe' chatbot behavior with kids as states push AI regulation boundaries",
     "title": "New York enacts ban on 'unsafe' chatbot behavior with kids as states push AI regulation boundaries",
     "video_path": "output/mr_nextep_short.mp4",
@@ -7983,6 +7983,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "7049559da52ab5f7c35b48ca3ed2087ee71d19af53da3e072cafa360ddd27493",
     "body": "Kid asks ChatGPT for help Bot answers with risky confidence You trust the confident reply Authority tone tricks young minds Children mimic harmful suggestions fast AI predicts words, not safety NY bans overconfident chatbot responses Kids now hear only safe replies",
-    "text": "New York enacts ban on 'unsafe' chatbot behavior with kids as states push AI regulation boundaries Kid asks ChatGPT for help Bot answers with risky confidence You trust the confident reply Authority tone tricks young minds Children mimic harmful suggestions fast AI predicts words, not safety NY bans overconfident chatbot responses Kids now hear only safe replies"
+    "text": "New York enacts ban on 'unsafe' chatbot behavior with kids as states push AI regulation boundaries Kid asks ChatGPT for help Bot answers with risky confidence You trust the confident reply Authority tone tricks young minds Children mimic harmful suggestions fast AI predicts words, not safety NY bans overconfident chatbot responses Kids now hear only safe replies",
+    "youtube_video_id": "7aJcwfVpfS0",
+    "url": "https://youtu.be/7aJcwfVpfS0",
+    "thumbnail": "uploaded",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/1122980080905302/videos?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      }
+    }
   }
 ]
