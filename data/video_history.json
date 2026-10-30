@@ -8098,5 +8098,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-10-30T01:27:01.799199+00:00",
+    "status": "pending",
+    "topic": "OpenAI updates AI behavior rules with focus on human intent",
+    "title": "OpenAI updates AI behavior rules with focus on human intent",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "5c32864fbf252748115e4857bcbcf6a32a994edf76935bd09c9a003852b1fd36",
+      "36f302519fe88140f6cd5c9fe68249c734e37f9acdaa47c3e7acfab8c8df3e51",
+      "27464ecf66c3fe725fcd339b24de8896cb872f29e3d3fbd01cd8173b0601f720",
+      "6a730170d8b351ca3c27445da98e42c50b032d472e208707d3155566a8e9a9cc",
+      "e23e59304cae30c2db272228bd3c5a5de170503f4c9205ca644e5ed64622cd18",
+      "8b74e384d5a5bd6d58933ff2f574c63d42946677ff1217ff64f66efa5e6fafbb",
+      "fdcade930a3015023c75785314a61a7795d13f7284d9b18c8ece0dee649a16b8",
+      "c45a186eb5646a7959e30c1f6409606d83116e7f4e33d3946e68c2003ed6d38e"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "concrete_observation",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 97
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 97
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 92
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "OpenAI updates AI behavior rules with focus on human intent",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNOFdJSTYwQUQ2ZjBvLXN2UHJTN0lDeXNoOU9xTVloUnJ4OW45dFFESnFaTEZXLU5TY0pDMEhvbWFhcHFtTHIxMmhhX0pIVkNySjVqaWY2N0JZMHpNcXVYdkJJbmh2eDVsb1JxT05jbXJsTEI4d1FFaHlwYVRkUzF2b21iQi1HZXVONUNfV3cxNWxzU09YSnBkWlRZTHJiRkdLMGtOcG5iWVFnblYtUkZNTE9zMWE4cVk?oc=5",
+      "published_at": "2026-10-29T19:35:27+00:00",
+      "trend_score": 13,
+      "fetched_at": "2026-10-30T01:24:29.838740+00:00",
+      "growth_score": 43.35,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 13/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 22.733333,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "5eab0fd34807d05d7447bd3939b9da0cf7fe97958215375a4cb571603944ea83",
+    "body": "AI answers before you finish typing Full response appears instantly Even vague prompts get detailed replies OpenAI changed its intent guidelines Model now predicts your hidden goal It infers purpose beyond literal words Feels like the AI reads your mind Your fragment becomes a finished answer",
+    "text": "OpenAI updates AI behavior rules with focus on human intent AI answers before you finish typing Full response appears instantly Even vague prompts get detailed replies OpenAI changed its intent guidelines Model now predicts your hidden goal It infers purpose beyond literal words Feels like the AI reads your mind Your fragment becomes a finished answer"
   }
 ]
