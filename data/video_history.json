@@ -8198,5 +8198,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-10-30T07:02:00.642877+00:00",
+    "status": "pending",
+    "topic": "AI and Omics Converge to Decode the Gene Regulatory Logic of the Brain",
+    "title": "AI and Omics Converge to Decode the Gene Regulatory Logic of the Brain",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "f1dad77819ae9e3c80e133878176c84c5ef3160099c61e6b1bc923e039e0ffe4",
+      "b5e904678496f057ce60faf9a06a3c4ca122e98ce3021d470a2102941202524d",
+      "a145a1233e778e33e193b06db160490898615a899c18b65da978c16d2dd462a4",
+      "2979c5316af8eb5c7bd76d1a3ed173550da2967bcfd248d5f0ed24b5f92ed7e3",
+      "0ee655d98f4dde3058bdd182f9e7fdc518d047b4c8491aa32e0690cea0e3060e",
+      "5be4edde49f504d41606fbac346bdea2d1e35eee1098599e90e3dd16fe92c854",
+      "9178f4ae5ef150744c0e7ed3954e3b80ced0310c3e420e0585448f3d639d271a",
+      "34d5b6099f3c0e07af886cc7167782ecb616fc6b1754d6b3222020cfd609c820"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "counterintuitive",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 97
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 97
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 92
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-2",
+      "topic": "AI and Omics Converge to Decode the Gene Regulatory Logic of the Brain",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOUlREcFdCY3hUdzJyN0hDUndMLUpzbnZ1eTJQN09DX0RFd1VYa2p2R3lLVVIxNWtHc0dVTzR5d2ota3M2LWNKa1pxZllNekhEUm0yRnVHVXBXX1JwZlFkeUJWQ1pSS3BMbzdFR0NZQ1J2R20wc1hIcEJtTkdHZnpVUXp1eFNMYzRhejNhbGRtaEs0aWsxUTUwZHlBaw?oc=5",
+      "published_at": "2026-10-30T05:26:15+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-10-30T06:59:14.774383+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "e0a65683eaab2c82726cb865c241cabe0aea4b01d9259f42638051fc0973878a",
+    "body": "Brain DNA isn’t random AI layers omics data together Tiny switch controls neuron activity Just a two‑letter genetic code Code predicts memory in mice Scientists name it regulatory grammar AI links DNA to brain signals Genes follow syntax, not chaos",
+    "text": "AI and Omics Converge to Decode the Gene Regulatory Logic of the Brain Brain DNA isn’t random AI layers omics data together Tiny switch controls neuron activity Just a two‑letter genetic code Code predicts memory in mice Scientists name it regulatory grammar AI links DNA to brain signals Genes follow syntax, not chaos"
   }
 ]
