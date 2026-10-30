@@ -8298,5 +8298,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-10-30T21:25:24.560481+00:00",
+    "status": "pending",
+    "topic": "What AI chatbots are saying about the midterms",
+    "title": "What AI chatbots are saying about the midterms",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "3e771c877e4bde442cb41686ab9fd151a73af863e26c8d2b00d913bd7d02170a",
+      "627d60f04194ad0948ce11d8fdb1d48fe4cebc9cdd87b1630e1c18d5b1ac2a18",
+      "7d6b9057ece1580f01f1bb1fb6e2896f0234800ecbbf896ee97e443c681aa341",
+      "4a3091aab9b2e37591d46989a9dcaf50667ac63f21a29b37ef0bae0b7f7ceb34",
+      "9aba25d118642bee8d472739b8a5d6137e61560a67a9639e1ad9d0b73078ce90",
+      "da220b9e57b8e159c8c6267fd7e3358d51755cbe75bf53c6d0c8d23207dfe75c",
+      "4072512969f2ba155fb948e3128775546ef651e3a5f2e5d7254511a1fbcd5adf",
+      "bba1fac78da6e3c0fee88fcb8e11b2d5d9cfd5d486ca30d1035bd4399722d728"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "specific_question",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 73
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 73
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 68
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "What AI chatbots are saying about the midterms",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQV1R0Unh2cEV2Wl9DY01tSktfamZIWGhlS0tvTF9QWWxhR19id0h6Qlg5dGhIRnFZR0hJYm96YlB2cXRtSUpNOTU1YjZTMzVCVlJjcG9NQ1Q3dWlaTVpmSWI5MFJ2c2FQLUc5a3lGQVRMdC1XUHBsekZzNDcyYXZJQ0Jwak5WZw?oc=5",
+      "published_at": "2026-10-30T18:16:36+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-10-30T21:22:09.689798+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "DARK_PSYCHOLOGY",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "9c1890ddff1fb411a343f1939e85dd473b40468120a1d3d93debc2b4080d070f",
+    "body": "Chatbot claims midterm results Exact seat numbers appear No real poll data used Just matching past news patterns People trust confident predictions Our brain loves authority cues AI works on language probabilities Forecast isn’t genuine insight",
+    "text": "What AI chatbots are saying about the midterms Chatbot claims midterm results Exact seat numbers appear No real poll data used Just matching past news patterns People trust confident predictions Our brain loves authority cues AI works on language probabilities Forecast isn’t genuine insight"
   }
 ]
