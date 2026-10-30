@@ -8101,7 +8101,7 @@
   },
   {
     "created_at": "2026-10-30T01:27:01.799199+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "OpenAI updates AI behavior rules with focus on human intent",
     "title": "OpenAI updates AI behavior rules with focus on human intent",
     "video_path": "output/mr_nextep_short.mp4",
@@ -8183,6 +8183,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "5eab0fd34807d05d7447bd3939b9da0cf7fe97958215375a4cb571603944ea83",
     "body": "AI answers before you finish typing Full response appears instantly Even vague prompts get detailed replies OpenAI changed its intent guidelines Model now predicts your hidden goal It infers purpose beyond literal words Feels like the AI reads your mind Your fragment becomes a finished answer",
-    "text": "OpenAI updates AI behavior rules with focus on human intent AI answers before you finish typing Full response appears instantly Even vague prompts get detailed replies OpenAI changed its intent guidelines Model now predicts your hidden goal It infers purpose beyond literal words Feels like the AI reads your mind Your fragment becomes a finished answer"
+    "text": "OpenAI updates AI behavior rules with focus on human intent AI answers before you finish typing Full response appears instantly Even vague prompts get detailed replies OpenAI changed its intent guidelines Model now predicts your hidden goal It infers purpose beyond literal words Feels like the AI reads your mind Your fragment becomes a finished answer",
+    "youtube_video_id": "R5QkkXMCxcc",
+    "url": "https://youtu.be/R5QkkXMCxcc",
+    "thumbnail": "uploaded",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/1122980080905302/videos?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      }
+    }
   }
 ]
