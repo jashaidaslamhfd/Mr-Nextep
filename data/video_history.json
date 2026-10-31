@@ -8398,5 +8398,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-10-31T01:10:33.724965+00:00",
+    "status": "pending",
+    "topic": "Sam Altman Suggests Running AI Locally Is a Waste of Memory",
+    "title": "Sam Altman Suggests Running AI Locally Is a Waste of Memory",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "c93a25f4477c4a5f5977f531ec49ea7411770f7c4d67887126d76816a89f852b",
+      "1aaded20d03e3f5eb1e441d41fb9adfc620b970849e7d54320eb8ebf1b6984f3",
+      "5cf70fab79f6778c52e75ca6d0dfa5fd6e94ec7092d318e679d4fc7140583b23",
+      "541ff56b4b8ccfe17b5ebe1453560779766bc88329769e761f7260818de5155d",
+      "2d12ff847b9bbed526c6a768a7e7791598f6f5c3e6d3e47e93cedf6625384559",
+      "4f04602f97e63c91a81c16f51a263ef41c5edcac1577eb4488c34dd264be9d13",
+      "85c223ca3b94c159b13d581ca2bd9037ddba2f566ea2837d2eda383e73ebbb13",
+      "eab941db77f4b05c2bf5f45a2ed7a557b2a02faaa5c605518567194ec5d117f4"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "counterintuitive",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 97
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 97
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 92
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-2",
+      "topic": "Sam Altman Suggests Running AI Locally Is a Waste of Memory",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNbW15bjNXeUVmNk1FLUtFLWhiX01CRGFPX05JVGxSbmJUazFJT3Zuak9rVzh5UnAyRVhtSkdaZGNZMXYtSFdibVNXQ09jbExtSU9ORjhnRy1lRktXZ3ptQVpFbkxnZTFqYjJQMFoxN2U1Zno1eHAtNGJNdkVrQXlUWVd2RkltZ1VkTjhXTXpmVQ?oc=5",
+      "published_at": "2026-10-30T17:33:37+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-10-31T01:07:53.193951+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "DARK_PSYCHOLOGY",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "791c2a6a2b1b2ed6ff3d25f364aeb5f69ae386c0b4625877963f982cb4326e42",
+    "body": "Local AI? Not saving memory Altman calls it wasteful Huge models gobble RAM quickly Cloud servers outrun personal PCs Data streams instantly from the cloud Local runs feel slow, frustrating API calls keep your PC light Memory stays free, as promised",
+    "text": "Sam Altman Suggests Running AI Locally Is a Waste of Memory Local AI? Not saving memory Altman calls it wasteful Huge models gobble RAM quickly Cloud servers outrun personal PCs Data streams instantly from the cloud Local runs feel slow, frustrating API calls keep your PC light Memory stays free, as promised"
   }
 ]

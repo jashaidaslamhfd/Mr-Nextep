@@ -1,53 +1,5 @@
 [
   {
-    "hash": "43a6a29b9d948078770b2cec86fce3383540e71237c0a9faef0073da59f5400c",
-    "source_url": "https://videos.pexels.com/video-files/35611746/15091652_360_640_30fps.mp4",
-    "title": "The Global Problem of Insufficient Sleep and Its Serious Public Health Implications",
-    "created_at": "2026-10-04T19:58:32.123066+00:00"
-  },
-  {
-    "hash": "765c9faee13950d6b04b46bd9efa07997bf11e6a89c378fcd007ae4ad70d8133",
-    "source_url": "https://videos.pexels.com/video-files/3831853/3831853-hd_720_1366_50fps.mp4",
-    "title": "The Global Problem of Insufficient Sleep and Its Serious Public Health Implications",
-    "created_at": "2026-10-04T19:58:32.123066+00:00"
-  },
-  {
-    "hash": "45592c48e87c1d28b7d52f0bbb7345a2c1580ca6e88b8f7681c04eb30d37d740",
-    "source_url": "https://videos.pexels.com/video-files/7924487/7924487-hd_720_1280_24fps.mp4",
-    "title": "The Global Problem of Insufficient Sleep and Its Serious Public Health Implications",
-    "created_at": "2026-10-04T19:58:32.123066+00:00"
-  },
-  {
-    "hash": "b3dfbdb15a9e76bc1542fb409c2fcdc585935a3a74985631784e15c315333a90",
-    "source_url": "https://videos.pexels.com/video-files/7710827/7710827-sd_338_640_25fps.mp4",
-    "title": "The Global Problem of Insufficient Sleep and Its Serious Public Health Implications",
-    "created_at": "2026-10-04T19:58:32.123066+00:00"
-  },
-  {
-    "hash": "3ea9c63b1e907f07ca074cc36f9a97c8f00be2457c235cc30c3afd26d4a19e75",
-    "source_url": "https://videos.pexels.com/video-files/7610984/7610984-sd_540_960_30fps.mp4",
-    "title": "The Role of Slow Wave Sleep in Memory Processing",
-    "created_at": "2026-10-05T00:20:10.556225+00:00"
-  },
-  {
-    "hash": "3995813df3b3bdc8d658f94440be4553fea9a16d8671af3bc6c3fc10315ef260",
-    "source_url": "https://videos.pexels.com/video-files/9035661/9035661-hd_1080_1920_24fps.mp4",
-    "title": "The Role of Slow Wave Sleep in Memory Processing",
-    "created_at": "2026-10-05T00:20:10.556225+00:00"
-  },
-  {
-    "hash": "45ba491db9833f65f85bbff0d70d6ec62f185c7d660cea2f22f5d3089a65ac15",
-    "source_url": "https://videos.pexels.com/video-files/3825385/3825385-sd_338_640_25fps.mp4",
-    "title": "The Role of Slow Wave Sleep in Memory Processing",
-    "created_at": "2026-10-05T00:20:10.556225+00:00"
-  },
-  {
-    "hash": "d2b782d96e762dcc47f2381378367fcac9d756d4d99a402958b37a9262f3a10f",
-    "source_url": "https://videos.pexels.com/video-files/35157119/14893509_360_640_30fps.mp4",
-    "title": "The Role of Slow Wave Sleep in Memory Processing",
-    "created_at": "2026-10-05T00:20:10.556225+00:00"
-  },
-  {
     "hash": "169747aa80b2b84a2fa1ccaf24d9bb33dd28865e030c7a241f038f8aa3f75692",
     "source_url": "https://cdn.pixabay.com/video/2023/06/04/165772-833149608_medium.mp4",
     "title": "The Role of Slow Wave Sleep in Memory Processing",
@@ -2998,5 +2950,53 @@
     "source_url": "https://videos.pexels.com/video-files/6980602/6980602-sd_226_426_30fps.mp4",
     "title": "What AI chatbots are saying about the midterms",
     "created_at": "2026-10-30T21:25:24.560481+00:00"
+  },
+  {
+    "hash": "c93a25f4477c4a5f5977f531ec49ea7411770f7c4d67887126d76816a89f852b",
+    "source_url": "https://videos.pexels.com/video-files/5981188/5981188-hd_1080_2048_25fps.mp4",
+    "title": "Sam Altman Suggests Running AI Locally Is a Waste of Memory",
+    "created_at": "2026-10-31T01:10:33.724965+00:00"
+  },
+  {
+    "hash": "1aaded20d03e3f5eb1e441d41fb9adfc620b970849e7d54320eb8ebf1b6984f3",
+    "source_url": "https://cdn.pixabay.com/video/2020/09/19/50295-460401313_medium.mp4",
+    "title": "Sam Altman Suggests Running AI Locally Is a Waste of Memory",
+    "created_at": "2026-10-31T01:10:33.724965+00:00"
+  },
+  {
+    "hash": "5cf70fab79f6778c52e75ca6d0dfa5fd6e94ec7092d318e679d4fc7140583b23",
+    "source_url": "https://cdn.pixabay.com/video/2024/10/27/238539_medium.mp4",
+    "title": "Sam Altman Suggests Running AI Locally Is a Waste of Memory",
+    "created_at": "2026-10-31T01:10:33.724965+00:00"
+  },
+  {
+    "hash": "541ff56b4b8ccfe17b5ebe1453560779766bc88329769e761f7260818de5155d",
+    "source_url": "https://videos.pexels.com/video-files/29834229/12812835_360_640_24fps.mp4",
+    "title": "Sam Altman Suggests Running AI Locally Is a Waste of Memory",
+    "created_at": "2026-10-31T01:10:33.724965+00:00"
+  },
+  {
+    "hash": "2d12ff847b9bbed526c6a768a7e7791598f6f5c3e6d3e47e93cedf6625384559",
+    "source_url": "https://videos.pexels.com/video-files/3946215/3946215-sd_338_640_25fps.mp4",
+    "title": "Sam Altman Suggests Running AI Locally Is a Waste of Memory",
+    "created_at": "2026-10-31T01:10:33.724965+00:00"
+  },
+  {
+    "hash": "4f04602f97e63c91a81c16f51a263ef41c5edcac1577eb4488c34dd264be9d13",
+    "source_url": "https://videos.pexels.com/video-files/38902001/16542409_360_640_25fps.mp4",
+    "title": "Sam Altman Suggests Running AI Locally Is a Waste of Memory",
+    "created_at": "2026-10-31T01:10:33.724965+00:00"
+  },
+  {
+    "hash": "85c223ca3b94c159b13d581ca2bd9037ddba2f566ea2837d2eda383e73ebbb13",
+    "source_url": "https://cdn.pixabay.com/video/2016/05/12/3176-166338965_medium.mp4",
+    "title": "Sam Altman Suggests Running AI Locally Is a Waste of Memory",
+    "created_at": "2026-10-31T01:10:33.724965+00:00"
+  },
+  {
+    "hash": "eab941db77f4b05c2bf5f45a2ed7a557b2a02faaa5c605518567194ec5d117f4",
+    "source_url": "https://videos.pexels.com/video-files/7605074/7605074-hd_1080_2048_25fps.mp4",
+    "title": "Sam Altman Suggests Running AI Locally Is a Waste of Memory",
+    "created_at": "2026-10-31T01:10:33.724965+00:00"
   }
 ]
