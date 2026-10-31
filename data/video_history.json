@@ -8601,7 +8601,7 @@
   },
   {
     "created_at": "2026-10-31T20:26:25.980386+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "OpenAI CEO Sam Altman meets Samsung executives to discuss memory chip supply, AI infrastructure",
     "title": "OpenAI CEO Sam Altman meets Samsung executives to discuss memory chip supply, AI infrastructure",
     "video_path": "output/mr_nextep_short.mp4",
@@ -8683,6 +8683,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "d643d71bf35249f01a6f6d6f12af68a034a0aa2c6ab7f509854ee574fa611edd",
     "body": "A chip that could steer AI Altman enters Samsung's decision room Engineers reveal shimmering memory module AI needs lightning‑fast recall speed Slow memory makes chat lag Bandwidth controls data flow volume Deal unlocks next‑gen AI upgrades Altman’s chase explains the chip hype",
-    "text": "OpenAI CEO Sam Altman meets Samsung executives to discuss memory chip supply, AI infrastructure A chip that could steer AI Altman enters Samsung's decision room Engineers reveal shimmering memory module AI needs lightning‑fast recall speed Slow memory makes chat lag Bandwidth controls data flow volume Deal unlocks next‑gen AI upgrades Altman’s chase explains the chip hype"
+    "text": "OpenAI CEO Sam Altman meets Samsung executives to discuss memory chip supply, AI infrastructure A chip that could steer AI Altman enters Samsung's decision room Engineers reveal shimmering memory module AI needs lightning‑fast recall speed Slow memory makes chat lag Bandwidth controls data flow volume Deal unlocks next‑gen AI upgrades Altman’s chase explains the chip hype",
+    "youtube_video_id": "ToYEljyhBYA",
+    "url": "https://youtu.be/ToYEljyhBYA",
+    "thumbnail": "uploaded",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/1122980080905302/videos?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      }
+    }
   }
 ]
