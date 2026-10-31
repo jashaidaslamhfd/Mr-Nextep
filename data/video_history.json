@@ -8501,7 +8501,7 @@
   },
   {
     "created_at": "2026-10-31T06:55:39.709913+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Russian Invaders Use AI To Make Deepfake Videos Of Triumphs In Ukraine",
     "title": "Russian Invaders Use AI To Make Deepfake Videos Of Triumphs In Ukraine",
     "video_path": "output/mr_nextep_short.mp4",
@@ -8583,6 +8583,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "6461db908cee14bf65491e809d63f990fb370c6f9c3b9b5708e820b6a613ed9a",
     "body": "Fake tank rolls through Kyiv streets It’s not actual battlefield footage AI splices old videos into triumphs Our brain loves completed narratives Social media spreads the illusion instantly Deepfake aligns faces and lighting AI predicts visual credibility cues You just saw a fabricated win",
-    "text": "Russian Invaders Use AI To Make Deepfake Videos Of Triumphs In Ukraine Fake tank rolls through Kyiv streets It’s not actual battlefield footage AI splices old videos into triumphs Our brain loves completed narratives Social media spreads the illusion instantly Deepfake aligns faces and lighting AI predicts visual credibility cues You just saw a fabricated win"
+    "text": "Russian Invaders Use AI To Make Deepfake Videos Of Triumphs In Ukraine Fake tank rolls through Kyiv streets It’s not actual battlefield footage AI splices old videos into triumphs Our brain loves completed narratives Social media spreads the illusion instantly Deepfake aligns faces and lighting AI predicts visual credibility cues You just saw a fabricated win",
+    "youtube_video_id": "V-rvAaja5o4",
+    "url": "https://youtu.be/V-rvAaja5o4",
+    "thumbnail": "uploaded",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/1122980080905302/videos?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      }
+    }
   }
 ]
