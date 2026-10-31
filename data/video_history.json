@@ -8498,5 +8498,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-10-31T06:55:39.709913+00:00",
+    "status": "pending",
+    "topic": "Russian Invaders Use AI To Make Deepfake Videos Of Triumphs In Ukraine",
+    "title": "Russian Invaders Use AI To Make Deepfake Videos Of Triumphs In Ukraine",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "fe0df90e212b9ef92ff93d23def2714243becb1adc609e19fa5998c285dd4567",
+      "2a66cb99a0c6c462afcbd16a8a0fea1036464b774c17dbf2b937c04d3360daa6",
+      "2a35825fd82f86768528c4b77a7e1787b19e509467fd0e680f096adb603cd73c",
+      "c5f0990831269e9ecb5833d164463e4d5ce7d13fc930523bed6f11cc7a9170ba",
+      "a8b7704c481deaed07afc07ddbba91687f0ea7da638c460d8a5d0af51724c4d0",
+      "0dcd1931cbcd0e2204a7620aebb25f0cc88bce462586f8a5a4cab23c13a993a4",
+      "85221b9e8ca1b4e54ed40472c69ee986f7010b74582e64fdff0003a7fe3840e1",
+      "9f9c57b40cd874fdaf616893b97f9e294e87818e58b6f2d8288736e9a69efd84"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "concrete_observation",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 98
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-2",
+      "topic": "Russian Invaders Use AI To Make Deepfake Videos Of Triumphs In Ukraine",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPZ19UYXZvQm5YWUZMV3pmbEVzWXptX09ON2RNWHc3QjBUVHVNdi1JSy1QQjhIcTZBdEIzeEdhSlZMQmQ0WXB1Y1plY1A1MUxrQ3VtVlVBMnZuaUJVekZHaDlWbVJLLUFOSUk2eFZVTlRmU1hBOVZ4eVRyWm9qN0xGVW5ieWVuRkY5TDFzZzRZQ3BoMWpsYXZMcUFJQnE0YmIxdG9FRnAzTXo0Q2JTaUlCQ0pfdWQ3MmMtV2lYTjBJcUthbnVTaVpz?oc=5",
+      "published_at": "2026-10-31T01:08:49+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-10-31T06:53:15.256158+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "DARK_PSYCHOLOGY",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "6461db908cee14bf65491e809d63f990fb370c6f9c3b9b5708e820b6a613ed9a",
+    "body": "Fake tank rolls through Kyiv streets It’s not actual battlefield footage AI splices old videos into triumphs Our brain loves completed narratives Social media spreads the illusion instantly Deepfake aligns faces and lighting AI predicts visual credibility cues You just saw a fabricated win",
+    "text": "Russian Invaders Use AI To Make Deepfake Videos Of Triumphs In Ukraine Fake tank rolls through Kyiv streets It’s not actual battlefield footage AI splices old videos into triumphs Our brain loves completed narratives Social media spreads the illusion instantly Deepfake aligns faces and lighting AI predicts visual credibility cues You just saw a fabricated win"
   }
 ]

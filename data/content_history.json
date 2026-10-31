@@ -2815,5 +2815,21 @@
     "title": "Sam Altman Suggests Running AI Locally Is a Waste of Memory",
     "body": "Local AI? Not saving memory Altman calls it wasteful Huge models gobble RAM quickly Cloud servers outrun personal PCs Data streams instantly from the cloud Local runs feel slow, frustrating API calls keep your PC light Memory stays free, as promised",
     "text": "Sam Altman Suggests Running AI Locally Is a Waste of Memory Local AI? Not saving memory Altman calls it wasteful Huge models gobble RAM quickly Cloud servers outrun personal PCs Data streams instantly from the cloud Local runs feel slow, frustrating API calls keep your PC light Memory stays free, as promised"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "6461db908cee14bf65491e809d63f990fb370c6f9c3b9b5708e820b6a613ed9a",
+    "title": "Russian Invaders Use AI To Make Deepfake Videos Of Triumphs In Ukraine",
+    "body": "Fake tank rolls through Kyiv streets It’s not actual battlefield footage AI splices old videos into triumphs Our brain loves completed narratives Social media spreads the illusion instantly Deepfake aligns faces and lighting AI predicts visual credibility cues You just saw a fabricated win",
+    "text": "Russian Invaders Use AI To Make Deepfake Videos Of Triumphs In Ukraine Fake tank rolls through Kyiv streets It’s not actual battlefield footage AI splices old videos into triumphs Our brain loves completed narratives Social media spreads the illusion instantly Deepfake aligns faces and lighting AI predicts visual credibility cues You just saw a fabricated win"
   }
 ]
