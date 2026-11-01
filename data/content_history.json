@@ -2863,5 +2863,21 @@
     "title": "Anthropic's Claude AI blocks video game cloning and reverse",
     "body": "Claude stops game copying instantly Most AIs copy any prompt they get Claude treats assets like copyrighted code It flags patterns matching known titles Similarity spikes trigger output refusal Filter built from legal research You get fresh content, no clones Claude protects creators while inspiring",
     "text": "Anthropic's Claude AI blocks video game cloning and reverse Claude stops game copying instantly Most AIs copy any prompt they get Claude treats assets like copyrighted code It flags patterns matching known titles Similarity spikes trigger output refusal Filter built from legal research You get fresh content, no clones Claude protects creators while inspiring"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "b7c59927eb25ef33bd2dd2ab9389de161674a4672c63f93dda56f7063d27d101",
+    "title": "Antropic, which developed the artificial intelligence (AI) service \"Claude,\" is seeking to list on t..",
+    "body": "Claude sounds too confident, right? It predicts next words statistically. Confidence isn’t about actual knowledge. Missing info triggers creative guesses. Hallucinations feel like real memories. Our brains favor smooth speech. Claude exploits that human shortcut. That’s why we trust AI.",
+    "text": "Antropic, which developed the artificial intelligence (AI) service \"Claude,\" is seeking to list on t.. Claude sounds too confident, right? It predicts next words statistically. Confidence isn’t about actual knowledge. Missing info triggers creative guesses. Hallucinations feel like real memories. Our brains favor smooth speech. Claude exploits that human shortcut. That’s why we trust AI."
   }
 ]
