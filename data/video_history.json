@@ -8898,5 +8898,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-01T20:59:37.363913+00:00",
+    "status": "pending",
+    "topic": "DeepSeek unveils AI ‘super agent’ in coding race with OpenAI, Anthropic",
+    "title": "DeepSeek unveils AI ‘super agent’ in coding race with OpenAI, Anthropic",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "6c046a64454d75c8d11e7aa5ba177a6c27569665234bb5ee644ebcfee557d5dc",
+      "502a4d1af3a6580a2a0069c183dd8847fb259833b462dbce6521458bd1c57d6b",
+      "84a6d248c5b8329ca98a31137e11611c5973362ffcc215fd21ffe52019db26aa",
+      "0020d43d70cdd8e334c4026319ba73d7ed3de637e2e179d923544bb53b98b096",
+      "4f24db8221e6a50f1e725b837739cf08ba08d55db54a0c4d886a5040e8d46bc2",
+      "26dbdf52f5460d969017484582a37db91890b7cd5d9f3b0883703352031beebd",
+      "8698ea06a905550d5bb229d78a61211d7cd2abd8f6e0973150464f1b5abd3fd4",
+      "1676bb58684ed962599e1f281fd13f552a0715a371b2da40c9049d980148b2c2"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "concrete_observation",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 98
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "DeepSeek unveils AI ‘super agent’ in coding race with OpenAI, Anthropic",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPbFU5NlZJMVBaQ0txUnotazkwaWdmQzJwb3JvWUY4dTFHd2VERGZtdVJiMmxaTG9vR0pjZjFLOXZoZVRfRlFFZzM3dV81VVM3RDZLckQxZ01nc2ZFWGVvQlVoalk3X21iWDdBa29WcWNvblY1YVpGc3hPbDJCVVA3a2d2YVJDbFlZRUdkZ0NXTHplVTlEUGJ6RVBXTXZ1bWQ5eVRNNtIBpAFBVV95cUxQY3o3SXYteGFPRF9kQ3psaFZaTDJHMzhibnhoVE5LdjhGVUxkN2VBNnVuNHd2XzhodEpYLTRyMzhRcXNpWjY4SjBhMmdzek1oN0ZGRnh6RU5aWm12QUxYdDVvaktJUUU2UE1QVVdXUzhvdHFPZ0FrOHpOODJNQUlHYm5DSlI3aW8wS0dpMHFDWTNfNGpQeS0wYnU1TkIxbmtxVGRfSw?oc=5",
+      "published_at": "2026-11-01T10:00:26+00:00",
+      "trend_score": 13,
+      "fetched_at": "2026-11-01T20:57:09.556404+00:00",
+      "growth_score": 43.35,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 13/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "c1cb404c5d60452e0db9f6f95cf33c5c74ecdd767bc66e0090451108ff757aaf",
+    "body": "IDE auto‑filled an entire function DeepSeek touts instant coding super‑agent OpenAI and Anthropic racing alongside AI code looks perfect, bugs linger We trust confidence, miss hidden errors Model predicts tokens, not true understanding Fast writing, but edge cases slip IDE shortcut is prediction, not magic",
+    "text": "DeepSeek unveils AI ‘super agent’ in coding race with OpenAI, Anthropic IDE auto‑filled an entire function DeepSeek touts instant coding super‑agent OpenAI and Anthropic racing alongside AI code looks perfect, bugs linger We trust confidence, miss hidden errors Model predicts tokens, not true understanding Fast writing, but edge cases slip IDE shortcut is prediction, not magic"
   }
 ]

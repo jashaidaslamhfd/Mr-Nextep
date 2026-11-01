@@ -2879,5 +2879,21 @@
     "title": "Antropic, which developed the artificial intelligence (AI) service \"Claude,\" is seeking to list on t..",
     "body": "Claude sounds too confident, right? It predicts next words statistically. Confidence isn’t about actual knowledge. Missing info triggers creative guesses. Hallucinations feel like real memories. Our brains favor smooth speech. Claude exploits that human shortcut. That’s why we trust AI.",
     "text": "Antropic, which developed the artificial intelligence (AI) service \"Claude,\" is seeking to list on t.. Claude sounds too confident, right? It predicts next words statistically. Confidence isn’t about actual knowledge. Missing info triggers creative guesses. Hallucinations feel like real memories. Our brains favor smooth speech. Claude exploits that human shortcut. That’s why we trust AI."
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "c1cb404c5d60452e0db9f6f95cf33c5c74ecdd767bc66e0090451108ff757aaf",
+    "title": "DeepSeek unveils AI ‘super agent’ in coding race with OpenAI, Anthropic",
+    "body": "IDE auto‑filled an entire function DeepSeek touts instant coding super‑agent OpenAI and Anthropic racing alongside AI code looks perfect, bugs linger We trust confidence, miss hidden errors Model predicts tokens, not true understanding Fast writing, but edge cases slip IDE shortcut is prediction, not magic",
+    "text": "DeepSeek unveils AI ‘super agent’ in coding race with OpenAI, Anthropic IDE auto‑filled an entire function DeepSeek touts instant coding super‑agent OpenAI and Anthropic racing alongside AI code looks perfect, bugs linger We trust confidence, miss hidden errors Model predicts tokens, not true understanding Fast writing, but edge cases slip IDE shortcut is prediction, not magic"
   }
 ]
