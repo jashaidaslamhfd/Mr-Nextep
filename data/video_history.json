@@ -8698,5 +8698,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-01T00:34:12.916179+00:00",
+    "status": "pending",
+    "topic": "Anthropic's Claude AI blocks video game cloning and reverse",
+    "title": "Anthropic's Claude AI blocks video game cloning and reverse",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "33b53ac4f1f9a165585b59d31c8888c9bf2aa93030cca65f364c0a73ca75e5a9",
+      "287f44826dd6941c8f2efcb221791ca30f15bdc5f226acff2c91c8f2a0b6aee2",
+      "00f4dc36468692bfa20c98185b8d40f411318bb63096b0abf8147600d6c95475",
+      "d2053ecc319313074cfdc4cc7c1af31215a2b9a2ff69d88f9fa9be300ded4375",
+      "0f4669fc417705721abbb45ab70b20c0dd3fc3a1aa88f23a416875093538c633",
+      "70afe640e1b9f441a0e9bcf507e082700ab8d2b190d1c0f89011cfc6c474b905",
+      "57057d3d3b6be90c9dd089cfb111c3c42d89bfb9f923fa48584c90f519ea111c",
+      "02652c7ebbba2d1d74df3588b2d3e60816d102fccba2dab11c970cc20dd67996"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "counterintuitive",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 97
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 97
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 92
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-2",
+      "topic": "Anthropic's Claude AI blocks video game cloning and reverse",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMiyAJBVV95cUxQQVBYaTFvbkpGT0FNbXhiUmMwdHR3SlRQYVdwbWFRalZ0SEtSd0pSQ2FOOFhsazRtY1VCX19heHpvTzEwSkJGNFQ1b1lBOXJmU1M2NGdvRnZyMEVNaW9YbnpBS1pSMC1ET3JnR0s1WFE0WmluRldpemhYUUM0elI2YzFfQWFQWDZ5UlFWQUplbVBId1JDNGtCQUoyMHROcVlSbXZHMUxremtlaFd2cy1qRmc0eVJfYmM0Rm95SHdScVVUS2NBMW1vMFRsNUZsUk5ILXZ4dWdsVVFIRjZhU0ZxaGNyRkFtZnFUS2FpbUpDQ25ydWtoZkF6SHdiT252SDhTOWdGeERvNTU5SkxWRlFGOWluZGM3SEVGVW14ZHNtWTVmR2VkUlh1UFFZcjM3akFuRENWT3VhQTJ5clNnQ1JyNVpibU1oNlRm?oc=5",
+      "published_at": "2026-10-31T12:20:00+00:00",
+      "trend_score": 13,
+      "fetched_at": "2026-11-01T00:31:34.726380+00:00",
+      "growth_score": 43.35,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 13/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "14dc864fe29410cd9e3c573dba735a9254020f5dd0c290a024de1dd6eef11fc5",
+    "body": "Claude stops game copying instantly Most AIs copy any prompt they get Claude treats assets like copyrighted code It flags patterns matching known titles Similarity spikes trigger output refusal Filter built from legal research You get fresh content, no clones Claude protects creators while inspiring",
+    "text": "Anthropic's Claude AI blocks video game cloning and reverse Claude stops game copying instantly Most AIs copy any prompt they get Claude treats assets like copyrighted code It flags patterns matching known titles Similarity spikes trigger output refusal Filter built from legal research You get fresh content, no clones Claude protects creators while inspiring"
   }
 ]
