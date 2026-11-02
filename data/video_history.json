@@ -9098,5 +9098,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-02T07:38:33.907649+00:00",
+    "status": "pending",
+    "topic": "The Brain Mechanism of Intelligence",
+    "title": "The Brain Mechanism of Intelligence",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "f75ee8143084378fc7e1ea133ad3e052334463a6bd5ee492a7eb8b5824e7e2f6",
+      "0836e57fff8bc5be388f015557bf607562eb8b8a74a48f98f105c8a7c019863c",
+      "90d79b331764951b158768e21c89d6fecf547c4b7536597783a95bd57907382d",
+      "3e1425f0777e8dbbfa39ba9e525f4f0fc036faf5152c76ae24e37dd563c34744",
+      "84ac462128b23c7dc29a028a4911c14ab7237bde1bbfdd359457b7b1cbd5b87f",
+      "32f35d2bfefc6c69ceb203d5b78ff016750566f642b921dc3d5e22efd99747a6",
+      "f0489fbdcbda987710e08be4eed0a61821c9a03da45a64d655f914458829fa1a",
+      "ecf7bf96b71f82bc0dc5a818f35d2a8cd84a94fd74e2db9a2df356bdab276d5b"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "2 similar past video(s) retained 48%, at or above the 30% floor",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": 0.47995,
+      "neighbours_considered": 2
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "counterintuitive",
+      "cluster": "brain_behavior",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 73
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 73
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 68
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-28",
+      "topic": "The Brain Mechanism of Intelligence",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE1OejNqWjUzV1dIYUJHNldBdjdSdzVwcm1idDV5MVRjYVBVZWlGUC1Yc0JYUS11N0RRZGk0eEdJWG9kcC1neGdlY1ZGS0p2ZXI3VXRQdC1EMlpWSmdRczZIZFVLZlZqbHk2QTlKZWZzNjJPOFQwM2N1U3dYM0I?oc=5",
+      "published_at": "2026-11-02T04:24:00+00:00",
+      "trend_score": 5,
+      "fetched_at": "2026-11-02T07:35:22.476725+00:00",
+      "growth_score": 46.24,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 5/100.",
+        "Similar measured videos retained 50%; channel median 38%.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "81c415a5f4c4b26d95184ef6d5f70b953dc27730ceca1fc973a43a53cef2dc27",
+    "body": "Bigger brains? Not always smarter Wiring beats raw volume Same size, different thinking MRI ties pathways to IQ Efficiency predicts problem solving Brain prunes to save energy Smartness from streamlined networks Size less, wiring rules",
+    "text": "The Brain Mechanism of Intelligence Bigger brains? Not always smarter Wiring beats raw volume Same size, different thinking MRI ties pathways to IQ Efficiency predicts problem solving Brain prunes to save energy Smartness from streamlined networks Size less, wiring rules"
   }
 ]

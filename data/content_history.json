@@ -2911,5 +2911,21 @@
     "title": "Scientists give AI chatbots a new way to read, with surprising results",
     "body": "Phone finishes your sentence AI watches where you look Predicts the word you see Neural net learns from gaze data Bots answer before you speak Gaze ties to word odds Bot appears to read thoughts Phone finishes because it watches",
     "text": "Scientists give AI chatbots a new way to read, with surprising results Phone finishes your sentence AI watches where you look Predicts the word you see Neural net learns from gaze data Bots answer before you speak Gaze ties to word odds Bot appears to read thoughts Phone finishes because it watches"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "2 similar past video(s) retained 48%, at or above the 30% floor",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": 0.47995,
+      "neighbours_considered": 2
+    },
+    "fingerprint": "81c415a5f4c4b26d95184ef6d5f70b953dc27730ceca1fc973a43a53cef2dc27",
+    "title": "The Brain Mechanism of Intelligence",
+    "body": "Bigger brains? Not always smarter Wiring beats raw volume Same size, different thinking MRI ties pathways to IQ Efficiency predicts problem solving Brain prunes to save energy Smartness from streamlined networks Size less, wiring rules",
+    "text": "The Brain Mechanism of Intelligence Bigger brains? Not always smarter Wiring beats raw volume Same size, different thinking MRI ties pathways to IQ Efficiency predicts problem solving Brain prunes to save energy Smartness from streamlined networks Size less, wiring rules"
   }
 ]
