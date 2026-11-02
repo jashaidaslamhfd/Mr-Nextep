@@ -2895,5 +2895,21 @@
     "title": "DeepSeek unveils AI ‘super agent’ in coding race with OpenAI, Anthropic",
     "body": "IDE auto‑filled an entire function DeepSeek touts instant coding super‑agent OpenAI and Anthropic racing alongside AI code looks perfect, bugs linger We trust confidence, miss hidden errors Model predicts tokens, not true understanding Fast writing, but edge cases slip IDE shortcut is prediction, not magic",
     "text": "DeepSeek unveils AI ‘super agent’ in coding race with OpenAI, Anthropic IDE auto‑filled an entire function DeepSeek touts instant coding super‑agent OpenAI and Anthropic racing alongside AI code looks perfect, bugs linger We trust confidence, miss hidden errors Model predicts tokens, not true understanding Fast writing, but edge cases slip IDE shortcut is prediction, not magic"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "8a92429fef6fec1cf3b8634dbf79df0659934adaf008e6fff6048fea3c5dafbc",
+    "title": "Scientists give AI chatbots a new way to read, with surprising results",
+    "body": "Phone finishes your sentence AI watches where you look Predicts the word you see Neural net learns from gaze data Bots answer before you speak Gaze ties to word odds Bot appears to read thoughts Phone finishes because it watches",
+    "text": "Scientists give AI chatbots a new way to read, with surprising results Phone finishes your sentence AI watches where you look Predicts the word you see Neural net learns from gaze data Bots answer before you speak Gaze ties to word odds Bot appears to read thoughts Phone finishes because it watches"
   }
 ]
