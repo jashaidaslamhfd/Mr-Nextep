@@ -9198,5 +9198,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-02T23:48:54.424676+00:00",
+    "status": "pending",
+    "topic": "Apple says memory costs and Siri AI will weigh on holiday quarter profit margins",
+    "title": "Apple says memory costs and Siri AI will weigh on holiday quarter profit margins",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "18d43ed6590bc8f8accce9ffe366b810a81da1f55ce31d967ed900b82070ddd1",
+      "c7be5d3280a8018342a9523e967a3585810a5d2b068cad98918f7aaa0eecf039",
+      "78f58dda8429e27d4f7cff95eb158c0bd38ec35a138ee565aa588f3a70e3fcc3",
+      "e5d93dc3226f62627e1a3a159070885cf240a08ee7f1020704f42511dc96d7a1",
+      "616909882daab8f02771ec5c70d603aadbd725b32fdf8c3dc158fee2659be9ee",
+      "dea70c43d144640d9bb79917d1918ec1e533af7f09cd5bba5bbc05de8c6ed316",
+      "82727044f7aac336889b63126f9aaa86d9e85b8cfc4e6b3996e0325544f69bd6",
+      "54bf1d2a42e01e80ba3b5ab2fede58aa36259db50b312ffd3b0809aafb17529e"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "specific_question",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 100
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "Apple says memory costs and Siri AI will weigh on holiday quarter profit margins",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOUDF5V2h4ZFc5MHh4SS1rdkt1VDJqcTZObGF2ZkIyN2t2dGM4TVIwNGx1RVdWeVEwNkhvYXNTdVNRSXNiSWhWLXJZM0tmME94UTlCSjFWRXQ0bXJnZmN1UnhxeEV6TUFnWVFpbjVyODdTQmxDaEx5bEcwRi00d21kSDhyVzQwc0dSQm1WZmhaaHZCbFNEYUlkMVg5WkwtcE1iNk1NNHNmY3RvSFdHVnZjQW9R?oc=5",
+      "published_at": "2026-11-02T23:08:00+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-11-02T23:46:48.291750+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "70fefb629941fd27b18ba3d5e102ca36869da896bba36cf68d840fae2dea2be0",
+    "body": "Siri hurting Apple's profit? New chips need huge memory Memory adds size and cost Siri's AI learns more data Extra gig hurts profit margins AI speed drives sales up Apple hopes revenue beats expense Profit dip now, rise later",
+    "text": "Apple says memory costs and Siri AI will weigh on holiday quarter profit margins Siri hurting Apple's profit? New chips need huge memory Memory adds size and cost Siri's AI learns more data Extra gig hurts profit margins AI speed drives sales up Apple hopes revenue beats expense Profit dip now, rise later"
   }
 ]
