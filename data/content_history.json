@@ -2943,5 +2943,21 @@
     "title": "Apple says memory costs and Siri AI will weigh on holiday quarter profit margins",
     "body": "Siri hurting Apple's profit? New chips need huge memory Memory adds size and cost Siri's AI learns more data Extra gig hurts profit margins AI speed drives sales up Apple hopes revenue beats expense Profit dip now, rise later",
     "text": "Apple says memory costs and Siri AI will weigh on holiday quarter profit margins Siri hurting Apple's profit? New chips need huge memory Memory adds size and cost Siri's AI learns more data Extra gig hurts profit margins AI speed drives sales up Apple hopes revenue beats expense Profit dip now, rise later"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "5e5dd03826b9608b7b5d73646d8046e871daba0f31c635f35b8bd51953b1e450",
+    "title": "Samsung, SK Hynix and Micron expand AI memory production",
+    "body": "GPU hype vs memory truth AI drinks massive data volumes Memory lag freezes processing Chipmakers boost memory capacity New chips store faster DRAM bandwidth becomes data highway AI learns with fewer pauses Memory wins the AI race",
+    "text": "Samsung, SK Hynix and Micron expand AI memory production GPU hype vs memory truth AI drinks massive data volumes Memory lag freezes processing Chipmakers boost memory capacity New chips store faster DRAM bandwidth becomes data highway AI learns with fewer pauses Memory wins the AI race"
   }
 ]

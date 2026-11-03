@@ -9298,5 +9298,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-03T03:11:27.164071+00:00",
+    "status": "pending",
+    "topic": "Samsung, SK Hynix and Micron expand AI memory production",
+    "title": "Samsung, SK Hynix and Micron expand AI memory production",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "b956ec3e71e7f181f602842404d337fc06942bfaa4e2a166f3e984aacf683c5b",
+      "9dd6396fad4d02bcc61f7a33eb093e73d0a36a62b1e9fba05b0a0dae487cfdf1",
+      "6f947b99c77c18e9db14e14d68552eeaa372c45bc5c814d45a2d66151d9ca80d",
+      "adcef526a52a4bbdaa48af82a93ffcb6d27c25305a079664d529574e92a58af5",
+      "98c8a2230002e07bfeed5b8d5156bc6ed4e7941ae0e801cdc9df56df13872014",
+      "ae3c00736cef8d6df75b06837ca288534ea6c4ca9b17085caaa0a615fbc50d6c",
+      "087403417897fdd6180e3f3cb5df6c505a9cbb4becc69975eec10dc730e00015",
+      "527e1857000e70540f6fa103151cd3b557c082c0b84dae507ab8f7562d73ed7c"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "counterintuitive",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 91
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 91
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 86
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-2",
+      "topic": "Samsung, SK Hynix and Micron expand AI memory production",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQejYtbllZVjZ0cXd5ZHkxS1VSSWtDc0UwUlZ2OGpHeUpzbUxvLUh1aHhaMHpCRFl0aS1mMFJyOTBZYXVKWDA4R1V2QW15MXZsbFp6TjZwWW4xR2tOTFR1bGFGVGlFbEkxR0FDZWdod1B5X0t3RkZkWTlLbkZWdTlJOF9XZGQzTnppWDYtZXFtb2Y1ZG1rcWdnU3dqcE9GVHPSAaQBQVVfeXFMT0g2dGY0TnlhWThBOUhKTnZkcTFhenIwM1VKcWh0N1VlMFRUX0pDaWdsZVJYaHVGUV9vZUwyMDRwUmQ3NG9yRmxLN1lGaWtDOVliWEZwdE54SlA1U0lXMTNmYkdTQlhYTF9iOWZpcm1ObVlJa203bGNQMFFmY1ZWWXZRY1JRcFFKZk9sT2xKekFSckZjQk9hN0d6VEJfM3p0ejNONWo?oc=5",
+      "published_at": "2026-11-02T22:15:34+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-11-03T03:08:39.699628+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "DARK_PSYCHOLOGY",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "5e5dd03826b9608b7b5d73646d8046e871daba0f31c635f35b8bd51953b1e450",
+    "body": "GPU hype vs memory truth AI drinks massive data volumes Memory lag freezes processing Chipmakers boost memory capacity New chips store faster DRAM bandwidth becomes data highway AI learns with fewer pauses Memory wins the AI race",
+    "text": "Samsung, SK Hynix and Micron expand AI memory production GPU hype vs memory truth AI drinks massive data volumes Memory lag freezes processing Chipmakers boost memory capacity New chips store faster DRAM bandwidth becomes data highway AI learns with fewer pauses Memory wins the AI race"
   }
 ]
