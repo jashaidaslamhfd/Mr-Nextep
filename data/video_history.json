@@ -9498,5 +9498,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-03T22:13:44.740873+00:00",
+    "status": "pending",
+    "topic": "Stevens INI researchers use generative AI to fill gaps in brain wiring maps",
+    "title": "Stevens INI researchers use generative AI to fill gaps in brain wiring maps",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "2b497a32d4bee95e2a751e03314dc2243c17e3794633858b7ed65aa3913ebb8b",
+      "9b180571278b8b2583aed104cec7be412d8a064d2dadbf13563f14832e1675f6",
+      "0fdacb61b64a982e5521475760b9952fff84017c017579dec7b60993abb99a2f",
+      "1ef78bbe6f7255ab7f4676fa6cd7ccb13b8a0aebf288d476a1dc3d64e5b9eaba",
+      "ae150adc8204780bcf8cb760021e438e751e3c4afa30516e80ae05e121c3c157",
+      "2fd18569f2c4816911d85aad88c90e62966b0ddbad15af2946c2e66d72ae803c",
+      "c0ca70b3be86664c34114fb79b61bf50ff185603518be5c24cd7690cec4f9710",
+      "949941a5936eba2de365a25fc1fd8fb6f2c80350db38fc6fe819973d5f5a67fd"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "concrete_observation",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 100
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "Stevens INI researchers use generative AI to fill gaps in brain wiring maps",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBaQ0daX04tSktfVDhhSENZczI5aG5PZkpIbWpYeUZXNXZVNTIzbGRTV0VqaTA4Q2J2QW9yNHFPSEcyYmVPZlhINlhSS3VIa3NyUzE0eFlmejRWQ0hm?oc=5",
+      "published_at": "2026-11-03T20:23:46+00:00",
+      "trend_score": 13,
+      "fetched_at": "2026-11-03T22:11:16.332144+00:00",
+      "growth_score": 43.35,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 13/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "d5b8586325e3010649b10cd2d71e7a0aba83f4902ff70fd679b235aa777443a5",
+    "body": "Missing pieces in brain map AI steps into neuroscience lab Predicting hidden neural pathways AI completes the neural puzzle Unexpected hub reshapes connectivity Training gives AI pattern intuition Accurate inference fills wiring gaps Missing gaps finally resolved",
+    "text": "Stevens INI researchers use generative AI to fill gaps in brain wiring maps Missing pieces in brain map AI steps into neuroscience lab Predicting hidden neural pathways AI completes the neural puzzle Unexpected hub reshapes connectivity Training gives AI pattern intuition Accurate inference fills wiring gaps Missing gaps finally resolved"
   }
 ]
