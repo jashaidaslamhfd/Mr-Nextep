@@ -9398,5 +9398,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-03T07:49:50.451341+00:00",
+    "status": "pending",
+    "topic": "Your AI Chatbot Has a Privacy Problem You May Not See",
+    "title": "Your AI Chatbot Has a Privacy Problem You May Not See",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "3597138c8e2631855b92717ae958d6f3cf93d36598f43d18e9541dff1b5ca3e8",
+      "33e8ed81ae726cc23d384d1954b8802ec160840f513da63c9ef8b59ab7540fa8",
+      "9bc86c62cb4b8628728b27ace49a6f83513cc6c483911c4446db97e51d55cd82",
+      "98818a3a4fd19926e30f292b770beb977ea9ead69cbdfb7360acde02d240ce5d",
+      "536ff28d11ca7d9a0c3e139bf050e226a9f417c9b9d240f2255ab60d12a44c78",
+      "5958964ff75128fa25a415367663fd0c5f483eb70fa9065e8e23817d79cf9854",
+      "1f71adaf30ae9f003ac95c33d014ed8ff401aa37cc0c0121dd0cc802042c353e",
+      "32513a06ecb85e6bf98eb83ee6b2e01126982b756d20106ceae761afb1212ae0"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "specific_question",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 91
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 86
+        },
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 86
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "Your AI Chatbot Has a Privacy Problem You May Not See",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQcWNpRlR1YkVHN3YzRk94RDgwcmxkWVItRjZJNEZwTUhlV2FhYlBwOXlaSDNhNlRkQXl5ZE1xZUwwbENSY2FuVlBjWFJoWU9DWExneTJPRHdwS2o3TDVlSWVwcXdTb3hXbXRQUnlTUkZOYmlLLUVpLTN6UDh6cWk0VE1jbVM?oc=5",
+      "published_at": "2026-11-03T07:15:34+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-11-03T07:47:47.768062+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 1,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "b3f539eb1d83bf44d61153f182540692f2a0d8fae0783a319cf9916161de44b1",
+    "body": "Chatbot revealed secret you never gave Tiny clues unlock hidden details Vague wording triggers private data Conversation embeddings kept by model Embeddings searchable later by system Predictive model uses next-word guess Pattern reuse can expose users Your bot knows secrets without hearing",
+    "text": "Your AI Chatbot Has a Privacy Problem You May Not See Chatbot revealed secret you never gave Tiny clues unlock hidden details Vague wording triggers private data Conversation embeddings kept by model Embeddings searchable later by system Predictive model uses next-word guess Pattern reuse can expose users Your bot knows secrets without hearing"
   }
 ]
