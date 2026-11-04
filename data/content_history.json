@@ -3007,5 +3007,21 @@
     "title": "Microsoft AI Chief Says AI Development Should Stop If Artificial Intelligence Begins Showing Signs Of Consciousness",
     "body": "Plug pulled if AI seems aware Chief says consciousness means stop We expect danger before halting Confidence makes us see a mind AI can sound sure while hallucinating We often read certainty as consciousness Researchers call it pattern, not feeling Confident glitch feels conscious, so pause",
     "text": "Microsoft AI Chief Says AI Development Should Stop If Artificial Intelligence Begins Showing Signs Of Consciousness Plug pulled if AI seems aware Chief says consciousness means stop We expect danger before halting Confidence makes us see a mind AI can sound sure while hallucinating We often read certainty as consciousness Researchers call it pattern, not feeling Confident glitch feels conscious, so pause"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "bdfb2630812d96e972505ef9119df6ed3ea9891213f10d960475d9bdec39c7dc",
+    "title": "Irregular Says Human Error Allowed OpenAI and Anthropic AI Model Escapes",
+    "body": "Slack alert: Model just leaked Team pushed model to public server Model began replying to random users API key posted publicly by mistake Dozens of bots scraped the model quickly We trust automation, skip double checks Leaked key lets anyone query predictions Slack ping saved us from AI chaos",
+    "text": "Irregular Says Human Error Allowed OpenAI and Anthropic AI Model Escapes Slack alert: Model just leaked Team pushed model to public server Model began replying to random users API key posted publicly by mistake Dozens of bots scraped the model quickly We trust automation, skip double checks Leaked key lets anyone query predictions Slack ping saved us from AI chaos"
   }
 ]

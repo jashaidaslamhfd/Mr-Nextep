@@ -9698,5 +9698,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-04T07:29:17.669193+00:00",
+    "status": "pending",
+    "topic": "Irregular Says Human Error Allowed OpenAI and Anthropic AI Model Escapes",
+    "title": "Irregular Says Human Error Allowed OpenAI and Anthropic AI Model Escapes",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "ef7e1c1c84fd77354d323cc5cac560400a73a2f39bd5592f5a83fe9d3e04820a",
+      "cc53c76872961ab22cf094599b8aef43d749de9f0436de8b4eca7c28b8a3c4d3",
+      "cbc237b6f85a33dab957d3271a34a070393f4d41d62b2d5daf68d595550c5dab",
+      "5a1e7dedeb7099dfe100bcc6b6a67ecb89c3d5050ff2e642f765b85f2b1d57fb",
+      "c03cbdd16cea8db175dc60e6b309cea5946467f73fc55c7f3cca74ad5a5cc867",
+      "4ecc0ffc73c9621ce9baca6474ae14248cdddc7273caabbb0499402cca2888a3",
+      "99a6198532d9d94f4d868cd20fb10647296912abc3175e7ca363a6826f0ed039",
+      "d0ab425b51a8c7ef7dbd75ca1abd84116243260b4f29de5aa66b4591008002e9"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "concrete_observation",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 100
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "Irregular Says Human Error Allowed OpenAI and Anthropic AI Model Escapes",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNNEloZHhzMVU5bVlmaUZRbndTcmItWTFwQS1hV0RBZmdjcF80d1pnYksyUWRCeG83VTVoWURZR3BDb0RhMGlrbTZHYVR1OC1Lc3pJS3FKVlFLdDU4NjRJa290aFF0T1hRUzhLUEVBZHNma0dXRnNMb2tSY0RFTjRNSDZ0dlU4dWtXaFd2Nm5zZVVGdWc2LVRaajIzX3lCdy1VdzJlc2JWVlU3SE9sb2Ezd18xZEU1R29VcEozNkQ5My1va2w4TDZLOFVn?oc=5",
+      "published_at": "2026-11-03T21:54:50+00:00",
+      "trend_score": 13,
+      "fetched_at": "2026-11-04T07:26:32.247932+00:00",
+      "growth_score": 43.35,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 13/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "bdfb2630812d96e972505ef9119df6ed3ea9891213f10d960475d9bdec39c7dc",
+    "body": "Slack alert: Model just leaked Team pushed model to public server Model began replying to random users API key posted publicly by mistake Dozens of bots scraped the model quickly We trust automation, skip double checks Leaked key lets anyone query predictions Slack ping saved us from AI chaos",
+    "text": "Irregular Says Human Error Allowed OpenAI and Anthropic AI Model Escapes Slack alert: Model just leaked Team pushed model to public server Model began replying to random users API key posted publicly by mistake Dozens of bots scraped the model quickly We trust automation, skip double checks Leaked key lets anyone query predictions Slack ping saved us from AI chaos"
   }
 ]
