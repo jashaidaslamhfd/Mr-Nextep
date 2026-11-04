@@ -1,276 +1,276 @@
 {
   "source": "Google Trends US + US AI/science/psychology RSS",
-  "mined_at": "2026-11-04T07:26:32.247932+00:00",
+  "mined_at": "2026-11-04T22:23:57.788929+00:00",
   "topics": [
     {
       "series_number": "TREND-1",
-      "topic": "Irregular Says Human Error Allowed OpenAI and Anthropic AI Model Escapes",
+      "topic": "Adobe Integrates Marketing AI Agent in ChatGPT and Claude",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNNEloZHhzMVU5bVlmaUZRbndTcmItWTFwQS1hV0RBZmdjcF80d1pnYksyUWRCeG83VTVoWURZR3BDb0RhMGlrbTZHYVR1OC1Lc3pJS3FKVlFLdDU4NjRJa290aFF0T1hRUzhLUEVBZHNma0dXRnNMb2tSY0RFTjRNSDZ0dlU4dWtXaFd2Nm5zZVVGdWc2LVRaajIzX3lCdy1VdzJlc2JWVlU3SE9sb2Ezd18xZEU1R29VcEozNkQ5My1va2w4TDZLOFVn?oc=5",
-      "published_at": "2026-11-03T21:54:50+00:00",
+      "source_url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNaXdmSGkwWVNocmdvNklPU3pGRHlLVFViU2s5cE9fRXlkOXdfaE1JQkJQd0lyNmc1NTg4Z3hqeHZpZldJalJlRmdoVWZPODl2c05YQlg2RzhWQmozQWlWQ2FJMmxGb3h0YlE4YVVZQ0QyNXZtTWtZTkxTeV9ndnl6Zkl2RUZPQS1vallkek9HaU00UnVJWksweFNOVy16X3Etam1fX3ZvTl9zRk5kUURjMDVsU0FvUQ?oc=5",
+      "published_at": "2026-11-04T22:07:30+00:00",
       "trend_score": 13,
-      "fetched_at": "2026-11-04T07:26:32.247932+00:00"
+      "fetched_at": "2026-11-04T22:23:57.788929+00:00"
     },
     {
       "series_number": "TREND-2",
-      "topic": "Microsoft AI Chief Says AI Development Should Stop If Artificial Intelligence Begins Showing Signs Of Consciousness",
+      "topic": "Anthropic Develops Tools to Confirm AI Models\u2019 Identities",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPSkhPbUZZN19BZWNLaWdlODZyeTdwQUIxNDZ5RzBtSWh1c3pLNV9yR3l2eXVVNG0zZkgyUmJ4aXdfM1NFUGdvY3pGakc4Q0hQdnNjTk5ZRHBsUldDZHZXUXUyUTJOLUhnRGthMlFyaWIyQ0hHeXhyMmFzTmNFdzZQWnNDazluVHRNNTM3c29HWFJDT1lYZktOVWRBcTJETWFiS203Xy16QUFVTm1IOHU2VktDd0pzNTgwTFRLRFpNWWtIMG5iQlBnYm9DN1g0Wi1fZ2Jr0gHYAUFVX3lxTE1QSWFheXZZbjVLdGNEOHJsei1XMG5jVm1HQTkteGd6a09kUy1NSlA0ZGZhSjJFYnVOZG55dVdjcGtPMzYyc3JURy16bU1XR0JoT1hleHNHUngyajhGWVNkS016cGVXV3dzMS05Wm1hWFpwM1gwVHY4YUZBOTh5aXFEeklXYXNBVDRoOXJvSzZ6T0Z3enpsYzNGYk1KMFh1TWMzZTZJOVBXUzU0RlRkRU85cDJ5VExIUS1VUy1JVlFnRDVwUEpHNjNTenhQZ1VmYVp1a1ZYUDhSXw?oc=5",
-      "published_at": "2026-11-03T12:20:38+00:00",
-      "trend_score": 13,
-      "fetched_at": "2026-11-04T07:26:32.247932+00:00"
+      "source_url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNaHhWLVF6WmpYalZHbnpFM1NMU1FDbUI1M084cGNIS3M1WHg1RkI5TjN4WmVMZEVFS1NJSXZQR19EcTRVTU5idDNRM3RXYlJYMDZGWE1rNzZ2Z3dNYUNrc0Z3Rl9lSVFJaUdjaGNVOEVqZU04UGJ0SXU4bDNQaWFXekwtX2U0dENsTmVMUHFRQjJ5T2loc3YtREZNRHBWR3ZTdWtRS0lXZGw0cjFYTXFSZ0xqMXI?oc=5",
+      "published_at": "2026-11-04T20:34:50+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-11-04T22:23:57.788929+00:00"
     },
     {
       "series_number": "TREND-3",
-      "topic": "AI chatbots",
+      "topic": "Artificial Intelligence Expert #1 AI Speaker Scott Steinberg",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1XX1o1QnJFNWh1cDJWVzZxbmRuNXl3MVI0bkVLbGdMamZaT29ncGxmMHJ3cC1LRWpzcUE3cmRJQm5Bb01qVjdlc01WenZFb2FEOVpqaW50cDRTOWZNREdKaVdSNTVtUzg?oc=5",
-      "published_at": "2026-11-04T05:04:50+00:00",
+      "source_url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOalpobWtneGdZaDhhQ2hvMWlpRnFJaDk2X3lKdTE4blJFOHNsNXQ3bjYxbVJ4c1dpMjlFUnRUTi1ieTdUZHdobHloc2lRbk0yYW5aLXJabU1nbW1iVGtsTE1wbFVfNW5Zel9QZVd2Q3NfZVc4R0U1ZzlGOFl3cXp0Z1dPV21VSUM2SWYw?oc=5",
+      "published_at": "2026-11-04T18:49:23+00:00",
       "trend_score": 9,
-      "fetched_at": "2026-11-04T07:26:32.247932+00:00"
+      "fetched_at": "2026-11-04T22:23:57.788929+00:00"
     },
     {
       "series_number": "TREND-4",
-      "topic": "ChatGPT's Work and Chat Tabs Are Merging Into a 'Unified' AI Tool",
+      "topic": "trust, training, and the future of law and medicine in the AI era",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQT1ZMOGFWbm1kMVBtMFpUZ2J6cmc2dnJHU0JVa1psLWhyYnpKeXdaNmJHbm4wenl2SThEUlFfanh6c1RfM0NnVkJGeE5uVktnVjNIdEQ1dUdQQTFtY01FOXZMaFp0cGxiSWZDTzM2MVhaTnE1MS1LakgtdDJPVDhqQ0Z4SFFsV1ZjczlDVExCNUEtTXJaNl9kcEtn?oc=5",
-      "published_at": "2026-11-04T04:02:56+00:00",
+      "source_url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1YQjVPVFlFY1JOZ3M4cDUzYTZNa1QyTm1VT3pIVk9sNjNKdTd1ZlljcVN0WXpVOHlkbnA1UWRITDI5MDgxSS1vS1dZVE1iY3dEejIyZHBFYnlSMWZSOFlwLVlRUGVPR1FpSEM0eGwyRzM2M0RMNnc?oc=5",
+      "published_at": "2026-11-04T18:35:43+00:00",
       "trend_score": 9,
-      "fetched_at": "2026-11-04T07:26:32.247932+00:00"
+      "fetched_at": "2026-11-04T22:23:57.788929+00:00"
     },
     {
       "series_number": "TREND-5",
-      "topic": "Advocate General Szpunar clarifies when AI chatbots infringe press publishers\u2019 rights",
+      "topic": "Musk\u2019s Minnesota Deepfake Fight Could Define AI\u2019s First Amendment",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxNeWs3NXRqOWdMZVcxb2tkWExuNjR6a3RRVzg4cXh2c3dRODc5V3pCTlVfS3FrdzY3MUNfZmFQbl9TVFVRY1kyS0hGX2FfRU53Y1ZLNE94WEh0VXpyY0ZNVkU3QnV6dXdrbXB5cnZfcmlsQXJQN3JLOGs3aDl3d1NNSC13WVlEamtVWHlFS2lKMUJVa1N0TmFUSVRMTndNaUV2N2JjMk9mcDlIUmlhckkzakJtUkU1LWxQVllhMUgxdFVILVdUWk9pMWdjenpmZFZ2aG5oalQyd3RJNXVfSFVabzBmQm1iQQ?oc=5",
-      "published_at": "2026-11-04T00:13:27+00:00",
+      "source_url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOZWtwc3lOY0IxRVJ2V3dVRm1Zdm85WWRzYmJMbUJ1UW5tN29HMndmTmlHd01JZ191N3ltX29vV3lOVXB4aHc0Z3kxSWxhWjE0d0kyMkI0aFJmMFI5bkFBeklnLW12cUVHYmlEX0pLMWJoV0Vacmp0V1FDS3lhNHFIZE41SkdZcmZqVTlGc3UzTEtIbzBhQ1FHZVV1d2tDQWtyMW91Tg?oc=5",
+      "published_at": "2026-11-04T18:03:10+00:00",
       "trend_score": 9,
-      "fetched_at": "2026-11-04T07:26:32.247932+00:00"
+      "fetched_at": "2026-11-04T22:23:57.788929+00:00"
     },
     {
       "series_number": "TREND-6",
-      "topic": "Artificial Intelligence (AI)",
+      "topic": "Emirates SkyCargo launches AI Tech to move infrastructure powering artificial intelligence",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNODAtMG9kZHJDTUNyRW1pRWdlclBDT1laMXFUYnNOY0ZnbzdtdWpZY0dHTlZqMHBQSTJqdlRQbE1uSGhtZjhBaDVqcGFDaUhIUnpNc1J6blJzdnhXV1lUOWdCLWxJX1J0al9BeWJoNURNaENHS2VYZHBORlY1ODBYUEVmZVRPc1VnbndkV3h5VGV1cFVMVnhuTVZlUUNWQ2g4SV9DT0ZpT0ZtRzJORVBV?oc=5",
-      "published_at": "2026-11-03T20:15:01+00:00",
+      "source_url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQYk9FMzVPVGRILVBfWmQ3NVcxdFJXZ2lxRVRaVVRleG02ajUtRU9WYUxQUnBDcXJ1ZTBMSTViVjNXRUdJdUFfbkd1RUZ4MEpVTFhpbDBNbWpLYkdJaUdsS3BuNklIbWRhVklVQ1VWR2MwdHZZdV9sMUs1dmpMWHNTeUpteVFhMnVEQVU5UUdMQzgwYWpKNHZmYzl4NTE1Q3g0OUZ5MjBtUkQ2UTFGLUowQ1NEYXdnM2M?oc=5",
+      "published_at": "2026-11-04T17:50:00+00:00",
       "trend_score": 9,
-      "fetched_at": "2026-11-04T07:26:32.247932+00:00"
+      "fetched_at": "2026-11-04T22:23:57.788929+00:00"
     },
     {
       "series_number": "TREND-7",
-      "topic": "Best AI Chatbot for Web Answers",
+      "topic": "Best AI Chatbots Reddit Tracker",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPY2I3MERzbUd3OUdlM3h1czFxblA3a1h1dk12aEQ4bXkyQ3ZvSEp0eVZYM2VjQWhrbGs3OE0xLXZQTElKM2hVTUIwbEs0UXhwSVdoejBIQ1hiTDgxUlM5ei1JWk5PQjhQNk1WQy1JWXoxWjNaMFV2QTAycU1NZVBFbVpmYjk5U0VMdDFhVlhWcnQtdjl3d0xEdEZiUXRIZXRV?oc=5",
-      "published_at": "2026-11-03T19:57:45+00:00",
+      "source_url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQU1pjeFdkVHh2aXk3U2R6WjB0TUpkd2dLNlQyZHJuaXkzdGpyNWtwVTV3QlBiemY5b2NZVkh6OXpRNEtFaDNORDdrbmhSYjh6TWxqdmZnQWhmZWtLSnVNdXBQUVJ3QldBZ09LMXJkU2xBYkpaS0VEaHBvSUFFRjVqNTBRY28?oc=5",
+      "published_at": "2026-11-04T17:42:50+00:00",
       "trend_score": 9,
-      "fetched_at": "2026-11-04T07:26:32.247932+00:00"
+      "fetched_at": "2026-11-04T22:23:57.788929+00:00"
     },
     {
       "series_number": "TREND-8",
+      "topic": "Sam Altman joked about AI's thirst for memory with a new social media nickname",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNQ0ZjLWNOSHhNLURmZmlPZEdzNVNSSVBybUZ1ZTA5aUlmNVFPeGxMaWtnTFhpaE02WWVEU3YySXJPQU5VclJvQlBITTRkMFNOLVhtQ0Y5NG9UZG5xMktQQ1NZYTMwRW9zcm5LeUdLQTJJZVZTRk1CVGFUdWYzQ01yMEdDTDZhdjBMRUZaNnJuM29HbW1UU25ta0xmUQ?oc=5",
+      "published_at": "2026-11-04T17:18:00+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-11-04T22:23:57.788929+00:00"
+    },
+    {
+      "series_number": "TREND-9",
+      "topic": "AI Memory Survives Unit Turnover via Triple",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPNFcxVllpcFhRS1Z4V2FaRThONThKSXJiRlhQX2NMQllUMktlbkpVNHZZMkZGM3FCQ3NZbWF0U3JQUjN2U3k3aWRfMEVVS2pOdmdyN0IzcEVGemVzdWxCQlVjTGttUXNOUnhjVkItZnBwSTRpM25fQTVhaVowazJEVnBLekN3a190RFBJYlU4YmI?oc=5",
+      "published_at": "2026-11-04T16:32:13+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-11-04T22:23:57.788929+00:00"
+    },
+    {
+      "series_number": "TREND-10",
+      "topic": "AI Chatbot Bonds Spark Anxiety Over Service Changes",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNUGhkVnNQVG5nNnRpNk5QTlZQQ0VqLWswVXlBTDJZNFcxT0ZMU2VReDlfTXRHazRJNkVUVFdIRjBoWEVySWE0V3RlYlA3Q0Z4OFh0WEx4NlIySE9VQlhzTmo5dG5DMDBreW1QS1JBRDE4NG14ajVBcUhLd3phTEhWblZlTDg5NGRE?oc=5",
+      "published_at": "2026-11-04T15:31:45+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-11-04T22:23:57.788929+00:00"
+    },
+    {
+      "series_number": "TREND-11",
+      "topic": "Micron Technology (MU) Pulls Back Amid Broader AI Memory Sell",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNcmV6OW9ld041cUU0MWl4QU9wN3pGcnhKZER4NmlYYnI3R3NvWDcxbGFGTTNEdFBYX2ItY0JpY2RveHcxUzktNDBCRllGQmw4U29jMkJyY0pFcy1YUmhpbzhuLVhBMHlHdXhsdjh4VFhfRHdETU9pUTFDR1ByUHNrM0ZWb21nM1NPZGJtbHZ0VW00dGw0M192dGtqZ3o?oc=5",
+      "published_at": "2026-11-04T14:29:26+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-11-04T22:23:57.788929+00:00"
+    },
+    {
+      "series_number": "TREND-12",
+      "topic": "How AI Memory And Wearables Can Help Your Career",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNTWJKbzRDRE51T0hnb2R3UUtmT0NkTTAtb3hKZGZndGJDRmVRdHEwRVQwV0NydkhIanRLTE4wNGw1bHJucVVLa29fNjZiZ1htcWtFcm1DZEFmY1U5NzMwTnFxajVZMC1PZ2RfZ2N6RW02ZzRvbUlvNU1NRzA0QXdJQmgzMlJzekxSMGlvSkxlNW5yeERBc1hqYWtRaHdVaDNDWVBOQkd3akRLUEFRMzdEZTBQRQ?oc=5",
+      "published_at": "2026-11-04T13:15:21+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-11-04T22:23:57.788929+00:00"
+    },
+    {
+      "series_number": "TREND-13",
+      "topic": "How AI Memory And Wearables Could Give You A Career Advantage",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQdUNJaXYyTDhVU1ZYamN4UUVsZEEwVFg3TXpxb1BUY25DRFJDb1QyVDN3RnVmUlFPMXVzcFpvVEtyUkR1WDdSaVV6WlM4R1ptLTJrUTVzcnVabGxZc2JITkFQRkZRZUI1dm9obk53QUp1cjZMTV91Vm51VkFjZ3B2OVBFYThXbzQ2VW9uSHROWXo0STA?oc=5",
+      "published_at": "2026-11-04T13:15:21+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-11-04T22:23:57.788929+00:00"
+    },
+    {
+      "series_number": "TREND-14",
+      "topic": "Argonne\u2019s AI STEM Education Summit focuses on preparing a super intelligence",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxONWF2cGxHUmU3cVdwQklGcWRyRlN2NUMzWjFDZmZuODRwaWNVUUdHSjdPUHREYXZndU9LVFdCS2RlelNtbWZHblBlVUpVcDRpQ0pZWVRJY3Z5V1JVRlJsd2lfX3ctTWE0c2ZWNkpPNF9TNG4yc2lkcWJpZW1DR29iNUhHQ25TbWVOaGEwMVp4OTBCTkFtRjRuV0xOVkRFSjl1SWhUSzBEd29zRTZJOE1lYm9paC1nZE01dUdIY0RmZw?oc=5",
+      "published_at": "2026-11-04T12:00:00+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-11-04T22:23:57.788929+00:00"
+    },
+    {
+      "series_number": "TREND-15",
+      "topic": "\u200d\u200d\u200dZero Policy AI Chatbot",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMijAJBVV95cUxPeUo5OU9YSllUNEVPUGloMzJQVTVpR2lPenFsSGNZc0V6UndSekF1VkhwcVllOGNEeG9ReVZWTlA4NFlJRFRkUlAxV3dzM0ZvTHJaekhtSE8wWHBwSDdMSHVsbVkxdlAwczFPNGdxbnp6Z2JzTFdHU3NScGptSXlUSnRVM2haUWdQeU9JN2s0OGNVRVVON0g5cXdJczAwV1RPLTNFZ3RHV3JSb245T0JaOUxGd1BkOFRoZFl5ZkxzcXM0M0toRzZMWThZY3VFRWtDRGFmOFhCS1IxQ3Uydk1pazZPS1hQZ0lLWC1JQXI4eDJmR3NCMVVPbF85TGRxQlBna08wbGx0SnJzdmNY?oc=5",
+      "published_at": "2026-11-04T11:50:22+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-11-04T22:23:57.788929+00:00"
+    },
+    {
+      "series_number": "TREND-16",
+      "topic": "New Jersey Bill Could Hold AI Chatbot Providers Liable for User Harm",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQQ2NLc1R4amRrSG92YWpHcFhScS1KMDk0V3pHb3VFZzdjU3ExbGJaT2gzMmg5b1NrTlVyV0hnbklNRFc1elV1NG9OaWdUVGdGZUZRMUR3emJMSGlLeEdjRkkxUmI3OFlKc3VPZkRUaHJMSVFvSTJnM1hwOVY4OGZGY3NjTjBNU0QxU2VN0gGQAUFVX3lxTE1ZbmZqeGktWWYzSWVVMDRfSzlEU29PT1NrVlQ3eWU2TmhnanA4VHVWSGRtcXhOZlFWTVBNcllqTExKWDBhUnN1eHlfV0dXSkIzNWNKRnlURTB2aXdsQ1R2TUhyZmZaaDFRUUtUM2pYYjBDeEN3d2pIVk9QOGhISGV5T0todHJ3b09HakFSVHJnRw?oc=5",
+      "published_at": "2026-11-04T10:41:29+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-11-04T22:23:57.788929+00:00"
+    },
+    {
+      "series_number": "TREND-17",
+      "topic": "Artificial Intelligence in Sleep Medicine",
+      "source": "nih_news",
+      "source_url": "https://news.google.com/rss/articles/CBMilwJBVV95cUxNSkNuLThjMFc5cWZWeGJPQmZ4YTBvbjRCWnZaUl9NNVJJSWNJT3QyUGQybHZNSG1wNWtIWWFESXhFU1p3UHQxWWRxYXVINjJ5bnpiYnc4Zi1raGFlRGdlSkd4Q2RjdVdmUFc1NmRFbVhHazloYjVYZm5jZzJvaTN5ZUx5bDNpYWg2ekVBZWgzWHFRNkh0d0NmSDVVbEEtVnJPWkhINHR0SjhZR2ZWUUR6bjE0R2dIX3llT0k3b0dQdThVdGdxMmltTEhRWHhyb1J1Z1VMdEdRdTlqTmlzbnBJbUVfM2t6V1NaMXRxRUt6X2wzS3lFSEZleW4zLTlxZ2R1MktlMF9lTW5WMXRZZGpmcW1NWFZXLVU?oc=5",
+      "published_at": "2026-11-04T09:01:53+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-11-04T22:23:57.788929+00:00"
+    },
+    {
+      "series_number": "TREND-18",
+      "topic": "\u200d\u200d\u200dHentai AI Chatbot",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMijAJBVV95cUxQQzJZQ2RBS1RqdHdjRFZ0NEtuc2JHSm1nTlhZX3phdndUYXd1djJwem10Vmc5N05sN1RwUlczLURNbE5vYmtCTC1XR2dFeE1DczJkaVk0M2NpY3Q5NVhUM2ViQ2lYckt2bGNPQWItV21BblloQkdsa1lNYkd2WWdXZ0k3dXBKb3BZSGMyaE9IdHBxajBwTkpVcjVFVEFscVlvc2ZNekxlekZJdHl3a0VORzNRbW1UbDJrYkZHM29HS3pyRmUyWmZkQnV2azdQQzlkWTI3ZG5TZWVBMG93M0Y2d3JCclMwbTJQRjhBOVpYRXF3NS1senJMa19rSUpBTTlQUFM4WW96ZDlZYUh6?oc=5",
+      "published_at": "2026-11-04T08:52:06+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-11-04T22:23:57.788929+00:00"
+    },
+    {
+      "series_number": "TREND-19",
       "topic": "Setback for Google as EU court adviser warns AI chatbot may breach copyright rules",
       "source": "google_news_us",
       "source_url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPS3A5SlVKWVF6XzVHRldMWS1qd1FqWV9sVnF6RFJiMTIzd18wZUgtc1VtOXJabjY3LThCR045bFBrVzcyUmxJUDFWajYtX1l4RkVxY0xHTUZlRUFlR2dkcmtqOXI5MzIxMS16VEVBSE1JcExxbkJrVkk1S3NGa2g5WjhVZEJXczA3S0NUOVFudElESjBaMExucVBLQzRCLUJrVU9icU9fSkkyb1FoR2NfT29hT2JSbmhaMW9Z?oc=5",
       "published_at": "2026-11-03T19:16:17+00:00",
       "trend_score": 9,
-      "fetched_at": "2026-11-04T07:26:32.247932+00:00"
+      "fetched_at": "2026-11-04T22:23:57.788929+00:00"
     },
     {
-      "series_number": "TREND-9",
-      "topic": "The Artificial Intelligence (AI)",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNaWZQaDEycUd4SnhfblQwdFM4SFdSTE1raDMzY3Q0R2Vka3l2T3hESlZ2MGtJamwteUV2U0x0QVZYdUUySEMtaWF4REtMUFpYYS04d1VQUUtQb1JGVVF5R3c1NnpHeGh2UnhkSHlWMC1iTWVHckdPSE1qSGRvNXVpQmVsVTFJWi1HMlROLTFWcjN0a2JnRXR1Mmk3YkJINDdlSnNkZ2tuYjZRblcy?oc=5",
-      "published_at": "2026-11-03T19:16:04+00:00",
-      "trend_score": 9,
-      "fetched_at": "2026-11-04T07:26:32.247932+00:00"
-    },
-    {
-      "series_number": "TREND-10",
-      "topic": "State bill allows consumers to hold AI chatbot providers liable",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNc2JBY2NJczZZc0tUZjg1OUM4TnRCVlVGc2hibFY1SGlsZ2MtaWFXY0VOMXpvdUhMQmY5aUFyT0ZiYURpWlRiRGducjMzN2pwU2ZFT0FlSm9MZXFxRDhkUzlPbVpyaVZ4NG9LLVhfZGctN01YMnR1bTdPbTQ2bVZ4T1IwSWp6RGNJU2g1dlREV2VGZmNtM1dFaHhiUU4yVkJOZTVTZDhkRGtHSmhaeVE?oc=5",
-      "published_at": "2026-11-03T16:10:00+00:00",
-      "trend_score": 9,
-      "fetched_at": "2026-11-04T07:26:32.247932+00:00"
-    },
-    {
-      "series_number": "TREND-11",
+      "series_number": "TREND-20",
       "topic": "KeyBank warns AI deepfake fraud risks for businesses of all sizes",
       "source": "google_news_us",
       "source_url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9Mc3lQZGF0MnRZOWNaVUJCYUR4cTZCclBxZlJpTGh3NGF4ZV8zRjJFRHUwM1lwemZIX243SE1taGRvTk0tczZVNHV5UWY3RU1MUzhwSEFHS3VfVzJXUWpQbmpCMUJ5VWdxQjlnZmdWWWdIQ25lS2tFV2tB?oc=5",
       "published_at": "2026-11-03T15:05:11+00:00",
       "trend_score": 9,
-      "fetched_at": "2026-11-04T07:26:32.247932+00:00"
-    },
-    {
-      "series_number": "TREND-12",
-      "topic": "Stream Engine Delivers AI Deepfake Detection Analytic to the Air Force Research Laboratory, Reaching Test",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPZTJXNm9jRDNJWnpIakJsVkdvLXIwclNQT0dTeGNyZ2hhVFFpVVVJWEJFY2pJRHlQTEJ1VlNfMVFsdjlvMEpfZ1NaanFIWnpnenBRRUlpSkJHX3IteTZvb0MwOV83R3pXQ2RZZ1lybEUycWZrY0dmdXFHLUFDYlpvdVBoa25JZW1UNFJpSldMa25ncTcwcWxBcjExUDdQWFk?oc=5",
-      "published_at": "2026-11-03T14:10:00+00:00",
-      "trend_score": 9,
-      "fetched_at": "2026-11-04T07:26:32.247932+00:00"
-    },
-    {
-      "series_number": "TREND-13",
-      "topic": "Calvin Engen Explores the Intersection of Consciousness, Artificial Intelligence, and the Search for Meaning in \u2018The Infinity Formula\u2019",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMirAJBVV95cUxNTGVRdkRfcmVKdzg0UjItUzdDR2JkM0RiU2hDbzJ0MWV0eEdJb1JBdTItbV9KcXpIQUtvS09Tc0c4bWZVZlMwNHdRMTQyWFF2bzZhSDZjc1JjNXVPZjh1bkRzaGR5T2l3dHlzWm5jUDNmdnRUODgzVFA3SmxqLXo5T1hsNmZQUkd1YndkN3JxZG5kVW1neUxCUDBiLW5SVE1ZdEJScWVTYURBX3RfeEpVYVFEcW1iZmJuRXJITEFnVy03TlgxTlpSLTJieVQ4VHBYWDVOakVwYnZXTFRzdWtfcWRQMTJhRDFDTVk2VVdKcllLdU9BLU4zQXIzQjV2SV8xLXZHYmN2Zm1sVU9jNjN6THdKTFNTbElCVE42NnpUUlp5VEdkRl83LXNCTV8?oc=5",
-      "published_at": "2026-11-03T12:18:38+00:00",
-      "trend_score": 9,
-      "fetched_at": "2026-11-04T07:26:32.247932+00:00"
-    },
-    {
-      "series_number": "TREND-14",
-      "topic": "Tencent launches Hy4 in bid to break into AI\u2019s top tier of open",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPcjhaVmtvbDRMdDIxNUFvcFBCZFluNVk2elhjd0Z6cVlZOXhDczhEZ3JaS1NrWGtERXlVR0tsMHJWNmVHcFJoQ2JPaXY3ZkEyOVdhMEpKUEVESEl6N3pKZHE4S1VnODZjWlh0Qlo3bGZGZE1IbXlqeHhhdlUyVEt4cVNpWHdRRGVnYmk5QjRTQjhHSXFnWTZTTTBqUHZOS081NnU4S3BJanV2VVdrLTB5QklDNjJxV1RX?oc=5",
-      "published_at": "2026-11-04T07:01:09+00:00",
-      "trend_score": 5,
-      "fetched_at": "2026-11-04T07:26:32.247932+00:00"
-    },
-    {
-      "series_number": "TREND-15",
-      "topic": "Building around the limits of the AI race",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE90a1ZXSDNrSnFXcktZekhiUElaV0tNeFNnMzBxbjJSQWlnMGduWGFQajUtZGRzZWgtclY1NDhrVEdIeEVCS0htUmpvZ1h6UW51a2JjbnJkSXNvS0ctZ2NuVnB3?oc=5",
-      "published_at": "2026-11-04T07:00:00+00:00",
-      "trend_score": 5,
-      "fetched_at": "2026-11-04T07:26:32.247932+00:00"
-    },
-    {
-      "series_number": "TREND-16",
-      "topic": "AI helps Stanford scientists discover a \u201cnatural Ozempic\u201d with a surprising advantage",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE0tYnFnMTV1SzBXSWljNGFhNkE2WUMtQW9HaGhRSGpQQlRUZlliTkhveGJVOXRtaExmSF9venNRVUtYX3E0c0VMWFJtOGIwa2d6b0dReXdNUW9qM1dOMEdhRHQyVmpuZG9GSzFKZGhB?oc=5",
-      "published_at": "2026-11-04T06:58:53+00:00",
-      "trend_score": 5,
-      "fetched_at": "2026-11-04T07:26:32.247932+00:00"
-    },
-    {
-      "series_number": "TREND-17",
-      "topic": "Pennsylvania Stations Face New AI Ad Disclosure Requirements.",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxQd1FYUUJ6MDQyM3poSDlfV0E4OFVvZnpfb1ptdTNvYkd0TGhWdWdYR2JUQmJMaFpCR3M4NkdmdEN6cmh1RHpMeEhLNGVuTU9GbDVBQkNaNXpzU25sNXNwSFZmWF80TnJISFRZUGJ3ZFY0TnFmWTR5ZnZ5VU5CaV9Ja3c0MzIwQW9IVHl4QWxfb1ppc2dRcm1zTEJiZmwyVVFmczhPNWh6TzVYbjlTTnhhS1R6YldJYjhraE85N0ppejB3QVdOVTRHdGRjbVVBOFcwUW5tTVQtN2N3TjQ?oc=5",
-      "published_at": "2026-11-04T06:40:00+00:00",
-      "trend_score": 5,
-      "fetched_at": "2026-11-04T07:26:32.247932+00:00"
-    },
-    {
-      "series_number": "TREND-18",
-      "topic": "Stephanie Phair Bets on AI",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNUWUya2ZZT2ZtRUgyRFYxaWdFQ09MWlV0RmJ0TEpfUHpqSkswVW4tN3lCNVZyenpENDNUZFpfQVczOFJYZmZiT1p6UnFrRUNBNkt0X2dvTHNrbWIzeFhtN1RKOWJ5Rl9QQWVSZGFuUEFuNUw3cS14R3VJVUU4WXZLYzhFNTU1bi11SkM1aDkxVjdYWWZyY1ZKQ0p2X2FRMjBQYW1kNkQwd2EzcjlOcHFsRW9ZY0xlS00?oc=5",
-      "published_at": "2026-11-04T05:50:54+00:00",
-      "trend_score": 5,
-      "fetched_at": "2026-11-04T07:26:32.247932+00:00"
-    },
-    {
-      "series_number": "TREND-19",
-      "topic": "Apple AI tools come to China after two",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPcDlRaUROR2VtTFVSRHFUU0pQZDg3U1lkMTZ6U3JtbGVlYnhodkVrM1YwS3RGU1dyREFJWWRCLVFkZDRKTk9vQkhQbm91UW9TNWRuYjB3TlpKZUM1Q2hEZ1hnSTBGX3Nuejdrd2h6N1lMdkx6RlBSSXpwNklOdEtMcHZKTktaTzE5eENTcFRUU1FIbW9PcnVFNG9iRVk?oc=5",
-      "published_at": "2026-11-04T05:21:48+00:00",
-      "trend_score": 5,
-      "fetched_at": "2026-11-04T07:26:32.247932+00:00"
-    },
-    {
-      "series_number": "TREND-20",
-      "topic": "Accenture accused of publishing AI paper littered with AI hallucinations",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQM0J0OGZVby1iQlFEZGRlVWZIcGZMekRQTklMbTZ2RkdESUZUTEJMVVVqcXVCb0cycHl4TzBJaXFpWkxjNzRTMEFWRUVSaDRrQnRROWZZR0hOZWxyOWV2cy1taUlWMWs5RzgzZmFXZ2JQZkEzVWtFTFYxck5CTjlxdEg1bGE?oc=5",
-      "published_at": "2026-11-04T05:01:45+00:00",
-      "trend_score": 5,
-      "fetched_at": "2026-11-04T07:26:32.247932+00:00"
+      "fetched_at": "2026-11-04T22:23:57.788929+00:00"
     },
     {
       "series_number": "TREND-21",
-      "topic": "AI isn\u2019t going anywhere. Pedagogy must change",
-      "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPam9IOGNJbkxsVERCOVE3cjNzTll0R3ZYemJoUUM4QXQwekplM0gwNnJneGtjc2tJUWJ1OXdvTkludlhoMEh3clRIWFg1ckd2YXVjY2VtVkZWMEU1bnBaVi1ybmVjZzF1RzdCQldYT1hnNlF3LUJDeHRhNl80QnRTLTdvdHpXZnprbGV2TFp0ODhPR0RST0R3am8zUnpVWU1jRUl4anF2YnQ0aTJhd0o1dzVhX29aRFB1ekhkS0lVNXB0ZDdiaU5JME05SGZ2c3EwcHhfYg?oc=5",
-      "published_at": "2026-11-04T04:15:00+00:00",
-      "trend_score": 5,
-      "fetched_at": "2026-11-04T07:26:32.247932+00:00"
+      "topic": "Artificial Intelligence for Cardiovascular Health Behavior Change",
+      "source": "nih_news",
+      "source_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9VYjVGNmhMQXNMWElkanpBaEpMQ3JDTUlNZ1hsdGpZZGVaS0RlWWU1SXYzWGw0V3lCY1dLSEtfODVPLVBoMURZa3RTWG54RWhSTTlR?oc=5",
+      "published_at": "2026-11-03T08:00:00+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-11-04T22:23:57.788929+00:00"
     },
     {
       "series_number": "TREND-22",
-      "topic": "Google will cut off search access for students at schools that reject AI",
+      "topic": "Microsoft files patent for AI that can alter what people say during live broadcasts",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQT3JaTFNENDNRVDRWb2RQRDhMeGNaVzdKbWJ4alZfUHN5Z1drdklzYUEzZDdqYTY2NjdXT09Jb1QwSnF3WWdWcUVPZzJFeTRGZlc2bUFWdHVBQ2lpUDMyVDZTbHhGQVJjV0lNVFF5clRQRjFLSEFmdmdaTHdIZkRLN0U0cEt3b0FGa3NZMFVzVHUyU3A2SE5nYXItbmV1TDhQWllZQWxBWXNZQ2FhR0hYVnZTdnRyd0RUSzlDM2lZZlp1Qy1zN19oY2h6Xzk?oc=5",
-      "published_at": "2026-11-04T02:17:03+00:00",
+      "source_url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOUmZOcUc5eGhxR0xvd2J5MUEzZ1hXX0lORE5WTFNRNWY2NGN1bWZLeGp5RV9oTEtBQW9iYVBCRU15cG42S0kyeDRpOGFJdjhxYkhVVkQ1TDc5WS1nYjM3aF9CUWxpRU5EZ3VMVkZlVFQyNmZWQlVMQUx1VWp0VEo4SkpDZlFDQncwbnBlMi1LSm5GbjVnNDBFQ3ZxVDlMRDhrMV9ORDBRbTMyTnRKZFBoeFBzU1RlLXZIU3ZGWWFqNmFMMGNoSWZnSDZ1UkFEVjQ?oc=5",
+      "published_at": "2026-11-04T21:38:50+00:00",
       "trend_score": 5,
-      "fetched_at": "2026-11-04T07:26:32.247932+00:00"
+      "fetched_at": "2026-11-04T22:23:57.788929+00:00"
     },
     {
       "series_number": "TREND-23",
-      "topic": "BigBear.ai vs. Nebius",
+      "topic": "Arm Holdings Sales Climb 27% on AI Demand",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNc0h2d2dKV25sdXpIeTRPUFZ6cFQxWGUwYWRhTFhUREdmbzdia05YdjVFRnpsYnZXWnA4N25oVGxxNHpCeGc3UGd4emNLcTA5ODZZbXJNVHVqMm4xY2ZmSng3OE10ZTJOb1AyTzJCRHdrMVhZdkZzd0syYm56bGVhbWFPWXcwSGZwRS04WlB1TkY0RTk4OTNSWTFCbjZIWDRBZkJhWFdCUDdyNTFPQzhxOGo0emdMUQ?oc=5",
-      "published_at": "2026-11-04T01:36:00+00:00",
+      "source_url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPRXpoNFE4WG9aNjkwazZlZEM1VWtKWlU2d21jZFRjWm12a0ZjckU0SDAxWWYwSzJhLWY1SmtQaTRSdVFoV1FvOE5KNHJMOXo5bG15amtKdGdMdmpZUFJScF9RNHNyMGFDcFhPT3ZpVDFhSVFTc0xXbnJ2blUwT3VnMHFmYUJtcWxYX0liQUhkUlc?oc=5",
+      "published_at": "2026-11-04T21:20:00+00:00",
       "trend_score": 5,
-      "fetched_at": "2026-11-04T07:26:32.247932+00:00"
+      "fetched_at": "2026-11-04T22:23:57.788929+00:00"
     },
     {
       "series_number": "TREND-24",
-      "topic": "Safe Sleep Video Intervention via Text Messaging to Low",
-      "source": "nih_news",
-      "source_url": "https://news.google.com/rss/articles/CBMilwJBVV95cUxOc2UtWW5KTEVsUVlmU1lJMlV6NmV5X0RoSFVqaVNOSmg4SkFReDBuQUtqMERCcUJ4YzBBek1sLWNVRGs5ellEMHN5czlRdXRYOWxGaDYyODl4X1huMUVFLUVoeERDREY4NHMzNDhfLTNVUnRnTzBsYjhISnBpVFNQczhLVGdBVUpxb1d6X183X0x5d21MVktXbTNKNXlWVkdZNU0tNlVMaWkwa1JZQ2V5Y21Ld1hxWjY4VXVSdkdUMldINGhad09VMVktb3lvc01oSERfSXlvc0ozX2dhVkppQlpqbGl6OUhtX0k1ZExiU3VRbXJRWlF6WVFvcHBPTmc2ZVQyRGNIS1hMQjNWNWVId2ZfekNDbmc?oc=5",
-      "published_at": "2026-11-04T01:08:51+00:00",
+      "topic": "Google Tries to Walk Back Controversial School AI Policy Following Political Backlash",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQcWtmZGRlNUN2NDd2UzZQNFBpUUY0SHJiS3hsakRvSmR1MzVnajc5WVpmSmVtT0Jja29VMTR6bXdObWVuVkFwV2xmbEoyNTQ5MUNGY180N3NQNGFfUzBGZVdtOWFLMDdOZEgtVjZJeTBXSjhOMFBheFlKUF9vOENVVDV3SW9zVzlQVTFvUmZJaTN6NC1DZ0pocFV5Y3M1YmtvVjNubWJBVTFWN0FmX2JmNFNhOGhzM1E?oc=5",
+      "published_at": "2026-11-04T21:15:17+00:00",
       "trend_score": 5,
-      "fetched_at": "2026-11-04T07:26:32.247932+00:00"
+      "fetched_at": "2026-11-04T22:23:57.788929+00:00"
     },
     {
       "series_number": "TREND-25",
-      "topic": "Banks confront daunting new AI safety risks as era of agentic finance dawns",
+      "topic": "Microsoft Clarity Helps Merchants Welcome AI Shopping Agents",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPcjlSOU10Wm9RYlUzbmdMQkRKQlJhNFJWb2JDRUlRbXhkX2xXbkVJWml2ZFFnZ0U2Rkgzd2FmY1pPb0g4NGFaTFFnV2hsVmQ1UF83d2dQOGxudl9Ka2J2SWlnd19oSV8xMkpBYllUTHVRWkNmZEltcThNSFJtaTd4UndqcEhOV2M5TTVsXzFxYWVuYUU2NjExNTBYWFBuQTRaSzBnaGdZX0xsV0dNbjNULXVqalQ3Z2EzQ3BIQmdKTHMwRi1FY3ZHNWE0OWY?oc=5",
-      "published_at": "2026-11-04T01:01:04+00:00",
+      "source_url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOLVVFOVE2aHJDd3R6Uk45TFJ2ODhqYzlPUVV6dGJta21YV25MR056Mmx2ZjlqSWlreXFkRFphU0dUaWE1bEtCRHhEY29ob1JpSjZWMWtmMUhxQWtWU0NlRFBPcUNsa19DRTVDT0IySkxscUZ1T1J2ZkpWaVU0UVBWbV9OYnRGbXBLMVBtUXJTcHRoS1hhY2txNVk2WUZ5MFN1d0I5ajVKSjdkQ3E4ZXd2c1ZRZ1M2Smx4Y0E?oc=5",
+      "published_at": "2026-11-04T20:54:51+00:00",
       "trend_score": 5,
-      "fetched_at": "2026-11-04T07:26:32.247932+00:00"
+      "fetched_at": "2026-11-04T22:23:57.788929+00:00"
     },
     {
       "series_number": "TREND-26",
-      "topic": "Scammers using AI",
+      "topic": "AI & Tech Brief",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE8xQVBOZVNyVzloZzNSVXQ0SkNnUjlNTVJlX29lYXplSVQ5UWxiTHN3R2Q2dE1qS2NIb3pKSjFLTEJRNUR0MDRjTUZOekw3QmpLOG5hQksyMHRwUQ?oc=5",
-      "published_at": "2026-11-04T00:44:44+00:00",
+      "source_url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPYVlJZTNQdjRVeEJpNlFXY2hEVmt4T2xsbmdtTEVxRUtmeXBQUXlCZ3E2UmlrMVZseDZYTVdrN2VvZk1CaXVjdzA1UFQ0LTVIMDhMY0RmdlAxZjlOQVFhTGpWTFNfM2tvMWhremlya3VObHJQRGtQS0RTZFBwckxqQV83M2otdXV0Z2JiNW9qMVV3bFNEdVlfV1ZtWnFXTEVUVkNUeDR6MTVNY1U3?oc=5",
+      "published_at": "2026-11-04T20:41:11+00:00",
       "trend_score": 5,
-      "fetched_at": "2026-11-04T07:26:32.247932+00:00"
+      "fetched_at": "2026-11-04T22:23:57.788929+00:00"
     },
     {
       "series_number": "TREND-27",
-      "topic": "Worldwide Express Unfreezes $10 Million With AWS AI Agents",
+      "topic": "How Chinese AI is censoring the controversy around Mbapp\u00e9\u2019s Chairman Mao comments",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQbEJ1R2Z6cGJwX1BCT3Jpa29SVkFqUlRJcGpNYzRKS28wZVVtSk5fU29PSldQb1VTMnVRZy00VmZSUlU0WUUzVFFWcEpuYXVWRjdLR0VuT2hPN1hWQkc2WnlqQi1FeW55NjBxSWZQeWVCcnYtNlVpdGxyek5tb0x5eW5jVTBhc0ZHQzNIdkJaYWtuUHpYYXBmejBhcE41akpzOThEejRiT2NKMjdPVEMtR25WdndZdw?oc=5",
-      "published_at": "2026-11-04T00:21:37+00:00",
+      "source_url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPRFRfcnpfQlhmR2hBNl9zanV3ZTU3a002OExMY0JqZlE3NTZqVWszRnNTTWl5eGEtbDZBZjRfaTNJc1JLdGItb1c5aDV4ME9rYXR5SVVhUmQwTWJNTjgxVF80OEFtS25wOUhkZ1hrQUcweVNfNXVzcmlCdW1EUkJ1ZlRwLXJPOFBuNVc0WXdDbklTdDhjZy1JU2I5c2RhS2MtUWtUX183SktsZ19aOFhMa2RBWTM1RlBVamUzcHd6MnZIQWdnWFVuR3N3?oc=5",
+      "published_at": "2026-11-04T20:28:09+00:00",
       "trend_score": 5,
-      "fetched_at": "2026-11-04T07:26:32.247932+00:00"
+      "fetched_at": "2026-11-04T22:23:57.788929+00:00"
     },
     {
       "series_number": "TREND-28",
-      "topic": "Google responds to political backlash over removing search from schools that ban AI",
+      "topic": "How Artificial Intelligence Is Changing the Way People Explore Hairstyles",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNenhBb3YzeXFrNE9nVmR3QUZTZ3M2RlRleVpqMjZMUll0azhuR2ZtUmwyOEcxeEluUlN4UDdQNU54ak9HTUI2ekY4azRzUk9aTVh5dUJYVnhkTVdPMGtIYjR6V0xmdWlqb3hNRmROVzFmZFNEZlJZZV9DaTRlSGQ4akRkSGxjZ1p2dV92cTFxaEUzMTVCNTByZW42T3ZGS3hUR0JOZzRaYWozM0nSAbABQVVfeXFMTktHaFBsT1hOVXFLTVo2RUhyZHNWbkVUU3FhVjdxczdRT2ZUOXFUakJCV0pHUnNkU2NycUd6NEMxS0ozT2VxRFAtbWpnc2lKUWhBZ3c0NHRFMk9vQ19pNTBxc0NCS1N3TmZqNGdwdUcwbE51by1NdEJiM1pOcl9HQXpiMmwwaklRTWhpVC02anVSMmF2QU8yZThyWVpwUWNJb1lObmVYdDc1S0x4VDFrVmQ?oc=5",
-      "published_at": "2026-11-04T00:08:00+00:00",
+      "source_url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNcUM5SjZEa1NXdkRXMVJ0RTRiLVI1RC1vZXVzbC01WU5KZDFmN25VVWxVQ3NwMkFBbnNPdmYwam5YRFZRNlBZLUVDUmdJZncxX2lnc3lhbXE5T3RtZEN4cEVyeHlkbm5VU3FJRVNFMlllYlZSUVp0NTNVdXEtZ09hcXcyYy1WRnRIaElNYXVDRjAxTEd6c2JqZzFpdlM5VkUtQ3JybFkzZXdHZXpGSnZxUG1JOA?oc=5",
+      "published_at": "2026-11-04T20:00:00+00:00",
       "trend_score": 5,
-      "fetched_at": "2026-11-04T07:26:32.247932+00:00"
+      "fetched_at": "2026-11-04T22:23:57.788929+00:00"
     },
     {
       "series_number": "TREND-29",
-      "topic": "Harvard Extension School Instructors Navigate AI in the Classroom Amid Decentralized Policies",
+      "topic": "Fashion brand accused of using AI to alter models\u2019 bodies",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNcG4yM194aXNYemlKT09Dd2FNVUZLc3VndU91RzNXUFEwSDNJeEFxY2tQVmxYWGRuMjJMZk1qVGdzelFsaXVOSnRJd2hpX3hMY0tNMXdoTXk4d0dPbkI4QkwwbVA1VHVPcl8yMnMtSi1RQ2x2aEctN2NKT0p5NGxMdWpxMzltUUk?oc=5",
-      "published_at": "2026-11-03T23:41:07+00:00",
+      "source_url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQZHdNendSYXNfWVNwOV84ckR5YUs1U3Y1WDQtRmZ5M3lXeUhJeTRwWTd0Sjg1dzJ0UC1tSk9CZ0VrV3ZfLXBVbmRVb1hKNlNfNnpEZUdWOUJQNTgzNEVJalJtempPakJOUlJTbkVpU0szRGJ3ZXRVUXFNRV92enNnZVdaYklJWm9TR3YxWDBsODJMTzd4Z2c?oc=5",
+      "published_at": "2026-11-04T19:55:00+00:00",
       "trend_score": 5,
-      "fetched_at": "2026-11-04T07:26:32.247932+00:00"
+      "fetched_at": "2026-11-04T22:23:57.788929+00:00"
     },
     {
       "series_number": "TREND-30",
-      "topic": "CrowdStrike's new kill switch can stop rogue AI agents in their tracks, CEO says",
+      "topic": "Apple Cuts Internal AI Usage Budgets in Move to Reduce Spending",
       "source": "google_news_us",
-      "source_url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPTGk5Z3RYZDNLZmJIN2FraWVkTm9paXBOd0w0c0lTQ2p1Z2lXZjhzR0VnTjJCVk5UU1pGRG5sTElvY3hhYW5Ta19pN1dHNzcwZW9PSDFoLXlBcTBQVFlSbFZYQWxPaXE1WHFVOFZUTHZ0ZTlWLTBpNjE3cnRPWllZYlVDUjRmaVY0QXgzODRxLW1nSmw3VXBLV0EyZENMeDVkU24tR2VwTmZoYmJnOFI3QVp6am9md9IBuwFBVV95cUxNTmsxR1FYWlNubkpfbXhSNmZDcmlhWjBWb3ZETDRnOVd2VWp4bU11Rmg0Rnc4b2hnLUF5WEJtWE0tT0EwdGswZE54ODhRWl9EYWYzLW93S2ZhVDFOTWRXSFg5WWN4TS1IdGJ3YnNMb2JEdDU2cnlkb2JPVl9HcnNJdUNkLU9BaXdFWkxDMkRYNXBqSnBQNGlDd1gwQW5uZzhvLWJsTnZaR3otbEZSVUxjamNUdlhKN0poblR3?oc=5",
-      "published_at": "2026-11-03T23:37:07+00:00",
+      "source_url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQNlpwLUc1MHh4TnNOVk9HY3BLVUlLS2ZwTjRIUEtqb0VKa2JYZG13VTc2TzdZZ2dlOUUtTmlZYTdmeGJIUVVpcWFBeS1PWGQ5X3FFS3lBMzJ0WjJsRjMzWmpaRl9KRUZzSWRpTHVaQ3lUeU5wNnM0S3dZLTVaMWo3RWNnMmZqcTBCY3NOajRvSk13UmM4R2VBUjNtT2w0NU96aU9FelhEZ1BJcHNWTExwYVRNczg?oc=5",
+      "published_at": "2026-11-04T19:45:00+00:00",
       "trend_score": 5,
-      "fetched_at": "2026-11-04T07:26:32.247932+00:00"
+      "fetched_at": "2026-11-04T22:23:57.788929+00:00"
     }
   ],
   "source_errors": []

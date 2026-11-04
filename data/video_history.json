@@ -9798,5 +9798,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-04T22:26:16.137153+00:00",
+    "status": "pending",
+    "topic": "Adobe Integrates Marketing AI Agent in ChatGPT and Claude",
+    "title": "Adobe Integrates Marketing AI Agent in ChatGPT and Claude",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "f239c7ff49c41c5e5422a11d2a154afcb9eb4c6282e41b498d9e64190ebdcd79",
+      "cee085f42077d4b37c42e2063262ae4071ec7897894f6e0407ea60cf4179acd8",
+      "baf2441765ab833b1311c41bdade22735bc9b03febb94e0d3cc3e79e8f47db79",
+      "bea83d9b577dce5933206c2863677f81f369c3695d420e7d5e0d197c50b229b9",
+      "3d644123bcae722dcd7e28cc14abb7867a07d6ff0048f5008bd1185413eea813",
+      "0c65cc385369e5af565ff283bb48c96e9c25743a3f1f8e81322633bba645d585",
+      "66d72ce8f0165dbb29e49173fd0e2b7fe6115901ca773b30135712bda8b75091",
+      "6f985464a53a242f4f72e5339e1460589b9ca288f2483b828d3db7e3d1f00642"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "counterintuitive",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 91
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 91
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 86
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "Adobe Integrates Marketing AI Agent in ChatGPT and Claude",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNaXdmSGkwWVNocmdvNklPU3pGRHlLVFViU2s5cE9fRXlkOXdfaE1JQkJQd0lyNmc1NTg4Z3hqeHZpZldJalJlRmdoVWZPODl2c05YQlg2RzhWQmozQWlWQ2FJMmxGb3h0YlE4YVVZQ0QyNXZtTWtZTkxTeV9ndnl6Zkl2RUZPQS1vallkek9HaU00UnVJWksweFNOVy16X3Etam1fX3ZvTl9zRk5kUURjMDVsU0FvUQ?oc=5",
+      "published_at": "2026-11-04T22:07:30+00:00",
+      "trend_score": 13,
+      "fetched_at": "2026-11-04T22:23:57.788929+00:00",
+      "growth_score": 43.35,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 13/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "c5fb9b53db06a733555651619118d392dd2f172b2f3c369b7aa7814c9d0e58a7",
+    "body": "ChatGPT isn’t just chatting—Adobe sells Adobe adds a marketing AI inside It writes ad copy while you chat Runs on the same language model Confidence makes its pitches sound convincing Our brains trust confident suggestions Chatbot subtly sells without a sales pitch That’s why queries feel like ads",
+    "text": "Adobe Integrates Marketing AI Agent in ChatGPT and Claude ChatGPT isn’t just chatting—Adobe sells Adobe adds a marketing AI inside It writes ad copy while you chat Runs on the same language model Confidence makes its pitches sound convincing Our brains trust confident suggestions Chatbot subtly sells without a sales pitch That’s why queries feel like ads"
   }
 ]
