@@ -9701,7 +9701,7 @@
   },
   {
     "created_at": "2026-11-04T07:29:17.669193+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Irregular Says Human Error Allowed OpenAI and Anthropic AI Model Escapes",
     "title": "Irregular Says Human Error Allowed OpenAI and Anthropic AI Model Escapes",
     "video_path": "output/mr_nextep_short.mp4",
@@ -9783,6 +9783,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "bdfb2630812d96e972505ef9119df6ed3ea9891213f10d960475d9bdec39c7dc",
     "body": "Slack alert: Model just leaked Team pushed model to public server Model began replying to random users API key posted publicly by mistake Dozens of bots scraped the model quickly We trust automation, skip double checks Leaked key lets anyone query predictions Slack ping saved us from AI chaos",
-    "text": "Irregular Says Human Error Allowed OpenAI and Anthropic AI Model Escapes Slack alert: Model just leaked Team pushed model to public server Model began replying to random users API key posted publicly by mistake Dozens of bots scraped the model quickly We trust automation, skip double checks Leaked key lets anyone query predictions Slack ping saved us from AI chaos"
+    "text": "Irregular Says Human Error Allowed OpenAI and Anthropic AI Model Escapes Slack alert: Model just leaked Team pushed model to public server Model began replying to random users API key posted publicly by mistake Dozens of bots scraped the model quickly We trust automation, skip double checks Leaked key lets anyone query predictions Slack ping saved us from AI chaos",
+    "youtube_video_id": "5sqAkV71m3M",
+    "url": "https://youtu.be/5sqAkV71m3M",
+    "thumbnail": "uploaded",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/1122980080905302/videos?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      }
+    }
   }
 ]
