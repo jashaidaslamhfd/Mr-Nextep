@@ -3071,5 +3071,21 @@
     "title": "New York enacts laws targeting AI chatbot risks to children, baby monitor security",
     "body": "Baby monitors aren't just cameras They actually hear everything AI builds a voice profile Predicts your kid's next words Lawmakers fear manipulation NY bans unsupervised chatbots Check AI safety settings Your privacy could become playground",
     "text": "New York enacts laws targeting AI chatbot risks to children, baby monitor security Baby monitors aren't just cameras They actually hear everything AI builds a voice profile Predicts your kid's next words Lawmakers fear manipulation NY bans unsupervised chatbots Check AI safety settings Your privacy could become playground"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "b149965b00d8f98a9b99a284f5e9ef3c5a98eaab58cf539875dc0da8362ecdbf",
+    "title": "DOJ Launches Super Intelligence Task Force to Combat AI Fraud and Hacks",
+    "body": "Why does DOJ need a super‑AI team? AI fraud now sounds like humans Deepfakes copy your boss’s voice Banks trust the fake calls Tech predicts cues, bypasses instincts Scientists label it confidence bias Task force builds glitch detectors Doubt flawless AI phone calls",
+    "text": "DOJ Launches Super Intelligence Task Force to Combat AI Fraud and Hacks Why does DOJ need a super‑AI team? AI fraud now sounds like humans Deepfakes copy your boss’s voice Banks trust the fake calls Tech predicts cues, bypasses instincts Scientists label it confidence bias Task force builds glitch detectors Doubt flawless AI phone calls"
   }
 ]
