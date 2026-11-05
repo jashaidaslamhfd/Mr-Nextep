@@ -10001,7 +10001,7 @@
   },
   {
     "created_at": "2026-11-05T07:54:28.811905+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "New York enacts laws targeting AI chatbot risks to children, baby monitor security",
     "title": "New York enacts laws targeting AI chatbot risks to children, baby monitor security",
     "video_path": "output/mr_nextep_short.mp4",
@@ -10083,6 +10083,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "5b294b5bfb9d7fad7d07a3e62331d49cef335c15c959eaa19459208389032ea7",
     "body": "Baby monitors aren't just cameras They actually hear everything AI builds a voice profile Predicts your kid's next words Lawmakers fear manipulation NY bans unsupervised chatbots Check AI safety settings Your privacy could become playground",
-    "text": "New York enacts laws targeting AI chatbot risks to children, baby monitor security Baby monitors aren't just cameras They actually hear everything AI builds a voice profile Predicts your kid's next words Lawmakers fear manipulation NY bans unsupervised chatbots Check AI safety settings Your privacy could become playground"
+    "text": "New York enacts laws targeting AI chatbot risks to children, baby monitor security Baby monitors aren't just cameras They actually hear everything AI builds a voice profile Predicts your kid's next words Lawmakers fear manipulation NY bans unsupervised chatbots Check AI safety settings Your privacy could become playground",
+    "youtube_video_id": "NlYIHH6_Dbw",
+    "url": "https://youtu.be/NlYIHH6_Dbw",
+    "thumbnail": "uploaded",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/1122980080905302/videos?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      }
+    }
   }
 ]
