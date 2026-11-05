@@ -9998,5 +9998,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-05T07:54:28.811905+00:00",
+    "status": "pending",
+    "topic": "New York enacts laws targeting AI chatbot risks to children, baby monitor security",
+    "title": "New York enacts laws targeting AI chatbot risks to children, baby monitor security",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "1e0d41df4d0f76c5b9ef49a39257e29868f6dd7f483e77f17bac94d82712b7b4",
+      "401b320b96ad8ecb70e91b770d40e68c85e26f4f45beb637975f98f05c1ee2aa",
+      "c44f3810cb2868cc7666988d4ff97a4377fc461ef8ca26cb48e272c359be7673",
+      "7deeb8a674ae1fe8ec8e4c43cc9c92bde5f4c84e92b244d4dcd4b99f5781e554",
+      "2ba91b4c1f97c7b6bfdb381675cfd388e542cef2d6289493c2fd0bd7a4cba496",
+      "315a584ae5a5dd6547c15b806fa61728e984e303ac744c4678767ad54516345b",
+      "35dd63a5c1d5950083ceffd845b0f28f889a55aee8c6b1b1d73d6fadcaf65c6b",
+      "a1775674a403e619f8fbdc91ba5001b263b73483a8ce96a0b7daaea2895b43eb"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "counterintuitive",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 100
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-2",
+      "topic": "New York enacts laws targeting AI chatbot risks to children, baby monitor security",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMihAJBVV95cUxPYl8weDhfTG02UExLUk43cW1FX2Fyb1ZlaEM2OUNpZzlhQVV5emxJd0NFb1pibXJQUThqNWxEYkJCSTd2NDhUd2RWSWxzY1NjTjhDZEE2Qjg2T0lWQ3R0MWxEcEdudWNhU0hmaVoyeDF4cm0xMTh0N2pvZ0J3ek1FbzBsdFBRMVFzQU9PMmlwZ283ZXQ1aGJMNmQzVWpSVEhqYlVYbS1ybTBFQm5wQ29pT2hKU2JKUW9pdjZMbERoeDNRRVJsYnBKamNQT0xvaWppTndHbjdNdDZzQmFDci0xa0ppb1diX0RZSDZtaGpEejRjX0JBOGwxU01EU2hCcUZIYmZteg?oc=5",
+      "published_at": "2026-11-05T06:00:00+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-11-05T07:51:31.768700+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "5b294b5bfb9d7fad7d07a3e62331d49cef335c15c959eaa19459208389032ea7",
+    "body": "Baby monitors aren't just cameras They actually hear everything AI builds a voice profile Predicts your kid's next words Lawmakers fear manipulation NY bans unsupervised chatbots Check AI safety settings Your privacy could become playground",
+    "text": "New York enacts laws targeting AI chatbot risks to children, baby monitor security Baby monitors aren't just cameras They actually hear everything AI builds a voice profile Predicts your kid's next words Lawmakers fear manipulation NY bans unsupervised chatbots Check AI safety settings Your privacy could become playground"
   }
 ]
