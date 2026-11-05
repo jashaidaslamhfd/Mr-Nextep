@@ -3039,5 +3039,21 @@
     "title": "Adobe Integrates Marketing AI Agent in ChatGPT and Claude",
     "body": "ChatGPT isn’t just chatting—Adobe sells Adobe adds a marketing AI inside It writes ad copy while you chat Runs on the same language model Confidence makes its pitches sound convincing Our brains trust confident suggestions Chatbot subtly sells without a sales pitch That’s why queries feel like ads",
     "text": "Adobe Integrates Marketing AI Agent in ChatGPT and Claude ChatGPT isn’t just chatting—Adobe sells Adobe adds a marketing AI inside It writes ad copy while you chat Runs on the same language model Confidence makes its pitches sound convincing Our brains trust confident suggestions Chatbot subtly sells without a sales pitch That’s why queries feel like ads"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "3e3642203eab349475fcdf3aae28849ca1fab646acb39194a155493e1e3f671a",
+    "title": "Artificial Intelligence Expert #1 AI Speaker Scott Steinberg",
+    "body": "Why does Scott sound certain? He talks AI like prophecy Demos glitch, he stays calm He uses confidence bias tricks Viewers trust his predictions blindly Brain treats confidence as truth Confidence cues hijack certainty circuits His certainty shapes our belief",
+    "text": "Artificial Intelligence Expert #1 AI Speaker Scott Steinberg Why does Scott sound certain? He talks AI like prophecy Demos glitch, he stays calm He uses confidence bias tricks Viewers trust his predictions blindly Brain treats confidence as truth Confidence cues hijack certainty circuits His certainty shapes our belief"
   }
 ]

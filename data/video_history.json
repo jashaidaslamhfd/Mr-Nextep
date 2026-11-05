@@ -9898,5 +9898,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-05T01:55:14.168432+00:00",
+    "status": "pending",
+    "topic": "Artificial Intelligence Expert #1 AI Speaker Scott Steinberg",
+    "title": "Artificial Intelligence Expert #1 AI Speaker Scott Steinberg",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "8507a6284cc8c9195d07713144a694749383d6b6f940eae953b6f7a9c9d5e93c",
+      "45bc56517e65246fb7117b874445b9d6327bf07e55fe4c5d8286eff35f82a42a",
+      "6e36059375be230ec1b2adc87533319affef32dca26676e2027a5b60d6aa7b02",
+      "52802afda9a5259955452915c65a12e96226dac4be2059bc7b85518a9040776c",
+      "8dcdebd62cf62d676a82b68e007217905db18e2896ecb5408960af94264c010e",
+      "481fac1b5ee50e734eb9e84a9e62e95629472d46e63a7a0ed0cf869b12328bca",
+      "28c1cb32ffbe3a43755f81abd53ba14bc26bf89c454b833f461783c09fd62f7c",
+      "f34164a1a6f089617188bb44f57852d1a28b596aecbdaf19861cbe1725ac4f5a"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "specific_question",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 91
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 91
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 86
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-3",
+      "topic": "Artificial Intelligence Expert #1 AI Speaker Scott Steinberg",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOalpobWtneGdZaDhhQ2hvMWlpRnFJaDk2X3lKdTE4blJFOHNsNXQ3bjYxbVJ4c1dpMjlFUnRUTi1ieTdUZHdobHloc2lRbk0yYW5aLXJabU1nbW1iVGtsTE1wbFVfNW5Zel9QZVd2Q3NfZVc4R0U1ZzlGOFl3cXp0Z1dPV21VSUM2SWYw?oc=5",
+      "published_at": "2026-11-04T18:49:23+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-11-05T01:52:31.983904+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "3e3642203eab349475fcdf3aae28849ca1fab646acb39194a155493e1e3f671a",
+    "body": "Why does Scott sound certain? He talks AI like prophecy Demos glitch, he stays calm He uses confidence bias tricks Viewers trust his predictions blindly Brain treats confidence as truth Confidence cues hijack certainty circuits His certainty shapes our belief",
+    "text": "Artificial Intelligence Expert #1 AI Speaker Scott Steinberg Why does Scott sound certain? He talks AI like prophecy Demos glitch, he stays calm He uses confidence bias tricks Viewers trust his predictions blindly Brain treats confidence as truth Confidence cues hijack certainty circuits His certainty shapes our belief"
   }
 ]
