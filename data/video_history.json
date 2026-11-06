@@ -10298,5 +10298,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-06T21:58:05.585024+00:00",
+    "status": "pending",
+    "topic": "DOJ Stands Up Super Intelligence Task Force to Counter AI Misuse",
+    "title": "DOJ Stands Up Super Intelligence Task Force to Counter AI Misuse",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "c30035c35f987a45850229ed9c33992d6a13184153180ad5d46229541d4384d0",
+      "8dc82a41fe7cced98cbc102434787d1b286a63aba969a497f98dbeb7f6692171",
+      "befc15594cea62ae38f885e2efd90f5d9aa362a203130ff9406ee6db9178e0c2",
+      "41d1beaf6308743bf50cf280e1dc502ac5806bf11a246cafe99532060b9a36d3",
+      "d247a6061135b1b6206b25c32ddf6c5319704c242198487ac4d26c837292a3e9",
+      "c7339f9deffbe733ca63eb616db7ff92299128fcb99d52fa9a199e6246727fa5",
+      "3f0e59d32c4af19e6adbc5613a3f0f0695df98a7f72422ed9d514184c000c395",
+      "ee0d48f7477a076cdecf0357485f12db3f8b360bcec0f4510f89572fed603168"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "counterintuitive",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 98
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "DOJ Stands Up Super Intelligence Task Force to Counter AI Misuse",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOMHBabUFrbTM3R1c1cmFldzRkTS1xM1gxZ2JsWC11YW1VYkxWaTFoRkhaY1poc3lBWEIzRHpzQmZPcjB2UnllU0xPZHZIWXlqamN4R095Xy1IT054alBtZDJabmxZNzUtVnVBUEFEZnlSOEtfaHdrd05kRjg5djJfMTZLeHMtY2lW?oc=5",
+      "published_at": "2026-11-06T21:38:10+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-11-06T21:55:29.179882+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "6b124d8819be19191d66e6e2f507ff760ff85bc6a9c61b106329d1a34e1e79e6",
+    "body": "DOJ isn’t after killer robots They formed a Super‑AI task force Goal: stop AI‑powered scams AI crimes often look like spam AI mimics voices, tricks judges Models copy speech to gain trust Task force targets deception, not apocalypse Think twice before you click",
+    "text": "DOJ Stands Up Super Intelligence Task Force to Counter AI Misuse DOJ isn’t after killer robots They formed a Super‑AI task force Goal: stop AI‑powered scams AI crimes often look like spam AI mimics voices, tricks judges Models copy speech to gain trust Task force targets deception, not apocalypse Think twice before you click"
   }
 ]

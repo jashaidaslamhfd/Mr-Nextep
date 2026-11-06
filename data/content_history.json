@@ -3103,5 +3103,21 @@
     "title": "DOJ Creates 'Super Intelligence' Task Force to Guard Against AI Abuse",
     "body": "Unexpected loan offer pops up AI suggested without your request DOJ creates secret AI squad Named the Super Intelligence Force Task: stop AI deception We trust confident AI errors Confidence makes mistakes seem truthful Loan offers may disappear soon",
     "text": "DOJ Creates 'Super Intelligence' Task Force to Guard Against AI Abuse Unexpected loan offer pops up AI suggested without your request DOJ creates secret AI squad Named the Super Intelligence Force Task: stop AI deception We trust confident AI errors Confidence makes mistakes seem truthful Loan offers may disappear soon"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "6b124d8819be19191d66e6e2f507ff760ff85bc6a9c61b106329d1a34e1e79e6",
+    "title": "DOJ Stands Up Super Intelligence Task Force to Counter AI Misuse",
+    "body": "DOJ isn’t after killer robots They formed a Super‑AI task force Goal: stop AI‑powered scams AI crimes often look like spam AI mimics voices, tricks judges Models copy speech to gain trust Task force targets deception, not apocalypse Think twice before you click",
+    "text": "DOJ Stands Up Super Intelligence Task Force to Counter AI Misuse DOJ isn’t after killer robots They formed a Super‑AI task force Goal: stop AI‑powered scams AI crimes often look like spam AI mimics voices, tricks judges Models copy speech to gain trust Task force targets deception, not apocalypse Think twice before you click"
   }
 ]
