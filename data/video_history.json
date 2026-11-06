@@ -10198,5 +10198,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-06T01:55:04.823752+00:00",
+    "status": "pending",
+    "topic": "DOJ Creates 'Super Intelligence' Task Force to Guard Against AI Abuse",
+    "title": "DOJ Creates 'Super Intelligence' Task Force to Guard Against AI Abuse",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "1740642a72d43bdd1aaa30acafe6b9ac0f812b87f91bd06bec089fa705e72ab1",
+      "d9a98cc6fe2c13fb238cc4aa4da8973139cd78967f7da775f6de082af5760df6",
+      "ce6b54f7801542ffe1d65f1161da8641649f3bd245999e6044c38f87553ec0e2",
+      "a56217e532e74d3247615838598d1566266d0424de16e747f9f9d3731270b031",
+      "f09c20e5cdacbdbc0dd799c6f51ae4ec0fd844ee89c8b6089023a7c005d19594",
+      "577b393a9d46b5931ab4ac5d476b4a4cc6b474d76ea9e0a985cfedee07a0c523",
+      "16fb0140949964b973855318e5a45bba1f00bc94f366dd8da01e0e7d12c278c7",
+      "89a5d0ef5b4054f3baa1799dd9aee8020df5d7b7d169d12fcfb46652a091f8a5"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "concrete_observation",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 100
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-2",
+      "topic": "DOJ Creates 'Super Intelligence' Task Force to Guard Against AI Abuse",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOX05lUUtpazlZNzZuWGQzM1BPTnN3dTRsQUl2QnEzdkxiZDhIQUZKVHczMkRGdExMa3NzNVBPMm1QSVowdkJzY0tLVjd5UUlUQ3dzZXpSVi1sallNa0xYVmphSU5vaHVmeFZUbkFieThqWWpMV3RFdjJGUmQ4d3pySEdkQS05T1FvZ29QZUNhZnpTWEhNRC1SUA?oc=5",
+      "published_at": "2026-11-05T20:46:02+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-11-06T01:51:47.105983+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "53bad141056b1ca885cea48bf78b5f802988040b226ffcb53cab4f93f0187331",
+    "body": "Unexpected loan offer pops up AI suggested without your request DOJ creates secret AI squad Named the Super Intelligence Force Task: stop AI deception We trust confident AI errors Confidence makes mistakes seem truthful Loan offers may disappear soon",
+    "text": "DOJ Creates 'Super Intelligence' Task Force to Guard Against AI Abuse Unexpected loan offer pops up AI suggested without your request DOJ creates secret AI squad Named the Super Intelligence Force Task: stop AI deception We trust confident AI errors Confidence makes mistakes seem truthful Loan offers may disappear soon"
   }
 ]
