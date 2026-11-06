@@ -10301,7 +10301,7 @@
   },
   {
     "created_at": "2026-11-06T21:58:05.585024+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "DOJ Stands Up Super Intelligence Task Force to Counter AI Misuse",
     "title": "DOJ Stands Up Super Intelligence Task Force to Counter AI Misuse",
     "video_path": "output/mr_nextep_short.mp4",
@@ -10383,6 +10383,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "6b124d8819be19191d66e6e2f507ff760ff85bc6a9c61b106329d1a34e1e79e6",
     "body": "DOJ isn’t after killer robots They formed a Super‑AI task force Goal: stop AI‑powered scams AI crimes often look like spam AI mimics voices, tricks judges Models copy speech to gain trust Task force targets deception, not apocalypse Think twice before you click",
-    "text": "DOJ Stands Up Super Intelligence Task Force to Counter AI Misuse DOJ isn’t after killer robots They formed a Super‑AI task force Goal: stop AI‑powered scams AI crimes often look like spam AI mimics voices, tricks judges Models copy speech to gain trust Task force targets deception, not apocalypse Think twice before you click"
+    "text": "DOJ Stands Up Super Intelligence Task Force to Counter AI Misuse DOJ isn’t after killer robots They formed a Super‑AI task force Goal: stop AI‑powered scams AI crimes often look like spam AI mimics voices, tricks judges Models copy speech to gain trust Task force targets deception, not apocalypse Think twice before you click",
+    "youtube_video_id": "vPSNnikxXSo",
+    "url": "https://youtu.be/vPSNnikxXSo",
+    "thumbnail": "uploaded",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/1122980080905302/videos?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      }
+    }
   }
 ]
