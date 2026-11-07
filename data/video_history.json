@@ -10401,7 +10401,7 @@
   },
   {
     "created_at": "2026-11-07T01:24:14.915698+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Best AI Chatbot for Teachers",
     "title": "Best AI Chatbot for Teachers",
     "video_path": "output/mr_nextep_short.mp4",
@@ -10483,6 +10483,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "05e7bfa6b1a9c1d81b5e882430b95052ccd2bbc9946e453db852cc635bfdcc6b",
     "body": "Why does my AI sound confident? Instant answers, even when wrong. Teachers trust it despite errors. Confidence hijacks our authority shortcut. Saving minutes by letting AI grade. Model predicts likely words, not facts. Certainty is just statistical illusion. That’s why the bot feels sure.",
-    "text": "Best AI Chatbot for Teachers Why does my AI sound confident? Instant answers, even when wrong. Teachers trust it despite errors. Confidence hijacks our authority shortcut. Saving minutes by letting AI grade. Model predicts likely words, not facts. Certainty is just statistical illusion. That’s why the bot feels sure."
+    "text": "Best AI Chatbot for Teachers Why does my AI sound confident? Instant answers, even when wrong. Teachers trust it despite errors. Confidence hijacks our authority shortcut. Saving minutes by letting AI grade. Model predicts likely words, not facts. Certainty is just statistical illusion. That’s why the bot feels sure.",
+    "youtube_video_id": "SlOn4S4CLjE",
+    "url": "https://youtu.be/SlOn4S4CLjE",
+    "thumbnail": "uploaded",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/1122980080905302/videos?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      }
+    }
   }
 ]
