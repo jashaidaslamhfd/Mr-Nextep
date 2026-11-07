@@ -10498,5 +10498,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-07T07:02:19.821227+00:00",
+    "status": "pending",
+    "topic": "Parental Trust in Artificial Intelligence and Pediatricians",
+    "title": "Parental Trust in Artificial Intelligence and Pediatricians",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "a61134e6c9fa60cc447be8aee8088874858474bb6ed3b6c7bfc6af1cb03a1ad2",
+      "a4decdafbfce235a7abee4e6256e0f1ef5b8e2a728cf9b5c21a462f6d796b487",
+      "ba4937e7cf45757cd22ab7439df70e975a16ba7bc2462c0db0ed8a938bb9c5d9",
+      "d2e77d85273fd659df6e10c17a29602fce16a78cc4cfb85ecb8fa6fc68d8dbc0",
+      "c8c99991f9dbd376a1167e9c7d4c5f3603bd7f2df0b718f8e544d7d548144e26",
+      "2205f047f6c81796e7effdeff51a56541d3324aaa08b5158f7da0e8d6bc1eb83",
+      "fc03883550e0343bfbbd55c5ca7f1a604d15c6e8e0a6101617365b9b39990ae7",
+      "99f3c9a5038059ad68a0669a85d6e94d4d29cfda09ddcbc5cc0b44c998f6fdf6"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "concrete_observation",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 85
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 85
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 80
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "Parental Trust in Artificial Intelligence and Pediatricians",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMiowJBVV95cUxOZ0dHZTZfbjcwVXNNMVVRLWY5dEFHWE1Ed1B6a1E5SzdsWDdiSFBUbXZoTnRVVVZSNGRlWEJQTVhHVUgtSC1kZzJ6Z2RtRms5YVpiVVhFaVhCREp6S2hxQk1EZUdzaHZ4MXUwUUJ2NDZCaVpjSDlpTU9WYjY5MVQ1NFM5ZmktQWYyZ3JLaGFYUlBoZC1jSmlPM0pnemRFaks0dnFDRFBLQzk3czI2OHhoRlpESklmZHlnVGQ5WDRsMVYyemZ1V2JWSEIydW5XQjNIbmw5cWpkaHFkUmdFR1QyLTlxaWNCeFJEblFMWnB5Z2FZQThrQ1ItdHZsdXBQTVlXR3dEQjl1ZGh1STdSX1FjQWl5SG0yTk12bHNQdlY4eTk4MkU?oc=5",
+      "published_at": "2026-11-07T01:25:12+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-11-07T06:59:41.667241+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "18ac3f999d0129a587f8854a3daf7e8b8177fe473969981ba27965db03308b77",
+    "body": "AI says it's flu Doctor suggests waiting Mom trusts the algorithm AI trained on millions Star ratings sway decisions Brain likes confident answers AI lacks personal context Certainty drives parental trust",
+    "text": "Parental Trust in Artificial Intelligence and Pediatricians AI says it's flu Doctor suggests waiting Mom trusts the algorithm AI trained on millions Star ratings sway decisions Brain likes confident answers AI lacks personal context Certainty drives parental trust"
   }
 ]
