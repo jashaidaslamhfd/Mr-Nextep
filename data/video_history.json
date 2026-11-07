@@ -10398,5 +10398,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-07T01:24:14.915698+00:00",
+    "status": "pending",
+    "topic": "Best AI Chatbot for Teachers",
+    "title": "Best AI Chatbot for Teachers",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "838f00b3d4f9e55260286a15be67a2c44096f5033e2c1c1bca1f6fc9a1019a7f",
+      "4efc9249e0fc3ed97cd884db877597aab6d1cc8c72d71d70443c379f284f8cad",
+      "2e2fee921117d6cbd8ed08d245d434d4c510d49d704c435df0f98d495c8ea918",
+      "997a9cbd7bf3318d2fb835b0db9a07ae078c2a1bb7b3740155abdf896b09688c",
+      "c02684fc5c4cd7239f0fd191f3cf7f576d58ddb418ae90b2b11992c07be06716",
+      "77178a9ac53a2a1ea0b1aab48dc76a89b7c3632796c7373d5223882615fe54d4",
+      "8fbeb0df88d239834a55fe7ea9ac5dc36429dbdd822d39bd23c10ff01aed6f67",
+      "181e563ff870934e2cf7535e4b65d27925f842ce41bd38043218d77501309d08"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "specific_question",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 73
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 73
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 68
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-2",
+      "topic": "Best AI Chatbot for Teachers",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE5icjRtdGstWEN1S2dqN0ZVcWkwbnlGcEFEQ09QeFhfeklZQ3NjSnVYWkMyVkR0SjNma0dQeENMNG5DM0kyRTkwMmkwc0VtOW5LY05VaHNwRmFwbkQzd3I2ZFBFVDNxQlFDbXIyenE1LWxGdk9YN1J3UUZR?oc=5",
+      "published_at": "2026-11-06T21:32:57+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-11-07T01:21:19.471802+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "05e7bfa6b1a9c1d81b5e882430b95052ccd2bbc9946e453db852cc635bfdcc6b",
+    "body": "Why does my AI sound confident? Instant answers, even when wrong. Teachers trust it despite errors. Confidence hijacks our authority shortcut. Saving minutes by letting AI grade. Model predicts likely words, not facts. Certainty is just statistical illusion. That’s why the bot feels sure.",
+    "text": "Best AI Chatbot for Teachers Why does my AI sound confident? Instant answers, even when wrong. Teachers trust it despite errors. Confidence hijacks our authority shortcut. Saving minutes by letting AI grade. Model predicts likely words, not facts. Certainty is just statistical illusion. That’s why the bot feels sure."
   }
 ]
