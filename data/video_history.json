@@ -10598,5 +10598,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-07T20:41:27.776354+00:00",
+    "status": "pending",
+    "topic": "The Brain Artificial Intelligence (AI)",
+    "title": "The Brain Artificial Intelligence (AI)",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "555029a7057b845b3d96d646770b55df3b6ddf67a7463c8d2aeecfeb29b4152b",
+      "6c61e987b86c3fe7cbb49e453366471492513ca4240a3e1e3ae6a405997c48b9",
+      "8f3278d136c31301df33b9b32b0f2339dea211533fe810a13dd9e3e9f270c08a",
+      "24086b9d9f140340a66bec731084dbef918cf8dede9d05a0712f9069a7dba893",
+      "56bcff887513454778f06ffc1cbe2a8fdbf9cff3a0ae6ae26076711454356aba",
+      "f977c801c9597856e817de61c54c5bc698c593b76b30b41d6352f21d7e6b97df",
+      "f35e6ab8c6907df1d4e2644c2108b369b0b75797fd335cf967a6dfc460bf1efc",
+      "a5a961d2e581918e27fd8f87db2eb1f48bc7be800cd8496c67fce7baf974c942"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "2 similar past video(s) retained 48%, at or above the 30% floor",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": 0.47995,
+      "neighbours_considered": 2
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "counterintuitive",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 73
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 73
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 68
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "The Brain Artificial Intelligence (AI)",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMi9wFBVV95cUxOTXNPUEZ0VUtQZ0tpRU5DWHdtVnk5aE1qUFcwN1Jzc1p5UmdXNXVXNVRxZGZld1g1eXFfTm9oa2lCMXpJNkl5YnFKakhla2FMZnQxNXI2aERDVmtZMFpvcXNqS1h0a01QTlRzQUhGenVPN0NJa2ZDUjZ2Z1JXSlBqamFhN3Q4d09zMHhnek0yU0hiWDE1dXlsZ1I1Ql80dG9XUmcxem5KdnRQZkxocHNmTTRLWlYwaHZqMWpKcnZ3bUpZaHJtdGI4dXFoREUzVFQ2X2dMTDJRX2Zoc25HNWhjdl9ULU41UzNPdjg4SHRQeHgyRzVzc1pz?oc=5",
+      "published_at": "2026-11-07T07:00:00+00:00",
+      "trend_score": 13,
+      "fetched_at": "2026-11-07T20:39:19.029304+00:00",
+      "growth_score": 49.84,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 13/100.",
+        "Similar measured videos retained 50%; channel median 38%.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "cfd33158fd9fb52539784197d11ae6911509c6c37288e3d68f86a6a976654ae0",
+    "body": "AI isn’t an endless memory Only a few thousand words remembered Old info gets overwritten quickly Predicts next token, not stores facts Context overflow drops early details Result: hallucinated forgotten information Mirrors our brain’s limited attention Both forget, sharing the same errors",
+    "text": "The Brain Artificial Intelligence (AI) AI isn’t an endless memory Only a few thousand words remembered Old info gets overwritten quickly Predicts next token, not stores facts Context overflow drops early details Result: hallucinated forgotten information Mirrors our brain’s limited attention Both forget, sharing the same errors"
   }
 ]

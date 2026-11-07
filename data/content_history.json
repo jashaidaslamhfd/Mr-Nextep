@@ -3151,5 +3151,21 @@
     "title": "Parental Trust in Artificial Intelligence and Pediatricians",
     "body": "AI says it's flu Doctor suggests waiting Mom trusts the algorithm AI trained on millions Star ratings sway decisions Brain likes confident answers AI lacks personal context Certainty drives parental trust",
     "text": "Parental Trust in Artificial Intelligence and Pediatricians AI says it's flu Doctor suggests waiting Mom trusts the algorithm AI trained on millions Star ratings sway decisions Brain likes confident answers AI lacks personal context Certainty drives parental trust"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "2 similar past video(s) retained 48%, at or above the 30% floor",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": 0.47995,
+      "neighbours_considered": 2
+    },
+    "fingerprint": "cfd33158fd9fb52539784197d11ae6911509c6c37288e3d68f86a6a976654ae0",
+    "title": "The Brain Artificial Intelligence (AI)",
+    "body": "AI isn’t an endless memory Only a few thousand words remembered Old info gets overwritten quickly Predicts next token, not stores facts Context overflow drops early details Result: hallucinated forgotten information Mirrors our brain’s limited attention Both forget, sharing the same errors",
+    "text": "The Brain Artificial Intelligence (AI) AI isn’t an endless memory Only a few thousand words remembered Old info gets overwritten quickly Predicts next token, not stores facts Context overflow drops early details Result: hallucinated forgotten information Mirrors our brain’s limited attention Both forget, sharing the same errors"
   }
 ]
