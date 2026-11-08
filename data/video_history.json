@@ -10801,7 +10801,7 @@
   },
   {
     "created_at": "2026-11-08T07:11:41.781060+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Artificial intelligence (AI) is determining the fate of the two giants in the global advertising mar..",
     "title": "Artificial intelligence (AI) is determining the fate of the two giants in the global advertising mar..",
     "video_path": "output/mr_nextep_short.mp4",
@@ -10883,6 +10883,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "fe9e4aaa094c4ab8fa59946b9f4b784d267a6ae0b695d94a4a9fe7a72e94c5ba",
     "body": "Why is AI favoring Google now? Both ad giants lost equal spend. AI's hidden scores pick the winner. Google feeds richer data into AI. Marketers notice sudden drop on Meta. Algorithms favor higher predicted click rates. AI values patterns, not brand love. It chooses who converts best.",
-    "text": "Artificial intelligence (AI) is determining the fate of the two giants in the global advertising mar.. Why is AI favoring Google now? Both ad giants lost equal spend. AI's hidden scores pick the winner. Google feeds richer data into AI. Marketers notice sudden drop on Meta. Algorithms favor higher predicted click rates. AI values patterns, not brand love. It chooses who converts best."
+    "text": "Artificial intelligence (AI) is determining the fate of the two giants in the global advertising mar.. Why is AI favoring Google now? Both ad giants lost equal spend. AI's hidden scores pick the winner. Google feeds richer data into AI. Marketers notice sudden drop on Meta. Algorithms favor higher predicted click rates. AI values patterns, not brand love. It chooses who converts best.",
+    "youtube_video_id": "p8jKwRWVqlE",
+    "url": "https://youtu.be/p8jKwRWVqlE",
+    "thumbnail": "uploaded",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/1122980080905302/videos?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      }
+    }
   }
 ]
