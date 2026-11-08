@@ -10798,5 +10798,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-08T07:11:41.781060+00:00",
+    "status": "pending",
+    "topic": "Artificial intelligence (AI) is determining the fate of the two giants in the global advertising mar..",
+    "title": "Artificial intelligence (AI) is determining the fate of the two giants in the global advertising mar..",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "77b7146a338454a4b910e323b1cfdae923917d81d6910c5c62750cc482473397",
+      "7f8b4cb189ae36ff46f376e1ac8922fd2b28be0bcee06dcafcc6c979075e25ee",
+      "7395f65e27b77b46a87a1384ff53a59cd68761a0537055e5bec7feed823b3b8c",
+      "58c3488b72290954c578197fe94b871d93a9e3de5e8d688030c59c8165a20607",
+      "cc75ab0f78f79358406539dc2a03123b990d0293a4adbc929be8bf1ab81974e2",
+      "491928358fa11fa0995051c3976620f43d69208691f2b2a70c34fef9f9a48ca7",
+      "1e37e5dfead394edc11ef7e951b2a276f9a4a04f2b039c07c9898a8709fc52aa",
+      "7092b2b90c0afb431e3e8684609d25a75cab863dd4c57b628817e9a06b8e5b20"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "specific_question",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 100
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "Artificial intelligence (AI) is determining the fate of the two giants in the global advertising mar..",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5PZmpnakJQMFZoMTRLdjh4VU41YnVyV0VnbWtEc3BSeGtXMWYyaUo4cnJnckU3UlhyalV0M2RQR1R4UDRLUTd4bExNX1F0dHc?oc=5",
+      "published_at": "2026-11-08T04:05:24+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-11-08T07:09:15.620107+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "fe9e4aaa094c4ab8fa59946b9f4b784d267a6ae0b695d94a4a9fe7a72e94c5ba",
+    "body": "Why is AI favoring Google now? Both ad giants lost equal spend. AI's hidden scores pick the winner. Google feeds richer data into AI. Marketers notice sudden drop on Meta. Algorithms favor higher predicted click rates. AI values patterns, not brand love. It chooses who converts best.",
+    "text": "Artificial intelligence (AI) is determining the fate of the two giants in the global advertising mar.. Why is AI favoring Google now? Both ad giants lost equal spend. AI's hidden scores pick the winner. Google feeds richer data into AI. Marketers notice sudden drop on Meta. Algorithms favor higher predicted click rates. AI values patterns, not brand love. It chooses who converts best."
   }
 ]

@@ -3183,5 +3183,21 @@
     "title": "The Artificial Intelligence (AI) Boom Is Far From Over. Here Are 4 Potential Long",
     "body": "Weird AI suggestion appears now New AI apps pop daily Usage rises while hype fades Data loops feed fresh tricks We trust AI without questioning Feedback loops boost AI growth Our clicks power the AI boom That suggestion came from you",
     "text": "The Artificial Intelligence (AI) Boom Is Far From Over. Here Are 4 Potential Long Weird AI suggestion appears now New AI apps pop daily Usage rises while hype fades Data loops feed fresh tricks We trust AI without questioning Feedback loops boost AI growth Our clicks power the AI boom That suggestion came from you"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "fe9e4aaa094c4ab8fa59946b9f4b784d267a6ae0b695d94a4a9fe7a72e94c5ba",
+    "title": "Artificial intelligence (AI) is determining the fate of the two giants in the global advertising mar..",
+    "body": "Why is AI favoring Google now? Both ad giants lost equal spend. AI's hidden scores pick the winner. Google feeds richer data into AI. Marketers notice sudden drop on Meta. Algorithms favor higher predicted click rates. AI values patterns, not brand love. It chooses who converts best.",
+    "text": "Artificial intelligence (AI) is determining the fate of the two giants in the global advertising mar.. Why is AI favoring Google now? Both ad giants lost equal spend. AI's hidden scores pick the winner. Google feeds richer data into AI. Marketers notice sudden drop on Meta. Algorithms favor higher predicted click rates. AI values patterns, not brand love. It chooses who converts best."
   }
 ]
