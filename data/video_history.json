@@ -10898,5 +10898,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-08T21:00:04.324376+00:00",
+    "status": "pending",
+    "topic": "Best AI Chatbot",
+    "title": "Best AI Chatbot",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "00a995692bb1148598e6dad22ff982f356e78ed391730be5729bdc8a33233e49",
+      "400841f464f73707e813120729a3828aba7ba17b79a831c5c3dcda85705a6eb0",
+      "b898f474a3aeb57d322dee33da21d102bb2034b73ed565349ed25cb6befc7c9a",
+      "d2ee4ed39ea7a9afd46352fab64315aad9ccb6e80e8cd3251a0770cb37a86550",
+      "61b0555289307625a4a14fbfdaae0ceb80255f5298790238a0984aeb54d1b0bf",
+      "49387bf2af8518ed1fcd5a0d97a0c004c5c944f95c4c579f3b560f7b73d957cd",
+      "ad35f0b49ba12accdc87c4ea9919af4e902003f99f420ae690fc42a769f6470a",
+      "9a9fd233bceb07a8f24a0e2ab5decca565e494cf86c93c1efccf1c5945351f93"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "counterintuitive",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 67
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 67
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 62
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "Best AI Chatbot",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQUG5yS2FwQXVrSTVhZkxlVXFIY0JsS0JPTERWTWdJUnpqdC1IMUhmYWRHcUwydUpVT1YwbGh5UXVSb05BeUpzRGc5RS1kTVpUY2oycFBoUW5PZUJoSW15dGxxNTJGaTNXbml3bjRlRnUyVXRpRmdtV1Y5eGlmNi0teU53?oc=5",
+      "published_at": "2026-11-08T18:02:50+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-11-08T20:57:07.115610+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 1,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "4751272b1489efc93a6cca0a096601130535b118a9fa7e99544883e1b0382a26",
+    "body": "Smartest AI doesn't always win People like humble chatbots Confidence hides chatbot errors Low confidence softens errors Modest bots earn lasting trust Brain likes predictable uncertainty Admitting limits beats confidence Humble AI often wins",
+    "text": "Best AI Chatbot Smartest AI doesn't always win People like humble chatbots Confidence hides chatbot errors Low confidence softens errors Modest bots earn lasting trust Brain likes predictable uncertainty Admitting limits beats confidence Humble AI often wins"
   }
 ]
