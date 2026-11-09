@@ -1,53 +1,5 @@
 [
   {
-    "hash": "9226c0135e212934ade7fe62c944a0e77cf57ed963ff953c28877aafd118e726",
-    "source_url": "https://cdn.pixabay.com/video/2022/10/07/133900-758336565_medium.mp4",
-    "title": "Wisconsin files legal action alleging AI chatbot posed 'serious safety risks'",
-    "created_at": "2026-10-18T23:48:24.839738+00:00"
-  },
-  {
-    "hash": "fe410a9604c6c21d6329e7318e7f6d20d7482e901bcccfc5cff32029d6a16d55",
-    "source_url": "https://cdn.pixabay.com/video/2021/08/18/85486-591865269_medium.mp4",
-    "title": "Wisconsin files legal action alleging AI chatbot posed 'serious safety risks'",
-    "created_at": "2026-10-18T23:48:24.839738+00:00"
-  },
-  {
-    "hash": "f5a6de8a46d0695764aa7716c3bf4d74f8746e0c84bf3ef16bc2806d619b872c",
-    "source_url": "https://videos.pexels.com/video-files/28145074/12309677_360_640_60fps.mp4",
-    "title": "Wisconsin files legal action alleging AI chatbot posed 'serious safety risks'",
-    "created_at": "2026-10-18T23:48:24.839738+00:00"
-  },
-  {
-    "hash": "5db204125c773b20f57fa25f8c74b27157f7e9a325175a17c426da5fd8581254",
-    "source_url": "https://videos.pexels.com/video-files/15283161/15283161-sd_540_960_30fps.mp4",
-    "title": "Wisconsin files legal action alleging AI chatbot posed 'serious safety risks'",
-    "created_at": "2026-10-18T23:48:24.839738+00:00"
-  },
-  {
-    "hash": "2d529326df5d090378a3ccdb757c9b41853dd88c462ffda96db4dd3ccc358133",
-    "source_url": "https://cdn.pixabay.com/video/2022/12/01/141204-777517691_medium.mp4",
-    "title": "Anthropic Takes Its AI Safety Proposals to Capitol Hill",
-    "created_at": "2026-10-19T06:00:35.803809+00:00"
-  },
-  {
-    "hash": "68588118410a316d0f0e2f103ca6dcb9ce47313f44622076a38fb65b110b34cb",
-    "source_url": "https://cdn.pixabay.com/video/2024/12/06/245204_medium.mp4",
-    "title": "Anthropic Takes Its AI Safety Proposals to Capitol Hill",
-    "created_at": "2026-10-19T06:00:35.803809+00:00"
-  },
-  {
-    "hash": "9a6026e5a7c774e386821b65532203873fabc79988361316f36ddc9e01e3d4e8",
-    "source_url": "https://videos.pexels.com/video-files/8731410/8731410-hd_720_1280_25fps.mp4",
-    "title": "Anthropic Takes Its AI Safety Proposals to Capitol Hill",
-    "created_at": "2026-10-19T06:00:35.803809+00:00"
-  },
-  {
-    "hash": "6d0c22e1f8f47a5991e333b169c3ab7ad0ed8d4a9ed23a3f482cae6ed3cc2c08",
-    "source_url": "https://videos.pexels.com/video-files/8344344/8344344-hd_1080_1920_25fps.mp4",
-    "title": "Anthropic Takes Its AI Safety Proposals to Capitol Hill",
-    "created_at": "2026-10-19T06:00:35.803809+00:00"
-  },
-  {
     "hash": "97974442084cc32e281d8ad6eef51d49b052ec8bf7bdb7230940aa1f5e3272fc",
     "source_url": "https://videos.pexels.com/video-files/35163081/14895114_360_640_30fps.mp4",
     "title": "Anthropic Takes Its AI Safety Proposals to Capitol Hill",
@@ -2998,5 +2950,53 @@
     "source_url": "https://videos.pexels.com/video-files/7945809/7945809-hd_1080_1920_25fps.mp4",
     "title": "Hybrid Artificial Intelligence Framework Evaluates Higher Education Teaching Effectiveness and Reduces Bias",
     "created_at": "2026-11-09T01:18:13.432813+00:00"
+  },
+  {
+    "hash": "777b17b0a71c518be51e09088c838631e4f2dd639df733f6741119b4c48af724",
+    "source_url": "https://videos.pexels.com/video-files/10374892/10374892-sd_240_426_24fps.mp4",
+    "title": "I stopped trusting Claude and ChatGPT's memory and setup my own memory system",
+    "created_at": "2026-11-09T07:53:39.062055+00:00"
+  },
+  {
+    "hash": "c67b6ba52e31032e2476287dbfc8be85793ea848a9ec166116e7510e66f2703d",
+    "source_url": "https://cdn.pixabay.com/video/2017/10/10/12417-238795698_medium.mp4",
+    "title": "I stopped trusting Claude and ChatGPT's memory and setup my own memory system",
+    "created_at": "2026-11-09T07:53:39.062055+00:00"
+  },
+  {
+    "hash": "f95f057f0caf8603003dc2a5c301426a52772e617eb889530232d2d52ba1fd68",
+    "source_url": "https://cdn.pixabay.com/video/2022/08/01/126333-735976700_medium.mp4",
+    "title": "I stopped trusting Claude and ChatGPT's memory and setup my own memory system",
+    "created_at": "2026-11-09T07:53:39.062055+00:00"
+  },
+  {
+    "hash": "f4a2faaf78a049d96591b15c4873ca72bdeaaf94c518ec4bea2005262dbdb312",
+    "source_url": "https://videos.pexels.com/video-files/5874560/5874560-sd_338_640_30fps.mp4",
+    "title": "I stopped trusting Claude and ChatGPT's memory and setup my own memory system",
+    "created_at": "2026-11-09T07:53:39.062055+00:00"
+  },
+  {
+    "hash": "c27b328b7afee9620476a7a99d299cad2d0c74ad77f6b323911a3fdec7c444fc",
+    "source_url": "https://cdn.pixabay.com/video/2020/10/08/51853-466374516_medium.mp4",
+    "title": "I stopped trusting Claude and ChatGPT's memory and setup my own memory system",
+    "created_at": "2026-11-09T07:53:39.062055+00:00"
+  },
+  {
+    "hash": "da0a5743795fc7005daa8bdaedbbfe6e6f42088b46addcefd74bc901eb392053",
+    "source_url": "https://cdn.pixabay.com/video/2020/06/17/42408-431511624_medium.mp4",
+    "title": "I stopped trusting Claude and ChatGPT's memory and setup my own memory system",
+    "created_at": "2026-11-09T07:53:39.062055+00:00"
+  },
+  {
+    "hash": "87855d08b39ca78e8ba126fe7deca87d8eb6b3796c2235036eda8503b6bd7cf9",
+    "source_url": "https://cdn.pixabay.com/video/2017/07/23/10822-226624975_medium.mp4",
+    "title": "I stopped trusting Claude and ChatGPT's memory and setup my own memory system",
+    "created_at": "2026-11-09T07:53:39.062055+00:00"
+  },
+  {
+    "hash": "060eee1410e5c457fefdade2a4921454692f214a153b3dce7fa0b1b120bf4c95",
+    "source_url": "https://cdn.pixabay.com/video/2020/03/28/34478-402606940_medium.mp4",
+    "title": "I stopped trusting Claude and ChatGPT's memory and setup my own memory system",
+    "created_at": "2026-11-09T07:53:39.062055+00:00"
   }
 ]
