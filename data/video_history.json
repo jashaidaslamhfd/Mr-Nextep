@@ -10998,5 +10998,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-09T01:18:13.432813+00:00",
+    "status": "pending",
+    "topic": "Hybrid Artificial Intelligence Framework Evaluates Higher Education Teaching Effectiveness and Reduces Bias",
+    "title": "Hybrid Artificial Intelligence Framework Evaluates Higher Education Teaching Effectiveness and Reduces Bias",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "f40ea1833bccd7c1a158c4d730bc83f062155216e161029ca91ca984559c790b",
+      "04b3709bfdce75c1097edeb53b21fead8b10dc138da668070427ccba9a461fb8",
+      "4d54bc9b03e5e92c2421998a52505830844851969ad55de87bcb266c9d49aefc",
+      "3cbff5a9e3599bda5f493a816fdbd6a76ad229397c89fed9c128c7c6dd0f7fb0",
+      "3cb20bc7f63497d4383f4a8284e78e316ff3b8fc051962e4d82f12d7653b8db3",
+      "f950fc27b20f975e2b7ca591bff84112ea425c8c3d8a60c447de213d8aee36bc",
+      "08e086ab15813628a7061c67c87a9570d3e96176678c9c7a6bf789f30f047856",
+      "0d965b774f980287f9aeeb914a5185136e6d30959e239e6057934319c88b5f29"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "concrete_observation",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 100
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-2",
+      "topic": "Hybrid Artificial Intelligence Framework Evaluates Higher Education Teaching Effectiveness and Reduces Bias",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOaVBiR0xrYWtKR0k0cHZvWFRkMnp4QzdXU3FDd2FZb2dvbGUwcXpqQXRrUUF5ODVMV2l3X2JvdnQ5MldCNks2SnhIcFBsVldzQ0doSm9pNHlPOXZtdXBZM0U3Ql8tSElQeDIzM3V4MjMxeUsxb0d3WHg0NmFrM0x0SkRaN09MQnBESlVwZmRPLUpEWExfWmlaN3NHRW03UWhmdkRMVXdyRUJtSVA4VlRrUUpidFBIZkJNQ1d4U3otQ3VvY1NfR2IxOUF5eWM?oc=5",
+      "published_at": "2026-11-08T17:59:22+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-11-09T01:15:52.560378+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "e1b5686b5578a5b84db6ad24f3af38bfb3842baeb47df48672b5cc76008449dd",
+    "body": "Rating jumped from 2 to 5 AI re‑scores every student comment Subtle gender bias patterns revealed Students who spoke up got higher Grades adjusted for balanced fairness Learning from data, not assumptions Clear metrics, less hidden bias Class trusts the new scores",
+    "text": "Hybrid Artificial Intelligence Framework Evaluates Higher Education Teaching Effectiveness and Reduces Bias Rating jumped from 2 to 5 AI re‑scores every student comment Subtle gender bias patterns revealed Students who spoke up got higher Grades adjusted for balanced fairness Learning from data, not assumptions Clear metrics, less hidden bias Class trusts the new scores"
   }
 ]
