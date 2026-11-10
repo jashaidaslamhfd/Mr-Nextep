@@ -11498,5 +11498,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-10T22:10:47.330869+00:00",
+    "status": "pending",
+    "topic": "Oura is acquiring medical AI chatbot startup Counsel Health",
+    "title": "Oura is acquiring medical AI chatbot startup Counsel Health",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "f3d1636a56e376559ed78a6941c74251a2a5a4aaee57e8af7a994cfb81508d3b",
+      "f78fcca6f8383473e271da2c0f52359fe31eaa1316dc25ebba960d30ee1cff3e",
+      "1fed35148790b1ae19af0d5b7da17c94b8f9853c83f38d7ef1ef79a79416edf7",
+      "4528a2e32b65e638495b4825d7714766fa898f60ea3152b1bd3f29fb4f58285b",
+      "3d8e3af424ac6b8ccec89ce2b3f20fc1d2f88689ebc915643b9b575bd6b818d5",
+      "c499fa919e13a8586881004438d74613a2a67db0e60699f011406c2ccd276846",
+      "1b33f8902a405a3df5cf2b9aad44da9947f42bf200f2255424dab9dfab3b435c",
+      "53922f5bda6cdd084552ca2735b7f57accdf23e7ac6f78c05d1cf076a8cf71a2"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "concrete_observation",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 97
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 97
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 92
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "Oura is acquiring medical AI chatbot startup Counsel Health",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9RSHpxaUdyc1l5Yl9UNjhqRW13MlhtVW5YVXFmcXQxSk5FaTRWUHJBMVRDTUROaHJQMG1wNXBjNXZzSHVOVElmQlpjdHduWHVxSy1UQ01WbzZhS2M0OUtNSUlwdHUwb09VYlRKNVgzdWVxa2tmRHpaTUxfWEs?oc=5",
+      "published_at": "2026-11-10T21:40:31+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-11-10T22:07:58.821008+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 1,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "20ec023e418d62527b456ebb64eed39e8c435bc305b698dd5fc613089ae59aa5",
+    "body": "Your Oura warns of low iron Feels like a doctor's alert But Oura never did blood tests Enter Counsel Health’s AI chatbot It uses sleep to predict labs Patterns link rest to deficiencies Algorithms aren’t substitute for doctors Trust ring, verify medically",
+    "text": "Oura is acquiring medical AI chatbot startup Counsel Health Your Oura warns of low iron Feels like a doctor's alert But Oura never did blood tests Enter Counsel Health’s AI chatbot It uses sleep to predict labs Patterns link rest to deficiencies Algorithms aren’t substitute for doctors Trust ring, verify medically"
   }
 ]

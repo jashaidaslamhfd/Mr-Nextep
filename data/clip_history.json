@@ -1,53 +1,5 @@
 [
   {
-    "hash": "ecdc46afb70429f838a56657fbb34e6faaf16803b4a22abab9cfd35290e25124",
-    "source_url": "https://videos.pexels.com/video-files/9795080/9795080-sd_338_640_25fps.mp4",
-    "title": "Your AI Memory Keeps You Tied to One Chatbot",
-    "created_at": "2026-10-20T05:56:15.291266+00:00"
-  },
-  {
-    "hash": "2131f5acb9d6ff845204cf1e3ef03c2a57aa9e0f1ce8c02ec1ad7d005f79c870",
-    "source_url": "https://videos.pexels.com/video-files/36724996/15564637_360_640_30fps.mp4",
-    "title": "Your AI Memory Keeps You Tied to One Chatbot",
-    "created_at": "2026-10-20T05:56:15.291266+00:00"
-  },
-  {
-    "hash": "e2cb418f1c5280826a0253bc21f7c82f7022c7ddaacacfcc3166bcefc892d469",
-    "source_url": "https://videos.pexels.com/video-files/5052895/5052895-hd_720_1366_25fps.mp4",
-    "title": "Your AI Memory Keeps You Tied to One Chatbot",
-    "created_at": "2026-10-20T05:56:15.291266+00:00"
-  },
-  {
-    "hash": "13a7cdbc91a7e4ebead221afe8c87a0e6b99ee9a15c369a8c2c244b3f76aaf85",
-    "source_url": "https://videos.pexels.com/video-files/6650917/6650917-hd_1080_1920_30fps.mp4",
-    "title": "Your AI Memory Keeps You Tied to One Chatbot",
-    "created_at": "2026-10-20T05:56:15.291266+00:00"
-  },
-  {
-    "hash": "a37e02a5d8db7c66ad82696ce01535a0b0329b22cfceb94a624b8198b6e81d7b",
-    "source_url": "https://videos.pexels.com/video-files/39484152/16819122_360_640_30fps.mp4",
-    "title": "Brain",
-    "created_at": "2026-10-20T20:19:37.586287+00:00"
-  },
-  {
-    "hash": "57f1e5842f6aa2245e6bf942e34b03e49c80118d8a0dc090b44db83f3dbc52bf",
-    "source_url": "https://videos.pexels.com/video-files/34745912/14729781_360_640_30fps.mp4",
-    "title": "Brain",
-    "created_at": "2026-10-20T20:19:37.586287+00:00"
-  },
-  {
-    "hash": "917cf771b6ef54a0bf97ac338f7c7ed87078f159095839207b8a25027aa5fe39",
-    "source_url": "https://videos.pexels.com/video-files/34636797/14680680_360_640_30fps.mp4",
-    "title": "Brain",
-    "created_at": "2026-10-20T20:19:37.586287+00:00"
-  },
-  {
-    "hash": "88fd17983675798f9fe36a34020c2cccda63e1a421669ff7f24abbe4d1e37c72",
-    "source_url": "https://videos.pexels.com/video-files/7196218/7196218-sd_540_960_25fps.mp4",
-    "title": "Brain",
-    "created_at": "2026-10-20T20:19:37.586287+00:00"
-  },
-  {
     "hash": "5b0b9c7739edf0ae421bb4ea279d5f057cc110ba1319c0f4451a43a47ce1ea74",
     "source_url": "https://videos.pexels.com/video-files/5657828/5657828-sd_226_426_25fps.mp4",
     "title": "Brain",
@@ -2998,5 +2950,53 @@
     "source_url": "https://videos.pexels.com/video-files/27155334/12086328_360_640_24fps.mp4",
     "title": "Anthropic Must Face Lawsuit Over Claude Subscription Marketing",
     "created_at": "2026-11-10T08:20:27.033780+00:00"
+  },
+  {
+    "hash": "f3d1636a56e376559ed78a6941c74251a2a5a4aaee57e8af7a994cfb81508d3b",
+    "source_url": "https://cdn.pixabay.com/video/2023/04/15/158967-818026238_medium.mp4",
+    "title": "Oura is acquiring medical AI chatbot startup Counsel Health",
+    "created_at": "2026-11-10T22:10:47.330869+00:00"
+  },
+  {
+    "hash": "f78fcca6f8383473e271da2c0f52359fe31eaa1316dc25ebba960d30ee1cff3e",
+    "source_url": "https://cdn.pixabay.com/video/2016/11/29/6590-193729460_medium.mp4",
+    "title": "Oura is acquiring medical AI chatbot startup Counsel Health",
+    "created_at": "2026-11-10T22:10:47.330869+00:00"
+  },
+  {
+    "hash": "1fed35148790b1ae19af0d5b7da17c94b8f9853c83f38d7ef1ef79a79416edf7",
+    "source_url": "https://videos.pexels.com/video-files/9168194/9168194-sd_226_426_25fps.mp4",
+    "title": "Oura is acquiring medical AI chatbot startup Counsel Health",
+    "created_at": "2026-11-10T22:10:47.330869+00:00"
+  },
+  {
+    "hash": "4528a2e32b65e638495b4825d7714766fa898f60ea3152b1bd3f29fb4f58285b",
+    "source_url": "https://cdn.pixabay.com/video/2021/01/11/61699-500316062_medium.mp4",
+    "title": "Oura is acquiring medical AI chatbot startup Counsel Health",
+    "created_at": "2026-11-10T22:10:47.330869+00:00"
+  },
+  {
+    "hash": "3d8e3af424ac6b8ccec89ce2b3f20fc1d2f88689ebc915643b9b575bd6b818d5",
+    "source_url": "https://videos.pexels.com/video-files/38455331/16330377_360_640_25fps.mp4",
+    "title": "Oura is acquiring medical AI chatbot startup Counsel Health",
+    "created_at": "2026-11-10T22:10:47.330869+00:00"
+  },
+  {
+    "hash": "c499fa919e13a8586881004438d74613a2a67db0e60699f011406c2ccd276846",
+    "source_url": "https://cdn.pixabay.com/video/2019/04/16/22835-330970621_medium.mp4",
+    "title": "Oura is acquiring medical AI chatbot startup Counsel Health",
+    "created_at": "2026-11-10T22:10:47.330869+00:00"
+  },
+  {
+    "hash": "1b33f8902a405a3df5cf2b9aad44da9947f42bf200f2255424dab9dfab3b435c",
+    "source_url": "https://cdn.pixabay.com/video/2019/03/26/22354-326843263_medium.mp4",
+    "title": "Oura is acquiring medical AI chatbot startup Counsel Health",
+    "created_at": "2026-11-10T22:10:47.330869+00:00"
+  },
+  {
+    "hash": "53922f5bda6cdd084552ca2735b7f57accdf23e7ac6f78c05d1cf076a8cf71a2",
+    "source_url": "https://videos.pexels.com/video-files/7423724/7423724-sd_360_640_30fps.mp4",
+    "title": "Oura is acquiring medical AI chatbot startup Counsel Health",
+    "created_at": "2026-11-10T22:10:47.330869+00:00"
   }
 ]
