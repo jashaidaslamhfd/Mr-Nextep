@@ -11198,5 +11198,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-10T00:34:49.498371+00:00",
+    "status": "pending",
+    "topic": "Your Sleep Tracker Has Been Using Your Brain Waves To Train AI Without Telling You",
+    "title": "Your Sleep Tracker Has Been Using Your Brain Waves To Train AI Without Telling You",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "dcc4ecc4b5fe6eaee0571c60bf6c466ee76f35ef5e06e5b14185334e6628a264",
+      "c5308bdb301e2cbb24dee7c02a49723658ba31f700c1b2d00dc34443c1607c1e",
+      "734a34c89418152a12967367ab04dd072c4bbb33ee47f1a63ef6eedd12cfcd4a",
+      "e25475576bd0c92eb4da8e48546255d34fceb48be709a8bb382343860413c49b",
+      "05344035b0abf56a9ac856da4de5e54b7b4d4bb3a67f4082f8a486c8a8f5ca38",
+      "c5193481d669df99f850897f397c0fb08d36e03377b37bbf76c69c127ada5a2c",
+      "0fd3c92b6fdc7d63ab8b89315d0fa38889931edd0acf5244e7d997c60bb23f7f",
+      "eec82d8af2fbbc45c6e3228f22fb2ccd85afb74a2fbe376eb101f81d2708f061"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "specific_question",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 100
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "Your Sleep Tracker Has Been Using Your Brain Waves To Train AI Without Telling You",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNNm11eUlCS0s2SnJRTlZ6djRYNm9KNXh2WWNGRmdaUGpfaFozU1U5dDV0QVRLc0RLZGdUdHBCRWRUVHMzblNsNzM3VDlWai1xYXYyalBzajlnS1VJM3JTMVEzTkpFamt6ZFh1R2F2RWJHeVRyaWVPbWNaQzVwLTVvdjdraDNWbjVvR3FSUmoweVlvalIwYlpEMzBJNlF2N0hRdzBSRXIxQUpYdmhUN2lHZQ?oc=5",
+      "published_at": "2026-11-09T19:25:38+00:00",
+      "trend_score": 13,
+      "fetched_at": "2026-11-10T00:32:20.996721+00:00",
+      "growth_score": 43.35,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 13/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "SLEEP_TERROR",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "ccde4044022b51b9a2df208dc0232712ffe3c770525bae9bfeb881782bd65fcc",
+    "body": "Your pillow is training AI? App captures nightly brain activity Data silently streams to the cloud Servers tweak massive language models Device starts guessing your thoughts EEG patterns link to language features Your unconscious fuels AI imagination Pillow learns you as you sleep",
+    "text": "Your Sleep Tracker Has Been Using Your Brain Waves To Train AI Without Telling You Your pillow is training AI? App captures nightly brain activity Data silently streams to the cloud Servers tweak massive language models Device starts guessing your thoughts EEG patterns link to language features Your unconscious fuels AI imagination Pillow learns you as you sleep"
   }
 ]
