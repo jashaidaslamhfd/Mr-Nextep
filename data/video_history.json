@@ -11501,7 +11501,7 @@
   },
   {
     "created_at": "2026-11-10T22:10:47.330869+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Oura is acquiring medical AI chatbot startup Counsel Health",
     "title": "Oura is acquiring medical AI chatbot startup Counsel Health",
     "video_path": "output/mr_nextep_short.mp4",
@@ -11583,6 +11583,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "20ec023e418d62527b456ebb64eed39e8c435bc305b698dd5fc613089ae59aa5",
     "body": "Your Oura warns of low iron Feels like a doctor's alert But Oura never did blood tests Enter Counsel Health’s AI chatbot It uses sleep to predict labs Patterns link rest to deficiencies Algorithms aren’t substitute for doctors Trust ring, verify medically",
-    "text": "Oura is acquiring medical AI chatbot startup Counsel Health Your Oura warns of low iron Feels like a doctor's alert But Oura never did blood tests Enter Counsel Health’s AI chatbot It uses sleep to predict labs Patterns link rest to deficiencies Algorithms aren’t substitute for doctors Trust ring, verify medically"
+    "text": "Oura is acquiring medical AI chatbot startup Counsel Health Your Oura warns of low iron Feels like a doctor's alert But Oura never did blood tests Enter Counsel Health’s AI chatbot It uses sleep to predict labs Patterns link rest to deficiencies Algorithms aren’t substitute for doctors Trust ring, verify medically",
+    "youtube_video_id": "rOYiy648vRw",
+    "url": "https://youtu.be/rOYiy648vRw",
+    "thumbnail": "uploaded",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/1122980080905302/videos?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      }
+    }
   }
 ]
