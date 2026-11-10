@@ -3263,5 +3263,21 @@
     "title": "Your Sleep Tracker Has Been Using Your Brain Waves To Train AI Without Telling You",
     "body": "Your pillow is training AI? App captures nightly brain activity Data silently streams to the cloud Servers tweak massive language models Device starts guessing your thoughts EEG patterns link to language features Your unconscious fuels AI imagination Pillow learns you as you sleep",
     "text": "Your Sleep Tracker Has Been Using Your Brain Waves To Train AI Without Telling You Your pillow is training AI? App captures nightly brain activity Data silently streams to the cloud Servers tweak massive language models Device starts guessing your thoughts EEG patterns link to language features Your unconscious fuels AI imagination Pillow learns you as you sleep"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "f8d1159ea642f5c414720afbe377504921055041c22e20dfbf11b621175a0418",
+    "title": "New Jersey Bill Would Treat AI Chatbots as Products and Impose Strict Liability on Chatbot Providers",
+    "body": "Who pays when a chatbot lies? Chatbots now classified as consumer products Providers face strict liability for chatbot harms Bot mistakes become product defect claims Health bot misdiagnosis could cost you Law treats AI like broken toaster Liability sticks even without malicious intent Your chatbot might owe you money",
+    "text": "New Jersey Bill Would Treat AI Chatbots as Products and Impose Strict Liability on Chatbot Providers Who pays when a chatbot lies? Chatbots now classified as consumer products Providers face strict liability for chatbot harms Bot mistakes become product defect claims Health bot misdiagnosis could cost you Law treats AI like broken toaster Liability sticks even without malicious intent Your chatbot might owe you money"
   }
 ]

@@ -11298,5 +11298,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-10T03:54:45.968223+00:00",
+    "status": "pending",
+    "topic": "New Jersey Bill Would Treat AI Chatbots as Products and Impose Strict Liability on Chatbot Providers",
+    "title": "New Jersey Bill Would Treat AI Chatbots as Products and Impose Strict Liability on Chatbot Providers",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "6ad425d6bf485d0bef081f5071b597fe49792acad8d2f992df787de731a6cda3",
+      "db4ab7e07df9fc9f490a068896dc67ab315de665b7bede5442a14c8c5c1647dc",
+      "418d19ac52b3dec102fb9c5f74b8fb39377b9d60356f231669f50b4f8a42d307",
+      "c00716880e47b4f58d698b849bf2d7e221e3cfad4e6d69ed72f378896a7cda9c",
+      "53d3fd4603f9585a16567189f834a0b391a0a4954c9218929f159522f6c5ce76",
+      "7477b80d724e6f20df3da112b6534d7b53a664a3d7722f1421bdc123c1771b9d",
+      "a86b6f57a6bd47495159a9d0c5db55a25f3902fc9098b6117d157e94f3f31b84",
+      "277777750527afd8a0df00cfce6b958fb4fdeaa9c7dd7eef27afb71e273eba45"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "specific_question",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 100
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-2",
+      "topic": "New Jersey Bill Would Treat AI Chatbots as Products and Impose Strict Liability on Chatbot Providers",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPbDhVVGJyZnVmUXZCUHhxdTdyVEU5R3NVWDBPdnJVc3dTSEZZRnR4c2c1Z05sbGZUY1kxckRWY2JNUGt1MFZzWjZJME5ZWWJVcFVXd19JWXdXRnhtajJ6ODNtV3VYbVBpOUlLaFhtcGxoSXM3SHBDclRDUjdTczZmOUZuSzBXUnplQ3lrMXhzaHU5a0RjM3ZGckwyenItejI2MGg2bUJCUWNPQURyVFHSAbMBQVVfeXFMTzZSRFFZejk3MVZfa1JuczJFU3dtTHJEWTJLOWFpMk1faldKTVZmRW03WDk1eXR6aFdGWFJ0Y1lIcFM4Y1p3NjJSZW5vd21IUU9DTVZJT1lXN21jSUhQSmREaXBORGJRbnNrTU1DT2JwRmdNdDJvTHJDVDEtUEFXcnhlNkQwTW5fc1BOTDJLNWVGS2xNbEhFVnQ4cWpyNGE0VksteFdwcWZSa1UwZ3FuM21Fb3M?oc=5",
+      "published_at": "2026-11-09T16:06:29+00:00",
+      "trend_score": 13,
+      "fetched_at": "2026-11-10T03:52:21.004334+00:00",
+      "growth_score": 43.35,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 13/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "f8d1159ea642f5c414720afbe377504921055041c22e20dfbf11b621175a0418",
+    "body": "Who pays when a chatbot lies? Chatbots now classified as consumer products Providers face strict liability for chatbot harms Bot mistakes become product defect claims Health bot misdiagnosis could cost you Law treats AI like broken toaster Liability sticks even without malicious intent Your chatbot might owe you money",
+    "text": "New Jersey Bill Would Treat AI Chatbots as Products and Impose Strict Liability on Chatbot Providers Who pays when a chatbot lies? Chatbots now classified as consumer products Providers face strict liability for chatbot harms Bot mistakes become product defect claims Health bot misdiagnosis could cost you Law treats AI like broken toaster Liability sticks even without malicious intent Your chatbot might owe you money"
   }
 ]
