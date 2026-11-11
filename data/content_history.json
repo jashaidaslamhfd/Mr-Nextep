@@ -3311,5 +3311,21 @@
     "title": "Oura is acquiring medical AI chatbot startup Counsel Health",
     "body": "Your Oura warns of low iron Feels like a doctor's alert But Oura never did blood tests Enter Counsel Health’s AI chatbot It uses sleep to predict labs Patterns link rest to deficiencies Algorithms aren’t substitute for doctors Trust ring, verify medically",
     "text": "Oura is acquiring medical AI chatbot startup Counsel Health Your Oura warns of low iron Feels like a doctor's alert But Oura never did blood tests Enter Counsel Health’s AI chatbot It uses sleep to predict labs Patterns link rest to deficiencies Algorithms aren’t substitute for doctors Trust ring, verify medically"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "325cfa78fa12feb7f1ac274a4fab0554b5298e314c6782f070254987ab0e17d4",
+    "title": "AI is supercharging Iran’s cyber threat, Dream CEO Shalev Hulio warns",
+    "body": "AI fuels Iran’s cyber attacks AI writes malicious code instantly AI crafts perfect phishing emails AI mimics voices for deception Companies breach after AI scams AI lowers barrier to cyber weapons AI makes attacks cheap and scalable Digital weapons bypass physical bans",
+    "text": "AI is supercharging Iran’s cyber threat, Dream CEO Shalev Hulio warns AI fuels Iran’s cyber attacks AI writes malicious code instantly AI crafts perfect phishing emails AI mimics voices for deception Companies breach after AI scams AI lowers barrier to cyber weapons AI makes attacks cheap and scalable Digital weapons bypass physical bans"
   }
 ]
