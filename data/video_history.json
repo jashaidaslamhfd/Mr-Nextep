@@ -11698,5 +11698,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-11T07:43:28.903706+00:00",
+    "status": "pending",
+    "topic": "AI deepfake legislation loophole could see predators escape harsher sentences",
+    "title": "AI deepfake legislation loophole could see predators escape harsher sentences",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "0fcb755d58e2ef182a73ac4f4fe5035e3459c3da808948e8ce1f309fae4d0dae",
+      "b35822929fc7575f4a8f1c46080e85a3b66535f9695b64a987e16a9e79eec8cf",
+      "a67c712279d4270058b26f26eb1926a45e0ee0450ff99c7ab84517d14755d04e",
+      "f4682876baffdb32db05dc1c59de83d3608f5f26e8f232d27ee5a420dc663db0",
+      "396045f3670d3b449ace5d2efd3d98db7fb0c65c072103eeabfc1eda442f96e3",
+      "64de68350e9628f6fc86b28ad1372dc216bf27c9532aff88580597110dbfc1d4",
+      "dbe5cde6bdac4e372922218e7b680c61dbd36937dce12f111004e6a5b018dea9",
+      "38685ead0e95dbfb3fd50b1ababbe7d842b3e370656a7c1c1c70013c11255c4b"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "concrete_observation",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 100
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "AI deepfake legislation loophole could see predators escape harsher sentences",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNRmNaeFl3MVYwUEgyN1JmYnllU2pkSGFCTEVPbnU5ZW5VUWtxeU9yMTlKNFFKQUY5ejZ6T1gyWVhCWDJYNUMzWnpaVnV4N2tjcS02dV9ZZU5DS3JTd19fakVYaG5reGpZb2xaSE5jMW1LbDBoWVNMdVU3Q0REVTUzVEkySWVCSUU3ZlB4YVFONFVFVlBqTWVfZGhsQQ?oc=5",
+      "published_at": "2026-11-11T07:09:03+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-11-11T07:40:55.191559+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "7fd740b680b8786962b6a55637cb018d4b21acab9b67819b8294e8908165d5c4",
+    "body": "Shocking video, judge shrugs AI‑generated video, not real Deepfakes can't be used as evidence Audio deepfakes slip through loophole Synthetic voices help predators evade punishment AI mimics human speech, tricks jurors Law's audio gap leads to lighter penalties A deepfake might decide freedom",
+    "text": "AI deepfake legislation loophole could see predators escape harsher sentences Shocking video, judge shrugs AI‑generated video, not real Deepfakes can't be used as evidence Audio deepfakes slip through loophole Synthetic voices help predators evade punishment AI mimics human speech, tricks jurors Law's audio gap leads to lighter penalties A deepfake might decide freedom"
   }
 ]
