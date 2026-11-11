@@ -3343,5 +3343,21 @@
     "title": "AI deepfake legislation loophole could see predators escape harsher sentences",
     "body": "Shocking video, judge shrugs AI‑generated video, not real Deepfakes can't be used as evidence Audio deepfakes slip through loophole Synthetic voices help predators evade punishment AI mimics human speech, tricks jurors Law's audio gap leads to lighter penalties A deepfake might decide freedom",
     "text": "AI deepfake legislation loophole could see predators escape harsher sentences Shocking video, judge shrugs AI‑generated video, not real Deepfakes can't be used as evidence Audio deepfakes slip through loophole Synthetic voices help predators evade punishment AI mimics human speech, tricks jurors Law's audio gap leads to lighter penalties A deepfake might decide freedom"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "550515142121471d12a63b8e9d587ebcc1ae12cceab2b7caa368cc5b88328531",
+    "title": "Cisco boosts its AI Defense platform with Anthropic’s Claude Mythos",
+    "body": "Chatbots shouldn’t protect security, right? Cisco teams up with Claude Mythos AI scans traffic for hidden threats Learns patterns beyond traditional firewalls Hallucinations turn into warning signals Flags anomalies humans often overlook Treats traffic like sentences, spots oddities The chatbot now guards your network",
+    "text": "Cisco boosts its AI Defense platform with Anthropic’s Claude Mythos Chatbots shouldn’t protect security, right? Cisco teams up with Claude Mythos AI scans traffic for hidden threats Learns patterns beyond traditional firewalls Hallucinations turn into warning signals Flags anomalies humans often overlook Treats traffic like sentences, spots oddities The chatbot now guards your network"
   }
 ]

@@ -11798,5 +11798,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-11T23:21:24.184967+00:00",
+    "status": "pending",
+    "topic": "Cisco boosts its AI Defense platform with Anthropic’s Claude Mythos",
+    "title": "Cisco boosts its AI Defense platform with Anthropic’s Claude Mythos",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "8bbd3d11307199ab989459f5cb42a21c62adec4a25e86b04ad914f792188adb5",
+      "94932ac2b8a1a7ac221da841d2e9c373e50e73f72c662af8b88ab71223c28323",
+      "eef84f3db7b388c7f62b384efe2df42af167477894829f20fc3d9f79330482d3",
+      "97b15cb47a9aa23321bd8a44a9f3a3f5fa58cb4da062dc0ac4b27bfd8f35a8ab",
+      "02a682805cf70ade2b2f0336010c2e48662b4d89b5b1238a13c8997241ed6cdb",
+      "70f777642c6895bad05a006184355c41466cdf1a17e045539f277d4e370e5153",
+      "04c3bde623a86c054f8b0c2b00c9cddaf03e448e1a213b43a4f152e34b2fd45f",
+      "4113c328941acf943409d4cd1e2cb92f5ae36ae917383d9c3e2bed64084fc1d3"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "counterintuitive",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 98
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "Cisco boosts its AI Defense platform with Anthropic’s Claude Mythos",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPNVpoR0wzQ2NmOEI1YVFsRjhGb3ZrLXlBTFliUm43Y2lwSmFLLXdEblg5dmQ1bXZ5NGYtZEJ5dWtLcG45d2hZbWxReGhPVUJuM0JFX3dwenZvZnFNVnVhMWNBNUhZSklfbVRaRGZockEwMG13MHZwLXhpdVBZV3ZmMWpURGJNVGtaUjh3b2p4cWhkeWtQRmFNWjU3c0dwUWZES0RET20ySGFjRXJCeU5RM2htSmJXOG8?oc=5",
+      "published_at": "2026-11-11T12:12:59+00:00",
+      "trend_score": 13,
+      "fetched_at": "2026-11-11T23:18:13.388928+00:00",
+      "growth_score": 43.35,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 13/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "550515142121471d12a63b8e9d587ebcc1ae12cceab2b7caa368cc5b88328531",
+    "body": "Chatbots shouldn’t protect security, right? Cisco teams up with Claude Mythos AI scans traffic for hidden threats Learns patterns beyond traditional firewalls Hallucinations turn into warning signals Flags anomalies humans often overlook Treats traffic like sentences, spots oddities The chatbot now guards your network",
+    "text": "Cisco boosts its AI Defense platform with Anthropic’s Claude Mythos Chatbots shouldn’t protect security, right? Cisco teams up with Claude Mythos AI scans traffic for hidden threats Learns patterns beyond traditional firewalls Hallucinations turn into warning signals Flags anomalies humans often overlook Treats traffic like sentences, spots oddities The chatbot now guards your network"
   }
 ]
