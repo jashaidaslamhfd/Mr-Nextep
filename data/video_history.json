@@ -11901,7 +11901,7 @@
   },
   {
     "created_at": "2026-11-12T02:37:22.756383+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Lawmakers urged to hold AI chatbot companies accountable for risks to children",
     "title": "Lawmakers urged to hold AI chatbot companies accountable for risks to children",
     "video_path": "output/mr_nextep_short.mp4",
@@ -11983,6 +11983,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "4155e66c9374d012c9c33c74a001cda67c4ee2c70537c00abfba0981ae0c02ab",
     "body": "Can a chatbot fool a child? Kids think bots know everything Fake advice feels real Bots copy human tone Confidence beats facts in brains Lawmakers push child protection rules Tech learns from endless conversations Simple questions can shape policy",
-    "text": "Lawmakers urged to hold AI chatbot companies accountable for risks to children Can a chatbot fool a child? Kids think bots know everything Fake advice feels real Bots copy human tone Confidence beats facts in brains Lawmakers push child protection rules Tech learns from endless conversations Simple questions can shape policy"
+    "text": "Lawmakers urged to hold AI chatbot companies accountable for risks to children Can a chatbot fool a child? Kids think bots know everything Fake advice feels real Bots copy human tone Confidence beats facts in brains Lawmakers push child protection rules Tech learns from endless conversations Simple questions can shape policy",
+    "youtube_video_id": "F56zTu5ZFW0",
+    "url": "https://youtu.be/F56zTu5ZFW0",
+    "thumbnail": "uploaded",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/1122980080905302/videos?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      }
+    }
   }
 ]
