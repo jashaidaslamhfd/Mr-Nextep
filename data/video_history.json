@@ -11898,5 +11898,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-12T02:37:22.756383+00:00",
+    "status": "pending",
+    "topic": "Lawmakers urged to hold AI chatbot companies accountable for risks to children",
+    "title": "Lawmakers urged to hold AI chatbot companies accountable for risks to children",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "c4b4cb226f168bde188064e2d203d1f07c184bc177e0b6ea6a432ee69946586b",
+      "8dbc66f4dd6141a5a12487059336347e1beb19e324ddb7146c747969b600c462",
+      "d5ef86e68894fd05d4f608dec226a590af0f82f97f1cb1e85ae948dc7983d35f",
+      "9f67b6e2f016b81fbb9c457a006fedf998dacdcc7cc2c1854fd1f2c7d13a2496",
+      "49508fcf85d7891bea67796fd0aa7f48c07532ed36682f726532125485a67a18",
+      "71a6b2db532f74aec13652bd8fcd3cc87217d777e86d54897636cfd152dc8dc9",
+      "1a9c531918fd02b9125fdfb64e0c4434c1a9c41778661e504b270c264c4c5b32",
+      "34e59cac259c6e94a98621fe4c59be163b94a45bcc0697b39924ba8a299bf1d5"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "specific_question",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 98
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-3",
+      "topic": "Lawmakers urged to hold AI chatbot companies accountable for risks to children",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPR0RyQXkzT2JDZHVPMDVfVDFCOXUzQzlJRERJU2JDTTd3Q1ZkcFVDd0RhSGlmNUMzbnJhNExyWlZzYkhpMjdwZWNIdFZlbThXRnhVMG1OcWdtcWFIT1NuOVpKXzFSRzVfenpHV3Rxa1FrN1E4S1pETm9yRkJkdUJYRURtQUVsb3dtTC1FYzk5dDJhSTQ50gGUAUFVX3lxTE9uZ0ZJYUREX2VDeEItT0g3Zkl2R29tTHZ6UjhCcDBRd3pScFRoNFhUcVNQWURMcDV3VUtKSTVhRUs2UEt4QzMyeDFIcEZmZ0VCcGlVeU9XZzA0akJvWkxBWDUyMTc3REJxbTlQY2JVUzV2MmVnUHBucWFoS0JBWGRqZl9yeGJkalM0MU04MGhMZzhNcjg?oc=5",
+      "published_at": "2026-11-11T21:08:46+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-11-12T02:34:39.120708+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "4155e66c9374d012c9c33c74a001cda67c4ee2c70537c00abfba0981ae0c02ab",
+    "body": "Can a chatbot fool a child? Kids think bots know everything Fake advice feels real Bots copy human tone Confidence beats facts in brains Lawmakers push child protection rules Tech learns from endless conversations Simple questions can shape policy",
+    "text": "Lawmakers urged to hold AI chatbot companies accountable for risks to children Can a chatbot fool a child? Kids think bots know everything Fake advice feels real Bots copy human tone Confidence beats facts in brains Lawmakers push child protection rules Tech learns from endless conversations Simple questions can shape policy"
   }
 ]
