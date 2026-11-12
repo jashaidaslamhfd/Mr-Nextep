@@ -3375,5 +3375,21 @@
     "title": "Lawmakers urged to hold AI chatbot companies accountable for risks to children",
     "body": "Can a chatbot fool a child? Kids think bots know everything Fake advice feels real Bots copy human tone Confidence beats facts in brains Lawmakers push child protection rules Tech learns from endless conversations Simple questions can shape policy",
     "text": "Lawmakers urged to hold AI chatbot companies accountable for risks to children Can a chatbot fool a child? Kids think bots know everything Fake advice feels real Bots copy human tone Confidence beats facts in brains Lawmakers push child protection rules Tech learns from endless conversations Simple questions can shape policy"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "e31e726421d4f241748c6ee0c7ae780ffc054de15a1c75fd1db45ee51735b345",
+    "title": "Google’s Gemini 4 Carbon can do 5 things your current AI chatbot can’t",
+    "body": "Chatbot can't name tonight's Oscar winner Standard bot admits it doesn't know Gemini instantly names the Best Picture It pulls live updates from the web Real‑time web access powers its answers Remembers your earlier choices across chats Runs on Google's custom AI hardware Feels like a friend who knows everything",
+    "text": "Google’s Gemini 4 Carbon can do 5 things your current AI chatbot can’t Chatbot can't name tonight's Oscar winner Standard bot admits it doesn't know Gemini instantly names the Best Picture It pulls live updates from the web Real‑time web access powers its answers Remembers your earlier choices across chats Runs on Google's custom AI hardware Feels like a friend who knows everything"
   }
 ]

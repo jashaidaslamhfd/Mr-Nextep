@@ -11998,5 +11998,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-12T08:12:51.379882+00:00",
+    "status": "pending",
+    "topic": "Google’s Gemini 4 Carbon can do 5 things your current AI chatbot can’t",
+    "title": "Google’s Gemini 4 Carbon can do 5 things your current AI chatbot can’t",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "058e56850a2a655c21bd3c38481000590a20da2af1fd5725c35bca0606cc8480",
+      "e6995fd06f25bd334d026ccbc9f737e92542bcce211346cc32030af3a5b3d021",
+      "20d9b16c07c025453fcc6f484a0d2971f32e35b7aee7760765d2f5fe55cecc31",
+      "34aca1237eb39beb522a1bbc96874f37dafe834fd42151089808b065fd1f0806",
+      "ecc9672bf2e00a82f4269d21b26f7fc27e170aa218d592bca7d0b099cb465bd8",
+      "9cc45ffe6ee461378b42d0a731adaa0b2712eb0e1c6e24d9ef6e892d2854fb96",
+      "3e7ce0d8ef9365aad97e4bad55523a5e3f32bef122e7abb2d83e7b71ec69e8d9",
+      "0a767aa180c0bdf805d927b09619f5b1e70d083d2ea300a5155f054ff5b98311"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "concrete_observation",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 91
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 91
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 86
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "Google’s Gemini 4 Carbon can do 5 things your current AI chatbot can’t",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOSmNiYmhKSmhnNWhsYlU3cUhKMnJSTE9HN3B3d0NnUkNIRXNKOWx5ekIybm52dXdHT1lwY0xULVoydEVSSTN6MW9UVDFBN1k4dW1fVG5ScHZvQUM5dUtydTZ0dHl0eEtkOC1IM2ZON0plemRMWU5wTGlnQ08xMUhjWV8xdW00dTFEbjVsVzJIbVFmMGc4NzVROTI4bGkwUEpubks2WHdQLWJiX0FrSW9kcndDQldKa3JOZk5QM3c1Ty01RnpiVjU1b05ReVdGUQ?oc=5",
+      "published_at": "2026-11-12T06:19:41+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-11-12T08:09:59.978615+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "e31e726421d4f241748c6ee0c7ae780ffc054de15a1c75fd1db45ee51735b345",
+    "body": "Chatbot can't name tonight's Oscar winner Standard bot admits it doesn't know Gemini instantly names the Best Picture It pulls live updates from the web Real‑time web access powers its answers Remembers your earlier choices across chats Runs on Google's custom AI hardware Feels like a friend who knows everything",
+    "text": "Google’s Gemini 4 Carbon can do 5 things your current AI chatbot can’t Chatbot can't name tonight's Oscar winner Standard bot admits it doesn't know Gemini instantly names the Best Picture It pulls live updates from the web Real‑time web access powers its answers Remembers your earlier choices across chats Runs on Google's custom AI hardware Feels like a friend who knows everything"
   }
 ]
