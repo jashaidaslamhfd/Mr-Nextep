@@ -3391,5 +3391,21 @@
     "title": "Google’s Gemini 4 Carbon can do 5 things your current AI chatbot can’t",
     "body": "Chatbot can't name tonight's Oscar winner Standard bot admits it doesn't know Gemini instantly names the Best Picture It pulls live updates from the web Real‑time web access powers its answers Remembers your earlier choices across chats Runs on Google's custom AI hardware Feels like a friend who knows everything",
     "text": "Google’s Gemini 4 Carbon can do 5 things your current AI chatbot can’t Chatbot can't name tonight's Oscar winner Standard bot admits it doesn't know Gemini instantly names the Best Picture It pulls live updates from the web Real‑time web access powers its answers Remembers your earlier choices across chats Runs on Google's custom AI hardware Feels like a friend who knows everything"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "3 similar past video(s) retained 44%, at or above the 30% floor",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": 0.4407,
+      "neighbours_considered": 3
+    },
+    "fingerprint": "ca6e3317788827cd5d50856d1a773f269d73333c28bb0b21be0e970911172df0",
+    "title": "Generative AI in the Real World",
+    "body": "AI portrait feels surprisingly real Image fools our pattern‑recognition system Subtle lighting cues trick perception Mind fills gaps without evidence Confidence makes false info seem true Captions add authority to AI output Model copies data, not understanding Brain creates meaning, AI doesn't",
+    "text": "Generative AI in the Real World AI portrait feels surprisingly real Image fools our pattern‑recognition system Subtle lighting cues trick perception Mind fills gaps without evidence Confidence makes false info seem true Captions add authority to AI output Model copies data, not understanding Brain creates meaning, AI doesn't"
   }
 ]

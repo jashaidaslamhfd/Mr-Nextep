@@ -1,53 +1,5 @@
 [
   {
-    "hash": "3ae06b264a919418863016fc0ac348303031d15701fb816a6a7e9026f1365b0e",
-    "source_url": "https://cdn.pixabay.com/video/2017/03/08/8252-207598592_medium.mp4",
-    "title": "Anthropic announces preview of Claude Duet, a personal AI agent to take on Muse, Dots",
-    "created_at": "2026-10-22T06:00:03.981806+00:00"
-  },
-  {
-    "hash": "4822749259c220db6d99ed900672c13a3d9949c8a89d51c1b3880914621d7570",
-    "source_url": "https://videos.pexels.com/video-files/8524301/8524301-hd_1080_1920_30fps.mp4",
-    "title": "Anthropic announces preview of Claude Duet, a personal AI agent to take on Muse, Dots",
-    "created_at": "2026-10-22T06:00:03.981806+00:00"
-  },
-  {
-    "hash": "c6064c380c4f5229025d3c8b5232072ddade1f07867d463d901d7f6481467a02",
-    "source_url": "https://cdn.pixabay.com/video/2022/02/11/107464-678258863_medium.mp4",
-    "title": "Anthropic announces preview of Claude Duet, a personal AI agent to take on Muse, Dots",
-    "created_at": "2026-10-22T06:00:03.981806+00:00"
-  },
-  {
-    "hash": "fd5535193ccd0098ae5ea2bcfa2fa0f4b6ea3e840517c2273a5fb3974012a764",
-    "source_url": "https://videos.pexels.com/video-files/6975891/6975891-sd_338_640_30fps.mp4",
-    "title": "Anthropic announces preview of Claude Duet, a personal AI agent to take on Muse, Dots",
-    "created_at": "2026-10-22T06:00:03.981806+00:00"
-  },
-  {
-    "hash": "2b3cca441b1db8a026d97e82e63fff89927a0a7316180cbff8907027f3d701ba",
-    "source_url": "https://videos.pexels.com/video-files/9306138/9306138-hd_720_1366_30fps.mp4",
-    "title": "Micron reveals DDR6, LPDDR6, HBM and NAND roadmap as AI memory demand keeps climbing",
-    "created_at": "2026-10-22T20:26:15.142792+00:00"
-  },
-  {
-    "hash": "cbd4fdc67c1015ef4b3dd1d948830e3d8c03be34434771578125453bc7b6681a",
-    "source_url": "https://cdn.pixabay.com/video/2016/05/12/3188-166339073_medium.mp4",
-    "title": "Micron reveals DDR6, LPDDR6, HBM and NAND roadmap as AI memory demand keeps climbing",
-    "created_at": "2026-10-22T20:26:15.142792+00:00"
-  },
-  {
-    "hash": "58cc09e4ee2a885e1f2f2e590c1ee072fec1b09234722cf2180235c3162c1c36",
-    "source_url": "https://videos.pexels.com/video-files/7088468/7088468-sd_240_426_25fps.mp4",
-    "title": "Micron reveals DDR6, LPDDR6, HBM and NAND roadmap as AI memory demand keeps climbing",
-    "created_at": "2026-10-22T20:26:15.142792+00:00"
-  },
-  {
-    "hash": "26ef4763b625e28a19847e6e6c7b680594d0b8b36f04239cbf89df422ff6efea",
-    "source_url": "https://cdn.pixabay.com/video/2015/10/31/1229-144234725_medium.mp4",
-    "title": "Micron reveals DDR6, LPDDR6, HBM and NAND roadmap as AI memory demand keeps climbing",
-    "created_at": "2026-10-22T20:26:15.142792+00:00"
-  },
-  {
     "hash": "b2ce359de36d5318f472829c810fc49cb2223aace1037a93d62acc14ec671502",
     "source_url": "https://cdn.pixabay.com/video/2026/01/05/326081_medium.mp4",
     "title": "Micron reveals DDR6, LPDDR6, HBM and NAND roadmap as AI memory demand keeps climbing",
@@ -2998,5 +2950,53 @@
     "source_url": "https://cdn.pixabay.com/video/2020/03/13/33631-398856295_medium.mp4",
     "title": "Google’s Gemini 4 Carbon can do 5 things your current AI chatbot can’t",
     "created_at": "2026-11-12T08:12:51.379882+00:00"
+  },
+  {
+    "hash": "5903546995641e1941678c15a40a51ba4ce5a27423eb653dc9a6c9b36f91f7fe",
+    "source_url": "https://videos.pexels.com/video-files/38938862/16561683_360_640_60fps.mp4",
+    "title": "Generative AI in the Real World",
+    "created_at": "2026-11-12T22:35:52.881732+00:00"
+  },
+  {
+    "hash": "25348709dad4f6399cc11c2c0ea743caca22ba5895b7c50608af88082b5bedce",
+    "source_url": "https://cdn.pixabay.com/video/2020/06/28/43324-436041449_medium.mp4",
+    "title": "Generative AI in the Real World",
+    "created_at": "2026-11-12T22:35:52.881732+00:00"
+  },
+  {
+    "hash": "e24b57871a19042a38f7ed17d631ba0bc6e2a497153553178ec7564e545506f8",
+    "source_url": "https://videos.pexels.com/video-files/40955014/17514780_360_640_30fps.mp4",
+    "title": "Generative AI in the Real World",
+    "created_at": "2026-11-12T22:35:52.881732+00:00"
+  },
+  {
+    "hash": "009ee6adee77750f99e9f05ecf204173c00247a9eceea605d8cb5d5ef421acf1",
+    "source_url": "https://videos.pexels.com/video-files/6157151/6157151-sd_506_960_25fps.mp4",
+    "title": "Generative AI in the Real World",
+    "created_at": "2026-11-12T22:35:52.881732+00:00"
+  },
+  {
+    "hash": "355f6f7c675e052d5273320a0785bdea16c981db82181a6d6d1982566d193e2e",
+    "source_url": "https://cdn.pixabay.com/video/2020/04/28/37445-414024666_medium.mp4",
+    "title": "Generative AI in the Real World",
+    "created_at": "2026-11-12T22:35:52.881732+00:00"
+  },
+  {
+    "hash": "c1b90972b09cab432e626df690c91e9fe988d330bdbf1c78b514e24f6ec65b2b",
+    "source_url": "https://cdn.pixabay.com/video/2016/11/15/6395-191712337_medium.mp4",
+    "title": "Generative AI in the Real World",
+    "created_at": "2026-11-12T22:35:52.881732+00:00"
+  },
+  {
+    "hash": "84d92b24966f6fbe3d9a65dce752ea02fe188ebf543e9724cf8bde7813b55089",
+    "source_url": "https://videos.pexels.com/video-files/5377697/5377697-hd_720_1280_25fps.mp4",
+    "title": "Generative AI in the Real World",
+    "created_at": "2026-11-12T22:35:52.881732+00:00"
+  },
+  {
+    "hash": "92e3b2d71dd7fcc022c7ec090f1f568e93117ce5e6f12ebc01537a19279b61f0",
+    "source_url": "https://videos.pexels.com/video-files/39483259/16818312_360_640_30fps.mp4",
+    "title": "Generative AI in the Real World",
+    "created_at": "2026-11-12T22:35:52.881732+00:00"
   }
 ]

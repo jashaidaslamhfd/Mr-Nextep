@@ -12098,5 +12098,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-12T22:35:52.881732+00:00",
+    "status": "pending",
+    "topic": "Generative AI in the Real World",
+    "title": "Generative AI in the Real World",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "5903546995641e1941678c15a40a51ba4ce5a27423eb653dc9a6c9b36f91f7fe",
+      "25348709dad4f6399cc11c2c0ea743caca22ba5895b7c50608af88082b5bedce",
+      "e24b57871a19042a38f7ed17d631ba0bc6e2a497153553178ec7564e545506f8",
+      "009ee6adee77750f99e9f05ecf204173c00247a9eceea605d8cb5d5ef421acf1",
+      "355f6f7c675e052d5273320a0785bdea16c981db82181a6d6d1982566d193e2e",
+      "c1b90972b09cab432e626df690c91e9fe988d330bdbf1c78b514e24f6ec65b2b",
+      "84d92b24966f6fbe3d9a65dce752ea02fe188ebf543e9724cf8bde7813b55089",
+      "92e3b2d71dd7fcc022c7ec090f1f568e93117ce5e6f12ebc01537a19279b61f0"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "3 similar past video(s) retained 44%, at or above the 30% floor",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": 0.4407,
+      "neighbours_considered": 3
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "specific_question",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 73
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 73
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 68
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-5",
+      "topic": "Generative AI in the Real World",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQYWl1cThNMXpTTXl2ZG5kN0stSUlZeGNKX1F1MTJ3cHNsVHNmcEFENE1IODA2eXhHS01zUXpZNnlZUXZBUUhPTmFZWW5rSzBwWVk2Smt0YkhhaXZmZVB4ZGF5M1dBdTFLYmRqUVVoejlNRkxtaXpXZlk4UUkxUC1ZMFF2WW5aR3BvcVdjSHJ2elFnd3dOdW5FcVFiVDBpWEZvcms0NUs0YS1aM2dxN1JnY3RrYUc?oc=5",
+      "published_at": "2026-11-12T16:57:30+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-11-12T22:33:15.394576+00:00",
+      "growth_score": 47.95,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "Similar measured videos retained 50%; channel median 38%.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "ca6e3317788827cd5d50856d1a773f269d73333c28bb0b21be0e970911172df0",
+    "body": "AI portrait feels surprisingly real Image fools our pattern‑recognition system Subtle lighting cues trick perception Mind fills gaps without evidence Confidence makes false info seem true Captions add authority to AI output Model copies data, not understanding Brain creates meaning, AI doesn't",
+    "text": "Generative AI in the Real World AI portrait feels surprisingly real Image fools our pattern‑recognition system Subtle lighting cues trick perception Mind fills gaps without evidence Confidence makes false info seem true Captions add authority to AI output Model copies data, not understanding Brain creates meaning, AI doesn't"
   }
 ]
