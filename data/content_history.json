@@ -3439,5 +3439,21 @@
     "title": "Anthropic’s Claude Tops AI Rankings as OpenAI Limits Cyber Model",
     "body": "Claude beats OpenAI now? OpenAI pauses its Cyber model Claude keeps training fresh data Safety limits shrink OpenAI performance Users see faster, higher scores Claude predicts next token accurately Less restriction fuels better learning That’s why Claude leads rankings",
     "text": "Anthropic’s Claude Tops AI Rankings as OpenAI Limits Cyber Model Claude beats OpenAI now? OpenAI pauses its Cyber model Claude keeps training fresh data Safety limits shrink OpenAI performance Users see faster, higher scores Claude predicts next token accurately Less restriction fuels better learning That’s why Claude leads rankings"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "1 similar past video(s) retained 60%, at or above the 30% floor",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": 0.6024,
+      "neighbours_considered": 1
+    },
+    "fingerprint": "ac3fd6998173779c1ec99e56a167175a9d8353a97fe970e70b67259fb3a43349",
+    "title": "Can AI Really Make Us Feel Seen?",
+    "body": "Only humans can truly see you A chatbot just types back People still feel understood Our brains fill in gaps We project our own patterns AI mirrors our language Mirror tricks us into connection Feeling seen isn’t magic",
+    "text": "Can AI Really Make Us Feel Seen? Only humans can truly see you A chatbot just types back People still feel understood Our brains fill in gaps We project our own patterns AI mirrors our language Mirror tricks us into connection Feeling seen isn’t magic"
   }
 ]

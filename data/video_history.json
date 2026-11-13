@@ -12398,5 +12398,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-13T22:23:43.000914+00:00",
+    "status": "pending",
+    "topic": "Can AI Really Make Us Feel Seen?",
+    "title": "Can AI Really Make Us Feel Seen?",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "b70b24e802c8b81bb004173f4bc5d8908b52722a28dc4b7c26f6f89b5f7adaae",
+      "75f9d7793304183f4cc00273379413da9a9bffec49d65bc919b702cb83252db3",
+      "e15bba1b4f8e8e900ed6ddc5ab5d8805f353fb4365f224fc3dec595f3a17eab2",
+      "256220e8b4660dcd7255cebce761518d18f235cbfc0efa366008b92371f9796e",
+      "4949ad904a51f9a2a1b25e6fb5f3021200fc3a2d9eb8bdfc50a38faef762250d",
+      "c05d92c8ff66f55fcb44f0d63130a29fefe91aa555931e6ed7c5542572bd5655",
+      "6fc96b1d4c036c3d698b48f9a3f9e2606b365593758f763dfd2e20a6a59fd81d",
+      "de84446dad99fa357401b879e9d4c84e92d16c2e4fd2547bfb382e3cd6d0d06a"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "1 similar past video(s) retained 60%, at or above the 30% floor",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": 0.6024,
+      "neighbours_considered": 1
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "counterintuitive",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 79
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 79
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 74
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-19",
+      "topic": "Can AI Really Make Us Feel Seen?",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQU3NNNDBfTnpwRzA4WmFLdlZTMGszLTFzMUhFVU5oR3ktcnp1bm5Sd1Y3Q1ZvT3cxeE9BUV9BZExvblBJcHFidEJ0TUE0b2F0ejF1NmdhaUZyZWF0b1JNTlkwYlZzeW4xZGJQc1lVVGNDRVNScWxvT0NGdTN1dEE2VmJ0eExBU2ZWczUwdEx1dkZoYnZl?oc=5",
+      "published_at": "2026-11-13T20:42:32+00:00",
+      "trend_score": 5,
+      "fetched_at": "2026-11-13T22:21:32.319285+00:00",
+      "growth_score": 51.59,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 5/100.",
+        "Similar measured videos retained 60%; channel median 38%.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "ac3fd6998173779c1ec99e56a167175a9d8353a97fe970e70b67259fb3a43349",
+    "body": "Only humans can truly see you A chatbot just types back People still feel understood Our brains fill in gaps We project our own patterns AI mirrors our language Mirror tricks us into connection Feeling seen isn’t magic",
+    "text": "Can AI Really Make Us Feel Seen? Only humans can truly see you A chatbot just types back People still feel understood Our brains fill in gaps We project our own patterns AI mirrors our language Mirror tricks us into connection Feeling seen isn’t magic"
   }
 ]
