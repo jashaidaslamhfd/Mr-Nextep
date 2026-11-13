@@ -3423,5 +3423,21 @@
     "title": "Nonprofits sue Anthropic, Google, and other tech giants to freeze the AI arms race",
     "body": "Lawsuits shouldn't stop AI, right? Nonprofits seek an AI pause They target big AI firms Aim: freeze the AI arms race Court rulings might speed competition Risk pushes firms to outpace rivals Paradox: lawsuits may boost development Their desired pause could stay elusive",
     "text": "Nonprofits sue Anthropic, Google, and other tech giants to freeze the AI arms race Lawsuits shouldn't stop AI, right? Nonprofits seek an AI pause They target big AI firms Aim: freeze the AI arms race Court rulings might speed competition Risk pushes firms to outpace rivals Paradox: lawsuits may boost development Their desired pause could stay elusive"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "36f3c51dc3e90e12fdf0156662dba58d55370e11dbc3b404194d8298fca4b835",
+    "title": "Anthropic’s Claude Tops AI Rankings as OpenAI Limits Cyber Model",
+    "body": "Claude beats OpenAI now? OpenAI pauses its Cyber model Claude keeps training fresh data Safety limits shrink OpenAI performance Users see faster, higher scores Claude predicts next token accurately Less restriction fuels better learning That’s why Claude leads rankings",
+    "text": "Anthropic’s Claude Tops AI Rankings as OpenAI Limits Cyber Model Claude beats OpenAI now? OpenAI pauses its Cyber model Claude keeps training fresh data Safety limits shrink OpenAI performance Users see faster, higher scores Claude predicts next token accurately Less restriction fuels better learning That’s why Claude leads rankings"
   }
 ]

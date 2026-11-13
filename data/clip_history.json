@@ -1,53 +1,5 @@
 [
   {
-    "hash": "18c4839cd58e11a20d59e933d26f34716c07e05965530377fc43c1e4f47efd60",
-    "source_url": "https://videos.pexels.com/video-files/8540001/8540001-sd_506_960_25fps.mp4",
-    "title": "PerturbAI and OpenAI Launch AI Reasoning Agents for Biomedical Discovery",
-    "created_at": "2026-10-23T00:16:36.646867+00:00"
-  },
-  {
-    "hash": "866e49555485a97c458a3f68bd0ab61953d8f6edc6b87e979ffe5dc29b4a3aef",
-    "source_url": "https://videos.pexels.com/video-files/25935015/11922066_360_640_30fps.mp4",
-    "title": "PerturbAI and OpenAI Launch AI Reasoning Agents for Biomedical Discovery",
-    "created_at": "2026-10-23T00:16:36.646867+00:00"
-  },
-  {
-    "hash": "3c21fa5fac9d6d125f414d22fb65d665016d18521214b11797c16eb4c432f746",
-    "source_url": "https://videos.pexels.com/video-files/7174908/7174908-hd_1080_1920_30fps.mp4",
-    "title": "PerturbAI and OpenAI Launch AI Reasoning Agents for Biomedical Discovery",
-    "created_at": "2026-10-23T00:16:36.646867+00:00"
-  },
-  {
-    "hash": "915cf99a4b8fbdf9aa0bfa9925e71c0771bf42476e0c64840911d0b9cdb945a8",
-    "source_url": "https://videos.pexels.com/video-files/35771190/15165663_360_640_25fps.mp4",
-    "title": "PerturbAI and OpenAI Launch AI Reasoning Agents for Biomedical Discovery",
-    "created_at": "2026-10-23T00:16:36.646867+00:00"
-  },
-  {
-    "hash": "b56a2a983b1e4d020f1d16fcbf389f74fc86123d5bb355ce9859368d94f3878b",
-    "source_url": "https://cdn.pixabay.com/video/2024/06/06/215474_medium.mp4",
-    "title": "AC Psychology Club hosts panel on AI prevalence",
-    "created_at": "2026-10-23T05:57:16.868945+00:00"
-  },
-  {
-    "hash": "87a883c16915fad8bdb23bae903347b97fce34de4bbd796d96e1c543ee77b916",
-    "source_url": "https://videos.pexels.com/video-files/8616781/8616781-sd_540_960_25fps.mp4",
-    "title": "AC Psychology Club hosts panel on AI prevalence",
-    "created_at": "2026-10-23T05:57:16.868945+00:00"
-  },
-  {
-    "hash": "57cb19a11f3fc6469e6e85e5bf266d987aadebc6e067905ca47bd7d65831da0a",
-    "source_url": "https://cdn.pixabay.com/video/2022/12/10/142391-779996468_medium.mp4",
-    "title": "AC Psychology Club hosts panel on AI prevalence",
-    "created_at": "2026-10-23T05:57:16.868945+00:00"
-  },
-  {
-    "hash": "3906552b07b51ea246043edfff65d12166c2606f25e12fa82b51a0969531ffd2",
-    "source_url": "https://cdn.pixabay.com/video/2015/12/11/1625-148614367_medium.mp4",
-    "title": "AC Psychology Club hosts panel on AI prevalence",
-    "created_at": "2026-10-23T05:57:16.868945+00:00"
-  },
-  {
     "hash": "7ea3a24caf7b1001bec435b74823e4d87916d00db4e7cc25474a2e5741a8217f",
     "source_url": "https://cdn.pixabay.com/video/2016/08/01/4122-177145595_medium.mp4",
     "title": "AC Psychology Club hosts panel on AI prevalence",
@@ -2998,5 +2950,53 @@
     "source_url": "https://videos.pexels.com/video-files/17356514/17356514-hd_720_1280_50fps.mp4",
     "title": "Nonprofits sue Anthropic, Google, and other tech giants to freeze the AI arms race",
     "created_at": "2026-11-13T02:14:25.874876+00:00"
+  },
+  {
+    "hash": "0bda4da6e2c1d0243fb34fdd2da94d97651292175bf6c23dd18d81bb8caa4c00",
+    "source_url": "https://videos.pexels.com/video-files/12908917/12908917-hd_720_1280_24fps.mp4",
+    "title": "Anthropic’s Claude Tops AI Rankings as OpenAI Limits Cyber Model",
+    "created_at": "2026-11-13T07:50:39.821893+00:00"
+  },
+  {
+    "hash": "afbe7e32be6245deaffff996665a6c7249352493254788292ca6366366cb0442",
+    "source_url": "https://videos.pexels.com/video-files/36805468/15596117_360_640_25fps.mp4",
+    "title": "Anthropic’s Claude Tops AI Rankings as OpenAI Limits Cyber Model",
+    "created_at": "2026-11-13T07:50:39.821893+00:00"
+  },
+  {
+    "hash": "c0967dcd9fc332388c1c927e919ede701704456a35ecc43c6dedce8e5a9a3688",
+    "source_url": "https://cdn.pixabay.com/video/2023/04/11/158384-816637349_medium.mp4",
+    "title": "Anthropic’s Claude Tops AI Rankings as OpenAI Limits Cyber Model",
+    "created_at": "2026-11-13T07:50:39.821893+00:00"
+  },
+  {
+    "hash": "25be16fa4710a0ad04096165047b507b68f87937cb6147c63a8092da0aa3abc8",
+    "source_url": "https://videos.pexels.com/video-files/36453319/15457802_360_640_60fps.mp4",
+    "title": "Anthropic’s Claude Tops AI Rankings as OpenAI Limits Cyber Model",
+    "created_at": "2026-11-13T07:50:39.821893+00:00"
+  },
+  {
+    "hash": "fd4e7dfb90b24fbdefa10b415c31610a4ae0e84d063fe46dd8368fdf39feea72",
+    "source_url": "https://videos.pexels.com/video-files/8865639/8865639-sd_360_640_25fps.mp4",
+    "title": "Anthropic’s Claude Tops AI Rankings as OpenAI Limits Cyber Model",
+    "created_at": "2026-11-13T07:50:39.821893+00:00"
+  },
+  {
+    "hash": "d1d4ce477b5dd40d8537ee627e152e83a0f375d69e6d1aa23f94241f631032a0",
+    "source_url": "https://videos.pexels.com/video-files/36837813/15607948_360_640_30fps.mp4",
+    "title": "Anthropic’s Claude Tops AI Rankings as OpenAI Limits Cyber Model",
+    "created_at": "2026-11-13T07:50:39.821893+00:00"
+  },
+  {
+    "hash": "b1d16a0a6a13d9d3ba53e9c6f7d2d3bcd7b653161504a1cbb190059cb676c824",
+    "source_url": "https://videos.pexels.com/video-files/38180348/16209249_360_640_60fps.mp4",
+    "title": "Anthropic’s Claude Tops AI Rankings as OpenAI Limits Cyber Model",
+    "created_at": "2026-11-13T07:50:39.821893+00:00"
+  },
+  {
+    "hash": "3ae21bec93001ac70afffd38ec3f5fa770f723707b35092a54faa46796732fae",
+    "source_url": "https://videos.pexels.com/video-files/38098104/16175691_360_640_30fps.mp4",
+    "title": "Anthropic’s Claude Tops AI Rankings as OpenAI Limits Cyber Model",
+    "created_at": "2026-11-13T07:50:39.821893+00:00"
   }
 ]

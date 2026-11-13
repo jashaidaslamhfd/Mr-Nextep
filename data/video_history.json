@@ -12298,5 +12298,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-13T07:50:39.821893+00:00",
+    "status": "pending",
+    "topic": "Anthropic’s Claude Tops AI Rankings as OpenAI Limits Cyber Model",
+    "title": "Anthropic’s Claude Tops AI Rankings as OpenAI Limits Cyber Model",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "0bda4da6e2c1d0243fb34fdd2da94d97651292175bf6c23dd18d81bb8caa4c00",
+      "afbe7e32be6245deaffff996665a6c7249352493254788292ca6366366cb0442",
+      "c0967dcd9fc332388c1c927e919ede701704456a35ecc43c6dedce8e5a9a3688",
+      "25be16fa4710a0ad04096165047b507b68f87937cb6147c63a8092da0aa3abc8",
+      "fd4e7dfb90b24fbdefa10b415c31610a4ae0e84d063fe46dd8368fdf39feea72",
+      "d1d4ce477b5dd40d8537ee627e152e83a0f375d69e6d1aa23f94241f631032a0",
+      "b1d16a0a6a13d9d3ba53e9c6f7d2d3bcd7b653161504a1cbb190059cb676c824",
+      "3ae21bec93001ac70afffd38ec3f5fa770f723707b35092a54faa46796732fae"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "specific_question",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 98
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "Anthropic’s Claude Tops AI Rankings as OpenAI Limits Cyber Model",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNYlczWW5CYUlhR3h6QzBPcDk2aEZyMjhHZWMtYjJSTWtESjlQRmJBRUJvR0hrc2NfZGxDRDFrWjhaN0llbkhWVkdCdlU5WFhoVmhHUF9sX0U4WW1abWxrd2Rya25XRVdiaGFqZ0VodmhWWWZDMWZpYzBVdXAzbktKejlpQS05S1pYRjJfc3FaaGtxYk9XTzIwV3hlemFOX3hvclhsamFGNFdpM2FBLXczclZseDVpQnppOUNVd0tR?oc=5",
+      "published_at": "2026-11-13T01:14:49+00:00",
+      "trend_score": 17,
+      "fetched_at": "2026-11-13T07:47:33.233390+00:00",
+      "growth_score": 45.15,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 17/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "36f3c51dc3e90e12fdf0156662dba58d55370e11dbc3b404194d8298fca4b835",
+    "body": "Claude beats OpenAI now? OpenAI pauses its Cyber model Claude keeps training fresh data Safety limits shrink OpenAI performance Users see faster, higher scores Claude predicts next token accurately Less restriction fuels better learning That’s why Claude leads rankings",
+    "text": "Anthropic’s Claude Tops AI Rankings as OpenAI Limits Cyber Model Claude beats OpenAI now? OpenAI pauses its Cyber model Claude keeps training fresh data Safety limits shrink OpenAI performance Users see faster, higher scores Claude predicts next token accurately Less restriction fuels better learning That’s why Claude leads rankings"
   }
 ]
