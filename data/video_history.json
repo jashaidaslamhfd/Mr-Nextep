@@ -12301,7 +12301,7 @@
   },
   {
     "created_at": "2026-11-13T07:50:39.821893+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Anthropic’s Claude Tops AI Rankings as OpenAI Limits Cyber Model",
     "title": "Anthropic’s Claude Tops AI Rankings as OpenAI Limits Cyber Model",
     "video_path": "output/mr_nextep_short.mp4",
@@ -12383,6 +12383,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "36f3c51dc3e90e12fdf0156662dba58d55370e11dbc3b404194d8298fca4b835",
     "body": "Claude beats OpenAI now? OpenAI pauses its Cyber model Claude keeps training fresh data Safety limits shrink OpenAI performance Users see faster, higher scores Claude predicts next token accurately Less restriction fuels better learning That’s why Claude leads rankings",
-    "text": "Anthropic’s Claude Tops AI Rankings as OpenAI Limits Cyber Model Claude beats OpenAI now? OpenAI pauses its Cyber model Claude keeps training fresh data Safety limits shrink OpenAI performance Users see faster, higher scores Claude predicts next token accurately Less restriction fuels better learning That’s why Claude leads rankings"
+    "text": "Anthropic’s Claude Tops AI Rankings as OpenAI Limits Cyber Model Claude beats OpenAI now? OpenAI pauses its Cyber model Claude keeps training fresh data Safety limits shrink OpenAI performance Users see faster, higher scores Claude predicts next token accurately Less restriction fuels better learning That’s why Claude leads rankings",
+    "youtube_video_id": "DRD49qkYOAI",
+    "url": "https://youtu.be/DRD49qkYOAI",
+    "thumbnail": "uploaded",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/1122980080905302/videos?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      }
+    }
   }
 ]
