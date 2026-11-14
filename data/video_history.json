@@ -12698,5 +12698,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-14T21:06:50.248947+00:00",
+    "status": "pending",
+    "topic": "Cannabinol for Sleep and Insomnia",
+    "title": "Cannabinol for Sleep and Insomnia",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "c1250e921698cca96d226ad44fc29360f830743e7ffd976cbec5cff0e6392d24",
+      "cf98f3081261c496b070b804cdf71e88bcb9fd37051c0ef7f1d1c19edd7ab416",
+      "179c9fe6a28d8498ebc9d296896e62d9a208e353fdfb34c3123a70f7a4f1bb36",
+      "e1f20097d0f6f1b1d46457640100b224cf7c67e8ac77e98bf85134812c677af5",
+      "ff6ab29a6596760a5601d252fce07bdc35006f8acccb44bb9138e96ac041dd35",
+      "bf542965426b95c710000fd57adba3e1ccc7d4f74b6b94584066e6be7533e6a9",
+      "33c1f00208e14b99ea741cc08efd7a51ca9b572057ef75c87f66e873ba89f7d1",
+      "374dda5665e17d223e77c95da3448163b2b1372fd7488401df53a12aed70a775"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "concrete_observation",
+      "cluster": "sleep_dreams",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 73
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 73
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 68
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-18",
+      "topic": "Cannabinol for Sleep and Insomnia",
+      "source": "nih_news",
+      "source_url": "https://news.google.com/rss/articles/CBMioAJBVV95cUxNclhGdWRXdGh1TTFydlZ4YWdrS0c0MlowTEtQTGFQS2NIVFd2SFhmNExmb3V4QmY5bUFBN1RuTlJrdi1tN3cxRDFoLVo5MURhUjd4VXNWb19uZWtJdkRZeWMwX0hPZ25YcXlhNWI1WXFYeWxMS3VXZFFpNVV3UjdGZENsSXdyV2RlUzA5SVFLdEw1Uzlvc3ZQVzVQMnFoWExlYVl0bW9zSGpTOTQ2SUdLNWU3TnpHbW9KUTVBakRRbE16YUlPWU5qeWgxcG52TU1xZlJrZlJTRy1KVWtsanJib0ExWW5zSFlhaURGY3l3aS15c3BwZ0pkOUVyLUlwRExCYy1aMHBYOGIyczFESVZ5b2xEa0h1c0t0Q1lIYTNpb3Y?oc=5",
+      "published_at": "2026-11-14T17:17:51+00:00",
+      "trend_score": 5,
+      "fetched_at": "2026-11-14T21:04:36.061098+00:00",
+      "growth_score": 43.94,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 5/100.",
+        "Similar measured videos retained 46%; channel median 38%.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "SLEEP_TERROR",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "27b581c1d315d7f1247d8ef1ef411efce0ca42c6301db350f1e7f5a71737b57a",
+    "body": "Staring at ceiling, still wide awake Friend offers a CBN drop CBN isn’t THC, just calming It slows brainwave activity Body feels gentle sleepy haze Research shows deeper sleep boost CBN copies natural sleep cue You finally close restless eyes",
+    "text": "Cannabinol for Sleep and Insomnia Staring at ceiling, still wide awake Friend offers a CBN drop CBN isn’t THC, just calming It slows brainwave activity Body feels gentle sleepy haze Research shows deeper sleep boost CBN copies natural sleep cue You finally close restless eyes"
   }
 ]
