@@ -12498,5 +12498,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-14T01:57:45.523648+00:00",
+    "status": "pending",
+    "topic": "Bracco, Avicenna.AI get FDA clearance for brain aneurysm AI software",
+    "title": "Bracco, Avicenna.AI get FDA clearance for brain aneurysm AI software",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "ee7e7e9c0af37221bc01fdc567999062822f919aacefe998f35533f8c46f6f3c",
+      "508566031154bff7688aa0d448829d5f96c1748b75bbe5891050d0c0e3cd8b12",
+      "a2f00c7a8936e8386bacaecf72603bfa494cc9a466f63a163fca69852d5db868",
+      "c761c87f81d276d3f8d419f8dbe83c3cc3f7257168a0e78b5a81481fca121497",
+      "d03bd3d7b540b63b268db05e9953fee06c1473f8c3fa54e8945d954de38c98a6",
+      "03484e290b3707d98b7fa0ef77f94740f06f1148e8f8031f4cd02ec82db47fcc",
+      "bd107e10073d23d80111c7864e43cbcc004d1961436d461d2c4912b75a63825e",
+      "0fbf6cdd565f0d4ab152134da22ea4de64700e33e4713985a4ed5aaa5919a24d"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "concrete_observation",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 98
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "Bracco, Avicenna.AI get FDA clearance for brain aneurysm AI software",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMihAJBVV95cUxQX1JDakQ5Vld6eldCTjY5RXc1S1prUW13N3BXR1pCYnF0Tmo5REhveDZfdzBzTHNNSjhBcDM0RmY4WEhxZTJsWUNSdENDSEQ2bm5oQzBZWHhEdHVzM0tmXy1CZUhwUXlWOGdBQ0YwOTk4S2lKLXZoTEZPMkZkNHRCZ0g1bU5jZC0zVTBRUEQ1cWdwTWY0UDdBLTFBZFA1alpOVG5OakQxRElHWVR5QmsxZlJud2s5VHFwRzY0MWpWT1lhQnJBZEd2OElSLWxZeHYxSkZyM2swS3VzRkhkamdFTEkweVJIaGptNW5IbFJ3SExkUndfYnhWYms0bHlsY1pIRVNpXw?oc=5",
+      "published_at": "2026-11-13T20:35:34+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-11-14T01:53:38.210462+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 1,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "73336b8485f081e36293aecf96419ec9cc1ea06f337219fb40e96cf15af41aa7",
+    "body": "Red dot appears on brain scan AI flags a hidden aneurysm Confidence meter reads ninety‑eight percent Trained on millions of brain images Quick detection can prevent fatal bleed FDA cleared it after rigorous testing Radiologist trusts AI as second opinion That red dot could save you",
+    "text": "Bracco, Avicenna.AI get FDA clearance for brain aneurysm AI software Red dot appears on brain scan AI flags a hidden aneurysm Confidence meter reads ninety‑eight percent Trained on millions of brain images Quick detection can prevent fatal bleed FDA cleared it after rigorous testing Radiologist trusts AI as second opinion That red dot could save you"
   }
 ]

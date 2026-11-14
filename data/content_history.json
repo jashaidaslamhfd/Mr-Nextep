@@ -3455,5 +3455,21 @@
     "title": "Can AI Really Make Us Feel Seen?",
     "body": "Only humans can truly see you A chatbot just types back People still feel understood Our brains fill in gaps We project our own patterns AI mirrors our language Mirror tricks us into connection Feeling seen isn’t magic",
     "text": "Can AI Really Make Us Feel Seen? Only humans can truly see you A chatbot just types back People still feel understood Our brains fill in gaps We project our own patterns AI mirrors our language Mirror tricks us into connection Feeling seen isn’t magic"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "73336b8485f081e36293aecf96419ec9cc1ea06f337219fb40e96cf15af41aa7",
+    "title": "Bracco, Avicenna.AI get FDA clearance for brain aneurysm AI software",
+    "body": "Red dot appears on brain scan AI flags a hidden aneurysm Confidence meter reads ninety‑eight percent Trained on millions of brain images Quick detection can prevent fatal bleed FDA cleared it after rigorous testing Radiologist trusts AI as second opinion That red dot could save you",
+    "text": "Bracco, Avicenna.AI get FDA clearance for brain aneurysm AI software Red dot appears on brain scan AI flags a hidden aneurysm Confidence meter reads ninety‑eight percent Trained on millions of brain images Quick detection can prevent fatal bleed FDA cleared it after rigorous testing Radiologist trusts AI as second opinion That red dot could save you"
   }
 ]
