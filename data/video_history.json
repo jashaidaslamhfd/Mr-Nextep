@@ -12601,7 +12601,7 @@
   },
   {
     "created_at": "2026-11-14T07:34:14.787106+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Top 5 Artificial Intelligence and Machine Learning Development Companies (2026)",
     "title": "Top 5 Artificial Intelligence and Machine Learning Development Companies (2026)",
     "video_path": "output/mr_nextep_short.mp4",
@@ -12683,6 +12683,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "f95eeb8f15dc8a8a8f9dd47f99913fe13fd693b83b5aed6d82c8b293d64d142b",
     "body": "App crashes after AI update Hidden AI firm caused the glitch Five companies dominate AI development They rely on massive labeling farms Labelers teach AI what we notice Better labels cut unexpected errors Your crash traces back to data Fix labels, fix trusted apps",
-    "text": "Top 5 Artificial Intelligence and Machine Learning Development Companies (2026) App crashes after AI update Hidden AI firm caused the glitch Five companies dominate AI development They rely on massive labeling farms Labelers teach AI what we notice Better labels cut unexpected errors Your crash traces back to data Fix labels, fix trusted apps"
+    "text": "Top 5 Artificial Intelligence and Machine Learning Development Companies (2026) App crashes after AI update Hidden AI firm caused the glitch Five companies dominate AI development They rely on massive labeling farms Labelers teach AI what we notice Better labels cut unexpected errors Your crash traces back to data Fix labels, fix trusted apps",
+    "youtube_video_id": "RAmdWHskFnA",
+    "url": "https://youtu.be/RAmdWHskFnA",
+    "thumbnail": "uploaded",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/1122980080905302/videos?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      }
+    }
   }
 ]
