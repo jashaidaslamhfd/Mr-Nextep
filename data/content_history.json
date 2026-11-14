@@ -3471,5 +3471,21 @@
     "title": "Bracco, Avicenna.AI get FDA clearance for brain aneurysm AI software",
     "body": "Red dot appears on brain scan AI flags a hidden aneurysm Confidence meter reads ninety‑eight percent Trained on millions of brain images Quick detection can prevent fatal bleed FDA cleared it after rigorous testing Radiologist trusts AI as second opinion That red dot could save you",
     "text": "Bracco, Avicenna.AI get FDA clearance for brain aneurysm AI software Red dot appears on brain scan AI flags a hidden aneurysm Confidence meter reads ninety‑eight percent Trained on millions of brain images Quick detection can prevent fatal bleed FDA cleared it after rigorous testing Radiologist trusts AI as second opinion That red dot could save you"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "f95eeb8f15dc8a8a8f9dd47f99913fe13fd693b83b5aed6d82c8b293d64d142b",
+    "title": "Top 5 Artificial Intelligence and Machine Learning Development Companies (2026)",
+    "body": "App crashes after AI update Hidden AI firm caused the glitch Five companies dominate AI development They rely on massive labeling farms Labelers teach AI what we notice Better labels cut unexpected errors Your crash traces back to data Fix labels, fix trusted apps",
+    "text": "Top 5 Artificial Intelligence and Machine Learning Development Companies (2026) App crashes after AI update Hidden AI firm caused the glitch Five companies dominate AI development They rely on massive labeling farms Labelers teach AI what we notice Better labels cut unexpected errors Your crash traces back to data Fix labels, fix trusted apps"
   }
 ]

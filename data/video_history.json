@@ -12598,5 +12598,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-14T07:34:14.787106+00:00",
+    "status": "pending",
+    "topic": "Top 5 Artificial Intelligence and Machine Learning Development Companies (2026)",
+    "title": "Top 5 Artificial Intelligence and Machine Learning Development Companies (2026)",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "f0d9fe23fdfef52aaed3701452b9f13dcdff4d2d99667235ea65c8294276ae2c",
+      "bc1ba0fff9343565564a6bcbe75fc1660383542692f6348f7fd1edd7b5eb2bf0",
+      "73b6d9b11060b9771c3cd2310b11adde328b086167c3d202529147dc897abc37",
+      "1f0073a1ef545ba6bae458263a19ed068bb882045d45acfd58c28865e4800798",
+      "b8cd706f61e69413b3209c999271a0b50d37fbfe7fe15770c8f9a3aa123e7e60",
+      "81bc9e0fd2edc83d6756a5cc550427cf057cfc49f7ac730a856668e5fce1a87b",
+      "10282fcb81f4d48fdcbd5864f5f00933679e9b3440ce5b6922b6de4a892dfe37",
+      "dfc7a06592bb49316331475d46af053bd1db6bbfefb31c9fbdb956d26973dfcc"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "concrete_observation",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 98
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "Top 5 Artificial Intelligence and Machine Learning Development Companies (2026)",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPMG1uZ3FpTVd1eWU4cjRkcVBCcV9Cd08tNDZ6YVI4SkdoVzZvX2w3YVhhTFRIREEtWDJYMFdrck44WjZxYlJocmJ4YVFZUVExS0NpaldSSVFPdlV5bzMxTFZ4THh0TWt5NkwtWXJ6R1ktazluNzFsTm1HWWVzdGZRdFlZUFJjRmpad1VIR3V0a044YWJ3bFp3eHFuQ1J5Wi11S3FTT0dHX2N5UFdEWnRyYmM2TDZuRWN3bkdJdGZR?oc=5",
+      "published_at": "2026-11-14T05:49:02+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-11-14T07:31:12.793552+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "f95eeb8f15dc8a8a8f9dd47f99913fe13fd693b83b5aed6d82c8b293d64d142b",
+    "body": "App crashes after AI update Hidden AI firm caused the glitch Five companies dominate AI development They rely on massive labeling farms Labelers teach AI what we notice Better labels cut unexpected errors Your crash traces back to data Fix labels, fix trusted apps",
+    "text": "Top 5 Artificial Intelligence and Machine Learning Development Companies (2026) App crashes after AI update Hidden AI firm caused the glitch Five companies dominate AI development They rely on massive labeling farms Labelers teach AI what we notice Better labels cut unexpected errors Your crash traces back to data Fix labels, fix trusted apps"
   }
 ]
