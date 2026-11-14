@@ -12701,7 +12701,7 @@
   },
   {
     "created_at": "2026-11-14T21:06:50.248947+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Cannabinol for Sleep and Insomnia",
     "title": "Cannabinol for Sleep and Insomnia",
     "video_path": "output/mr_nextep_short.mp4",
@@ -12783,6 +12783,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "27b581c1d315d7f1247d8ef1ef411efce0ca42c6301db350f1e7f5a71737b57a",
     "body": "Staring at ceiling, still wide awake Friend offers a CBN drop CBN isn’t THC, just calming It slows brainwave activity Body feels gentle sleepy haze Research shows deeper sleep boost CBN copies natural sleep cue You finally close restless eyes",
-    "text": "Cannabinol for Sleep and Insomnia Staring at ceiling, still wide awake Friend offers a CBN drop CBN isn’t THC, just calming It slows brainwave activity Body feels gentle sleepy haze Research shows deeper sleep boost CBN copies natural sleep cue You finally close restless eyes"
+    "text": "Cannabinol for Sleep and Insomnia Staring at ceiling, still wide awake Friend offers a CBN drop CBN isn’t THC, just calming It slows brainwave activity Body feels gentle sleepy haze Research shows deeper sleep boost CBN copies natural sleep cue You finally close restless eyes",
+    "youtube_video_id": "o5YK_50YtnI",
+    "url": "https://youtu.be/o5YK_50YtnI",
+    "thumbnail": "uploaded",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/1122980080905302/videos?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      }
+    }
   }
 ]
