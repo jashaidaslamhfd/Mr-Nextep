@@ -12501,7 +12501,7 @@
   },
   {
     "created_at": "2026-11-14T01:57:45.523648+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Bracco, Avicenna.AI get FDA clearance for brain aneurysm AI software",
     "title": "Bracco, Avicenna.AI get FDA clearance for brain aneurysm AI software",
     "video_path": "output/mr_nextep_short.mp4",
@@ -12583,6 +12583,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "73336b8485f081e36293aecf96419ec9cc1ea06f337219fb40e96cf15af41aa7",
     "body": "Red dot appears on brain scan AI flags a hidden aneurysm Confidence meter reads ninety‑eight percent Trained on millions of brain images Quick detection can prevent fatal bleed FDA cleared it after rigorous testing Radiologist trusts AI as second opinion That red dot could save you",
-    "text": "Bracco, Avicenna.AI get FDA clearance for brain aneurysm AI software Red dot appears on brain scan AI flags a hidden aneurysm Confidence meter reads ninety‑eight percent Trained on millions of brain images Quick detection can prevent fatal bleed FDA cleared it after rigorous testing Radiologist trusts AI as second opinion That red dot could save you"
+    "text": "Bracco, Avicenna.AI get FDA clearance for brain aneurysm AI software Red dot appears on brain scan AI flags a hidden aneurysm Confidence meter reads ninety‑eight percent Trained on millions of brain images Quick detection can prevent fatal bleed FDA cleared it after rigorous testing Radiologist trusts AI as second opinion That red dot could save you",
+    "youtube_video_id": "8U2K_EyWaYs",
+    "url": "https://youtu.be/8U2K_EyWaYs",
+    "thumbnail": "uploaded",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/1122980080905302/videos?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      }
+    }
   }
 ]
