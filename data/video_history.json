@@ -12901,7 +12901,7 @@
   },
   {
     "created_at": "2026-11-15T07:46:47.595796+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Integrating Artificial Intelligence into Neuroscience Accelerates Brain Research and Model Training",
     "title": "Integrating Artificial Intelligence into Neuroscience Accelerates Brain Research and Model Training",
     "video_path": "output/mr_nextep_short.mp4",
@@ -12983,6 +12983,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "bea47e1999205de59bdf103cedf5d66a652ac92ee96d8ff223faa6efd63b95ef",
     "body": "AI predicts neurons in a blink Feeding AI endless brain scan footage Finding hidden patterns humans overlook Predicting thoughts from a single whisper Testing brain theories faster than labs Model isn’t actually conscious, researchers say Just statistical inference, no mind reading AI reads patterns, not your thoughts",
-    "text": "Integrating Artificial Intelligence into Neuroscience Accelerates Brain Research and Model Training AI predicts neurons in a blink Feeding AI endless brain scan footage Finding hidden patterns humans overlook Predicting thoughts from a single whisper Testing brain theories faster than labs Model isn’t actually conscious, researchers say Just statistical inference, no mind reading AI reads patterns, not your thoughts"
+    "text": "Integrating Artificial Intelligence into Neuroscience Accelerates Brain Research and Model Training AI predicts neurons in a blink Feeding AI endless brain scan footage Finding hidden patterns humans overlook Predicting thoughts from a single whisper Testing brain theories faster than labs Model isn’t actually conscious, researchers say Just statistical inference, no mind reading AI reads patterns, not your thoughts",
+    "youtube_video_id": "Dlborf5O0yc",
+    "url": "https://youtu.be/Dlborf5O0yc",
+    "thumbnail": "uploaded",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/1122980080905302/videos?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      }
+    }
   }
 ]
