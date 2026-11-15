@@ -12998,5 +12998,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-15T21:30:10.915395+00:00",
+    "status": "pending",
+    "topic": "TO THE NEW joins SpaceX Super Intelligence Partner Network to scale AI",
+    "title": "TO THE NEW joins SpaceX Super Intelligence Partner Network to scale AI",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "4c360a04dcb133d3af1c1ba8eabb1f93754b5d701580de6a39dd79b5a5e8913d",
+      "d20345920c26b08a260c4c630425def07367bd6ed0fbe66d3511b3198204267d",
+      "deaa88f857272c2574424d582b74f539ba90e294b1e3fc308c3140437d094873",
+      "1e99bd9eaad1b86578f574e617152dac7c28c883f86b7a9bd57f0743515115f1",
+      "da59c63147ccfb508ae5d6513083345a6ac961a3ad2593ad0b944168d737effd",
+      "b72a8f6f265deb9ee5d7a64d2c2f23e6fcf178eea6f163433ac1425c317441ae",
+      "cfcac1f3587762f537f4bbfe48137457be91e3c571221b13b678905fddb9705f",
+      "ad99b9025d631a5d6d9c3216e4f64ca93f3aec1e8b9f043aef8615992e92f858"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "concrete_observation",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 98
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-2",
+      "topic": "TO THE NEW joins SpaceX Super Intelligence Partner Network to scale AI",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxPWGcwd0xONDk4ajRoVHFUYlJKVV9jTGRLeFRsWHNPVzhpUDBiOVY1YlFudWhoN3VCTVJVN0pxaWV0c09pYXFsMlRsYnh4U0dnUVBOOXlrUExqV3BxX0l4elBXYUNBdGw4WkItd1FNY0FsNVBxRjh2amcxNGlIZVVUUjI5QTFBWHFfZ2dqUlRSY3ZIOWFZYkhiLWhvMnJENXZmNU9DVW82eHlkVjZGczRRQk4zWEdpTG95MDVEZEVYeF9MNDlVMVA5aUM2emRkYVpCelpsVTAtV1FlSjJPMzF4cWpteG50UDJl?oc=5",
+      "published_at": "2026-11-15T06:36:00+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-11-15T21:28:08.373436+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "deb4bfa6498629aabcdfa68928e94457c96d65414cc8ab4fff8b828c7762a817",
+    "body": "AI just launched on my phone AI says SpaceX powers its brain Rockets don’t actually write code Authority bias makes us trust it ‘Super Intelligence’ sounds impressive, tricks perception Model just predicts next words, nothing magical Marketing wraps ordinary GPT in hype Rocket AI reduces to simple hype",
+    "text": "TO THE NEW joins SpaceX Super Intelligence Partner Network to scale AI AI just launched on my phone AI says SpaceX powers its brain Rockets don’t actually write code Authority bias makes us trust it ‘Super Intelligence’ sounds impressive, tricks perception Model just predicts next words, nothing magical Marketing wraps ordinary GPT in hype Rocket AI reduces to simple hype"
   }
 ]
