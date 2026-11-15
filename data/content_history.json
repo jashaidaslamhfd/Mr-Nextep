@@ -3503,5 +3503,21 @@
     "title": "Cannabinol for Sleep and Insomnia",
     "body": "Staring at ceiling, still wide awake Friend offers a CBN drop CBN isn’t THC, just calming It slows brainwave activity Body feels gentle sleepy haze Research shows deeper sleep boost CBN copies natural sleep cue You finally close restless eyes",
     "text": "Cannabinol for Sleep and Insomnia Staring at ceiling, still wide awake Friend offers a CBN drop CBN isn’t THC, just calming It slows brainwave activity Body feels gentle sleepy haze Research shows deeper sleep boost CBN copies natural sleep cue You finally close restless eyes"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "1b48ff5f8e38a698613bdf59cfa9562c0a52ff4234c5d30ba3d9ff439f3161b2",
+    "title": "AI Chatbots Won’t Stop Recommending Scam Websites to People Trying to Shop",
+    "body": "Chatbot pushes shady link Links ranked by click chance Training data filled with spam Algorithms miss user intent Any keyword match gets suggested Even legit retailer requests fail You get phishing, not deals Clicks win over trust",
+    "text": "AI Chatbots Won’t Stop Recommending Scam Websites to People Trying to Shop Chatbot pushes shady link Links ranked by click chance Training data filled with spam Algorithms miss user intent Any keyword match gets suggested Even legit retailer requests fail You get phishing, not deals Clicks win over trust"
   }
 ]
