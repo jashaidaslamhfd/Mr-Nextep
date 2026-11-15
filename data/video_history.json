@@ -13001,7 +13001,7 @@
   },
   {
     "created_at": "2026-11-15T21:30:10.915395+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "TO THE NEW joins SpaceX Super Intelligence Partner Network to scale AI",
     "title": "TO THE NEW joins SpaceX Super Intelligence Partner Network to scale AI",
     "video_path": "output/mr_nextep_short.mp4",
@@ -13083,6 +13083,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "deb4bfa6498629aabcdfa68928e94457c96d65414cc8ab4fff8b828c7762a817",
     "body": "AI just launched on my phone AI says SpaceX powers its brain Rockets don’t actually write code Authority bias makes us trust it ‘Super Intelligence’ sounds impressive, tricks perception Model just predicts next words, nothing magical Marketing wraps ordinary GPT in hype Rocket AI reduces to simple hype",
-    "text": "TO THE NEW joins SpaceX Super Intelligence Partner Network to scale AI AI just launched on my phone AI says SpaceX powers its brain Rockets don’t actually write code Authority bias makes us trust it ‘Super Intelligence’ sounds impressive, tricks perception Model just predicts next words, nothing magical Marketing wraps ordinary GPT in hype Rocket AI reduces to simple hype"
+    "text": "TO THE NEW joins SpaceX Super Intelligence Partner Network to scale AI AI just launched on my phone AI says SpaceX powers its brain Rockets don’t actually write code Authority bias makes us trust it ‘Super Intelligence’ sounds impressive, tricks perception Model just predicts next words, nothing magical Marketing wraps ordinary GPT in hype Rocket AI reduces to simple hype",
+    "youtube_video_id": "eX3GM7t0Kmo",
+    "url": "https://youtu.be/eX3GM7t0Kmo",
+    "thumbnail": "uploaded",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/1122980080905302/videos?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      }
+    }
   }
 ]
