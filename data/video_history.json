@@ -13198,5 +13198,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-16T07:53:28.355082+00:00",
+    "status": "pending",
+    "topic": "Someone used Claude to build an AI chatbot for MS",
+    "title": "Someone used Claude to build an AI chatbot for MS",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "732044e23c7c6849ba8bcfbaf6c480ba888cc0c4ca61a39d29084efe6d89c19c",
+      "3239f50ece975cdce528023eab50323dd8f24849d1a447eabdba2e1433898ece",
+      "9567775b124c000359dee1754801f7b8b3e63dfe1d50d6905ee0c2af4a0f60dc",
+      "880216541cf2763307a3a7f92fb40d4a5dad457fb9e1f282a30d0983ec9082ab",
+      "afaf3e3c33a818f6876c97c8306c8439854f88b6973d39792aff15734c99b57e",
+      "e810a1e929f289a08670ed6f76a5baeca3b1de1d23620916c95cc3ea168b31d5",
+      "1eae7eca18adabfbbfb4d25de7ea4a188f0560465449453d0c0979cb531b9018",
+      "e57297a8ac739df3b6886339b8ba46f3cec385929ddb469100e0e583c07ce5dd"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "counterintuitive",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 85
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 85
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 80
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "Someone used Claude to build an AI chatbot for MS",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQemlVZEFlWlZQVXBkLXh6OW1vdV82SFJOMlNxR0NfMTlSVGRhWG5scTBqRE50RmtzMzRRTXhYQmdjY05ZQy1WSk5PS05naHdVeHlVRFVZUm5SWlZrY1dNa1hjWjE0cFM0ZEp4UUp4NzhlMl9PSUpJNUg4ZjZzSjJzLUFlRGRueG5mOFRuenk2Q2NvU1dERFNEaVkwaTNOTmNza0daak9oUWpyV1dkQnc?oc=5",
+      "published_at": "2026-11-16T07:03:55+00:00",
+      "trend_score": 13,
+      "fetched_at": "2026-11-16T07:51:25.447997+00:00",
+      "growth_score": 43.35,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 13/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "3dd6a459036e77a864cd6a76ea8f2e48b106b4e980fc515d2cd1761a5ccf5539",
+    "body": "AI should confuse, but it calms Claude built a health chatbot Patients share symptoms every day Users trust confident AI over doctors Confidence tricks our brain's expertise gauge Claude predicts next words from data Fluent speech feels like truth Smooth AI talk eases patient uncertainty",
+    "text": "Someone used Claude to build an AI chatbot for MS AI should confuse, but it calms Claude built a health chatbot Patients share symptoms every day Users trust confident AI over doctors Confidence tricks our brain's expertise gauge Claude predicts next words from data Fluent speech feels like truth Smooth AI talk eases patient uncertainty"
   }
 ]
