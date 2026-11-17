@@ -3615,5 +3615,21 @@
     "title": "Marvell, Penguin Solutions Advance AI Memory Expansion Technologies",
     "body": "More memory, but AI gets muddier Engineers notice unexpected confusion AI recalls older prompts instantly Irrelevant details keep resurfacing Longer ramblings, more hallucinations Memory stored as flat list More slots repeat past noise Big memory ≠ smarter AI",
     "text": "Marvell, Penguin Solutions Advance AI Memory Expansion Technologies More memory, but AI gets muddier Engineers notice unexpected confusion AI recalls older prompts instantly Irrelevant details keep resurfacing Longer ramblings, more hallucinations Memory stored as flat list More slots repeat past noise Big memory ≠ smarter AI"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "6f2fa62fcd4bad62120f0c245446efc24aac17dd60a4823b4957494706158cad",
+    "title": "California Sues OpenAI Over Alleged AI Safety Failures",
+    "body": "Phone says I should sue AI claims law is crystal clear But no such case exists Model confidently fabricated a lie California blames AI for danger They say safety checks were skipped AI predicts patterns, not facts Your next advice could spark lawsuit",
+    "text": "California Sues OpenAI Over Alleged AI Safety Failures Phone says I should sue AI claims law is crystal clear But no such case exists Model confidently fabricated a lie California blames AI for danger They say safety checks were skipped AI predicts patterns, not facts Your next advice could spark lawsuit"
   }
 ]

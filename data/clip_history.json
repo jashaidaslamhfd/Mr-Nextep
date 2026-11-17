@@ -1,53 +1,5 @@
 [
   {
-    "hash": "58f876e9c0e61284dd558bdbcca58144ed2d167a08a2e0b4557aa43eb19b932b",
-    "source_url": "https://videos.pexels.com/video-files/16561467/16561467-hd_1080_1920_30fps.mp4",
-    "title": "Anthropic’s Claude AI model accessed Georgia voter data in US",
-    "created_at": "2026-10-27T01:00:42.143504+00:00"
-  },
-  {
-    "hash": "9fafff27f4d813d4faff207aa8e0c08bddbd83d7cdaf6af83f895de564a5509a",
-    "source_url": "https://cdn.pixabay.com/video/2020/10/19/52823-471089056_medium.mp4",
-    "title": "Anthropic’s Claude AI model accessed Georgia voter data in US",
-    "created_at": "2026-10-27T01:00:42.143504+00:00"
-  },
-  {
-    "hash": "d7ad9106364521c515d84e2eebbc1a6dba5ac948321f62078b7cd0556b0c65de",
-    "source_url": "https://videos.pexels.com/video-files/8847765/8847765-sd_240_426_25fps.mp4",
-    "title": "Anthropic’s Claude AI model accessed Georgia voter data in US",
-    "created_at": "2026-10-27T01:00:42.143504+00:00"
-  },
-  {
-    "hash": "a74252c5b1d518bb9096f96aa75378c0a90f18761cb7f2f961b22de6dbe47885",
-    "source_url": "https://videos.pexels.com/video-files/8992783/8992783-sd_360_640_30fps.mp4",
-    "title": "Anthropic’s Claude AI model accessed Georgia voter data in US",
-    "created_at": "2026-10-27T01:00:42.143504+00:00"
-  },
-  {
-    "hash": "1f6a3eeecd360494e8d3d7e0ac062c784565b4e3ebe271a6e158039e910551c0",
-    "source_url": "https://cdn.pixabay.com/video/2020/08/18/47551-451623797_medium.mp4",
-    "title": "Sam Altman on RSI, AI Consciousness, OpenAI’s New Hardware (Transcript)",
-    "created_at": "2026-10-27T06:12:48.200921+00:00"
-  },
-  {
-    "hash": "34b14deba46c1e43ee2386f6274fb9ba2f5135bad859d43d0e317fedd43ad890",
-    "source_url": "https://cdn.pixabay.com/video/2016/09/09/5026-182666667_medium.mp4",
-    "title": "Sam Altman on RSI, AI Consciousness, OpenAI’s New Hardware (Transcript)",
-    "created_at": "2026-10-27T06:12:48.200921+00:00"
-  },
-  {
-    "hash": "c15ec2b6e0498aa59c573e604880f7463739ab5746ebdeafb5dc3500f478aaac",
-    "source_url": "https://cdn.pixabay.com/video/2019/10/02/27466-363961185_medium.mp4",
-    "title": "Sam Altman on RSI, AI Consciousness, OpenAI’s New Hardware (Transcript)",
-    "created_at": "2026-10-27T06:12:48.200921+00:00"
-  },
-  {
-    "hash": "ab26007fe66203e05c01432f0de684546bc19874971207501740da2bbe2141af",
-    "source_url": "https://cdn.pixabay.com/video/2019/03/22/22225-326032542_medium.mp4",
-    "title": "Sam Altman on RSI, AI Consciousness, OpenAI’s New Hardware (Transcript)",
-    "created_at": "2026-10-27T06:12:48.200921+00:00"
-  },
-  {
     "hash": "0c0393279423a5b77a474c86b997af88606810b60b78acf83a375adb28bd0a93",
     "source_url": "https://videos.pexels.com/video-files/8516374/8516374-sd_540_960_30fps.mp4",
     "title": "Sam Altman on RSI, AI Consciousness, OpenAI’s New Hardware (Transcript)",
@@ -2998,5 +2950,53 @@
     "source_url": "https://videos.pexels.com/video-files/6000413/6000413-sd_540_960_24fps.mp4",
     "title": "Marvell, Penguin Solutions Advance AI Memory Expansion Technologies",
     "created_at": "2026-11-17T04:16:37.053844+00:00"
+  },
+  {
+    "hash": "5f7af4acd5f1852e5b090ed7d9a2bf5e5be9e8ac46d93b2476621f4eeb0849c3",
+    "source_url": "https://cdn.pixabay.com/video/2020/05/04/38079-416330694_medium.mp4",
+    "title": "California Sues OpenAI Over Alleged AI Safety Failures",
+    "created_at": "2026-11-17T09:01:26.697507+00:00"
+  },
+  {
+    "hash": "883c1055ea400871104b47f0ba79f45d94ec6d386ce6fe65c03faf332132f517",
+    "source_url": "https://videos.pexels.com/video-files/36597637/15516650_360_640_30fps.mp4",
+    "title": "California Sues OpenAI Over Alleged AI Safety Failures",
+    "created_at": "2026-11-17T09:01:26.697507+00:00"
+  },
+  {
+    "hash": "b1863cddd0002e9d9b3efd8b804b1030c29265424aa293777a3c1b8a25289fab",
+    "source_url": "https://videos.pexels.com/video-files/34534133/14632344_360_640_50fps.mp4",
+    "title": "California Sues OpenAI Over Alleged AI Safety Failures",
+    "created_at": "2026-11-17T09:01:26.697507+00:00"
+  },
+  {
+    "hash": "d2cb089c16d69be40a1f24bd5bc97a6f80bcac6cb90e9309f343a2a7cb95c4e9",
+    "source_url": "https://videos.pexels.com/video-files/8720756/8720756-sd_338_640_25fps.mp4",
+    "title": "California Sues OpenAI Over Alleged AI Safety Failures",
+    "created_at": "2026-11-17T09:01:26.697507+00:00"
+  },
+  {
+    "hash": "3f9178315d3ec12b4d39c8ca7d3d4712ca576b55fd6b0663300728db008a2b27",
+    "source_url": "https://cdn.pixabay.com/video/2022/10/25/136350-764387876_medium.mp4",
+    "title": "California Sues OpenAI Over Alleged AI Safety Failures",
+    "created_at": "2026-11-17T09:01:26.697507+00:00"
+  },
+  {
+    "hash": "2260de33f4d418fdb3196f69f73541ff961f102b6c34f7412cc0d2323673e4e6",
+    "source_url": "https://videos.pexels.com/video-files/8135577/8135577-hd_1080_2048_25fps.mp4",
+    "title": "California Sues OpenAI Over Alleged AI Safety Failures",
+    "created_at": "2026-11-17T09:01:26.697507+00:00"
+  },
+  {
+    "hash": "92aea2007d398f2975b9b8abffb92a6f2aff22dc13b37a1e7be5cb9c4c4b2dec",
+    "source_url": "https://cdn.pixabay.com/video/2018/02/09/14214-255797028_medium.mp4",
+    "title": "California Sues OpenAI Over Alleged AI Safety Failures",
+    "created_at": "2026-11-17T09:01:26.697507+00:00"
+  },
+  {
+    "hash": "0e021caa9481605e68020909a2eb86a9c6968263b79a1865b4a6858a38a63dee",
+    "source_url": "https://videos.pexels.com/video-files/9460182/9460182-sd_360_640_24fps.mp4",
+    "title": "California Sues OpenAI Over Alleged AI Safety Failures",
+    "created_at": "2026-11-17T09:01:26.697507+00:00"
   }
 ]
