@@ -13501,7 +13501,7 @@
   },
   {
     "created_at": "2026-11-17T09:01:26.697507+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "California Sues OpenAI Over Alleged AI Safety Failures",
     "title": "California Sues OpenAI Over Alleged AI Safety Failures",
     "video_path": "output/mr_nextep_short.mp4",
@@ -13583,6 +13583,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "6f2fa62fcd4bad62120f0c245446efc24aac17dd60a4823b4957494706158cad",
     "body": "Phone says I should sue AI claims law is crystal clear But no such case exists Model confidently fabricated a lie California blames AI for danger They say safety checks were skipped AI predicts patterns, not facts Your next advice could spark lawsuit",
-    "text": "California Sues OpenAI Over Alleged AI Safety Failures Phone says I should sue AI claims law is crystal clear But no such case exists Model confidently fabricated a lie California blames AI for danger They say safety checks were skipped AI predicts patterns, not facts Your next advice could spark lawsuit"
+    "text": "California Sues OpenAI Over Alleged AI Safety Failures Phone says I should sue AI claims law is crystal clear But no such case exists Model confidently fabricated a lie California blames AI for danger They say safety checks were skipped AI predicts patterns, not facts Your next advice could spark lawsuit",
+    "youtube_video_id": "b0t01st3LDQ",
+    "url": "https://youtu.be/b0t01st3LDQ",
+    "thumbnail": "uploaded",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/1122980080905302/videos?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      }
+    }
   }
 ]
