@@ -13601,7 +13601,7 @@
   },
   {
     "created_at": "2026-11-17T23:45:36.301827+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Amazon SageMaker AI real",
     "title": "Amazon SageMaker AI real",
     "video_path": "output/mr_nextep_short.mp4",
@@ -13683,6 +13683,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "a59ebfb4c042614169002405b492c36c64c46c19c5211dfc02a45afd320614d7",
     "body": "Flawless forecast on my screen Sudden drop prediction appears Confidence feels like certainty Confidence is just probability Model learns patterns, not futures High scores hide hidden bias Certainty tricks our brain Confidence isn’t guarantee, just guess",
-    "text": "Amazon SageMaker AI real Flawless forecast on my screen Sudden drop prediction appears Confidence feels like certainty Confidence is just probability Model learns patterns, not futures High scores hide hidden bias Certainty tricks our brain Confidence isn’t guarantee, just guess"
+    "text": "Amazon SageMaker AI real Flawless forecast on my screen Sudden drop prediction appears Confidence feels like certainty Confidence is just probability Model learns patterns, not futures High scores hide hidden bias Certainty tricks our brain Confidence isn’t guarantee, just guess",
+    "youtube_video_id": "Q06YxVGQUh8",
+    "url": "https://youtu.be/Q06YxVGQUh8",
+    "thumbnail": "uploaded",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/1122980080905302/videos?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      }
+    }
   }
 ]
