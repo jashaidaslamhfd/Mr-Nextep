@@ -1,53 +1,5 @@
 [
   {
-    "hash": "0c0393279423a5b77a474c86b997af88606810b60b78acf83a375adb28bd0a93",
-    "source_url": "https://videos.pexels.com/video-files/8516374/8516374-sd_540_960_30fps.mp4",
-    "title": "Sam Altman on RSI, AI Consciousness, OpenAI’s New Hardware (Transcript)",
-    "created_at": "2026-10-27T06:12:48.200921+00:00"
-  },
-  {
-    "hash": "d469505632b3cf93c559864008b1dc9dcaf243055dd08b27ec71f1ac613358c5",
-    "source_url": "https://cdn.pixabay.com/video/2019/04/09/22704-329952760_medium.mp4",
-    "title": "Sam Altman on RSI, AI Consciousness, OpenAI’s New Hardware (Transcript)",
-    "created_at": "2026-10-27T06:12:48.200921+00:00"
-  },
-  {
-    "hash": "9b20570717539f118ec8d6ba7e7b6d04d6a4160074dc68c9e6a3347cae659d4b",
-    "source_url": "https://videos.pexels.com/video-files/34993466/14825552_360_640_30fps.mp4",
-    "title": "Sam Altman on RSI, AI Consciousness, OpenAI’s New Hardware (Transcript)",
-    "created_at": "2026-10-27T06:12:48.200921+00:00"
-  },
-  {
-    "hash": "edaf8cc9d7c1ac86f34aef6a34f9be79b41903f2a85d73ad3a3d7f7c2a2d83a1",
-    "source_url": "https://videos.pexels.com/video-files/8328099/8328099-sd_240_426_25fps.mp4",
-    "title": "Sam Altman on RSI, AI Consciousness, OpenAI’s New Hardware (Transcript)",
-    "created_at": "2026-10-27T06:12:48.200921+00:00"
-  },
-  {
-    "hash": "b8f1ca67c55d9ed42c075fe907b553e191ced869282599dcaaf9c6f6fdc807fa",
-    "source_url": "https://cdn.pixabay.com/video/2021/08/04/83873-584870583_medium.mp4",
-    "title": "Trump Wants to Ban Use of the Term 'Artificial Intelligence' and 'AI'",
-    "created_at": "2026-10-27T21:09:58.864146+00:00"
-  },
-  {
-    "hash": "79b40a28bbf663ccf3e7cfc5a723255fd790ed049402f0a7d4827f5b71b91793",
-    "source_url": "https://videos.pexels.com/video-files/8164116/8164116-sd_360_640_30fps.mp4",
-    "title": "Trump Wants to Ban Use of the Term 'Artificial Intelligence' and 'AI'",
-    "created_at": "2026-10-27T21:09:58.864146+00:00"
-  },
-  {
-    "hash": "3bd6701bdae7d112c764c23f64b13ed24136f0a0f5d50f3646fc716581b577d9",
-    "source_url": "https://videos.pexels.com/video-files/5896046/5896046-hd_720_1280_30fps.mp4",
-    "title": "Trump Wants to Ban Use of the Term 'Artificial Intelligence' and 'AI'",
-    "created_at": "2026-10-27T21:09:58.864146+00:00"
-  },
-  {
-    "hash": "5b5b4f5baa72629dc9aefda3ffd2dbe448f1eab9afc467b4e0ec8f995d4d01b3",
-    "source_url": "https://videos.pexels.com/video-files/6931571/6931571-hd_720_1280_50fps.mp4",
-    "title": "Trump Wants to Ban Use of the Term 'Artificial Intelligence' and 'AI'",
-    "created_at": "2026-10-27T21:09:58.864146+00:00"
-  },
-  {
     "hash": "6c17aabb7345644aa19369c895b45632fd728f2361bef07ab9e703a1405a9940",
     "source_url": "https://videos.pexels.com/video-files/38454843/16330286_360_640_25fps.mp4",
     "title": "Trump Wants to Ban Use of the Term 'Artificial Intelligence' and 'AI'",
@@ -2998,5 +2950,53 @@
     "source_url": "https://videos.pexels.com/video-files/9460182/9460182-sd_360_640_24fps.mp4",
     "title": "California Sues OpenAI Over Alleged AI Safety Failures",
     "created_at": "2026-11-17T09:01:26.697507+00:00"
+  },
+  {
+    "hash": "292b1ebc4caa2adf86a0b3ad9d46b5ab5b710d901bb8badfad0076e8768aad05",
+    "source_url": "https://cdn.pixabay.com/video/2019/12/06/29886-378294346_medium.mp4",
+    "title": "Amazon SageMaker AI real",
+    "created_at": "2026-11-17T23:45:36.301827+00:00"
+  },
+  {
+    "hash": "753b4631e358b9cfd23bc57a401d1809c0b6d76caccec72b06918320cebb80d8",
+    "source_url": "https://cdn.pixabay.com/video/2022/01/10/103967-664525610_medium.mp4",
+    "title": "Amazon SageMaker AI real",
+    "created_at": "2026-11-17T23:45:36.301827+00:00"
+  },
+  {
+    "hash": "dabd7a8ccecc86a7d91e439cff410f23b3888019c429001ea4d8e50335ed2c76",
+    "source_url": "https://cdn.pixabay.com/video/2016/09/05/4941-181472380_medium.mp4",
+    "title": "Amazon SageMaker AI real",
+    "created_at": "2026-11-17T23:45:36.301827+00:00"
+  },
+  {
+    "hash": "02ae67a92b7ea7c4e293601127b38ead176bb5a47b91f613e1eb4a218d8eda99",
+    "source_url": "https://videos.pexels.com/video-files/36267210/15380010_360_640_60fps.mp4",
+    "title": "Amazon SageMaker AI real",
+    "created_at": "2026-11-17T23:45:36.301827+00:00"
+  },
+  {
+    "hash": "9d4f93243086d8a3a2cfedc8ffe664e6afde32892f6ba1bfc753a9d82b45494b",
+    "source_url": "https://cdn.pixabay.com/video/2022/10/24/136255-764387650_medium.mp4",
+    "title": "Amazon SageMaker AI real",
+    "created_at": "2026-11-17T23:45:36.301827+00:00"
+  },
+  {
+    "hash": "5db9e0cce4ecee5c4667d4197022ce53414d614f6bf02cffeb91480c649bfe79",
+    "source_url": "https://cdn.pixabay.com/video/2020/04/16/36098-410587726_medium.mp4",
+    "title": "Amazon SageMaker AI real",
+    "created_at": "2026-11-17T23:45:36.301827+00:00"
+  },
+  {
+    "hash": "ed9805d96f8432744986d1a39da7944e8404ffc2cc94f071429f4f0636ebfd5c",
+    "source_url": "https://cdn.pixabay.com/video/2023/07/01/169560-841556996_medium.mp4",
+    "title": "Amazon SageMaker AI real",
+    "created_at": "2026-11-17T23:45:36.301827+00:00"
+  },
+  {
+    "hash": "783b860ef5a8da9b3773fa4215eed8fa98c47d2c43d7dafbce2e4b07fc28bdd2",
+    "source_url": "https://videos.pexels.com/video-files/9465163/9465163-sd_338_640_30fps.mp4",
+    "title": "Amazon SageMaker AI real",
+    "created_at": "2026-11-17T23:45:36.301827+00:00"
   }
 ]

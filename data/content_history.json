@@ -3631,5 +3631,21 @@
     "title": "California Sues OpenAI Over Alleged AI Safety Failures",
     "body": "Phone says I should sue AI claims law is crystal clear But no such case exists Model confidently fabricated a lie California blames AI for danger They say safety checks were skipped AI predicts patterns, not facts Your next advice could spark lawsuit",
     "text": "California Sues OpenAI Over Alleged AI Safety Failures Phone says I should sue AI claims law is crystal clear But no such case exists Model confidently fabricated a lie California blames AI for danger They say safety checks were skipped AI predicts patterns, not facts Your next advice could spark lawsuit"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "a59ebfb4c042614169002405b492c36c64c46c19c5211dfc02a45afd320614d7",
+    "title": "Amazon SageMaker AI real",
+    "body": "Flawless forecast on my screen Sudden drop prediction appears Confidence feels like certainty Confidence is just probability Model learns patterns, not futures High scores hide hidden bias Certainty tricks our brain Confidence isn’t guarantee, just guess",
+    "text": "Amazon SageMaker AI real Flawless forecast on my screen Sudden drop prediction appears Confidence feels like certainty Confidence is just probability Model learns patterns, not futures High scores hide hidden bias Certainty tricks our brain Confidence isn’t guarantee, just guess"
   }
 ]
