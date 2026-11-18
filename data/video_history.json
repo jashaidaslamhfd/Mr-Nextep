@@ -13798,5 +13798,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-18T08:28:01.105185+00:00",
+    "status": "pending",
+    "topic": "SK Hynix or Micron? Three Reasons the Korean Chipmaker Wins the AI Memory Debate",
+    "title": "SK Hynix or Micron? Three Reasons the Korean Chipmaker Wins the AI Memory Debate",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "73260e7619819cff4d617489f623184a2a76dd006e6e5be22e2c54b7554384be",
+      "d60cc7e917a924ea4697d48f3ad65ec2f22c67a35cbab3404bf54f6d5cd25220",
+      "04eec51292cd21c644d0ddf6ce0109c37381d1e6c23210de6abf8b48629b8c77",
+      "ee3e71dacc4486005539ad31e0bace8d557cc878d574f6b02623a6b256e95a54",
+      "d89a01bfe144c114d2c889f75c9ad8622332e59ebbd63dad0faac08de2bf27ff",
+      "815e770ff37da8edae1d3cb0ec8182fe99f3cc7ffd88d925427cf74e75328b12",
+      "cb869b7e69330ff76ab74d5a1fd868549b855aafc5d03ba02c75d06f87a18232",
+      "391e08e1ded2e645e0af021656cacb0824d19b7ed943e2df1d691d202e31bbbc"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "specific_question",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 100
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "SK Hynix or Micron? Three Reasons the Korean Chipmaker Wins the AI Memory Debate",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOSm5NdVpFVl9pdVZnZ3FLSVM3dU9qZktvV0pJdDNMVXdzSzZQbkV4ZWYzaW93OF9SSHc0TFR4RjJRRXNvenFyVVkybDlrMU9WTEp3X09ZT21GQkVUSkQ3LVF6eFFJTlFCcEFZcnNMaVR3a0NISEJRb3UxSTFtOHhHdmN1dkRSeUN4RFlOTUhhc3RFOFZlbi01RHNaclRiVnhMTUMyS1ZiN0g3MmRQSzFPZ3ZR?oc=5",
+      "published_at": "2026-11-18T08:03:40+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-11-18T08:25:30.120038+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "DARK_PSYCHOLOGY",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266016,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "cbe0fa3306e37b83733aa3674339dae2d89892829565906d52527a5d1a4af093",
+    "body": "SK Hynix beats Micron—why? Denser layers boost capacity Bandwidth per pin doubles Lower voltage cuts power use AI runs faster, stays cooler Micron’s older tech lags behind SK Hynix leads AI training Developers choose Korean memory now",
+    "text": "SK Hynix or Micron? Three Reasons the Korean Chipmaker Wins the AI Memory Debate SK Hynix beats Micron—why? Denser layers boost capacity Bandwidth per pin doubles Lower voltage cuts power use AI runs faster, stays cooler Micron’s older tech lags behind SK Hynix leads AI training Developers choose Korean memory now"
   }
 ]

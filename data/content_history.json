@@ -3663,5 +3663,21 @@
     "title": "FDA to refer to AI as ‘super intelligence’ going forward",
     "body": "FDA calls AI 'super intelligence' Regulators love buzzwords, not breakthroughs Label can actually increase mistakes We trust fancy terms without proof Medical AI skips extra safety steps Authority bias drives blind acceptance Sounding smarter tricks our perception Super label, same ordinary risk",
     "text": "FDA to refer to AI as ‘super intelligence’ going forward FDA calls AI 'super intelligence' Regulators love buzzwords, not breakthroughs Label can actually increase mistakes We trust fancy terms without proof Medical AI skips extra safety steps Authority bias drives blind acceptance Sounding smarter tricks our perception Super label, same ordinary risk"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "cbe0fa3306e37b83733aa3674339dae2d89892829565906d52527a5d1a4af093",
+    "title": "SK Hynix or Micron? Three Reasons the Korean Chipmaker Wins the AI Memory Debate",
+    "body": "SK Hynix beats Micron—why? Denser layers boost capacity Bandwidth per pin doubles Lower voltage cuts power use AI runs faster, stays cooler Micron’s older tech lags behind SK Hynix leads AI training Developers choose Korean memory now",
+    "text": "SK Hynix or Micron? Three Reasons the Korean Chipmaker Wins the AI Memory Debate SK Hynix beats Micron—why? Denser layers boost capacity Bandwidth per pin doubles Lower voltage cuts power use AI runs faster, stays cooler Micron’s older tech lags behind SK Hynix leads AI training Developers choose Korean memory now"
   }
 ]
