@@ -13898,5 +13898,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-18T23:17:47.308196+00:00",
+    "status": "pending",
+    "topic": "Anthropic prices its IPO at $83 per share, valuing the artificial intelligence giant at 1.5 trillion",
+    "title": "Anthropic prices its IPO at $83 per share, valuing the artificial intelligence giant at 1.5 trillion",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "ad7e19dcfa4fcaf6f7b2f64677ea2a25186b0c6063c2700cd3621e3c5315512e",
+      "ba56c1e8265b997f0b79e50491965e0d724704466b37d0291a4dddb1d36fcf94",
+      "ca66fc7b8e28b906180159e6b7122390b97b3190b4beca2ede72e794f88cd817",
+      "7c39f76f307cdb048993d97bf724245eaf6693670451b5278c54d368e833de0e",
+      "8e34a89cc071797522a128265f44eb80c3c55ccd0e96ccf8cc9e6104b2e36000",
+      "c0489f1dc0bf138788ec148bcc3680d5f02dc3106f0d06cb07ab218d0db0fc6d",
+      "c3029ac5316f8b3945b48be9d21ddff2b7c828689efbc168e101c225dfb0e984",
+      "7e2ac4ed33d7de676d287b13b27fdafe20b5d15fd9a01c8e6620dd9c6fe992dd"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "specific_question",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 100
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "Anthropic prices its IPO at $83 per share, valuing the artificial intelligence giant at 1.5 trillion",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMigAJBVV95cUxPZ1NFSXEyYTZqRC00ZmczZl9jLXRPdDhMN182by01ejVaZXdVcWlKa3c5V1hsWGFjY3hHdEZxVXBSWUpQWUxQNTRVS21BZm9iVERZNGxzdkVvQnRiZlk5U0VocWZVZ05ab3VBOXIzaHRKM05tTkxjcEFzYlduRGFieHZtMzhSNlRHNUVnVmVYRkhBMUc2aXZmaElUbEtYX2lidlc0SlNFeEZEWVJVNFVBb3JWSzk0Y180cDU1UFVTRDc1eEhQdld2X29Bc0hZUmZJOWRZdTJyaDR4YllwVGJPaGs0R0d2WFBrWFNJaDZfeldUcHhOUXhqeEp2QkExLXdm?oc=5",
+      "published_at": "2026-11-18T22:37:31+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-11-18T23:15:18.369134+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266016,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "18a2659ff6554ca15742dbf67795cd0d4cc71deb9b7d19d015da7b46532475f6",
+    "body": "Why $83 per share? Anthropic sets $83 IPO price Valuation hits $1.5 trillion No product released yet Investors gamble on AI dominance Brain overvalues hype and scarcity Bold forecasts feel like guarantees $83 seems a bargain",
+    "text": "Anthropic prices its IPO at $83 per share, valuing the artificial intelligence giant at 1.5 trillion Why $83 per share? Anthropic sets $83 IPO price Valuation hits $1.5 trillion No product released yet Investors gamble on AI dominance Brain overvalues hype and scarcity Bold forecasts feel like guarantees $83 seems a bargain"
   }
 ]
