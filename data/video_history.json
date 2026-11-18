@@ -13698,5 +13698,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-18T03:13:27.341285+00:00",
+    "status": "pending",
+    "topic": "FDA to refer to AI as ‘super intelligence’ going forward",
+    "title": "FDA to refer to AI as ‘super intelligence’ going forward",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "ad7fed7acf5a585e6159761fedf921bd845e45027cb214f1eb762dfa451c9fb5",
+      "394a6607a525ac4f323ae7a9b38396fd07175b96deadbf6a4e84d634d4465fb0",
+      "8e07ae23dc96d82c3966b19966f04cd93a616c2d0a7b089d1bb3350bd4cac0bc",
+      "efa783794b7f85a902ecfce91d006f3424ccee7850f26ffbae0c43da1d0a9994",
+      "ac68e19be9eda37fa32135e0a3546b4eaa01afd9ab4b086999b2f8f317f75039",
+      "5f431a1dd2c828ad089661b7b62d2c29695f819ccc1cf7207d9f29410775cf97",
+      "4662929acfc7a776da2c50a0e59dde066ba26527291ee2ec3c828e71b782c1d0",
+      "36d3179b982cb8a3a31d77eedc58a297a199a1ca244f7a561ad5652adf49d043"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "counterintuitive",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 91
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 91
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 86
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "FDA to refer to AI as ‘super intelligence’ going forward",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPeU1UYzh0Y1NIdGxsTUo0b0xSTGI3RE1Ick5VeUYybWNSZlpfaVQ0MnV4YmlTQ1REdHRSOFNLMUd3RUhrTzRLTWhiOEJrLS0yQlEwdHl4cmljOTdqenpmWGJXdEFaQmlTU213S0NPaGNUR3lfVXVwX1RJdlRZdXVEU0hrSExDYVUyUFJNd0dKQnh4bjA?oc=5",
+      "published_at": "2026-11-17T22:02:00+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-11-18T03:11:08.969757+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "847671ec18c18566774dd3023681ad777a5a4606cb56badaa1168ff784ebf9c7",
+    "body": "FDA calls AI 'super intelligence' Regulators love buzzwords, not breakthroughs Label can actually increase mistakes We trust fancy terms without proof Medical AI skips extra safety steps Authority bias drives blind acceptance Sounding smarter tricks our perception Super label, same ordinary risk",
+    "text": "FDA to refer to AI as ‘super intelligence’ going forward FDA calls AI 'super intelligence' Regulators love buzzwords, not breakthroughs Label can actually increase mistakes We trust fancy terms without proof Medical AI skips extra safety steps Authority bias drives blind acceptance Sounding smarter tricks our perception Super label, same ordinary risk"
   }
 ]
