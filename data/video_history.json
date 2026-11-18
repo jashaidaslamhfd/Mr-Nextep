@@ -13701,7 +13701,7 @@
   },
   {
     "created_at": "2026-11-18T03:13:27.341285+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "FDA to refer to AI as ‘super intelligence’ going forward",
     "title": "FDA to refer to AI as ‘super intelligence’ going forward",
     "video_path": "output/mr_nextep_short.mp4",
@@ -13783,6 +13783,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "847671ec18c18566774dd3023681ad777a5a4606cb56badaa1168ff784ebf9c7",
     "body": "FDA calls AI 'super intelligence' Regulators love buzzwords, not breakthroughs Label can actually increase mistakes We trust fancy terms without proof Medical AI skips extra safety steps Authority bias drives blind acceptance Sounding smarter tricks our perception Super label, same ordinary risk",
-    "text": "FDA to refer to AI as ‘super intelligence’ going forward FDA calls AI 'super intelligence' Regulators love buzzwords, not breakthroughs Label can actually increase mistakes We trust fancy terms without proof Medical AI skips extra safety steps Authority bias drives blind acceptance Sounding smarter tricks our perception Super label, same ordinary risk"
+    "text": "FDA to refer to AI as ‘super intelligence’ going forward FDA calls AI 'super intelligence' Regulators love buzzwords, not breakthroughs Label can actually increase mistakes We trust fancy terms without proof Medical AI skips extra safety steps Authority bias drives blind acceptance Sounding smarter tricks our perception Super label, same ordinary risk",
+    "youtube_video_id": "xhUc046DNkQ",
+    "url": "https://youtu.be/xhUc046DNkQ",
+    "thumbnail": "uploaded",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/1122980080905302/videos?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      }
+    }
   }
 ]
