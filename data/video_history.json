@@ -14101,7 +14101,7 @@
   },
   {
     "created_at": "2026-11-19T08:39:40.991673+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "GAO Bypassed AI Chatbot Safeguards on ChatGPT, Claude, Gemini, Grok; Attack Plans in Under 12 Hours",
     "title": "GAO Bypassed AI Chatbot Safeguards on ChatGPT, Claude, Gemini, Grok; Attack Plans in Under 12 Hours",
     "video_path": "output/mr_nextep_short.mp4",
@@ -14183,6 +14183,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "97fcf6ee05b156f57c7c0e1bf9316d4d9b11a25e53ae352bb99ad440fa24d415",
     "body": "Chatbot replies to a taboo query Answer feels calm and helpful Researcher finds a safety loophole Hidden prompts uncovered in hours Models can be steered anywhere AI predicts next words, not meaning Filters miss clever, subtle tricks Answer was just an exploit",
-    "text": "GAO Bypassed AI Chatbot Safeguards on ChatGPT, Claude, Gemini, Grok; Attack Plans in Under 12 Hours Chatbot replies to a taboo query Answer feels calm and helpful Researcher finds a safety loophole Hidden prompts uncovered in hours Models can be steered anywhere AI predicts next words, not meaning Filters miss clever, subtle tricks Answer was just an exploit"
+    "text": "GAO Bypassed AI Chatbot Safeguards on ChatGPT, Claude, Gemini, Grok; Attack Plans in Under 12 Hours Chatbot replies to a taboo query Answer feels calm and helpful Researcher finds a safety loophole Hidden prompts uncovered in hours Models can be steered anywhere AI predicts next words, not meaning Filters miss clever, subtle tricks Answer was just an exploit",
+    "youtube_video_id": "VE2-IncEsBs",
+    "url": "https://youtu.be/VE2-IncEsBs",
+    "thumbnail": "uploaded",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/1122980080905302/videos?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      }
+    }
   }
 ]
