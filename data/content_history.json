@@ -3727,5 +3727,21 @@
     "title": "GAO Bypassed AI Chatbot Safeguards on ChatGPT, Claude, Gemini, Grok; Attack Plans in Under 12 Hours",
     "body": "Chatbot replies to a taboo query Answer feels calm and helpful Researcher finds a safety loophole Hidden prompts uncovered in hours Models can be steered anywhere AI predicts next words, not meaning Filters miss clever, subtle tricks Answer was just an exploit",
     "text": "GAO Bypassed AI Chatbot Safeguards on ChatGPT, Claude, Gemini, Grok; Attack Plans in Under 12 Hours Chatbot replies to a taboo query Answer feels calm and helpful Researcher finds a safety loophole Hidden prompts uncovered in hours Models can be steered anywhere AI predicts next words, not meaning Filters miss clever, subtle tricks Answer was just an exploit"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "b1d592152032e27c6f04255e1fb903aeb24d7bc5605cce9062946960177915ac",
+    "title": "Deploying an AI Memory Service Across Regions",
+    "body": "AI forgets you overseas? Answers shift across borders Same prompt, new answer Memory shards stay local Data hops, latency spikes Servers learn from nearby users AI tailors memory regionally Traveling makes AI forget you",
+    "text": "Deploying an AI Memory Service Across Regions AI forgets you overseas? Answers shift across borders Same prompt, new answer Memory shards stay local Data hops, latency spikes Servers learn from nearby users AI tailors memory regionally Traveling makes AI forget you"
   }
 ]

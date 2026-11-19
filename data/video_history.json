@@ -14198,5 +14198,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-19T23:27:27.478508+00:00",
+    "status": "pending",
+    "topic": "Deploying an AI Memory Service Across Regions",
+    "title": "Deploying an AI Memory Service Across Regions",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "ac8d303583089fb6b9374df6b00c14144e286a7f79ae12749c8d9817fca30e6b",
+      "074f441ea689ce3129ce685dca0e2d4c8647297d09100f94bdc22493d584f9e6",
+      "5f48c746253e8866928795e29b2d5f342e628fad4d16f4a50ccfc120d0a544f5",
+      "60cc289406e602fa15600d2e142ecfe90eaa7e81fb9450ac18e36ab9389234bc",
+      "cf60f841ba1d8b2b6d26c8de71855dd8eeb02dbe7f37a6e656643ca3ce205bb2",
+      "a756f0bf89df681fc570e0826be1c7cdd6ba6dba4cc0b87bf5122632ed86d861",
+      "f72060e1baba4f8454881d406af702fd18fd94d34b5e3b2315b1855590ce5b8b",
+      "95ea5cbe60d823b69cfd9ed3d3a7f579f098bcf1929b1455af646c98136a22c9"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "specific_question",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 85
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 85
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 80
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "Deploying an AI Memory Service Across Regions",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOeENEdFJycWhmUlJPa3dZTktCemYzYkt3NDhnU3ZlbW1aTkZ2WGxDWXFhWFRTZ2dkNHEwRWk5TEhPeDhjVGpKVzhmYjBETEtJX0RpR3lCYk9tRm5SdDBMdUtmNEVoQ0NiSVBqZ1BCX1RRc0hzdm41UWtSTWlVTkI2cXloOVpkUXV2QVVvUVdxM1doS2VJY0E1Qi1haWo4MUFnXzRZN1dlNEhWenN4UDhuaFR3?oc=5",
+      "published_at": "2026-11-19T23:16:55+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-11-19T23:24:34.258344+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "DARK_PSYCHOLOGY",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266016,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "b1d592152032e27c6f04255e1fb903aeb24d7bc5605cce9062946960177915ac",
+    "body": "AI forgets you overseas? Answers shift across borders Same prompt, new answer Memory shards stay local Data hops, latency spikes Servers learn from nearby users AI tailors memory regionally Traveling makes AI forget you",
+    "text": "Deploying an AI Memory Service Across Regions AI forgets you overseas? Answers shift across borders Same prompt, new answer Memory shards stay local Data hops, latency spikes Servers learn from nearby users AI tailors memory regionally Traveling makes AI forget you"
   }
 ]

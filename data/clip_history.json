@@ -1,53 +1,5 @@
 [
   {
-    "hash": "f1ec43e59d84edfcd73c1a16d80d87ba92ce9909d300193b66607d951ae917b0",
-    "source_url": "https://videos.pexels.com/video-files/12879696/12879696-sd_240_426_24fps.mp4",
-    "title": "New York enacts ban on 'unsafe' chatbot behavior with kids as states push AI regulation boundaries",
-    "created_at": "2026-10-29T06:58:54.442374+00:00"
-  },
-  {
-    "hash": "95803d99ac0d5daedd1fcc7f4326060867f8c031a9b7dd26f8586634d89d550a",
-    "source_url": "https://cdn.pixabay.com/video/2022/05/09/116433-708008197_medium.mp4",
-    "title": "New York enacts ban on 'unsafe' chatbot behavior with kids as states push AI regulation boundaries",
-    "created_at": "2026-10-29T06:58:54.442374+00:00"
-  },
-  {
-    "hash": "17ef29595f4b4332b9fb0bb1681394f2ed9e6612a4aab85e3a63bf8c0246e22f",
-    "source_url": "https://videos.pexels.com/video-files/8890696/8890696-hd_720_1280_24fps.mp4",
-    "title": "New York enacts ban on 'unsafe' chatbot behavior with kids as states push AI regulation boundaries",
-    "created_at": "2026-10-29T06:58:54.442374+00:00"
-  },
-  {
-    "hash": "63f76a4fb479085c64686a3abe06978d165b2127d80695780809c86a8f9c421d",
-    "source_url": "https://videos.pexels.com/video-files/7408011/7408011-hd_1080_1920_25fps.mp4",
-    "title": "New York enacts ban on 'unsafe' chatbot behavior with kids as states push AI regulation boundaries",
-    "created_at": "2026-10-29T06:58:54.442374+00:00"
-  },
-  {
-    "hash": "158f051bf00f90c0bc420a3d0f3a4dc85f82e9b222647650ec577ea169afae54",
-    "source_url": "https://cdn.pixabay.com/video/2024/07/11/220645_medium.mp4",
-    "title": "AI Reveals Hidden Brain Shifts After Spinal Fluid Leak Surgery",
-    "created_at": "2026-10-29T21:35:57.717343+00:00"
-  },
-  {
-    "hash": "e28f87b93289edde58dbb0ddf44e2e37e53cb77e07ada7954fe1c937a3b02ccf",
-    "source_url": "https://cdn.pixabay.com/video/2025/07/22/292842_medium.mp4",
-    "title": "AI Reveals Hidden Brain Shifts After Spinal Fluid Leak Surgery",
-    "created_at": "2026-10-29T21:35:57.717343+00:00"
-  },
-  {
-    "hash": "81cf3ee04900ccf7b19803b1ccec7d34dde1befd2ccb8440a2e01e49eaa350f9",
-    "source_url": "https://videos.pexels.com/video-files/7357292/7357292-hd_720_1366_30fps.mp4",
-    "title": "AI Reveals Hidden Brain Shifts After Spinal Fluid Leak Surgery",
-    "created_at": "2026-10-29T21:35:57.717343+00:00"
-  },
-  {
-    "hash": "3a4529b30154f5d8e0ce85f7df6437a852a9e5f6d4e74d385d4d2d790293ec44",
-    "source_url": "https://videos.pexels.com/video-files/34913285/14789487_360_640_30fps.mp4",
-    "title": "AI Reveals Hidden Brain Shifts After Spinal Fluid Leak Surgery",
-    "created_at": "2026-10-29T21:35:57.717343+00:00"
-  },
-  {
     "hash": "8fa45f4dcc94bb3f08e19c4e2ca1b25a4ca1d3066111c29cf8c4c5007cacf709",
     "source_url": "https://cdn.pixabay.com/video/2023/07/11/171044-844787782_medium.mp4",
     "title": "AI Reveals Hidden Brain Shifts After Spinal Fluid Leak Surgery",
@@ -2998,5 +2950,53 @@
     "source_url": "https://videos.pexels.com/video-files/5981923/5981923-sd_360_640_24fps.mp4",
     "title": "GAO Bypassed AI Chatbot Safeguards on ChatGPT, Claude, Gemini, Grok; Attack Plans in Under 12 Hours",
     "created_at": "2026-11-19T08:39:40.991673+00:00"
+  },
+  {
+    "hash": "ac8d303583089fb6b9374df6b00c14144e286a7f79ae12749c8d9817fca30e6b",
+    "source_url": "https://videos.pexels.com/video-files/35421857/15007357_360_640_30fps.mp4",
+    "title": "Deploying an AI Memory Service Across Regions",
+    "created_at": "2026-11-19T23:27:27.478508+00:00"
+  },
+  {
+    "hash": "074f441ea689ce3129ce685dca0e2d4c8647297d09100f94bdc22493d584f9e6",
+    "source_url": "https://cdn.pixabay.com/video/2016/02/14/2154-155327585_medium.mp4",
+    "title": "Deploying an AI Memory Service Across Regions",
+    "created_at": "2026-11-19T23:27:27.478508+00:00"
+  },
+  {
+    "hash": "5f48c746253e8866928795e29b2d5f342e628fad4d16f4a50ccfc120d0a544f5",
+    "source_url": "https://cdn.pixabay.com/video/2022/05/11/116648-708909801_medium.mp4",
+    "title": "Deploying an AI Memory Service Across Regions",
+    "created_at": "2026-11-19T23:27:27.478508+00:00"
+  },
+  {
+    "hash": "60cc289406e602fa15600d2e142ecfe90eaa7e81fb9450ac18e36ab9389234bc",
+    "source_url": "https://videos.pexels.com/video-files/9196607/9196607-hd_1080_2048_25fps.mp4",
+    "title": "Deploying an AI Memory Service Across Regions",
+    "created_at": "2026-11-19T23:27:27.478508+00:00"
+  },
+  {
+    "hash": "cf60f841ba1d8b2b6d26c8de71855dd8eeb02dbe7f37a6e656643ca3ce205bb2",
+    "source_url": "https://videos.pexels.com/video-files/39499521/16826862_360_640_24fps.mp4",
+    "title": "Deploying an AI Memory Service Across Regions",
+    "created_at": "2026-11-19T23:27:27.478508+00:00"
+  },
+  {
+    "hash": "a756f0bf89df681fc570e0826be1c7cdd6ba6dba4cc0b87bf5122632ed86d861",
+    "source_url": "https://videos.pexels.com/video-files/8124286/8124286-sd_360_640_30fps.mp4",
+    "title": "Deploying an AI Memory Service Across Regions",
+    "created_at": "2026-11-19T23:27:27.478508+00:00"
+  },
+  {
+    "hash": "f72060e1baba4f8454881d406af702fd18fd94d34b5e3b2315b1855590ce5b8b",
+    "source_url": "https://videos.pexels.com/video-files/5474269/5474269-sd_338_640_25fps.mp4",
+    "title": "Deploying an AI Memory Service Across Regions",
+    "created_at": "2026-11-19T23:27:27.478508+00:00"
+  },
+  {
+    "hash": "95ea5cbe60d823b69cfd9ed3d3a7f579f098bcf1929b1455af646c98136a22c9",
+    "source_url": "https://videos.pexels.com/video-files/7681926/7681926-hd_720_1280_25fps.mp4",
+    "title": "Deploying an AI Memory Service Across Regions",
+    "created_at": "2026-11-19T23:27:27.478508+00:00"
   }
 ]
