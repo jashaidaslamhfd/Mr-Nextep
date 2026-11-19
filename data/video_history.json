@@ -13998,5 +13998,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-19T02:54:38.429743+00:00",
+    "status": "pending",
+    "topic": "14 Ways To Turn AI Memory Into A Marketing Competitive Advantage",
+    "title": "14 Ways To Turn AI Memory Into A Marketing Competitive Advantage",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "54a156165a7fb73a4de94d0b0e0fabfab37f9a78139e202e8e3e597e9018d227",
+      "40fea5852740c11f33d13bd0fab2f3f3f1d4ea4eb769b88903abd30d3883e7a8",
+      "4bcb690532c47b3913feaddb144e68a36666f757654ec537f7696b2ee28c737e",
+      "75ee9155793403ab1194f836c0120e234f4d8f93b0add3aef908931336e67e98",
+      "5808aec054bc9231010afc8ef6b7dde814a20b3b9a20a13cf9aa846622185f98",
+      "d23368a914bb60abdeb881a782d4b02b6a96a9074f2598a02585b9b6008478d9",
+      "52591f16d0cd8bb3fbade37bf0b37635a1620dda032145d64563c69dedc4d8b7",
+      "8060fb0828114d754e50ab47d6036e91ea23a0cd607e35ce8657db48b465d153"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "counterintuitive",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 91
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 91
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 86
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-2",
+      "topic": "14 Ways To Turn AI Memory Into A Marketing Competitive Advantage",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQNnZSeklSN0dxenQzZHlEbFMxQUZ4TURHYWg2M2FxZnNTWlZJX1ExTHZEOTFnNEVHOEpqcEFMU3hjOW1PSWRpRmRwMmNmX1oyOVF3QnZqdDVEejJIUnhBemxlZVpHazQ1dVRvZExMWG9wVVNDeTdBTVZSRTQ2ZlIwRmdfZDMtQUxhOVNXbGxTZFdROXZUQkpuUUdOem11b1Y2Znh6WktEdGd0Zw?oc=5",
+      "published_at": "2026-11-18T22:15:37+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-11-19T02:52:06.023647+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "DARK_PSYCHOLOGY",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266016,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "42db19a45d35142f76b2080ef59883f979751023c2e9bb89525615e9f02230f7",
+    "body": "More AI memory doesn't equal sales Forgetting sharpens brand relevance AI cuts stale data, avoids waste Focuses on fresh trends only Customers feel seen, not spammed Memory windows mimic human attention Higher clicks, lower churn result Less AI memory can boost sales",
+    "text": "14 Ways To Turn AI Memory Into A Marketing Competitive Advantage More AI memory doesn't equal sales Forgetting sharpens brand relevance AI cuts stale data, avoids waste Focuses on fresh trends only Customers feel seen, not spammed Memory windows mimic human attention Higher clicks, lower churn result Less AI memory can boost sales"
   }
 ]

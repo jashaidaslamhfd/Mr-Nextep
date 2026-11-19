@@ -3695,5 +3695,21 @@
     "title": "Anthropic prices its IPO at $83 per share, valuing the artificial intelligence giant at 1.5 trillion",
     "body": "Why $83 per share? Anthropic sets $83 IPO price Valuation hits $1.5 trillion No product released yet Investors gamble on AI dominance Brain overvalues hype and scarcity Bold forecasts feel like guarantees $83 seems a bargain",
     "text": "Anthropic prices its IPO at $83 per share, valuing the artificial intelligence giant at 1.5 trillion Why $83 per share? Anthropic sets $83 IPO price Valuation hits $1.5 trillion No product released yet Investors gamble on AI dominance Brain overvalues hype and scarcity Bold forecasts feel like guarantees $83 seems a bargain"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "42db19a45d35142f76b2080ef59883f979751023c2e9bb89525615e9f02230f7",
+    "title": "14 Ways To Turn AI Memory Into A Marketing Competitive Advantage",
+    "body": "More AI memory doesn't equal sales Forgetting sharpens brand relevance AI cuts stale data, avoids waste Focuses on fresh trends only Customers feel seen, not spammed Memory windows mimic human attention Higher clicks, lower churn result Less AI memory can boost sales",
+    "text": "14 Ways To Turn AI Memory Into A Marketing Competitive Advantage More AI memory doesn't equal sales Forgetting sharpens brand relevance AI cuts stale data, avoids waste Focuses on fresh trends only Customers feel seen, not spammed Memory windows mimic human attention Higher clicks, lower churn result Less AI memory can boost sales"
   }
 ]
