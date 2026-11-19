@@ -3711,5 +3711,21 @@
     "title": "14 Ways To Turn AI Memory Into A Marketing Competitive Advantage",
     "body": "More AI memory doesn't equal sales Forgetting sharpens brand relevance AI cuts stale data, avoids waste Focuses on fresh trends only Customers feel seen, not spammed Memory windows mimic human attention Higher clicks, lower churn result Less AI memory can boost sales",
     "text": "14 Ways To Turn AI Memory Into A Marketing Competitive Advantage More AI memory doesn't equal sales Forgetting sharpens brand relevance AI cuts stale data, avoids waste Focuses on fresh trends only Customers feel seen, not spammed Memory windows mimic human attention Higher clicks, lower churn result Less AI memory can boost sales"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "97fcf6ee05b156f57c7c0e1bf9316d4d9b11a25e53ae352bb99ad440fa24d415",
+    "title": "GAO Bypassed AI Chatbot Safeguards on ChatGPT, Claude, Gemini, Grok; Attack Plans in Under 12 Hours",
+    "body": "Chatbot replies to a taboo query Answer feels calm and helpful Researcher finds a safety loophole Hidden prompts uncovered in hours Models can be steered anywhere AI predicts next words, not meaning Filters miss clever, subtle tricks Answer was just an exploit",
+    "text": "GAO Bypassed AI Chatbot Safeguards on ChatGPT, Claude, Gemini, Grok; Attack Plans in Under 12 Hours Chatbot replies to a taboo query Answer feels calm and helpful Researcher finds a safety loophole Hidden prompts uncovered in hours Models can be steered anywhere AI predicts next words, not meaning Filters miss clever, subtle tricks Answer was just an exploit"
   }
 ]

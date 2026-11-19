@@ -14098,5 +14098,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-19T08:39:40.991673+00:00",
+    "status": "pending",
+    "topic": "GAO Bypassed AI Chatbot Safeguards on ChatGPT, Claude, Gemini, Grok; Attack Plans in Under 12 Hours",
+    "title": "GAO Bypassed AI Chatbot Safeguards on ChatGPT, Claude, Gemini, Grok; Attack Plans in Under 12 Hours",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "a5ecc319fced893d594f20eaa943621d4d6ec8107d19f6f246d567bdea3ad571",
+      "fee0e35e4b5da95c63187fb8e49a61a1d818ca81973f3c1fd741e625177614d5",
+      "cc9af455968750e5f9c0a7cedf4fc8f67e0854444b871a06f5ee2aa0f276e3ab",
+      "ab475f86da82858a9bf33926bbeb675579420143cbd43b4cd78a4540f1b65442",
+      "49f681dc223fdf6e1f68b250ac8325ae2ffe5d2fa4afbf386760cc305f3cf42c",
+      "f04b894f341f72e7cb486ef1718e3367197d8215773b408731178b1a93af475e",
+      "4f99233ca4026d001e71cd36481e65a56f8dc3c3baa56aee79a01f1763ec301d",
+      "026d6c80d81b94f257e87a9be389210508ea352f58f8fb4ab988c2b9ad7378df"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "concrete_observation",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 100
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "GAO Bypassed AI Chatbot Safeguards on ChatGPT, Claude, Gemini, Grok; Attack Plans in Under 12 Hours",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQdFdaeUVndkhUb0k0dUxadC1BbVYzSnI4WXlCdDByQzVKTGxPWUxSRGlPYWtjdGdhOGV4SlkwWjlocFRRYlU2MVd5M0JqX3c1RU1mYkFISkxiQlRZYUd6SUpuTGhlSVI5SGU2UnFPdk82TnhYeHN6UTNkWV9ob1QwV2Jyc0l6WFhMaW9oMXBIREVjMXgybkJ0QjVtb2ZmaDNMTUtxLXpOdFdKTWNhTUtGN0x3WXpKZlhVUl9jOWczQWZwMWdXQWZ6SFZ5bWFEdmVlTDNPVks4QWFfWjdj?oc=5",
+      "published_at": "2026-11-19T06:20:19+00:00",
+      "trend_score": 17,
+      "fetched_at": "2026-11-19T08:37:08.400190+00:00",
+      "growth_score": 45.15,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 17/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "97fcf6ee05b156f57c7c0e1bf9316d4d9b11a25e53ae352bb99ad440fa24d415",
+    "body": "Chatbot replies to a taboo query Answer feels calm and helpful Researcher finds a safety loophole Hidden prompts uncovered in hours Models can be steered anywhere AI predicts next words, not meaning Filters miss clever, subtle tricks Answer was just an exploit",
+    "text": "GAO Bypassed AI Chatbot Safeguards on ChatGPT, Claude, Gemini, Grok; Attack Plans in Under 12 Hours Chatbot replies to a taboo query Answer feels calm and helpful Researcher finds a safety loophole Hidden prompts uncovered in hours Models can be steered anywhere AI predicts next words, not meaning Filters miss clever, subtle tricks Answer was just an exploit"
   }
 ]
