@@ -14201,7 +14201,7 @@
   },
   {
     "created_at": "2026-11-19T23:27:27.478508+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Deploying an AI Memory Service Across Regions",
     "title": "Deploying an AI Memory Service Across Regions",
     "video_path": "output/mr_nextep_short.mp4",
@@ -14283,6 +14283,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "b1d592152032e27c6f04255e1fb903aeb24d7bc5605cce9062946960177915ac",
     "body": "AI forgets you overseas? Answers shift across borders Same prompt, new answer Memory shards stay local Data hops, latency spikes Servers learn from nearby users AI tailors memory regionally Traveling makes AI forget you",
-    "text": "Deploying an AI Memory Service Across Regions AI forgets you overseas? Answers shift across borders Same prompt, new answer Memory shards stay local Data hops, latency spikes Servers learn from nearby users AI tailors memory regionally Traveling makes AI forget you"
+    "text": "Deploying an AI Memory Service Across Regions AI forgets you overseas? Answers shift across borders Same prompt, new answer Memory shards stay local Data hops, latency spikes Servers learn from nearby users AI tailors memory regionally Traveling makes AI forget you",
+    "youtube_video_id": "KgafWa9RiXk",
+    "url": "https://youtu.be/KgafWa9RiXk",
+    "thumbnail": "uploaded",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/1122980080905302/videos?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      }
+    }
   }
 ]
