@@ -3759,5 +3759,21 @@
     "title": "Anthropic begins trading in the biggest IPO on record despite the many fears surrounding AI",
     "body": "Phone buzzes, stock rockets Headlines warn AI danger Investors rush, buying shares fast Question: why ignore unknown risks? Market loves hype, not safety AI sounds like persuasive storyteller Confidence fools brain into future bets Buzz reveals psychology behind buying",
     "text": "Anthropic begins trading in the biggest IPO on record despite the many fears surrounding AI Phone buzzes, stock rockets Headlines warn AI danger Investors rush, buying shares fast Question: why ignore unknown risks? Market loves hype, not safety AI sounds like persuasive storyteller Confidence fools brain into future bets Buzz reveals psychology behind buying"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "2f69e2c60fa169c63e98d6b545353839c7b171414a4ce98e0e2f943722dc9ca2",
+    "title": "Apple Working on Own AI Agent to Rival OpenAI and Anthropic",
+    "body": "Apple's AI lives offline Others stream, Apple trains locally Phone storing billions of parameters On‑device neural processing cores Your prompts stay completely private AI learns from your habits Assistant feels like your own mind iPhone thinks before you type",
+    "text": "Apple Working on Own AI Agent to Rival OpenAI and Anthropic Apple's AI lives offline Others stream, Apple trains locally Phone storing billions of parameters On‑device neural processing cores Your prompts stay completely private AI learns from your habits Assistant feels like your own mind iPhone thinks before you type"
   }
 ]

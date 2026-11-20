@@ -1,53 +1,5 @@
 [
   {
-    "hash": "e23e59304cae30c2db272228bd3c5a5de170503f4c9205ca644e5ed64622cd18",
-    "source_url": "https://cdn.pixabay.com/video/2024/08/08/225439_medium.mp4",
-    "title": "OpenAI updates AI behavior rules with focus on human intent",
-    "created_at": "2026-10-30T01:27:01.799199+00:00"
-  },
-  {
-    "hash": "8b74e384d5a5bd6d58933ff2f574c63d42946677ff1217ff64f66efa5e6fafbb",
-    "source_url": "https://videos.pexels.com/video-files/6670687/6670687-hd_720_1366_25fps.mp4",
-    "title": "OpenAI updates AI behavior rules with focus on human intent",
-    "created_at": "2026-10-30T01:27:01.799199+00:00"
-  },
-  {
-    "hash": "fdcade930a3015023c75785314a61a7795d13f7284d9b18c8ece0dee649a16b8",
-    "source_url": "https://videos.pexels.com/video-files/6980085/6980085-sd_360_640_25fps.mp4",
-    "title": "OpenAI updates AI behavior rules with focus on human intent",
-    "created_at": "2026-10-30T01:27:01.799199+00:00"
-  },
-  {
-    "hash": "c45a186eb5646a7959e30c1f6409606d83116e7f4e33d3946e68c2003ed6d38e",
-    "source_url": "https://videos.pexels.com/video-files/6517491/6517491-sd_240_426_30fps.mp4",
-    "title": "OpenAI updates AI behavior rules with focus on human intent",
-    "created_at": "2026-10-30T01:27:01.799199+00:00"
-  },
-  {
-    "hash": "f1dad77819ae9e3c80e133878176c84c5ef3160099c61e6b1bc923e039e0ffe4",
-    "source_url": "https://cdn.pixabay.com/video/2021/01/06/61292-498228530_medium.mp4",
-    "title": "AI and Omics Converge to Decode the Gene Regulatory Logic of the Brain",
-    "created_at": "2026-10-30T07:02:00.642877+00:00"
-  },
-  {
-    "hash": "b5e904678496f057ce60faf9a06a3c4ca122e98ce3021d470a2102941202524d",
-    "source_url": "https://cdn.pixabay.com/video/2024/03/24/205519-927335684_medium.mp4",
-    "title": "AI and Omics Converge to Decode the Gene Regulatory Logic of the Brain",
-    "created_at": "2026-10-30T07:02:00.642877+00:00"
-  },
-  {
-    "hash": "a145a1233e778e33e193b06db160490898615a899c18b65da978c16d2dd462a4",
-    "source_url": "https://cdn.pixabay.com/video/2025/06/03/283431_medium.mp4",
-    "title": "AI and Omics Converge to Decode the Gene Regulatory Logic of the Brain",
-    "created_at": "2026-10-30T07:02:00.642877+00:00"
-  },
-  {
-    "hash": "2979c5316af8eb5c7bd76d1a3ed173550da2967bcfd248d5f0ed24b5f92ed7e3",
-    "source_url": "https://cdn.pixabay.com/video/2017/11/28/13100-245530611_medium.mp4",
-    "title": "AI and Omics Converge to Decode the Gene Regulatory Logic of the Brain",
-    "created_at": "2026-10-30T07:02:00.642877+00:00"
-  },
-  {
     "hash": "0ee655d98f4dde3058bdd182f9e7fdc518d047b4c8491aa32e0690cea0e3060e",
     "source_url": "https://videos.pexels.com/video-files/6236751/6236751-hd_720_1280_25fps.mp4",
     "title": "AI and Omics Converge to Decode the Gene Regulatory Logic of the Brain",
@@ -2998,5 +2950,53 @@
     "source_url": "https://videos.pexels.com/video-files/17518183/17518183-sd_240_426_30fps.mp4",
     "title": "Anthropic begins trading in the biggest IPO on record despite the many fears surrounding AI",
     "created_at": "2026-11-20T02:52:38.780720+00:00"
+  },
+  {
+    "hash": "86a17981bfe78440faead70b114c6e92ee489bf0d4396a916cc4a1d9e6928971",
+    "source_url": "https://cdn.pixabay.com/video/2017/05/14/9153-217588676_medium.mp4",
+    "title": "Apple Working on Own AI Agent to Rival OpenAI and Anthropic",
+    "created_at": "2026-11-20T08:23:37.497105+00:00"
+  },
+  {
+    "hash": "e0e72ad5842cad035a7b99d964c922c937843ce0439bc2aa563fe7bd33c3aa25",
+    "source_url": "https://videos.pexels.com/video-files/4065944/4065944-sd_338_640_25fps.mp4",
+    "title": "Apple Working on Own AI Agent to Rival OpenAI and Anthropic",
+    "created_at": "2026-11-20T08:23:37.497105+00:00"
+  },
+  {
+    "hash": "57ab9265179095984369ef0c843c5f1fecc14e79db9725cbecfe32af859c6305",
+    "source_url": "https://videos.pexels.com/video-files/4841200/4841200-hd_1080_2048_25fps.mp4",
+    "title": "Apple Working on Own AI Agent to Rival OpenAI and Anthropic",
+    "created_at": "2026-11-20T08:23:37.497105+00:00"
+  },
+  {
+    "hash": "e434a3848ddfd55606c4c433b913a46fba64a0c93642815b1c4c53ad6dc2bf5d",
+    "source_url": "https://cdn.pixabay.com/video/2020/05/04/38059-415315949_medium.mp4",
+    "title": "Apple Working on Own AI Agent to Rival OpenAI and Anthropic",
+    "created_at": "2026-11-20T08:23:37.497105+00:00"
+  },
+  {
+    "hash": "f142cbeff5395b25d9146d766e737dcfced8bdaadfc4ad3f99d41e389e26cff4",
+    "source_url": "https://videos.pexels.com/video-files/8003418/8003418-sd_360_640_25fps.mp4",
+    "title": "Apple Working on Own AI Agent to Rival OpenAI and Anthropic",
+    "created_at": "2026-11-20T08:23:37.497105+00:00"
+  },
+  {
+    "hash": "bbd779b4a63e98c2badc71bdb931db3570a1b364381c0ab285d18e75c6c63285",
+    "source_url": "https://cdn.pixabay.com/video/2020/05/23/39930-424022897_medium.mp4",
+    "title": "Apple Working on Own AI Agent to Rival OpenAI and Anthropic",
+    "created_at": "2026-11-20T08:23:37.497105+00:00"
+  },
+  {
+    "hash": "a549aa167db46bfe904d4a4dbe884d1d8f74f58ae68ce291885c8ab910cd988d",
+    "source_url": "https://cdn.pixabay.com/video/2021/08/15/85213-590779453_medium.mp4",
+    "title": "Apple Working on Own AI Agent to Rival OpenAI and Anthropic",
+    "created_at": "2026-11-20T08:23:37.497105+00:00"
+  },
+  {
+    "hash": "7215ed669a6f5302edee1e6218f62ed6628034a5e22e5863f919ed189b680263",
+    "source_url": "https://cdn.pixabay.com/video/2015/11/25/1360-147055409_medium.mp4",
+    "title": "Apple Working on Own AI Agent to Rival OpenAI and Anthropic",
+    "created_at": "2026-11-20T08:23:37.497105+00:00"
   }
 ]

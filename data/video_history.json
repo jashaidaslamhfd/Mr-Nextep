@@ -14398,5 +14398,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-20T08:23:37.497105+00:00",
+    "status": "pending",
+    "topic": "Apple Working on Own AI Agent to Rival OpenAI and Anthropic",
+    "title": "Apple Working on Own AI Agent to Rival OpenAI and Anthropic",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "86a17981bfe78440faead70b114c6e92ee489bf0d4396a916cc4a1d9e6928971",
+      "e0e72ad5842cad035a7b99d964c922c937843ce0439bc2aa563fe7bd33c3aa25",
+      "57ab9265179095984369ef0c843c5f1fecc14e79db9725cbecfe32af859c6305",
+      "e434a3848ddfd55606c4c433b913a46fba64a0c93642815b1c4c53ad6dc2bf5d",
+      "f142cbeff5395b25d9146d766e737dcfced8bdaadfc4ad3f99d41e389e26cff4",
+      "bbd779b4a63e98c2badc71bdb931db3570a1b364381c0ab285d18e75c6c63285",
+      "a549aa167db46bfe904d4a4dbe884d1d8f74f58ae68ce291885c8ab910cd988d",
+      "7215ed669a6f5302edee1e6218f62ed6628034a5e22e5863f919ed189b680263"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "counterintuitive",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 97
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 97
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 92
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "Apple Working on Own AI Agent to Rival OpenAI and Anthropic",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOQzRPX3FrZlMybjdvY2FJVWhVOHU5M2lTTGNPazZYUW0zVlA3ZkVRcWxERk9XM2FvXzgzVDVUaTYwTzVzOXg0TGQtN25fOE9aeTRtUXhqTGE2Q01zQ21iTUg1dmFTNGZQRV9hTDVBV3BjWW4tUzYxXzBVTzA1UzkyOEtySVhfbWZlbmRXSFd1bVZLZElzSThUMmlQVnAyOHJIWUs0YTBNVTBIM29HV2ZieUtzQ1d0SDVIVTA2VTRTYk4?oc=5",
+      "published_at": "2026-11-19T21:44:56+00:00",
+      "trend_score": 13,
+      "fetched_at": "2026-11-20T08:20:44.934001+00:00",
+      "growth_score": 43.35,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 13/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266016,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "2f69e2c60fa169c63e98d6b545353839c7b171414a4ce98e0e2f943722dc9ca2",
+    "body": "Apple's AI lives offline Others stream, Apple trains locally Phone storing billions of parameters On‑device neural processing cores Your prompts stay completely private AI learns from your habits Assistant feels like your own mind iPhone thinks before you type",
+    "text": "Apple Working on Own AI Agent to Rival OpenAI and Anthropic Apple's AI lives offline Others stream, Apple trains locally Phone storing billions of parameters On‑device neural processing cores Your prompts stay completely private AI learns from your habits Assistant feels like your own mind iPhone thinks before you type"
   }
 ]
