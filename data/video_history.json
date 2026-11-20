@@ -14298,5 +14298,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-20T02:52:38.780720+00:00",
+    "status": "pending",
+    "topic": "Anthropic begins trading in the biggest IPO on record despite the many fears surrounding AI",
+    "title": "Anthropic begins trading in the biggest IPO on record despite the many fears surrounding AI",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "63a44fea80d2376afb8cee2e7d1c0d334a4af3a54e06e768934c91064c802340",
+      "de6f758b733ad1751f961f2dbc27a12b3491bde83c2066499f915d0f4643d288",
+      "f698b5e153fa404446ae6fe33aa1329424c0167bf18b7f65d92b90be521ef1a4",
+      "799e00f54088fa5853ac4de086020c9618fda144b66b8189b5c73227fdf978ab",
+      "f6c72227a55b45130d3481e6218fde920c7c95cfb8b7503be8063772e3db2e60",
+      "334018d47187fd9ca7670dfcd4b5807107ff0b8511fc2a1333bd40966f968b5e",
+      "c463fa5003e7b679512ce154870e8c8550515ed84061cf07a894778b8fbfe12d",
+      "6c65ac2f25b23f33e70fc2a2f0143e9dce1ed72b0cddc8979b1371a4797e96da"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "concrete_observation",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 100
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-2",
+      "topic": "Anthropic begins trading in the biggest IPO on record despite the many fears surrounding AI",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQbkRBYkJJdl91R1hBN1dLekRVcFJPRFI5ZjFDMnA3V0NqZ3F1NC1wTDJaMHRFWWstYnplY0VUdnZqZXF0aVItUkoxSlVXc1d2ZGM2U0pCWnQ3TVprOUJQbnlfamVFNnJ6a2hpU2k2VjExZ1RGajJmcmg5WnZMa0J5MGJqZ1lHbzUyakVyQ2RVazF6cmF0T1BlWE5WLVgxeDFXNHNXRVpGdlVLSEwydWszUUtFNk9sZGc?oc=5",
+      "published_at": "2026-11-19T21:39:00+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-11-20T02:50:23.822458+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266016,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "e9c5b859e46c712afecf4c719a87e78b3956336c8631dff89fad89adedb15d2d",
+    "body": "Phone buzzes, stock rockets Headlines warn AI danger Investors rush, buying shares fast Question: why ignore unknown risks? Market loves hype, not safety AI sounds like persuasive storyteller Confidence fools brain into future bets Buzz reveals psychology behind buying",
+    "text": "Anthropic begins trading in the biggest IPO on record despite the many fears surrounding AI Phone buzzes, stock rockets Headlines warn AI danger Investors rush, buying shares fast Question: why ignore unknown risks? Market loves hype, not safety AI sounds like persuasive storyteller Confidence fools brain into future bets Buzz reveals psychology behind buying"
   }
 ]
