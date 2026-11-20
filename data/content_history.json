@@ -3775,5 +3775,21 @@
     "title": "Apple Working on Own AI Agent to Rival OpenAI and Anthropic",
     "body": "Apple's AI lives offline Others stream, Apple trains locally Phone storing billions of parameters On‑device neural processing cores Your prompts stay completely private AI learns from your habits Assistant feels like your own mind iPhone thinks before you type",
     "text": "Apple Working on Own AI Agent to Rival OpenAI and Anthropic Apple's AI lives offline Others stream, Apple trains locally Phone storing billions of parameters On‑device neural processing cores Your prompts stay completely private AI learns from your habits Assistant feels like your own mind iPhone thinks before you type"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "161e15cf2a2791984c377df4337be6708b6a4cdb1d9e276931c6d3b2c3962d8e",
+    "title": "Will Artificial Intelligence (AI) Replace Family Law Attorneys?",
+    "body": "Robots filing divorces? Think again. Courts still need human judgment. Family law is about feelings. AI drafts forms, misses nuance. Judges look for empathy, credibility. Algorithms lack lived mediation experience. AI assists, but doesn't replace lawyers. Divorce stays personal, not robotic.",
+    "text": "Will Artificial Intelligence (AI) Replace Family Law Attorneys? Robots filing divorces? Think again. Courts still need human judgment. Family law is about feelings. AI drafts forms, misses nuance. Judges look for empathy, credibility. Algorithms lack lived mediation experience. AI assists, but doesn't replace lawyers. Divorce stays personal, not robotic."
   }
 ]

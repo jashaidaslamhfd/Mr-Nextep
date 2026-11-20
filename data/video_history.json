@@ -14498,5 +14498,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-20T22:59:14.173172+00:00",
+    "status": "pending",
+    "topic": "Will Artificial Intelligence (AI) Replace Family Law Attorneys?",
+    "title": "Will Artificial Intelligence (AI) Replace Family Law Attorneys?",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "6f38608368f264c781fbc693a4a2d75ed9f9a0ec80246fd2ab85b0b8ec483ecc",
+      "3e6fdaf3204fd06adab97cd7600b4400223f3b6d8862fc4fd198766cef9a9203",
+      "e1a8abaeabe2a031d7760d44ce646c9a54cb0c9e1c4776523db390037fc296ba",
+      "4d9f19ebb25379328b638d3be581f9f194ea68a98125da2ba0ee29031f868ac3",
+      "e5b0eb854478818a44d1f92e6ad6376d285c8fd3f95800543b9356af59b552e5",
+      "041448387af610a29067133b4a6688b0cb42dec6e649b3b61f9f044122d20e61",
+      "d7f589b7d197c52b01a5f79c8db0a6beac7c1deccedbb1f2abed1416d7bc7eef",
+      "97f582b0b2f4b8a3cf0aaee6fc4db5aece301afb9a3a4aa441b22c6658e92bae"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "counterintuitive",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 97
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 97
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 92
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "Will Artificial Intelligence (AI) Replace Family Law Attorneys?",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOREFDTmtNMHoxby1CWjNZM2l3TkNjZnNudmFuY3RZWXhMYlhGQXR1Ykd4TzY5Mkd2OWpYRFpEa0NfSmZzR1p2ek9oVHNfZE1tWUllTTFpbE44cE1fc1l0U01rcFUyb0pNblJmVUJfSUkzY3Zhd0tFNWtKYkhrSkxlRXdzMVpEQ2tpWEQ5MzFVb1Q1OV91Q3ZiUXd6QUg1dFM4MjBIWDdVZEowWW9lWEdMX2J3bGdzRFU?oc=5",
+      "published_at": "2026-11-20T19:31:18+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-11-20T22:56:52.783495+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266016,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "161e15cf2a2791984c377df4337be6708b6a4cdb1d9e276931c6d3b2c3962d8e",
+    "body": "Robots filing divorces? Think again. Courts still need human judgment. Family law is about feelings. AI drafts forms, misses nuance. Judges look for empathy, credibility. Algorithms lack lived mediation experience. AI assists, but doesn't replace lawyers. Divorce stays personal, not robotic.",
+    "text": "Will Artificial Intelligence (AI) Replace Family Law Attorneys? Robots filing divorces? Think again. Courts still need human judgment. Family law is about feelings. AI drafts forms, misses nuance. Judges look for empathy, credibility. Algorithms lack lived mediation experience. AI assists, but doesn't replace lawyers. Divorce stays personal, not robotic."
   }
 ]
