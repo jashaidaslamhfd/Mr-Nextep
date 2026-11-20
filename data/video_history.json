@@ -14501,7 +14501,7 @@
   },
   {
     "created_at": "2026-11-20T22:59:14.173172+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Will Artificial Intelligence (AI) Replace Family Law Attorneys?",
     "title": "Will Artificial Intelligence (AI) Replace Family Law Attorneys?",
     "video_path": "output/mr_nextep_short.mp4",
@@ -14583,6 +14583,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "161e15cf2a2791984c377df4337be6708b6a4cdb1d9e276931c6d3b2c3962d8e",
     "body": "Robots filing divorces? Think again. Courts still need human judgment. Family law is about feelings. AI drafts forms, misses nuance. Judges look for empathy, credibility. Algorithms lack lived mediation experience. AI assists, but doesn't replace lawyers. Divorce stays personal, not robotic.",
-    "text": "Will Artificial Intelligence (AI) Replace Family Law Attorneys? Robots filing divorces? Think again. Courts still need human judgment. Family law is about feelings. AI drafts forms, misses nuance. Judges look for empathy, credibility. Algorithms lack lived mediation experience. AI assists, but doesn't replace lawyers. Divorce stays personal, not robotic."
+    "text": "Will Artificial Intelligence (AI) Replace Family Law Attorneys? Robots filing divorces? Think again. Courts still need human judgment. Family law is about feelings. AI drafts forms, misses nuance. Judges look for empathy, credibility. Algorithms lack lived mediation experience. AI assists, but doesn't replace lawyers. Divorce stays personal, not robotic.",
+    "youtube_video_id": "rOauugFWKBs",
+    "url": "https://youtu.be/rOauugFWKBs",
+    "thumbnail": "uploaded",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/1122980080905302/videos?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      }
+    }
   }
 ]
