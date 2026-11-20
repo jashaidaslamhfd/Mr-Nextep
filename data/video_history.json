@@ -14401,7 +14401,7 @@
   },
   {
     "created_at": "2026-11-20T08:23:37.497105+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Apple Working on Own AI Agent to Rival OpenAI and Anthropic",
     "title": "Apple Working on Own AI Agent to Rival OpenAI and Anthropic",
     "video_path": "output/mr_nextep_short.mp4",
@@ -14483,6 +14483,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "2f69e2c60fa169c63e98d6b545353839c7b171414a4ce98e0e2f943722dc9ca2",
     "body": "Apple's AI lives offline Others stream, Apple trains locally Phone storing billions of parameters On‑device neural processing cores Your prompts stay completely private AI learns from your habits Assistant feels like your own mind iPhone thinks before you type",
-    "text": "Apple Working on Own AI Agent to Rival OpenAI and Anthropic Apple's AI lives offline Others stream, Apple trains locally Phone storing billions of parameters On‑device neural processing cores Your prompts stay completely private AI learns from your habits Assistant feels like your own mind iPhone thinks before you type"
+    "text": "Apple Working on Own AI Agent to Rival OpenAI and Anthropic Apple's AI lives offline Others stream, Apple trains locally Phone storing billions of parameters On‑device neural processing cores Your prompts stay completely private AI learns from your habits Assistant feels like your own mind iPhone thinks before you type",
+    "youtube_video_id": "LG1sc6oEBb4",
+    "url": "https://youtu.be/LG1sc6oEBb4",
+    "thumbnail": "uploaded",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/1122980080905302/videos?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      }
+    }
   }
 ]
