@@ -1,53 +1,5 @@
 [
   {
-    "hash": "2d12ff847b9bbed526c6a768a7e7791598f6f5c3e6d3e47e93cedf6625384559",
-    "source_url": "https://videos.pexels.com/video-files/3946215/3946215-sd_338_640_25fps.mp4",
-    "title": "Sam Altman Suggests Running AI Locally Is a Waste of Memory",
-    "created_at": "2026-10-31T01:10:33.724965+00:00"
-  },
-  {
-    "hash": "4f04602f97e63c91a81c16f51a263ef41c5edcac1577eb4488c34dd264be9d13",
-    "source_url": "https://videos.pexels.com/video-files/38902001/16542409_360_640_25fps.mp4",
-    "title": "Sam Altman Suggests Running AI Locally Is a Waste of Memory",
-    "created_at": "2026-10-31T01:10:33.724965+00:00"
-  },
-  {
-    "hash": "85c223ca3b94c159b13d581ca2bd9037ddba2f566ea2837d2eda383e73ebbb13",
-    "source_url": "https://cdn.pixabay.com/video/2016/05/12/3176-166338965_medium.mp4",
-    "title": "Sam Altman Suggests Running AI Locally Is a Waste of Memory",
-    "created_at": "2026-10-31T01:10:33.724965+00:00"
-  },
-  {
-    "hash": "eab941db77f4b05c2bf5f45a2ed7a557b2a02faaa5c605518567194ec5d117f4",
-    "source_url": "https://videos.pexels.com/video-files/7605074/7605074-hd_1080_2048_25fps.mp4",
-    "title": "Sam Altman Suggests Running AI Locally Is a Waste of Memory",
-    "created_at": "2026-10-31T01:10:33.724965+00:00"
-  },
-  {
-    "hash": "fe0df90e212b9ef92ff93d23def2714243becb1adc609e19fa5998c285dd4567",
-    "source_url": "https://videos.pexels.com/video-files/4924326/4924326-sd_240_426_30fps.mp4",
-    "title": "Russian Invaders Use AI To Make Deepfake Videos Of Triumphs In Ukraine",
-    "created_at": "2026-10-31T06:55:39.709913+00:00"
-  },
-  {
-    "hash": "2a66cb99a0c6c462afcbd16a8a0fea1036464b774c17dbf2b937c04d3360daa6",
-    "source_url": "https://videos.pexels.com/video-files/8733240/8733240-hd_720_1366_25fps.mp4",
-    "title": "Russian Invaders Use AI To Make Deepfake Videos Of Triumphs In Ukraine",
-    "created_at": "2026-10-31T06:55:39.709913+00:00"
-  },
-  {
-    "hash": "2a35825fd82f86768528c4b77a7e1787b19e509467fd0e680f096adb603cd73c",
-    "source_url": "https://videos.pexels.com/video-files/8100345/8100345-hd_720_1366_25fps.mp4",
-    "title": "Russian Invaders Use AI To Make Deepfake Videos Of Triumphs In Ukraine",
-    "created_at": "2026-10-31T06:55:39.709913+00:00"
-  },
-  {
-    "hash": "c5f0990831269e9ecb5833d164463e4d5ce7d13fc930523bed6f11cc7a9170ba",
-    "source_url": "https://videos.pexels.com/video-files/7821861/7821861-hd_720_1280_30fps.mp4",
-    "title": "Russian Invaders Use AI To Make Deepfake Videos Of Triumphs In Ukraine",
-    "created_at": "2026-10-31T06:55:39.709913+00:00"
-  },
-  {
     "hash": "a8b7704c481deaed07afc07ddbba91687f0ea7da638c460d8a5d0af51724c4d0",
     "source_url": "https://videos.pexels.com/video-files/8275082/8275082-hd_1080_2048_25fps.mp4",
     "title": "Russian Invaders Use AI To Make Deepfake Videos Of Triumphs In Ukraine",
@@ -2998,5 +2950,53 @@
     "source_url": "https://videos.pexels.com/video-files/28701810/12456385_360_640_30fps.mp4",
     "title": "Does Consciousness Philosopher Thomas Nagel Think AI Meets the Threshold?",
     "created_at": "2026-11-21T02:56:37.556295+00:00"
+  },
+  {
+    "hash": "fb1fe062c5e0ce0e65c99f55127b5a515ec82cd14ca9d1fe1086788eb23e3ff2",
+    "source_url": "https://cdn.pixabay.com/video/2024/03/24/205519-927335684_medium.mp4",
+    "title": "Anthropic worker claims to have solved a Holy Grail of math problems with the help of AI",
+    "created_at": "2026-11-21T08:14:10.957012+00:00"
+  },
+  {
+    "hash": "17f517e541973c819c233416cb8142945ef9047397575fc52a84e4b1361490e8",
+    "source_url": "https://cdn.pixabay.com/video/2021/06/23/78640-566794186_medium.mp4",
+    "title": "Anthropic worker claims to have solved a Holy Grail of math problems with the help of AI",
+    "created_at": "2026-11-21T08:14:10.957012+00:00"
+  },
+  {
+    "hash": "6a809245f7d31ffc85ddb821d30524144df6ea7bbe7798e4212bbf6d790ca291",
+    "source_url": "https://videos.pexels.com/video-files/35990830/15261188_360_640_25fps.mp4",
+    "title": "Anthropic worker claims to have solved a Holy Grail of math problems with the help of AI",
+    "created_at": "2026-11-21T08:14:10.957012+00:00"
+  },
+  {
+    "hash": "5f27337d4670ed1e3dd01461207baea9a32926619c0aa1392f11719e57adafd9",
+    "source_url": "https://videos.pexels.com/video-files/38431825/16320063_360_640_30fps.mp4",
+    "title": "Anthropic worker claims to have solved a Holy Grail of math problems with the help of AI",
+    "created_at": "2026-11-21T08:14:10.957012+00:00"
+  },
+  {
+    "hash": "7e78ee718bdabfd6f6da2fc31f8c968cff76ec5f8544d917022e48498a7d9abf",
+    "source_url": "https://videos.pexels.com/video-files/40128881/17135417_360_640_60fps.mp4",
+    "title": "Anthropic worker claims to have solved a Holy Grail of math problems with the help of AI",
+    "created_at": "2026-11-21T08:14:10.957012+00:00"
+  },
+  {
+    "hash": "b0f6f306cfb5950cdf581233ee6840204c7926dff83d3a251817f6243a04d193",
+    "source_url": "https://cdn.pixabay.com/video/2023/07/31/174005-850361304_medium.mp4",
+    "title": "Anthropic worker claims to have solved a Holy Grail of math problems with the help of AI",
+    "created_at": "2026-11-21T08:14:10.957012+00:00"
+  },
+  {
+    "hash": "1b7180f8d26364418bfeea27ebeb1faeaddd2fa40cc3b284915437c16b54f868",
+    "source_url": "https://videos.pexels.com/video-files/9667988/9667988-sd_240_426_25fps.mp4",
+    "title": "Anthropic worker claims to have solved a Holy Grail of math problems with the help of AI",
+    "created_at": "2026-11-21T08:14:10.957012+00:00"
+  },
+  {
+    "hash": "c78773b703811d0947ea8b58ba4c754a586339458a7c3fcc2e3f2952dc044276",
+    "source_url": "https://videos.pexels.com/video-files/8873327/8873327-hd_720_1280_25fps.mp4",
+    "title": "Anthropic worker claims to have solved a Holy Grail of math problems with the help of AI",
+    "created_at": "2026-11-21T08:14:10.957012+00:00"
   }
 ]

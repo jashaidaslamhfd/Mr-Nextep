@@ -14698,5 +14698,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-21T08:14:10.957012+00:00",
+    "status": "pending",
+    "topic": "Anthropic worker claims to have solved a Holy Grail of math problems with the help of AI",
+    "title": "Anthropic worker claims to have solved a Holy Grail of math problems with the help of AI",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "fb1fe062c5e0ce0e65c99f55127b5a515ec82cd14ca9d1fe1086788eb23e3ff2",
+      "17f517e541973c819c233416cb8142945ef9047397575fc52a84e4b1361490e8",
+      "6a809245f7d31ffc85ddb821d30524144df6ea7bbe7798e4212bbf6d790ca291",
+      "5f27337d4670ed1e3dd01461207baea9a32926619c0aa1392f11719e57adafd9",
+      "7e78ee718bdabfd6f6da2fc31f8c968cff76ec5f8544d917022e48498a7d9abf",
+      "b0f6f306cfb5950cdf581233ee6840204c7926dff83d3a251817f6243a04d193",
+      "1b7180f8d26364418bfeea27ebeb1faeaddd2fa40cc3b284915437c16b54f868",
+      "c78773b703811d0947ea8b58ba4c754a586339458a7c3fcc2e3f2952dc044276"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "specific_question",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 100
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "Anthropic worker claims to have solved a Holy Grail of math problems with the help of AI",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNVWJZMUdYYUVyVmVpMVE1ZHNWN1RXWXNSMzJlcnBsWllxYVVQNzVIS19teDk3MEh2bUlfV0xjMUdTVlhHb3N4MWE1ZFJ6eWt5d093eVh5cTFqTFBsTEliTTVSVTN4RmJ5VVVzcXN3NWZ6SGthZnBJNWlCV3J0VDQ5WEJvS011SFo0SDRwc2ZueDJQX0tJTWpMM2Nfd2pFUDZSSkZKMngtVjZjQdIBrwFBVV95cUxPQzdpamdtNF9sYjJPMVNpZDRIeWxUdmV5X3NYTkRjQTc1cURTbFI5V0V4cEVMQVMxSmRNa2k4bk53T2hCcEFmdm1wazVXWXZOUE5ieU9hLWdkeGlKQ2FHZU9TNjVvT016d0JaRnJhUXVrQXdjWHdGa1BRLVBvemdDWU1LUVZ6THd0U3VvM1gxbkJZaW5YVWhfNlNJWnFwekhKbUN6QzU5bkFIaDR2VTg0?oc=5",
+      "published_at": "2026-11-21T06:49:48+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-11-21T08:11:34.024358+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "BODY_ANOMALY",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.27,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "322dfe7d82070a8db1876523885b07bfc2154658d5712c4cef17d3a324a70ca5",
+    "body": "AI solved Riemann? Wait… Researcher claims AI solved math A holy‑grail math problem AI churned out huge proof Verification took endless weeks AI predicts, doesn’t comprehend Patterns look like real reasoning AI’s proof was illusionary",
+    "text": "Anthropic worker claims to have solved a Holy Grail of math problems with the help of AI AI solved Riemann? Wait… Researcher claims AI solved math A holy‑grail math problem AI churned out huge proof Verification took endless weeks AI predicts, doesn’t comprehend Patterns look like real reasoning AI’s proof was illusionary"
   }
 ]

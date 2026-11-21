@@ -3807,5 +3807,21 @@
     "title": "Does Consciousness Philosopher Thomas Nagel Think AI Meets the Threshold?",
     "body": "When your phone 'gets' you Nagel says consciousness stays private AI mimics words, not feeling Only a bat knows batness Algorithms lack any perspective We project feelings onto AI AI passes tests, not consciousness Your phone's empathy is illusion",
     "text": "Does Consciousness Philosopher Thomas Nagel Think AI Meets the Threshold? When your phone 'gets' you Nagel says consciousness stays private AI mimics words, not feeling Only a bat knows batness Algorithms lack any perspective We project feelings onto AI AI passes tests, not consciousness Your phone's empathy is illusion"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "322dfe7d82070a8db1876523885b07bfc2154658d5712c4cef17d3a324a70ca5",
+    "title": "Anthropic worker claims to have solved a Holy Grail of math problems with the help of AI",
+    "body": "AI solved Riemann? Wait… Researcher claims AI solved math A holy‑grail math problem AI churned out huge proof Verification took endless weeks AI predicts, doesn’t comprehend Patterns look like real reasoning AI’s proof was illusionary",
+    "text": "Anthropic worker claims to have solved a Holy Grail of math problems with the help of AI AI solved Riemann? Wait… Researcher claims AI solved math A holy‑grail math problem AI churned out huge proof Verification took endless weeks AI predicts, doesn’t comprehend Patterns look like real reasoning AI’s proof was illusionary"
   }
 ]
