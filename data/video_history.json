@@ -14801,7 +14801,7 @@
   },
   {
     "created_at": "2026-11-21T22:03:04.248784+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "We’ve Found the Only Good AI Chatbot",
     "title": "We’ve Found the Only Good AI Chatbot",
     "video_path": "output/mr_nextep_short.mp4",
@@ -14883,6 +14883,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "633593bf331449c849a54f3f0dbc1b627555121371406a60b7441a47e72d631d",
     "body": "Why does this chatbot actually listen? Most bots feel scripted and distant. It mirrors the way we speak. Trained on real conversations, not prompts. People say it truly understands them. Uses reinforcement learning from human feedback. Feedback aligns answers with our expectations. The secret? It actually listens.",
-    "text": "We’ve Found the Only Good AI Chatbot Why does this chatbot actually listen? Most bots feel scripted and distant. It mirrors the way we speak. Trained on real conversations, not prompts. People say it truly understands them. Uses reinforcement learning from human feedback. Feedback aligns answers with our expectations. The secret? It actually listens."
+    "text": "We’ve Found the Only Good AI Chatbot Why does this chatbot actually listen? Most bots feel scripted and distant. It mirrors the way we speak. Trained on real conversations, not prompts. People say it truly understands them. Uses reinforcement learning from human feedback. Feedback aligns answers with our expectations. The secret? It actually listens.",
+    "youtube_video_id": "pL8T5pDsPMs",
+    "url": "https://youtu.be/pL8T5pDsPMs",
+    "thumbnail": "uploaded",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/1122980080905302/videos?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      }
+    }
   }
 ]
