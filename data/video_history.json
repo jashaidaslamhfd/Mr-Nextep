@@ -14701,7 +14701,7 @@
   },
   {
     "created_at": "2026-11-21T08:14:10.957012+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Anthropic worker claims to have solved a Holy Grail of math problems with the help of AI",
     "title": "Anthropic worker claims to have solved a Holy Grail of math problems with the help of AI",
     "video_path": "output/mr_nextep_short.mp4",
@@ -14783,6 +14783,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "322dfe7d82070a8db1876523885b07bfc2154658d5712c4cef17d3a324a70ca5",
     "body": "AI solved Riemann? Wait… Researcher claims AI solved math A holy‑grail math problem AI churned out huge proof Verification took endless weeks AI predicts, doesn’t comprehend Patterns look like real reasoning AI’s proof was illusionary",
-    "text": "Anthropic worker claims to have solved a Holy Grail of math problems with the help of AI AI solved Riemann? Wait… Researcher claims AI solved math A holy‑grail math problem AI churned out huge proof Verification took endless weeks AI predicts, doesn’t comprehend Patterns look like real reasoning AI’s proof was illusionary"
+    "text": "Anthropic worker claims to have solved a Holy Grail of math problems with the help of AI AI solved Riemann? Wait… Researcher claims AI solved math A holy‑grail math problem AI churned out huge proof Verification took endless weeks AI predicts, doesn’t comprehend Patterns look like real reasoning AI’s proof was illusionary",
+    "youtube_video_id": "QJdiyfnSCJQ",
+    "url": "https://youtu.be/QJdiyfnSCJQ",
+    "thumbnail": "uploaded",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/1122980080905302/videos?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      }
+    }
   }
 ]
