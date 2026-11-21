@@ -14798,5 +14798,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-21T22:03:04.248784+00:00",
+    "status": "pending",
+    "topic": "We’ve Found the Only Good AI Chatbot",
+    "title": "We’ve Found the Only Good AI Chatbot",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "c3fc4382ddf6d4e1ed96b53db9211515505574e5e96450cdf03fbfe92c26db18",
+      "d398a0b2bc265d94915dcc9a529af50e9fed364d35b2428746474d174051c755",
+      "07d5456f9e53d63904aed8688875340f6ce279c86d81dac78fa454456058522b",
+      "dcfc47014cfd7ce450b6b976290a24a3ac9cda1ca91ba30f385cd3c0f5a5e1e9",
+      "8a5dda8c76d483518936e126d1ca08cca448059e4b9b36b37dd3bb2f24cdbc3f",
+      "4f09192ec175ba6a64791e4370e93e44b368c83e421623a96b6cf8ab77b9ced7",
+      "e42bb7e68d8e6ebdc76037a506542d61e8399c90f6a34e9d028849e744323bc6",
+      "40a67d2efa98bdc6c6cd6adfdfa88bb89c1b427ef0a4bde5d74252738152f391"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "specific_question",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 79
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 79
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 74
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "We’ve Found the Only Good AI Chatbot",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE53MzU2cm80aFk3SWZwbXlFQUVKTmFRTEtXbjFjN3pPMmRNeEpZbUM2ODlvX1lCNlNCeVpYNWU1Sl9zUWJZLWdXQ2xRajRmQjFKYmMtekJBUmNadWtIdzFDbjAwQmNIdjFUZTBpNHZnaDZhcUk?oc=5",
+      "published_at": "2026-11-21T17:52:00+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-11-21T22:00:35.960119+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266016,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "633593bf331449c849a54f3f0dbc1b627555121371406a60b7441a47e72d631d",
+    "body": "Why does this chatbot actually listen? Most bots feel scripted and distant. It mirrors the way we speak. Trained on real conversations, not prompts. People say it truly understands them. Uses reinforcement learning from human feedback. Feedback aligns answers with our expectations. The secret? It actually listens.",
+    "text": "We’ve Found the Only Good AI Chatbot Why does this chatbot actually listen? Most bots feel scripted and distant. It mirrors the way we speak. Trained on real conversations, not prompts. People say it truly understands them. Uses reinforcement learning from human feedback. Feedback aligns answers with our expectations. The secret? It actually listens."
   }
 ]
