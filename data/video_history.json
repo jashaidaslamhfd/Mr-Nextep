@@ -14601,7 +14601,7 @@
   },
   {
     "created_at": "2026-11-21T02:56:37.556295+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Does Consciousness Philosopher Thomas Nagel Think AI Meets the Threshold?",
     "title": "Does Consciousness Philosopher Thomas Nagel Think AI Meets the Threshold?",
     "video_path": "output/mr_nextep_short.mp4",
@@ -14683,6 +14683,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "a54d90b223922fa3bce6460692d721f580fa843d601337437bd0e8c52b2a0e53",
     "body": "When your phone 'gets' you Nagel says consciousness stays private AI mimics words, not feeling Only a bat knows batness Algorithms lack any perspective We project feelings onto AI AI passes tests, not consciousness Your phone's empathy is illusion",
-    "text": "Does Consciousness Philosopher Thomas Nagel Think AI Meets the Threshold? When your phone 'gets' you Nagel says consciousness stays private AI mimics words, not feeling Only a bat knows batness Algorithms lack any perspective We project feelings onto AI AI passes tests, not consciousness Your phone's empathy is illusion"
+    "text": "Does Consciousness Philosopher Thomas Nagel Think AI Meets the Threshold? When your phone 'gets' you Nagel says consciousness stays private AI mimics words, not feeling Only a bat knows batness Algorithms lack any perspective We project feelings onto AI AI passes tests, not consciousness Your phone's empathy is illusion",
+    "youtube_video_id": "qmh8xeeNpeI",
+    "url": "https://youtu.be/qmh8xeeNpeI",
+    "thumbnail": "uploaded",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/1122980080905302/videos?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      }
+    }
   }
 ]
