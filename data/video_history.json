@@ -15098,5 +15098,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-22T22:20:19.234837+00:00",
+    "status": "pending",
+    "topic": "Fujitsu launches pilot study with FamilyMart to analyze decarbonized product purchasing behavior and create demand using causal AI",
+    "title": "Fujitsu launches pilot study with FamilyMart to analyze decarbonized product purchasing behavior and create demand using causal AI",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "bf68b459f7d4f3a555dd6565eb76fb8e2aabcaccbbdb4606f8f9c78f0a14ac56",
+      "f1c978e4b5391648e949c845a6c574009687a6f78a457fa8fad3cf65bc4aac3d",
+      "03c1d92e52d73ae977ff57fde6afb16338c6b4b049318264c79102c81869cc9e",
+      "bb4dce1a5a8f3fc0937a2953bc1934c4ea618bd6280257054a7f93c084d6c490",
+      "f13997808e47eec8c6008ac26a86876a5c24f83ccd224984e849f84f13f97656",
+      "263db77cb70be2c1085fd4a02aaf265aec5f725c10802261da9795c8b4b56e45",
+      "2cfb56cc1de25a620da3e12596feaf6c9f69091fab7eef82a7572cfd0e52a216",
+      "b7208fea54f899a594e5f1f91055dff1c16ad722939f7716139e87d815da4df2"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "specific_question",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 100
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "Fujitsu launches pilot study with FamilyMart to analyze decarbonized product purchasing behavior and create demand using causal AI",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMirwJBVV95cUxPUDlTd3BYdnpfRzVJamk5NWYtWFNNMjhtMXFlb2JBUGNWSzh2NTRnM1FFUW05N01HY2JmX0FpUnI4Z3ZhNHgxdy1ILW5MREZZaTFFXzdDTXNtU2lROGFIZ3hPMGZWQ3JIMG91empVSkcxbVNUQnF5VzJYRDVxdWlhSTdSaVlMZjVtOWNuRlZRSldEdEp4dHEzRUI5SmlvVloxV3VOSk81cjJ3dkNFbzVpV09ORC1DbXEwQkxFLTFnOE5pck5wWWYzYTVBM2lCeXQ5dTJLWXhDajBCY09ONllWSXRsQnlzZGliTi0zdnppdGVhZXZPTHRpS1lPbG94czFrM3kwQnNPdm5fZEhNUWpCMFNualNKNjg4dUwxLU9jSVByRGxHdVJaSkVRV0VfcUU?oc=5",
+      "published_at": "2026-11-22T19:46:26+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-11-22T22:17:18.688259+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.268005,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "1c50d067ee661aa0959c408c6857dfe812f52fa1d43828ded5d5a7a5e60591fe",
+    "body": "Why push carbon‑free snacks? Fujitsu’s AI watches each checkout It predicts cause, not correlation Shoppers pick green items unknowingly AI tweaks lights and background music Subtle cues shape sustainable decisions Invisible nudges steer buying habits That’s why the push felt natural",
+    "text": "Fujitsu launches pilot study with FamilyMart to analyze decarbonized product purchasing behavior and create demand using causal AI Why push carbon‑free snacks? Fujitsu’s AI watches each checkout It predicts cause, not correlation Shoppers pick green items unknowingly AI tweaks lights and background music Subtle cues shape sustainable decisions Invisible nudges steer buying habits That’s why the push felt natural"
   }
 ]
