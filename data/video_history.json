@@ -14998,5 +14998,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-22T07:57:44.098001+00:00",
+    "status": "pending",
+    "topic": "[COVER STORY] 'AI spending binge puts Samsung, SK at risk of memory price collapse'",
+    "title": "[COVER STORY] 'AI spending binge puts Samsung, SK at risk of memory price collapse'",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "72f7594dd77a89cbf6b691b57cc38ba197ea6e797db8bd354763697f940b5d9c",
+      "e35521a39779f5c5ee6aa4be0e042fbd5e0a85c716c97eba1c27f7594a47f88b",
+      "38110840792cc7ece9f62d3468d9a9e1dc6d7e903469f52a2358b3273f1c6022",
+      "1b2570b105dfc55cea06884bed1f3895c4d08a784a28273ff42fe68024f2455d",
+      "4c35e2155c5d065ce0c91046a87acb59e65341c02faa999f2fd712ef8f1d3fb6",
+      "099441d6c727abbf76550fb83e5969b5d974eb748fe214e8e8acaf15a87fdb97",
+      "4911701574e06a3a0577a94ac9eaaca922424ddf65cb97ee30fd167c8573ae9a",
+      "a25858d3e76e6de01cdad07b27a94b0d933b7b06f39dacacba6a74b6b24e74dd"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "counterintuitive",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 100
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "[COVER STORY] 'AI spending binge puts Samsung, SK at risk of memory price collapse'",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNdTJKNERrejZMQlplVGgwU0FQMmZ3NGRoUkxsZk4wb3NnRngzcGFHQzNmN3dNeEsyOGZmSFBzbjFrSHdRNzljbEY5ODdJU1AzZEFQMlB4Rkh1TXNqektuSWl3aW55ODZoVW1KUUFROGNwc21DOTJpTXhweUx3RTZnNFR2amU0OXZzbmxuTWIwNzJqM04wNE1WREFEeEFLdVAwLUNTZk0yMGNlWWlrelo0T3B5alU0RHkxRTRoa0ticTdCR0NqVDMzMUJHekxjanFK0gHWAUFVX3lxTE5ySGxFWXJzSE4xMHhoVDBwd3VuTFNvUWJIekVzOTNRLUdWaXhGWERRNHlXTkhZeDFRdnFPWlRRdWxiQ05DdDFROHpFZzhISmotN08xcl9maHRnWDBwZDNrT2xfbklqSG5tQ2Uwb29WdmRYSDctMWtGOFp6bXNseXd0RTBXR212TWFNY3Fic1NtQkN5Y0poUU82dWx2bk5KNmFwVkUtWHZSbHpySUs1bkptQ1FSVUZDdHVxSjlRZ29QSUZpalNpMm05Vy1oWHlJTnY0Um9pR3c?oc=5",
+      "published_at": "2026-11-22T06:37:02+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-11-22T07:55:46.951188+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "DARK_PSYCHOLOGY",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266016,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "e273c07bef067f511dd9450536e249eb5e83fdf8123cdadbed5bdb63d3e2f614",
+    "body": "AI is crushing memory prices AI training devours terabytes Servers buying cheap DRAM Suppliers flood market with inventory Prices tumble, giants watch closely Startups train faster on cheap chips Margins shrink, companies cut spending AI hunger squeezes its own supply",
+    "text": "[COVER STORY] 'AI spending binge puts Samsung, SK at risk of memory price collapse' AI is crushing memory prices AI training devours terabytes Servers buying cheap DRAM Suppliers flood market with inventory Prices tumble, giants watch closely Startups train faster on cheap chips Margins shrink, companies cut spending AI hunger squeezes its own supply"
   }
 ]
