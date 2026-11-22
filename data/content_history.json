@@ -3839,5 +3839,21 @@
     "title": "We’ve Found the Only Good AI Chatbot",
     "body": "Why does this chatbot actually listen? Most bots feel scripted and distant. It mirrors the way we speak. Trained on real conversations, not prompts. People say it truly understands them. Uses reinforcement learning from human feedback. Feedback aligns answers with our expectations. The secret? It actually listens.",
     "text": "We’ve Found the Only Good AI Chatbot Why does this chatbot actually listen? Most bots feel scripted and distant. It mirrors the way we speak. Trained on real conversations, not prompts. People say it truly understands them. Uses reinforcement learning from human feedback. Feedback aligns answers with our expectations. The secret? It actually listens."
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "3c44613e0bf2f47acd3b60e3a01a0eba698c8879b460d61d8dfbe15dbc9c75b9",
+    "title": "Jim Hoops' deepfake bill targets more than AI. But when would an altered photo be a crime?",
+    "body": "Wedding photo shows wrong face Looks like a simple filter Law cares about intent Profit turns it into crime Jokes can cross legal lines Fake images treated as fraud Bill focuses on scams, not art Your scroll could break law",
+    "text": "Jim Hoops' deepfake bill targets more than AI. But when would an altered photo be a crime? Wedding photo shows wrong face Looks like a simple filter Law cares about intent Profit turns it into crime Jokes can cross legal lines Fake images treated as fraud Bill focuses on scams, not art Your scroll could break law"
   }
 ]
