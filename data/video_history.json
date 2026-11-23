@@ -15298,5 +15298,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-23T08:54:28.636875+00:00",
+    "status": "pending",
+    "topic": "Nio CEO Says AI Sent Memory Prices Up Fivefold, Echoing 2022 Lithium Shock",
+    "title": "Nio CEO Says AI Sent Memory Prices Up Fivefold, Echoing 2022 Lithium Shock",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "b47ea9fd7e44199dd906e218482eee0f74bb6a566151852e359817df4e6c5800",
+      "d483257f68d55236700e9a59b8eb6a1488b8fd7246471a991f11cf4c4a4fb11e",
+      "6fd06255646e1a2c8d30e6c22243bae10485a01cc980516b151316ea7928b18f",
+      "ed52353dbb215bdddef726b6636f0d8aa19225e21266dfe15553792a1233686a",
+      "5f6201361b0abe29a878192f32384acdbd3e20c29162afb58d14c7d3a6685d8e",
+      "4087c646e42b063ffd715d5fff374635664fe137071331c686cd105491f5b0e9",
+      "215ffec909a1a88035409a5338ae9a0334a2e6c1cacc71be689295e43088f9c2",
+      "600b29722105a198d330e5866958cf01d269fa5a72d77f9aef20aca1324acded"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "concrete_observation",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 100
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "Nio CEO Says AI Sent Memory Prices Up Fivefold, Echoing 2022 Lithium Shock",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOY1ZkMXQ0aW5DREx1M01lM3M5U2ROWENHMXdHYjc5Z1FDbk4wRl9oVzdzMFcweGRiYTJ0U1hteE1ZMlRxWWxMZjloSmNJUUI2U1FMRFUzQmI5ZmM5bUhUS3BJc1ExaGlpM3BKSXJ3bzBVUXlQR0tvWVlHTTRuSVc2ODhTQlJlZmsyaDhtSUp6UEQyLTQ0dkJXYmtMbWtxTnZURzhTQmhqaEZmalk?oc=5",
+      "published_at": "2026-11-23T08:49:00+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-11-23T08:51:59.198252+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266016,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "2920d5f9281403a98c5890f4fb822880d25b1e6cabd105895908f32aa9052cff",
+    "body": "Battery price alert: five‑times higher CEO blames AI forecasts Remember the 2022 lithium shock? AI predictions act like market gossip EV owners now face higher costs AI predicts demand, amplifies speculation AI isn’t creating shortage, humans are That buzz? It's market psychology at work",
+    "text": "Nio CEO Says AI Sent Memory Prices Up Fivefold, Echoing 2022 Lithium Shock Battery price alert: five‑times higher CEO blames AI forecasts Remember the 2022 lithium shock? AI predictions act like market gossip EV owners now face higher costs AI predicts demand, amplifies speculation AI isn’t creating shortage, humans are That buzz? It's market psychology at work"
   }
 ]
