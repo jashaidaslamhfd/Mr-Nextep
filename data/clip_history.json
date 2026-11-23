@@ -1,53 +1,5 @@
 [
   {
-    "hash": "4f24db8221e6a50f1e725b837739cf08ba08d55db54a0c4d886a5040e8d46bc2",
-    "source_url": "https://videos.pexels.com/video-files/7005862/7005862-hd_720_1280_24fps.mp4",
-    "title": "DeepSeek unveils AI ‘super agent’ in coding race with OpenAI, Anthropic",
-    "created_at": "2026-11-01T20:59:37.363913+00:00"
-  },
-  {
-    "hash": "26dbdf52f5460d969017484582a37db91890b7cd5d9f3b0883703352031beebd",
-    "source_url": "https://videos.pexels.com/video-files/28483048/12394975_360_640_30fps.mp4",
-    "title": "DeepSeek unveils AI ‘super agent’ in coding race with OpenAI, Anthropic",
-    "created_at": "2026-11-01T20:59:37.363913+00:00"
-  },
-  {
-    "hash": "8698ea06a905550d5bb229d78a61211d7cd2abd8f6e0973150464f1b5abd3fd4",
-    "source_url": "https://videos.pexels.com/video-files/34459460/14601221_360_640_25fps.mp4",
-    "title": "DeepSeek unveils AI ‘super agent’ in coding race with OpenAI, Anthropic",
-    "created_at": "2026-11-01T20:59:37.363913+00:00"
-  },
-  {
-    "hash": "1676bb58684ed962599e1f281fd13f552a0715a371b2da40c9049d980148b2c2",
-    "source_url": "https://cdn.pixabay.com/video/2019/07/08/25082-347958071_medium.mp4",
-    "title": "DeepSeek unveils AI ‘super agent’ in coding race with OpenAI, Anthropic",
-    "created_at": "2026-11-01T20:59:37.363913+00:00"
-  },
-  {
-    "hash": "9cb96a37b402f8c68d44c77fad5d8c66e4d49aaa37543401f6b9531d64bb3394",
-    "source_url": "https://videos.pexels.com/video-files/7001508/7001508-sd_338_640_25fps.mp4",
-    "title": "Scientists give AI chatbots a new way to read, with surprising results",
-    "created_at": "2026-11-02T01:07:41.424350+00:00"
-  },
-  {
-    "hash": "f2729b6852e0c74fabb71a5899707afb5c4d11000116d038e44f7e86d5c32052",
-    "source_url": "https://cdn.pixabay.com/video/2020/04/18/36503-427607440_medium.mp4",
-    "title": "Scientists give AI chatbots a new way to read, with surprising results",
-    "created_at": "2026-11-02T01:07:41.424350+00:00"
-  },
-  {
-    "hash": "186137b058131b8dcae5516568b150685f7a2f4a18915fcd0195bf60a75b5e37",
-    "source_url": "https://cdn.pixabay.com/video/2020/06/04/41127-427876264_medium.mp4",
-    "title": "Scientists give AI chatbots a new way to read, with surprising results",
-    "created_at": "2026-11-02T01:07:41.424350+00:00"
-  },
-  {
-    "hash": "e0a47b872ad36ae1d90453f238a385de93a58c6b52584ef11c867d56f277a32f",
-    "source_url": "https://videos.pexels.com/video-files/38870320/16524133_360_640_25fps.mp4",
-    "title": "Scientists give AI chatbots a new way to read, with surprising results",
-    "created_at": "2026-11-02T01:07:41.424350+00:00"
-  },
-  {
     "hash": "2b77cd13207dcf2898f7ba51cf44770b52b901b9da6dbc93e78708f3bd4daac7",
     "source_url": "https://cdn.pixabay.com/video/2020/10/29/53688-475234196_medium.mp4",
     "title": "Scientists give AI chatbots a new way to read, with surprising results",
@@ -2998,5 +2950,53 @@
     "source_url": "https://videos.pexels.com/video-files/6565727/6565727-sd_540_960_24fps.mp4",
     "title": "Fujitsu launches pilot study with FamilyMart to analyze decarbonized product purchasing behavior and create demand using causal AI",
     "created_at": "2026-11-22T22:20:19.234837+00:00"
+  },
+  {
+    "hash": "8a7b28d0955e06a8e3d095ec05a86226d790b94ad6e0d153ebd747a8fb94ae18",
+    "source_url": "https://videos.pexels.com/video-files/7699964/7699964-sd_226_426_24fps.mp4",
+    "title": "OpenAI Chief Scientist Urges Industry Limits on AI Development",
+    "created_at": "2026-11-23T02:05:15.954254+00:00"
+  },
+  {
+    "hash": "892a904bd1da433e47c85528ca92af574abd6737db896ba098d96a938905634c",
+    "source_url": "https://videos.pexels.com/video-files/7945828/7945828-sd_540_960_25fps.mp4",
+    "title": "OpenAI Chief Scientist Urges Industry Limits on AI Development",
+    "created_at": "2026-11-23T02:05:15.954254+00:00"
+  },
+  {
+    "hash": "fb43bc072e0f7e248b01fd03ccd91a2fb2b981a4680ebcc5100cfcb76bce4336",
+    "source_url": "https://cdn.pixabay.com/video/2022/10/24/136261-764387666_medium.mp4",
+    "title": "OpenAI Chief Scientist Urges Industry Limits on AI Development",
+    "created_at": "2026-11-23T02:05:15.954254+00:00"
+  },
+  {
+    "hash": "80fa069ddb1fccee700a99808c4fb2f1b8894ff89a834a546d8d79a1efd5884d",
+    "source_url": "https://cdn.pixabay.com/video/2015/09/06/697-138443977_medium.mp4",
+    "title": "OpenAI Chief Scientist Urges Industry Limits on AI Development",
+    "created_at": "2026-11-23T02:05:15.954254+00:00"
+  },
+  {
+    "hash": "75d3cca67c2f6dddae55dca564af080f10bd03b2bf42bbf43a974593824b576b",
+    "source_url": "https://cdn.pixabay.com/video/2024/09/08/230316_medium.mp4",
+    "title": "OpenAI Chief Scientist Urges Industry Limits on AI Development",
+    "created_at": "2026-11-23T02:05:15.954254+00:00"
+  },
+  {
+    "hash": "4b6a651fce81144c6ad6b0aeb6d922d47ba401f921dd716f00be019ad7fdd2da",
+    "source_url": "https://cdn.pixabay.com/video/2017/08/09/11253-229053638_medium.mp4",
+    "title": "OpenAI Chief Scientist Urges Industry Limits on AI Development",
+    "created_at": "2026-11-23T02:05:15.954254+00:00"
+  },
+  {
+    "hash": "712817a1c658760a428b664df60af39e670c6e58e00d6f550d2145c23e9a7b1d",
+    "source_url": "https://videos.pexels.com/video-files/37676225/15972832_360_640_25fps.mp4",
+    "title": "OpenAI Chief Scientist Urges Industry Limits on AI Development",
+    "created_at": "2026-11-23T02:05:15.954254+00:00"
+  },
+  {
+    "hash": "5237613a232d02480f46c470142405b16d5215bcfafdf0095b47b2c6d3882994",
+    "source_url": "https://cdn.pixabay.com/video/2024/09/19/232169_medium.mp4",
+    "title": "OpenAI Chief Scientist Urges Industry Limits on AI Development",
+    "created_at": "2026-11-23T02:05:15.954254+00:00"
   }
 ]

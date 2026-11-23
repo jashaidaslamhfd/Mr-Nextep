@@ -15198,5 +15198,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-23T02:05:15.954254+00:00",
+    "status": "pending",
+    "topic": "OpenAI Chief Scientist Urges Industry Limits on AI Development",
+    "title": "OpenAI Chief Scientist Urges Industry Limits on AI Development",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "8a7b28d0955e06a8e3d095ec05a86226d790b94ad6e0d153ebd747a8fb94ae18",
+      "892a904bd1da433e47c85528ca92af574abd6737db896ba098d96a938905634c",
+      "fb43bc072e0f7e248b01fd03ccd91a2fb2b981a4680ebcc5100cfcb76bce4336",
+      "80fa069ddb1fccee700a99808c4fb2f1b8894ff89a834a546d8d79a1efd5884d",
+      "75d3cca67c2f6dddae55dca564af080f10bd03b2bf42bbf43a974593824b576b",
+      "4b6a651fce81144c6ad6b0aeb6d922d47ba401f921dd716f00be019ad7fdd2da",
+      "712817a1c658760a428b664df60af39e670c6e58e00d6f550d2145c23e9a7b1d",
+      "5237613a232d02480f46c470142405b16d5215bcfafdf0095b47b2c6d3882994"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "counterintuitive",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 97
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 97
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 92
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-2",
+      "topic": "OpenAI Chief Scientist Urges Industry Limits on AI Development",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQTnU1MU1DVUI0TFJHMklHdjVPdEhJQ2M4Y1cxdUhXUkVEX3lxZXd6SWp4M0FoNkpnMHNHU1B2akJqWmUyTFRFOW1TRjRBaE1uVHNnZTZiZ245dlBBWXM0RGRLSGd2S0VxLUs3ZUhZUkpnNEMzcE8tS0R0dGY1MUQyMUFHZXR3cGFMMWNXMlMzSlEzeDF5bXA5VVhsbnBCbzlKTDd6UG42Ym1jQ1Bh?oc=5",
+      "published_at": "2026-11-22T19:40:00+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-11-23T02:02:19.019995+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 1,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266016,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "abf543241f40b78e6b1c3c0f7ff25a5bb5b488d58ee4a4a958bfdc15eab6c9c4",
+    "body": "AI races ahead, but pause? Chief scientist warns unchecked speed. Industry ignores early warning signs. Faster models boost hidden biases. Biases can mislead global decisions. Limiting training cuts error spikes. Stop once performance stops improving. Fast AI still needs speed limits.",
+    "text": "OpenAI Chief Scientist Urges Industry Limits on AI Development AI races ahead, but pause? Chief scientist warns unchecked speed. Industry ignores early warning signs. Faster models boost hidden biases. Biases can mislead global decisions. Limiting training cuts error spikes. Stop once performance stops improving. Fast AI still needs speed limits."
   }
 ]
