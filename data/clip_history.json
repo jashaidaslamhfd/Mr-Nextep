@@ -1,53 +1,5 @@
 [
   {
-    "hash": "616909882daab8f02771ec5c70d603aadbd725b32fdf8c3dc158fee2659be9ee",
-    "source_url": "https://cdn.pixabay.com/video/2022/09/08/130645-747868363_medium.mp4",
-    "title": "Apple says memory costs and Siri AI will weigh on holiday quarter profit margins",
-    "created_at": "2026-11-02T23:48:54.424676+00:00"
-  },
-  {
-    "hash": "dea70c43d144640d9bb79917d1918ec1e533af7f09cd5bba5bbc05de8c6ed316",
-    "source_url": "https://cdn.pixabay.com/video/2015/11/27/1406-147169807_medium.mp4",
-    "title": "Apple says memory costs and Siri AI will weigh on holiday quarter profit margins",
-    "created_at": "2026-11-02T23:48:54.424676+00:00"
-  },
-  {
-    "hash": "82727044f7aac336889b63126f9aaa86d9e85b8cfc4e6b3996e0325544f69bd6",
-    "source_url": "https://videos.pexels.com/video-files/9364053/9364053-sd_360_640_25fps.mp4",
-    "title": "Apple says memory costs and Siri AI will weigh on holiday quarter profit margins",
-    "created_at": "2026-11-02T23:48:54.424676+00:00"
-  },
-  {
-    "hash": "54bf1d2a42e01e80ba3b5ab2fede58aa36259db50b312ffd3b0809aafb17529e",
-    "source_url": "https://videos.pexels.com/video-files/38860079/16518969_360_640_25fps.mp4",
-    "title": "Apple says memory costs and Siri AI will weigh on holiday quarter profit margins",
-    "created_at": "2026-11-02T23:48:54.424676+00:00"
-  },
-  {
-    "hash": "b956ec3e71e7f181f602842404d337fc06942bfaa4e2a166f3e984aacf683c5b",
-    "source_url": "https://cdn.pixabay.com/video/2022/08/28/129426-744370614_medium.mp4",
-    "title": "Samsung, SK Hynix and Micron expand AI memory production",
-    "created_at": "2026-11-03T03:11:27.164071+00:00"
-  },
-  {
-    "hash": "9dd6396fad4d02bcc61f7a33eb093e73d0a36a62b1e9fba05b0a0dae487cfdf1",
-    "source_url": "https://cdn.pixabay.com/video/2019/11/08/28860-372055467_medium.mp4",
-    "title": "Samsung, SK Hynix and Micron expand AI memory production",
-    "created_at": "2026-11-03T03:11:27.164071+00:00"
-  },
-  {
-    "hash": "6f947b99c77c18e9db14e14d68552eeaa372c45bc5c814d45a2d66151d9ca80d",
-    "source_url": "https://cdn.pixabay.com/video/2021/02/16/65387-514139032_medium.mp4",
-    "title": "Samsung, SK Hynix and Micron expand AI memory production",
-    "created_at": "2026-11-03T03:11:27.164071+00:00"
-  },
-  {
-    "hash": "adcef526a52a4bbdaa48af82a93ffcb6d27c25305a079664d529574e92a58af5",
-    "source_url": "https://videos.pexels.com/video-files/34948757/14804653_360_640_24fps.mp4",
-    "title": "Samsung, SK Hynix and Micron expand AI memory production",
-    "created_at": "2026-11-03T03:11:27.164071+00:00"
-  },
-  {
     "hash": "98c8a2230002e07bfeed5b8d5156bc6ed4e7941ae0e801cdc9df56df13872014",
     "source_url": "https://videos.pexels.com/video-files/6755159/6755159-hd_720_1280_25fps.mp4",
     "title": "Samsung, SK Hynix and Micron expand AI memory production",
@@ -2998,5 +2950,53 @@
     "source_url": "https://videos.pexels.com/video-files/8888523/8888523-sd_506_960_25fps.mp4",
     "title": "AI chatbot makes you think twice about texting your ex",
     "created_at": "2026-11-24T03:11:28.926924+00:00"
+  },
+  {
+    "hash": "26069cff25036780492e67bbc1e0e1dc798caafa4339b1ac27c6bca17a6ab68d",
+    "source_url": "https://cdn.pixabay.com/video/2015/08/08/66-135732262_medium.mp4",
+    "title": "Sandia Trains AI to Predict Alloy Behavior from Electron Fingerprints",
+    "created_at": "2026-11-24T10:50:39.253257+00:00"
+  },
+  {
+    "hash": "9e7529f47845e7522932b19ac439f10e16df5a6a7209c4e4ed0d36320726a2c1",
+    "source_url": "https://videos.pexels.com/video-files/6754831/6754831-hd_1080_1920_25fps.mp4",
+    "title": "Sandia Trains AI to Predict Alloy Behavior from Electron Fingerprints",
+    "created_at": "2026-11-24T10:50:39.253257+00:00"
+  },
+  {
+    "hash": "68f896d4403e674aab173f896b79e3b9d341af103990d56c930cbadea94e7b93",
+    "source_url": "https://videos.pexels.com/video-files/35288066/14949939_360_640_30fps.mp4",
+    "title": "Sandia Trains AI to Predict Alloy Behavior from Electron Fingerprints",
+    "created_at": "2026-11-24T10:50:39.253257+00:00"
+  },
+  {
+    "hash": "5b5af3f4e31e06061b8dbab78265f2d8ba0fcc9360ec350fb4de41c7976cd6e8",
+    "source_url": "https://videos.pexels.com/video-files/39006630/16598103_360_640_25fps.mp4",
+    "title": "Sandia Trains AI to Predict Alloy Behavior from Electron Fingerprints",
+    "created_at": "2026-11-24T10:50:39.253257+00:00"
+  },
+  {
+    "hash": "e9985016924e04767ac3230396ed9e4879b5f3e60f58167bce105d604b0800be",
+    "source_url": "https://videos.pexels.com/video-files/5712809/5712809-hd_720_1366_25fps.mp4",
+    "title": "Sandia Trains AI to Predict Alloy Behavior from Electron Fingerprints",
+    "created_at": "2026-11-24T10:50:39.253257+00:00"
+  },
+  {
+    "hash": "d3d5bbf9f42b99686d8daca9d4e3ed66917a09f4d5f77af9707eaa876de1cd70",
+    "source_url": "https://cdn.pixabay.com/video/2026/07/12/363571_medium.mp4",
+    "title": "Sandia Trains AI to Predict Alloy Behavior from Electron Fingerprints",
+    "created_at": "2026-11-24T10:50:39.253257+00:00"
+  },
+  {
+    "hash": "0bea14e0a2e1b5597ae59e967cef9da3222e1aa4fac836ec1e8b2d2c8f84576c",
+    "source_url": "https://videos.pexels.com/video-files/30614790/13105987_360_640_60fps.mp4",
+    "title": "Sandia Trains AI to Predict Alloy Behavior from Electron Fingerprints",
+    "created_at": "2026-11-24T10:50:39.253257+00:00"
+  },
+  {
+    "hash": "883aadc26bc961d0bae14a41d76eab00be9d5bf8ae18335e431401239f75a16f",
+    "source_url": "https://cdn.pixabay.com/video/2022/12/28/144562-784867427_medium.mp4",
+    "title": "Sandia Trains AI to Predict Alloy Behavior from Electron Fingerprints",
+    "created_at": "2026-11-24T10:50:39.253257+00:00"
   }
 ]
