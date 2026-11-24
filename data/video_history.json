@@ -15401,7 +15401,7 @@
   },
   {
     "created_at": "2026-11-24T03:11:28.926924+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "AI chatbot makes you think twice about texting your ex",
     "title": "AI chatbot makes you think twice about texting your ex",
     "video_path": "output/mr_nextep_short.mp4",
@@ -15483,6 +15483,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "65738499e56cb7ffe46ef8c989f41891d65c443f4b207a871dd84cefafa1c862",
     "body": "Bot blocks your ex text? Predicts you’ll feel regret Analyzes your emotional signals Detects anxiety‑triggering phrasing You hesitate, then delete Trained on regret reinforcement data Advice sounds like trusted friend Your brain treats AI as friend",
-    "text": "AI chatbot makes you think twice about texting your ex Bot blocks your ex text? Predicts you’ll feel regret Analyzes your emotional signals Detects anxiety‑triggering phrasing You hesitate, then delete Trained on regret reinforcement data Advice sounds like trusted friend Your brain treats AI as friend"
+    "text": "AI chatbot makes you think twice about texting your ex Bot blocks your ex text? Predicts you’ll feel regret Analyzes your emotional signals Detects anxiety‑triggering phrasing You hesitate, then delete Trained on regret reinforcement data Advice sounds like trusted friend Your brain treats AI as friend",
+    "youtube_video_id": "G7IRA_XgMX8",
+    "url": "https://youtu.be/G7IRA_XgMX8",
+    "thumbnail": "uploaded",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/1122980080905302/videos?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      }
+    }
   }
 ]
