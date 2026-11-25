@@ -15798,5 +15798,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-25T09:46:34.540720+00:00",
+    "status": "pending",
+    "topic": "Why AI Memory Isn't the Same as a Second Brain",
+    "title": "Why AI Memory Isn't the Same as a Second Brain",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "bb87e7c7a98900fba41562897265319b8d02a9ee73fb2ae9b682987240a292db",
+      "bc3a533019454990a6c3b104c8002231defeafbfd4ddf9073d0c246886a87223",
+      "f1159f6b0c028e046dee29f2d37f5b96c2a94254ace8f6234d4e38624f8133f8",
+      "2793c6bbea9bc821d94fd2a6fff8a13036bf4ba63424697a5a18f51b8c8e1485",
+      "2c58f3d8fbc7ce9c35dec077418cf3a5522b054b5a17878bb1462d56fd74a46d",
+      "18656a30f31b201d3da938bacedcaa950f2703f6afe99a047e08b549c0ff00e7",
+      "d075d3e36c7ea853beb9dede647e33e7f4a9d0d0dbf21aaad644c58a625b346b",
+      "072d35df248559c5f2b850d61b4884310a7eb6d35dc9d4319494568b8c0f3950"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "2 similar past video(s) retained 47%, at or above the 30% floor",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": 0.47304999999999997,
+      "neighbours_considered": 2
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "concrete_observation",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 85
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 85
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 80
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "Why AI Memory Isn't the Same as a Second Brain",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBmWHhOemFOd2JoTkhTN29ZLV9Va0FQOW5RcURUNkJmV1k1bjl4Y3JsRUFXWV9GN29WQk1TSzJWc0swQVBuTUV2Qm0zTDhlcENZOTY4NHdmNmNNeDRsSmpMOGFqQk9OdmMwTW5tZ0pFTHAzODdnTmxV?oc=5",
+      "published_at": "2026-11-25T04:36:24+00:00",
+      "trend_score": 13,
+      "fetched_at": "2026-11-25T09:44:34.688472+00:00",
+      "growth_score": 43.35,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 13/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266016,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "5e53e871657871ccdeddd65dd21a68ed7e43d87f12dec55865d7e4c35d5676fa",
+    "body": "Chat repeats your exact typo You assume AI remembers you But it's just a cached reply AI stores snippets, not whole stories Pattern matching, no real feelings Human memory ties context and senses Mimics memory, lacks true context Second brain? Just clever retrieval",
+    "text": "Why AI Memory Isn't the Same as a Second Brain Chat repeats your exact typo You assume AI remembers you But it's just a cached reply AI stores snippets, not whole stories Pattern matching, no real feelings Human memory ties context and senses Mimics memory, lacks true context Second brain? Just clever retrieval"
   }
 ]

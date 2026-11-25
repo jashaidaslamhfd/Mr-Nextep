@@ -3983,5 +3983,21 @@
     "title": "Anthropic is one of Elon Musk’s biggest competitors in artificial intelligence. It is also one of his biggest customers.",
     "body": "Musk buys from his rival Claude helps Tesla's engineers AI finds hidden code errors Musk's model still makes mistakes Anthropic offers cheaper, safer APIs Buying rivals pushes AI forward AI treated like everyday utility His competitor becomes essential partner",
     "text": "Anthropic is one of Elon Musk’s biggest competitors in artificial intelligence. It is also one of his biggest customers. Musk buys from his rival Claude helps Tesla's engineers AI finds hidden code errors Musk's model still makes mistakes Anthropic offers cheaper, safer APIs Buying rivals pushes AI forward AI treated like everyday utility His competitor becomes essential partner"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "2 similar past video(s) retained 47%, at or above the 30% floor",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": 0.47304999999999997,
+      "neighbours_considered": 2
+    },
+    "fingerprint": "5e53e871657871ccdeddd65dd21a68ed7e43d87f12dec55865d7e4c35d5676fa",
+    "title": "Why AI Memory Isn't the Same as a Second Brain",
+    "body": "Chat repeats your exact typo You assume AI remembers you But it's just a cached reply AI stores snippets, not whole stories Pattern matching, no real feelings Human memory ties context and senses Mimics memory, lacks true context Second brain? Just clever retrieval",
+    "text": "Why AI Memory Isn't the Same as a Second Brain Chat repeats your exact typo You assume AI remembers you But it's just a cached reply AI stores snippets, not whole stories Pattern matching, no real feelings Human memory ties context and senses Mimics memory, lacks true context Second brain? Just clever retrieval"
   }
 ]
