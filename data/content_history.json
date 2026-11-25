@@ -3967,5 +3967,21 @@
     "title": "Artificial Intelligence (AI) Support in Mammography Screening",
     "body": "Screen flashes 'Possible tumor' AI reports ninety‑nine percent certainty Mammogram looks perfectly normal Brain trusts confidence over images Confidence cues trigger false alarms AI learns from biopsies, not intent System flags tissue as risky You schedule follow‑up for safety",
     "text": "Artificial Intelligence (AI) Support in Mammography Screening Screen flashes 'Possible tumor' AI reports ninety‑nine percent certainty Mammogram looks perfectly normal Brain trusts confidence over images Confidence cues trigger false alarms AI learns from biopsies, not intent System flags tissue as risky You schedule follow‑up for safety"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "2c3ce06cee72af7950aa7565eb46e47d640f88e2b2f3f6d41eab6a0d463e9b87",
+    "title": "Anthropic is one of Elon Musk’s biggest competitors in artificial intelligence. It is also one of his biggest customers.",
+    "body": "Musk buys from his rival Claude helps Tesla's engineers AI finds hidden code errors Musk's model still makes mistakes Anthropic offers cheaper, safer APIs Buying rivals pushes AI forward AI treated like everyday utility His competitor becomes essential partner",
+    "text": "Anthropic is one of Elon Musk’s biggest competitors in artificial intelligence. It is also one of his biggest customers. Musk buys from his rival Claude helps Tesla's engineers AI finds hidden code errors Musk's model still makes mistakes Anthropic offers cheaper, safer APIs Buying rivals pushes AI forward AI treated like everyday utility His competitor becomes essential partner"
   }
 ]
