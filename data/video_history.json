@@ -15801,7 +15801,7 @@
   },
   {
     "created_at": "2026-11-25T09:46:34.540720+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Why AI Memory Isn't the Same as a Second Brain",
     "title": "Why AI Memory Isn't the Same as a Second Brain",
     "video_path": "output/mr_nextep_short.mp4",
@@ -15883,6 +15883,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "5e53e871657871ccdeddd65dd21a68ed7e43d87f12dec55865d7e4c35d5676fa",
     "body": "Chat repeats your exact typo You assume AI remembers you But it's just a cached reply AI stores snippets, not whole stories Pattern matching, no real feelings Human memory ties context and senses Mimics memory, lacks true context Second brain? Just clever retrieval",
-    "text": "Why AI Memory Isn't the Same as a Second Brain Chat repeats your exact typo You assume AI remembers you But it's just a cached reply AI stores snippets, not whole stories Pattern matching, no real feelings Human memory ties context and senses Mimics memory, lacks true context Second brain? Just clever retrieval"
+    "text": "Why AI Memory Isn't the Same as a Second Brain Chat repeats your exact typo You assume AI remembers you But it's just a cached reply AI stores snippets, not whole stories Pattern matching, no real feelings Human memory ties context and senses Mimics memory, lacks true context Second brain? Just clever retrieval",
+    "youtube_video_id": "hYgwmIiRYmU",
+    "url": "https://youtu.be/hYgwmIiRYmU",
+    "thumbnail": "uploaded",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/1122980080905302/videos?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      }
+    }
   }
 ]
