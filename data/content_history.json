@@ -3951,5 +3951,21 @@
     "title": "Sandia Trains AI to Predict Alloy Behavior from Electron Fingerprints",
     "body": "AI predicts alloys without melting Electron patterns act as fingerprints Neural net reads patterns instantly Forecasts strength, heat resistance, fatigue Results appear in seconds Electron maps encode bonds Labs skip furnace, trust crystal Your next phone may be alloy‑optimized",
     "text": "Sandia Trains AI to Predict Alloy Behavior from Electron Fingerprints AI predicts alloys without melting Electron patterns act as fingerprints Neural net reads patterns instantly Forecasts strength, heat resistance, fatigue Results appear in seconds Electron maps encode bonds Labs skip furnace, trust crystal Your next phone may be alloy‑optimized"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "e49657b15214bac701e4088e20cd177c26ea357b37af68fe5fc7dffc0950a32b",
+    "title": "Artificial Intelligence (AI) Support in Mammography Screening",
+    "body": "Screen flashes 'Possible tumor' AI reports ninety‑nine percent certainty Mammogram looks perfectly normal Brain trusts confidence over images Confidence cues trigger false alarms AI learns from biopsies, not intent System flags tissue as risky You schedule follow‑up for safety",
+    "text": "Artificial Intelligence (AI) Support in Mammography Screening Screen flashes 'Possible tumor' AI reports ninety‑nine percent certainty Mammogram looks perfectly normal Brain trusts confidence over images Confidence cues trigger false alarms AI learns from biopsies, not intent System flags tissue as risky You schedule follow‑up for safety"
   }
 ]

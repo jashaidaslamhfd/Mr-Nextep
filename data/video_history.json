@@ -15598,5 +15598,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-25T01:17:39.652006+00:00",
+    "status": "pending",
+    "topic": "Artificial Intelligence (AI) Support in Mammography Screening",
+    "title": "Artificial Intelligence (AI) Support in Mammography Screening",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "75c51cf694fd6f481919500bcea91c8b781d059d39992ed24b045b2dcd2184cc",
+      "9e25686d4e93cc2d1afa313269d7d523082754138f4e6af05f928879b9f5b7b3",
+      "e37f05a7c806d37ef050554e1ea8294fccfa8798f828990989915decdf368cf5",
+      "b2c5ff88b03d4af0a4ae2ca0be3eb0c1f7262eba705e43393c8183b95962fa3c",
+      "8bc7eb5ba276bf4f3076a5127fdeee5780e1f23624312fbab27743a91656fdaf",
+      "f7a20aeb2a8577407c5304cb20e4837d0c9b033a43d4b50c5dc4cf99ef0deae0",
+      "18748ceb8171f0eed74ac6c347cb6d1f7e063fa33c46c76ac9a4c5d1ac08d925",
+      "d1602d17e479fcd11865cf5ef56215ed0fca157d087cfd08667dc8979b8269ce"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "concrete_observation",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 85
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 85
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 80
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "Artificial Intelligence (AI) Support in Mammography Screening",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMiswJBVV95cUxQR0t6RGI0UUFEaFBmeHl0X0ZiOXlQRmxySXdDU1FzR293cDdSeUJfcHNnMDhQQUpKeS0yajlLOXVsRDdvVFRCeUpncTlJZXFLVmNtck42YU1mSFRYNmlGd294R3FyOVlOaVN1VWdSNjNWbGlBTXRReHZQeHpQeG1nd2JtM2FVdmJPQmFxSjgzOTVUcXFjLVFSdDJtUmYwc1JGc1NNd3E3WDBkSnpON0lUODdVc0xQZUl3bUxFTE42WlNaX3NtSDVfdG1NXzhMMENsRjdJN0d1TEV2T0NJN01VZTNvNkY1eV9TM3IxUGt2LV9LenRDc2hwY0xqdnNoMnQ1Qzl2dDFzVmdILU5MY3EybzF2cmxkcTdhYmFrQ1BZbncyVEZ3M2l5VlZhN3dySGNjc3kw?oc=5",
+      "published_at": "2026-11-25T01:09:11+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-11-25T01:14:36.195460+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.268005,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "e49657b15214bac701e4088e20cd177c26ea357b37af68fe5fc7dffc0950a32b",
+    "body": "Screen flashes 'Possible tumor' AI reports ninety‑nine percent certainty Mammogram looks perfectly normal Brain trusts confidence over images Confidence cues trigger false alarms AI learns from biopsies, not intent System flags tissue as risky You schedule follow‑up for safety",
+    "text": "Artificial Intelligence (AI) Support in Mammography Screening Screen flashes 'Possible tumor' AI reports ninety‑nine percent certainty Mammogram looks perfectly normal Brain trusts confidence over images Confidence cues trigger false alarms AI learns from biopsies, not intent System flags tissue as risky You schedule follow‑up for safety"
   }
 ]
