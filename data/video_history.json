@@ -15601,7 +15601,7 @@
   },
   {
     "created_at": "2026-11-25T01:17:39.652006+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Artificial Intelligence (AI) Support in Mammography Screening",
     "title": "Artificial Intelligence (AI) Support in Mammography Screening",
     "video_path": "output/mr_nextep_short.mp4",
@@ -15683,6 +15683,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "e49657b15214bac701e4088e20cd177c26ea357b37af68fe5fc7dffc0950a32b",
     "body": "Screen flashes 'Possible tumor' AI reports ninety‑nine percent certainty Mammogram looks perfectly normal Brain trusts confidence over images Confidence cues trigger false alarms AI learns from biopsies, not intent System flags tissue as risky You schedule follow‑up for safety",
-    "text": "Artificial Intelligence (AI) Support in Mammography Screening Screen flashes 'Possible tumor' AI reports ninety‑nine percent certainty Mammogram looks perfectly normal Brain trusts confidence over images Confidence cues trigger false alarms AI learns from biopsies, not intent System flags tissue as risky You schedule follow‑up for safety"
+    "text": "Artificial Intelligence (AI) Support in Mammography Screening Screen flashes 'Possible tumor' AI reports ninety‑nine percent certainty Mammogram looks perfectly normal Brain trusts confidence over images Confidence cues trigger false alarms AI learns from biopsies, not intent System flags tissue as risky You schedule follow‑up for safety",
+    "youtube_video_id": "KiZdWUnSVys",
+    "url": "https://youtu.be/KiZdWUnSVys",
+    "thumbnail": "uploaded",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/1122980080905302/videos?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      }
+    }
   }
 ]
