@@ -15998,5 +15998,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-26T09:23:58.645300+00:00",
+    "status": "pending",
+    "topic": "Anthropic CEO Denies Wanting to Surrender Human Free Will to AI",
+    "title": "Anthropic CEO Denies Wanting to Surrender Human Free Will to AI",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "79b73ccfac422f510ec8e7bf7cc2c4dad9c1e7a300cd97f0b358e8543ea6d8fd",
+      "b70c6cd1ca6462857a0e8588b584f0a116a74c97c240794753f84c116d6f3564",
+      "f65baa6902ddd8170a5cd65fe0599f6dc7dfef2fae7d658334281d5246464d06",
+      "e81ff121fab02305dbdbd8ca918caf5a302f2db5a22a69c4019da1633869eb9b",
+      "96708d09f924a416e6b0a3993caf98e5b25cdbbb3db8e747ffab73fe2ca66ea3",
+      "9415985013af5414e132edf5dea4e8ad7a4687403284f054fd95dac0e07bb32b",
+      "e99cc19bc7fbfa35f06a76866ee394a495277ff347df6d50a3342f1f744fac57",
+      "9df1d2ddadeaf944ccda98b0279b5c4e6e5d00e66d746e4e54b8060fcbc4528b"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "counterintuitive",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 98
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-2",
+      "topic": "Anthropic CEO Denies Wanting to Surrender Human Free Will to AI",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMilAJBVV95cUxPZ2NzVE9nVDZOMU9MdVZYbk01bkFGWnB4ZTdRR1JaTnQ0OHJGZGd0eDNNMGpSbHlWTzJxXzlIVVJuNkIyU2lLNVd4TG1uVnQ2N3E3ZXpMZU5rU3pnc1psWGpDcTBXem9WWXM5VmFYVjdnTnlTaWd1b1dDYjFCYmx2bzFaLUQ3WUVYdFBQWGdCZy1MOVU3WldYZGMzeWlnUnpXQ1p5RUliT0U1UUtjMlJEX3FycW51UWJYeTgxb01XTUpEdlBQS3hMTnhUVVJRSnRZN1ZSZmJ1QzVQUGNpeExhRUdHdGdySWhwaF9sZkpjemotN1FIcE1EalVISXhDZnJKcG1sUDR5Tk95MjFRbGgtWVFjR3A?oc=5",
+      "published_at": "2026-11-25T22:45:02+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-11-26T09:21:56.163616+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266016,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "20e9a587b7cf9f45bd738521ec687bc5a121a47beb9952c4a8b9f151cff76ef2",
+    "body": "CEO claims AI respects free will We fear hidden digital algorithms Everyday tools seem controlling Brain treats predictions like intentions Bias fuels endless conspiracy headlines Psychology names the agency illusion We give AI agency, not intent His reassurance feels oddly true",
+    "text": "Anthropic CEO Denies Wanting to Surrender Human Free Will to AI CEO claims AI respects free will We fear hidden digital algorithms Everyday tools seem controlling Brain treats predictions like intentions Bias fuels endless conspiracy headlines Psychology names the agency illusion We give AI agency, not intent His reassurance feels oddly true"
   }
 ]

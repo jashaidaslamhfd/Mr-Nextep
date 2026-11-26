@@ -4015,5 +4015,21 @@
     "title": "Neuroscience Analysis Urges Artificial Intelligence Research to Pursue Brain Operating Principles",
     "body": "Brain solves instantly, AI doesn't Predictive coding powers human perception Brain compresses senses into predictions AI still sees raw pixel data AI hallucinates facts it never saw Sparse brain signals limit mistakes Copy predictive coding, reduce hallucinations Brain's shortcut explains AI mystery",
     "text": "Neuroscience Analysis Urges Artificial Intelligence Research to Pursue Brain Operating Principles Brain solves instantly, AI doesn't Predictive coding powers human perception Brain compresses senses into predictions AI still sees raw pixel data AI hallucinates facts it never saw Sparse brain signals limit mistakes Copy predictive coding, reduce hallucinations Brain's shortcut explains AI mystery"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "20e9a587b7cf9f45bd738521ec687bc5a121a47beb9952c4a8b9f151cff76ef2",
+    "title": "Anthropic CEO Denies Wanting to Surrender Human Free Will to AI",
+    "body": "CEO claims AI respects free will We fear hidden digital algorithms Everyday tools seem controlling Brain treats predictions like intentions Bias fuels endless conspiracy headlines Psychology names the agency illusion We give AI agency, not intent His reassurance feels oddly true",
+    "text": "Anthropic CEO Denies Wanting to Surrender Human Free Will to AI CEO claims AI respects free will We fear hidden digital algorithms Everyday tools seem controlling Brain treats predictions like intentions Bias fuels endless conspiracy headlines Psychology names the agency illusion We give AI agency, not intent His reassurance feels oddly true"
   }
 ]
