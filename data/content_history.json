@@ -3999,5 +3999,21 @@
     "title": "Why AI Memory Isn't the Same as a Second Brain",
     "body": "Chat repeats your exact typo You assume AI remembers you But it's just a cached reply AI stores snippets, not whole stories Pattern matching, no real feelings Human memory ties context and senses Mimics memory, lacks true context Second brain? Just clever retrieval",
     "text": "Why AI Memory Isn't the Same as a Second Brain Chat repeats your exact typo You assume AI remembers you But it's just a cached reply AI stores snippets, not whole stories Pattern matching, no real feelings Human memory ties context and senses Mimics memory, lacks true context Second brain? Just clever retrieval"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "b28cfcb7a72d9688e77eb670d9b9e7144a30c8e6a96327532d6a5ce41e500204",
+    "title": "Neuroscience Analysis Urges Artificial Intelligence Research to Pursue Brain Operating Principles",
+    "body": "Brain solves instantly, AI doesn't Predictive coding powers human perception Brain compresses senses into predictions AI still sees raw pixel data AI hallucinates facts it never saw Sparse brain signals limit mistakes Copy predictive coding, reduce hallucinations Brain's shortcut explains AI mystery",
+    "text": "Neuroscience Analysis Urges Artificial Intelligence Research to Pursue Brain Operating Principles Brain solves instantly, AI doesn't Predictive coding powers human perception Brain compresses senses into predictions AI still sees raw pixel data AI hallucinates facts it never saw Sparse brain signals limit mistakes Copy predictive coding, reduce hallucinations Brain's shortcut explains AI mystery"
   }
 ]
