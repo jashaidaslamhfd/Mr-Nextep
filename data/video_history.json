@@ -16198,5 +16198,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-27T09:41:18.589427+00:00",
+    "status": "pending",
+    "topic": "Man in AI deepfake case admits to stalking women and more",
+    "title": "Man in AI deepfake case admits to stalking women and more",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "0294a4fc368b65b2be462f790472ed18e2c8561afbde4b1318b9348613220ad5",
+      "749a1cd51c512590c056f8d981f74547804b6408c0da03073ad350fdf5768450",
+      "d44b1635bec0d5e0aadf39c6ca85554eef656cc4b7d6d8e3ca7ac2c8a51fd9da",
+      "49718cfb3b8e084344d156d268a2a107f4d165aadb7365b3f671bba5ea3c6397",
+      "5815d6f69298ae4de42e36d975042fd68e2920c5e7bc723a80e330c9f399d663",
+      "2a15a2c0eecf7ae6d27ac3e1d68e428ca8f36a737272580f9aaf4283576adf0b",
+      "58334c0dffae8a118fd65e5a39a5b82beb0f9641228cf53b8fe9b29f5197f00d",
+      "9523f2ec18732611170f08cd962b899f4b84a2cdbf5c828c6cdee9f6e7e8b9db"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "specific_question",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 97
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 97
+        },
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 92
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "Man in AI deepfake case admits to stalking women and more",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE5Md0NPcXEyTzhRdGRjRENlekJRdHJ3cVU2VHVveTBXWlU0T2tPX0V1dmxGaG9URFJsUmEwOFg4d3EtbHVKbzZ2S2lCXzEyMG9PR2o5bHFHSkdUVHJ5SWVScG8zazRoMENqS2xjNDUxaFR0azZCandv?oc=5",
+      "published_at": "2026-11-27T09:00:00+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-11-27T09:36:04.760608+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266667,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "09de9ba41d6912c3b2350c15a594b4ba41a7a321289c1448aa633e792ce6d026",
+    "body": "Why his fake videos seemed real? AI cloned his victims' faces. Voice imitation fooled listeners. Messages felt personal and threatening. Brains trust realistic human faces. AI predicts our visual expectations. Fake creates genuine fear of stalking. Deepfakes exploit our trust instinct.",
+    "text": "Man in AI deepfake case admits to stalking women and more Why his fake videos seemed real? AI cloned his victims' faces. Voice imitation fooled listeners. Messages felt personal and threatening. Brains trust realistic human faces. AI predicts our visual expectations. Fake creates genuine fear of stalking. Deepfakes exploit our trust instinct."
   }
 ]

@@ -4047,5 +4047,21 @@
     "title": "Analyst Jeff Pu Says DRAM Prices Could Halve in 2028 as the AI Memory Boom Cools, but Cheaper RAM Isn’t Coming Next Year",
     "body": "RAM price spikes on your screen AI needs massive memory banks Factories scramble to make larger chips New chips double the cost Supply can't keep up Prices stay high for years Oversupply could cut prices by half Cheap RAM won't arrive next year",
     "text": "Analyst Jeff Pu Says DRAM Prices Could Halve in 2028 as the AI Memory Boom Cools, but Cheaper RAM Isn’t Coming Next Year RAM price spikes on your screen AI needs massive memory banks Factories scramble to make larger chips New chips double the cost Supply can't keep up Prices stay high for years Oversupply could cut prices by half Cheap RAM won't arrive next year"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "09de9ba41d6912c3b2350c15a594b4ba41a7a321289c1448aa633e792ce6d026",
+    "title": "Man in AI deepfake case admits to stalking women and more",
+    "body": "Why his fake videos seemed real? AI cloned his victims' faces. Voice imitation fooled listeners. Messages felt personal and threatening. Brains trust realistic human faces. AI predicts our visual expectations. Fake creates genuine fear of stalking. Deepfakes exploit our trust instinct.",
+    "text": "Man in AI deepfake case admits to stalking women and more Why his fake videos seemed real? AI cloned his victims' faces. Voice imitation fooled listeners. Messages felt personal and threatening. Brains trust realistic human faces. AI predicts our visual expectations. Fake creates genuine fear of stalking. Deepfakes exploit our trust instinct."
   }
 ]
