@@ -16101,7 +16101,7 @@
   },
   {
     "created_at": "2026-11-27T00:58:11.230620+00:00",
-    "status": "pending",
+    "status": "uploaded",
     "topic": "Analyst Jeff Pu Says DRAM Prices Could Halve in 2028 as the AI Memory Boom Cools, but Cheaper RAM Isn’t Coming Next Year",
     "title": "Analyst Jeff Pu Says DRAM Prices Could Halve in 2028 as the AI Memory Boom Cools, but Cheaper RAM Isn’t Coming Next Year",
     "video_path": "output/mr_nextep_short.mp4",
@@ -16183,6 +16183,20 @@
     "retention_proxy": 0.9,
     "fingerprint": "bea521314f8f4b2903a4b0eb674268ff475514e1165941c03281639783dbf0e8",
     "body": "RAM price spikes on your screen AI needs massive memory banks Factories scramble to make larger chips New chips double the cost Supply can't keep up Prices stay high for years Oversupply could cut prices by half Cheap RAM won't arrive next year",
-    "text": "Analyst Jeff Pu Says DRAM Prices Could Halve in 2028 as the AI Memory Boom Cools, but Cheaper RAM Isn’t Coming Next Year RAM price spikes on your screen AI needs massive memory banks Factories scramble to make larger chips New chips double the cost Supply can't keep up Prices stay high for years Oversupply could cut prices by half Cheap RAM won't arrive next year"
+    "text": "Analyst Jeff Pu Says DRAM Prices Could Halve in 2028 as the AI Memory Boom Cools, but Cheaper RAM Isn’t Coming Next Year RAM price spikes on your screen AI needs massive memory banks Factories scramble to make larger chips New chips double the cost Supply can't keep up Prices stay high for years Oversupply could cut prices by half Cheap RAM won't arrive next year",
+    "youtube_video_id": "WfOoiE2vFes",
+    "url": "https://youtu.be/WfOoiE2vFes",
+    "thumbnail": "uploaded",
+    "caption_track": "uploaded",
+    "meta": {
+      "facebook": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/1122980080905302/videos?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      },
+      "instagram": {
+        "status": "error",
+        "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
+      }
+    }
   }
 ]
