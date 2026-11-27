@@ -4031,5 +4031,21 @@
     "title": "Anthropic CEO Denies Wanting to Surrender Human Free Will to AI",
     "body": "CEO claims AI respects free will We fear hidden digital algorithms Everyday tools seem controlling Brain treats predictions like intentions Bias fuels endless conspiracy headlines Psychology names the agency illusion We give AI agency, not intent His reassurance feels oddly true",
     "text": "Anthropic CEO Denies Wanting to Surrender Human Free Will to AI CEO claims AI respects free will We fear hidden digital algorithms Everyday tools seem controlling Brain treats predictions like intentions Bias fuels endless conspiracy headlines Psychology names the agency illusion We give AI agency, not intent His reassurance feels oddly true"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "bea521314f8f4b2903a4b0eb674268ff475514e1165941c03281639783dbf0e8",
+    "title": "Analyst Jeff Pu Says DRAM Prices Could Halve in 2028 as the AI Memory Boom Cools, but Cheaper RAM Isn’t Coming Next Year",
+    "body": "RAM price spikes on your screen AI needs massive memory banks Factories scramble to make larger chips New chips double the cost Supply can't keep up Prices stay high for years Oversupply could cut prices by half Cheap RAM won't arrive next year",
+    "text": "Analyst Jeff Pu Says DRAM Prices Could Halve in 2028 as the AI Memory Boom Cools, but Cheaper RAM Isn’t Coming Next Year RAM price spikes on your screen AI needs massive memory banks Factories scramble to make larger chips New chips double the cost Supply can't keep up Prices stay high for years Oversupply could cut prices by half Cheap RAM won't arrive next year"
   }
 ]

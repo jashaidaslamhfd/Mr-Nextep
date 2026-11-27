@@ -16098,5 +16098,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-27T00:58:11.230620+00:00",
+    "status": "pending",
+    "topic": "Analyst Jeff Pu Says DRAM Prices Could Halve in 2028 as the AI Memory Boom Cools, but Cheaper RAM Isn’t Coming Next Year",
+    "title": "Analyst Jeff Pu Says DRAM Prices Could Halve in 2028 as the AI Memory Boom Cools, but Cheaper RAM Isn’t Coming Next Year",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "a4fd657b1dcc08367ab65011e42b85f1ccb7764479a499ecc83579a43516686a",
+      "cf9fde5dd2223593c03ab076b0855bba7055f3e02d115643ab5c18c04c9bb464",
+      "1d1a83b42a0fe02cb74e528ed9d1b362913ac42e10d8244be602b409ee8c285f",
+      "efb43fcaa46154b87d9ad2ca77eedb3f5e2197d2cb43144970303fbc5b90b73b",
+      "eefca0cb2a302913671ec00297e5c07fc37fb60da90fc11c7bfc6502ef412bce",
+      "4259fa02a90427ed5f2da3c31687f1e0b008c4aa0c4600d25648eddd91d1540e",
+      "4b36dc0ee309a4a9ff174c428db2f2a3e71e2b01e89c4e75bde4d4d5832646d8",
+      "574db924c35f92f5f25744f3312bff6d754aa1a4c6fbb150ee76f6d69bc75731"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "concrete_observation",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 100
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-1",
+      "topic": "Analyst Jeff Pu Says DRAM Prices Could Halve in 2028 as the AI Memory Boom Cools, but Cheaper RAM Isn’t Coming Next Year",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOOVVJX3U2Ymlma2dNeFEycm1ycHMxZjNyQUNXOEFuMnRsV05nUko4MDdEZHQ1WVdoQUp2S0tSWC1FWU9NeFpSQzlnclc2UGRpMmVrV3ExNzlldWJjYlR0RGluYTFOWWJrLXZPVDJsWEVIdkF5d3JmSXFZRmNvYVo2aFpaSkdmckJhSWZQS05aUjU1azNrSnR0X19PMmFGb29GMVkzVURyZ1k4VkdxcnRMc2htWURUWWxoRnkxWGVDeVJLd1hwQ1pIOE9XRWZxSlB5Q1E4RFhhNNIB3AFBVV95cUxPS21JcHltb21XZ0Nicm13RWlFN0JJNkNIWVpmYkhQd25mdS1QWGxCd3lPNEF5NkV4UVQwMkk5VmhKbjVtMUpLcTR6dFFOOUdTcUYwZ0hCVWt3TjJGbE1EOGlOOFQxcHlvWTN1SkJZWlZJOU9fd3o1ajFMZXhXQ3ZXX3RLUUxreHlybXdUYzkxSS0zWkhoUFgxUHpiWE9hUDhPSGxyV05jSEtxeU9VY2xGUTZYa0RLb3RrNVZodHlmaG9PMzF3OXkzeDZOS2cyVkhkZ0laTVRZSFNDN3c0?oc=5",
+      "published_at": "2026-11-26T22:49:09+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-11-27T00:55:56.796865+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.266016,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "bea521314f8f4b2903a4b0eb674268ff475514e1165941c03281639783dbf0e8",
+    "body": "RAM price spikes on your screen AI needs massive memory banks Factories scramble to make larger chips New chips double the cost Supply can't keep up Prices stay high for years Oversupply could cut prices by half Cheap RAM won't arrive next year",
+    "text": "Analyst Jeff Pu Says DRAM Prices Could Halve in 2028 as the AI Memory Boom Cools, but Cheaper RAM Isn’t Coming Next Year RAM price spikes on your screen AI needs massive memory banks Factories scramble to make larger chips New chips double the cost Supply can't keep up Prices stay high for years Oversupply could cut prices by half Cheap RAM won't arrive next year"
   }
 ]
