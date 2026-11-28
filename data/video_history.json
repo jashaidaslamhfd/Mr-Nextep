@@ -16398,5 +16398,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-28T03:38:51.474837+00:00",
+    "status": "pending",
+    "topic": "New York bans AI chatbot toys for five years from February 2027",
+    "title": "New York bans AI chatbot toys for five years from February 2027",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "684eb62973ef804a4757014af5bbefac7a5b4614e70217b0929a7be1ea93eea4",
+      "59027d1bfe890ad3c4e9f9f1a2617eca11514efc94bc4e2756916dbf4478b8ff",
+      "106a441cb6eb0c5b45011f2b97747ca6d54367fe61cb405a9a031b2457b69d36",
+      "d98724e1db8fa1b95c1aefdac47b7acff7265dabddc6944e9412c8d63e1cc13b",
+      "4551c49da8c31367abdedb09937379b1286f17d8e943e0527e75d99a2d3b5af5",
+      "9c39e9d08ed1f6a0a716049d6217b984332453cce497b99aba5e4ed1fb76e77a",
+      "08ffb00992d5f88809ab4acb99f59517195df170822d320f724c4f330a6220b7",
+      "d93eca7ae9192392ed4dcf7edd26a6d2942fc021927592d2b6163dff152a9cf1"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "concrete_observation",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 100
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-2",
+      "topic": "New York bans AI chatbot toys for five years from February 2027",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPbEtURlVWbmdVUnhacEJxV3dFZHh5RV9CNUFPU21NQU5ZZnh3X2tqdzhDVnRvOTJ3Zjc5d2F4Yzg5VWFvOTczMmFoUnFzbkZBSEhRemNxVHFDMFJka01WZDVfOHE0aGw5NXB1QWpoeXByYi1sRWV4QjFTTlBrLXR1N3pOUEYwZGdf?oc=5",
+      "published_at": "2026-11-27T17:35:45+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-11-28T03:36:08.456583+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.27,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "dbb6f0645a23b9c4df4ee4f88dccfbc897d81ae26381861269a79ecd34af7403",
+    "body": "Kid asks plush, 'Why?' Toy replies with friendly AI voice Code hides more than fun Learns from millions of online chats Chats can shape child's mind NY calls that influence risky They ban AI toys for five Kids must grow wiser about bots",
+    "text": "New York bans AI chatbot toys for five years from February 2027 Kid asks plush, 'Why?' Toy replies with friendly AI voice Code hides more than fun Learns from millions of online chats Chats can shape child's mind NY calls that influence risky They ban AI toys for five Kids must grow wiser about bots"
   }
 ]
