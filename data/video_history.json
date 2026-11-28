@@ -16498,5 +16498,91 @@
         "reason": "400 Client Error: Bad Request for url: https://graph.facebook.com/v21.0/17841419734693464/media?access_token=EAAUxDfuevygBSF5uW6lCa5xmQLgqSNOtQzCavf8WBoCTA9wZBgfeD9Tsi3WE95U29WaZArYpwW1HtkpwGEad8kVuGr1tbdqSBjBlyWBh9QRBtrQIqqyCHFqzR2KPdxI1WAtWZA15roGZCh7mnDYV8nGew5LDBMZA7IK0g6fu8OjTIYdOZC27i04kFkE20OTWmFqMlA5BPi8PocZBXk0nLJxrkv4"
       }
     }
+  },
+  {
+    "created_at": "2026-11-28T08:52:40.577557+00:00",
+    "status": "pending",
+    "topic": "Micron Faces New AI Memory Threat as Huawei Develops HBM Chip",
+    "title": "Micron Faces New AI Memory Threat as Huawei Develops HBM Chip",
+    "video_path": "output/mr_nextep_short.mp4",
+    "presentation_assets": {
+      "youtube": "output/mr_nextep_thumb_youtube.jpg",
+      "instagram": "output/mr_nextep_thumb_instagram.jpg",
+      "facebook": "output/mr_nextep_thumb_facebook.jpg"
+    },
+    "clip_hashes": [
+      "1c2f09d490049004eb7b9de5c851f464eadcf80f2fd9c271adf74ea9b49db9aa",
+      "54e23ba87b40672c406e300bc5fdcd924144a59b0d0a32f8303479703f173cb6",
+      "d0984b3390280cb776eaa45e4ddb57a984a22afddf5aad8dd6d9e558ed0676d5",
+      "c0980b72df53ee5684f0241616b9f1047634d01359b9b995b6adc384f22d3eee",
+      "8c5b49ef7b3e3c2edad47b70dceda8b08ae04ea1b5d3d733fc952abd827d82cd",
+      "0a98dae8cda52caff38af92b9b0a738500aaf1568b53ba4ffe1e97e0f57e350f",
+      "d54a234158cbc8665c62cdaa1c5fe8a5edb8d32bc2e531799cbe3b5c751d0235",
+      "4cac0b012e1c1069a81aa19af26a837411fd45c1f3a497cbc422b9440e5d059f"
+    ],
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "growth_experiment": {
+      "experiment_id": "hook-style-v1",
+      "variant": "specific_question",
+      "cluster": "ai_trust",
+      "candidate_styles": [
+        {
+          "style": "concrete_observation",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "counterintuitive",
+          "hook_heuristic_score": 100
+        },
+        {
+          "style": "specific_question",
+          "hook_heuristic_score": 100
+        }
+      ]
+    },
+    "topic_growth_ranking": {
+      "series_number": "TREND-3",
+      "topic": "Micron Faces New AI Memory Threat as Huawei Develops HBM Chip",
+      "source": "google_news_us",
+      "source_url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQT1Zpb0lMZDRoVk0tejNpV2lhWnlBaW1ZVmRydjh5Q3Q0TWhEQkdRd0gzUEhqb19OTUlQM2dTQ2ptSVgyU0xBV1ZCcFMwOWFaNWNGMVo1ZzF5UTlxd1Fod2NHcmxPWmo1TFR4TEtmamxoN1RQV09Qd2dJZ0dsdFUyUVl0RU9RQ1pLY3RuY1FtNTd4VDE3UkZxYUZRelNKaGFKQUtfUE9yLUpSa3NKQjZVX2tkVHQ0MjBRX3N3bUl3?oc=5",
+      "published_at": "2026-11-27T17:13:28+00:00",
+      "trend_score": 9,
+      "fetched_at": "2026-11-28T08:50:14.061623+00:00",
+      "growth_score": 41.55,
+      "score_type": "ranking_heuristic_not_virality_prediction",
+      "growth_reasons": [
+        "Trend/source score 9/100.",
+        "No similar measured videos; analytics score neutral.",
+        "Novelty score 100/100."
+      ]
+    },
+    "originality_verdict": {
+      "passed": true,
+      "reason": "No near-duplicate found."
+    },
+    "claim_source_verdict": {
+      "passed": true,
+      "reason": "No unsupported precision pattern detected.",
+      "source_count": 0,
+      "verified": false
+    },
+    "archetype": "NEUROLOGICAL_GLITCH",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.27,
+    "audio": true,
+    "moving_clips": true,
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "fingerprint": "660da89be54e46ae229afdf47e30c90856b0ffeb3d3449abd0e6dc012ceffc90",
+    "body": "AI memory at risk? Micron's HBM dominates today Huawei promises higher bandwidth Speed floods neural nets Models lose accuracy fast Excess memory causes interference Fast writes erase old weights AI may forget instantly",
+    "text": "Micron Faces New AI Memory Threat as Huawei Develops HBM Chip AI memory at risk? Micron's HBM dominates today Huawei promises higher bandwidth Speed floods neural nets Models lose accuracy fast Excess memory causes interference Fast writes erase old weights AI may forget instantly"
   }
 ]

@@ -4095,5 +4095,21 @@
     "title": "New York bans AI chatbot toys for five years from February 2027",
     "body": "Kid asks plush, 'Why?' Toy replies with friendly AI voice Code hides more than fun Learns from millions of online chats Chats can shape child's mind NY calls that influence risky They ban AI toys for five Kids must grow wiser about bots",
     "text": "New York bans AI chatbot toys for five years from February 2027 Kid asks plush, 'Why?' Toy replies with friendly AI voice Code hides more than fun Learns from millions of online chats Chats can shape child's mind NY calls that influence risky They ban AI toys for five Kids must grow wiser about bots"
+  },
+  {
+    "structural_conformance": 0.9,
+    "retention_proxy": 0.9,
+    "retention_verdict": {
+      "grounded": true,
+      "passed": true,
+      "reason": "no similar past video; channel median retention is 38%",
+      "channel_median_retention": 0.37695,
+      "neighbour_median_retention": null,
+      "neighbours_considered": 0
+    },
+    "fingerprint": "660da89be54e46ae229afdf47e30c90856b0ffeb3d3449abd0e6dc012ceffc90",
+    "title": "Micron Faces New AI Memory Threat as Huawei Develops HBM Chip",
+    "body": "AI memory at risk? Micron's HBM dominates today Huawei promises higher bandwidth Speed floods neural nets Models lose accuracy fast Excess memory causes interference Fast writes erase old weights AI may forget instantly",
+    "text": "Micron Faces New AI Memory Threat as Huawei Develops HBM Chip AI memory at risk? Micron's HBM dominates today Huawei promises higher bandwidth Speed floods neural nets Models lose accuracy fast Excess memory causes interference Fast writes erase old weights AI may forget instantly"
   }
 ]
